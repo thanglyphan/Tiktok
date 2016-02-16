@@ -1,0 +1,2 @@
+- Look at DB migrations for updating DB (http://www.asp.net/mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table)
+- Database diagrams: https://www.draw.io/

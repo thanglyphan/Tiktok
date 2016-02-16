@@ -1,0 +1,99 @@
+.navbar {
+	margin-bottom: 0;
+}
+
+.container-fluid {
+	max-width: 960px;
+}
+
+a, a:active, a:focus {
+	outline: none;
+}
+
+h1, h2  {
+	text-align: center;
+}
+
+.collapse form {
+	margin-top: 10px;
+}
+
+#kalender h3 {
+	text-align: left;
+	margin: 0;
+}
+
+#kalender .maaned h3 {
+	display: inline;
+}
+
+#kalender .row {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+#kalender .panel {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 15px;
+}
+
+#kalender .hendelse {
+	width: 100%;
+	border: 0;
+	border-radius: 0;
+	text-align: left;
+	padding: 0;
+}
+
+#kalender .hendelse img {
+	
+}
+
+.maaned {
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.table {
+	width: 100%;
+	margin: 0;
+	border: 0;
+}
+
+#kalender .hendelse-dato {
+	text-align: left;
+	width: 60px;
+	vertical-align: middle;
+}
+
+#kalender .hendelse-tekst {
+	text-align: left;
+	vertical-align: middle;
+	
+}
+
+#kalender .hendelse-badge {
+	text-align: right;
+	vertical-align: middle;
+}
+
+#kalender .hendelse p {
+	margin-bottom: 0;
+}
+
+/*
+.display-table {
+	display: table;
+	table-layout: fixed;
+}
+
+.display-cell {
+	display: table-cell;
+	vertical-align: middle;
+	float: none;
+	max-width: 100%;
+}
+*/

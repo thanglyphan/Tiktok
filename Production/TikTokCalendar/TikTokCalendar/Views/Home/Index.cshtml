@@ -1,0 +1,299 @@
+﻿@*@model IEnumerable<TikTokCalendar.Models.CalendarEvent>*@
+@*@model IEnumerable<IEnumerable<TikTokCalendar.Models.CalendarEvent>>*@
+@model IEnumerable<TikTokCalendar.DAL.EventMonth>
+
+@{
+    ViewBag.Title = "Forside";
+    //ViewBag.Title = Model.ToString();
+}
+
+<!--<div class="temptop"></div>-->
+<div class="container-fluid">
+
+    @* @Html.Partial("_LoginPartial") <!--Login stuff--> *@
+	@Html.ActionLink("Sign In", "Login", "User")
+
+    <div class="logo">
+        <img src="../../img/logo.png" />
+    </div>
+    <!-- FANER
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active"><a data-toggle="tab" href="#kalender">Hva skjer?</a></li>
+        <li><a data-toggle="tab" href="#booking">Booking</a></li>
+    </ul>
+        -->
+    <!-- FANEINNHOLD -->
+    <div class="tab-content">
+		@*
+		@Html.ActionLink("Sign In", "Login", "User", 
+		new { @class = "btn btn-default logginn-knapp", data_toggle = "modal",  data_target = "#logginn-vindu", href = "#" })
+		*@
+		
+		<a class="btn btn-default logginn-knapp" href="#" data-toggle="modal" data-target="#logginn-vindu">
+			<span class="glyphicon glyphicon-log-in"></span>
+			Logg inn
+		</a>
+
+
+        <!-- KALENDER -->
+        <div id="kalender" class="tab-pane active">
+
+
+            <!-- oktober -->
+            <!--<a class="btn btn-default maaned-knapp" data-toggle="collapse" data-target="#okt" style="background-image: url('../../img/oct.png');">
+            <span class="maaned-tittel">Oktober</span>
+        </a>
+
+        <div id="okt" class="collapse in">-->
+            @foreach (var month in Model)
+            {
+                // Skip the iteration if there are no events in the month
+                // TODO Maybe try to grey it out?
+                if (month.Events.Count <= 0)
+                {
+                    continue;
+                }
+                <a class="btn btn-default maaned-knapp" data-toggle="collapse" data-target="#@month.GetMonthId()" style="background-image: url('../../img/oct.png');">
+                    <span class="maaned-tittel">@month.GetMonthName()</span>
+                </a>
+
+                <div id="@month.GetMonthId()" class="collapse in">
+                        @foreach (var item in month.Events)
+                        {
+                            <!--<a class="btn btn-default hendelse" data-toggle="collapse" data-target="#hendelse-1-2">-->
+                            <a class="btn btn-default hendelse" data-toggle="collapse" data-target="#@item.ID">
+                                <div class="row display-table">
+                                    <div class="col-xs-3 display-cell">
+                                        <div class="dag-box" style="background-image: url('../../img/forelesning.png');">
+                                            <span class="dato">@item.StartTime.Day</span>
+                                            <span class="dag">@item.GetDayOfWeek()</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-9 display-cell">
+                                        <span class="tittel">
+                                            <!--Programmering i C for Linux-->
+                                            @item.Subject.Name
+                                        </span>
+                                        <br />
+                                        <!--<span class="tidspunkt">13:15 - 17:00</span>-->
+                                        <span class="tidspunkt">@item.GetTimeSlot()</span>
+                                        <div id="@item.ID" class="collapse">
+                                            @item.RoomName - @item.Teacher
+                                            <br />
+                                            @item.Comment
+                                        </div>
+                                    </div>
+                                    <div class="rom-ikon"><span class="rom-text">A</span></div>
+                                </div>
+                            </a>
+}
+                    </div>
+}
+                        <!--<div class="ukelinje hidden-xs">Uke 44</div>
+                        <div class="ukelinje-xs visible-xs">Uke 44 </div>
+
+                        <a class="btn btn-default hendelse" data-toggle="collapse" data-target="#hendelse-1-1">
+                            <div class="row display-table">
+                                <div class="col-xs-3 display-cell">
+                                    <div class="dag-box" style="background-image: url('../../img/forelesning.png');">
+                                        <span class="dato">26</span>
+                                        <span class="dag">Mandag</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-9 display-cell">
+                                    <span class="tittel">Programvarearkitektur</span>
+                                    <br/>
+                                    <span class="tidspunkt">10:15 - 14:00</span>
+                                    <div id="hendelse-1-1" class="collapse">
+                                        Industribachelor firmapresentasjon: Accenture og Avanade.<br/>
+                                        Design Patterns: (del 2 av 5) Decorator.<br/>
+                                        Multi-threading (del 1 av 2).
+                                    </div>
+
+                                </div>
+                                <div class="rom-ikon"><span class="rom-text">40</span></div>
+                            </div>
+
+                            @*<div id="hendelse-1" class="collapse">
+                                        <div class="col-xs-3">
+                                        </div>
+
+                                        <div class="col-xs-9">
+                                            Auditoriet
+                                        </div>
+                                    </div>*@
+                        </a>-->
+                        <!--<a class="btn btn-default hendelse" data-toggle="collapse" data-target="#hendelse-1-2">
+                            <div class="row display-table">
+                                <div class="col-xs-3 display-cell">
+                                    <div class="dag-box" style="background-image: url('../../img/forelesning.png');">
+                                        <span class="dato">28</span>
+                                        <span class="dag">Onsdag</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-9 display-cell">
+                                    <span class="tittel">Programmering i C for Linux</span>
+                                    <br/>
+                                    <span class="tidspunkt">13:15 - 17:00</span>
+                                    <div id="hendelse-1-2" class="collapse">
+                                        Ingen tekst her.
+                                    </div>
+                                </div>
+                                <div class="rom-ikon"><span class="rom-text">A</span></div>
+                            </div>
+                        </a>
+
+                        <a class="btn btn-default hendelse" data-toggle="collapse" data-target="#hendelse-1-3">
+                            <div class="row display-table">
+                                <div class="col-xs-3 display-cell">
+                                    <div class="dag-box" style="background-image: url('../../img/forelesning.png');">
+                                        <span class="dato">30</span>
+                                        <span class="dag">Fredag</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-9 display-cell">
+                                    <span class="tittel">Algoritmer og datastrukturer</span>
+                                    <br/>
+                                    <span class="tidspunkt">10:15 - 12:00</span>
+                                    <div id="hendelse-1-3" class="collapse">
+                                        Tekst går her.
+                                    </div>
+                                </div>
+                                <div class="rom-ikon"><span class="rom-text">A</span></div>
+                            </div>
+                        </a>-->
+
+
+            <!-- november -->
+
+            <a class="btn btn-default maaned-knapp" data-toggle="collapse" data-target="#nov" style="background-image: url('../../img/nov.png');">
+                <span class="maaned-tittel">November</span>
+                <!--
+                <span class="badges">
+                    <span class="badge forelesning">3</span>
+                    <span class="badge innlevering">2</span>
+                    <span class="badge eksamen">0</span>
+                </span>
+                -->
+            </a>
+
+            <div id="nov" class="collapse in">
+
+                <div class="ukelinje">Uke 45</div>
+
+                <a class="btn btn-default hendelse" data-toggle="collapse" data-target="#hendelse-2-1">
+                    <div class="row display-table">
+                        <div class="col-xs-3 display-cell">
+                            <div class="dag-box" style="background-image: url('../../img/forelesning.png');">
+                                <span class="dato">2</span>
+                                <span class="dag">Mandag</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-9 display-cell">
+                            <span class="tittel">Programvarearkitektur</span>
+                            <br />
+                            <span class="tidspunkt">10:15 - 14:00</span>
+                            <div id="hendelse-2-1" class="collapse">
+                                Industribachelor firmapresentasjon: Accenture og Avanade.<br />
+                                Design Patterns: (del 2 av 5) Decorator.<br />
+                                Multi-threading (del 1 av 2).
+                            </div>
+                        </div>
+                        <div class="rom-ikon"><span class="rom-text">40</span></div>
+                    </div>
+                </a>
+
+
+                <div class="ukelinje">Uke 46</div>
+
+                <a class="btn btn-default hendelse" data-toggle="collapse" data-target="#hendelse-2-2">
+                    <div class="row display-table">
+                        <div class="col-xs-3 display-cell">
+                            <div class="dag-box" style="background-image: url('../../img/forelesning.png');">
+                                <span class="dato">11</span>
+                                <span class="dag">Onsdag</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-9 display-cell">
+                            <span class="tittel">Programmering i C for Linux</span>
+                            <br />
+                            <span class="tidspunkt">12:30 - 13:00</span>
+                            <div id="hendelse-2-2" class="collapse">
+                            </div>
+                        </div>
+                        <div class="rom-ikon"><span class="rom-text">A</span></div>
+                    </div>
+                </a>
+
+                <a class="btn btn-default hendelse" data-toggle="collapse" data-target="#hendelse-2-3">
+                    <div class="row display-table">
+                        <div class="col-xs-3 display-cell">
+                            <div class="dag-box" style="background-image: url('../../img/innlevering.png');">
+                                <span class="dato">11</span>
+                                <span class="dag">Onsdag</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-9 display-cell">
+                            <span class="tittel">Innlevering 2</span>
+                            <br />
+                            <span class="tidspunkt">23:59</span>
+                            <div id="hendelse-2-3" class="collapse">
+                                Tekst går her.
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+
+                <a class="btn btn-default hendelse" data-toggle="collapse" data-target="#hendelse-2-4">
+                    <div class="row display-table">
+                        <div class="col-xs-3 display-cell">
+                            <div class="dag-box" style="background-image: url('../../img/forelesning.png');">
+                                <span class="dato">13</span>
+                                <span class="dag">Fredag</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-9 display-cell">
+                            <span class="tittel">Algoritmer og datastrukturer</span>
+                            <br />
+                            <span class="tidspunkt">10:15 - 12:00</span>
+                            <div id="hendelse-2-4" class="collapse">
+                                Tekst går her.
+                            </div>
+                        </div>
+                        <div class="rom-ikon"><span class="rom-text">A</span></div>
+                    </div>
+                </a>
+
+                <a class="btn btn-default hendelse" data-toggle="collapse" data-target="#hendelse-2-5">
+                    <div class="row display-table">
+                        <div class="col-xs-3 display-cell">
+                            <div class="dag-box" style="background-image: url('../../img/eksamen.png');">
+                                <span class="dato">15</span>
+                                <span class="dag">Søndag</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-9 display-cell">
+                            <span class="tittel">Eksamen</span>
+                            <br />
+                            <span class="tidspunkt">23:59</span>
+                            <div id="hendelse-2-5" class="collapse">
+                                3 timers skriftlig eksamen uten hjelpemidler
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- BOOKING
+        <div id="booking" class="tab-pane">
+            Booking
+        </div>
+        -->
+
+    </div>
+</div>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=false">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		<title>Kalender</title>
+		
+		<!-- TILPASSET STIL -->
+		<link rel="stylesheet" href="stil2.css">
+		
+	</head>
+	
+	<body>
+		<!-- MENY -->
+		<nav id="nav" class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<!-- MENY-HEADER -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>                        
+					</button>
+					
+					<!-- LOGO FOR DESKTOP -->
+					<a class="navbar-brand hidden-xs" href="#">
+						<!--<img src="http://dummyimage.com/200x40/ffffff/000000.png">-->
+						tiktok
+					</a>
+					
+					<!-- LOGO FOR MOBIL -->
+					<a class="navbar-brand visible-xs" href="#">
+						<!--<img src="http://dummyimage.com/40x40/ffffff/000000.png">-->
+						tiktok
+					</a>
+					
+				</div>
+				<!-- MENY-HEADER SLUTT -->
+				
+				<!-- MENYBAR -->
+				<div id="navbar" class="collapse navbar-collapse">
+					
+					<!-- KNAPPER -->
+					<ul class="nav navbar-nav">
+						<li class="active"><a data-toggle="tab" href="#kalender">Hva skjer?</a></li>
+						<li><a data-toggle="tab" href="#booking">Booking</a></li>
+					</ul>
+					
+					<!-- LOGG INN -->
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#" id="logginn-knapp" data-placement="bottom"
+								<span class="glyphicon glyphicon-log-in"></span>
+								Logg inn popout
+							</a>
+						</li>
+						<li>
+							<a href="#" data-toggle="collapse" data-target="#logginn-vindu-2">
+								<span class="glyphicon glyphicon-log-in"></span>
+								Logg inn collapse
+							</a>
+						</li>
+						<li>
+							<a href="#" data-toggle="modal" data-target="#logginn-vindu-3">
+								<span class="glyphicon glyphicon-log-in"></span>
+								Logg inn modal
+							</a>
+						</li>
+					</ul>
+					
+				</div>
+			</div>
+		</nav>
+		<!-- MENY SLUTT -->
+		
+		<div class="container-fluid">
+			<div id="logginn-vindu" style="display: none">
+				<form role="form">
+					<div class="form-group">
+						<label for="email">E-post:</label>
+						<input type="email" class="form-control" id="epost">
+					</div>
+					<div class="form-group">
+						<label for="pwd">Passord:</label>
+						<input type="password" class="form-control" id="passord">
+					</div>
+					<button type="submit" class="btn btn-default">Logg inn</button>
+				</form>
+			</div>
+			
+			<div id="logginn-vindu-2" class="collapse">
+				<form class="form-inline" role="form">
+					<div class="form-group">
+						<label for="email">E-post:</label>
+						<input type="email" class="form-control" id="epost">
+					</div>
+					<div class="form-group">
+						<label for="pwd">Passord:</label>
+						<input type="password" class="form-control" id="passord">
+					</div>
+					<button type="submit" class="btn btn-default">Logg inn</button>
+				</form>
+			</div>
+			
+			<div id="logginn-vindu-3" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<strong>Logg inn</strong>
+						</div>
+						<div class="modal-body">
+							<form class="" role="form">
+								<div class="form-group">
+									<label for="email">E-post:</label>
+									<input type="email" class="form-control" id="epost">
+								</div>
+								<div class="form-group">
+									<label for="pwd">Passord:</label>
+									<input type="password" class="form-control" id="passord">
+								</div>
+								<button type="submit" class="btn btn-default">Logg inn</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--<h1>tiktok</h1>-->
+			
+			<!-- FANER
+			<ul class="nav nav-tabs nav-justified">
+				<li class="active"><a data-toggle="tab" href="#kalender">Hva skjer?</a></li>
+				<li><a data-toggle="tab" href="#booking">Booking</a></li>
+			</ul>
+			-->
+			
+			<!-- FANEINNHOLD -->
+			<div class="tab-content">
+				
+				<!-- KALENDER-FEED -->
+				<div id="kalender" class="tab-pane active">
+					
+					<!-- MÅNEDS-BLOKK -->
+					<a class="btn btn-default maaned" data-toggle="collapse" data-target="#mnd_id">
+						<h3>{måned}</h3>
+						<span class="badge">{n}</span>
+					</a>
+					
+					<!-- MÅNEDS-INNHOLD -->
+					<div id="mnd_id" class="collapse in">
+						
+						<!-- HENDELSE-BLOKK -->
+						<a class="btn btn-default hendelse" data-toggle="collapse" data-target="#hendelse_id">
+							<table style="word-wrap: break-word;" class="table table-responsive">
+								<tr>
+									<td class="hendelse-dato">
+										<img src="http://dummyimage.com/40x40/000000/ffffff.png">
+									</td>
+									<td class="hendelse-tekst">
+										<h3>{type hendelse} wifuef weifwei fuwefiwefjwef wejik</h3>
+										<p>{starttid} - {sluttid} bdf k jk g jrkj rjk jg skj sjf ks fef</p>
+										<div id="hendelse_id" class="collapse">
+											<p>{rom-ikon} {romnummer/-navn}</p>
+										</div>
+									</td>
+									<td class="hendelse-badge">
+										<span class="badge">!</span>
+									</td>
+								</tr>
+							</table>
+							
+						</a>
+						<!-- HENDELSE-BLOKK SLUTT -->
+						
+					</div>
+					<!-- MÅNEDS-INNHOLD SLUTT -->
+					<!-- MÅNEDS-BLOKK -->
+					
+				</div>
+				<!-- KALENDER-FEED SLUTT -->
+				
+				<!-- BOOKING -->
+				<div id="booking" class="tab-pane">
+					Booking
+				</div>
+				<!-- BOOKING SLUTT -->
+				
+			</div>
+		</div>
+		
+		<script>
+			$(document).ready(function(){
+				$('[data-toggle="popover"]').popover();
+				
+				$('#logginn-knapp').popover({
+					html: true,
+					content: function() {
+						return $('#logginn-vindu').html();
+					}
+				});
+			});
+		</script>
+	</body>
+	
+</html>

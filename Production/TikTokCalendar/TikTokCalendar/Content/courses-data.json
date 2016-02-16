@@ -1,0 +1,360 @@
+{
+	"courses":[
+		{
+			"Name":"Programmering",
+			"semesters":[
+				{
+					"id":"0",
+					"subjects":[
+						"Programmering med Java 1",
+            "Databaser",
+            "Digital teknologi",
+            "Webprosjekter"
+					]
+				},
+        {
+          "id": "1",
+          "subjects": [
+            "Programmering med Java 2",
+            "Webprosjekter",
+            "Informasjonssikkerhet",
+            "Valgemne"
+          ]
+        },
+        {
+          "id": "2",
+          "subjects": [
+            "Prosjekt Software engineering",
+            "Avansert Java 1",
+            "Algoritmer og datastrukturer",
+            "Programvarearkitektur"
+          ]
+        },
+        {
+          "id": "3",
+          "subjects": [
+            "Prosjekt Software engineering",
+            "Avansert Java 2",
+            "Webutvikling med Ruby",
+            "Android"
+          ]
+        },
+        {
+          "id": "4",
+          "subjects": [
+            "Entreprenørskap",
+            "Programmering i C for Linux",
+            "Enterpriseprogrammering",
+            "Valgemne"
+          ]
+        },
+        {
+					"id":"5",
+					"subjects":[
+						"Enterpriseprogrammering 2",
+            "Bachelorprosjekt",
+            "",
+            ""
+					]
+				}
+			]
+		},
+    {
+      "Name": "Spillprogrammering",
+      "semesters": [
+				{
+					"id":"0",
+					"subjects":[
+						"Programmering med Java 1",
+            "Databaser",
+            "Digital teknologi",
+            "Webprosjekter"
+					]
+				},
+        {
+          "id": "1",
+          "subjects": [
+            "Programmering med Java 2",
+            "Webprosjekter",
+            "Informasjonssikkerhet",
+            "Valgemne"
+          ]
+        },
+        {
+          "id": "2",
+          "subjects": [
+            "Prosjekt Software engineering",
+            "Programmering i C for Linux",
+            "Algoritmer og datastrukturer",
+            "Programvarearkitektur"
+          ]
+        },
+        {
+          "id": "3",
+          "subjects": [
+            "Prosjekt Software engineering",
+            "Programmering i C#, C og C++",
+            "Kunstig intelligens",
+            ""
+          ]
+        },
+        {
+          "id": "4",
+          "subjects": [
+            "Entreprenørskap",
+            "Tools Programming",
+            "Lineær algebra",
+            "Valgemne"
+          ]
+        },
+        {
+					"id":"5",
+					"subjects":[
+						"Grafikkprogrammering 3D",
+            "Bachelorprosjekt",
+            "Undersøkelsesmetoder",
+            ""
+					]
+				}
+      ]
+    },
+    {
+      "Name": "E-Business",
+      "semesters": [
+        {
+					"id":"0",
+					"subjects":[
+						"Programmering med Java 1",
+            "Databaser",
+            "Digital teknologi",
+            "Webprosjekter"
+					]
+				},
+        {
+          "id": "1",
+          "subjects": [
+            "Programmering med Java 2",
+            "Webprosjekter",
+            "Informasjonssikkerhet",
+            "Valgemne"
+          ]
+        },
+        {
+          "id": "2",
+          "subjects": [
+            "Prosjekt Software engineering",
+            "ERP-systemer",
+            "Webutvikling 1",
+            "Bedriftsøkonomi"
+          ]
+        },
+        {
+          "id": "3",
+          "subjects": [
+            "Prosjekt Software engineering",
+            "CRM-systemer",
+            "Webutvikling 2",
+            "Digital markedsføring"
+          ]
+        },
+        {
+          "id": "4",
+          "subjects": [
+            "Entreprenørskap",
+            "Business Intelligence",
+            "Web 2.0",
+            "Datavarehus og -arkitektur"
+          ]
+        },
+        {
+					"id":"5",
+					"subjects":[
+						"IT og innovasjon",
+            "Bachelorprosjekt",
+            "Undersøkelsesmetoder",
+            ""
+					]
+				}
+      ]
+    },
+    {
+      "Name": "Mobil apputvikling",
+      "semesters": [
+        {
+					"id":"0",
+					"subjects":[
+						"Programmering med Java 1",
+            "Databaser",
+            "Digital teknologi",
+            "Webprosjekter"
+					]
+				},
+        {
+          "id": "1",
+          "subjects": [
+            "Programmering med Java 2",
+            "Webprosjekter",
+            "Informasjonssikkerhet",
+            "Valgemne"
+          ]
+        },
+        {
+          "id": "2",
+          "subjects": [
+            "Prosjekt Software engineering",
+            "Avansert Java 1",
+            "Mobile økosystemer",
+            "Grensesnittdesign"
+          ]
+        },
+        {
+          "id": "3",
+          "subjects": [
+            "Prosjekt Software engineering",
+            "Avansert Java 2",
+            "Mobil utvikling med Android",
+            "Innovasjon og prototyping"
+          ]
+        },
+        {
+          "id": "4",
+          "subjects": [
+            "Entreprenørskap",
+            "Apputvikling med Apple iOS",
+            "Algoritmer og datastrukturer",
+            "Valgemne"
+          ]
+        },
+        {
+					"id":"5",
+					"subjects":[
+						"Framsideprogrammering",
+            "Bachelorprosjekt",
+            "Undersøkelsesmetoder",
+            ""
+					]
+				}
+      ]
+    },
+    {
+      "Name": "Interaktivt design",
+      "semesters": [
+        {
+          "id": "0",
+          "subjects": [
+            "Programmering med Java 1",
+            "Databaser",
+            "Digital teknologi",
+            "Webprosjekter"
+          ]
+        },
+        {
+          "id": "1",
+          "subjects": [
+            "Programmering med Java 2",
+            "Webprosjekter",
+            "Informasjonssikkerhet",
+            "Valgemne"
+          ]
+        },
+        {
+          "id": "2",
+          "subjects": [
+            "Prosjekt Software engineering",
+            "Webutvikling 1",
+            "Content Management Systems",
+            "Interaksjonsdesign 1",
+            "Prosjekt"
+          ]
+        },
+        {
+          "id": "3",
+          "subjects": [
+            "Prosjekt Software engineering",
+            "Designlab",
+            "Webutvikling 2",
+            "Interaksjonsdesign 2",
+            "Prosjekt"
+          ]
+        },
+        {
+          "id": "4",
+          "subjects": [
+            "Entreprenørskap",
+            "Interaksjonsdesign",
+            "Forbrukerpsykologi",
+            ""
+          ]
+        },
+        {
+          "id": "5",
+          "subjects": [
+            "Effektmåling",
+            "Bachelorprosjekt",
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Intelligente systemer",
+      "semesters": [
+        {
+					"id":"0",
+					"subjects":[
+						"Programmering med Java 1",
+            "Databaser",
+            "Digital teknologi",
+            "Webprosjekter"
+					]
+				},
+        {
+          "id": "1",
+          "subjects": [
+            "Programmering med Java 2",
+            "Webprosjekter",
+            "Informasjonssikkerhet",
+            "Valgemne"
+          ]
+        },
+        {
+          "id": "2",
+          "subjects": [
+            "Prosjekt Software engineering",
+            "Interaksjonsdesign",
+            "Maskin til maskin kommunikasjon",
+            "Prosjekt "
+          ]
+        },
+        {
+          "id": "3",
+          "subjects": [
+            "Prosjekt Software engineering",
+            "Intelligente systemer",
+            "Mobil lab",
+            "Prosjekt"
+          ]
+        },
+        {
+          "id": "4",
+          "subjects": [
+            "Entreprenørskap",
+            "Innovasjon",
+            "Valgemne",
+            ""
+          ]
+        },
+        {
+					"id":"5",
+					"subjects":[
+						"Ressursorientert arkitektur",
+            "Bachelorprosjekt",
+            "",
+            ""
+					]
+				}
+      ]
+    }
+	]
+}

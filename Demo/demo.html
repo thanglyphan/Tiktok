@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=false">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		<title>Kalender</title>
+		
+		<!-- TILPASSET STIL -->
+		<link rel="stylesheet" href="stil.css">
+		
+		<!-- TESTING -->
+		<script>
+			var forelesning = "<div class='panel panel-default panel-forelesning row'><div class='col-xs-7 text-left'>En forelesning</div><div class='col-xs-5 text-right'>10:15 - 12:00</div></div>";
+			var innlevering = "<div class='panel panel-default panel-innlevering row'><div class='col-xs-7 text-left'>En innlevering</div><div class='col-xs-5 text-right'>10:15 - 12:00</div></div>";
+			var eksamen = "<div class='panel panel-default panel-eksamen row'><div class='col-xs-7 text-left'>En eksamen</div><div class='col-xs-5 text-right'>10:15 - 12:00</div></div>";
+			var event = "<div class='panel panel-default panel-event row'><div class='col-xs-7 text-left'>Et event</div><div class='col-xs-5 text-right'>10:15 - 12:00</div></div>";
+			var rom = "<div class='panel panel-default panel-rom row'><div class='col-xs-7 text-left'>Rom XXX</div><div class='col-xs-5 text-right'>10:15 - 12:00</div></div>";
+		</script>
+	</head>
+	
+	<body>
+		<!-- MENY -->
+		<nav id="nav" class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<!-- MENY-HEADER -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>                        
+					</button>
+					
+					<a class="navbar-brand hidden-xs" href="#">
+						<img src="http://dummyimage.com/200x40/ffffff/000000.png">
+					</a>
+					<a class="navbar-brand visible-xs" href="#">
+						<img src="http://dummyimage.com/40x40/ffffff/000000.png">
+					</a>
+				</div>
+				
+				<!-- MENYBAR -->
+				<div id="navbar" class="collapse navbar-collapse">
+					
+					<!-- KNAPPER -->
+					<ul class="nav navbar-nav">
+						<li class="active"><a data-toggle="tab" href="#kal">Kalender</a></li>
+						<li><a data-toggle="tab" href="#rom">Romreservasjoner</a></li>
+					</ul>
+					
+					<!-- LOGG INN -->
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logg inn med Feide</a></li>
+					</ul>
+					
+				</div>
+			</div>
+		</nav>
+		<!-- MENY SLUTT -->
+		
+		<!-- CONTAINER -->
+		<div class="container-fluid">
+		
+			<!-- FANER
+			<ul class="nav nav-tabs nav-justified">
+				<li class="active"><a data-toggle="tab" href="#kal">Kalender</a></li>
+				<li><a data-toggle="tab" href="#rom">Romreservasjoner</a></li>
+			</ul>
+			-->
+			
+			<!-- FANEINNHOLD -->
+			<div class="tab-content">
+			
+				<!-- KALENDER -->
+				<div id="kal" class="tab-pane active">
+					
+					<!-- KALENDER DESKTOP -->
+					<div class="hidden-xs">
+						<table class="table table-bordered table-hover">
+							<tr>
+								<th>man</th>
+								<th>tir</th>
+								<th>ons</th>
+								<th>tor</th>
+								<th>fre</th>
+								<th>lør</th>
+								<th>søn</th>
+							</tr>
+							<tr>
+								<td><script>document.write(forelesning);</script></td>
+								<td><script>document.write(forelesning); document.write(innlevering);</script></td>
+								<td></td>
+								<td></td>
+								<td><script>document.write(forelesning);</script></td>
+								<td></td>
+								<td><script>document.write(innlevering); document.write(innlevering);</script></td>
+							</tr>
+							<tr>
+								<td><script>document.write(forelesning);</script></td>
+								<td><script>document.write(forelesning);</script></td>
+								<td><script>document.write(innlevering);</script></td>
+								<td></td>
+								<td><script>document.write(forelesning); document.write(innlevering); document.write(event);</script></td>
+								<td><script>document.write(event); document.write(event);</script></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><script>document.write(eksamen);</script></td>
+								<td></td>
+								<td><script>document.write(innlevering);</script></td>
+								<td></td>
+								<td><script>document.write(eksamen);</script></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><script>document.write(forelesning);</script></td>
+								<td><script>document.write(forelesning);</script></td>
+								<td></td>
+								<td><script>document.write(innlevering);</script></td>
+								<td><script>document.write(forelesning);</script></td>
+								<td><script>document.write(event);</script></td>
+								<td><script>document.write(event);</script></td>
+							</tr>
+						</table>
+					</div>
+					<!-- KALENDER DESKTOP SLUTT -->
+					
+					<!-- KALENDER MOBIL -->
+					<div class="visible-xs">
+						<table class="table table-bordered table-hover">
+							<tr>
+								<th>Mandag</th>
+							</tr>
+							<tr>
+								<td>
+									<script>document.write(forelesning);</script>
+								</td>
+							</tr>
+						</table>
+						
+						<table class="table table-bordered table-hover">
+							<tr>
+								<th>Tirsdag</th>
+							</tr>
+							<tr>
+								<td>
+									<script>document.write(forelesning); document.write(forelesning);</script>
+								</td>
+							</tr>
+						</table>
+						
+						<table class="table table-bordered table-hover">
+							<tr>
+								<th>Onsdag</th>
+							</tr>
+							<tr>
+								<td>
+									<script>document.write(event);</script>
+								</td>
+							</tr>
+						</table>
+						
+						<table class="table table-bordered table-hover">
+							<tr>
+								<th>Torsdag</th>
+							</tr>
+							<tr>
+								<td>
+									<script>document.write(eksamen);</script>
+								</td>
+							</tr>
+						</table>
+						
+						<table class="table table-bordered table-hover">
+							<tr>
+								<th>Fredag</th>
+							</tr>
+							<tr>
+								<td>
+									<script>document.write(forelesning); document.write(event); document.write(event); document.write(event); document.write(event); document.write(event);</script>
+								</td>
+							</tr>
+						</table>
+						
+						<table class="table table-bordered table-hover">
+							<tr>
+								<th>Lørdag</th>
+							</tr>
+							<tr>
+								<td>
+									<script>document.write(event);</script>
+								</td>
+							</tr>
+						</table>
+						
+						<table class="table table-bordered table-hover">
+							<tr>
+								<th>Søndag</th>
+							</tr>
+							<tr>
+								<td>
+									<script>document.write(innlevering); document.write(innlevering);</script>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- KALENDER MOBIL SLUTT -->
+					
+				</div>
+				<!-- KALENDER SLUTT -->
+				
+				<!-- ROMRESERVASJONER -->
+				<div id="rom" class="tab-pane">
+					
+					<!-- ROMRESERVASJONER DESKTOP -->
+					<div class="hidden-xs">
+						<table class="table table-bordered table-hover">
+							<tr>
+								<th>Man</th>
+								<th>Tir</th>
+								<th>Ons</th>
+								<th>Tor</th>
+								<th>Fre</th>
+								<th>Lør</th>
+								<th>Søn</th>
+							</tr>
+							<tr>
+								<td><script>document.write(rom);</script><script>document.write(rom);</script><script>document.write(rom);</script><script>document.write(rom);</script></td>
+								<td><script>document.write(rom);</script><script>document.write(rom);</script></td>
+								<td><script>document.write(rom);</script><script>document.write(rom);</script><script>document.write(rom);</script><script>document.write(rom);</script><script>document.write(rom);</script></td>
+								<td><script>document.write(rom);</script><script>document.write(rom);</script></td>
+								<td></td>
+								<td><script>document.write(rom);</script></td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+					<!-- ROMRESERVASJONER DESKTOP -->
+					
+					<!-- ROMRESERVASJONER MOBIL -->
+					<div class="visible-xs">
+						<table class="table table-bordered table-hover">
+							<tr>
+								<th>Mandag</th>
+							</tr>
+							<tr>
+								<td>
+									<script>document.write(rom);</script><script>document.write(rom);</script><script>document.write(rom);</script><script>document.write(rom);</script>
+								</td>
+							</tr>
+						</table>
+						
+						<!-- PAGINATOR -->
+						<div class="text-center">
+							<ul class="pagination">
+								<li><a href="#">M</a></li>
+								<li><a href="#">Ti</a></li>
+								<li><a href="#">O</a></li>
+								<li><a href="#">To</a></li>
+								<li><a href="#">F</a></li>
+								<li><a href="#">L</a></li>
+								<li><a href="#">S</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- ROMRESERVASJONER MOBIL -->
+				</div>
+				<!-- ROMRESERVASJONER SLUTT -->
+				
+			</div>
+			<!-- FANEINNHOLD SLUTT -->
+			
+		</div>
+		<!-- CONTAINER SLUTT -->
+		
+		<!-- JAVASCRIPT FOR TOOLTIP -->
+		<script>
+			$(document).ready(function(){
+				$('[data-toggle="tooltip"]').tooltip();   
+			});
+			
+			$(function(){ 
+				var navMain = $("#nav");
+				navMain.on("click", "a", null, function () {
+					navMain.collapse('hide');
+				});
+			});
+		</script>
+	</body>
+</html>

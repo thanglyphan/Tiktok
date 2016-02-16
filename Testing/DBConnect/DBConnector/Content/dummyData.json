@@ -1,0 +1,601 @@
+{
+    "columnheaders":[
+        "Emne",
+        "Studieprogram",
+        "Rom",
+        "Lærer",
+        "Aktivitet",
+        "Kommentar"
+    ],
+    "info":{
+        "reservationlimit":200,
+        "reservationcount":39
+    },
+    "reservations":[
+        {
+            "id":"3891",
+            "startdate":"01.09.2015",
+            "starttime":"09:15",
+            "enddate":"01.09.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 41",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                "AVLYST. Se beskjed på emnesiden!"
+            ]
+        },
+        {
+            "id":"4118",
+            "startdate":"02.09.2015",
+            "starttime":"09:15",
+            "enddate":"02.09.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 84",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                "Erstatning for forelesning som ble avlyst 1.september"
+            ]
+        },
+        {
+            "id":"3833",
+            "startdate":"02.09.2015",
+            "starttime":"13:15",
+            "enddate":"02.09.2015",
+            "endtime":"17:00",
+            "columns":[
+                "Programmering i C for Linux (PG3400-15)",
+                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Kjetil Raaen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3782",
+            "startdate":"04.09.2015",
+            "starttime":"10:15",
+            "enddate":"04.09.2015",
+            "endtime":"14:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3771",
+            "startdate":"08.09.2015",
+            "starttime":"09:15",
+            "enddate":"08.09.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 41",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3834",
+            "startdate":"09.09.2015",
+            "starttime":"13:15",
+            "enddate":"09.09.2015",
+            "endtime":"17:00",
+            "columns":[
+                "Programmering i C for Linux (PG3400-15)",
+                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Kjetil Raaen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3783",
+            "startdate":"11.09.2015",
+            "starttime":"10:15",
+            "enddate":"11.09.2015",
+            "endtime":"14:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3772",
+            "startdate":"15.09.2015",
+            "starttime":"09:15",
+            "enddate":"15.09.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 41",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3835",
+            "startdate":"16.09.2015",
+            "starttime":"13:15",
+            "enddate":"16.09.2015",
+            "endtime":"17:00",
+            "columns":[
+                "Programmering i C for Linux (PG3400-15)",
+                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Kjetil Raaen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3784",
+            "startdate":"18.09.2015",
+            "starttime":"10:15",
+            "enddate":"18.09.2015",
+            "endtime":"14:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3773",
+            "startdate":"22.09.2015",
+            "starttime":"09:15",
+            "enddate":"22.09.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 41",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3836",
+            "startdate":"23.09.2015",
+            "starttime":"13:15",
+            "enddate":"23.09.2015",
+            "endtime":"17:00",
+            "columns":[
+                "Programmering i C for Linux (PG3400-15)",
+                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Kjetil Raaen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3785",
+            "startdate":"25.09.2015",
+            "starttime":"10:15",
+            "enddate":"25.09.2015",
+            "endtime":"14:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3774",
+            "startdate":"29.09.2015",
+            "starttime":"09:15",
+            "enddate":"29.09.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 41",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3837",
+            "startdate":"29.09.2015",
+            "starttime":"13:15",
+            "enddate":"29.09.2015",
+            "endtime":"17:00",
+            "columns":[
+                "Programmering i C for Linux (PG3400-15)",
+                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Kjetil Raaen",
+                "Forelesning",
+                "NB! Annen undervisningsdag denne uken. Faglærer oppgir den meget gode grunnen!"
+            ]
+        },
+        {
+            "id":"3786",
+            "startdate":"02.10.2015",
+            "starttime":"10:15",
+            "enddate":"02.10.2015",
+            "endtime":"14:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3775",
+            "startdate":"06.10.2015",
+            "starttime":"09:15",
+            "enddate":"06.10.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 41",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                "AVLYST! p.g.a. sykdom"
+            ]
+        },
+        {
+            "id":"3838",
+            "startdate":"07.10.2015",
+            "starttime":"13:15",
+            "enddate":"07.10.2015",
+            "endtime":"17:00",
+            "columns":[
+                "Programmering i C for Linux (PG3400-15)",
+                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Kjetil Raaen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3787",
+            "startdate":"09.10.2015",
+            "starttime":"10:15",
+            "enddate":"09.10.2015",
+            "endtime":"14:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3776",
+            "startdate":"20.10.2015",
+            "starttime":"09:15",
+            "enddate":"20.10.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 41",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3839",
+            "startdate":"21.10.2015",
+            "starttime":"13:15",
+            "enddate":"21.10.2015",
+            "endtime":"17:00",
+            "columns":[
+                "Programmering i C for Linux (PG3400-15)",
+                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Kjetil Raaen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3788",
+            "startdate":"23.10.2015",
+            "starttime":"10:15",
+            "enddate":"23.10.2015",
+            "endtime":"14:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3892",
+            "startdate":"27.10.2015",
+            "starttime":"09:15",
+            "enddate":"27.10.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 41",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3840",
+            "startdate":"28.10.2015",
+            "starttime":"13:15",
+            "enddate":"28.10.2015",
+            "endtime":"17:00",
+            "columns":[
+                "Programmering i C for Linux (PG3400-15)",
+                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Kjetil Raaen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3789",
+            "startdate":"30.10.2015",
+            "starttime":"10:15",
+            "enddate":"30.10.2015",
+            "endtime":"14:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3778",
+            "startdate":"03.11.2015",
+            "starttime":"09:15",
+            "enddate":"03.11.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 41",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                "AVLYST! Se beskjed fra faglærer på emnesiden."
+            ]
+        },
+        {
+            "id":"3841",
+            "startdate":"04.11.2015",
+            "starttime":"13:15",
+            "enddate":"04.11.2015",
+            "endtime":"17:00",
+            "columns":[
+                "Programmering i C for Linux (PG3400-15)",
+                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Kjetil Raaen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3790",
+            "startdate":"06.11.2015",
+            "starttime":"10:15",
+            "enddate":"06.11.2015",
+            "endtime":"14:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3779",
+            "startdate":"10.11.2015",
+            "starttime":"09:15",
+            "enddate":"10.11.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 41",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3842",
+            "startdate":"11.11.2015",
+            "starttime":"13:15",
+            "enddate":"11.11.2015",
+            "endtime":"17:00",
+            "columns":[
+                "Programmering i C for Linux (PG3400-15)",
+                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Kjetil Raaen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4321",
+            "startdate":"12.11.2015",
+            "starttime":"08:15",
+            "enddate":"12.11.2015",
+            "endtime":"12:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Erik Wendel",
+                "Forelesning",
+                "Erstatning for forelesning som ble avlyst p.g.a. sykdom"
+            ]
+        },
+        {
+            "id":"3791",
+            "startdate":"13.11.2015",
+            "starttime":"10:15",
+            "enddate":"13.11.2015",
+            "endtime":"14:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3780",
+            "startdate":"01.12.2015",
+            "starttime":"09:15",
+            "enddate":"01.12.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 41",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3843",
+            "startdate":"02.12.2015",
+            "starttime":"13:15",
+            "enddate":"02.12.2015",
+            "endtime":"17:00",
+            "columns":[
+                "Programmering i C for Linux (PG3400-15)",
+                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Kjetil Raaen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3792",
+            "startdate":"04.12.2015",
+            "starttime":"10:15",
+            "enddate":"04.12.2015",
+            "endtime":"14:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3781",
+            "startdate":"08.12.2015",
+            "starttime":"09:15",
+            "enddate":"08.12.2015",
+            "endtime":"13:00",
+            "columns":[
+                "Grensesnittdesign (DS3800-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 41",
+                "Dan Robert Ekrem",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4210",
+            "startdate":"09.12.2015",
+            "starttime":"09:00",
+            "enddate":"09.12.2015",
+            "endtime":"12:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Vrimle",
+                "",
+                "Eksamen",
+                "3 timers skriftlig eksamen uten hjelpemidler"
+            ]
+        },
+        {
+            "id":"3844",
+            "startdate":"09.12.2015",
+            "starttime":"13:15",
+            "enddate":"09.12.2015",
+            "endtime":"17:00",
+            "columns":[
+                "Programmering i C for Linux (PG3400-15)",
+                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Kjetil Raaen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"3793",
+            "startdate":"11.12.2015",
+            "starttime":"10:15",
+            "enddate":"11.12.2015",
+            "endtime":"14:00",
+            "columns":[
+                "Introduksjon til intelligente systemer (IKT200-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        }
+    ]
+}
