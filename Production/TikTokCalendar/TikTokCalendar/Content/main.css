@@ -1,335 +1,273 @@
-﻿/*@font-face {
-    font-family: nirmala;
-    src: url(/fonts/font.ttf);
-}*/
-.q {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+﻿/*==========================================
+  Makes it easier to read if you know that:
+    Everything with 'i' is icons
+    Everything with 'p' is text
+
+
+  N A V B A R
+==========================================*/
+header {
+  background-color: #F5F6F8;
+  margin-top: 10px;
+  opacity: 0.8;
+  width: 100%;
+  overflow: hidden;
 }
 
-#outer {
-    width: 100%;
+header i.fa-calendar-check-o {
+  float: left;
+  margin-top: 2px;
+  color: #DD1B16;
+  font-size: 25px;
+  margin-left: 20px;
+  height: 30px;
+  width: 30px;
 }
 
-.centering {
-    width: 960px;
-    margin: auto;
+header p {
+  font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+  color: #474f5c;
+  font-size: 19px;
+  float: left;
+  padding-top: 7px;
+  padding-left: 10px;
 }
 
-body {
-    margin: 0;
-    background-image: url("../../img/board.jpg");
-    background-position: top center;
-    background-color: #F2F2F2;
-    color: #000;
-    font-family: "nirmala";
-}
-
-body a {
-	color: #000;
-    font-family: Tahoma,Verdana,Geneva,Arial,Helvetica,sans-serif;
-}
-
-body a:hover {
-    text-decoration: underline;
-}
-
-.logo {
-    width: 305px;
-	max-width: 100%;
-    margin: 20px auto 20px auto;
-}
-
-.footer {
-    color: #c7c7c7;
-	margin-top: 10px;
-	text-align: center;
-	font-family: Arial;
-}
-
-.maaned-tittel {
-    font-weight: bold;
-    font-size: 28px;
-    color: #fff;
-    text-shadow: 2px 2px 4px #000;
-}
-
-    .maaned-tittel:hover {
-        text-decoration: underline;
-        color: #fff;
-    }
-
-    .maaned-tittel:after {
-        border: 1px solid #000;
-    }
-
-.btn {
-    
-}
-
-.maaned-knapp {
-	background-color: #D4E6F2;
-	border: none;
-    display: block;
-    width: 92%;
-    height: auto;
-    margin: 10px auto auto auto;
-    padding: 4px 20px 4px 20px;
-    border-radius: 8px;
-    font-family: "Nirmala Ui";
-    text-align: left;
-}
-
-.logginn-knapp {
-	width: unset;
-	display: inline-block;
-	position: absolute;
-	right: 0;
-	top: -32px;
-	border: 0;
-	border-radius: 10px 10px 0 0;
-	opacity: 0.4;
-}
-
-#kalender .hendelse {
-    width: 100%;
-    border: 0;
-    border-radius: 0;
-    text-align: left;
-	padding: 0;
-	border: none;
-    display: block;
-	font-family: "Nirmala Ui";
-}
-
-.dag-box {
-	margin: auto auto auto 60px;
-    width: 42px;
-    height: 42px;
-    float: left;
-    background-size: cover;
-    font-family: "Nirmala Ui";
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-    text-shadow: none;
-}
-
-.dato {
-    width: 100%;
-    height: auto;
-    font-size: 26px;
-    float: left;
-    margin-top: -6px;
-    z-index: 100;
-    position: relative;
-}
-
-.dato-top-forelesning {
-    width: 42px;
-    height: 21px;
-    background-color: #2CA288;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
-    z-index: 10;
-    position: relative;
-}
-
-.dato-bot-forelesning {
-    width: 42px;
-    height: 21px;
-    background-color: #31B498;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    z-index: 10;
-    position: relative;
-}
-
-
-.dag {
-    width: 100%;
-    height: auto;
-    font-size: 10px;
-    float: left;
-    margin-top: -6px;
-    z-index: 100;
-    position: relative;
-}
-
-.tittel {
-    font-size: 20px;
-    font-weight: normal;
-    color: #000;
-}
-
-.tidspunkt {
-    font-size: 14px;
-    font-weight: lighter;
-    color: #7c7c7c;
-}
-
-.badges {
-    margin-top: -26px;
+header .login-button {
+    opacity: 0.5;
+    color: #474f5c;
     float: right;
+    margin-right: 20px;
+    font-size: 32px;
+    margin-top: 2px;
 }
 
-.forelesning {
-    background-color: #2BA287;
-}
-
-.eksamen {
-    background-color: #A1402D;
-}
-
-.innlevering {
-    background-color: #A9B431;
-}
-
-.temptop {
-    width: 960px;
-    height: 40px;
-    background-image: url("../img/temptop.png");
-    position: absolute;
-    margin-left: -10px;
-}
-
-.rom-ikon {
-    width: 48px;
-    height: 48px;
-    float: right;
-    margin-top: -2px;
-    position: relative;
-	right: 80px;
-    background-image: url("../img/rom.png");
-}
-
-.rom-text {
-    text-align: center;
-    width: 100%;
-    font-size: 26px;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 0px 0px 4px #000;
-    margin: 5px 0 0 1px;
-    position: absolute;
-}
-
-.ukelinje {
-    padding-top: 2px;
-    margin: auto;
-    width: 720px;
-	max-width: 100%;
-    height: 16px;
-    background-image: url("../img/ukelinje.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    font-family: "Nirmala Ui";
-    font-size: 11px;
-    text-align: center;
-    letter-spacing: 3px;
-}
-
-.ukelinje-xs {
-	font-family: "Nirmala Ui";
-	text-align: center;
-	font-size: 11px;
-	letter-spacing: 3px;
-	height: 16px;
-	padding-top: 2px;
-	background-image: url("../img/ukelinje-xs.png");
-	background-repeat: no-repeat;
-    background-position: center;
-}
-
-/* Bootstrap erstatning */
-
-.nav .nav-tabs .nav-justified {
-    min-height: 12px;
-    height: 12px;
-    width: 240px;
-    margin: 0 auto 0 auto;
-}
-
-.nav > li > a {
-    padding: 3px 0;
-    color: #fff;
-}
-
-    .nav > li > a:hover {
-        padding: 3px 0;
-        color: #000;
-    }
-
-.nav-tabs.nav-justified {
-    width: 240px;
-    margin: auto;
-    border: none;
-}
-
-    .nav-tabs.nav-justified > li > a {
-        border: none;
-    }
-
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-    border: none;
-}
-
-.tab-content {
-    background-color: rgba(255, 255, 255, 1);
-    height: auto;
-    padding: 10px 0 20px 0;
-    border-radius: 10px 0px 10px 10px;
-	position: relative;
-}
-
-/* rikard demo2 */
-
-.container-fluid {
-    max-width: 960px;
-	margin: auto;
-}
-
-
-
-h1, h2 {
-    text-align: center;
-}
-
-#kalender h3 {
-    text-align: left;
-    margin: 0;
-}
-
-#kalender .maaned h3 {
-    display: inline;
-}
-
-#kalender .row {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 5px;
-}
-
-#kalender .panel {
+@media only screen and (min-width: 768px) {
+  
+  .navbar-left {
     margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 15px;
+    margin-left: 20px;
+  }
+
+  .navbar-left i.fa-calendar-check-o {
+    font-size: 32px;
+  }
+
+  .navbar-left p {
+    font-size: 27px;
+  }
 }
 
-.display-table {
-    display: table;
-    table-layout: fixed;
-	width: 100%;
+/*===================================
+  GLOBAL SETTINGS 
+===================================*/
+html, body {
+  background-color: #F5F6F8 !important;
+  height: 100%;
+  width: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.display-cell {
-    display: table-cell;
-    vertical-align: middle;
-    float: none;
-    max-width: 100%;
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.col-xs-9 {
-	padding-left: 0;
+main .main-body {
+  margin: 20px;
+}
+
+/*===================================
+  M O N T H
+===================================*/
+
+.feed-month:not(:first-child) {
+  margin-top: 70px;
+}
+
+
+.feed {
+  max-width: 594px;
+  margin: 0 auto;
+}
+
+
+.feed-month {
+  background-color: #3879E2;
+  margin-bottom: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 3px 3px 0px 0px;
+}
+
+.feed-month p {
+  text-align: center;
+  color: white;
+  opacity: 0.9;
+  font-size: 22px;
+  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+
+/*===================================
+  E V E N T   F E E D
+===================================*/
+.feed-container {
+  color: #474f5c;
+  height: 80px;
+  background-color: white;
+  border-radius: 0px 0px 3px 3px;
+}
+
+.feed-container .class-date {
+  width: 60px;
+  height: 100%;
+  float: left;
+  position: relative;
+  margin-right: 15px;
+}
+
+.feed-container .class-date .date-number {
+  margin-left: 7px;
+  font-size: 28px;
+  color: #2a303a;
+  text-align: center;
+  font-weight: normal;
+  margin-top: 25px;
+}
+
+.feed-container .content {
+  width: 100%;
+  height: 80%;
+  padding-top: 17px;
+}
+
+.feed-container .content .class-info {
+  width: 90%;
+  height: 50%;
+  margin: 0 auto;
+}
+
+.feed-container .content .class-info p.name {
+  float: left;
+  color: #2a303a;
+  font-size: 19px;
+  font-weight: normal;
+}
+
+.feed-container .content .class-info .right-position {
+  float: right;
+  margin-top: 4px;
+}
+
+.feed-container .content .class-info .right-position i, .feed-container .content .class-info .right-position p {
+  float: left;
+  color: #6a7586;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.feed-container .content .time-info {
+  width: 90%;
+  height: 50%;
+  margin: 0 auto;
+  color: #474f5c;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+/*======================================
+  SPECIAL BOXES FOR SPECIAL EVENTS
+=======================================*/
+.exam, .assignment {
+  color: white !important;
+  display: inline-block;
+  border-radius: 2px;
+  margin-left: 14px;
+  padding: 4px;
+}
+
+
+.exam {
+  background: -webkit-linear-gradient(top, #DD1B16, #A6120D);
+}
+
+
+.assignment {
+  background: -webkit-linear-gradient(top, #fbb450, #f89406);
+}
+
+
+.feed-container .content .time-info .left-position {
+  float: left;
+}
+
+.feed-container .content .time-info .left-position i, .feed-container .content .time-info .left-position p {
+  float: left;
+  color: #858f9f;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.feed-container .content .time-info .left-position i strong, .feed-container .content .time-info .left-position p strong {
+  color: #6a7586;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.feed-container .content .time-info i.fa-ellipsis-h {
+  float: right;
+  color: #858f9f;
+  font-weight: 300;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/*======================================
+  LINE SEPARATING EVENTS
+=======================================*/
+.horizontal-line {
+  display: block;
+  width: 87%;
+  float: right;
+  border-bottom: 0.5px solid #dce0e0;
+}
+
+@media only screen and (max-width: 500px) {
+
+    div.class-date {
+        width: 27px !important;
+    }
+
+    div.class-date .date-number {
+        font-size: 20px !important;
+    }
+  .horizontal-line {
+    width: 82%;
+  }
+
+  p.name {
+    font-size: 15px !important;
+    color: #474f5c;
+    font-weight: 300;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+    
+    div.class-date .date-number {
+        font-size: 15px !important;
+        padding: 0px;
+    }
+
+    p.name {
+        font-size: 13px !important;
+        color: #474f5c;
+        font-weight: 300;
+        font-size: 18px;
+  }
 }

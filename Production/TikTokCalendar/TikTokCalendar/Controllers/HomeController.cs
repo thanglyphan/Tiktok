@@ -16,7 +16,8 @@ namespace TikTokCalendar.Controllers
 		private CalendarEventContext db = new CalendarEventContext();
 		public ActionResult Index()
 		{
-			Account acc = db.Accounts.Find(3);//new Random().Next(2, 4)); // TODO Replace with the currently logged in account
+			Account acc = db.Accounts.Find(3);  
+			//new Random().Next(2, 4)); // TODO Replace with the currently logged in account
 			ViewBag.Title = "User: " + acc.ID;
 
 			var events = db.CalendarEvents.ToList();

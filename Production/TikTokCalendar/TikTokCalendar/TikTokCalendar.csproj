@@ -150,8 +150,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\reset.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -169,6 +173,11 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\dummy-data.json" />
     <Content Include="Content\courses-data.json" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Properties\PublishProfiles\tiktokcal %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\tiktokcal - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\tiktokcal - FTP %283%29.pubxml" />
