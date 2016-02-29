@@ -176,6 +176,13 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\reset.css" />
+    <Content Include="Content\timeedit\3d-grafikk.json.txt" />
+    <Content Include="Content\timeedit\e-business.json.txt" />
+    <Content Include="Content\timeedit\intelligente-systemer.json.txt" />
+    <Content Include="Content\timeedit\interaktivt-design.json.txt" />
+    <Content Include="Content\timeedit\programmering.json.txt" />
+    <Content Include="Content\timeedit\spilldesign.json.txt" />
+    <Content Include="Content\timeedit\spillprogrammering.json.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
