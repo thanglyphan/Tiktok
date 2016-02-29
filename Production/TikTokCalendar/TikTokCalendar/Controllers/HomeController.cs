@@ -17,6 +17,8 @@ namespace TikTokCalendar.Controllers
 
 		public ActionResult Index()
 		{
+			StudentUser user = new StudentUser("trotor14", SchoolCourses.SpillProgrammering);
+
 			Account acc = db.Accounts.Find(3);
 			//new Random().Next(2, 4)); // TODO Replace with the currently logged in account
 			ViewBag.Title = "User: " + acc.ID;
@@ -39,6 +41,8 @@ namespace TikTokCalendar.Controllers
 			foreach (var item in db.CourseSubject)
 			{
 				// Check if the coursesubject has the same ID and semester as the user
+				// TODO Replace acc.semesterID with user.GetSemester()
+				// TODO and replace acc.courseID with user.Course
 				if (item.CourseID == acc.CourseID && item.Semester == acc.SemesterID)
 				{
 					// Go through all events
