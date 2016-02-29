@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using TikTokCalendar.Models;
 
+// The database itself. C# uses the fields (a bunch of DbSet<> a.k.a. tables) to set up the database.
 namespace TikTokCalendar.DAL
 {
 	public class CalendarEventContext : DbContext

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using TikTokCalendar.Models;
 
+// A container for all events in a month. Used to send the events to the GUI layer (Home/Index.cshtml)
 namespace TikTokCalendar.DAL
 {
 	public class EventMonth
@@ -30,7 +31,7 @@ namespace TikTokCalendar.DAL
 
 		public static string FirstCharToUpper(string input)
 		{
-			if (String.IsNullOrEmpty(input))
+			if (string.IsNullOrEmpty(input))
 				throw new ArgumentException("Could not capitalize first letter of that word");
 			return input.First().ToString().ToUpper() + input.Substring(1);
 		}

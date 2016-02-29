@@ -7,6 +7,8 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Globalization;
 
+// Class for initializing the database. 
+//The Seed() function is called either always or on a change (depending on what class it inherits from)
 namespace TikTokCalendar.DAL
 {
 	//public class CalendarEventInitializer : DropCreateDatabaseIfModelChanges<CalendarEventContext>
@@ -19,6 +21,14 @@ namespace TikTokCalendar.DAL
 		private const string Format = "dd.MM.yyyy HH:mm:ss";
 
 		protected override void Seed(CalendarEventContext context)
+		{
+			InsertDummyData(context);
+		}
+
+		/// <summary>
+		/// Inserts dummy data to the database.
+		/// </summary>
+		private void InsertDummyData(CalendarEventContext context)
 		{
 			// Courses
 			var courses = new List<Course>
@@ -33,9 +43,9 @@ namespace TikTokCalendar.DAL
 			// Subjects
 			var subjects = new List<Subject>
 			{
-				new Subject { Name="Programvarearkitektur" },
-				new Subject { Name="Programmering i C for Linux" },
-				new Subject { Name="Algoritmer og datastrukturer" },
+				new Subject { Name="Matematikk og Fysikk" },
+				new Subject { Name="C++ Programmering" },
+				new Subject { Name="Game AI" },
 				new Subject { Name="Prosjekt software engineering" },
 				new Subject { Name="Avansert Javaprogrammering" }
 			};
@@ -70,13 +80,15 @@ namespace TikTokCalendar.DAL
 				new CalendarEvent { SubjectID=5, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" }
 			};*/
 
+			// Parse the .json and insert into the dummy DB
 			var dataPath = "~/Content/dummy-data.json";
 			dataPath = HttpContext.Current.Server.MapPath(dataPath);
 			var json = File.ReadAllText(dataPath);
 
 			var rootObj = JsonConvert.DeserializeObject<RootObject>(json);
-            foreach (var item in rootObj.reservations)
+			foreach (var item in rootObj.reservations)
 			{
+				// Time
 				var start = GetParsedDateTime(item.startdate, item.starttime);
 				var end = GetParsedDateTime(item.enddate, item.endtime);
 
@@ -85,13 +97,14 @@ namespace TikTokCalendar.DAL
 				var subject = 1; // TODO Default to an empty event (to make it easier to see error)? If it can't find a similar one it will just take the first one
 				foreach (var subj in context.Subjects)
 				{
-					if (item.columns[0].Substring(0, 10).Equals(subj.Name.Substring(0, 10)))
+					if (item.columns[0].Substring(0, 4).Equals(subj.Name.Substring(0, 4)))
 					{
 						subject = subj.ID;
 						break;
 					}
 				}
-                var ce = new CalendarEvent
+				// Make an event out of the data
+				var ce = new CalendarEvent
 				{
 					StartTime = start,
 					EndTime = end,
@@ -104,6 +117,7 @@ namespace TikTokCalendar.DAL
 					Comment = item.columns[5]
 
 				};
+				// Add the event to the DB events list
 				context.CalendarEvents.Add(ce);
 			}
 			context.SaveChanges();
@@ -208,6 +222,9 @@ namespace TikTokCalendar.DAL
 			context.SaveChanges();*/
 		}
 
+		/// <summary>
+		/// Parse a given string date and time to DateTime format. Returns DateTime.MinValue if the parse failed.
+		/// </summary>
 		private static DateTime GetParsedDateTime(string date, string time)
 		{
 			DateTime dt;
@@ -218,6 +235,7 @@ namespace TikTokCalendar.DAL
 			return DateTime.MinValue;
 		}
 
+		/////// Below are classes for parsing the JSON ///////
 		public class JsonEventInfo
 		{
 			public int reservationlimit { get; set; }

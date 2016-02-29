@@ -14,9 +14,10 @@ namespace TikTokCalendar.Controllers
 	public class HomeController : Controller
 	{
 		private CalendarEventContext db = new CalendarEventContext();
+
 		public ActionResult Index()
 		{
-			Account acc = db.Accounts.Find(3);  
+			Account acc = db.Accounts.Find(3);
 			//new Random().Next(2, 4)); // TODO Replace with the currently logged in account
 			ViewBag.Title = "User: " + acc.ID;
 
@@ -24,12 +25,14 @@ namespace TikTokCalendar.Controllers
 
 			// TODO Make the year go from august to june like a schoolyear
 			var calEvents = new List<EventMonth>(new EventMonth[12]);
-			var monthNum = 8; // Starting month number
-			for (var i = 0; i < 12; i++)
+			int startMonth = 8; // Starting month number
+			int monthNum = startMonth; 
+			//for (var i = monthNum; i < 12 + monthNum; i++)
+			for (int i = 0; i < 12; i++)
 			{
-				if (monthNum > 12) monthNum = 1;
-				calEvents[i] = new EventMonth(monthNum);
-				monthNum++;
+				calEvents[i] = new EventMonth(i+1);
+				//monthNum++;
+				//if (monthNum > 12) monthNum = 1;
 			}
 
 			// Go through all course subjects
@@ -47,7 +50,7 @@ namespace TikTokCalendar.Controllers
 							//calendarEvents.Add(calEvent);
 							//calEvents[calEvent.StartTime.Month].Add(calEvent);
 							int monthIndex = calEvent.StartTime.Month - 1;
-							for (int i = 0; i < calEvents.Count; i ++)
+							for (int i = 0; i < calEvents.Count; i++)
 							{
 								if (calEvents[i].Month == calEvent.StartTime.Month)
 								{
@@ -76,7 +79,7 @@ namespace TikTokCalendar.Controllers
 
 			return View(calEvents);
 			//return View(calendarEvents.ToList());
-			
+
 
 			/*
 			 * Make a class for the calendar view?

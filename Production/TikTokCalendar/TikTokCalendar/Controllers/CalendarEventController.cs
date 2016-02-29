@@ -13,13 +13,13 @@ namespace TikTokCalendar.Controllers
 {
     public class CalendarEventController : Controller
     {
-        //private CalendarEventContext db = new CalendarEventContext();
+        private CalendarEventContext db = new CalendarEventContext();
 
         // GET: CalendarEvent
         public ActionResult Index()
         {
 			return View();
-			/*Account acc = db.Accounts.Find(new Random().Next(2, 4)); // TODO Replace with the currently logged in account
+			Account acc = db.Accounts.Find(new Random().Next(2, 4)); // TODO Replace with the currently logged in account
 			ViewBag.Title = "User: " + acc.ID.ToString();
 
 			var calendarEvents = new List<CalendarEvent>();// = db.CalendarEvents.Include(c => c.Subject);
@@ -42,7 +42,7 @@ namespace TikTokCalendar.Controllers
 					}
 				}
 			}
-            return View(calendarEvents.ToList());*/
+            return View(calendarEvents.ToList());
 			/*
 			 * Make a class for the calendar view?
 			 *		With a List of months that each have a list with events for that month (List<List<CalendarEvents>> events)

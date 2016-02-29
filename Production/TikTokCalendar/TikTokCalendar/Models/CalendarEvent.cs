@@ -20,11 +20,17 @@ namespace TikTokCalendar.Models
 
 		public virtual Subject Subject { get; set; }
 
+		/// <summary>
+		/// Returns the start and to time formatted for display.
+		/// </summary>
 		public string GetTimeSlot()
 		{
 			return $"{StartTime:HH:mm} - {EndTime:HH:mm}";
 		}
 
+		/// <summary>
+		/// Returns the three first letters of this events day.
+		/// </summary>
 		public string GetDayOfWeek()
 		{
 			//return StartTime.DayOfWeek.ToString().Substring(0, 3);
