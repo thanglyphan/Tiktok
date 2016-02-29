@@ -3,14 +3,37 @@
     Everything with 'i' is icons
     Everything with 'p' is text
 
+    
+  GLOBAL SETTINGS 
+===================================*/
+html, body {
+  background-color: #F5F6F8 !important;
+  height: 100%;
+  width: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
 
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+main .main-body {
+  margin: 20px;
+}
+
+
+/*===================================
   N A V B A R
 ==========================================*/
 header {
   background-color: #F5F6F8;
-  margin-top: 10px;
+  padding-top: 10px;
   opacity: 0.8;
-  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
@@ -25,7 +48,6 @@ header i.fa-calendar-check-o {
 }
 
 header p {
-  font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
   color: #474f5c;
   font-size: 19px;
   float: left;
@@ -56,28 +78,6 @@ header .login-button {
   .navbar-left p {
     font-size: 27px;
   }
-}
-
-/*===================================
-  GLOBAL SETTINGS 
-===================================*/
-html, body {
-  background-color: #F5F6F8 !important;
-  height: 100%;
-  width: 100%;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-main {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-main .main-body {
-  margin: 20px;
 }
 
 /*===================================
