@@ -170,6 +170,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\timeedit\1klasse.json" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
@@ -183,6 +184,14 @@
     <None Include="Content\timeedit\programmering.json" />
     <None Include="Content\timeedit\spilldesign.json" />
     <None Include="Content\timeedit\spillprogrammering.json" />
+    <Content Include="Content\vex\vex-theme-bottom-right-corner.css" />
+    <Content Include="Content\vex\vex-theme-default.css" />
+    <Content Include="Content\vex\vex-theme-flat-attack.css" />
+    <Content Include="Content\vex\vex-theme-os.css" />
+    <Content Include="Content\vex\vex-theme-plain.css" />
+    <Content Include="Content\vex\vex-theme-top.css" />
+    <Content Include="Content\vex\vex-theme-wireframe.css" />
+    <Content Include="Content\vex\vex.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -226,9 +235,17 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modal.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\vex\build-test-amd.html" />
+    <Content Include="Scripts\vex\build-test.html" />
+    <Content Include="Scripts\vex\vex.combined.min.js" />
+    <Content Include="Scripts\vex\vex.dialog.js" />
+    <Content Include="Scripts\vex\vex.dialog.min.js" />
+    <Content Include="Scripts\vex\vex.js" />
+    <Content Include="Scripts\vex\vex.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
