@@ -21,7 +21,7 @@ namespace TikTokCalendar.DAL
 			
 			if (myCookie == null) {
 				SaveToCookie(UserName, Program);
-				return "Username not found";
+				return null;
 			}
 			else {
 				return UserName + " " + Program;
