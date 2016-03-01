@@ -153,6 +153,7 @@
     <Compile Include="DAL\CalendarEventContext.cs" />
     <Compile Include="DAL\CalendarEventInitializer.cs" />
     <Compile Include="DAL\CalendarModelView.cs" />
+    <Compile Include="DAL\Cookies.cs" />
     <Compile Include="DAL\CourseInfoHelper.cs" />
     <Compile Include="DAL\CoursesEnum.cs" />
     <Compile Include="DAL\EventMonth.cs" />
@@ -277,7 +278,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3810</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
