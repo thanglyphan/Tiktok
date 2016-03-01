@@ -67,5 +67,15 @@ namespace TikTokCalendar.DAL
 			}
 			return -1;
 		}
+
+		public void SaveToCookies()
+		{
+			
+		}
+
+		public void LoadFromCookies()
+		{
+			
+		}
 	}
 }
