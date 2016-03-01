@@ -17,23 +17,28 @@ namespace TikTokCalendar.Controllers
 
 		public ActionResult Index()
 		{
-			StudentUser user = new StudentUser("trotor1", SchoolCourses.SpillProgrammering);
-
-			Account acc = db.Accounts.Find(3);
+			//Cookies cookie;
+			//string user = cookie.LoadFromCookie("Username");
+			//int program = cookie.LoadFromCookie("Program");
+			StudentUser user = new StudentUser("trotor14", SchoolCourses.IntelligenteSystemer); // TODO Get this from cookies
+			int weekOrMonthView = 0; // TODO Get this from cookies
+			bool weekView = (weekOrMonthView == 0);
+			//Account acc = db.Accounts.Find(3);
 			//new Random().Next(2, 4)); // TODO Replace with the currently logged in account
 			//ViewBag.Title = "User: " + acc.ID;
 			ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}", user.Year, user.GetCurrentSemester(), user.ValidUsername(user.UserName));
 
 			var events = db.CalendarEvents.ToList();
-
+			
 			// TODO Make the year go from august to june like a schoolyear
-			var calEvents = new List<EventMonth>(new EventMonth[12]);
+			int eventGroupCount = (weekView) ? 52 : 12;
+			var calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
 			int startMonth = 8; // Starting month number
 			int monthNum = startMonth; 
 			//for (var i = monthNum; i < 12 + monthNum; i++)
-			for (int i = 0; i < 12; i++)
+			for (int i = 0; i < eventGroupCount; i++)
 			{
-				calEvents[i] = new EventMonth(i+1);
+				calEvents[i] = new EventMonth(i+1, weekView);
 				//monthNum++;
 				//if (monthNum > 12) monthNum = 1;
 			}
@@ -44,7 +49,8 @@ namespace TikTokCalendar.Controllers
 				// Check if the coursesubject has the same ID and semester as the user
 				// TODO Replace acc.semesterID with user.GetSemester()
 				// TODO and replace acc.courseID with user.Course
-				if (item.CourseID == acc.CourseID && item.Semester == acc.SemesterID)
+				//if (item.CourseID == acc.CourseID && item.Semester == acc.SemesterID)
+				if (item.CourseID == (int)user.Course && item.Semester == user.GetCurrentSemester())
 				{
 					// Go through all events
 					foreach (var calEvent in events)
@@ -52,16 +58,28 @@ namespace TikTokCalendar.Controllers
 						// Add the event if the events subjectID mathces the courseubjects subjectID
 						if (calEvent.SubjectID == item.SubjectID)
 						{
-							//calendarEvents.Add(calEvent);
-							//calEvents[calEvent.StartTime.Month].Add(calEvent);
-							int monthIndex = calEvent.StartTime.Month - 1;
-							for (int i = 0; i < calEvents.Count; i++)
+							int monthIndex = -1;
+							if (weekView)
 							{
-								if (calEvents[i].Month == calEvent.StartTime.Month)
+								monthIndex = calEvent.GetWeekNumber() - 1;
+							}
+							else
+							{
+								//monthIndex = calEvent.StartTime.Month - 1;
+								for (int i = 0; i < calEvents.Count; i++)
 								{
-									monthIndex = i;
+									if (calEvents[i].Month == calEvent.StartTime.Month)
+									{
+										monthIndex = i;
+									}
 								}
 							}
+
+							calEvents[monthIndex].Events.Add(calEvent);
+
+
+							//calendarEvents.Add(calEvent);
+							//calEvents[calEvent.StartTime.Month].Add(calEvent);
 							/*for (int i = 0; i < list.Count; i++)
 							{
 								if (list[i].StartTime.Month == month)
@@ -69,7 +87,6 @@ namespace TikTokCalendar.Controllers
 									return i;
 								}
 							}*/
-							calEvents[monthIndex].Events.Add(calEvent);
 							//list.Add(calEvent.Subject.Name);
 						}
 					}

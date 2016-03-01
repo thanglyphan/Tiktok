@@ -36,5 +36,27 @@ namespace TikTokCalendar.Models
 			//return StartTime.DayOfWeek.ToString().Substring(0, 3);
 			return CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(StartTime.DayOfWeek).Substring(0, 3).ToLower();
 		}
+
+		public int GetWeekNumber()
+		{
+			Calendar cal = new GregorianCalendar();
+			DateTime dt = StartTime;
+			return cal.GetWeekOfYear(dt, CalendarWeekRule.FirstDay, DayOfWeek.Monday);
+		}
+
+		public static bool operator ==(CalendarEvent a, CalendarEvent b)
+		{
+			// Assumes two events are equal if the start time, subjectID and room are the same
+			if (a.StartTime == b.StartTime && a.SubjectID == b.SubjectID && a.RoomName == b.RoomName)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public static bool operator !=(CalendarEvent a, CalendarEvent b)
+		{
+			return !(a == b);
+		}
 	}
 }
