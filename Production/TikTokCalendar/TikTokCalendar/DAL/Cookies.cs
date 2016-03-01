@@ -6,26 +6,25 @@ namespace TikTokCalendar.DAL
 	public class Cookies
 	{
 
-		public void SaveToCookie(String UserName)
+		public void SaveToCookie(String UserName, String Program)
 		{
 			HttpCookie myCookie = new HttpCookie(UserName);
-			myCookie.Value = UserName;
+			myCookie.Value = Program;
 			myCookie.Expires = DateTime.Now.AddHours(1);
-			
-			/*
-			HttpCookie yourCookie = new HttpCookie(UserName);
-			yourCookie.Value = "GetNameFromUserHERE" + DateTime.Now.ToString();
-			yourCookie.Expires = DateTime.Now.AddDays(366);
-			yourCookie.Path = "/TikTokCalendar";
-			*/
+
+			HttpContext.Current.Response.Cookies.Add(myCookie);
 
 		}
-		public void LoadFromCookie(String UserName)
+		public String LoadFromCookie(String UserName, String Program)
 		{
-			HttpCookie myCookie = new HttpCookie(UserName);
+			HttpCookie myCookie = HttpContext.Current.Request.Cookies[UserName];
 			
 			if (myCookie == null) {
-				SaveToCookie(UserName);
+				SaveToCookie(UserName, Program);
+				return "Username not found";
+			}
+			else {
+				return UserName + " " + Program;
 			}
 		}
 	}
