@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TikTokCalendar.DAL;
 using TikTokCalendar.Models;
+using System.Diagnostics;
 
 namespace TikTokCalendar.Controllers
 {
@@ -15,21 +16,35 @@ namespace TikTokCalendar.Controllers
 	{
 		private CalendarEventContext db = new CalendarEventContext();
 
-		public ActionResult Index()
+		public ActionResult Index(string id = "None")
 		{
+			Print("User: " + id);
+			string name = "trotor14";
+			SchoolCourses course = SchoolCourses.SpillProgrammering;
+			if (id == "prog14")
+			{
+				name = id;
+				course = SchoolCourses.Programmering;
+				Print("User: " + id + " prog");
+			}
+			else if (id == "intsys13")
+			{
+				name = id;
+				course = SchoolCourses.IntelligenteSystemer;
+				Print("User: " + id + " intsys");
+			}
+
 			//Cookies cookie;
 			//string user = cookie.LoadFromCookie("Username");
 			//int program = cookie.LoadFromCookie("Program");
-			StudentUser user = new StudentUser("trotor14", SchoolCourses.IntelligenteSystemer); // TODO Get this from cookies
+			StudentUser user = new StudentUser(name, course); // TODO Get this from cookies
 			int weekOrMonthView = 0; // TODO Get this from cookies
 			bool weekView = (weekOrMonthView == 0);
-			//Account acc = db.Accounts.Find(3);
-			//new Random().Next(2, 4)); // TODO Replace with the currently logged in account
-			//ViewBag.Title = "User: " + acc.ID;
+
 			ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}", user.Year, user.GetCurrentSemester(), user.ValidUsername(user.UserName));
 
 			var events = db.CalendarEvents.ToList();
-			
+			// TODO Refactor instances of Month into something else
 			// TODO Make the year go from august to june like a schoolyear
 			int eventGroupCount = (weekView) ? 52 : 12;
 			var calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
@@ -43,19 +58,21 @@ namespace TikTokCalendar.Controllers
 				//if (monthNum > 12) monthNum = 1;
 			}
 
+			// Used to keep track of which TimeEditIDs we have already added so we don't get duplicate events
+			// TODO This could be fixed by making sure the data doesn't have any duplicates
+			var addedEvents = new HashSet<int>();
+			
 			// Go through all course subjects
 			foreach (var item in db.CourseSubject)
 			{
 				// Check if the coursesubject has the same ID and semester as the user
-				// TODO Replace acc.semesterID with user.GetSemester()
-				// TODO and replace acc.courseID with user.Course
 				//if (item.CourseID == acc.CourseID && item.Semester == acc.SemesterID)
 				if (item.CourseID == (int)user.Course && item.Semester == user.GetCurrentSemester())
 				{
+
 					// Go through all events
 					foreach (var calEvent in events)
 					{
-						// Add the event if the events subjectID mathces the courseubjects subjectID
 						if (calEvent.SubjectID == item.SubjectID)
 						{
 							int monthIndex = -1;
@@ -75,42 +92,29 @@ namespace TikTokCalendar.Controllers
 								}
 							}
 
-							calEvents[monthIndex].Events.Add(calEvent);
-
-
-							//calendarEvents.Add(calEvent);
-							//calEvents[calEvent.StartTime.Month].Add(calEvent);
-							/*for (int i = 0; i < list.Count; i++)
+							// Only add event if we haven't already added this TimeEditID already
+							if (!addedEvents.Contains(calEvent.TimeEditID))
 							{
-								if (list[i].StartTime.Month == month)
-								{
-									return i;
-								}
-							}*/
-							//list.Add(calEvent.Subject.Name);
+								calEvents[monthIndex].Events.Add(calEvent);
+								addedEvents.Add(calEvent.TimeEditID);
+							}
 						}
 					}
 				}
 			}
+
 
 			// Sort that shit
 			for (int i = 0; i < calEvents.Count; i++)
 			{
 				calEvents[i].Events = calEvents[i].Events.OrderBy(x => x.StartTime).ToList();
 			}
-
 			return View(calEvents);
-			//return View(calendarEvents.ToList());
+		}
 
-
-			/*
-			 * Make a class for the calendar view?
-			 *		With a List of months that each have a list with events for that month (List<List<CalendarEvents>> events)
-			 * foreach (month)
-			 *		display month header
-			 *			foreach(events in month)
-			 *				display event
-			 */
+		private void Print(string s)
+		{
+			Debug.WriteLine(s);
 		}
 
 		public ActionResult About()

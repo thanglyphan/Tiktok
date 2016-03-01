@@ -111,11 +111,16 @@ namespace TikTokCalendar.DAL
 						break;
 					}
 				}
+				int timeEditId = -1;
+				int.TryParse(item.id, out timeEditId);
+
+
 				// Make an event out of the data
 				var ce = new CalendarEvent
 				{
 					StartTime = start,
 					EndTime = end,
+					TimeEditID = timeEditId,
 					//SubjectName = item.columns[0], 
 					SubjectID = subject,
 					RoomName = item.columns[2],
