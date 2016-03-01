@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 
 namespace TikTokCalendar.DAL
@@ -10,6 +8,10 @@ namespace TikTokCalendar.DAL
 
 		public void SaveToCookie(String UserName)
 		{
+			HttpCookie myCookie = new HttpCookie(UserName);
+			myCookie.Value = UserName;
+			myCookie.Expires = DateTime.Now.AddHours(1);
+			
 			/*
 			HttpCookie yourCookie = new HttpCookie(UserName);
 			yourCookie.Value = "GetNameFromUserHERE" + DateTime.Now.ToString();
@@ -21,7 +23,7 @@ namespace TikTokCalendar.DAL
 		public void LoadFromCookie(String UserName)
 		{
 			HttpCookie myCookie = new HttpCookie(UserName);
-			myCookie = Request.Cookies[UserName];
+			
 			if (myCookie == null) {
 				SaveToCookie(UserName);
 			}
