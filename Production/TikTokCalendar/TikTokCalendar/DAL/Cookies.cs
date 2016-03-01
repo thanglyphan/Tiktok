@@ -6,26 +6,43 @@ namespace TikTokCalendar.DAL
 	public class Cookies
 	{
 
-		public void SaveToCookie(String UserName, String Program)
+		public void SaveToCookie(String UserNameKey,String CourseKey,int WeekOrMonthKey, StudentUser a)
 		{
-			HttpCookie myCookie = new HttpCookie(UserName);
-			myCookie.Value = Program;
-			myCookie.Expires = DateTime.Now.AddHours(1);
+			HttpCookie UsernameCookie = new HttpCookie(UserNameKey);
+			HttpCookie CourseCookie = new HttpCookie(CourseKey);
+			HttpCookie WeekOrMonthCookie = new HttpCookie(WeekOrMonthKey.ToString());
+			UsernameCookie.Value = a.UserName;
+			CourseCookie.Value =((int) a.Course).ToString();
+			WeekOrMonthCookie.Value = ((int)a.WeekOrMonthShow).ToString();
 
-			HttpContext.Current.Response.Cookies.Add(myCookie);
+			UsernameCookie.Expires = DateTime.Now.AddHours(1);
+			CourseCookie.Expires = DateTime.Now.AddHours(1);
+			WeekOrMonthCookie.Expires = DateTime.Now.AddHours(1);
 
+
+            HttpContext.Current.Response.Cookies.Add(UsernameCookie);
+			HttpContext.Current.Response.Cookies.Add(CourseCookie);
+			HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
 		}
-		public String LoadFromCookie(String UserName, String Program)
+		public String LoadStringFromCookie(String key)
 		{
-			HttpCookie myCookie = HttpContext.Current.Request.Cookies[UserName];
-			
+			HttpCookie myCookie = HttpContext.Current.Request.Cookies[key];
+
 			if (myCookie == null) {
-				SaveToCookie(UserName, Program);
 				return null;
 			}
 			else {
-				return UserName + " " + Program;
+				return myCookie.Value;
 			}
+		}
+		public int LoadIntFromCookie(String key)
+		{
+			String s = LoadStringFromCookie(key);
+			int number;
+			if(int.TryParse(s,out number)) {
+				return number;
+			}
+			return -1;
 		}
 	}
 }

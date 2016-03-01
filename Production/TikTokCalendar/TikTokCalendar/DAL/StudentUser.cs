@@ -12,6 +12,7 @@ namespace TikTokCalendar.DAL
 		public string UserName { get; set; }
 		public SchoolCourses Course { get; set; }
 		public int Year { get; private set; }
+		public int WeekOrMonthShow { get; set; }
 
 		public StudentUser(string name, SchoolCourses course)
 		{
