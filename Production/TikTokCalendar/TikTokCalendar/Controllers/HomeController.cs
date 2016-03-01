@@ -17,11 +17,12 @@ namespace TikTokCalendar.Controllers
 
 		public ActionResult Index()
 		{
-			StudentUser user = new StudentUser("trotor14", SchoolCourses.SpillProgrammering);
+			StudentUser user = new StudentUser("trotor1", SchoolCourses.SpillProgrammering);
 
 			Account acc = db.Accounts.Find(3);
 			//new Random().Next(2, 4)); // TODO Replace with the currently logged in account
-			ViewBag.Title = "User: " + acc.ID;
+			//ViewBag.Title = "User: " + acc.ID;
+			ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}", user.Year, user.GetCurrentSemester(), user.ValidUsername(user.UserName));
 
 			var events = db.CalendarEvents.ToList();
 
