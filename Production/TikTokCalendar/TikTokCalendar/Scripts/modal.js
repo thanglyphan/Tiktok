@@ -1,10 +1,11 @@
 ﻿$(function () {
     
     var username = "";
-
+    
     vex.dialog.open({
         message: 'Westerdals brukernavn',
         input: "<input name=\"username\" type=\"text\" placeholder=\"nelwil14\" required />",
+
         buttons: [
         $.extend({}, vex.dialog.buttons.YES, {
             text: 'Login'
@@ -127,6 +128,7 @@
                         // value will be one of the following:
                         // false, "checkout", "continue-shopping", "view-cart"
                         console.log(value);
+
                     }
                 })
             }
