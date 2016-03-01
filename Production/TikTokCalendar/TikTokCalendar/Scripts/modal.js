@@ -1,5 +1,5 @@
 ﻿$(function () {
-
+    
     var username = "";
 
     vex.dialog.open({

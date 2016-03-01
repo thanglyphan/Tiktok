@@ -293,7 +293,9 @@
       color: #777;
       background: #e0e0e0; }
   .vex.vex-theme-os .vex-dialog-form .vex-dialog-message {
-    margin-bottom: .5em; }
+      text-align: center;
+      font-size: 1.5em;
+    margin-bottom: 1em; }
   .vex.vex-theme-os .vex-dialog-form .vex-dialog-input {
     margin-bottom: 1em; }
     .vex.vex-theme-os .vex-dialog-form .vex-dialog-input textarea, .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="date"], .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="datetime"], .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="datetime-local"], .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="email"], .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="month"], .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="number"], .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="password"], .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="search"], .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="tel"], .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="text"], .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="time"], .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="url"], .vex.vex-theme-os .vex-dialog-form .vex-dialog-input input[type="week"] {
@@ -325,8 +327,8 @@
     -webkit-border-radius: 3px;
     border-radius: 3px;
     border: 0;
-    float: right;
-    margin: 0 0 0 .5em;
+    float: left;
+    margin: 0 0 .5em .5em;
     font-family: inherit;
     text-transform: uppercase;
     letter-spacing: .1em;
