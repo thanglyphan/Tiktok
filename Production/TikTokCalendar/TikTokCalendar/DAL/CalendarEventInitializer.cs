@@ -51,7 +51,8 @@ namespace TikTokCalendar.DAL
 				new Subject { Name="Game AI" },
 				new Subject { Name="Embedded systems" },
 				new Subject { Name="Mobil utvikling" },
-				new Subject { Name="Avansert Javaprogrammering" }
+				new Subject { Name="Avansert Javaprogrammering" },
+				new Subject { Name="Ruby on Rails" }
 			};
 			subjects.ForEach(s => context.Subjects.Add(s));
 			context.SaveChanges();
@@ -68,7 +69,13 @@ namespace TikTokCalendar.DAL
 				new CourseSubject { CourseID=3, SubjectID=1, Semester=4 },
 				new CourseSubject { CourseID=3, SubjectID=3, Semester=4 },
 				new CourseSubject { CourseID=3, SubjectID=5, Semester=4 },
-				new CourseSubject { CourseID=3, SubjectID=6, Semester=4 }
+				new CourseSubject { CourseID=3, SubjectID=6, Semester=4 },
+
+				new CourseSubject { CourseID=1, SubjectID=1, Semester=4 },
+				new CourseSubject { CourseID=1, SubjectID=6, Semester=4 },
+				new CourseSubject { CourseID=1, SubjectID=7, Semester=4 },
+				new CourseSubject { CourseID=1, SubjectID=8, Semester=4 }
+
 			};
 			courseSubjects.ForEach(c => context.CourseSubject.Add(c));
 			context.SaveChanges();
@@ -105,7 +112,7 @@ namespace TikTokCalendar.DAL
 				var subject = 1; // TODO Default to an empty event (to make it easier to see error)? If it can't find a similar one it will just take the first one
 				foreach (var subj in context.Subjects)
 				{
-					if (item.columns[0].Substring(0, 4).Equals(subj.Name.Substring(0, 4)))
+					if (item.columns[0].Substring(0, 7).Equals(subj.Name.Substring(0, 7)))
 					{
 						subject = subj.ID;
 						break;
