@@ -154,7 +154,9 @@
     <Compile Include="DAL\CalendarEventInitializer.cs" />
     <Compile Include="DAL\CalendarModelView.cs" />
     <Compile Include="DAL\CourseInfoHelper.cs" />
+    <Compile Include="DAL\CoursesEnum.cs" />
     <Compile Include="DAL\EventMonth.cs" />
+    <Compile Include="DAL\StudentUser.cs" />
     <Compile Include="Encoder\SHA1.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
