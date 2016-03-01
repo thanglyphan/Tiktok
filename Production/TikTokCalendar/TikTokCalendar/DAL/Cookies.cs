@@ -1,30 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 
 namespace TikTokCalendar.DAL
 {
 	public class Cookies
 	{
-
-		public void SaveToCookie(String UserName)
+		//Add cookie method.	
+		public void SaveToCookie(String UserNameKey,String CourseKey,int WeekOrMonthKey, StudentUser a)
 		{
-			/*
-			HttpCookie yourCookie = new HttpCookie(UserName);
-			yourCookie.Value = "GetNameFromUserHERE" + DateTime.Now.ToString();
-			yourCookie.Expires = DateTime.Now.AddDays(366);
-			yourCookie.Path = "/TikTokCalendar";
-			*/
+			HttpCookie UsernameCookie = new HttpCookie(UserNameKey);
+			HttpCookie CourseCookie = new HttpCookie(CourseKey);
+			HttpCookie WeekOrMonthCookie = new HttpCookie(WeekOrMonthKey.ToString());
+			UsernameCookie.Value = a.UserName;
+			CourseCookie.Value =((int) a.Course).ToString();
+			WeekOrMonthCookie.Value = ((int)a.WeekOrMonthShow).ToString();
 
+			UsernameCookie.Expires = DateTime.Now.AddHours(1);
+			CourseCookie.Expires = DateTime.Now.AddHours(1);
+			WeekOrMonthCookie.Expires = DateTime.Now.AddHours(1);
+
+
+            HttpContext.Current.Response.Cookies.Add(UsernameCookie);
+			HttpContext.Current.Response.Cookies.Add(CourseCookie);
+			HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
 		}
-		public void LoadFromCookie(String UserName)
+		public String LoadStringFromCookie(String key)
 		{
-			HttpCookie myCookie = new HttpCookie(UserName);
-			myCookie = Request.Cookies[UserName];
-			if (myCookie == null) {
-				SaveToCookie(UserName);
+			HttpCookie myCookie = HttpContext.Current.Request.Cookies[key];
+
+			if (myCookie == null) { //Returns the value og cookie if not null.
+				return null;
 			}
+			else {
+				return myCookie.Value;
+			}
+		}
+		public int LoadIntFromCookie(String key) //Week or month view by user.
+		{
+			String s = LoadStringFromCookie(key);
+			int number;
+			if(int.TryParse(s,out number)) {
+				return number;
+			}
+			return -1;
 		}
 	}
 }
