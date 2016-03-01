@@ -40,14 +40,16 @@
                         {
                             <div class="feed-container">
 
-                                <div class="class-date">
-                                    <p class="date-number">@item.StartTime.Day</p>  <!-- 17 -->
-                                </div>
+                                
                                 <!-- Container for the event content -->
                                 <div class="content">
+
                                     <!-- add this to toggle: data-toggle="collapse" data-target="#@item.ID" -->
                                     <!-- Container for the top row -->
                                     <div class="class-info">
+                                        <div class="class-date">
+                                            <p class="date-number">@item.StartTime.Day</p>  <!-- 17 -->
+                                        </div>
                                         <p class="name">@item.Subject.Name</p>  <!-- "Grensesnittdesign" -->
 
                                         <div class="right-position">
