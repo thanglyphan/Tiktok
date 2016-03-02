@@ -23,6 +23,9 @@ namespace TikTokCalendar.Models
 
 		public virtual Subject Subject { get; set; }
 
+
+		public int Year { get; set; }
+
 		/// <summary>
 		/// Creates an empty event.
 		/// </summary>
@@ -37,6 +40,7 @@ namespace TikTokCalendar.Models
 			Attendees = null;
 			Teacher = null;
 			Comment = null;
+			Year = 0;
 		}
 
 		public string GetEventNameWithoutSubjectCode()
