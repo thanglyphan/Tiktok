@@ -1,42 +1,38 @@
-﻿using Microsoft.SqlServer.Server;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Web;
-
 using TikTokCalendar.Models;
 using Newtonsoft.Json;
-using System.Globalization;
 
 namespace TikTokCalendar.DAL
 {
 	public class ExamInit
 	{
-		CalendarEventInitializer a;
-		//CalendarEventContext context;
+		CalendarEventInitializer a; //Need this to find right "emne kode"
 		public ExamInit(CalendarEventInitializer a)
 		{
 			this.a = a;
-			//this.context = context;
-			//ReadJsonFile(context);
 		}
 		
+		//Returns a list used for adding data to database in CalendarEventInitializer.cs
 		public List<CalendarEvent> ReadJsonFile()
 		{
 			List<CalendarEvent> list = new List<CalendarEvent>();
 			CalendarEvent data = null;
+			//Find the right JSON file, read it.
 			var dataPath = "~/Content/timeedit/innlevering-eksamen-dato.json";
 			dataPath = HttpContext.Current.Server.MapPath(dataPath);
 			var json = File.ReadAllText(dataPath);
 
 			var rootObj = JsonConvert.DeserializeObject<RootObject>(json);
-			int count = 0;
-			foreach (var item in rootObj.reservations) {
-				count++;
 
+			//Getting each item in list rootObj.reservations.
+			foreach (var item in rootObj.reservations) {
 				var start = CalendarEventInitializer.GetParsedDateTime(item.Dato + "16", "09:00");
 				var end = CalendarEventInitializer.GetParsedDateTime(item.Dato,"f");
+
+				//This variable become CalendarEvent obj.
 				data = new CalendarEvent {
 					StartTime = DateTime.Now,
 					EndTime = DateTime.Now,
@@ -49,25 +45,12 @@ namespace TikTokCalendar.DAL
 					Comment = "Varighet: " + item.Varighet + "\n Vekting: " + item.Vekting + "\n Emnekode: " +
 					item.Emnekode + "\n Emnenavn: " + item.Emnenavn + "\n Hjelpemidler: " + item.Hjelpemidler
 				};
-				list.Add(data);
+				list.Add(data); //For each item, add data(CalendarEvent) to list.
 			}
 			return list;
 		}
 
 	}
-
-	/*
-	StartTime = start,
-					EndTime = end,
-					TimeEditID = timeEditId,
-					//SubjectName = item.columns[0], 
-					SubjectID = subject,
-					RoomName = item.columns[2],
-					EventName = item.columns[4],
-					Attendees = item.columns[1],
-					Teacher = item.columns[3],
-					Comment = item.columns[5]
-					*/
 
 	public class Reservation
 	{
