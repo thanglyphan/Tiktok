@@ -1,6 +1,7 @@
 ﻿@*@model IEnumerable<TikTokCalendar.Models.CalendarEvent>*@
 @*@model IEnumerable<IEnumerable<TikTokCalendar.Models.CalendarEvent>>*@
-@model IEnumerable<TikTokCalendar.DAL.EventMonth>
+@*@model IEnumerable<TikTokCalendar.DAL.EventMonth>*@
+@model TikTokCalendar.DAL.ModelDataWrapper
 
 @{
     //ViewBag.Title = "TikTok";
@@ -11,7 +12,7 @@
     <!-- The navbar with the tiktok logo  -->
     <header>
         <i class="fa fa-calendar-check-o"></i>
-        <p>tiktok</p>
+        <p>tiktok (User: @Model.user.UserName)</p>
 
         <a class="fa fa-sign-in login-button" href="#" data-toggle="modal" data-target="#logginn-vindu">
         </a>
@@ -33,7 +34,7 @@
 
         <div class="main-body">
             
-                @foreach (var month in Model)
+                @foreach (var month in Model.calEvents)
                 {
                     if (month.Events.Count <= 0)
                     {

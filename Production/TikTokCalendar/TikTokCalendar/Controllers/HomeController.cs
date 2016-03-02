@@ -47,13 +47,14 @@ namespace TikTokCalendar.Controllers
 			// TODO Refactor instances of Month into something else
 			// TODO Make the year go from august to june like a schoolyear
 			int eventGroupCount = (weekView) ? 52 : 12;
-			var calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
+			var modelWrapper = new ModelDataWrapper();
+			modelWrapper.calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
 			int startMonth = 8; // Starting month number
 			int monthNum = startMonth; 
 			//for (var i = monthNum; i < 12 + monthNum; i++)
 			for (int i = 0; i < eventGroupCount; i++)
 			{
-				calEvents[i] = new EventMonth(i+1, weekView);
+				modelWrapper.calEvents[i] = new EventMonth(i+1, weekView);
 				//monthNum++;
 				//if (monthNum > 12) monthNum = 1;
 			}
@@ -83,9 +84,9 @@ namespace TikTokCalendar.Controllers
 							else
 							{
 								//monthIndex = calEvent.StartTime.Month - 1;
-								for (int i = 0; i < calEvents.Count; i++)
+								for (int i = 0; i < modelWrapper.calEvents.Count; i++)
 								{
-									if (calEvents[i].Month == calEvent.StartTime.Month)
+									if (modelWrapper.calEvents[i].Month == calEvent.StartTime.Month)
 									{
 										monthIndex = i;
 									}
@@ -95,7 +96,7 @@ namespace TikTokCalendar.Controllers
 							// Only add event if we haven't already added this TimeEditID already
 							if (!addedEvents.Contains(calEvent.TimeEditID))
 							{
-								calEvents[monthIndex].Events.Add(calEvent);
+								modelWrapper.calEvents[monthIndex].Events.Add(calEvent);
 								addedEvents.Add(calEvent.TimeEditID);
 							}
 						}
@@ -105,11 +106,11 @@ namespace TikTokCalendar.Controllers
 
 
 			// Sort that shit
-			for (int i = 0; i < calEvents.Count; i++)
+			for (int i = 0; i < modelWrapper.calEvents.Count; i++)
 			{
-				calEvents[i].Events = calEvents[i].Events.OrderBy(x => x.StartTime).ToList();
+				modelWrapper.calEvents[i].Events = modelWrapper.calEvents[i].Events.OrderBy(x => x.StartTime).ToList();
 			}
-			return View(calEvents);
+			return View(modelWrapper);//.calEvents);
 		}
 
 		private void Print(string s)
