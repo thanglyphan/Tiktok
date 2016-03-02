@@ -19,8 +19,15 @@
     @Model.user.UserName = $("#user-name").html();
     @Model.user.Course   = $("#user-course").html();
 </script>
-<!-- end of hack -->
 
+<div>
+    @using (Html.BeginForm()) {
+        @Html.TextBox("homoGutten")
+        <input value="sug kuk" type="submit" />
+    }
+</div>
+
+<!-- end of hack -->
 
     <!-- The navbar with the tiktok logo  -->
     <header>
@@ -46,7 +53,7 @@
         </script>
 
         <div class="main-body">
-            
+
                 @foreach (var month in Model.calEvents)
                 {
                     if (month.Events.Count <= 0)
@@ -66,7 +73,7 @@
                         {
                             <div class="feed-container">
 
-                                
+
                                 <!-- Container for the event content -->
                                 <div class="content">
 
