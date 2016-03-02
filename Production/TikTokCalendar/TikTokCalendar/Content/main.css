@@ -82,15 +82,17 @@ header .login-button {
 /*===================================
   M O N T H
 ===================================*/
-
+/*
 .feed-month:not(:first-child) {
   margin-top: 70px;
 }
+*/
 
 
 .feed {
   max-width: 594px;
   margin: 0 auto;
+  margin-bottom: 70px;
 }
 
 
@@ -100,6 +102,10 @@ header .login-button {
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 3px 3px 0px 0px;
+  width: 100%;
+  display: block;	
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .feed-month p {
@@ -109,6 +115,10 @@ header .login-button {
   font-size: 22px;
   font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
+}
+
+.feed-month p:hover {
+	text-decoration: none;
 }
 
 /*===================================

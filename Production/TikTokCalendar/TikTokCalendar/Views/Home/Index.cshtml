@@ -55,12 +55,14 @@
                     }
 
                 <!-- Displays the month name -->
-                    <div class="feed-month">
+					//<a class="btn btn-default" data-toggle="collapse" data-target="#@month.GetMonthId()">lukk mnd</a>
+
+                    <a class="feed-month" data-toggle="collapse" data-target="#@month.GetMonthId()">
                         <p class="month">@month.GetMonthName()</p>  <!-- August -->
-                    </div>
+                    </a>
 
                     <!-- Container for an entire month of events -->
-                    <div class="feed">
+                    <div class="feed collapse in" id="@month.GetMonthId()">
 
                         @foreach (var item in month.Events)
                         {
