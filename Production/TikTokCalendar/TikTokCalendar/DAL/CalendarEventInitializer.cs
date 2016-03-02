@@ -19,7 +19,8 @@ namespace TikTokCalendar.DAL
 	public class CalendarEventInitializer : DropCreateDatabaseAlways<CalendarEventContext>
 	{
 		private const string Format = "dd.MM.yyyy HH:mm:ss";
-
+		private List<Subject> subjects;
+		 
 		protected override void Seed(CalendarEventContext context)
 		{
 			InsertDummyData(context);
@@ -70,7 +71,7 @@ namespace TikTokCalendar.DAL
 
 			// Subjects
 			// TODO Can populate this from going through the json file? or a file from the school with all subjects
-			var subjects = new List<Subject>
+			subjects = new List<Subject>
 			{
 				new Subject { Name="Prosjekt software engineering (PJ3100-15)" },
 				new Subject { Name="Matematikk og Fysikk (RF3100-15)" },
@@ -309,6 +310,13 @@ namespace TikTokCalendar.DAL
 		/// 
 		public int GetSubjectIdFromCode(string code)
 		{
+			foreach (var subject in subjects)
+			{
+				if (code == subject.GetSubjectCode())
+				{
+					return subject.ID;
+				}
+			}
 			return 1;
 		}
 
