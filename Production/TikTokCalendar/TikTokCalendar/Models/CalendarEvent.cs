@@ -9,6 +9,7 @@ namespace TikTokCalendar.Models
 	public class CalendarEvent
 	{
 		public int ID { get; set; }
+		public int TimeEditID { get; set; }
 		public int SubjectID { get; set; }
 		public DateTime StartTime { get; set; }
 		public DateTime EndTime { get; set; }
@@ -19,6 +20,22 @@ namespace TikTokCalendar.Models
 		public string Comment { get; set; }
 
 		public virtual Subject Subject { get; set; }
+
+		/// <summary>
+		/// Creates an empty event.
+		/// </summary>
+		public CalendarEvent()
+		{
+			StartTime = DateTime.MinValue;
+			EndTime = DateTime.MinValue;
+			TimeEditID = -1;
+			SubjectID = -1;
+			RoomName = null;
+			EventName = null;
+			Attendees = null;
+			Teacher = null;
+			Comment = null;
+		}
 
 		/// <summary>
 		/// Returns the start and to time formatted for display.
@@ -35,6 +52,31 @@ namespace TikTokCalendar.Models
 		{
 			//return StartTime.DayOfWeek.ToString().Substring(0, 3);
 			return CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(StartTime.DayOfWeek).Substring(0, 3).ToLower();
+		}
+
+		public int GetWeekNumber()
+		{
+			Calendar cal = new GregorianCalendar();
+			DateTime dt = StartTime;
+			return cal.GetWeekOfYear(dt, CalendarWeekRule.FirstDay, DayOfWeek.Monday);
+		}
+
+		public bool Equals(CalendarEvent e)
+		{
+			if (e == null) return false;
+			return TimeEditID == e.TimeEditID;
+			return (SubjectID == e.SubjectID);
+			bool sameDate = DateTime.Compare(StartTime, e.StartTime) == 0;
+			if (sameDate && SubjectID == e.SubjectID && RoomName == e.RoomName)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public string ToText()
+		{
+			return TimeEditID.ToString();
 		}
 	}
 }

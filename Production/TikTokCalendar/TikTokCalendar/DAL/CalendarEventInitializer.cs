@@ -35,35 +35,47 @@ namespace TikTokCalendar.DAL
 			{
 				new Course { Name="Programmering" },
 				new Course { Name="Spillprogrammering" },
-				new Course { Name="Intelligente Systemer" }
+				new Course { Name="Intelligente Systemer" },
+				new Course { Name="Mobil Apputvikling" }
 			};
 			courses.ForEach(c => context.Courses.Add(c));
 			context.SaveChanges();
 
 			// Subjects
+			// TODO Can populate this from going through the json file? or a file from the school with all subjects
 			var subjects = new List<Subject>
 			{
+				new Subject { Name="Prosjekt software engineering" },
 				new Subject { Name="Matematikk og Fysikk" },
 				new Subject { Name="C++ Programmering" },
 				new Subject { Name="Game AI" },
-				new Subject { Name="Prosjekt software engineering" },
-				new Subject { Name="Avansert Javaprogrammering" }
+				new Subject { Name="Embedded systems" },
+				new Subject { Name="Mobil utvikling" },
+				new Subject { Name="Avansert Javaprogrammering" },
+				new Subject { Name="Ruby on Rails" }
 			};
 			subjects.ForEach(s => context.Subjects.Add(s));
 			context.SaveChanges();
 
 			// CourseSubjects
+			// TODO Semester might not be necessary, as TimeEdit only show stuff for this semester
 			var courseSubjects = new List<CourseSubject>
 			{
-				new CourseSubject { CourseID=1, SubjectID=1, Semester=3 },
-				new CourseSubject { CourseID=1, SubjectID=5, Semester=3 },
-				new CourseSubject { CourseID=1, SubjectID=3, Semester=3 },
-				new CourseSubject { CourseID=1, SubjectID=4, Semester=3 },
+				new CourseSubject { CourseID=2, SubjectID=1, Semester=4 },
+				new CourseSubject { CourseID=2, SubjectID=2, Semester=4 },
+				new CourseSubject { CourseID=2, SubjectID=3, Semester=4 },
+				new CourseSubject { CourseID=2, SubjectID=4, Semester=4 },
+				
+				new CourseSubject { CourseID=3, SubjectID=1, Semester=4 },
+				new CourseSubject { CourseID=3, SubjectID=3, Semester=4 },
+				new CourseSubject { CourseID=3, SubjectID=5, Semester=4 },
+				new CourseSubject { CourseID=3, SubjectID=6, Semester=4 },
 
-				new CourseSubject { CourseID=2, SubjectID=1, Semester=3 },
-				new CourseSubject { CourseID=2, SubjectID=2, Semester=3 },
-				new CourseSubject { CourseID=2, SubjectID=3, Semester=3 },
-				new CourseSubject { CourseID=2, SubjectID=4, Semester=3 }
+				new CourseSubject { CourseID=1, SubjectID=1, Semester=4 },
+				new CourseSubject { CourseID=1, SubjectID=6, Semester=4 },
+				new CourseSubject { CourseID=1, SubjectID=7, Semester=4 },
+				new CourseSubject { CourseID=1, SubjectID=8, Semester=4 }
+
 			};
 			courseSubjects.ForEach(c => context.CourseSubject.Add(c));
 			context.SaveChanges();
@@ -85,6 +97,9 @@ namespace TikTokCalendar.DAL
 			dataPath = HttpContext.Current.Server.MapPath(dataPath);
 			var json = File.ReadAllText(dataPath);
 
+			// TODO Check if the event exists? 
+
+
 			var rootObj = JsonConvert.DeserializeObject<RootObject>(json);
 			foreach (var item in rootObj.reservations)
 			{
@@ -97,17 +112,22 @@ namespace TikTokCalendar.DAL
 				var subject = 1; // TODO Default to an empty event (to make it easier to see error)? If it can't find a similar one it will just take the first one
 				foreach (var subj in context.Subjects)
 				{
-					if (item.columns[0].Substring(0, 4).Equals(subj.Name.Substring(0, 4)))
+					if (item.columns[0].Substring(0, 7).Equals(subj.Name.Substring(0, 7)))
 					{
 						subject = subj.ID;
 						break;
 					}
 				}
+				int timeEditId = -1;
+				int.TryParse(item.id, out timeEditId);
+
+
 				// Make an event out of the data
 				var ce = new CalendarEvent
 				{
 					StartTime = start,
 					EndTime = end,
+					TimeEditID = timeEditId,
 					//SubjectName = item.columns[0], 
 					SubjectID = subject,
 					RoomName = item.columns[2],

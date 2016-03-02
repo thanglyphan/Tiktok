@@ -19,6 +19,8 @@ namespace TikTokCalendar.DAL
 			UserName = name;
 			Course = course;
 			Year = GetYearFromName();
+
+			// TODO Check if username is valid, if it isn't make the user a special user that only have one event called EROOR or something
 		}
 
 		/// <summary>

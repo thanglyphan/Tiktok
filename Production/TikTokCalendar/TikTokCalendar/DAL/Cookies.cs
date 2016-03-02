@@ -5,7 +5,7 @@ namespace TikTokCalendar.DAL
 {
 	public class Cookies
 	{
-
+		//Add cookie method.	
 		public void SaveToCookie(String UserNameKey,String CourseKey,int WeekOrMonthKey, StudentUser a)
 		{
 			HttpCookie UsernameCookie = new HttpCookie(UserNameKey);
@@ -28,14 +28,14 @@ namespace TikTokCalendar.DAL
 		{
 			HttpCookie myCookie = HttpContext.Current.Request.Cookies[key];
 
-			if (myCookie == null) {
+			if (myCookie == null) { //Returns the value og cookie if not null.
 				return null;
 			}
 			else {
 				return myCookie.Value;
 			}
 		}
-		public int LoadIntFromCookie(String key)
+		public int LoadIntFromCookie(String key) //Week or month view by user.
 		{
 			String s = LoadStringFromCookie(key);
 			int number;

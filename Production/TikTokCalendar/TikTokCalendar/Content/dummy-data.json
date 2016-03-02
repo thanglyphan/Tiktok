@@ -628,16 +628,1167 @@
         ]
       },
       {
-            "id":"4572",
-            "startdate":"11.10.2016",
+        "id": "4572",
+        "startdate": "11.10.2016",
+        "starttime": "12:15",
+        "enddate": "11.10.2016",
+        "endtime": "16:00",
+        "columns": [
+          "Matematikk og fysikk (RF3100-15)",
+          "2.klasse, Bachelor Spillprogrammering",
+          "Rom 82",
+          "Lars Sydnes",
+          "Forelesning",
+          ""
+        ]
+      },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {
+            "id":"4575",
+            "startdate":"06.01.2016",
+            "starttime":"10:15",
+            "enddate":"06.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4588",
+            "startdate":"07.01.2016",
+            "starttime":"14:15",
+            "enddate":"07.01.2016",
+            "endtime":"18:00",
+            "columns":[
+                "Embedded systems (PG5500-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Jens Christian Brynildsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4576",
+            "startdate":"13.01.2016",
+            "starttime":"10:15",
+            "enddate":"13.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4589",
+            "startdate":"14.01.2016",
+            "starttime":"14:15",
+            "enddate":"14.01.2016",
+            "endtime":"18:00",
+            "columns":[
+                "Embedded systems (PG5500-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Jens Christian Brynildsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4957",
+            "startdate":"15.01.2016",
+            "starttime":"10:15",
+            "enddate":"15.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Mobil utvikling (PG4600-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+                "Rom 82",
+                "Tor-Morten Grønli",
+                "Forelesning",
+                "NB! Merk at første forelesning starter klokken 9.15  (vanlig tid er 10.15)"
+            ]
+        },
+        {
+            "id":"4577",
+            "startdate":"20.01.2016",
+            "starttime":"10:15",
+            "enddate":"20.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4590",
+            "startdate":"21.01.2016",
+            "starttime":"14:15",
+            "enddate":"21.01.2016",
+            "endtime":"18:00",
+            "columns":[
+                "Embedded systems (PG5500-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Jens Christian Brynildsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5058",
+            "startdate":"22.01.2016",
+            "starttime":"10:15",
+            "enddate":"22.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Mobil utvikling (PG4600-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+                "Rom 82",
+                "Tor-Morten Grønli",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4578",
+            "startdate":"27.01.2016",
+            "starttime":"10:15",
+            "enddate":"27.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4591",
+            "startdate":"28.01.2016",
+            "starttime":"14:15",
+            "enddate":"28.01.2016",
+            "endtime":"18:00",
+            "columns":[
+                "Embedded systems (PG5500-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Jens Christian Brynildsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4579",
+            "startdate":"03.02.2016",
+            "starttime":"10:15",
+            "enddate":"03.02.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4592",
+            "startdate":"04.02.2016",
+            "starttime":"14:15",
+            "enddate":"04.02.2016",
+            "endtime":"18:00",
+            "columns":[
+                "Embedded systems (PG5500-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Jens Christian Brynildsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5054",
+            "startdate":"09.02.2016",
+            "starttime":"08:15",
+            "enddate":"09.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Mobil utvikling (PG4600-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+                "Rom 82",
+                "Tor-Morten Grønli",
+                "Forelesning",
+                "NB! Merk endret forelesningstidpunkt denne uken"
+            ]
+        },
+        {
+            "id":"4580",
+            "startdate":"10.02.2016",
+            "starttime":"10:15",
+            "enddate":"10.02.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4593",
+            "startdate":"11.02.2016",
+            "starttime":"14:15",
+            "enddate":"11.02.2016",
+            "endtime":"18:00",
+            "columns":[
+                "Embedded systems (PG5500-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Jens Christian Brynildsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4581",
+            "startdate":"17.02.2016",
+            "starttime":"10:15",
+            "enddate":"17.02.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4594",
+            "startdate":"18.02.2016",
+            "starttime":"14:15",
+            "enddate":"18.02.2016",
+            "endtime":"18:00",
+            "columns":[
+                "Embedded systems (PG5500-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Jens Christian Brynildsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5045",
+            "startdate":"19.02.2016",
+            "starttime":"10:15",
+            "enddate":"19.02.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Mobil utvikling (PG4600-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+                "Rom 82",
+                "Tor-Morten Grønli",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4582",
+            "startdate":"16.03.2016",
+            "starttime":"10:15",
+            "enddate":"16.03.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4595",
+            "startdate":"17.03.2016",
+            "starttime":"14:15",
+            "enddate":"17.03.2016",
+            "endtime":"18:00",
+            "columns":[
+                "Embedded systems (PG5500-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Jens Christian Brynildsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5046",
+            "startdate":"18.03.2016",
+            "starttime":"10:15",
+            "enddate":"18.03.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Mobil utvikling (PG4600-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+                "Rom 82",
+                "Tor-Morten Grønli",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4583",
+            "startdate":"30.03.2016",
+            "starttime":"10:15",
+            "enddate":"30.03.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4596",
+            "startdate":"31.03.2016",
+            "starttime":"14:15",
+            "enddate":"31.03.2016",
+            "endtime":"18:00",
+            "columns":[
+                "Embedded systems (PG5500-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Jens Christian Brynildsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5047",
+            "startdate":"01.04.2016",
+            "starttime":"10:15",
+            "enddate":"01.04.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Mobil utvikling (PG4600-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+                "Rom 82",
+                "Tor-Morten Grønli",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5055",
+            "startdate":"05.04.2016",
+            "starttime":"08:15",
+            "enddate":"05.04.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Mobil utvikling (PG4600-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+                "Rom 82",
+                "Tor-Morten Grønli",
+                "Forelesning",
+                "NB! Merk endret forelesningstidspunkt denne uken."
+            ]
+        },
+        {
+            "id":"4584",
+            "startdate":"06.04.2016",
+            "starttime":"10:15",
+            "enddate":"06.04.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4597",
+            "startdate":"07.04.2016",
+            "starttime":"14:15",
+            "enddate":"07.04.2016",
+            "endtime":"18:00",
+            "columns":[
+                "Embedded systems (PG5500-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Jens Christian Brynildsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4585",
+            "startdate":"13.04.2016",
+            "starttime":"10:15",
+            "enddate":"13.04.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4598",
+            "startdate":"14.04.2016",
+            "starttime":"14:15",
+            "enddate":"14.04.2016",
+            "endtime":"18:00",
+            "columns":[
+                "Embedded systems (PG5500-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Jens Christian Brynildsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5048",
+            "startdate":"15.04.2016",
+            "starttime":"10:15",
+            "enddate":"15.04.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Mobil utvikling (PG4600-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+                "Rom 82",
+                "Tor-Morten Grønli",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4586",
+            "startdate":"04.05.2016",
+            "starttime":"10:15",
+            "enddate":"04.05.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4587",
+            "startdate":"11.05.2016",
+            "starttime":"10:15",
+            "enddate":"11.05.2016",
+            "endtime":"14:00",
+            "columns":[
+                "C++ programmering (PG4400-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Rom 40",
+                "Tomas Sandnes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4599",
+            "startdate":"12.05.2016",
+            "starttime":"14:15",
+            "enddate":"12.05.2016",
+            "endtime":"18:00",
+            "columns":[
+                "Embedded systems (PG5500-15)",
+                "2.klasse, Bachelor - Intelligente Systemer",
+                "Auditoriet",
+                "Jens Christian Brynildsen",
+                "Forelesning",
+                ""
+            ]
+        },
+      {
+        "id": "5049",
+        "startdate": "13.05.2016",
+        "starttime": "10:15",
+        "enddate": "13.05.2016",
+        "endtime": "14:00",
+        "columns": [
+          "Mobil utvikling (PG4600-15)",
+          "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+          "Rom 82",
+          "Tor-Morten Grønli",
+          "Forelesning",
+          ""
+        ]
+      },
+      {
+            "id":"4526",
+            "startdate":"05.01.2016",
+            "starttime":"08:15",
+            "enddate":"05.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Avansert Javaprogrammering 2 (PG4100-15)",
+                "Bachelor Programmering",
+                "Rom 40",
+                "Per Lauvås",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4539",
+            "startdate":"11.01.2016",
             "starttime":"12:15",
-            "enddate":"11.10.2016",
+            "enddate":"11.01.2016",
             "endtime":"16:00",
             "columns":[
-                "Matematikk og fysikk (RF3100-15)",
-                "2.klasse, Bachelor Spillprogrammering",
+                "Ruby on Rails (PG4300-15)",
+                "2.klasse, Bachelor Programmering",
+                "Rom 38",
+                "Ole Christian Rynning",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4527",
+            "startdate":"12.01.2016",
+            "starttime":"08:15",
+            "enddate":"12.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Avansert Javaprogrammering 2 (PG4100-15)",
+                "Bachelor Programmering",
+                "Rom 40",
+                "Per Lauvås",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4963",
+            "startdate":"15.01.2016",
+            "starttime":"09:15",
+            "enddate":"15.01.2016",
+            "endtime":"11:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4957",
+            "startdate":"15.01.2016",
+            "starttime":"10:15",
+            "enddate":"15.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Mobil utvikling (PG4600-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
                 "Rom 82",
-                "Lars Sydnes",
+                "Tor-Morten Grønli",
+                "Forelesning",
+                "NB! Merk at første forelesning starter klokken 9.15  (vanlig tid er 10.15)"
+            ]
+        },
+        {
+            "id":"4964",
+            "startdate":"15.01.2016",
+            "starttime":"11:15",
+            "enddate":"15.01.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Rom 79-80",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4715",
+            "startdate":"18.01.2016",
+            "starttime":"08:15",
+            "enddate":"18.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Enterprise programmering 2 (PG6100-15)",
+                "3.klasse, Bachelor Programmering",
+                "Rom 40",
+                "",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4540",
+            "startdate":"18.01.2016",
+            "starttime":"12:15",
+            "enddate":"18.01.2016",
+            "endtime":"16:00",
+            "columns":[
+                "Ruby on Rails (PG4300-15)",
+                "2.klasse, Bachelor Programmering",
+                "Rom 38",
+                "Ole Christian Rynning",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4528",
+            "startdate":"19.01.2016",
+            "starttime":"08:15",
+            "enddate":"19.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Avansert Javaprogrammering 2 (PG4100-15)",
+                "Bachelor Programmering",
+                "Rom 40",
+                "Per Lauvås",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5018",
+            "startdate":"22.01.2016",
+            "starttime":"09:15",
+            "enddate":"22.01.2016",
+            "endtime":"11:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5058",
+            "startdate":"22.01.2016",
+            "starttime":"10:15",
+            "enddate":"22.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Mobil utvikling (PG4600-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+                "Rom 82",
+                "Tor-Morten Grønli",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4716",
+            "startdate":"25.01.2016",
+            "starttime":"08:15",
+            "enddate":"25.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Enterprise programmering 2 (PG6100-15)",
+                "3.klasse, Bachelor Programmering",
+                "Rom 40",
+                "",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4541",
+            "startdate":"25.01.2016",
+            "starttime":"12:15",
+            "enddate":"25.01.2016",
+            "endtime":"16:00",
+            "columns":[
+                "Ruby on Rails (PG4300-15)",
+                "2.klasse, Bachelor Programmering",
+                "Rom 38",
+                "Ole Christian Rynning",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4529",
+            "startdate":"26.01.2016",
+            "starttime":"08:15",
+            "enddate":"26.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Avansert Javaprogrammering 2 (PG4100-15)",
+                "Bachelor Programmering",
+                "Rom 40",
+                "Per Lauvås",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5019",
+            "startdate":"29.01.2016",
+            "starttime":"09:15",
+            "enddate":"29.01.2016",
+            "endtime":"11:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5021",
+            "startdate":"29.01.2016",
+            "starttime":"11:15",
+            "enddate":"29.01.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Rom 79-80",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4717",
+            "startdate":"01.02.2016",
+            "starttime":"08:15",
+            "enddate":"01.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Enterprise programmering 2 (PG6100-15)",
+                "3.klasse, Bachelor Programmering",
+                "Rom 40",
+                "",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4542",
+            "startdate":"01.02.2016",
+            "starttime":"12:15",
+            "enddate":"01.02.2016",
+            "endtime":"16:00",
+            "columns":[
+                "Ruby on Rails (PG4300-15)",
+                "2.klasse, Bachelor Programmering",
+                "Rom 38",
+                "Ole Christian Rynning",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5057",
+            "startdate":"03.02.2016",
+            "starttime":"08:15",
+            "enddate":"03.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Avansert Javaprogrammering 2 (PG4100-15)",
+                "Bachelor Programmering",
+                "Rom 81",
+                "Per Lauvås",
+                "Forelesning",
+                "NB! Avvikende tid og rom"
+            ]
+        },
+        {
+            "id":"5020",
+            "startdate":"05.02.2016",
+            "starttime":"09:15",
+            "enddate":"05.02.2016",
+            "endtime":"11:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5022",
+            "startdate":"05.02.2016",
+            "starttime":"11:15",
+            "enddate":"05.02.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Rom 79-80",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4718",
+            "startdate":"08.02.2016",
+            "starttime":"08:15",
+            "enddate":"08.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Enterprise programmering 2 (PG6100-15)",
+                "3.klasse, Bachelor Programmering",
+                "Rom 40",
+                "",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4543",
+            "startdate":"08.02.2016",
+            "starttime":"12:15",
+            "enddate":"08.02.2016",
+            "endtime":"16:00",
+            "columns":[
+                "Ruby on Rails (PG4300-15)",
+                "2.klasse, Bachelor Programmering",
+                "Rom 38",
+                "Ole Christian Rynning",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5054",
+            "startdate":"09.02.2016",
+            "starttime":"08:15",
+            "enddate":"09.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Mobil utvikling (PG4600-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+                "Rom 82",
+                "Tor-Morten Grønli",
+                "Forelesning",
+                "NB! Merk endret forelesningstidpunkt denne uken"
+            ]
+        },
+        {
+            "id":"5052",
+            "startdate":"12.02.2016",
+            "starttime":"10:15",
+            "enddate":"12.02.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Avansert Javaprogrammering 2 (PG4100-15)",
+                "Bachelor Programmering",
+                "Rom 82",
+                "Per Lauvås",
+                "Forelesning",
+                "NB! Merk endret forelesningstid denne uken"
+            ]
+        },
+        {
+            "id":"4719",
+            "startdate":"15.02.2016",
+            "starttime":"08:15",
+            "enddate":"15.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Enterprise programmering 2 (PG6100-15)",
+                "3.klasse, Bachelor Programmering",
+                "Rom 40",
+                "",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4544",
+            "startdate":"15.02.2016",
+            "starttime":"12:15",
+            "enddate":"15.02.2016",
+            "endtime":"16:00",
+            "columns":[
+                "Ruby on Rails (PG4300-15)",
+                "2.klasse, Bachelor Programmering",
+                "Rom 38",
+                "Ole Christian Rynning",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5056",
+            "startdate":"16.02.2016",
+            "starttime":"08:15",
+            "enddate":"16.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Avansert Javaprogrammering 2 (PG4100-15)",
+                "Bachelor Programmering",
+                "Rom 40",
+                "Per Lauvås",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5024",
+            "startdate":"19.02.2016",
+            "starttime":"09:15",
+            "enddate":"19.02.2016",
+            "endtime":"11:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5045",
+            "startdate":"19.02.2016",
+            "starttime":"10:15",
+            "enddate":"19.02.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Mobil utvikling (PG4600-15)",
+                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+                "Rom 82",
+                "Tor-Morten Grønli",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5023",
+            "startdate":"19.02.2016",
+            "starttime":"11:15",
+            "enddate":"19.02.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Rom 79-80",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4533",
+            "startdate":"23.02.2016",
+            "starttime":"08:15",
+            "enddate":"23.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Avansert Javaprogrammering 2 (PG4100-15)",
+                "Bachelor Programmering",
+                "Rom 40",
+                "Per Lauvås",
+                "Forelesning",
+                "Flyttet fra 15.mars"
+            ]
+        },
+        {
+            "id":"4720",
+            "startdate":"29.02.2016",
+            "starttime":"08:15",
+            "enddate":"29.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Enterprise programmering 2 (PG6100-15)",
+                "3.klasse, Bachelor Programmering",
+                "Rom 40",
+                "",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4694",
+            "startdate":"29.02.2016",
+            "starttime":"09:00",
+            "enddate":"29.02.2016",
+            "endtime":"15:00",
+            "columns":[
+                "Prosjekt software engineering (PJ3100-15)",
+                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "",
+                "Per Lauvås",
+                "Prosjekt",
+                ""
+            ]
+        },
+        {
+            "id":"4695",
+            "startdate":"01.03.2016",
+            "starttime":"09:00",
+            "enddate":"01.03.2016",
+            "endtime":"15:00",
+            "columns":[
+                "Prosjekt software engineering (PJ3100-15)",
+                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "",
+                "Per Lauvås",
+                "Prosjekt",
+                "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+            ]
+        },
+        {
+            "id":"4696",
+            "startdate":"02.03.2016",
+            "starttime":"09:00",
+            "enddate":"02.03.2016",
+            "endtime":"15:00",
+            "columns":[
+                "Prosjekt software engineering (PJ3100-15)",
+                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "",
+                "Per Lauvås",
+                "Prosjekt",
+                "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+            ]
+        },
+        {
+            "id":"4697",
+            "startdate":"03.03.2016",
+            "starttime":"09:00",
+            "enddate":"03.03.2016",
+            "endtime":"15:00",
+            "columns":[
+                "Prosjekt software engineering (PJ3100-15)",
+                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "",
+                "Per Lauvås",
+                "Prosjekt",
+                "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+            ]
+        },
+        {
+            "id":"4698",
+            "startdate":"04.03.2016",
+            "starttime":"09:00",
+            "enddate":"04.03.2016",
+            "endtime":"15:00",
+            "columns":[
+                "Prosjekt software engineering (PJ3100-15)",
+                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "",
+                "Per Lauvås",
+                "Prosjekt",
+                "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+            ]
+        },
+        {
+            "id":"5025",
+            "startdate":"04.03.2016",
+            "starttime":"09:15",
+            "enddate":"04.03.2016",
+            "endtime":"11:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5032",
+            "startdate":"04.03.2016",
+            "starttime":"11:15",
+            "enddate":"04.03.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Rom 79-80",
+                "Faltin Karlsen",
                 "Forelesning",
                 ""
             ]

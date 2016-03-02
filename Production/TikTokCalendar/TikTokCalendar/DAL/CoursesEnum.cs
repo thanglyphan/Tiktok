@@ -1,7 +1,8 @@
 ﻿public enum SchoolCourses
 {
+	Programmering = 1,
 	SpillProgrammering,
-	Programmering,
 	IntelligenteSystemer,
-	MobilApputvikling
+	MobilApputvikling,
+	Grafikk3D
 }
