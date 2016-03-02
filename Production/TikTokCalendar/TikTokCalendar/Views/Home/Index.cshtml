@@ -9,6 +9,19 @@
     Random rng = new Random();
 }
 
+
+<!-- Hack to store posted data after pageload, can't be in separate file -->
+<div id="user-name">  </div>
+<div id="user-course"></div>
+
+<script>
+    @Model.user.UserName = $("#user-name").html();
+    @Model.user.Course   = $("#user-course").html();
+
+</script>
+<!-- end of hack -->
+
+
     <!-- The navbar with the tiktok logo  -->
     <header>
         <i class="fa fa-calendar-check-o"></i>
