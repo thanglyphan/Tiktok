@@ -13,16 +13,18 @@ namespace TikTokCalendar.DAL
 {
 	public class ExamInit
 	{
+		CalendarEventInitializer a;
 		//CalendarEventContext context;
-		public ExamInit()
+		public ExamInit(CalendarEventInitializer a)
 		{
+			this.a = a;
 			//this.context = context;
 			//ReadJsonFile(context);
 		}
 		
-		public CalendarEvent ReadJsonFile()
+		public List<CalendarEvent> ReadJsonFile()
 		{
-			//List<CalendarEvent> list = new List<CalendarEvent>();
+			List<CalendarEvent> list = new List<CalendarEvent>();
 			CalendarEvent data = null;
 			var dataPath = "~/Content/timeedit/innlevering-eksamen-dato.json";
 			dataPath = HttpContext.Current.Server.MapPath(dataPath);
@@ -33,23 +35,23 @@ namespace TikTokCalendar.DAL
 			foreach (var item in rootObj.reservations) {
 				count++;
 
-				var start = CalendarEventInitializer.GetParsedDateTime(item.Dato,"f");
+				var start = CalendarEventInitializer.GetParsedDateTime(item.Dato + "16", "09:00");
 				var end = CalendarEventInitializer.GetParsedDateTime(item.Dato,"f");
 				data = new CalendarEvent {
-					StartTime = start,
-					EndTime = end,
+					StartTime = DateTime.Now,
+					EndTime = DateTime.Now,
 					TimeEditID = 1,
-					SubjectID = 123 + count,
-					RoomName = item.Emnekode,
-					EventName = item.Vurderingstype,
-					Attendees = item.Emnenavn,
-					Teacher = item.Emnenavn,
+					SubjectID = a.GetSubjectIdFromCode(item.Emnekode),
+					RoomName = "Info kommer",
+					EventName = item.Vurderingstype, //its ok
+					Attendees = item.Emnenavn + item.Vurderingstype,
+					Teacher = "Thang Phan",
 					Comment = "Varighet: " + item.Varighet + "\n Vekting: " + item.Vekting + "\n Emnekode: " +
 					item.Emnekode + "\n Emnenavn: " + item.Emnenavn + "\n Hjelpemidler: " + item.Hjelpemidler
 				};
-				return data;
+				list.Add(data);
 			}
-			return data;
+			return list;
 		}
 
 	}

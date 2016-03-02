@@ -56,7 +56,7 @@ namespace TikTokCalendar.DAL
 		/// </summary>
 		private void InsertDummyData(CalendarEventContext context)
 		{
-			ExamInit exam = new ExamInit();
+			ExamInit exam = new ExamInit(this);
 			// Courses
 			var courses = new List<Course>
 			{
@@ -197,7 +197,9 @@ namespace TikTokCalendar.DAL
 				//liste.Add(exam.ReadJsonFile());
 			}
 
-			//context.CalendarEvents.Add(data);
+			foreach(var item in exam.ReadJsonFile()) {
+				context.CalendarEvents.Add(item);
+			}
 			context.CalendarEvents.AddRange(liste);
 			context.SaveChanges();
 			/*var events = new List<CalendarEvent>
