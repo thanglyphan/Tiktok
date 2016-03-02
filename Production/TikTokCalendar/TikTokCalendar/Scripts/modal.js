@@ -2,10 +2,10 @@
 $(function () {
 
     var userName = "";
-    
+
     vex.dialog.open({
         message: 'Westerdals brukernavn',
-        input: "<input name=\"username\" type=\"text\" placeholder=\"nelwil14\" required />",
+        input: "<input name=\"userName\" type=\"text\" placeholder=\"nelwil14\" required />",
 
         buttons: [
         $.extend({}, vex.dialog.buttons.YES, {

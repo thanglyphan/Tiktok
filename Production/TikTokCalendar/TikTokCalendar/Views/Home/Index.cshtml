@@ -19,21 +19,73 @@
     @Model.user.UserName = $("#user-name").html();
     @Model.user.Course   = $("#user-course").html();
 </script>
-<!-- end of hack -->
 
+<div>
+    @using (Html.BeginForm()) {
+        @Html.TextBox("homoGutten")
+        <input value="sug kuk" type="submit" />
+    }
+</div>
+
+<!-- end of hack -->
 
     <!-- The navbar with the tiktok logo  -->
     <header>
         <i class="fa fa-calendar-check-o"></i>
         <p>tiktok</p>
 
-        <a class="fa fa-sign-in login-button" href="#" data-toggle="modal" data-target="#logginn-vindu">
+        <a class="fa fa-sign-in login-button" href="#" data-toggle="modal" data-target="#login-window">
         </a>
 
     </header>
 
     <!-- Holds global settings and spans the entire page   -->
     <main>
+
+		<!-- "Log in" modal / Alternative login -->
+		<div class="modal fade" id="login-window" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						
+					</div>
+					<div class="modal-body">
+						<p>
+							Westerdals-brukernavn:
+							
+						</p>
+						<a class="btn btn-default btn-block" data-toggle="modal" data-target="#course-selection" data-dismiss="modal">
+							Neste
+						</a>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- choose course -->
+		<div class="modal fade" id="course-selection" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						Velg ditt studieprogram
+					</div>
+					<div class="modal-body">
+						<div>
+							<div class="btn-group-vertical btn-block">
+								<a class="btn btn-default">2. Klasse Spillprogrammering</a>
+								<a class="btn btn-default">2. Klasse Spillprogrammering</a>
+								<a class="btn btn-default">2. Klasse Spillprogrammering</a>
+								<a class="btn btn-default">2. Klasse Spillprogrammering</a>
+								<a class="btn btn-default">2. Klasse Spillprogrammering</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
         <!-- tooltip hover plugin initialization -->
         <script type="text/javascript">
@@ -46,7 +98,7 @@
         </script>
 
         <div class="main-body">
-            
+
                 @foreach (var month in Model.calEvents)
                 {
                     if (month.Events.Count <= 0)
@@ -66,9 +118,9 @@
 
                         @foreach (var item in month.Events)
                         {
-                            <div class="feed-container">
+                            <a class="feed-container" data-toggle="modal" data-target="#@item.ID">
 
-                                
+
                                 <!-- Container for the event content -->
                                 <div class="content">
 
@@ -103,8 +155,26 @@
                                 </div>
 
                                 <div class="horizontal-line"></div>
-                        </div>
-                        }
+                        </a>
+
+						<!-- "More info" modal -->
+						<div class="content-hidden modal fade" id="@item.ID" role="dialog">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										Informasjon
+									</div>
+									<div class="modal-body">
+										<p>
+											Kommentar:<br />
+											@item.Comment
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						}
                  </div>
                 }
          </div>

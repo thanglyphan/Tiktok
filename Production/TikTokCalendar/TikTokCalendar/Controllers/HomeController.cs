@@ -16,9 +16,14 @@ namespace TikTokCalendar.Controllers
 	{
 		private CalendarEventContext db = new CalendarEventContext();
 
-		public ActionResult Index(string id = "None")
+		public ActionResult Index(string homoGutten)
 		{
-			Printer.Print("User: " + id);
+			Debug.WriteLine(homoGutten);
+
+			//string id = "None";
+			string id = homoGutten;
+
+            Printer.Print("User: " + id);
 			string name = "trotor14";
 			SchoolCourses course = SchoolCourses.SpillProgrammering;
 			if (id == "prog13")
@@ -33,7 +38,6 @@ namespace TikTokCalendar.Controllers
 				course = SchoolCourses.IntelligenteSystemer;
 				Printer.Print("User: " + id + " intsys");
 			}
-
 			//Cookies cookie;
 			//string user = cookie.LoadFromCookie("Username");
 			//int program = cookie.LoadFromCookie("Program");

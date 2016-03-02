@@ -80,6 +80,14 @@ header .login-button {
 }
 
 /*===================================
+  ALT. LOGIN
+===================================*/
+
+#course-selection .btn {
+	text-align: left;
+}
+
+/*===================================
   M O N T H
 ===================================*/
 /*
@@ -129,6 +137,8 @@ header .login-button {
   height: 80px;
   background-color: white;
   border-radius: 0px 0px 3px 3px;
+  display: block;
+  cursor: pointer;
 }
 
 .feed-container .class-date {
@@ -146,6 +156,16 @@ header .login-button {
   color: #a4b0c3;
   font-weight: normal;
   float: left; 
+}
+
+@media (min-width: 768px) {
+	.modal-dialog {
+		margin-top: 160px;
+	}
+}
+
+.modal-header {
+	font-size: 1.5em;
 }
 
 .feed-container .content {
