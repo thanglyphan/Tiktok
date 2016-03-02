@@ -72,14 +72,14 @@ namespace TikTokCalendar.DAL
 			// TODO Can populate this from going through the json file? or a file from the school with all subjects
 			var subjects = new List<Subject>
 			{
-				new Subject { Name="Prosjekt software engineering" },
-				new Subject { Name="Matematikk og Fysikk" },
-				new Subject { Name="C++ Programmering" },
-				new Subject { Name="Game AI" },
-				new Subject { Name="Embedded systems" },
-				new Subject { Name="Mobil utvikling" },
-				new Subject { Name="Avansert Javaprogrammering" },
-				new Subject { Name="Ruby on Rails" }
+				new Subject { Name="Prosjekt software engineering (PJ3100-15)" },
+				new Subject { Name="Matematikk og Fysikk (RF3100-15)" },
+				new Subject { Name="C++ Programmering (PG4400-15)" },
+				new Subject { Name="Game AI (PG4500-15)" },
+				new Subject { Name="Embedded systems (PG5500-15)" },
+				new Subject { Name="Mobil utvikling (PG4600-15)" },
+				new Subject { Name="Avansert Javaprogrammering (PG4300-15)" },
+				new Subject { Name="Ruby on Rails (PG4100-15)" }
 			};
 			subjects.ForEach(s => context.Subjects.Add(s));
 			context.SaveChanges();
@@ -166,7 +166,8 @@ namespace TikTokCalendar.DAL
 				var subject = 1; // TODO Default to an empty event (to make it easier to see error)? If it can't find a similar one it will just take the first one
 				foreach (var subj in context.Subjects)
 				{
-					if (item.columns[0].Substring(0, 7).Equals(subj.Name.Substring(0, 7)))
+					//if (item.columns[0].Substring(0, 7).Equals(subj.Name.Substring(0, 7)))
+					if (item.columns[0].Substring(item.columns[0].Length - 11).Equals(subj.Name.Substring(subj.Name.Length - 11)))
 					{
 						subject = subj.ID;
 						break;

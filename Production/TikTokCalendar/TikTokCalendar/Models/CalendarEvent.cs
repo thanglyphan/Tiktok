@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Web;
+using TikTokCalendar.DAL;
 
 namespace TikTokCalendar.Models
 {
@@ -39,8 +41,10 @@ namespace TikTokCalendar.Models
 
 		public string GetEventNameWithoutSubjectCode()
 		{
+			//return Subject.Name;
 			if (Subject != null && TimeEditID > 0)
 			{
+				//Printer.Print("SubjName: " + Subject.Name);
 				return Subject.Name.Substring(0, Subject.Name.Length - 11);
 			}
 			return null;
