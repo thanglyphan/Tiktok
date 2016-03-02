@@ -26,6 +26,11 @@ namespace TikTokCalendar
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/bootstrap.css",
 					  "~/Content/site.css"));
-		}
+
+            // tooltip hover scripts
+            bundles.Add(new ScriptBundle("~/bundles/tooltip").Include(
+                      "~/Scripts/jquery.easing.1.3.js",
+                      "~/Scripts/jquery.BA.ToolTip.js"));
+        }
 	}
 }
