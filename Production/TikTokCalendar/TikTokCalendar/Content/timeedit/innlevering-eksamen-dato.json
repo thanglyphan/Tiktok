@@ -1,0 +1,632 @@
+﻿var events = [  
+    {  
+        "Dato":"10.4.",
+        "Emnekode":"PJ2100",
+        "Emnenavn":"Iterativt webprosjekt",
+        "Vurderingstype":"Prosjekt",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"7.2.",
+        "Emnekode":"TK2100",
+        "Emnenavn":"Informasjonssikkerhet",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":10,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"1.5.",
+        "Emnekode":"TK2100",
+        "Emnenavn":"Informasjonssikkerhet",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":15,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"25.5.",
+        "Emnekode":"TK2100",
+        "Emnenavn":"Informasjonssikkerhet",
+        "Vurderingstype":"Skriftlig eksamen",
+        "Vekt i %":75,
+        "Varighet ":"3 timer",
+        "Hjelpemidler":"Ingen"
+    },
+    {  
+        "Dato":"13.3.",
+        "Emnekode":"PG2201",
+        "Emnenavn":"Unity utvikling",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":25,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"Uke 19",
+        "Emnekode":"PG2201",
+        "Emnenavn":"Unity utvikling",
+        "Vurderingstype":"Innlevering (Hjemmeeksamen)",
+        "Vekt i %":75,
+        "Varighet ":"48 timer",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"Faglærer orienterer om frister",
+        "Emnekode":"DS2100",
+        "Emnenavn":"Animasjon",
+        "Vurderingstype":"Mappe",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"31.1.",
+        "Emnekode":"PGR101",
+        "Emnenavn":"Objektorientert programmering 2",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":10,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"20..3.",
+        "Emnekode":"PGR101",
+        "Emnenavn":"Objektorientert programmering 2",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":15,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"1.6.",
+        "Emnekode":"PGR101",
+        "Emnenavn":"Objektorientert programmering 2",
+        "Vurderingstype":"Skriftlig eksamen",
+        "Vekt i %":75,
+        "Varighet ":"3 timer",
+        "Hjelpemidler":"Ingen"
+    },
+    {  
+        "Dato":"21.2.",
+        "Emnekode":"DS2200",
+        "Emnenavn":"Digital kultur",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":5,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"24.4.",
+        "Emnekode":"DS2200",
+        "Emnenavn":"Digital kultur",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":10,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"5.6.",
+        "Emnekode":"DS2200",
+        "Emnenavn":"Digital kultur",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":45,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"8.6. og 9. 6",
+        "Emnekode":"DS2200",
+        "Emnenavn":"Digital kultur",
+        "Vurderingstype":"Muntlig",
+        "Vekt i %":40,
+        "Varighet ":"",
+        "Hjelpemidler":"Ingen"
+    },
+    {  
+        "Dato":"14.3.",
+        "Emnekode":"PG 4300",
+        "Emnenavn":"Ruby on Rails",
+        "Vurderingstype":"Skriftlig eksamen",
+        "Vekt i %":25,
+        "Varighet ":"",
+        "Hjelpemidler":"Ingen"
+    },
+    {  
+        "Dato":"5.6.",
+        "Emnekode":"PG4300",
+        "Emnenavn":"Ruby on Rails",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":75,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"29.5.",
+        "Emnekode":"PG 4100",
+        "Emnenavn":"Avansert Javaprogrammering 2",
+        "Vurderingstype":"Mappe",
+        "Vekt i %":60,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"10.6.",
+        "Emnekode":"PG 4100",
+        "Emnenavn":"Avansert Javaprogrammering 2",
+        "Vurderingstype":"Skriftlig eksamen",
+        "Vekt i %":40,
+        "Varighet ":"3 timer",
+        "Hjelpemidler":"Ingen"
+    },
+    {  
+        "Dato":"14.2.",
+        "Emnekode":"PG4600",
+        "Emnenavn":"Mobil utvikling",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":25,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"22.5.",
+        "Emnekode":"PG4600",
+        "Emnenavn":"Mobil utvikling",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":25,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"13.6.",
+        "Emnekode":"PG4600",
+        "Emnenavn":"Mobil utvikling",
+        "Vurderingstype":"Skriftlig eksamen",
+        "Vekt i %":50,
+        "Varighet ":"3 timer",
+        "Hjelpemidler":"Ingen"
+    },
+    {  
+        "Dato":"14.2.",
+        "Emnekode":"PG4600",
+        "Emnenavn":"Mobil utvikling",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":25,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"22.5.",
+        "Emnekode":"PG4600",
+        "Emnenavn":"Mobil utvikling",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":25,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"13.6.",
+        "Emnekode":"PG4600",
+        "Emnenavn":"Mobil utvikling",
+        "Vurderingstype":"Skriftlig eksamen",
+        "Vekt i %":50,
+        "Varighet ":"3 timer",
+        "Hjelpemidler":"Ingen"
+    },
+    {  
+        "Dato":"17.4.",
+        "Emnekode":"PG4400",
+        "Emnenavn":"C++ programmering",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":40,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"30.5.",
+        "Emnekode":"PG4400",
+        "Emnenavn":"C++ programmering",
+        "Vurderingstype":"Skriftlig eksamen",
+        "Vekt i %":60,
+        "Varighet ":"3 timer",
+        "Hjelpemidler":"Ingen"
+    },
+    {  
+        "Dato":"14.2.",
+        "Emnekode":"PG5500",
+        "Emnenavn":"Embedded systems",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":30,
+        "Varighet ":"",
+        "Hjelpemidler":""
+    },
+    {  
+        "Dato":"3.4.",
+        "Emnekode":"PG5500",
+        "Emnenavn":"Embedded systems",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":30,
+        "Varighet ":"",
+        "Hjelpemidler":""
+    },
+    {  
+        "Dato":"29.5.",
+        "Emnekode":"PG5500",
+        "Emnenavn":"Embedded systems",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":40,
+        "Varighet ":"",
+        "Hjelpemidler":""
+    },
+    {  
+        "Dato":"20.3.",
+        "Emnekode":"PG 4500",
+        "Emnenavn":"Game AI",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":40,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"5.6.",
+        "Emnekode":"PG 4500",
+        "Emnenavn":"Game AI",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":60,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"26.5.",
+        "Emnekode":"RF3100",
+        "Emnenavn":"Matematikk og fysikk",
+        "Vurderingstype":"Skriftlig eksamen",
+        "Vekt i %":100,
+        "Varighet ":"3 timer",
+        "Hjelpemidler":"Kalkulator"
+    },
+    {  
+        "Dato":"17.4.",
+        "Emnekode":"PG4400",
+        "Emnenavn":"C++ programmering",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":40,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"30.5.",
+        "Emnekode":"PG 4400",
+        "Emnenavn":"C++ programmering",
+        "Vurderingstype":"Skriftlig eksamen",
+        "Vekt i %":60,
+        "Varighet ":"3 timer",
+        "Hjelpemidler":"Ingen"
+    },
+    {  
+        "Dato":"31.1.",
+        "Emnekode":"DS 4101",
+        "Emnenavn":"Webutvikling 2",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":20,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"21.2.",
+        "Emnekode":"DS 4101",
+        "Emnenavn":"Webutvikling 2",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":30,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"22.5.",
+        "Emnekode":"DS 4101",
+        "Emnenavn":"Webutvikling 2",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":50,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"5.6.",
+        "Emnekode":"BU4200",
+        "Emnenavn":"Digital markedsføring",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"3.4.",
+        "Emnekode":"IS4100",
+        "Emnenavn":"CRM systemer",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":25,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"2.6.",
+        "Emnekode":"IS4100",
+        "Emnenavn":"CRM systemer",
+        "Vurderingstype":"Skriftlig eksamen",
+        "Vekt i %":75,
+        "Varighet ":"3 timer",
+        "Hjelpemidler":"ingen"
+    },
+    {  
+        "Dato":"27.5. NB! Fredag!",
+        "Emnekode":"DS4210",
+        "Emnenavn":"Designlab",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"31.1.",
+        "Emnekode":"DS 4101",
+        "Emnenavn":"Webutvikling 2",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":20,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"21.2.",
+        "Emnekode":"DS 4101",
+        "Emnenavn":"Webutvikling 2",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":30,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"22.5.",
+        "Emnekode":"DS 4101",
+        "Emnenavn":"Webutvikling 2",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":50,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"15.5. (faglærer orienterer om del-leveringer)",
+        "Emnekode":"DS4300",
+        "Emnenavn":"Interaksjonsdesign 2",
+        "Vurderingstype":"Mappe",
+        "Vekt i %":70,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"3.6.",
+        "Emnekode":"DS4300",
+        "Emnenavn":"Interaksjonsdesign 2",
+        "Vurderingstype":"Skriftlig eksamen (egen pc i klasserom)",
+        "Vekt i %":30,
+        "Varighet ":"2 timer",
+        "Hjelpemidler":"Egen pc"
+    },
+    {  
+        "Dato":"7.2.",
+        "Emnekode":"DS4600",
+        "Emnenavn":"3D-grafikk 2",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":30,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"3.4.",
+        "Emnekode":"DS4600",
+        "Emnenavn":"3D-grafikk 2",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":30,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"29.5.",
+        "Emnekode":"DS4600",
+        "Emnenavn":"3D-grafikk 2",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":40,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"12.6.",
+        "Emnekode":"DS4700",
+        "Emnenavn":"Lyssetting rendering og etterarbeid",
+        "Vurderingstype":"Mappe",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"19.6.",
+        "Emnekode":"DS4650",
+        "Emnenavn":"3D Animasjon",
+        "Vurderingstype":"Mappe",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"29.5.",
+        "Emnekode":"DS4450",
+        "Emnenavn":"Spillhistorie og kultur",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"5.6.",
+        "Emnekode":"DS4400",
+        "Emnenavn":"Kryssplattform design",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"12.6.",
+        "Emnekode":"DS4500",
+        "Emnenavn":"Level Design",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"Søndag uke 17",
+        "Emnekode":"PJ3100",
+        "Emnenavn":"Software Engineering",
+        "Vurderingstype":"Prosjekt (innlevering)",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"23. og 24.5",
+        "Emnekode":"PJ3100",
+        "Emnenavn":"Software Engineering",
+        "Vurderingstype":"Fremføring",
+        "Vekt i %":null,
+        "Varighet ":"",
+        "Hjelpemidler":""
+    },
+    {  
+        "Dato":"4.4.",
+        "Emnekode":"PG6100",
+        "Emnenavn":"Enterprise programmering 2",
+        "Vurderingstype":"Skriftlig",
+        "Vekt i %":25,
+        "Varighet ":"3 timer",
+        "Hjelpemidler":"Ingen"
+    },
+    {  
+        "Dato":"29.5.",
+        "Emnekode":"PG6100",
+        "Emnenavn":"Enterprise programmering 2",
+        "Vurderingstype":"Innlevering /hjemmeeksamen",
+        "Vekt i %":75,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"8.2.",
+        "Emnekode":"PG6200",
+        "Emnenavn":"Grafikkprogrammering",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":20,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"Beskjed gis ved oppstart",
+        "Emnekode":"PG6200",
+        "Emnenavn":"Grafikkprogrammering",
+        "Vurderingstype":"Innlevering",
+        "Vekt i %":40,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"Beskjed gis ved oppstart",
+        "Emnekode":"PG6200",
+        "Emnenavn":"Grafikkprogrammering",
+        "Vurderingstype":"Muntlig",
+        "Vekt i %":40,
+        "Varighet ":"",
+        "Hjelpemidler":"Ingen"
+    },
+    {  
+        "Dato":"14.3.",
+        "Emnekode":"IS6100",
+        "Emnenavn":"IT og innovasjon",
+        "Vurderingstype":"Muntlig",
+        "Vekt i %":25,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"27.5.",
+        "Emnekode":"IS6100",
+        "Emnenavn":"IT og innovasjon",
+        "Vurderingstype":"Skriftlig",
+        "Vekt i %":75,
+        "Varighet ":"3 timer",
+        "Hjelpemidler":"Ingen"
+    },
+    {  
+        "Dato":"8.5.",
+        "Emnekode":"DS6100",
+        "Emnenavn":"Usability for games",
+        "Vurderingstype":"Mappe",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"12.6.",
+        "Emnekode":"DS6600",
+        "Emnenavn":"Spesialisering karakter",
+        "Vurderingstype":"Mappe",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"8.5.",
+        "Emnekode":"IS6200",
+        "Emnenavn":"Effektevaluering: Teknikker og verktøy",
+        "Vurderingstype":"Mappe",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"Faglærer orienterer om frister",
+        "Emnekode":"PG6300",
+        "Emnenavn":"Webutvikling og API-design",
+        "Vurderingstype":"Mappe",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":""
+    },
+    {  
+        "Dato":"Faglærer orienterer om frister",
+        "Emnekode":"PJ6100",
+        "Emnenavn":"Undersøkelsesmetoder",
+        "Vurderingstype":"Mappe",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":"Alle"
+    },
+    {  
+        "Dato":"Innlevering 22.5.",
+        "Emnekode":"PJ6000",
+        "Emnenavn":"Bachelorprosjekt",
+        "Vurderingstype":"Mappe",
+        "Vekt i %":100,
+        "Varighet ":"",
+        "Hjelpemidler":""
+    },
+    {  
+        "Dato":"Presentasjon 8.6.",
+        "Emnekode":"",
+        "Emnenavn":"",
+        "Vurderingstype":"",
+        "Vekt i %":null,
+        "Varighet ":"",
+        "Hjelpemidler":""
+    }
+]

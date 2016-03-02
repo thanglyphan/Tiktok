@@ -168,6 +168,7 @@
     <Compile Include="DAL\CourseInfoHelper.cs" />
     <Compile Include="DAL\CoursesEnum.cs" />
     <Compile Include="DAL\EventMonth.cs" />
+    <Compile Include="DAL\ExamInit.cs" />
     <Compile Include="DAL\ModelDataWrapper.cs" />
     <Compile Include="DAL\StudentUser.cs" />
     <Compile Include="Encoder\SHA1.cs" />
@@ -203,6 +204,7 @@
     <None Include="Content\timeedit\e-business.json" />
     <None Include="Content\timeedit\intelligente-systemer.json" />
     <None Include="Content\timeedit\interaktivt-design.json" />
+    <Content Include="Content\timeedit\innlevering-eksamen-dato.json" />
     <None Include="Content\timeedit\programmering.json" />
     <None Include="Content\timeedit\spilldesign.json" />
     <None Include="Content\timeedit\spillprogrammering.json" />
