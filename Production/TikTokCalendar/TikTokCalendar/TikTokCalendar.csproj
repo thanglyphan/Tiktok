@@ -203,6 +203,7 @@
     <None Include="Content\timeedit\e-business.json" />
     <None Include="Content\timeedit\intelligente-systemer.json" />
     <None Include="Content\timeedit\interaktivt-design.json" />
+    <Content Include="Content\timeedit\innlevering-eksamen-dato.json" />
     <None Include="Content\timeedit\programmering.json" />
     <None Include="Content\timeedit\spilldesign.json" />
     <None Include="Content\timeedit\spillprogrammering.json" />
