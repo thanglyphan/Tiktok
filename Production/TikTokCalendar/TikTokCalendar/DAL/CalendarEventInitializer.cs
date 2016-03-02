@@ -23,13 +23,40 @@ namespace TikTokCalendar.DAL
 		protected override void Seed(CalendarEventContext context)
 		{
 			InsertDummyData(context);
-		}
+			//ReadJsonFile(context);
+			//new ExamInit(context);
 
+
+		}
+		public void ReadJsonFile(CalendarEventContext context)
+		{
+			var dataPath = "~/Content/timeedit/innlevering-eksamen-dato.json";
+			dataPath = HttpContext.Current.Server.MapPath(dataPath);
+			var json = File.ReadAllText(dataPath);
+
+			var rootObj = JsonConvert.DeserializeObject<RootObject2>(json);
+			foreach (var item in rootObj.reservations) {
+
+				var start = CalendarEventInitializer.GetParsedDateTime(item.Dato,"f");
+				var end = CalendarEventInitializer.GetParsedDateTime(item.Dato,"f");
+				var data = new CalendarEvent {
+					StartTime = start,
+					EndTime = end,
+					EventName = item.Vurderingstype,
+					Comment = "Varighet: " + item.Varighet + "\n Vekting: " + item.Vekting + "\n Emnekode: " +
+					item.Emnekode + "\n Emnenavn: " + item.Emnenavn + "\n Hjelpemidler: " + item.Hjelpemidler
+				};
+				// Add the event to the DB events list
+				context.CalendarEvents.Add(data);
+			}
+			context.SaveChanges();
+		}
 		/// <summary>
 		/// Inserts dummy data to the database.
 		/// </summary>
 		private void InsertDummyData(CalendarEventContext context)
 		{
+			ExamInit exam = new ExamInit(this);
 			// Courses
 			var courses = new List<Course>
 			{
@@ -45,14 +72,14 @@ namespace TikTokCalendar.DAL
 			// TODO Can populate this from going through the json file? or a file from the school with all subjects
 			var subjects = new List<Subject>
 			{
-				new Subject { Name="Prosjekt software engineering" },
-				new Subject { Name="Matematikk og Fysikk" },
-				new Subject { Name="C++ Programmering" },
-				new Subject { Name="Game AI" },
-				new Subject { Name="Embedded systems" },
-				new Subject { Name="Mobil utvikling" },
-				new Subject { Name="Avansert Javaprogrammering" },
-				new Subject { Name="Ruby on Rails" }
+				new Subject { Name="Prosjekt software engineering (PJ3100-15)" },
+				new Subject { Name="Matematikk og Fysikk (RF3100-15)" },
+				new Subject { Name="C++ Programmering (PG4400-15)" },
+				new Subject { Name="Game AI (PG4500-15)" },
+				new Subject { Name="Embedded systems (PG5500-15)" },
+				new Subject { Name="Mobil utvikling (PG4600-15)" },
+				new Subject { Name="Avansert Javaprogrammering (PG4300-15)" },
+				new Subject { Name="Ruby on Rails (PG4100-15)" }
 			};
 			subjects.ForEach(s => context.Subjects.Add(s));
 			context.SaveChanges();
@@ -92,7 +119,34 @@ namespace TikTokCalendar.DAL
 				new CalendarEvent { SubjectID=5, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" }
 			};*/
 
+			/*
+			var dataPath2 = "~/Content/timeedit/innlevering-eksamen-dato.json";
+			dataPath2 = HttpContext.Current.Server.MapPath(dataPath2);
+			var json2 = File.ReadAllText(dataPath2);
+			List<CalendarEvent> liste = new List<CalendarEvent>();
+
+			var rootObj2 = JsonConvert.DeserializeObject<RootObject2>(json2);
+			foreach (var item in rootObj2.reservations) {
+
+				var start = CalendarEventInitializer.GetParsedDateTime(item.Dato,"f");
+				var end = CalendarEventInitializer.GetParsedDateTime(item.Dato,"f");
+				var data = new CalendarEvent {
+					StartTime = start,
+					EndTime = end,
+					EventName = item.Vurderingstype,
+					Comment = "Varighet: " + item.Varighet + "\n Vekting: " + item.Vekting + "\n Emnekode: " +
+					item.Emnekode + "\n Emnenavn: " + item.Emnenavn + "\n Hjelpemidler: " + item.Hjelpemidler
+				};
+				// Add the event to the DB events list
+				//context.CalendarEvents.Add(data);
+				liste.Add(data);
+			}
+			*/
+
+
+
 			// Parse the .json and insert into the dummy DB
+			List<CalendarEvent> liste = new List<CalendarEvent>();
 			var dataPath = "~/Content/dummy-data.json";
 			dataPath = HttpContext.Current.Server.MapPath(dataPath);
 			var json = File.ReadAllText(dataPath);
@@ -112,7 +166,8 @@ namespace TikTokCalendar.DAL
 				var subject = 1; // TODO Default to an empty event (to make it easier to see error)? If it can't find a similar one it will just take the first one
 				foreach (var subj in context.Subjects)
 				{
-					if (item.columns[0].Substring(0, 7).Equals(subj.Name.Substring(0, 7)))
+					//if (item.columns[0].Substring(0, 7).Equals(subj.Name.Substring(0, 7)))
+					if (item.columns[0].Substring(item.columns[0].Length - 11).Equals(subj.Name.Substring(subj.Name.Length - 11)))
 					{
 						subject = subj.ID;
 						break;
@@ -138,8 +193,14 @@ namespace TikTokCalendar.DAL
 
 				};
 				// Add the event to the DB events list
-				context.CalendarEvents.Add(ce);
+				liste.Add(ce);
+				//liste.Add(exam.ReadJsonFile());
 			}
+
+			foreach(var item in exam.ReadJsonFile()) {
+				context.CalendarEvents.Add(item);
+			}
+			context.CalendarEvents.AddRange(liste);
 			context.SaveChanges();
 			/*var events = new List<CalendarEvent>
 			 {
@@ -245,7 +306,13 @@ namespace TikTokCalendar.DAL
 		/// <summary>
 		/// Parse a given string date and time to DateTime format. Returns DateTime.MinValue if the parse failed.
 		/// </summary>
-		private static DateTime GetParsedDateTime(string date, string time)
+		/// 
+		public int GetSubjectIdFromCode(string code)
+		{
+			return 1;
+		}
+
+		public static DateTime GetParsedDateTime(string date, string time)
 		{
 			DateTime dt;
 			if (DateTime.TryParseExact($"{date} {time}:00", Format, CultureInfo.InvariantCulture, DateTimeStyles.None, out dt))
@@ -277,6 +344,22 @@ namespace TikTokCalendar.DAL
 			public List<string> columnheaders { get; set; }
 			public JsonEventInfo info { get; set; }
 			public List<JsonEvent> reservations { get; set; }
+		}
+
+		public class Reservation
+		{
+			public string Dato { get; set; }
+			public string Emnekode { get; set; }
+			public string Emnenavn { get; set; }
+			public string Vurderingstype { get; set; }
+			public int Vekting { get; set; }
+			public string Varighet { get; set; }
+			public string Hjelpemidler { get; set; }
+		}
+
+		public class RootObject2
+		{
+			public List<Reservation> reservations { get; set; }
 		}
 	}
 }

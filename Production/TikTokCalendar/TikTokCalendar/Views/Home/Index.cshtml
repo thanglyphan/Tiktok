@@ -6,7 +6,9 @@
 @{
     //ViewBag.Title = "TikTok";
     //ViewBag.Title = Model.ToString();
-    Random rng = new Random();
+
+    TimeLeft TimeLeft = new TimeLeft();
+
 }
 
 
@@ -80,127 +82,7 @@
                                         <div class="tip-item">
                                             <p class="name activator tip-specific-class">@item.Subject.Name</p>  <!-- "Grensesnittdesign" -->
 
-                                            @{ 
-                                                string timeLeft = "";
-                                                if (item.StartTime > DateTime.Now)
-                                                {
-                                                    if (item.StartTime < DateTime.Now.AddYears(2))
-                                                    {
-                                                        if (item.StartTime < DateTime.Now.AddYears(1))
-                                                        {
-                                                            if (item.StartTime < DateTime.Now.AddMonths(1))
-                                                            {
-                                                                if (item.StartTime < DateTime.Now.AddDays(14))
-                                                                {
-                                                                    if (item.StartTime < DateTime.Now.AddDays(1))
-                                                                    {
-                                                                        if (item.StartTime < DateTime.Now.AddHours(1))
-                                                                        {
-                                                                            if (item.StartTime < DateTime.Now.AddMinutes(1))
-                                                                            {
-                                                                                timeLeft = "Teller ned: " + (int)(item.StartTime - DateTime.Now).TotalSeconds;
-                                                                            }
-                                                                            else
-                                                                            {
-                                                                                int mins = (int)(item.StartTime - DateTime.Now).TotalMinutes;
-                                                                                timeLeft = "" + mins;
-                                                                                if (mins > 1)
-                                                                                {
-                                                                                    timeLeft += " minutter til";
-                                                                                }
-                                                                                else
-                                                                                {
-                                                                                    timeLeft += " minutt til";
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            int hours = (int)(item.StartTime - DateTime.Now).TotalHours;
-                                                                            timeLeft = "" + hours;
-                                                                            if (hours > 1)
-                                                                            {
-                                                                                timeLeft += " timer til";
-                                                                            }
-                                                                            else
-                                                                            {
-                                                                                timeLeft += " time til";
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        int days = (int)(item.StartTime - DateTime.Now).TotalDays;
-                                                                        timeLeft = "" + days;
-                                                                        if (days > 1)
-                                                                        {
-                                                                            timeLeft += " dager til";
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            timeLeft += " dag til";
-                                                                        }
-
-                                                                    }
-                                                                }
-                                                                else
-                                                                {
-                                                                    int weeks = (int)(item.StartTime - DateTime.Now).TotalDays / 7;
-                                                                    timeLeft = "" + weeks + " uker til";
-                                                                }
-                                                            }
-                                                            else
-                                                            {
-                                                                int months = ((item.StartTime.Year - DateTime.Now.Year) * 12 + item.StartTime.Month - DateTime.Now.Month);
-                                                                timeLeft = "" + months;
-                                                                if (months > 1)
-                                                                {
-                                                                    timeLeft += " måneder til";
-                                                                }
-                                                                else
-                                                                {
-                                                                    timeLeft += " måned til";
-                                                                }
-                                                            }
-                                                        }
-                                                        else
-                                                        {
-                                                            timeLeft = "Over et år til";
-                                                        }
-                                                    }
-                                                    else
-                                                    {
-                                                        timeLeft = "Mange år til";
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    switch (rng.Next(6))
-                                                    {
-                                                        case 0:
-                                                            timeLeft = "Don't judge yourself by your past. You don't live there anymore.";
-                                                            break;
-                                                        case 1:
-                                                            timeLeft = "You can't start the next chapter of your life if you keep re-reading the last one.";
-                                                            break;
-                                                        case 2:
-                                                            timeLeft = "When your past calls don't answer. It has nothing new to say";
-                                                            break;
-                                                        case 3:
-                                                            timeLeft = "Leave the past where it belongs. Don't look back when you know you shouldn't.";
-                                                            break;
-                                                        case 4:
-                                                            timeLeft = "The best thing about the past is that it shows you what not to bring into the future.";
-                                                            break;
-                                                        case 5:
-                                                            timeLeft = "Oh yes, the past can hurt. But you can either run from it or, learn from it.";
-                                                            break;
-                                                    }
-
-                                                }
-                                            }
-
-                                            <div class="tip tip-specific-class">@timeLeft</div>
+                                            <div class="tip tip-specific-class">@TimeLeft.GetTimeLeft(item.StartTime)</div>
                                         </div>
                                         <div class="right-position">
                                             <p class="room">@item.RoomName</p>  <!-- "Rom 41" -->
