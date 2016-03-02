@@ -176,7 +176,8 @@ namespace TikTokCalendar.DAL
 				}
 				int timeEditId = -1;
 				int.TryParse(item.id, out timeEditId);
-
+				int year = -1;
+				int.TryParse(item.columns[0], out year); // TODO Figure out the events year here
 
 				// Make an event out of the data
 				var ce = new CalendarEvent

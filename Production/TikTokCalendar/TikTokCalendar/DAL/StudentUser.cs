@@ -14,6 +14,15 @@ namespace TikTokCalendar.DAL
 		public int Year { get; private set; }
 		public int WeekOrMonthShow { get; set; }
 
+		private string name;
+		public string Name { get { return name; } set { name = value;
+			Printer.Print("Name: " + value);
+		} }
+		public void SetName(string name)
+		{
+			Printer.Print(name);
+		}
+
 		public StudentUser(string name, SchoolCourses course)
 		{
 			UserName = name;

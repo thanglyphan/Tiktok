@@ -80,17 +80,27 @@ header .login-button {
 }
 
 /*===================================
-  M O N T H
+  ALT. LOGIN
 ===================================*/
 
+#course-selection .btn {
+	text-align: left;
+}
+
+/*===================================
+  M O N T H
+===================================*/
+/*
 .feed-month:not(:first-child) {
   margin-top: 70px;
 }
+*/
 
 
 .feed {
   max-width: 594px;
   margin: 0 auto;
+  margin-bottom: 70px;
 }
 
 
@@ -100,6 +110,10 @@ header .login-button {
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 3px 3px 0px 0px;
+  width: 100%;
+  display: block;	
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .feed-month p {
@@ -111,6 +125,10 @@ header .login-button {
   font-weight: normal;
 }
 
+.feed-month p:hover {
+	text-decoration: none;
+}
+
 /*===================================
   E V E N T   F E E D
 ===================================*/
@@ -119,6 +137,8 @@ header .login-button {
   height: 80px;
   background-color: white;
   border-radius: 0px 0px 3px 3px;
+  display: block;
+  cursor: pointer;
 }
 
 .feed-container .class-date {
@@ -136,6 +156,16 @@ header .login-button {
   color: #a4b0c3;
   font-weight: normal;
   float: left; 
+}
+
+@media (min-width: 768px) {
+	.modal-dialog {
+		margin-top: 160px;
+	}
+}
+
+.modal-header {
+	font-size: 1.5em;
 }
 
 .feed-container .content {
