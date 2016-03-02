@@ -18,27 +18,27 @@ namespace TikTokCalendar.Controllers
 
 		public ActionResult Index(string id = "None")
 		{
-			Print("User: " + id);
+			Printer.Print("User: " + id);
 			string name = "trotor14";
 			SchoolCourses course = SchoolCourses.SpillProgrammering;
 			if (id == "prog14")
 			{
 				name = id;
 				course = SchoolCourses.Programmering;
-				Print("User: " + id + " prog");
+				Printer.Print("User: " + id + " prog");
 			}
 			else if (id == "intsys13")
 			{
 				name = id;
 				course = SchoolCourses.IntelligenteSystemer;
-				Print("User: " + id + " intsys");
+				Printer.Print("User: " + id + " intsys");
 			}
 
 			//Cookies cookie;
 			//string user = cookie.LoadFromCookie("Username");
 			//int program = cookie.LoadFromCookie("Program");
 			StudentUser user = new StudentUser(name, course); // TODO Get this from cookies
-			int weekOrMonthView = 0; // TODO Get this from cookies
+			int weekOrMonthView = 1; // TODO Get this from cookies
 			bool weekView = (weekOrMonthView == 0);
 
 			ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}", user.Year, user.GetCurrentSemester(), user.ValidUsername(user.UserName));
@@ -111,11 +111,6 @@ namespace TikTokCalendar.Controllers
 				modelWrapper.calEvents[i].Events = modelWrapper.calEvents[i].Events.OrderBy(x => x.StartTime).ToList();
 			}
 			return View(modelWrapper);//.calEvents);
-		}
-
-		private void Print(string s)
-		{
-			Debug.WriteLine(s);
 		}
 
 		public ActionResult About()

@@ -170,6 +170,7 @@
     <Compile Include="DAL\EventMonth.cs" />
     <Compile Include="DAL\ExamInit.cs" />
     <Compile Include="DAL\ModelDataWrapper.cs" />
+    <Compile Include="DAL\Printer.cs" />
     <Compile Include="DAL\StudentUser.cs" />
     <Compile Include="Encoder\SHA1.cs" />
     <Compile Include="Global.asax.cs">

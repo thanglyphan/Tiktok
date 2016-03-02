@@ -37,6 +37,15 @@ namespace TikTokCalendar.Models
 			Comment = null;
 		}
 
+		public string GetEventNameWithoutSubjectCode()
+		{
+			if (Subject != null && TimeEditID > 0)
+			{
+				return Subject.Name.Substring(0, Subject.Name.Length - 11);
+			}
+			return null;
+		}
+
 		/// <summary>
 		/// Returns the start and to time formatted for display.
 		/// </summary>
