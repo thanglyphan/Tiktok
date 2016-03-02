@@ -1,4 +1,5 @@
-﻿$(function () {
+﻿
+$(function () {
 
     var userName = "";
     
@@ -20,7 +21,7 @@
             if (isEmpty(userName)) {
 
                 //  Check if username matches any of the registered users
-                
+                //  userName === "whatever"
 
                 //  If this is a new user
                 vex.dialog.open({
@@ -127,6 +128,7 @@
                     ],
                     callback: function (value) {
                         // value will be one of the following:
+                        course = value;
                         $("#user-course").html(value);
                         $("#user-name").html(userName);
                     }
@@ -134,8 +136,6 @@
             }
         }
     });
-
-    
 });
 
 //  Check if username is invalid in some ways 

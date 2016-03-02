@@ -10,5 +10,11 @@ namespace TikTokCalendar.Models
 		public int ID { get; set; }
 		public string Name { get; set; }
 		public virtual ICollection<CalendarEvent> CalendarEvents { get; set; }
+
+		public string GetSubjectCode()
+		{
+			string code = Name.Substring(Name.Length - 11);
+			return code.Substring(1, code.Length - 2);
+		}
 	}
 }
