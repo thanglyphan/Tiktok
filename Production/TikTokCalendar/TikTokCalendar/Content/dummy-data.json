@@ -1778,11 +1778,131 @@
                 ""
             ]
         },
+      {
+        "id": "5032",
+        "startdate": "04.03.2016",
+        "starttime": "11:15",
+        "enddate": "04.03.2016",
+        "endtime": "13:00",
+        "columns": [
+          "Undersøkelsesmetoder (PJ6100-15)",
+          "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+          "Rom 79-80",
+          "Faltin Karlsen",
+          "Forelesning",
+          ""
+        ]
+      },
+      {
+            "id":"4670",
+            "startdate":"05.01.2016",
+            "starttime":"13:15",
+            "enddate":"05.01.2016",
+            "endtime":"17:00",
+            "columns":[
+                "Interaksjonsdesign 2 (DS4300-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 82",
+                "Sturla Bakke",
+                "Forelesning",
+                ""
+            ]
+        },
         {
-            "id":"5032",
-            "startdate":"04.03.2016",
+            "id":"4612",
+            "startdate":"06.01.2016",
+            "starttime":"10:15",
+            "enddate":"06.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Webutvikling 2 (DS4101-15)",
+                "2.klasse, Bachelor E-business, Bachelor Interaktivt design",
+                "Auditoriet",
+                "Rolando Gonzalez",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4682",
+            "startdate":"08.01.2016",
+            "starttime":"09:15",
+            "enddate":"08.01.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Designlab (DS4210-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 38",
+                "Josef Leupi",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4671",
+            "startdate":"12.01.2016",
+            "starttime":"13:15",
+            "enddate":"12.01.2016",
+            "endtime":"17:00",
+            "columns":[
+                "Interaksjonsdesign 2 (DS4300-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 82",
+                "Sturla Bakke",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4613",
+            "startdate":"13.01.2016",
+            "starttime":"10:15",
+            "enddate":"13.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Webutvikling 2 (DS4101-15)",
+                "2.klasse, Bachelor E-business, Bachelor Interaktivt design",
+                "Auditoriet",
+                "Rolando Gonzalez",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4963",
+            "startdate":"15.01.2016",
+            "starttime":"09:15",
+            "enddate":"15.01.2016",
+            "endtime":"11:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4683",
+            "startdate":"15.01.2016",
+            "starttime":"09:15",
+            "enddate":"15.01.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Designlab (DS4210-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 38",
+                "Josef Leupi",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4964",
+            "startdate":"15.01.2016",
             "starttime":"11:15",
-            "enddate":"04.03.2016",
+            "enddate":"15.01.2016",
             "endtime":"13:00",
             "columns":[
                 "Undersøkelsesmetoder (PJ6100-15)",
@@ -1791,6 +1911,486 @@
                 "Faltin Karlsen",
                 "Forelesning",
                 ""
+            ]
+        },
+        {
+            "id":"4762",
+            "startdate":"18.01.2016",
+            "starttime":"08:15",
+            "enddate":"18.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Effektevaluering teknikker og verktøy (IS6200-15)",
+                "3.klasse, Bachelor Digital markedsføring, Bachelor Interaktivt design",
+                "Rom 82",
+                "Asle Fagerstrøm, Hanne Sørum",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4672",
+            "startdate":"19.01.2016",
+            "starttime":"13:15",
+            "enddate":"19.01.2016",
+            "endtime":"17:00",
+            "columns":[
+                "Interaksjonsdesign 2 (DS4300-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 82",
+                "Sturla Bakke",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4614",
+            "startdate":"20.01.2016",
+            "starttime":"10:15",
+            "enddate":"20.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Webutvikling 2 (DS4101-15)",
+                "2.klasse, Bachelor E-business, Bachelor Interaktivt design",
+                "Auditoriet",
+                "Rolando Gonzalez",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5018",
+            "startdate":"22.01.2016",
+            "starttime":"09:15",
+            "enddate":"22.01.2016",
+            "endtime":"11:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4684",
+            "startdate":"22.01.2016",
+            "starttime":"09:15",
+            "enddate":"22.01.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Designlab (DS4210-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 38",
+                "Josef Leupi",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4763",
+            "startdate":"25.01.2016",
+            "starttime":"08:15",
+            "enddate":"25.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Effektevaluering teknikker og verktøy (IS6200-15)",
+                "3.klasse, Bachelor Digital markedsføring, Bachelor Interaktivt design",
+                "Rom 82",
+                "Asle Fagerstrøm, Hanne Sørum",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4673",
+            "startdate":"26.01.2016",
+            "starttime":"13:15",
+            "enddate":"26.01.2016",
+            "endtime":"17:00",
+            "columns":[
+                "Interaksjonsdesign 2 (DS4300-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 82",
+                "Sturla Bakke",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4615",
+            "startdate":"27.01.2016",
+            "starttime":"10:15",
+            "enddate":"27.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Webutvikling 2 (DS4101-15)",
+                "2.klasse, Bachelor E-business, Bachelor Interaktivt design",
+                "Auditoriet",
+                "Rolando Gonzalez",
+                "Forelesning",
+                "Innlevering denne uken - se emnesiden."
+            ]
+        },
+        {
+            "id":"5019",
+            "startdate":"29.01.2016",
+            "starttime":"09:15",
+            "enddate":"29.01.2016",
+            "endtime":"11:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4685",
+            "startdate":"29.01.2016",
+            "starttime":"09:15",
+            "enddate":"29.01.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Designlab (DS4210-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 38",
+                "Josef Leupi",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5021",
+            "startdate":"29.01.2016",
+            "starttime":"11:15",
+            "enddate":"29.01.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Rom 79-80",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4764",
+            "startdate":"01.02.2016",
+            "starttime":"08:15",
+            "enddate":"01.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Effektevaluering teknikker og verktøy (IS6200-15)",
+                "3.klasse, Bachelor Digital markedsføring, Bachelor Interaktivt design",
+                "Rom 82",
+                "Asle Fagerstrøm, Hanne Sørum",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4674",
+            "startdate":"02.02.2016",
+            "starttime":"13:15",
+            "enddate":"02.02.2016",
+            "endtime":"17:00",
+            "columns":[
+                "Interaksjonsdesign 2 (DS4300-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 82",
+                "Sturla Bakke",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4616",
+            "startdate":"03.02.2016",
+            "starttime":"10:15",
+            "enddate":"03.02.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Webutvikling 2 (DS4101-15)",
+                "2.klasse, Bachelor E-business, Bachelor Interaktivt design",
+                "Auditoriet",
+                "Rolando Gonzalez",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5020",
+            "startdate":"05.02.2016",
+            "starttime":"09:15",
+            "enddate":"05.02.2016",
+            "endtime":"11:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4686",
+            "startdate":"05.02.2016",
+            "starttime":"09:15",
+            "enddate":"05.02.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Designlab (DS4210-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 38",
+                "Josef Leupi",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5022",
+            "startdate":"05.02.2016",
+            "starttime":"11:15",
+            "enddate":"05.02.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Rom 79-80",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4765",
+            "startdate":"08.02.2016",
+            "starttime":"08:15",
+            "enddate":"08.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Effektevaluering teknikker og verktøy (IS6200-15)",
+                "3.klasse, Bachelor Digital markedsføring, Bachelor Interaktivt design",
+                "Rom 82",
+                "Asle Fagerstrøm, Hanne Sørum",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4675",
+            "startdate":"09.02.2016",
+            "starttime":"13:15",
+            "enddate":"09.02.2016",
+            "endtime":"17:00",
+            "columns":[
+                "Interaksjonsdesign 2 (DS4300-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 82",
+                "Sturla Bakke",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4617",
+            "startdate":"10.02.2016",
+            "starttime":"10:15",
+            "enddate":"10.02.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Webutvikling 2 (DS4101-15)",
+                "2.klasse, Bachelor E-business, Bachelor Interaktivt design",
+                "Auditoriet",
+                "Rolando Gonzalez",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4687",
+            "startdate":"12.02.2016",
+            "starttime":"09:15",
+            "enddate":"12.02.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Designlab (DS4210-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 38",
+                "Josef Leupi",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4766",
+            "startdate":"15.02.2016",
+            "starttime":"08:15",
+            "enddate":"15.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Effektevaluering teknikker og verktøy (IS6200-15)",
+                "3.klasse, Bachelor Digital markedsføring, Bachelor Interaktivt design",
+                "Rom 82",
+                "Asle Fagerstrøm, Hanne Sørum",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4676",
+            "startdate":"16.02.2016",
+            "starttime":"13:15",
+            "enddate":"16.02.2016",
+            "endtime":"17:00",
+            "columns":[
+                "Interaksjonsdesign 2 (DS4300-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 82",
+                "Sturla Bakke",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4618",
+            "startdate":"17.02.2016",
+            "starttime":"10:15",
+            "enddate":"17.02.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Webutvikling 2 (DS4101-15)",
+                "2.klasse, Bachelor E-business, Bachelor Interaktivt design",
+                "Auditoriet",
+                "Rolando Gonzalez",
+                "Forelesning",
+                "Innlevering denne uken - se emnesiden."
+            ]
+        },
+        {
+            "id":"5024",
+            "startdate":"19.02.2016",
+            "starttime":"09:15",
+            "enddate":"19.02.2016",
+            "endtime":"11:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Auditoriet",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4688",
+            "startdate":"19.02.2016",
+            "starttime":"09:15",
+            "enddate":"19.02.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Designlab (DS4210-15)",
+                "2.klasse, Bachelor Interaktivt design",
+                "Rom 38",
+                "Josef Leupi",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5023",
+            "startdate":"19.02.2016",
+            "starttime":"11:15",
+            "enddate":"19.02.2016",
+            "endtime":"13:00",
+            "columns":[
+                "Undersøkelsesmetoder (PJ6100-15)",
+                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "Rom 79-80",
+                "Faltin Karlsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4767",
+            "startdate":"29.02.2016",
+            "starttime":"08:15",
+            "enddate":"29.02.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Effektevaluering teknikker og verktøy (IS6200-15)",
+                "3.klasse, Bachelor Digital markedsføring, Bachelor Interaktivt design",
+                "Rom 82",
+                "Asle Fagerstrøm, Hanne Sørum",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4694",
+            "startdate":"29.02.2016",
+            "starttime":"09:00",
+            "enddate":"29.02.2016",
+            "endtime":"15:00",
+            "columns":[
+                "Prosjekt software engineering (PJ3100-15)",
+                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "",
+                "Per Lauvås",
+                "Prosjekt",
+                ""
+            ]
+        },
+        {
+            "id":"4695",
+            "startdate":"01.03.2016",
+            "starttime":"09:00",
+            "enddate":"01.03.2016",
+            "endtime":"15:00",
+            "columns":[
+                "Prosjekt software engineering (PJ3100-15)",
+                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "",
+                "Per Lauvås",
+                "Prosjekt",
+                "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+            ]
+        },
+        {
+            "id":"4696",
+            "startdate":"02.03.2016",
+            "starttime":"09:00",
+            "enddate":"02.03.2016",
+            "endtime":"15:00",
+            "columns":[
+                "Prosjekt software engineering (PJ3100-15)",
+                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "",
+                "Per Lauvås",
+                "Prosjekt",
+                "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+            ]
+        },
+        {
+            "id":"4697",
+            "startdate":"03.03.2016",
+            "starttime":"09:00",
+            "enddate":"03.03.2016",
+            "endtime":"15:00",
+            "columns":[
+                "Prosjekt software engineering (PJ3100-15)",
+                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+                "",
+                "Per Lauvås",
+                "Prosjekt",
+                "Prosjektuke uten annen undervisning. Sjekk emnesiden."
             ]
         }
     ]

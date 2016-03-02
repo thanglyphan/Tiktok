@@ -16,27 +16,33 @@ namespace TikTokCalendar.Controllers
 	{
 		private CalendarEventContext db = new CalendarEventContext();
 
-		public ActionResult Index(string homoGutten)
+		public ActionResult Index(string id = "None")
 		{
-			Debug.WriteLine(homoGutten);
+			Debug.WriteLine(id);
 
 			//string id = "None";
-			string id = homoGutten;
+			//string id = homoGutten;
 
             Printer.Print("User: " + id);
 			string name = "trotor14";
 			SchoolCourses course = SchoolCourses.SpillProgrammering;
-			if (id == "prog13")
+			if (id.Contains("prog"))
 			{
 				name = id;
 				course = SchoolCourses.Programmering;
 				Printer.Print("User: " + id + " prog");
 			}
-			else if (id == "intsys14")
+			else if(id.Contains("intsys"))
 			{
 				name = id;
 				course = SchoolCourses.IntelligenteSystemer;
 				Printer.Print("User: " + id + " intsys");
+			}
+			else if (id.Contains("idesign"))
+			{
+				name = id;
+				course = SchoolCourses.MobilApputvikling;
+				Printer.Print("User: " + id + " idesign");
 			}
 			//Cookies cookie;
 			//string user = cookie.LoadFromCookie("Username");

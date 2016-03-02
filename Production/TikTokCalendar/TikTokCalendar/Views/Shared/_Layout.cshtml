@@ -10,39 +10,39 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    <link rel="stylesheet" href="../Content/font-awesome.min.css">
-    <link rel="stylesheet" href="../Content/main.css">
-    <link rel="stylesheet" href="../Content/reset.css">
+    <link rel="stylesheet" href="@Url.Content("/Content/font-awesome.min.css")">
+    <link rel="stylesheet" href="@Url.Content("/Content/main.css")">
+    <link rel="stylesheet" href= "@Url.Content("/Content/reset.css")">
     <script src="../Scripts/vex/vex.combined.min.js"></script>
     <script src="../Scripts/modal.js"></script>
     <script>vex.defaultOptions.className = 'vex-theme-os';</script>
-    <link rel="stylesheet" href="../Content/vex/vex.css" />
-    <link rel="stylesheet" href="../Content/vex/vex-theme-os.css" />
+    <link rel="stylesheet" href= "@Url.Content("/Content/vex/vex.css")" />
+    <link rel="stylesheet" href= "@Url.Content("/Content/vex/vex-theme-os.css")" />
 
     <!-- tooltip hover css som burde legges inn i main.css-->
     <style type="text/css" media="screen">
         .activator {
-            cursor: default;
-        }
+        cursor: default;
+    }
         .tip-item {
-            position: relative;
-        }
+        position: relative;
+    }
         .tip {
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 12px;
-            display: none;
-            width: auto;
-            height: auto;
-            background-color: #FFF;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 12px;
+        display: none;
+        width: auto;
+        height: auto;
+        background-color: #FFF;
             padding: 6px;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            z-index: 1;
-            /*border-radius: 6px;
-            -moz-border-radius: 6px;
-            -webkit-border-radius: 6px;*/
-            box-shadow: 0px 0px 4px 0px #000;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        /*border-radius: 6px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;*/
+        box-shadow: 0px 0px 4px 0px #000;
             -moz-box-shadow: 0px 0px 4px 0px #000;
             -webkit-box-shadow: 0px 0px 4px 0px #000;
         }

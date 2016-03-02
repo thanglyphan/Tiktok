@@ -132,7 +132,7 @@
                                         </div>
                                         <!-- tooltip hover extravaganza -->
                                         <div class="tip-item">
-                                            <p class="name activator tip-specific-class">@item.Subject.Name</p>  <!-- "Grensesnittdesign" -->
+                                            <p class="name activator tip-specific-class">@item.GetEventNameWithoutSubjectCode()</p>  <!-- "Grensesnittdesign" -->
 
                                             <div class="tip tip-specific-class">@TimeLeft.GetTimeLeft(item.StartTime)</div>
                                         </div>
