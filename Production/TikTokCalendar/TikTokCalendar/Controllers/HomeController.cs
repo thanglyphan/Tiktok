@@ -49,6 +49,16 @@ namespace TikTokCalendar.Controllers
 			//int program = cookie.LoadFromCookie("Program");
 			StudentUser user = new StudentUser(name, course); // TODO Get this from cookies
 			int weekOrMonthView = 1; // TODO Get this from cookies
+
+			if (id.StartsWith("0"))
+			{
+				weekOrMonthView = 0;
+			}
+			else if (id.StartsWith("1"))
+			{
+				weekOrMonthView = 1;
+			}
+
 			bool weekView = (weekOrMonthView == 0);
 
 			ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}", user.ClassYear, user.GetCurrentSemester(), user.ValidUsername(user.UserName));
