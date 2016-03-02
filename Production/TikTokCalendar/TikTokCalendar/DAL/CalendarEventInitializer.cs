@@ -29,29 +29,7 @@ namespace TikTokCalendar.DAL
 
 
 		}
-		public void ReadJsonFile(CalendarEventContext context)
-		{
-			var dataPath = "~/Content/timeedit/innlevering-eksamen-dato.json";
-			dataPath = HttpContext.Current.Server.MapPath(dataPath);
-			var json = File.ReadAllText(dataPath);
 
-			var rootObj = JsonConvert.DeserializeObject<RootObject2>(json);
-			foreach (var item in rootObj.reservations) {
-
-				var start = CalendarEventInitializer.GetParsedDateTime(item.Dato,"f");
-				var end = CalendarEventInitializer.GetParsedDateTime(item.Dato,"f");
-				var data = new CalendarEvent {
-					StartTime = start,
-					EndTime = end,
-					EventName = item.Vurderingstype,
-					Comment = "Varighet: " + item.Varighet + "\n Vekting: " + item.Vekting + "\n Emnekode: " +
-					item.Emnekode + "\n Emnenavn: " + item.Emnenavn + "\n Hjelpemidler: " + item.Hjelpemidler
-				};
-				// Add the event to the DB events list
-				context.CalendarEvents.Add(data);
-			}
-			context.SaveChanges();
-		}
 		/// <summary>
 		/// Inserts dummy data to the database.
 		/// </summary>
@@ -79,8 +57,10 @@ namespace TikTokCalendar.DAL
 				new Subject { Name="Game AI (PG4500-15)" },
 				new Subject { Name="Embedded systems (PG5500-15)" },
 				new Subject { Name="Mobil utvikling (PG4600-15)" },
+				new Subject { Name="Ruby on Rails (PG4300-15)" },
 				new Subject { Name="Avansert Javaprogrammering (PG4300-15)" },
-				new Subject { Name="Ruby on Rails (PG4100-15)" }
+				new Subject { Name="Undersøkelsesmetoder (PJ6100-15)" },
+				new Subject { Name="Enterprise programmering 2 (PG6100-15)" }
 			};
 			subjects.ForEach(s => context.Subjects.Add(s));
 			context.SaveChanges();
@@ -89,62 +69,31 @@ namespace TikTokCalendar.DAL
 			// TODO Semester might not be necessary, as TimeEdit only show stuff for this semester
 			var courseSubjects = new List<CourseSubject>
 			{
+				// Spillprog
 				new CourseSubject { CourseID=2, SubjectID=1, Semester=4 },
 				new CourseSubject { CourseID=2, SubjectID=2, Semester=4 },
 				new CourseSubject { CourseID=2, SubjectID=3, Semester=4 },
 				new CourseSubject { CourseID=2, SubjectID=4, Semester=4 },
 				
+				// Intsys
 				new CourseSubject { CourseID=3, SubjectID=1, Semester=4 },
 				new CourseSubject { CourseID=3, SubjectID=3, Semester=4 },
 				new CourseSubject { CourseID=3, SubjectID=5, Semester=4 },
 				new CourseSubject { CourseID=3, SubjectID=6, Semester=4 },
 
+				// Prog 2.klasse
 				new CourseSubject { CourseID=1, SubjectID=1, Semester=4 },
 				new CourseSubject { CourseID=1, SubjectID=6, Semester=4 },
 				new CourseSubject { CourseID=1, SubjectID=7, Semester=4 },
-				new CourseSubject { CourseID=1, SubjectID=8, Semester=4 }
+				new CourseSubject { CourseID=1, SubjectID=8, Semester=4 },
+
+				// Prog 3.klasse
+				new CourseSubject { CourseID=1, SubjectID=9, Semester=6 },
+				new CourseSubject { CourseID=1, SubjectID=10, Semester=6 }
 
 			};
 			courseSubjects.ForEach(c => context.CourseSubject.Add(c));
 			context.SaveChanges();
-
-			// Calendar events
-			/*var events = new List<CalendarEvent>
-			{
-				new CalendarEvent { SubjectID=1, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" },
-				new CalendarEvent { SubjectID=2, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" },
-				new CalendarEvent { SubjectID=3, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" },
-				new CalendarEvent { SubjectID=5, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" },
-				new CalendarEvent { SubjectID=3, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" },
-				new CalendarEvent { SubjectID=1, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" },
-				new CalendarEvent { SubjectID=5, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" }
-			};*/
-
-			/*
-			var dataPath2 = "~/Content/timeedit/innlevering-eksamen-dato.json";
-			dataPath2 = HttpContext.Current.Server.MapPath(dataPath2);
-			var json2 = File.ReadAllText(dataPath2);
-			List<CalendarEvent> liste = new List<CalendarEvent>();
-
-			var rootObj2 = JsonConvert.DeserializeObject<RootObject2>(json2);
-			foreach (var item in rootObj2.reservations) {
-
-				var start = CalendarEventInitializer.GetParsedDateTime(item.Dato,"f");
-				var end = CalendarEventInitializer.GetParsedDateTime(item.Dato,"f");
-				var data = new CalendarEvent {
-					StartTime = start,
-					EndTime = end,
-					EventName = item.Vurderingstype,
-					Comment = "Varighet: " + item.Varighet + "\n Vekting: " + item.Vekting + "\n Emnekode: " +
-					item.Emnekode + "\n Emnenavn: " + item.Emnenavn + "\n Hjelpemidler: " + item.Hjelpemidler
-				};
-				// Add the event to the DB events list
-				//context.CalendarEvents.Add(data);
-				liste.Add(data);
-			}
-			*/
-
-
 
 			// Parse the .json and insert into the dummy DB
 			List<CalendarEvent> liste = new List<CalendarEvent>();
@@ -176,8 +125,17 @@ namespace TikTokCalendar.DAL
 				}
 				int timeEditId = -1;
 				int.TryParse(item.id, out timeEditId);
-				int year = -1;
-				int.TryParse(item.columns[0], out year); // TODO Figure out the events year here
+
+				int year = 1;
+				if (item.columns[1].Contains("2.klasse"))
+				{
+					year = 2;
+				}
+				else if (item.columns[1].Contains("3.klasse"))
+				{
+					year = 3;
+				}
+				//int.TryParse(item.columns[0], out year); // TODO Figure out the events year here
 
 				// Make an event out of the data
 				var ce = new CalendarEvent
@@ -191,8 +149,8 @@ namespace TikTokCalendar.DAL
 					EventName = item.columns[4],
 					Attendees = item.columns[1],
 					Teacher = item.columns[3],
-					Comment = item.columns[5]
-
+					Comment = item.columns[5],
+					Year = year
 				};
 				// Add the event to the DB events list
 				liste.Add(ce);
@@ -204,18 +162,6 @@ namespace TikTokCalendar.DAL
 			}
 			context.CalendarEvents.AddRange(liste);
 			context.SaveChanges();
-			/*var events = new List<CalendarEvent>
-			 {
-				 new CalendarEvent { SubjectID=1, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Rom 41", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" },
-				 new CalendarEvent { SubjectID=2, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" },
-				 new CalendarEvent { SubjectID=3, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Rom 38", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" },
-				 new CalendarEvent { SubjectID=5, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" },
-				 new CalendarEvent { SubjectID=3, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" },
-				 new CalendarEvent { SubjectID=1, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" },
-				 new CalendarEvent { SubjectID=5, StartTime=DateTime.Now, EndTime=DateTime.Now, RoomName="Auditoriet", EventName="Forelesning", Attendees="Spillprog", Teacher="Per", Comment="Comment" }
-			 };*/
-			//events.ForEach(c => context.CalendarEvents.Add(c));
-
 
 			// Accounts
 			var accounts = new List<Account>
@@ -228,81 +174,6 @@ namespace TikTokCalendar.DAL
 			};
 			accounts.ForEach(a => context.Accounts.Add(a));
 			context.SaveChanges();
-
-			// TODO Add to database
-			/*
-			put an index for course and semester
-			*/
-			/* var subjects = new List<Subject>
-			 {
-				 new Subject {Name = "PG3300 - Programvarearkitektur"},
-				 new Subject {Name = "PG3400 - Programmering i C for Linux"},
-				 new Subject {Name = "PG4200 - Algoritmer og Datastrukturer"},
-				 new Subject {Name = "PJ3100 - Prosjekt software engineering"}
-			 };
-			 subjects.ForEach(s => context.Subjects.Add(s));
-			 context.SaveChanges();*/
-
-			/*var courses = new List<Course>
-			{
-				new Course { Name="Name", Semesters = new List<List<Subject>>()}
-			};
-			// something wrong with the list list probably. Might have to do this the SQL way
-			courses.ForEach(c => context.Courses.Add(c));
-			context.SaveChanges();*/
-
-			/*var accounts = new List<Account>
-			{
-				new Account {UserName = "test", Password = TikTokCalendar.Encoder.SHA1.Encode("test"), CourseID = 1, SemesterID = 2, Email = "lol@lol.lol", RememberMe = false }
-			};
-			accounts.ForEach(a => context.Accounts.Add(a));
-			context.SaveChanges();*/
-
-			/*var calendarEvents = new List<CalendarEvent>
-			{
-				new CalendarEvent {StartTime=DateTime.Parse("2015/11/27 10:15:00"),EndTime=DateTime.Parse("2015/11/27 14:00:00"),SubjectID=3,RoomID=1,Attendees="SpillProg, Prog",EventType=EventType.Forelesning,Comment=""},
-				new CalendarEvent {StartTime=DateTime.Parse("2015/11/23 10:15:00"),EndTime=DateTime.Parse("2015/11/23 14:00:00"),SubjectID=1,RoomID=3,Attendees="SpillProg, prog",EventType=EventType.Forelesning,Comment=""},
-				new CalendarEvent {StartTime=DateTime.Parse("2015/12/02 10:15:00"),EndTime=DateTime.Parse("2015/12/02 12:00:00"),SubjectID=4,RoomID=2,Attendees="SpillProg, Prog",EventType=EventType.Innlevering,Comment=""},
-				new CalendarEvent {StartTime=DateTime.Parse("2015/11/25 13:15:00"),EndTime=DateTime.Parse("2015/11/25 17:00:00"),SubjectID=2,RoomID=1,Attendees="SpillProg, Int.sys.",EventType=EventType.Forelesning,Comment=""},
-				new CalendarEvent {StartTime=DateTime.Parse("2015/12/15 09:00:00"),EndTime=DateTime.Parse("2015/12/15 14:00:00"),SubjectID=2,RoomID=5,Attendees="SpillProg, Prog",EventType=EventType.Eksamen,Comment=""}
-			};*/
-
-
-			/*var dataPath = "~/Content/dummy-data.json";
-			dataPath = HttpContext.Current.Server.MapPath(dataPath);
-			var json = File.ReadAllText(dataPath);
-
-			var rootObj = JsonConvert.DeserializeObject<RootObject>(json);
-            foreach (var item in rootObj.reservations)
-			{
-				var start = GetParsedDateTime(item.startdate, item.starttime);
-				var end = GetParsedDateTime(item.enddate, item.endtime);
-				var ce = new CalendarEvent
-				{
-					StartTime = start,
-					EndTime = end,
-					//SubjectName = item.columns[0], 
-					SubjectID = 1,
-					RoomName = item.columns[2],
-					EventName = item.columns[4],
-					Attendees = item.columns[1],
-					Teacher = item.columns[3],
-					Comment = item.columns[5]
-				};
-				context.CalendarEvents.Add(ce);
-			}*/
-
-			/*var calendarEvents = new List<CalendarEvent_OLD>
-			{
-				new CalendarEvent_OLD {Teacher="",StartTime=DateTime.Now,EndTime=DateTime.Now,SubjectID=1,Attendees="",Comment="COMMENT", RoomName="Room",EventName="Event"}
-			};
-
-			// Sort the list by the datetime 
-			//		(might not be necessary if we get the data in order)
-			//calendarEvents = calendarEvents.OrderBy(c => c.StartTime).ToList();
-
-			calendarEvents.ForEach(c => context.CalendarEvents.Add(c));
-			context.SaveChanges();*/
 		}
 
 		/// <summary>

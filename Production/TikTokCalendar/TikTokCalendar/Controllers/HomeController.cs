@@ -21,13 +21,13 @@ namespace TikTokCalendar.Controllers
 			Printer.Print("User: " + id);
 			string name = "trotor14";
 			SchoolCourses course = SchoolCourses.SpillProgrammering;
-			if (id == "prog14")
+			if (id == "prog13")
 			{
 				name = id;
 				course = SchoolCourses.Programmering;
 				Printer.Print("User: " + id + " prog");
 			}
-			else if (id == "intsys13")
+			else if (id == "intsys14")
 			{
 				name = id;
 				course = SchoolCourses.IntelligenteSystemer;
@@ -41,7 +41,7 @@ namespace TikTokCalendar.Controllers
 			int weekOrMonthView = 1; // TODO Get this from cookies
 			bool weekView = (weekOrMonthView == 0);
 
-			ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}", user.Year, user.GetCurrentSemester(), user.ValidUsername(user.UserName));
+			ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}", user.ClassYear, user.GetCurrentSemester(), user.ValidUsername(user.UserName));
 
 			var events = db.CalendarEvents.ToList();
 			// TODO Refactor instances of Month into something else
@@ -74,7 +74,7 @@ namespace TikTokCalendar.Controllers
 					// Go through all events
 					foreach (var calEvent in events)
 					{
-						if (calEvent.SubjectID == item.SubjectID)
+						if (calEvent.SubjectID == item.SubjectID && SameYear(calEvent, user))
 						{
 							int monthIndex = -1;
 							if (weekView)
@@ -111,6 +111,12 @@ namespace TikTokCalendar.Controllers
 				modelWrapper.calEvents[i].Events = modelWrapper.calEvents[i].Events.OrderBy(x => x.StartTime).ToList();
 			}
 			return View(modelWrapper);//.calEvents);
+		}
+
+		private bool SameYear(CalendarEvent calEvent, StudentUser user)
+		{
+			if (calEvent.Year < 0) return true;
+			return user.ClassYear == calEvent.Year;
 		}
 
 		public ActionResult About()

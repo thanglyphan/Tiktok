@@ -31,6 +31,7 @@ namespace TikTokCalendar.DAL
 			foreach (var item in rootObj.reservations) {
 				var start = CalendarEventInitializer.GetParsedDateTime(item.Dato + "16", "09:00");
 				var end = CalendarEventInitializer.GetParsedDateTime(item.Dato,"f");
+				int year = -1; // TODO Get year based on which subject it is (check against another subject and see what year that is?)
 
 				//This variable become CalendarEvent obj.
 				data = new CalendarEvent {
@@ -43,7 +44,8 @@ namespace TikTokCalendar.DAL
 					Attendees = item.Emnenavn + item.Vurderingstype,
 					Teacher = "Thang Phan",
 					Comment = "Varighet: " + item.Varighet + "\n Vekting: " + item.Vekting + "\n Emnekode: " +
-					item.Emnekode + "\n Emnenavn: " + item.Emnenavn + "\n Hjelpemidler: " + item.Hjelpemidler
+					item.Emnekode + "\n Emnenavn: " + item.Emnenavn + "\n Hjelpemidler: " + item.Hjelpemidler,
+					Year = year
 				};
 				list.Add(data); //For each item, add data(CalendarEvent) to list.
 			}

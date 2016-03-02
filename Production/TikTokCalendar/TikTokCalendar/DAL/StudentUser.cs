@@ -13,7 +13,9 @@ namespace TikTokCalendar.DAL
 		public SchoolCourses Course { get; set; }
 		public int Year { get; private set; }
 		public int WeekOrMonthShow { get; set; }
+		public int ClassYear { get { return DateTime.Now.Year - Year; } }
 
+		// TESTING
 		private string name;
 		public string Name { get { return name; } set { name = value;
 			Printer.Print("Name: " + value);

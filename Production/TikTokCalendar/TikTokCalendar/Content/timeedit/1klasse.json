@@ -9,516 +9,606 @@
     ],
     "info":{
         "reservationlimit":200,
-        "reservationcount":34
+        "reservationcount":40
     },
     "reservations":[
         {
-            "id":"4575",
-            "startdate":"06.01.2016",
+            "id":"4462",
+            "startdate":"04.01.2016",
             "starttime":"10:15",
-            "enddate":"06.01.2016",
-            "endtime":"14:00",
+            "enddate":"04.01.2016",
+            "endtime":"12:00",
             "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
+                "Interaktivt webprosjekt (PJ2100-15)",
+                "Bachelor i IT",
+                "Auditoriet",
+                "Siri Fagernes",
                 "Forelesning",
                 ""
             ]
         },
         {
-            "id":"4588",
+            "id":"4463",
+            "startdate":"04.01.2016",
+            "starttime":"12:15",
+            "enddate":"04.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Interaktivt webprosjekt (PJ2100-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "Siri Fagernes",
+                "Øving",
+                ""
+            ]
+        },
+        {
+            "id":"4464",
+            "startdate":"05.01.2016",
+            "starttime":"10:15",
+            "enddate":"05.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
+                "Auditoriet",
+                "Stein Marthinsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4488",
+            "startdate":"05.01.2016",
+            "starttime":"12:15",
+            "enddate":"05.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "",
+                "Øving",
+                ""
+            ]
+        },
+        {
+            "id":"4501",
             "startdate":"07.01.2016",
-            "starttime":"14:15",
+            "starttime":"10:15",
             "enddate":"07.01.2016",
-            "endtime":"18:00",
+            "endtime":"12:00",
             "columns":[
-                "Embedded systems (PG5500-15)",
-                "2.klasse, Bachelor - Intelligente Systemer",
+                "Informasjonssikkerhet (TK2100-15)",
+                "Bachelor i IT",
                 "Auditoriet",
-                "Jens Christian Brynildsen",
+                "Bjørn Olav Listog",
                 "Forelesning",
                 ""
             ]
         },
         {
-            "id":"4576",
-            "startdate":"13.01.2016",
-            "starttime":"10:15",
-            "enddate":"13.01.2016",
+            "id":"4514",
+            "startdate":"07.01.2016",
+            "starttime":"12:15",
+            "enddate":"07.01.2016",
             "endtime":"14:00",
             "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
+                "Informasjonssikkerhet (TK2100-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "",
+                "",
                 ""
             ]
         },
         {
-            "id":"4589",
-            "startdate":"14.01.2016",
-            "starttime":"14:15",
-            "enddate":"14.01.2016",
-            "endtime":"18:00",
+            "id":"4429",
+            "startdate":"11.01.2016",
+            "starttime":"10:15",
+            "enddate":"11.01.2016",
+            "endtime":"12:00",
             "columns":[
-                "Embedded systems (PG5500-15)",
-                "2.klasse, Bachelor - Intelligente Systemer",
+                "Interaktivt webprosjekt (PJ2100-15)",
+                "Bachelor i IT",
                 "Auditoriet",
-                "Jens Christian Brynildsen",
+                "Siri Fagernes",
                 "Forelesning",
                 ""
             ]
         },
         {
-            "id":"4957",
+            "id":"4438",
+            "startdate":"11.01.2016",
+            "starttime":"12:15",
+            "enddate":"11.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Interaktivt webprosjekt (PJ2100-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "Siri Fagernes",
+                "Øving",
+                ""
+            ]
+        },
+        {
+            "id":"4458",
+            "startdate":"12.01.2016",
+            "starttime":"10:15",
+            "enddate":"12.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
+                "Auditoriet",
+                "Stein Marthinsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4489",
+            "startdate":"12.01.2016",
+            "starttime":"12:15",
+            "enddate":"12.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "",
+                "Øving",
+                ""
+            ]
+        },
+        {
+            "id":"4502",
+            "startdate":"14.01.2016",
+            "starttime":"10:15",
+            "enddate":"14.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Informasjonssikkerhet (TK2100-15)",
+                "Bachelor i IT",
+                "Auditoriet",
+                "Bjørn Olav Listog",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4515",
+            "startdate":"14.01.2016",
+            "starttime":"12:15",
+            "enddate":"14.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Informasjonssikkerhet (TK2100-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "",
+                "",
+                ""
+            ]
+        },
+        {
+            "id":"4959",
             "startdate":"15.01.2016",
             "starttime":"10:15",
             "enddate":"15.01.2016",
             "endtime":"14:00",
             "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
+                "Animasjon (DS2100-15)",
+                "Bachelor i IT",
+                "Rom 40",
+                "Ole Goethe",
                 "Forelesning",
-                "NB! Merk at første forelesning starter klokken 9.15  (vanlig tid er 10.15)"
+                ""
             ]
         },
         {
-            "id":"4577",
-            "startdate":"20.01.2016",
+            "id":"4960",
+            "startdate":"15.01.2016",
             "starttime":"10:15",
-            "enddate":"20.01.2016",
+            "enddate":"15.01.2016",
             "endtime":"14:00",
             "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
-                "Rom 40",
+                "Digital kultur (DS2200-15)",
+                "Bachelor i IT",
+                "Rom 81",
+                "Kim Johansen Østby",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4962",
+            "startdate":"15.01.2016",
+            "starttime":"11:15",
+            "enddate":"15.01.2016",
+            "endtime":"15:00",
+            "columns":[
+                "Unity utvikling (PG2201-15)",
+                "Bachelor i IT",
+                "Auditoriet",
                 "Tomas Sandnes",
                 "Forelesning",
                 ""
             ]
         },
         {
-            "id":"4590",
-            "startdate":"21.01.2016",
-            "starttime":"14:15",
-            "enddate":"21.01.2016",
-            "endtime":"18:00",
+            "id":"4430",
+            "startdate":"18.01.2016",
+            "starttime":"10:15",
+            "enddate":"18.01.2016",
+            "endtime":"12:00",
             "columns":[
-                "Embedded systems (PG5500-15)",
-                "2.klasse, Bachelor - Intelligente Systemer",
+                "Interaktivt webprosjekt (PJ2100-15)",
+                "Bachelor i IT",
                 "Auditoriet",
-                "Jens Christian Brynildsen",
+                "Siri Fagernes",
                 "Forelesning",
                 ""
             ]
         },
         {
-            "id":"5058",
+            "id":"4439",
+            "startdate":"18.01.2016",
+            "starttime":"12:15",
+            "enddate":"18.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Interaktivt webprosjekt (PJ2100-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "Siri Fagernes",
+                "Øving",
+                ""
+            ]
+        },
+        {
+            "id":"4967",
+            "startdate":"18.01.2016",
+            "starttime":"14:15",
+            "enddate":"18.01.2016",
+            "endtime":"16:00",
+            "columns":[
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
+                "Auditoriet",
+                "Kristine Sundt Lorentzen",
+                "Repetisjonsforelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4459",
+            "startdate":"19.01.2016",
+            "starttime":"10:15",
+            "enddate":"19.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
+                "Auditoriet",
+                "Stein Marthinsen",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4490",
+            "startdate":"19.01.2016",
+            "starttime":"12:15",
+            "enddate":"19.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "",
+                "Øving",
+                ""
+            ]
+        },
+        {
+            "id":"4503",
+            "startdate":"21.01.2016",
+            "starttime":"10:15",
+            "enddate":"21.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Informasjonssikkerhet (TK2100-15)",
+                "Bachelor i IT",
+                "Auditoriet",
+                "Bjørn Olav Listog",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4516",
+            "startdate":"21.01.2016",
+            "starttime":"12:15",
+            "enddate":"21.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Informasjonssikkerhet (TK2100-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "",
+                "",
+                ""
+            ]
+        },
+        {
+            "id":"4985",
             "startdate":"22.01.2016",
             "starttime":"10:15",
             "enddate":"22.01.2016",
             "endtime":"14:00",
             "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
+                "Digital kultur (DS2200-15)",
+                "Bachelor i IT",
+                "Rom 81",
+                "Kim Johansen Østby",
                 "Forelesning",
                 ""
             ]
         },
         {
-            "id":"4578",
-            "startdate":"27.01.2016",
+            "id":"4996",
+            "startdate":"22.01.2016",
             "starttime":"10:15",
-            "enddate":"27.01.2016",
+            "enddate":"22.01.2016",
             "endtime":"14:00",
             "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Animasjon (DS2100-15)",
+                "Bachelor i IT",
                 "Rom 40",
+                "Ole Goethe",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5007",
+            "startdate":"22.01.2016",
+            "starttime":"11:15",
+            "enddate":"22.01.2016",
+            "endtime":"15:00",
+            "columns":[
+                "Unity utvikling (PG2201-15)",
+                "Bachelor i IT",
+                "Auditoriet",
                 "Tomas Sandnes",
                 "Forelesning",
                 ""
             ]
         },
         {
-            "id":"4591",
+            "id":"4431",
+            "startdate":"25.01.2016",
+            "starttime":"10:15",
+            "enddate":"25.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Interaktivt webprosjekt (PJ2100-15)",
+                "Bachelor i IT",
+                "Auditoriet",
+                "Siri Fagernes",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4440",
+            "startdate":"25.01.2016",
+            "starttime":"12:15",
+            "enddate":"25.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Interaktivt webprosjekt (PJ2100-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "Siri Fagernes",
+                "Øving",
+                ""
+            ]
+        },
+        {
+            "id":"4975",
+            "startdate":"25.01.2016",
+            "starttime":"14:15",
+            "enddate":"25.01.2016",
+            "endtime":"16:00",
+            "columns":[
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
+                "Auditoriet",
+                "Kristine Sundt Lorentzen",
+                "Repetisjonsforelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4460",
+            "startdate":"26.01.2016",
+            "starttime":"10:15",
+            "enddate":"26.01.2016",
+            "endtime":"12:00",
+            "columns":[
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
+                "Auditoriet",
+                "Stein Marthinsen",
+                "Forelesning",
+                "Innlevering denne uken. Se emnesiden."
+            ]
+        },
+        {
+            "id":"4491",
+            "startdate":"26.01.2016",
+            "starttime":"12:15",
+            "enddate":"26.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "",
+                "Øving",
+                ""
+            ]
+        },
+        {
+            "id":"4504",
             "startdate":"28.01.2016",
-            "starttime":"14:15",
+            "starttime":"10:15",
             "enddate":"28.01.2016",
-            "endtime":"18:00",
-            "columns":[
-                "Embedded systems (PG5500-15)",
-                "2.klasse, Bachelor - Intelligente Systemer",
-                "Auditoriet",
-                "Jens Christian Brynildsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4579",
-            "startdate":"03.02.2016",
-            "starttime":"10:15",
-            "enddate":"03.02.2016",
-            "endtime":"14:00",
-            "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4592",
-            "startdate":"04.02.2016",
-            "starttime":"14:15",
-            "enddate":"04.02.2016",
-            "endtime":"18:00",
-            "columns":[
-                "Embedded systems (PG5500-15)",
-                "2.klasse, Bachelor - Intelligente Systemer",
-                "Auditoriet",
-                "Jens Christian Brynildsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5054",
-            "startdate":"09.02.2016",
-            "starttime":"08:15",
-            "enddate":"09.02.2016",
             "endtime":"12:00",
             "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
+                "Informasjonssikkerhet (TK2100-15)",
+                "Bachelor i IT",
+                "Auditoriet",
+                "Bjørn Olav Listog",
                 "Forelesning",
-                "NB! Merk endret forelesningstidpunkt denne uken"
+                ""
             ]
         },
         {
-            "id":"4580",
-            "startdate":"10.02.2016",
-            "starttime":"10:15",
-            "enddate":"10.02.2016",
+            "id":"4517",
+            "startdate":"28.01.2016",
+            "starttime":"12:15",
+            "enddate":"28.01.2016",
             "endtime":"14:00",
             "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+                "Informasjonssikkerhet (TK2100-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "",
+                "",
+                ""
+            ]
+        },
+        {
+            "id":"4986",
+            "startdate":"29.01.2016",
+            "starttime":"10:15",
+            "enddate":"29.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Digital kultur (DS2200-15)",
+                "Bachelor i IT",
+                "Rom 81",
+                "Kim Johansen Østby",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"4997",
+            "startdate":"29.01.2016",
+            "starttime":"10:15",
+            "enddate":"29.01.2016",
+            "endtime":"14:00",
+            "columns":[
+                "Animasjon (DS2100-15)",
+                "Bachelor i IT",
                 "Rom 40",
+                "Ole Goethe",
+                "Forelesning",
+                ""
+            ]
+        },
+        {
+            "id":"5008",
+            "startdate":"29.01.2016",
+            "starttime":"11:15",
+            "enddate":"29.01.2016",
+            "endtime":"15:00",
+            "columns":[
+                "Unity utvikling (PG2201-15)",
+                "Bachelor i IT",
+                "Auditoriet",
                 "Tomas Sandnes",
                 "Forelesning",
                 ""
             ]
         },
         {
-            "id":"4593",
-            "startdate":"11.02.2016",
-            "starttime":"14:15",
-            "enddate":"11.02.2016",
-            "endtime":"18:00",
-            "columns":[
-                "Embedded systems (PG5500-15)",
-                "2.klasse, Bachelor - Intelligente Systemer",
-                "Auditoriet",
-                "Jens Christian Brynildsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4581",
-            "startdate":"17.02.2016",
+            "id":"4432",
+            "startdate":"01.02.2016",
             "starttime":"10:15",
-            "enddate":"17.02.2016",
-            "endtime":"14:00",
-            "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4594",
-            "startdate":"18.02.2016",
-            "starttime":"14:15",
-            "enddate":"18.02.2016",
-            "endtime":"18:00",
-            "columns":[
-                "Embedded systems (PG5500-15)",
-                "2.klasse, Bachelor - Intelligente Systemer",
-                "Auditoriet",
-                "Jens Christian Brynildsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5045",
-            "startdate":"19.02.2016",
-            "starttime":"10:15",
-            "enddate":"19.02.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4582",
-            "startdate":"16.03.2016",
-            "starttime":"10:15",
-            "enddate":"16.03.2016",
-            "endtime":"14:00",
-            "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4595",
-            "startdate":"17.03.2016",
-            "starttime":"14:15",
-            "enddate":"17.03.2016",
-            "endtime":"18:00",
-            "columns":[
-                "Embedded systems (PG5500-15)",
-                "2.klasse, Bachelor - Intelligente Systemer",
-                "Auditoriet",
-                "Jens Christian Brynildsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5046",
-            "startdate":"18.03.2016",
-            "starttime":"10:15",
-            "enddate":"18.03.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4583",
-            "startdate":"30.03.2016",
-            "starttime":"10:15",
-            "enddate":"30.03.2016",
-            "endtime":"14:00",
-            "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4596",
-            "startdate":"31.03.2016",
-            "starttime":"14:15",
-            "enddate":"31.03.2016",
-            "endtime":"18:00",
-            "columns":[
-                "Embedded systems (PG5500-15)",
-                "2.klasse, Bachelor - Intelligente Systemer",
-                "Auditoriet",
-                "Jens Christian Brynildsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5047",
-            "startdate":"01.04.2016",
-            "starttime":"10:15",
-            "enddate":"01.04.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5055",
-            "startdate":"05.04.2016",
-            "starttime":"08:15",
-            "enddate":"05.04.2016",
+            "enddate":"01.02.2016",
             "endtime":"12:00",
             "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
-                "Forelesning",
-                "NB! Merk endret forelesningstidspunkt denne uken."
-            ]
-        },
-        {
-            "id":"4584",
-            "startdate":"06.04.2016",
-            "starttime":"10:15",
-            "enddate":"06.04.2016",
-            "endtime":"14:00",
-            "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4597",
-            "startdate":"07.04.2016",
-            "starttime":"14:15",
-            "enddate":"07.04.2016",
-            "endtime":"18:00",
-            "columns":[
-                "Embedded systems (PG5500-15)",
-                "2.klasse, Bachelor - Intelligente Systemer",
+                "Interaktivt webprosjekt (PJ2100-15)",
+                "Bachelor i IT",
                 "Auditoriet",
-                "Jens Christian Brynildsen",
+                "Siri Fagernes",
                 "Forelesning",
                 ""
             ]
         },
         {
-            "id":"4585",
-            "startdate":"13.04.2016",
-            "starttime":"10:15",
-            "enddate":"13.04.2016",
+            "id":"4441",
+            "startdate":"01.02.2016",
+            "starttime":"12:15",
+            "enddate":"01.02.2016",
             "endtime":"14:00",
             "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
+                "Interaktivt webprosjekt (PJ2100-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "Siri Fagernes",
+                "Øving",
                 ""
             ]
         },
         {
-            "id":"4598",
-            "startdate":"14.04.2016",
+            "id":"4976",
+            "startdate":"01.02.2016",
             "starttime":"14:15",
-            "enddate":"14.04.2016",
-            "endtime":"18:00",
+            "enddate":"01.02.2016",
+            "endtime":"16:00",
             "columns":[
-                "Embedded systems (PG5500-15)",
-                "2.klasse, Bachelor - Intelligente Systemer",
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
                 "Auditoriet",
-                "Jens Christian Brynildsen",
-                "Forelesning",
+                "Kristine Sundt Lorentzen",
+                "Repetisjonsforelesning",
                 ""
             ]
         },
         {
-            "id":"5048",
-            "startdate":"15.04.2016",
+            "id":"4461",
+            "startdate":"02.02.2016",
             "starttime":"10:15",
-            "enddate":"15.04.2016",
-            "endtime":"14:00",
+            "enddate":"02.02.2016",
+            "endtime":"12:00",
             "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4586",
-            "startdate":"04.05.2016",
-            "starttime":"10:15",
-            "enddate":"04.05.2016",
-            "endtime":"14:00",
-            "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4587",
-            "startdate":"11.05.2016",
-            "starttime":"10:15",
-            "enddate":"11.05.2016",
-            "endtime":"14:00",
-            "columns":[
-                "C++ programmering (PG4400-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4599",
-            "startdate":"12.05.2016",
-            "starttime":"14:15",
-            "enddate":"12.05.2016",
-            "endtime":"18:00",
-            "columns":[
-                "Embedded systems (PG5500-15)",
-                "2.klasse, Bachelor - Intelligente Systemer",
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
                 "Auditoriet",
-                "Jens Christian Brynildsen",
+                "Stein Marthinsen",
                 "Forelesning",
                 ""
             ]
         },
         {
-            "id":"5049",
-            "startdate":"13.05.2016",
-            "starttime":"10:15",
-            "enddate":"13.05.2016",
+            "id":"4492",
+            "startdate":"02.02.2016",
+            "starttime":"12:15",
+            "enddate":"02.02.2016",
             "endtime":"14:00",
             "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
-                "Forelesning",
+                "Objektorientert programmering 2 (PGR101-15)",
+                "Bachelor i IT",
+                "Rom 40, Rom 79-80, Rom 81, Vrimle",
+                "",
+                "Øving",
                 ""
             ]
         }
