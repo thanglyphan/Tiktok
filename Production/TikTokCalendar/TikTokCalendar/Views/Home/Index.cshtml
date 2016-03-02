@@ -27,13 +27,58 @@
         <i class="fa fa-calendar-check-o"></i>
         <p>tiktok (User: @Model.user.UserName)</p>
 
-        <a class="fa fa-sign-in login-button" href="#" data-toggle="modal" data-target="#logginn-vindu">
+        <a class="fa fa-sign-in login-button" href="#" data-toggle="modal" data-target="#login-window">
         </a>
 
     </header>
 
     <!-- Holds global settings and spans the entire page   -->
     <main>
+
+		<!-- "Log in" modal / Alternative login -->
+		<div class="modal fade" id="login-window" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						
+					</div>
+					<div class="modal-body">
+						<p>
+							Westerdals-brukernavn:
+							
+						</p>
+						<a class="btn btn-default btn-block" data-toggle="modal" data-target="#course-selection" data-dismiss="modal">
+							Neste
+						</a>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- choose course -->
+		<div class="modal fade" id="course-selection" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						Velg ditt studieprogram
+					</div>
+					<div class="modal-body">
+						<div>
+							<div class="btn-group-vertical btn-block">
+								<a class="btn btn-default">2. Klasse Spillprogrammering</a>
+								<a class="btn btn-default">2. Klasse Spillprogrammering</a>
+								<a class="btn btn-default">2. Klasse Spillprogrammering</a>
+								<a class="btn btn-default">2. Klasse Spillprogrammering</a>
+								<a class="btn btn-default">2. Klasse Spillprogrammering</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
         <!-- tooltip hover plugin initialization -->
         <script type="text/javascript">
