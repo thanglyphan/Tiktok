@@ -168,6 +168,7 @@
     <Compile Include="DAL\CourseInfoHelper.cs" />
     <Compile Include="DAL\CoursesEnum.cs" />
     <Compile Include="DAL\EventMonth.cs" />
+    <Compile Include="DAL\ExamInit.cs" />
     <Compile Include="DAL\ModelDataWrapper.cs" />
     <Compile Include="DAL\StudentUser.cs" />
     <Compile Include="Encoder\SHA1.cs" />
