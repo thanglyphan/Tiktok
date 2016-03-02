@@ -13,6 +13,7 @@ namespace TikTokCalendar.DAL
 		public int Month { get; set; }
 		public List<CalendarEvent> Events { get; set; }
 		private bool _weekView = true;
+		public StudentUser user;
 
 		public EventMonth(int month, bool weekView)
 		{
