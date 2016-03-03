@@ -130,7 +130,7 @@ $(function () {
                         // value will be one of the following:
                         course = value;
                         $("#user-course").html(value);
-                        $("#user-name").html(userName);
+                        $("#user-name").html("TEKST FRA MODAL.JS");
                     }
                 })
             }

@@ -16,14 +16,19 @@ namespace TikTokCalendar.Controllers
 	{
 		private CalendarEventContext db = new CalendarEventContext();
 
-		public ActionResult Index(string id = "")
+		public ActionResult Index(string UserId)
 		{
 			//Debug.WriteLine(inputValue); // HER PRINTES DET SOM ER SKREVET INN
 			//string id = inputValue; // HER PRINTES DET SOM ER SKREVET INN
 			//string id = "None";
 
+			string halla = "";
+			string id = "";
+			halla = returnName();
+			Debug.WriteLine(halla);
+			//Printer.Print(halla);
 			// DEBUG For testing
-			Printer.Print("User: " + id);
+			//Printer.Print("User: " + id);
 			string name = "trotor14";
 			SchoolCourses course = SchoolCourses.SpillProgrammering;
 			if (id.Contains("prog"))
@@ -132,6 +137,7 @@ namespace TikTokCalendar.Controllers
 			{
 				modelWrapper.calEvents[i].Events = modelWrapper.calEvents[i].Events.OrderBy(x => x.StartTime).ToList();
 			}
+
 			return View(modelWrapper);//.calEvents);
 		}
 
@@ -140,7 +146,15 @@ namespace TikTokCalendar.Controllers
 			if (calEvent.Year < 0) return true;
 			return user.ClassYear == calEvent.Year;
 		}
-
+		private String returnName()
+		{
+			
+			string halla = (string)Session["UserId"];
+			if (halla == "") {
+				return "phatha14";
+			}
+			else { return halla; }
+		}
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";
