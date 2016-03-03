@@ -82,6 +82,12 @@ namespace TikTokCalendar.DAL
 			return -1;
 		}
 
+		public int update()
+		{
+			Printer.Print("hey");
+			return 0;
+		}
+
 		public void SaveToCookies()
 		{
 			
