@@ -1,0 +1,19 @@
+﻿// Programmlinjene
+// id   : en unik rullende id
+// name : navnet på linja
+{
+  "courses": [
+    {
+      "id": "1",
+      "name": "Spillprogrammering"
+    },
+    {
+      "id": "2",
+      "name": "Programmering"
+    },
+    {
+      "id": "3",
+      "name": "Intelligente Systemer"
+    }
+  ]
+}

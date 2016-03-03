@@ -116,6 +116,7 @@ namespace TikTokCalendar.DAL
 				var subject = 1; // TODO Default to an empty event (to make it easier to see error)? If it can't find a similar one it will just take the first one
 				foreach (var subj in context.Subjects)
 				{
+					// Compare subject codes
 					//if (item.columns[0].Substring(0, 7).Equals(subj.Name.Substring(0, 7)))
 					if (item.columns[0].Substring(item.columns[0].Length - 11).Equals(subj.Name.Substring(subj.Name.Length - 11)))
 					{
@@ -126,6 +127,7 @@ namespace TikTokCalendar.DAL
 				int timeEditId = -1;
 				int.TryParse(item.id, out timeEditId);
 
+				// What classyear this item is for
 				int year = 1;
 				if (item.columns[1].Contains("2.klasse"))
 				{
@@ -135,7 +137,7 @@ namespace TikTokCalendar.DAL
 				{
 					year = 3;
 				}
-				//int.TryParse(item.columns[0], out year); // TODO Figure out the events year here
+				//int.TryParse(item.columns[0], out year);
 
 				// Make an event out of the data
 				var ce = new CalendarEvent

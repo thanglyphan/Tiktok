@@ -1,0 +1,21 @@
+﻿// En linjes fag i et semester
+// id       : en unik rullende ID
+// courseId : ID'en til coursen som hører til
+// subjectId: ID'en til subjectet som hører til
+// semester : semesteret som hører til (1-6)
+{
+  "courseSubjects": [
+    {
+      "id": "1",
+      "courseId": "1",
+      "subjectId": "1",
+      "semester": "1"
+    },
+    {
+      "id": "2",
+      "courseId": "1",
+      "subjectId": "2",
+      "semester": "1"
+    }
+  ]
+}

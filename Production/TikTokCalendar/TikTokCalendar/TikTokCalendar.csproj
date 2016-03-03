@@ -167,6 +167,7 @@
     <Compile Include="DAL\Cookies.cs" />
     <Compile Include="DAL\CourseInfoHelper.cs" />
     <Compile Include="DAL\CoursesEnum.cs" />
+    <Compile Include="DAL\DataParser.cs" />
     <Compile Include="DAL\EventMonth.cs" />
     <Compile Include="DAL\ExamInit.cs" />
     <Compile Include="DAL\ModelDataWrapper.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="Models\CalendarEvent.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseSubject.cs" />
+    <Compile Include="Models\CustomEvent.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -196,6 +198,9 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\SchoolSystem\courses.json" />
+    <Content Include="Content\SchoolSystem\subjects.json" />
+    <Content Include="Content\SchoolSystem\courseSubjects.json" />
     <None Include="Content\timeedit\1klasse.json" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
