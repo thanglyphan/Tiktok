@@ -16,37 +16,27 @@
     bool flag5 = false;
 }
 
-<!-- Hack to store posted data after pageload, can't be in separate file -->
+<!-- Hack to store posted data after pageload, can't be in separate file 
 <div id="user-name">  </div>
 <div id="user-course"></div>
+        -->
+@Model.user.UserName = <div id="user-name"></div>
+@Model.user.Course = <div id="user-course"></div>
 
-<script>
-    @Model.user.UserName = $("#user-name").html();
-    @Model.user.Course   = $("#user-course").html();
-</script>
+@{ 
+    var userName = "Thang Phan";
+    Session["UserId"] = userName;
+}
 
-<div>
-    @using (Html.BeginForm()) {
-        @Html.TextBox("inputValue")
-        <input value="Trykk her" type="submit" />
-    }
-</div>
 
 <!-- end of hack -->
 
-    <!-- The navbar with the tiktok logo  -->
-    <header>
-        <i class="fa fa-calendar-check-o"></i>
-        <p>tiktok</p>
-
-        <a class="fa fa-sign-in login-button" href="#" data-toggle="modal" data-target="#login-window">
-        </a>
-
-    </header>
+    
 
     <!-- Holds global settings and spans the entire page   -->
     <main>
 
+		@*
 		<!-- "Log in" modal / Alternative login -->
 		<div class="modal fade" id="login-window" role="dialog">
 			<div class="modal-dialog modal-sm">
@@ -68,6 +58,7 @@
 				</div>
 			</div>
 		</div>
+		*@
 
 		<!-- choose course -->
 		<div class="modal fade" id="course-selection" role="dialog">
