@@ -19,15 +19,20 @@ namespace TikTokCalendar.DAL
 	public class CalendarEventInitializer : DropCreateDatabaseAlways<CalendarEventContext>
 	{
 		private const string Format = "dd.MM.yyyy HH:mm:ss";
-		private List<Subject> subjects;
-		 
+		private List<Subject> subjects = new List<Subject>();
 		protected override void Seed(CalendarEventContext context)
 		{
 			InsertDummyData(context);
 			//ReadJsonFile(context);
 			//new ExamInit(context);
+			//InitializeDummy();
+		}
 
-
+		public void InitializeDummy()
+		{
+			// Parse all the data
+			DataParser dataParser = new DataParser();
+			dataParser.ParseAllData();
 		}
 
 		/// <summary>

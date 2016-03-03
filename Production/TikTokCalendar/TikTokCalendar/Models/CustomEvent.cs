@@ -43,6 +43,13 @@ namespace TikTokCalendar.Models
 
 			// Startdate
 
+			// return a list of events, make it static
+			// If can parse, use that
+			// else
+			//		contains(uke) display uke and put at start of that week
+			//		contains(og) make an event for both
+			//		else just display that??? but where?
+
 			// Enddate
 
 			// Emne (get course and turn into a subject class (compare the id (the last 11 characters)?)
@@ -61,6 +68,11 @@ namespace TikTokCalendar.Models
 				Printer.Print("ERROR parsing event, couldn't parse event!");
 			}
 			return success;
+		}
+
+		private DateTime ParseDate(string date)
+		{
+			return DateTime.MinValue;
 		}
 
 		/*

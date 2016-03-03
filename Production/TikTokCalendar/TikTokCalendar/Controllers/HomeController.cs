@@ -30,7 +30,7 @@ namespace TikTokCalendar.Controllers
 			// DEBUG For testing
 			//Printer.Print("User: " + id);
 			string name = "trotor14";
-			SchoolCourses course = SchoolCourses.SpillProgrammering;
+			SchoolCourses course = SchoolCourses.Spillprogrammering;
 			if (id.Contains("prog"))
 			{
 				name = id;
@@ -46,7 +46,7 @@ namespace TikTokCalendar.Controllers
 			else if (id.Contains("idesign"))
 			{
 				name = id;
-				course = SchoolCourses.MobilApputvikling;
+				course = SchoolCourses.Mobilprogrammering;
 				Printer.Print("User: " + id + " idesign");
 			}
 			//Cookies cookie;

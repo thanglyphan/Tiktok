@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TikTokCalendar.Extras;
 
 namespace TikTokCalendar.Models
 {
@@ -15,13 +16,18 @@ namespace TikTokCalendar.Models
 		public Course Course { get; set; }
 		public Subject Subject { get; set; }
 
-		public CourseSubject(int id, int semester, int courseId, int subjectId, List<Course> courses, List<Subject> subjects)
+		public void SetAndParse(string id, string courseId, string subjectId, string semester, List<Course> courses, List<Subject> subjects)
 		{
-			ID = id;
-			Semester = semester;
+			// Parse the paramteres
+			ID = Utils.ParsePositiveInt(id);
+			int courseID = Utils.ParsePositiveInt(courseId);
+			int subjectID = Utils.ParsePositiveInt(subjectId);
+			Semester = Utils.ParsePositiveInt(semester);
+
+			// Find the course and subject that matches the IDs
 			foreach (var course in courses)
 			{
-				if (course.ID == courseId)
+				if (course.ID == courseID)
 				{
 					Course = course;
 					break;
@@ -29,7 +35,7 @@ namespace TikTokCalendar.Models
 			}
 			foreach (var subject in subjects)
 			{
-				if (subject.ID == subjectId)
+				if (subject.ID == subjectID)
 				{
 					Subject = subject;
 					break;
