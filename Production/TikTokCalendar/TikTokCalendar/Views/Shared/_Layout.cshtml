@@ -19,23 +19,74 @@
     <link rel="stylesheet" href= "@Url.Content("/Content/vex/vex.css")" />
     <link rel="stylesheet" href= "@Url.Content("/Content/vex/vex-theme-os.css")" />
 
+    <!-- tooltip hover & diverse css som skal legges inn i main.css -->
+    <style type="text/css" media="screen">
+        .activator {
+        cursor: default;
+    }
+        .tip-item {
+        position: relative;
+    }
+        .tip {
+        font-size: 12px;
+        display: none;
+        width: auto;
+        height: auto;
+        background-color: #FFF;
+        padding: 6px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        /*border-radius: 6px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;*/
+        box-shadow: 0px 0px 4px 0px #000;
+        -moz-box-shadow: 0px 0px 4px 0px #000;
+        -webkit-box-shadow: 0px 0px 4px 0px #000;
+        }
+
+        .countdown {
+            color: #e28138;
+        }
+
+        .ongoing {
+            color: #3879E2;
+        }
+    </style>
 </head>
 <body>
-	<!-- The navbar with the tiktok logo  -->
-	<header>
-		<i class="fa fa-calendar-check-o"></i>
-		<p>tiktok</p>
-
-		<a class="fa fa-sign-in login-button" href="#" data-toggle="modal" data-target="#login-window">
-		</a>
-
-	</header>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Events", "Index", "CalendarEvent")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>*@
 	
-    @RenderBody()
-
-	<footer class="footer">
-		<p>&copy; 2015 - Gruppe 15</p>
-	</footer>
+    <!--<div id="outer">-->
+        <!--<div class="container centering">-->
+           @* @Html.Partial("_LoginPartial")*@
+            @RenderBody()
+            <footer class="footer">
+                <p>&copy; 2015 - Gruppe 15</p>
+            </footer>
+        <!--</div>-->
+    <!--</div>-->
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
