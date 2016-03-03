@@ -160,6 +160,7 @@
     <Compile Include="App_Start\SessionAuthenticationConfig.cs" />
     <Compile Include="Controllers\CalendarEventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extras\Searching.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\CalendarEventContext.cs" />
     <Compile Include="DAL\CalendarEventInitializer.cs" />
@@ -201,6 +202,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\SchoolSystem\courses.json" />
     <Content Include="Content\SchoolSystem\subjects.json" />
     <Content Include="Content\SchoolSystem\courseSubjects.json" />
@@ -313,6 +315,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Searching\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
