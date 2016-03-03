@@ -21,7 +21,6 @@ namespace TikTokCalendar.Controllers
 			//Debug.WriteLine(inputValue); // HER PRINTES DET SOM ER SKREVET INN
 			string id = inputValue; // HER PRINTES DET SOM ER SKREVET INN
 			//string id = "None";
-			//string id = homoGutten;
 
 			Printer.Print("User: " + id);
 			string name = "trotor14";
