@@ -23,6 +23,10 @@ main .main-body {
   margin: 20px;
 }
 
+footer {
+	text-align: center;
+}
+
 
 /*===================================
   N A V B A R
@@ -31,9 +35,11 @@ header {
   background-color: #F5F6F8;
   padding-top: 10px;
   opacity: 0.8;
-  max-width: 900px;
+  width: 900px;
+  max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  position: fixed;
 }
 
 header i.fa-calendar-check-o {
@@ -312,3 +318,40 @@ header .login-button {
         font-size: 18px;
   }
 }
+
+/*
+	TOOLTIP AND COUNTDOWN
+*/
+
+        .activator {
+        cursor: default;
+    }
+        .tip-item {
+        position: relative;
+    }
+        .tip {
+        font-size: 12px;
+        display: none;
+        width: auto;
+        height: auto;
+        background-color: #FFF;
+        padding: 6px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        /*border-radius: 6px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;*/
+        box-shadow: 0px 0px 4px 0px #000;
+        -moz-box-shadow: 0px 0px 4px 0px #000;
+        -webkit-box-shadow: 0px 0px 4px 0px #000;
+        }
+
+        .countdown {
+            color: #3879E2;
+        }
+
+        .ongoing {
+			color: #e28138;
+        }
