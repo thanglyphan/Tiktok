@@ -7,123 +7,101 @@ namespace TikTokCalendar
         Random rng = new Random();
         public string GetTimeLeft(DateTime item)
         {
-                string timeLeft = "";
-                if (item > DateTime.Now)
+            string timeLeft = "";
+            if (item > DateTime.Now)
+            {
+                if (item < DateTime.Now.AddYears(2))
                 {
-                    if (item < DateTime.Now.AddYears(2))
+                    if (item < DateTime.Now.AddYears(1))
                     {
-                        if (item < DateTime.Now.AddYears(1))
+                        if (item < DateTime.Now.AddMonths(1))
                         {
-                            if (item < DateTime.Now.AddMonths(1))
+                            if (item < DateTime.Now.AddDays(14))
                             {
-                                if (item < DateTime.Now.AddDays(14))
+                                if (item < DateTime.Now.AddDays(1))
                                 {
-                                    if (item < DateTime.Now.AddDays(1))
+                                    if (item < DateTime.Now.AddHours(1))
                                     {
-                                        if (item < DateTime.Now.AddHours(1))
+                                        if (item < DateTime.Now.AddMinutes(1))
                                         {
-                                            if (item < DateTime.Now.AddMinutes(1))
-                                            {
-                                                timeLeft = "Teller ned: " + (int)(item - DateTime.Now).TotalSeconds;
-                                            }
-                                            else
-                                            {
-                                                int mins = (int)(item - DateTime.Now).TotalMinutes;
-                                                timeLeft = "" + mins;
-                                                if (mins > 1)
-                                                {
-                                                    timeLeft += " minutter til";
-                                                }
-                                                else
-                                                {
-                                                    timeLeft += " minutt til";
-                                                }
-                                            }
+                                            timeLeft = "Sekunder igjen: " + (int)Math.Round((item - DateTime.Now).TotalSeconds, 4);
                                         }
                                         else
                                         {
-                                            int hours = (int)(item - DateTime.Now).TotalHours;
-                                            timeLeft = "" + hours;
-                                            if (hours > 1)
+                                            int mins = (int)Math.Floor((item - DateTime.Now).TotalMinutes);
+                                            if (mins > 1)
                                             {
-                                                timeLeft += " timer til";
+                                                timeLeft = "" + mins + " minutter til";
                                             }
                                             else
                                             {
-                                                timeLeft += " time til";
+                                                timeLeft = "Ett minutt til";
                                             }
                                         }
                                     }
                                     else
                                     {
-                                        int days = (int)(item - DateTime.Now).TotalDays;
-                                        timeLeft = "" + days;
-                                        if (days > 1)
+                                        int hours = (int)Math.Floor((item - DateTime.Now).TotalHours);
+                                        if (hours > 1)
                                         {
-                                            timeLeft += " dager til";
+                                            timeLeft = "" + hours + " timer til";
                                         }
                                         else
                                         {
-                                            timeLeft += " dag til";
+                                            timeLeft = "Én time til";
                                         }
-
                                     }
                                 }
                                 else
                                 {
-                                    int weeks = (int)(item - DateTime.Now).TotalDays / 7;
-                                    timeLeft = "" + weeks + " uker til";
+                                    int days = (int)Math.Ceiling((item - DateTime.Now).TotalDays);
+                                    if (days > 1)
+                                    {
+                                        timeLeft = "" + days + " dager til";
+                                    }
+                                    else
+                                    {
+                                        timeLeft = "Én dag til";
+                                    }
+                                    if (days == 14)
+                                    {
+                                        timeLeft = "To uker til";
+                                    }
                                 }
                             }
                             else
                             {
-                                int months = ((item.Year - DateTime.Now.Year) * 12 + item.Month - DateTime.Now.Month);
-                                timeLeft = "" + months;
-                                if (months > 1)
-                                {
-                                    timeLeft += " måneder til";
-                                }
-                                else
-                                {
-                                    timeLeft += " måned til";
-                                }
+                                int weeks = (int)Math.Floor((item - DateTime.Now).TotalDays / 7);
+                                timeLeft = "Over " + weeks + " uker til";
                             }
                         }
                         else
                         {
-                            timeLeft = "Over et år til";
+                            int months = ((item.Year - DateTime.Now.Year) * 12 + item.Month - DateTime.Now.Month);
+                            if (months > 1)
+                            {
+                                timeLeft = "Over " + months + " måneder til";
+                            }
+                            else
+                            {
+                                timeLeft = "Over én måned til";
+                            }
                         }
                     }
                     else
                     {
-                        timeLeft = "Mange år til";
+                        timeLeft = "Over et år til";
                     }
                 }
                 else
                 {
-                    switch (rng.Next(6))
-                    {
-                        case 0:
-                            timeLeft = "Don't judge yourself by your past. You don't live there anymore.";
-                            break;
-                        case 1:
-                            timeLeft = "You can't start the next chapter of your life if you keep re-reading the last one.";
-                            break;
-                        case 2:
-                            timeLeft = "When your past calls don't answer. It has nothing new to say";
-                            break;
-                        case 3:
-                            timeLeft = "Leave the past where it belongs. Don't look back when you know you shouldn't.";
-                            break;
-                        case 4:
-                            timeLeft = "The best thing about the past is that it shows you what not to bring into the future.";
-                            break;
-                        case 5:
-                            timeLeft = "Oh yes, the past can hurt. But you can either run from it or, learn from it.";
-                            break;
-                    }
-
+                    timeLeft = "Mange år til";
                 }
+            }
+            else
+            {
+                timeLeft = "";
+            }
             return timeLeft;
         }
     }

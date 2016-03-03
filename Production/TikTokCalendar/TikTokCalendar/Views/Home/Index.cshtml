@@ -8,7 +8,10 @@
     //ViewBag.Title = Model.ToString();
 
     TimeLeft TimeLeft = new TimeLeft();
-
+    // Various flags to get code to be written only once and at the right place in foreach loop
+    bool flag1 = false;
+    bool flag2 = false;
+    bool flag3 = false;
 }
 
 <!-- Hack to store posted data after pageload, can't be in separate file -->
@@ -133,8 +136,22 @@
                                         <!-- tooltip hover extravaganza -->
                                         <div class="tip-item">
                                             <p class="name activator tip-specific-class">@item.GetEventNameWithoutSubjectCode()</p>  <!-- "Grensesnittdesign" -->
-
-                                            <div class="tip tip-specific-class">@TimeLeft.GetTimeLeft(item.StartTime)</div>
+                                            @{
+                                                string timeLeft = TimeLeft.GetTimeLeft(item.StartTime);
+                                            }
+                                            @if (timeLeft != ""){
+                                                if (flag1)
+                                                {
+                                                <div class="tip tip-specific-class">@timeLeft</div>
+                                                }
+                                                if (!flag2)
+                                                {
+                                                    if (item.StartTime < DateTime.Now.AddHours(24))
+                                                    {
+                                                        flag2 = true;
+                                                    }
+                                                }
+                                            }
                                         </div>
                                         <div class="right-position">
                                             <p class="room">@item.RoomName</p>  <!-- "Rom 41" -->
@@ -144,9 +161,25 @@
                                     <!-- Container for bottom row -->
                                     <div class="time-info">
                                         <div class="left-position">
-
                                             <!-- Date and time  -->
-                                            <p class="time"><strong>&nbsp;@item.GetDayOfWeek()</strong>, @item.GetTimeSlot()</p>
+                                            <p class="time"><strong>&nbsp;@item.GetDayOfWeek()</strong>, @item.GetTimeSlot()
+                                            @if (flag2 && !flag3)
+                                            {
+                                                <!-- real time countdown script -->
+                                                <script>
+                                                    $(function () {
+                                                        var date = new Date();
+                                                        date = new Date(@item.StartTime.Year , @item.StartTime.AddMonths(-1).Month , @item.StartTime.Day , @item.StartTime.Hour , @item.StartTime.Minute , @item.StartTime.Second );
+                                                        $('.countdown').countdown({until: date, compact: true,
+                                                            layout: '&nbsp;{hnn}{sep}{mnn}{sep}{snn}'});
+                                                    });
+                                                </script>
+                                                <b>&nbsp;|</b>
+                                                <span class="countdown"></span>
+                                                flag1 = true;
+                                                flag3 = true;
+                                            }
+                                            </p>
                                         </div>
 
                                         <!-- Icon displaying "..."  -->
