@@ -20,6 +20,13 @@
 <div id="user-name">  </div>
 <div id="user-course"></div>
         -->
+@Model.user.UserName = <div id="user-name"></div>
+@Model.user.Course = <div id="user-course"></div>
+
+@{ 
+    var userName = "Thang Phan";
+    Session["UserId"] = userName;
+}
 
 
 <!-- end of hack -->
