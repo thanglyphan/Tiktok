@@ -16,6 +16,13 @@ namespace TikTokCalendar.Controllers
 	{
 		private CalendarEventContext db = new CalendarEventContext();
 
+		// TODO FIX HERE
+		public ActionResult GetName(string myName)
+		{
+			Debug.Write(myName);
+			return View();
+		}
+
 		public ActionResult Index(string id = "None")
 		{
 			Debug.WriteLine(id);

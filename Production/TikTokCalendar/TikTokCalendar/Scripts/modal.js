@@ -131,6 +131,16 @@ $(function () {
                         course = value;
                         $("#user-course").html(value);
                         $("#user-name").html(userName);
+                        var myName = "Thang Phan";
+                        //window.alert("hello " + value);
+                        $.ajax({
+                            url: "\controllers\homecontroller.cs",
+                            type: "GET",
+                            success: function (data) {
+                                // do callback stuff
+                            },
+                            data: myName
+                        });
                     }
                 })
             }
@@ -143,3 +153,4 @@ $(function () {
 function isEmpty(str) {
     return typeof str == 'string' && !str.trim() || typeof str == 'undefined' || str === null;
 }
+
