@@ -176,6 +176,7 @@
     <Compile Include="DAL\StudentUser.cs" />
     <Compile Include="Encoder\SHA1.cs" />
     <Compile Include="Extras\TimeLeft.cs" />
+    <Compile Include="Extras\Utils.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,6 +188,7 @@
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseSubject.cs" />
     <Compile Include="Models\CustomEvent.cs" />
+    <Compile Include="Models\DataWrapper.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

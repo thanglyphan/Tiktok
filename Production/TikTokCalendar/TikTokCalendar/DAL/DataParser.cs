@@ -16,6 +16,13 @@ namespace TikTokCalendar.DAL
 		private const string subjectFile = "SchoolSystem/subjects.json";
 		private const string courseSubjectFile = "SchoolSystem/courseSubjects.json";
 
+		public void ParseAllData()
+		{
+			var subjects = GetSubjects();
+			var courses = GetCourses();
+			DataWrapper.Instance.SetData(subjects, courses, GetCourseSubjects(subjects, courses));
+		}
+
 		private string GetFileContents(string contentFolderRelativePath)
 		{
 			var dataPath = HttpContext.Current.Server.MapPath("~/Content/" + contentFolderRelativePath);
@@ -29,7 +36,7 @@ namespace TikTokCalendar.DAL
 			var container = JsonConvert.DeserializeObject<JRootSubjectObject>(file);
 			foreach (var subject in container.subject)
 			{
-				Subject s = new Subject();
+				var s = new Subject();
 				s.SetAndParse(subject.id, subject.name);
 				subjects.Add(s);
 			}
@@ -44,19 +51,23 @@ namespace TikTokCalendar.DAL
 			var container = JsonConvert.DeserializeObject<JRootCourseObject>(file);
 			foreach (var course in container.courses)
 			{
-
+				var c = new Course();
+				c.SetAndParse(course.id, course.name);
+				courses.Add(c);
 			}
 			return courses;
 		}
 
-		private List<CourseSubject> GetSourseSubjects()
+		private List<CourseSubject> GetCourseSubjects(List<Subject> subjects, List<Course> courses)
 		{
 			var courseSubjects = new List<CourseSubject>();
 			var file = GetFileContents(courseSubjectFile);
 			var container = JsonConvert.DeserializeObject<JRootCourseSubjectObject>(file);
 			foreach (var courseSubject in container.courseSubjects)
 			{
-
+				var c = new CourseSubject();
+				c.SetAndParse(courseSubject.id, courseSubject.courseId, courseSubject.subjectId, courseSubject.semester, courses, subjects);
+				courseSubjects.Add(c);
 			}
 			return courseSubjects;
 		}

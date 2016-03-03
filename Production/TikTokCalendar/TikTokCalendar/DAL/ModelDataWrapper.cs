@@ -13,7 +13,7 @@ namespace TikTokCalendar.DAL
 		public ModelDataWrapper()
 		{
 			calEvents = new List<EventMonth>();
-			user = new StudentUser("trotor14", SchoolCourses.SpillProgrammering);
+			user = new StudentUser("trotor14", SchoolCourses.Spillprogrammering);
 		}
 	}
 }

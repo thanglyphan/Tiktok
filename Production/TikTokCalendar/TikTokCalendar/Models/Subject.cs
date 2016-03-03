@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web;
+using TikTokCalendar.Extras;
 
 namespace TikTokCalendar.Models
 {
@@ -16,9 +17,7 @@ namespace TikTokCalendar.Models
 
 		public void SetAndParse(string id, string name)
 		{
-			int parsedId = -1;
-			int.TryParse(id, NumberStyles.Integer, new NumberFormatInfo(), out parsedId);
-			ID = parsedId;
+			ID = Utils.ParsePositiveInt(id);
 
 			Name = name.Substring(0, name.Length - 11);
 			Code = GetSubjectCode(name);
