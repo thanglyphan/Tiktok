@@ -23,9 +23,12 @@ namespace TikTokCalendar.Controllers
 			//string id = "None";
 
 			string halla = "";
+			string balla = "";
 			string id = "";
 			halla = returnName();
-			Debug.WriteLine(halla);
+			balla = returnCourse();
+			Debug.WriteLine(halla + balla);
+
 			//Printer.Print(halla);
 			// DEBUG For testing
 			//Printer.Print("User: " + id);
@@ -149,11 +152,19 @@ namespace TikTokCalendar.Controllers
 		private String returnName()
 		{
 			
-			string halla = (string)Session["UserId"];
-			if (halla == "") {
+			string userName = (string)Session["UserName"];
+			if (userName == "") {
 				return "phatha14";
 			}
-			else { return halla; }
+			else { return userName; }
+		}
+		private String returnCourse()
+		{
+			string userCourse = (string)Session["UserCourse"];
+			if (userCourse == "") {
+				return "phatha14";
+			}
+			else { return userCourse; }
 		}
 		public ActionResult About()
 		{

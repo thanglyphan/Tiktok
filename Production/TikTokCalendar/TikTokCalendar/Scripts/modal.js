@@ -1,10 +1,10 @@
 ﻿function showLogin() {
 
-    var userName = "";
+    var username = "";
 
     vex.dialog.open({
         message: 'Westerdals brukernavn',
-        input: "<input name=\"userName\" type=\"text\" placeholder=\"nelwil14\" required />",
+        input: "<input name=\"username\" type=\"text\" placeholder=\"nelwil14\" required />",
 
         buttons: [
         $.extend({}, vex.dialog.buttons.YES, {
@@ -13,11 +13,13 @@
         ],
 
         callback: function (data) {
+            $("#user-name").html(data.username);
             if (data === false) {
                 return console.log('Cancelled');
             }
 
-            if (isEmpty(userName)) {
+
+            if (isEmpty(username)) {
 
                 //  Check if username matches any of the registered users
                 //  userName === "whatever"
@@ -129,7 +131,7 @@
                         // value will be one of the following:
                         course = value;
                         $("#user-course").html(value);
-                        $("#user-name").html("TEKST FRA MODAL.JS");
+                       
                     }
                 })
             }
