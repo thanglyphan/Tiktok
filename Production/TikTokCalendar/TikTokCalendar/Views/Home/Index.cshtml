@@ -22,28 +22,6 @@
         -->
 
 
-    @Model.user.UserName = <div id="user-name"></div>
-    @Model.user.Course = <div id="user-course"></div>
-
-    @{
-        var userName = "Thang Phan";
-        @Session["UserId"] = userName;
-    }
-
-
-
-    
-
-
-
-
-<div>
-    @using (Html.BeginForm()) {
-        @Html.TextBox("inputValue")
-        <input value="Trykk her" type="submit" />
-    }
-</div>
-
 <!-- end of hack -->
 
     
