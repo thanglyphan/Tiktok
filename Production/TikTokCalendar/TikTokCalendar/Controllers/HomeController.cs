@@ -16,12 +16,13 @@ namespace TikTokCalendar.Controllers
 	{
 		private CalendarEventContext db = new CalendarEventContext();
 
-		public ActionResult Index(string inputValue)
+		public ActionResult Index(string id = "")
 		{
 			//Debug.WriteLine(inputValue); // HER PRINTES DET SOM ER SKREVET INN
-			string id = inputValue; // HER PRINTES DET SOM ER SKREVET INN
+			//string id = inputValue; // HER PRINTES DET SOM ER SKREVET INN
 			//string id = "None";
 
+			// DEBUG For testing
 			Printer.Print("User: " + id);
 			string name = "trotor14";
 			SchoolCourses course = SchoolCourses.SpillProgrammering;
@@ -82,6 +83,8 @@ namespace TikTokCalendar.Controllers
 			// TODO This could be fixed by making sure the data doesn't have any duplicates
 			var addedEvents = new HashSet<int>();
 			
+
+			// TODO Make this a function call with parameters for easier accessing when adding functionality
 			// Go through all course subjects
 			foreach (var item in db.CourseSubject)
 			{
