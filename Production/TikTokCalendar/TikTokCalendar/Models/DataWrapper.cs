@@ -5,6 +5,7 @@ using System.Web;
 
 namespace TikTokCalendar.Models
 {
+	// Collection of the .json data
 	public class DataWrapper
 	{
 		public List<Subject> Subjects { get; private set; }
