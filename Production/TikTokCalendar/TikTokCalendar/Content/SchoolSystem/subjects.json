@@ -1,0 +1,13 @@
+﻿// Fagene
+// id   : en unik rullende ID
+// code : fagkoden til emnet
+// name : navnet til emnet
+{
+  "subject": [
+    {
+      "id": "1",
+      "code": "PG4400-15",
+      "name": "Game AI"
+    }
+  ]
+}
