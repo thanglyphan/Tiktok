@@ -16,14 +16,14 @@ namespace TikTokCalendar.Controllers
 	{
 		private CalendarEventContext db = new CalendarEventContext();
 
-		public ActionResult Index(string id = "None")
+		public ActionResult Index(string inputValue)
 		{
-			Debug.WriteLine(id);
-
+			//Debug.WriteLine(inputValue); // HER PRINTES DET SOM ER SKREVET INN
+			string id = inputValue; // HER PRINTES DET SOM ER SKREVET INN
 			//string id = "None";
 			//string id = homoGutten;
 
-            Printer.Print("User: " + id);
+			Printer.Print("User: " + id);
 			string name = "trotor14";
 			SchoolCourses course = SchoolCourses.SpillProgrammering;
 			if (id.Contains("prog"))
