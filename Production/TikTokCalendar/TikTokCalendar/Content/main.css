@@ -33,13 +33,14 @@ footer {
 ==========================================*/
 header {
   background-color: #F5F6F8;
-  padding-top: 10px;
+  padding-top: 0;
   opacity: 0.8;
   width: 900px;
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
   position: fixed;
+  display: block;
 }
 
 header i.fa-calendar-check-o {

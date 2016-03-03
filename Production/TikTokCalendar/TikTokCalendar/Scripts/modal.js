@@ -1,5 +1,4 @@
-﻿
-$(function () {
+﻿function showLogin() {
 
     var userName = "";
 
@@ -136,7 +135,7 @@ $(function () {
             }
         }
     });
-});
+}
 
 //  Check if username is invalid in some ways 
 //  TODO: Replace this with a to
