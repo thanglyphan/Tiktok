@@ -16,21 +16,19 @@ namespace TikTokCalendar.Controllers
 	{
 		private CalendarEventContext db = new CalendarEventContext();
 
-		// TODO FIX HERE
-		public ActionResult GetName(string myName)
+		public ActionResult Index(string UserId)
 		{
-			Debug.Write(myName);
-			return View();
-		}
-
-		public ActionResult Index(string id = "None")
-		{
-			Debug.WriteLine(id);
-
+			//Debug.WriteLine(inputValue); // HER PRINTES DET SOM ER SKREVET INN
+			//string id = inputValue; // HER PRINTES DET SOM ER SKREVET INN
 			//string id = "None";
-			//string id = homoGutten;
 
-            Printer.Print("User: " + id);
+			string halla = "";
+			string id = "";
+			halla = returnName();
+			Debug.WriteLine(halla);
+			//Printer.Print(halla);
+			// DEBUG For testing
+			//Printer.Print("User: " + id);
 			string name = "trotor14";
 			SchoolCourses course = SchoolCourses.SpillProgrammering;
 			if (id.Contains("prog"))
@@ -90,6 +88,8 @@ namespace TikTokCalendar.Controllers
 			// TODO This could be fixed by making sure the data doesn't have any duplicates
 			var addedEvents = new HashSet<int>();
 			
+
+			// TODO Make this a function call with parameters for easier accessing when adding functionality
 			// Go through all course subjects
 			foreach (var item in db.CourseSubject)
 			{
@@ -137,6 +137,7 @@ namespace TikTokCalendar.Controllers
 			{
 				modelWrapper.calEvents[i].Events = modelWrapper.calEvents[i].Events.OrderBy(x => x.StartTime).ToList();
 			}
+
 			return View(modelWrapper);//.calEvents);
 		}
 
@@ -145,7 +146,15 @@ namespace TikTokCalendar.Controllers
 			if (calEvent.Year < 0) return true;
 			return user.ClassYear == calEvent.Year;
 		}
-
+		private String returnName()
+		{
+			
+			string halla = (string)Session["UserId"];
+			if (halla == "") {
+				return "phatha14";
+			}
+			else { return halla; }
+		}
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";

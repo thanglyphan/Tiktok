@@ -1,5 +1,4 @@
-﻿
-$(function () {
+﻿function showLogin() {
 
     var userName = "";
 
@@ -130,27 +129,16 @@ $(function () {
                         // value will be one of the following:
                         course = value;
                         $("#user-course").html(value);
-                        $("#user-name").html(userName);
-                        var myName = "Thang Phan";
-                        //window.alert("hello " + value);
-                        $.ajax({
-                            url: "\controllers\homecontroller.cs",
-                            type: "GET",
-                            success: function (data) {
-                                // do callback stuff
-                            },
-                            data: myName
-                        });
+                        $("#user-name").html("TEKST FRA MODAL.JS");
                     }
                 })
             }
         }
     });
-});
+}
 
 //  Check if username is invalid in some ways 
 //  TODO: Replace this with a to
 function isEmpty(str) {
     return typeof str == 'string' && !str.trim() || typeof str == 'undefined' || str === null;
 }
-

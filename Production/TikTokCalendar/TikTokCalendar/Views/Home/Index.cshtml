@@ -12,39 +12,31 @@
     bool flag1 = false;
     bool flag2 = false;
     bool flag3 = false;
+    bool flag4 = false;
+    bool flag5 = false;
 }
 
-<!-- Hack to store posted data after pageload, can't be in separate file -->
+<!-- Hack to store posted data after pageload, can't be in separate file 
 <div id="user-name">  </div>
 <div id="user-course"></div>
+        -->
+@Model.user.UserName = <div id="user-name"></div>
+@Model.user.Course = <div id="user-course"></div>
 
-<script>
-    @Model.user.UserName = $("#user-name").html();
-    @Model.user.Course   = $("#user-course").html();
-</script>
+@{ 
+    var userName = "Thang Phan";
+    Session["UserId"] = userName;
+}
 
-<div>
-    @using (Html.BeginForm()) {
-        @Html.TextBox("homoGutten")
-        <input value="sug kuk" type="submit" />
-    }
-</div>
 
 <!-- end of hack -->
 
-    <!-- The navbar with the tiktok logo  -->
-    <header>
-        <i class="fa fa-calendar-check-o"></i>
-        <p>tiktok</p>
-
-        <a class="fa fa-sign-in login-button" href="#" data-toggle="modal" data-target="#login-window">
-        </a>
-
-    </header>
+    
 
     <!-- Holds global settings and spans the entire page   -->
     <main>
 
+		@*
 		<!-- "Log in" modal / Alternative login -->
 		<div class="modal fade" id="login-window" role="dialog">
 			<div class="modal-dialog modal-sm">
@@ -66,6 +58,7 @@
 				</div>
 			</div>
 		</div>
+		*@
 
 		<!-- choose course -->
 		<div class="modal fade" id="course-selection" role="dialog">
@@ -144,11 +137,19 @@
                                                 {
                                                 <div class="tip tip-specific-class">@timeLeft</div>
                                                 }
-                                                if (!flag2)
+                                                if (!flag2 && !flag5)
                                                 {
+
                                                     if (item.StartTime < DateTime.Now.AddHours(24))
                                                     {
-                                                        flag2 = true;
+                                                        if (item.StartTime < DateTime.Now.AddHours(1))
+                                                        {
+                                                            flag2 = true;
+                                                        }
+                                                        else
+                                                        {
+                                                            flag4 = true;
+                                                        }
                                                     }
                                                 }
                                             }
@@ -163,6 +164,10 @@
                                         <div class="left-position">
                                             <!-- Date and time  -->
                                             <p class="time"><strong>&nbsp;@item.GetDayOfWeek()</strong>, @item.GetTimeSlot()
+                                            @if (DateTime.Now > item.StartTime && DateTime.Now < item.EndTime)
+                                            {
+                                                <b>&nbsp;|&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
+                                            }
                                             @if (flag2 && !flag3)
                                             {
                                                 <!-- real time countdown script -->
@@ -174,10 +179,17 @@
                                                             layout: '&nbsp;{hnn}{sep}{mnn}{sep}{snn}'});
                                                     });
                                                 </script>
-                                                <b>&nbsp;|</b>
+                                                <span>&nbsp;|</span>
                                                 <span class="countdown"></span>
                                                 flag1 = true;
                                                 flag3 = true;
+                                            }
+                                            @if (flag4)
+                                            {
+                                                <b>&nbsp;|&nbsp;&nbsp;</b><span class="countdown">@timeLeft</span>
+                                                flag1 = true;
+                                                flag4 = false;
+                                                flag5 = true;
                                             }
                                             </p>
                                         </div>
