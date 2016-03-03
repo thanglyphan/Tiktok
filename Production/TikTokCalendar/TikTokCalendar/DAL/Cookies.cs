@@ -8,6 +8,7 @@ namespace TikTokCalendar.DAL
 		//Add cookie method.	
 		public void SaveToCookie(String UserNameKey,String CourseKey,int WeekOrMonthKey, StudentUser a)
 		{
+
 			HttpCookie UsernameCookie = new HttpCookie(UserNameKey);
 			HttpCookie CourseCookie = new HttpCookie(CourseKey);
 			HttpCookie WeekOrMonthCookie = new HttpCookie(WeekOrMonthKey.ToString());

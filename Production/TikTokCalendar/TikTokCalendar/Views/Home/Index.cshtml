@@ -16,14 +16,26 @@
     bool flag5 = false;
 }
 
-<!-- Hack to store posted data after pageload, can't be in separate file -->
+<!-- Hack to store posted data after pageload, can't be in separate file 
 <div id="user-name">  </div>
 <div id="user-course"></div>
+        -->
 
-<script>
-    @Model.user.UserName = $("#user-name").html();
-    @Model.user.Course   = $("#user-course").html();
-</script>
+
+    @Model.user.UserName = <div id="user-name"></div>
+    @Model.user.Course = <div id="user-course"></div>
+
+    @{
+        var userName = "Thang Phan";
+        @Session["UserId"] = userName;
+    }
+
+
+
+    
+
+
+
 
 <div>
     @using (Html.BeginForm()) {
