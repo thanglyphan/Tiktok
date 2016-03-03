@@ -4,84 +4,57 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using TikTokCalendar.DAL;
+using TikTokCalendar.Extras;
 
 namespace TikTokCalendar.Models
 {
 	public class CustomEvent
 	{
-		public int ID { get; set; }
-		public DateTime StartDateTime { get; set; }
-		public DateTime EndDateTime { get; set; }
-		public string EventName { get; set; }
-		public int ClassYear { get; set; }
-		public List<SchoolCourses> Courses { get; set; }
-		public string RoomName { get; set; }
-		public string Teacher { get; set; }
-		public string EventType { get; set; }
-		public string Comment { get; set; }
+		public int ID { get; private set; }
+		public DateTime StartDateTime { get; private set; }
+		public DateTime EndDateTime { get; private set; }
+		public bool HasEndDateTime { get; private set; }
+		public string EventName { get; private set; } // TODO Not needed
+		public Subject Subject { get; private set; }
+		public int ClassYear { get; private set; }
+		public List<SchoolCourses> Courses { get; private set; }
+		public string RoomName { get; private set; }
+		public string Teacher { get; private set; }
+		public string EventType { get; private set; }
+		public string Comment { get; private set; }
 
-		public CustomEvent()
-		{
-			// parse date, get year, get courses
+		//////// Getters for the non-string field to be used in the view for displaying the data ////////
+		public string StartTimeLabel {
+			get
+			{
+				string text = "";
+				text = StartDateTime.ToString("HH:mm");
+				if (HasEndDateTime)
+				{
+					text += string.Format(" - {0:HH:mm}", EndDateTime);
+				}
+				return text;
+			}
 		}
 
-		public bool SetAndParse(string id, string startDate, string startTime, string endDate, string endTime,
-			string subject, string courseData, string room, string teacher, string activity, string comment)
+		public CustomEvent(int id, DateTime startDateTime, DateTime endDateTime, bool hasEndDateTime, Subject subject, 
+			int classYear, List<SchoolCourses> courses, string room, string teacher, string eventType, string comment)
 		{
-			bool success = true;
-
-			// Parse ID
-			int parsedId = -1;
-			if (int.TryParse(id, NumberStyles.Integer, new NumberFormatInfo(), out parsedId))
-			{
-				ID = parsedId;
-			}
-			else
-			{
-				success = false;
-			}
-
-			// Startdate
-
-			// return a list of events, make it static
-			// If can parse, use that
-			// else
-			//		contains(uke) display uke and put at start of that week
-			//		contains(og) make an event for both
-			//		else just display that??? but where?
-
-			// Enddate
-
-			// Emne (get course and turn into a subject class (compare the id (the last 11 characters)?)
-
-			// Studioprogram (get classYear and different courses from this; just compare the names :/ )
-
-			// Just assign the rest of the string data
+			ID = id;
+			StartDateTime = startDateTime;
+			EndDateTime = endDateTime;
+			Subject = subject;
+			ClassYear = classYear;
+			Courses = courses;
 			RoomName = room;
 			Teacher = teacher;
-			EventType = activity;
+			EventType = eventType;
 			Comment = comment;
-
-			//Printer.Print("Parsing of the event: {" + ((success) ? "Successfully parsed" : "Couldn't parse!") + "}");
-			if (!success)
-			{
-				Printer.Print("ERROR parsing event, couldn't parse event!");
-			}
-			return success;
 		}
 
 		private DateTime ParseDate(string date)
 		{
 			return DateTime.MinValue;
 		}
-
-		/*
-		 "Emne",
-        "Studieprogram",
-        "Rom",
-        "Lærer",
-        "Aktivitet",
-        "Kommentar"
-		*/
 	}
 }
