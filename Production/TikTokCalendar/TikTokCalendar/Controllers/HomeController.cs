@@ -243,8 +243,6 @@ namespace TikTokCalendar.Controllers
 
 			//Debug.Write(Session["UserCourse"]);
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
-
-
 		}
 
 		public StudentUser GetUserFromNameCourse()
