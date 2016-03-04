@@ -142,8 +142,18 @@
                     callback: function (value) {
                         // value will be one of the following:
                         course = value;
-                        $("#user-course").html(value);
-                       
+                        $.ajax({
+                            url: "Home/UserCourse",
+                            type: "POST",
+                            data: { a: value },
+                            error: function () {
+                                console.log("error");
+                            },
+                            success: function (a) {
+                                alert("here" + data.username);
+                                console.log("success" + a);
+                            }
+                        })
                     }
                 })
             }

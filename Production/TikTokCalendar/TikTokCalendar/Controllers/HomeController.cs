@@ -215,11 +215,19 @@ namespace TikTokCalendar.Controllers
         }
 		public JsonResult t(string a)
 		{
-			Session.Add("b", a);
+			Session.Add("b",a);
 			Debug.Write(Session["b"] + " [" + a + "]");
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
-				 
+
 
 		}
-    }
+		public JsonResult UserCourse (string a)
+		{
+			Session.Add("c",a);
+			Debug.Write(Session["c"] + " [" + a + "]");
+			return Json("fungerer",JsonRequestBehavior.AllowGet);
+
+
+		}
+	}
 }
