@@ -14,10 +14,13 @@ namespace TikTokCalendar.Controllers
 {
 	public class HomeController : Controller
 	{
+		// TODO Replace db with the DataWrapper
 		private CalendarEventContext db = new CalendarEventContext();
 
 		public ActionResult Index(string UserId)
 		{
+
+
 			//Debug.WriteLine(inputValue); // HER PRINTES DET SOM ER SKREVET INN
 			//string id = inputValue; // HER PRINTES DET SOM ER SKREVET INN
 			//string id = "None";
