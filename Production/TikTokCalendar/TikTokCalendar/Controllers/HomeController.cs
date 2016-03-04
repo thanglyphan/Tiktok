@@ -229,5 +229,23 @@ namespace TikTokCalendar.Controllers
 
 
 		}
+
+		public StudentUser GetUserFromNameCourse()
+		{
+			string name = "No User";
+			string course = "Course";
+
+			if (Session["b"] != null)
+			{
+				name = (string)Session["b"];
+			}
+			if (Session["c"] != null)
+			{
+				course = (string)Session["c"];
+			}
+
+			SchoolCourses schoolCourse = Course.GetCourseFromName(course);
+			return new StudentUser(name, schoolCourse);
+		}
 	}
 }
