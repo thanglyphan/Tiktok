@@ -128,7 +128,7 @@
 
                         @foreach (var item in month.Events)
                         {
-                            <a class="feed-container" onclick="showInfo();">
+                            <div class="feed-container" onclick="showInfo();" data-assigned-id="@item.ID">
 
 
                                 <!-- Container for the event content -->
@@ -214,7 +214,7 @@
                                 </div>
 
                                 <div class="horizontal-line"></div>
-                        </a>
+                        </div>
 
 						@*
 						<!-- "More info" modal -->

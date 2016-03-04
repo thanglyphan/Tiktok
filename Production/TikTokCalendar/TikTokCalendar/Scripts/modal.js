@@ -6,6 +6,7 @@
         message: 'Westerdals brukernavn',
         input: "<input name=\"username\" type=\"text\" placeholder=\"nelwil14\" required />",
 
+        showCloseButton: true,
         buttons: [
         $.extend({}, vex.dialog.buttons.YES, {
             text: 'Login'
