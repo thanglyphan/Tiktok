@@ -96,9 +96,16 @@ namespace TikTokCalendar.Models
 			return TimeEditID.ToString();
 		}
 
-		public string[] GetEventAsArray()
+		public string[] GetEventAsArray
 		{
-			return new string[] {ID.ToString(), StartTime.ToString(), EndTime.ToString(), RoomName, EventName, Attendees, Teacher, Comment, Subject.Name};
+			get
+			{
+				return new string[]
+				{
+					ID.ToString(), StartTime.ToString(), EndTime.ToString(), RoomName, EventName, Attendees, Teacher, Comment,
+					Subject.Name
+				};
+			}
 		}
 	}
 }
