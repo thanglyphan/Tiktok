@@ -39,9 +39,20 @@ namespace TikTokCalendar.DAL
 
 		public void ParseAllData()
 		{
+			// Initialize the base school system data for the wrapper
 			var subjects = GetSubjects();
 			var courses = GetCourses();
-			DataWrapper.Instance.SetData(subjects, courses, GetCourseSubjects(subjects, courses));
+			var courseSubjects = GetCourseSubjects(subjects, courses);
+			DataWrapper.Instance.Initialize(subjects, courses, courseSubjects);
+
+			// We have to do this in two different calls, as GetEvents() has functions that depend on DataWrapper to have the info about the base SchoolSystem(subjects, courses, etc)
+			var events = GetEvents();
+			DataWrapper.Instance.SetSchoolSystemDependantData(events);
+
+			foreach (var item in events)
+			{
+				Printer.Print("Event: " + item.EventName);
+			}
 		}
 
 		private string GetFileContents(string contentFolderRelativePath)
@@ -58,7 +69,7 @@ namespace TikTokCalendar.DAL
 			foreach (var subject in container.subject)
 			{
 				var s = new Subject();
-				s.SetAndParse(subject.id, subject.name);
+				s.SetAndParse(subject.id, subject.name, subject.code);
 				subjects.Add(s);
 			}
 
@@ -117,8 +128,9 @@ namespace TikTokCalendar.DAL
 			var container = JsonConvert.DeserializeObject<JRootExamReservationRootObject>(file);
 			foreach (var r in container.reservations)
 			{
-				var evnts = ParseEvent("-1", r.Dato, null, null, null, string.Format("{0}({1})", r.Emnenavn, r.Emnekode), null,
-					null, null, r.Vurderingstype, "Vekting: " + r.Vekting + "\n" + r.Hjelpemidler);
+				//var evnts = ParseEvent("-1", r.Dato, null, null, null, string.Format("{0}({1})", r.Emnenavn, r.Emnekode), null,
+				//	null, null, r.Vurderingstype, "Vekting: " + r.Vekting + "\n" + r.Hjelpemidler);
+				var evnts = ParseExamEvent(r.Dato, r.Emnenavn, r.Emnekode, r.Vurderingstype, r.Vekting.ToString(), r.Varighet, r.Hjelpemidler);
 				events.AddRange(evnts);
 			}
 			return events;
@@ -142,15 +154,7 @@ namespace TikTokCalendar.DAL
 			// Startdate
 			DateParseResults dtResults = DateParseResults.NoDate;
 			// TODO Use the other parse if it isn't a fucked up dateformat
-			DateTime[] startDates;
-			if (startTime == null)
-			{
-				startDates = dtParser.ParseDate(startDate, out dtResults);
-			}
-			else
-			{
-				startDates = new DateTime[] { dtParser.SimpleParse(startDate, startTime, out dtResults) };
-			}
+			DateTime[] startDates = new DateTime[] { dtParser.SimpleParse(startDate, startTime, out dtResults) };
 
 			//////// End date ////////
 			// Enddate
@@ -195,7 +199,7 @@ namespace TikTokCalendar.DAL
 			string[] events = Enum.GetNames(typeof(SchoolCourses));
 			for (int i = 1; i < events.Length + 1; i++)
 			{
-				int match = Math.Abs(activity.CompareTo(courses[i - 1]));
+				int match = Math.Abs(activity.CompareTo(events[i - 1]));
 				if (match <= bestMatch)
 				{
 					eventType = (EventType)i;
@@ -215,7 +219,58 @@ namespace TikTokCalendar.DAL
 			return retEvents;
 		}
 
-		
+		public List<CustomEvent> ParseExamEvent(string startDate, string subjectCode, string subjectName, string activity, string weighting, string duration, string helpers)
+		{
+			List<CustomEvent> retEvents = new List<CustomEvent>();
+
+			//////// Start date ////////
+			// Startdate
+			DateParseResults dtResults = DateParseResults.NoDate;
+			// TODO Use the other parse if it isn't a fucked up dateformat
+			DateTime[] startDates = dtParser.ParseDate(startDate, out dtResults);
+			
+			//////// Subject ////////
+			// TODO Null check
+			//string subjectCode = Subject.GetSubjectCode(subjectString);
+			Subject subject = DataWrapper.Instance.GetSubjectByCode(subjectCode);
+
+			// TODO Figure out a better way to do this
+			// Subject basically cant be null
+			if (subject == null) return retEvents; 
+
+			//////// Year and course ////////
+			List<SchoolCourses> courses = DataWrapper.Instance.GetCoursesWithSubject(subject);
+			// TODO Get courses with a subject
+			
+
+			//////// Making the events ////////
+			EventType eventType = EventType.None;
+			int bestMatch = 1000;
+			string[] events = Enum.GetNames(typeof(EventType));
+			for (int i = 1; i < events.Length + 1; i++)
+			{
+				int match = Math.Abs(activity.CompareTo(courses[i - 1]));
+				if (match <= bestMatch)
+				{
+					eventType = (EventType)i;
+					bestMatch = match;
+				}
+			}
+
+			string comment = "Vekting: " +  weighting + "\nVarighet: " + duration + "\nHjelpemidler: " + helpers;
+
+			//////// Making the events ////////
+			// Go through the startdates that was parsed.
+			// This makes it so that events where we couldn't parse a date from, will not be added
+			foreach (var date in startDates)
+			{
+				CustomEvent evnt = new CustomEvent(-1, date, DateTime.MinValue, false,
+					subject, -1, courses, null, null, eventType, comment);
+				retEvents.Add(evnt);
+			}
+			return retEvents;
+		}
+
 
 		//////// JSON Classes ////////
 		private class JCourseSubject

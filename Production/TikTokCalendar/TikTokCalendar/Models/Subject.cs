@@ -15,12 +15,12 @@ namespace TikTokCalendar.Models
 
 		public string Code { get; set; }
 
-		public void SetAndParse(string id, string name)
+		public void SetAndParse(string id, string name, string code)
 		{
 			ID = Utils.ParsePositiveInt(id);
 
-			Name = name.Substring(0, name.Length - 11);
-			Code = GetSubjectCode(name);
+			Name = name;// name.Substring(0, name.Length - 11);
+			Code = code;// GetSubjectCode(name);
 		}
 
 		public static string GetSubjectCode(string name)
@@ -37,5 +37,16 @@ namespace TikTokCalendar.Models
 		{
 			return GetSubjectCode(Name);
 		}
+
+		//public static bool operator==(Subject a, Subject b)
+		//{
+		//	if (a == null || b == null) return false;
+		//	return a.ID == b.ID;
+		//}
+
+		//public static bool operator!=(Subject a, Subject b)
+		//{
+		//	return !(a == b);
+		//}
 	}
 }

@@ -12,7 +12,7 @@ namespace TikTokCalendar.Models
 	{
 		public int ID { get; set; }
 		public string Name { get; set; }
-		public SchoolCourses SchoolCourse;
+		public SchoolCourses SchoolCourse { get; set; }
 
 		public void SetAndParse(string id, string name)
 		{
@@ -55,5 +55,16 @@ namespace TikTokCalendar.Models
 			}
 			return course;
 		}
+
+		//public static bool operator ==(Course a, Course b)
+		//{
+		//	if ((object)a == null || (object)b == null) return false;
+		//	return a.ID == b.ID;
+		//}
+
+		//public static bool operator !=(Course a, Course b)
+		//{
+		//	return !(a == b);
+		//}
 	}
 }
