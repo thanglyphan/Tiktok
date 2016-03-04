@@ -52,16 +52,8 @@
 
                         @foreach (var item in month.Events)
                         {
-
-							<!-- Razor array to javascript array -->
-							<script>
-								var jsItem = [];
-
-								jsItem["tostring"] = @item.ID;
-							</script>
-
-							//<div class="feed-container" onclick="showInfo();" data-assigned-id="@item.ID">
-							<a class="feed-container" onclick="showInfo(@item)">
+							
+							<a class="feed-container" onclick="showInfo(@item.GetEventAsArray())">
 
 
                                 <!-- Container for the event content -->
