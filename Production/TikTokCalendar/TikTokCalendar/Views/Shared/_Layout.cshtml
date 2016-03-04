@@ -11,6 +11,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
     <link rel="stylesheet" href="@Url.Content("/Content/font-awesome.min.css")">
+    <link rel="stylesheet" href="@Url.Content("/Content/jquery-ui.css")">
     <link rel="stylesheet" href="@Url.Content("/Content/main.css")">
     <link rel="stylesheet" href= "@Url.Content("/Content/reset.css")">
     <script src="../Scripts/vex/vex.combined.min.js"></script>
@@ -18,9 +19,40 @@
     <script>vex.defaultOptions.className = 'vex-theme-os';</script>
     <link rel="stylesheet" href= "@Url.Content("/Content/vex/vex.css")" />
     <link rel="stylesheet" href= "@Url.Content("/Content/vex/vex-theme-os.css")" />
+    @Scripts.Render("~/bundles/jquery")
 
 </head>
 <body onload="showLogin()">
+
+    <script>
+        $(function () {
+            $('#tags').autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '@Url.Action("AutoComplete")',
+                        dataType: "json",
+                        contentType: 'application/json, charset=utf-8',
+                        data: {
+                            search: $("#tags").val()
+                        },
+                        success: function (data) {
+
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item
+                                };
+                            }));
+                        },
+                        error: function (xhr, status, error) {
+                            alert(error);
+                        }
+                    });
+                },
+                minLength: 2
+            });
+        });
+    </script>
+
 	<!-- The navbar with the tiktok logo  -->
 	<header>
 		<div class="header-content">
@@ -29,8 +61,11 @@
 
 			<a class="fa fa-sign-in login-button" href="#" onclick="showLogin()"></a>
 
-			<!-- Temp. search box -->
-			<input class="search-box" type="text" name="search-box" />
+			<!-- Search box -->
+            <div class="ui-widget">
+                <label for="tags"></label>
+                <input id="tags" type="text" name="search-box" placeholder="Søk" />
+            </div>
 		</div>
 	</header>
 	
@@ -40,7 +75,7 @@
 		<p>&copy; 2015 - Gruppe 15</p>
 	</footer>
 
-    @Scripts.Render("~/bundles/jquery")
+    
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/tooltip")
     @Scripts.Render("~/bundles/countdown")

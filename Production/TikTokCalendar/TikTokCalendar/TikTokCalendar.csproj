@@ -160,7 +160,6 @@
     <Compile Include="App_Start\SessionAuthenticationConfig.cs" />
     <Compile Include="Controllers\CalendarEventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Extras\Searching.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\CalendarEventContext.cs" />
     <Compile Include="DAL\CalendarEventInitializer.cs" />
@@ -238,6 +237,7 @@
     <Content Include="img\nov.png" />
     <Content Include="img\oct.png" />
     <Content Include="img\rom.png" />
+    <Content Include="img\search.png" />
     <Content Include="img\temptop.png" />
     <Content Include="img\ukelinje.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -270,6 +270,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.BA.ToolTip.js" />
     <Content Include="Scripts\jquery.countdown.js" />
     <Content Include="Scripts\jquery.countdown.min.js" />

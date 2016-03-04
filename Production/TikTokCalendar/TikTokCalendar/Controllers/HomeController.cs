@@ -191,5 +191,24 @@ namespace TikTokCalendar.Controllers
 			}
 			return -1;
 		}
-	}
+
+        public JsonResult AutoComplete(string search)
+        {
+            var data = new[] {"Programmering","Spillprogrammering","Intelligente systemer","Mobil apputvikling",
+                "Prosjekt software engineering","Matematikk og fysikk","C++ programmering","",
+                "Game AI","Embedded systems","Mobil utvikling","Ruby on rails",
+                "Avansert javaprogrammering","Undersøkelsesmetoder","Enterprise programmering 2","Innlevering",
+                "Forelesning","Eksamen" };
+            /*ModelDataWrapper model = new ModelDataWrapper();
+            foreach (var month in model.calEvents)
+            {
+                foreach (var item in month.Events)
+                {
+                }
+            }*/
+            var result = data.Where(x => x.ToLower().StartsWith(search.ToLower())).ToList();
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+    }
 }
