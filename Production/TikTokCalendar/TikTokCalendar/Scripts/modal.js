@@ -15,7 +15,7 @@
 
         callback: function (data) {
             $.ajax({
-                url: "Home/t",
+                url: "Home/UserName",
                 type: "POST",
                 data: { a: data.username },
                 error: function () {
@@ -43,99 +43,52 @@
                     message: "Velg ditt studieprogram",
                     buttons: [
 
-                        /*=======================================================
-                            1. K L A S S E
-                        =======================================================*/
                         $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '1. Klasse Bachelor IT', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'firstBachelorIT';
+                            className: 'vex-dialog-button', text: 'Bachelor IT', click: function ($vexContent, event) {
+                                $vexContent.data().vex.value = 'Programmering';
                                 vex.close($vexContent.data().vex.id);
                             }
                         }),
 
-                        /*=======================================================
-                            2. K L A S S E
-                        =======================================================*/
                         $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '2. Klasse Programmering', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'secondProgrammering';
+                            className: 'vex-dialog-button', text: 'Programmering', click: function ($vexContent, event) {
+                                $vexContent.data().vex.value = 'Programmering';
                                 vex.close($vexContent.data().vex.id);
                             }
                         }),
                         $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '2. Klasse Intelligente Systemer', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'secondIntelligenteSystemer';
+                            className: 'vex-dialog-button', text: 'Intelligente Systemer', click: function ($vexContent, event) {
+                                $vexContent.data().vex.value = 'IntelligenteSystemer';
                                 vex.close($vexContent.data().vex.id);
                             }
                         }),
                         $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '2. Klasse Spilldesign', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'secondSpilldesign';
+                            className: 'vex-dialog-button', text: 'Spilldesign', click: function ($vexContent, event) {
+                                $vexContent.data().vex.value = 'Spilldesign';
                                 vex.close($vexContent.data().vex.id);
                             }
                         }),
                         $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '2. Klasse Spillprogrammering', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'secondSpillprogrammering';
+                            className: 'vex-dialog-button', text: 'Spillprogrammering', click: function ($vexContent, event) {
+                                $vexContent.data().vex.value = 'Spillprogrammering';
                                 vex.close($vexContent.data().vex.id);
                             }
                         }),
                         $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '2. Klasse 3D Grafikk', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'second3DGrafikk';
+                            className: 'vex-dialog-button', text: '3D Grafikk', click: function ($vexContent, event) {
+                                $vexContent.data().vex.value = '3DGrafikk';
                                 vex.close($vexContent.data().vex.id);
                             }
                         }),
                         $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '2. Klasse Interaktivt Design', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'secondInteraktivtDesign';
+                            className: 'vex-dialog-button', text: 'Interaktivt Design', click: function ($vexContent, event) {
+                                $vexContent.data().vex.value = 'InteraktivtDesign';
                                 vex.close($vexContent.data().vex.id);
                             }
                         }),
                         $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '2. Klasse E-Business', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'secondEBusiness';
-                                vex.close($vexContent.data().vex.id);
-                            }
-                        }),
-
-
-                        /*=======================================================
-                            3. K L A S S E
-                        =======================================================*/
-                        $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '3. Klasse Programmering', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'thirdProgrammering';
-                                vex.close($vexContent.data().vex.id);
-                            }
-                        }),
-                        $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '3. Klasse Spilldesign', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'thirdSpilldesign';
-                                vex.close($vexContent.data().vex.id);
-                            }
-                        }),
-                        $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '3. Klasse Spillprogrammering', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'thirdSpillprogrammering';
-                                vex.close($vexContent.data().vex.id);
-                            }
-                        }),
-                        $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '3. Klasse 3D Grafikk', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'third3DGrafikk';
-                                vex.close($vexContent.data().vex.id);
-                            }
-                        }),
-                        $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '3. Klasse Interaktivt Design', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'thirdInteraktivtDesign';
-                                vex.close($vexContent.data().vex.id);
-                            }
-                        }),
-                        $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: '3. Klasse E-Business', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'thirdEBusiness';
+                            className: 'vex-dialog-button', text: 'E-Business', click: function ($vexContent, event) {
+                                $vexContent.data().vex.value = 'EBusiness';
                                 vex.close($vexContent.data().vex.id);
                             }
                         }),

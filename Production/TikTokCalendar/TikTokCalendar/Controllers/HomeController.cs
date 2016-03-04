@@ -213,18 +213,18 @@ namespace TikTokCalendar.Controllers
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-		public JsonResult t(string a)
+		public JsonResult UserName(string a)
 		{
-			Session.Add("b",a);
-			Debug.Write(Session["b"] + " [" + a + "]");
+			Session.Add("UserName",a);
+			Debug.Write(Session["UserName"]);
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
 
 
 		}
 		public JsonResult UserCourse (string a)
 		{
-			Session.Add("c",a);
-			Debug.Write(Session["c"] + " [" + a + "]");
+			Session.Add("UserCourse",a);
+			Debug.Write(Session["UserCourse"]);
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
 
 
@@ -235,13 +235,13 @@ namespace TikTokCalendar.Controllers
 			string name = "No User";
 			string course = "Course";
 
-			if (Session["b"] != null)
+			if (Session["UserName"] != null)
 			{
-				name = (string)Session["b"];
+				name = (string)Session["UserName"];
 			}
-			if (Session["c"] != null)
+			if (Session["UserCourse"] != null)
 			{
-				course = (string)Session["c"];
+				course = (string)Session["UserCourse"];
 			}
 
 			SchoolCourses schoolCourse = Course.GetCourseFromName(course);

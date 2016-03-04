@@ -33,12 +33,12 @@ footer {
 ==========================================*/
 
 header {
-    background-color: #F5F6F8;
+    background-color: white;
     padding-top: 5px;
     width: 100%;
     position: fixed;
     top: 0px;
-    border-bottom: 2px solid #E3E3E3;
+    border-bottom: 0.5px solid #E3E3E3;
     height: 44px;
     z-index: 1;
 }
@@ -51,15 +51,14 @@ header {
 }
 
 header .search-box {
-    float: right;
-    margin-right: 50px;
-    margin-top: 6px;
+    float: left;
+    max-width: 200px;
 }
 
 header i.fa-calendar-check-o {
     float: left;
     margin-top: 2px;
-    color: #DD1B16;
+    color: #474f5c;
     font-size: 25px;
     margin-left: 20px;
     height: 30px;
