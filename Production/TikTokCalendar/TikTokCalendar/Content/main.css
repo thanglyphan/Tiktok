@@ -124,8 +124,8 @@ header .login-button {
     margin-bottom: 70px;
 }
 
-.feed-month {
-    background-color: #3879E2;
+.feed-month, month-month {
+    background-color: #699df1;
     margin-bottom: 8px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -134,6 +134,13 @@ header .login-button {
     display: block;
     cursor: pointer;
     text-decoration: none;
+}
+
+.week, .week p {
+    background-color: #8DB3f1;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 19px !important;
 }
 
 .feed-month p {

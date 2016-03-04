@@ -39,11 +39,21 @@
                     {
                         continue;
                     }
+                    var className = "month-month";
 
                 <!-- Displays the month name -->
-					//<a class="btn btn-default" data-toggle="collapse" data-target="#@month.GetMonthId()">lukk mnd</a>
+//<a class="btn btn-default" data-toggle="collapse" data-target="#@month.GetMonthId()">lukk mnd</a>
 
-                    <a class="feed-month" data-toggle="collapse" data-target="#@month.GetMonthId()">
+                    {
+                        var weekOrMonth = month.GetMonthName();
+
+                        if (weekOrMonth[0] == 'U')
+                        {
+                            className = "week";
+                        }
+                    }
+
+                    <a class="feed-month @className" data-toggle="collapse" data-target="#@month.GetMonthId()">
                         <p class="month">@month.GetMonthName()</p>  <!-- August -->
                     </a>
 
@@ -142,9 +152,10 @@
                                     </div>
                                 </div>
 
-                                <div class="horizontal-line"></div>
+                                
                         </a>
 
+                        <div class="horizontal-line"></div>
 						@*
 						<!-- "More info" modal -->
 						<div class="content-hidden modal fade" id="@item.ID" role="dialog">

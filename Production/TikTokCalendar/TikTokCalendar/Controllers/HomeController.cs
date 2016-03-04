@@ -59,7 +59,7 @@ namespace TikTokCalendar.Controllers
 			//string user = cookie.LoadFromCookie("Username");
 			//int program = cookie.LoadFromCookie("Program");
 			StudentUser user = new StudentUser(name, course); // TODO Get this from cookies
-			int weekOrMonthView = 1; // TODO Get this from cookies
+			int weekOrMonthView = 0; // TODO Get this from cookies
 
 			if (id.StartsWith("0"))
 			{
