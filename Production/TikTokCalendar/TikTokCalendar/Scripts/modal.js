@@ -6,6 +6,7 @@
         message: 'Westerdals brukernavn',
         input: "<input name=\"username\" type=\"text\" placeholder=\"nelwil14\" required />",
 
+        showCloseButton: true,
         buttons: [
         $.extend({}, vex.dialog.buttons.YES, {
             text: 'Login'
@@ -14,16 +15,18 @@
 
         callback: function (data) {
             $.ajax({
-                url: "Home/t",
-                data: data.username,
+                url: "Home/UserName",
+                type: "POST",
+                data: { a: data.username },
                 error: function () {
                     console.log("error");
                 },
                 success: function (a) {
+                    alert("here" + data.username);
                     console.log("success" + a);
                 }
             })
-            $("#user-name").html(data.username);
+            //$("#user-name").html(data.username);
             if (data === false) {
                 return console.log('Cancelled');
             }
@@ -140,8 +143,18 @@
                     callback: function (value) {
                         // value will be one of the following:
                         course = value;
-                        $("#user-course").html(value);
-                       
+                        $.ajax({
+                            url: "Home/UserCourse",
+                            type: "POST",
+                            data: { a: value },
+                            error: function () {
+                                console.log("error");
+                            },
+                            success: function (a) {
+                                alert("here" + data.username);
+                                console.log("success" + a);
+                            }
+                        })
                     }
                 })
             }
