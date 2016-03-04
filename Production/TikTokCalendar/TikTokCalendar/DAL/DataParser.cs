@@ -17,6 +17,16 @@ namespace TikTokCalendar.DAL
 		private const string courseFile = "SchoolSystem/courses.json";
 		private const string subjectFile = "SchoolSystem/subjects.json";
 		private const string courseSubjectFile = "SchoolSystem/courseSubjects.json";
+		private readonly string[] scheduleFiles = new string[]
+		{
+			"timeedit/1klasse.json",
+			"timeedit/3d-grafikk.json",
+			"timeedit/1klasse.json",
+			"timeedit/1klasse.json",
+			"timeedit/1klasse.json",
+			"timeedit/1klasse.json",
+			"timeedit/1klasse.json"
+		};
 		private readonly DateTimeParser dtParser = new DateTimeParser();
 
 		public void ParseAllData()
@@ -80,6 +90,8 @@ namespace TikTokCalendar.DAL
 			var events = new List<CustomEvent>();
 			// TODO ParseEvent() with all the schedules jsons from TimeEdit
 			// TODO ParseEvent() with the eksamen/innlevering json
+
+			//var file = GetFileContents();
 			return events;
 		}
 
