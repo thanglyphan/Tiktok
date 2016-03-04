@@ -50,9 +50,16 @@ header {
     position: relative;
 }
 
-header .search-box {
-    float: left;
-    margin-left: 100px !important;
+header .ui-widget {
+    float: right;
+    margin-left: 10px !important;
+}
+
+@media screen and (max-width: 480px) {
+
+    #tags {
+        max-width: 150px !important;
+    }
 }
 
 header i.fa-calendar-check-o {
