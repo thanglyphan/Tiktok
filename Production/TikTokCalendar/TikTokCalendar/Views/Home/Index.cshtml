@@ -60,7 +60,6 @@
 				</div>
 			</div>
 		</div>
-		*@
 
 		<!-- choose course -->
 		<div class="modal fade" id="course-selection" role="dialog">
@@ -84,6 +83,7 @@
 				</div>
 			</div>
 		</div>
+		*@
 
         <!-- tooltip hover plugin initialization -->
         <script type="text/javascript">
@@ -116,7 +116,7 @@
 
                         @foreach (var item in month.Events)
                         {
-                            <a class="feed-container" data-toggle="modal" data-target="#@item.ID">
+                            <a class="feed-container" onclick="showInfo();">
 
 
                                 <!-- Container for the event content -->
@@ -204,6 +204,7 @@
                                 <div class="horizontal-line"></div>
                         </a>
 
+						@*
 						<!-- "More info" modal -->
 						<div class="content-hidden modal fade" id="@item.ID" role="dialog">
 							<div class="modal-dialog modal-lg">
@@ -221,6 +222,8 @@
 								</div>
 							</div>
 						</div>
+						*@
+						
 						}
                  </div>
                 }
