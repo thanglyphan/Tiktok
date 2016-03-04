@@ -25,6 +25,19 @@ namespace TikTokCalendar.DAL
 			HttpContext.Current.Response.Cookies.Add(CourseCookie);
 			HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
 		}
+		public void SaveNameToCookie(String a)
+		{
+			HttpCookie UsernameCookie = new HttpCookie("UserName");
+			UsernameCookie.Value = a;
+			HttpContext.Current.Response.Cookies.Add(UsernameCookie);
+		}
+
+		public void SaveCourseToCookie(String a)
+		{
+			HttpCookie CourseCookie = new HttpCookie("UserCourse");
+			CourseCookie.Value = a;
+			HttpContext.Current.Response.Cookies.Add(CourseCookie);
+		}
 		public String LoadStringFromCookie(String key)
 		{
 			HttpCookie myCookie = HttpContext.Current.Request.Cookies[key];
