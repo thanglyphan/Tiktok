@@ -248,6 +248,10 @@ header .login-button {
             opacity: 0.3;
         }
 
+        .feed-container .content .time-info {
+            margin-top: 10px;
+        }
+
 /*======================================
   SPECIAL BOXES FOR SPECIAL EVENTS
 =======================================*/
@@ -298,7 +302,7 @@ header .login-button {
 /*======================================
   LINE SEPARATING EVENTS
 =======================================*/
-.horizontal-line {
+.horizontal-line:not(:last-child) {
     display: block;
     width: 82%;
     float: right;
