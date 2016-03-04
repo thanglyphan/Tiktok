@@ -62,10 +62,12 @@ header .ui-widget {
     }
 }
 
+
+
 header i.fa-calendar-check-o {
     float: left;
     margin-top: 2px;
-    color: #474f5c;
+    color: #6A7586;
     font-size: 25px;
     margin-left: 20px;
     height: 30px;
@@ -73,7 +75,7 @@ header i.fa-calendar-check-o {
 }
 
 header p {
-    color: #474f5c;
+    color:#6A7586;
     font-size: 19px;
     float: left;
     padding-top: 7px;
