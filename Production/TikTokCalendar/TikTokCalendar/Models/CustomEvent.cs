@@ -20,7 +20,8 @@ namespace TikTokCalendar.Models
 		public List<SchoolCourses> Courses { get; private set; }
 		public string RoomName { get; private set; }
 		public string Teacher { get; private set; }
-		public string EventType { get; private set; }
+		//public string EventType { get; private set; }
+		public EventType EventType { get; private set; }
 		public string Comment { get; private set; }
 
 		//////// Getters for the non-string field to be used in the view for displaying the data ////////
@@ -38,7 +39,7 @@ namespace TikTokCalendar.Models
 		}
 
 		public CustomEvent(int id, DateTime startDateTime, DateTime endDateTime, bool hasEndDateTime, Subject subject, 
-			int classYear, List<SchoolCourses> courses, string room, string teacher, string eventType, string comment)
+			int classYear, List<SchoolCourses> courses, string room, string teacher, EventType eventType, string comment)
 		{
 			ID = id;
 			StartDateTime = startDateTime;
@@ -56,5 +57,15 @@ namespace TikTokCalendar.Models
 		{
 			return DateTime.MinValue;
 		}
+	}
+
+	public enum EventType
+	{
+		None,
+		Forelesning,
+		Eksamen,
+		Innlevering,
+		Prosjekt,
+		Annet
 	}
 }
