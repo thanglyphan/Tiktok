@@ -155,7 +155,7 @@ namespace TikTokCalendar.Controllers
 		private String returnName()
 		{
 			
-			string userName = (string)Session["UserName"];
+			string userName = (string)Session["b"];
 			if (userName == "") {
 				return "phatha14";
 			}
@@ -213,5 +213,13 @@ namespace TikTokCalendar.Controllers
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+		public JsonResult t(string a ="")
+		{
+			Session.Add("b", a);
+			Debug.Write(Session["b"] + " [" + a + "]");
+			return Json("fungerer",JsonRequestBehavior.AllowGet);
+				 
+
+		}
     }
 }

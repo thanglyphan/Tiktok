@@ -13,6 +13,16 @@
         ],
 
         callback: function (data) {
+            $.ajax({
+                url: "Home/t",
+                data: data.username,
+                error: function () {
+                    console.log("error");
+                },
+                success: function (a) {
+                    console.log("success" + a);
+                }
+            })
             $("#user-name").html(data.username);
             if (data === false) {
                 return console.log('Cancelled');

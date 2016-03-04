@@ -24,12 +24,24 @@
 <div id="user-course"></div>
 
 @{ 
+
+    /*
+
     var userName = "Thang Phan";
     var userCourse = "Programmering";
     Session["UserName"] = userName;
     Session["UserCourse"] = userCourse;
-}
+    */
+    string b;
+    if(Session["b"] != null) {
+        b = (string)Session["b"];
 
+    }
+    else {
+        b = "Session ikke laget";
+    }
+    <div style="margin-top:100px;"> @b </div>
+}
 
 <!-- end of hack -->
 
