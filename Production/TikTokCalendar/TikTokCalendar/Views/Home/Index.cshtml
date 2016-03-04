@@ -52,13 +52,13 @@
 
         <!-- tooltip hover plugin initialization -->
         <script type="text/javascript">
-            jQuery(function () {
-                jQuery('.activator.tip-specific-class').BAToolTip({
-                    tipOpacity: 0.9,
-                    tipOffset: 20
-                });
-            })
-        </script>
+			jQuery(function () {
+				jQuery('.activator.tip-specific-class').BAToolTip({
+					tipOpacity: 0.9,
+					tipOffset: 20
+				});
+			})
+		</script>
 
         <div class="main-body">
 
@@ -81,8 +81,12 @@
 
                         @foreach (var item in month.Events)
                         {
-							
-							<a class="feed-container" onclick="showInfo(@item.GetEventAsArray())">
+							<!-- Funker ikke (?), koden nås ikke -->
+							<script type="text/javascript">
+								jsItem = JSON.stringify(@item.GetEventAsArray);
+							</script>
+
+							<a class="feed-container" onclick="showInfo(jsItem)">
 
 
                                 <!-- Container for the event content -->
