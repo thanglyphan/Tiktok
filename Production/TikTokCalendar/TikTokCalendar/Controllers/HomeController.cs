@@ -232,7 +232,7 @@ namespace TikTokCalendar.Controllers
 
 		public StudentUser GetUserFromNameCourse()
 		{
-			string name = "No User";
+			string name = "No User"; 
 			string course = "Course";
 
 			if (Session["UserName"] != null)
