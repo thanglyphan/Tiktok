@@ -1,8 +1,6 @@
-﻿function showInfo() {
-	var id = $(this).data('assigned-id');
-
+﻿function showInfo(item) {
 	vex.dialog.open({
-		message: id,
+		message: "id: " + item.ID + "noe annet: " + item.EventName,
 		showCloseButton: true,
 		buttons: []
 	});
