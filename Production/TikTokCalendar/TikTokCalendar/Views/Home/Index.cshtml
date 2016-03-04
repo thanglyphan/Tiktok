@@ -16,35 +16,6 @@
     bool flag5 = false;
 }
 
-<!-- Hack to store posted data after pageload, can't be in separate file 
-<div id="user-name">  </div>
-<div id="user-course"></div>
-        -->
-<div id="user-name"></div>
-<div id="user-course"></div>
-
-@{ 
-
-    /*
-
-    var userName = "Thang Phan";
-    var userCourse = "Programmering";
-    Session["UserName"] = userName;
-    Session["UserCourse"] = userCourse;
-    */
-    string b;
-    if(Session["b"] != null) {
-        b = (string)Session["b"];
-
-    }
-    else {
-        b = "Session ikke laget";
-    }
-    <div style="margin-top:100px;"> @b </div>
-}
-
-<!-- end of hack -->
-
     
 
     <!-- Holds global settings and spans the entire page   -->
@@ -52,13 +23,13 @@
 
         <!-- tooltip hover plugin initialization -->
         <script type="text/javascript">
-            jQuery(function () {
-                jQuery('.activator.tip-specific-class').BAToolTip({
-                    tipOpacity: 0.9,
-                    tipOffset: 20
-                });
-            })
-        </script>
+			jQuery(function () {
+				jQuery('.activator.tip-specific-class').BAToolTip({
+					tipOpacity: 0.9,
+					tipOffset: 20
+				});
+			})
+		</script>
 
         <div class="main-body">
 
@@ -68,11 +39,21 @@
                     {
                         continue;
                     }
+                    var className = "month-month";
 
                 <!-- Displays the month name -->
-					//<a class="btn btn-default" data-toggle="collapse" data-target="#@month.GetMonthId()">lukk mnd</a>
+//<a class="btn btn-default" data-toggle="collapse" data-target="#@month.GetMonthId()">lukk mnd</a>
 
-                    <a class="feed-month" data-toggle="collapse" data-target="#@month.GetMonthId()">
+                    {
+                        var weekOrMonth = month.GetMonthName();
+
+                        if (weekOrMonth[0] == 'U')
+                        {
+                            className = "week";
+                        }
+                    }
+
+                    <a class="feed-month @className" data-toggle="collapse" data-target="#@month.GetMonthId()">
                         <p class="month">@month.GetMonthName()</p>  <!-- August -->
                     </a>
 
@@ -81,16 +62,12 @@
 
                         @foreach (var item in month.Events)
                         {
-
-							<!-- Razor array to javascript array -->
-							<script>
-								var jsItem = [];
-
-								jsItem["tostring"] = @item.ID;
+							<!-- Funker ikke (?), koden nås ikke -->
+							<script type="text/javascript">
+								jsItem = JSON.stringify(@item.GetEventAsArray);
 							</script>
 
-							//<div class="feed-container" onclick="showInfo();" data-assigned-id="@item.ID">
-							<a class="feed-container" onclick="showInfo(@item)">
+							<a class="feed-container" onclick="showInfo(jsItem)">
 
 
                                 <!-- Container for the event content -->
@@ -175,9 +152,10 @@
                                     </div>
                                 </div>
 
-                                <div class="horizontal-line"></div>
+                                
                         </a>
 
+                        <div class="horizontal-line"></div>
 						@*
 						<!-- "More info" modal -->
 						<div class="content-hidden modal fade" id="@item.ID" role="dialog">

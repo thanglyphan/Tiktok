@@ -45,14 +45,21 @@ header {
 
 .header-content {
     margin: 0 auto; 
-    width: 900px;
+    max-width: 900px;
     height: 44px;
     position: relative;
 }
 
-header .search-box {
-    float: left;
-    max-width: 200px;
+header .ui-widget {
+    float: right;
+    margin-left: 10px !important;
+}
+
+@media screen and (max-width: 480px) {
+
+    #tags {
+        max-width: 150px !important;
+    }
 }
 
 header i.fa-calendar-check-o {
@@ -99,22 +106,17 @@ header .login-button {
 }
 
 /*===================================
-  ALT. LOGIN
+  M O D A L
 ===================================*/
 
-#course-selection .btn {
-    text-align: left;
+.vex-dialog-button, vex-dialog-buttons {
+    width: 100%;
 }
+
 
 /*===================================
   M O N T H
 ===================================*/
-/*
-.feed-month:not(:first-child) {
-  margin-top: 70px;
-}
-*/
-
 
 .feed {
     max-width: 594px;
@@ -122,9 +124,8 @@ header .login-button {
     margin-bottom: 70px;
 }
 
-
-.feed-month {
-    background-color: #3879E2;
+.feed-month, month-month {
+    background-color: #699df1;
     margin-bottom: 8px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -135,22 +136,30 @@ header .login-button {
     text-decoration: none;
 }
 
-    .feed-month p {
-        text-align: center;
-        color: white;
-        opacity: 0.9;
-        font-size: 22px;
-        font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-weight: normal;
-    }
+.week, .week p {
+    background-color: #8DB3f1;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 19px !important;
+}
 
-        .feed-month p:hover {
-            text-decoration: none;
-        }
+.feed-month p {
+    text-align: center;
+    color: white;
+    opacity: 0.9;
+    font-size: 22px;
+    font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+
+.feed-month p:hover {
+    text-decoration: none;
+}
 
 /*===================================
   E V E N T   F E E D
 ===================================*/
+
 .feed-container {
     color: #474f5c;
     height: 80px;
@@ -160,22 +169,22 @@ header .login-button {
     cursor: pointer;
 }
 
-    .feed-container .class-date {
-        width: 60px;
-        height: 100%;
-        float: left;
-        position: relative;
-        margin-right: 15px;
-    }
+.feed-container .class-date {
+    width: 60px;
+    height: 100%;
+    float: left;
+    position: relative;
+    margin-right: 15px;
+}
 
-        /* Top left row:   13 */
-        .feed-container .class-date .date-number {
-            margin-left: 12px;
-            font-size: 23px;
-            color: #a4b0c3;
-            font-weight: normal;
-            float: left;
-        }
+/* Top left row:   13 */
+.feed-container .class-date .date-number {
+    margin-left: 12px;
+    font-size: 23px;
+    color: #a4b0c3;
+    font-weight: normal;
+    float: left;
+}
 
 @media (min-width: 768px) {
     .modal-dialog {
@@ -239,6 +248,10 @@ header .login-button {
             opacity: 0.3;
         }
 
+        .feed-container .content .time-info {
+            margin-top: 10px;
+        }
+
 /*======================================
   SPECIAL BOXES FOR SPECIAL EVENTS
 =======================================*/
@@ -289,7 +302,7 @@ header .login-button {
 /*======================================
   LINE SEPARATING EVENTS
 =======================================*/
-.horizontal-line {
+.horizontal-line:not(:last-child) {
     display: block;
     width: 82%;
     float: right;
@@ -377,10 +390,10 @@ header .login-button {
 =======================================*/
 
 #tags {
-    width: 250px;
+    max-width: 250px;
     padding: 3px 0 4px 30px;
-    border-radius: 10px;
-    border: 1px solid #DCDCDC;
+    border-radius: 20px;
+    border: 1px solid #e4e4e4;
     margin-left: 7px;
     background-image: url("../img/search.png");
     background-repeat: no-repeat;
@@ -409,7 +422,7 @@ header .login-button {
 
 .ui-menu {
     display: block;
-    float: left;
+    float: right;
     list-style: none outside none;
     margin: 0;
     padding: 4px;
