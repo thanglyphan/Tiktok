@@ -15,15 +15,17 @@
         callback: function (data) {
             $.ajax({
                 url: "Home/t",
-                data: data.username,
+                type: "POST",
+                data: { a: data.username },
                 error: function () {
                     console.log("error");
                 },
                 success: function (a) {
+                    alert("here" + data.username);
                     console.log("success" + a);
                 }
             })
-            $("#user-name").html(data.username);
+            //$("#user-name").html(data.username);
             if (data === false) {
                 return console.log('Cancelled');
             }

@@ -213,7 +213,7 @@ namespace TikTokCalendar.Controllers
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-		public JsonResult t(string a ="")
+		public JsonResult t(string a)
 		{
 			Session.Add("b", a);
 			Debug.Write(Session["b"] + " [" + a + "]");
