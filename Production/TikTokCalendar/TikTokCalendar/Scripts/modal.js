@@ -15,7 +15,7 @@
 
         callback: function (data) {
             $.ajax({
-                url: "Home/t",
+                url: "Home/UserName",
                 type: "POST",
                 data: { a: data.username },
                 error: function () {
