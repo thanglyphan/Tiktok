@@ -22,7 +22,6 @@
                     console.log("error");
                 },
                 success: function (a) {
-                    alert("here" + data.username);
                     console.log("success" + a);
                 }
             })
@@ -104,7 +103,6 @@
                                 console.log("error");
                             },
                             success: function (a) {
-                                alert("here" + data.username);
                                 console.log("success" + a);
                             }
                         })

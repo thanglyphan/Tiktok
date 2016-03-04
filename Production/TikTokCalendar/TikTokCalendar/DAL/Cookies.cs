@@ -1,11 +1,20 @@
 ﻿using System;
 using System.Web;
 
+
 namespace TikTokCalendar.DAL
 {
 	public class Cookies
 	{
+		private static HttpCookie UsernameCookie = null;
+		private static HttpCookie CourseCookie = null;
+		private static HttpCookie WeekOrMonthCookie;
+
+		private static HttpCookie myCookie;
+
+
 		//Add cookie method.	
+		/*
 		public void SaveToCookie(String UserNameKey,String CourseKey,int WeekOrMonthKey, StudentUser a)
 		{
 
@@ -25,31 +34,41 @@ namespace TikTokCalendar.DAL
 			HttpContext.Current.Response.Cookies.Add(CourseCookie);
 			HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
 		}
-		public void SaveNameToCookie(String a)
+		*/
+		public static void SaveNameToCookie(String a)
 		{
-			HttpCookie UsernameCookie = new HttpCookie("UserName");
+			UsernameCookie = new HttpCookie("UserName");
 			UsernameCookie.Value = a;
+			UsernameCookie.Expires = DateTime.Now.AddHours(1);
+			Console.WriteLine("FROM COOKES.CS" + a);
 			HttpContext.Current.Response.Cookies.Add(UsernameCookie);
 		}
 
-		public void SaveCourseToCookie(String a)
+		public static void SaveCourseToCookie(String a)
 		{
-			HttpCookie CourseCookie = new HttpCookie("UserCourse");
+			CourseCookie = new HttpCookie("UserCourse");
 			CourseCookie.Value = a;
+			CourseCookie.Expires = DateTime.Now.AddHours(1);
 			HttpContext.Current.Response.Cookies.Add(CourseCookie);
 		}
-		public String LoadStringFromCookie(String key)
+		public static String LoadStringFromCookie(String key)
 		{
-			HttpCookie myCookie = HttpContext.Current.Request.Cookies[key];
+			myCookie = new HttpCookie(key);
+			myCookie = HttpContext.Current.Request.Cookies[key];
+
+			Console.WriteLine(myCookie.Value);
 
 			if (myCookie == null) { //Returns the value og cookie if not null.
 				return null;
 			}
 			else {
+				Console.WriteLine(myCookie.Value);
 				return myCookie.Value;
 			}
 		}
-		public int LoadIntFromCookie(String key) //Week or month view by user.
+
+		/*
+		public static int LoadIntFromCookie(String key) //Week or month view by user.
 		{
 			String s = LoadStringFromCookie(key);
 			int number;
@@ -58,5 +77,6 @@ namespace TikTokCalendar.DAL
 			}
 			return -1;
 		}
+		*/
 	}
 }

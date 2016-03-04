@@ -216,9 +216,11 @@ namespace TikTokCalendar.Controllers
 		public JsonResult UserName(string a)
 		{
 			Session.Add("UserName",a);
-
-			if(cookie.LoadStringFromCookie("UserName") == null) {
-				cookie.SaveNameToCookie(a);
+			String name = Cookies.LoadStringFromCookie("UserName");
+			Console.WriteLine(name);
+            if (Cookies.LoadStringFromCookie("UserName") == null) {
+				Cookies.SaveNameToCookie(a);
+				Debug.WriteLine("Addet til cookie: " + a);
 			}
 			else {
 				Debug.WriteLine("Cookie finnes fra før" + a);
@@ -233,14 +235,14 @@ namespace TikTokCalendar.Controllers
 		{
 			
 			Session.Add("UserCourse",a);
-
-			if(cookie.LoadStringFromCookie("UserCourse") == null) {
-				cookie.SaveCourseToCookie(a);
+			
+			if(Cookies.LoadStringFromCookie("UserCourse") == null) {
+				Cookies.SaveCourseToCookie(a);
+				Debug.WriteLine("Addet til cookie: " + a);
 			}
 			else {
 				Debug.WriteLine("Cookie finnes fra før");
 			}
-
 			//Debug.Write(Session["UserCourse"]);
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
 		}
@@ -250,13 +252,13 @@ namespace TikTokCalendar.Controllers
 			string name = "No User"; 
 			string course = "Course";
 
-			if (Session["UserName"] != null)
+			if (Cookies.LoadStringFromCookie("UserName") != null)
 			{
-				name = (string)Session["UserName"];
+				name = Cookies.LoadStringFromCookie("UserName");
 			}
-			if (Session["UserCourse"] != null)
+			if (Cookies.LoadStringFromCookie("UserCourse") != null)
 			{
-				course = (string)Session["UserCourse"];
+				course = Cookies.LoadStringFromCookie("UserCourse");
 			}
 
 			SchoolCourses schoolCourse = Course.GetCourseFromName(course);
