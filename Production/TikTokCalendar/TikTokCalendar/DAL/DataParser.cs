@@ -17,6 +17,7 @@ namespace TikTokCalendar.DAL
 		private const string courseFile = "SchoolSystem/courses.json";
 		private const string subjectFile = "SchoolSystem/subjects.json";
 		private const string courseSubjectFile = "SchoolSystem/courseSubjects.json";
+		private const string examsFile = "timeedit/innlevering-eksamen-dato.json";
 		private readonly string[] scheduleFiles = new string[]
 		{
 			"timeedit/1klasse.json",
@@ -27,6 +28,13 @@ namespace TikTokCalendar.DAL
 			"timeedit/spilldesign.json",
 			"timeedit/spillprogrammering.json"
 		};
+
+		public const int ColumnEmne = 0;
+		public const int ColumSutdioProgram = 1;
+		public const int ColumRom = 2;
+		public const int ColumLaerer = 3;
+		public const int ColumAktivitet = 4;
+		public const int ColumKommentar = 5;
 		private readonly DateTimeParser dtParser = new DateTimeParser();
 
 		public void ParseAllData()
@@ -91,7 +99,26 @@ namespace TikTokCalendar.DAL
 			// TODO ParseEvent() with all the schedules jsons from TimeEdit
 			// TODO ParseEvent() with the eksamen/innlevering json
 
-			//var file = GetFileContents();
+			foreach (var fileName in scheduleFiles)
+			{
+				var file = GetFileContents(fileName);
+				var container = JsonConvert.DeserializeObject<JRootReservationObject>(file);
+				foreach (var r in container.reservations)
+				{
+					var evnts = ParseEvent(r.id, r.startdate, r.starttime, r.enddate, r.endtime, r.columns[ColumnEmne],
+						r.columns[ColumSutdioProgram], r.columns[ColumRom], r.columns[ColumLaerer], r.columns[ColumAktivitet],
+						r.columns[ColumKommentar]);
+					events.AddRange(evnts);
+				}
+			}
+
+			//var file = GetFileContents(examsFile);
+			//var container = JsonConvert.DeserializeObject<JRootExamReservationRootObject>(file);
+			//foreach (var r in container.reservations)
+			//{
+			//	//CustomEvent evnt = new CustomEvent;
+			//	//events.Add(evnt);
+			//}
 			return events;
 		}
 
@@ -151,13 +178,27 @@ namespace TikTokCalendar.DAL
 				}
 			}
 
+			//////// Making the events ////////
+			EventType eventType = EventType.None;
+			int bestMatch = 1000;
+			string[] events = Enum.GetNames(typeof(SchoolCourses));
+			for (int i = 1; i < events.Length + 1; i++)
+			{
+				int match = Math.Abs(activity.CompareTo(courses[i - 1]));
+				if (match <= bestMatch)
+				{
+					eventType = (EventType)i;
+					bestMatch = match;
+				}
+			}
 
 			//////// Making the events ////////
 			// Go through the startdates that was parsed.
 			// This makes it so that events where we couldn't parse a date from, will not be added
 			foreach (var date in startDates)
 			{
-				CustomEvent evnt = new CustomEvent(parsedId, DateTime.MinValue, endDateTime, hasEndDateTime, subject, classYear, courses, room, teacher, activity, comment);
+				CustomEvent evnt = new CustomEvent(parsedId, DateTime.MinValue, endDateTime, hasEndDateTime,
+					subject, classYear, courses, room, teacher, eventType, comment);
 				retEvents.Add(evnt);
 			}
 			return retEvents;
@@ -200,6 +241,45 @@ namespace TikTokCalendar.DAL
 		private class JRootCourseObject
 		{
 			public List<JCourse> courses { get; set; }
+		}
+
+		private class JInfo
+		{
+			public int reservationlimit { get; set; }
+			public int reservationcount { get; set; }
+		}
+
+		private class JReservation
+		{
+			public string id { get; set; }
+			public string startdate { get; set; }
+			public string starttime { get; set; }
+			public string enddate { get; set; }
+			public string endtime { get; set; }
+			public List<string> columns { get; set; }
+		}
+
+		private class JRootReservationObject
+		{
+			public List<string> columnheaders { get; set; }
+			public JInfo info { get; set; }
+			public List<JReservation> reservations { get; set; }
+		}
+
+		private class JExamReservation
+		{
+			public string Dato { get; set; }
+			public string Emnekode { get; set; }
+			public string Emnenavn { get; set; }
+			public string Vurderingstype { get; set; }
+			public int Vekting { get; set; }
+			public string Varighet { get; set; }
+			public string Hjelpemidler { get; set; }
+		}
+
+		private class JRootExamReservationRootObject
+		{
+			public List<JExamReservation> reservations { get; set; }
 		}
 	}
 }
