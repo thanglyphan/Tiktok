@@ -65,6 +65,7 @@ namespace TikTokCalendar.Models
 		Forelesning,
 		Eksamen,
 		Innlevering,
+		Prosjekt,
 		Annet
 	}
 }

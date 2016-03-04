@@ -30,11 +30,11 @@ namespace TikTokCalendar.DAL
 		};
 
 		public const int ColumnEmne = 0;
-		public const int ColumSutdioProgram = 1;
-		public const int ColumRom = 2;
-		public const int ColumLaerer = 3;
-		public const int ColumAktivitet = 4;
-		public const int ColumKommentar = 5;
+		public const int ColumnStudieProgram = 1;
+		public const int ColumnRom = 2;
+		public const int ColumnLaerer = 3;
+		public const int ColumnAktivitet = 4;
+		public const int ColumnKommentar = 5;
 		private readonly DateTimeParser dtParser = new DateTimeParser();
 
 		public void ParseAllData()
@@ -99,26 +99,28 @@ namespace TikTokCalendar.DAL
 			// TODO ParseEvent() with all the schedules jsons from TimeEdit
 			// TODO ParseEvent() with the eksamen/innlevering json
 
+			var file = "";
 			foreach (var fileName in scheduleFiles)
 			{
-				var file = GetFileContents(fileName);
-				var container = JsonConvert.DeserializeObject<JRootReservationObject>(file);
-				foreach (var r in container.reservations)
+				file = GetFileContents(fileName);
+				var resContainer = JsonConvert.DeserializeObject<JRootReservationObject>(file);
+				foreach (var r in resContainer.reservations)
 				{
 					var evnts = ParseEvent(r.id, r.startdate, r.starttime, r.enddate, r.endtime, r.columns[ColumnEmne],
-						r.columns[ColumSutdioProgram], r.columns[ColumRom], r.columns[ColumLaerer], r.columns[ColumAktivitet],
-						r.columns[ColumKommentar]);
+						r.columns[ColumnStudieProgram], r.columns[ColumnRom], r.columns[ColumnLaerer], r.columns[ColumnAktivitet],
+						r.columns[ColumnKommentar]);
 					events.AddRange(evnts);
 				}
 			}
 
-			//var file = GetFileContents(examsFile);
-			//var container = JsonConvert.DeserializeObject<JRootExamReservationRootObject>(file);
-			//foreach (var r in container.reservations)
-			//{
-			//	//CustomEvent evnt = new CustomEvent;
-			//	//events.Add(evnt);
-			//}
+			file = GetFileContents(examsFile);
+			var container = JsonConvert.DeserializeObject<JRootExamReservationRootObject>(file);
+			foreach (var r in container.reservations)
+			{
+				var evnts = ParseEvent("-1", r.Dato, null, null, null, string.Format("{0}({1})", r.Emnenavn, r.Emnekode), null,
+					null, null, r.Vurderingstype, "Vekting: " + r.Vekting + "\n" + r.Hjelpemidler);
+				events.AddRange(evnts);
+			}
 			return events;
 		}
 
@@ -139,7 +141,16 @@ namespace TikTokCalendar.DAL
 			//////// Start date ////////
 			// Startdate
 			DateParseResults dtResults = DateParseResults.NoDate;
-			DateTime[] startDates = dtParser.ParseDate(startDate, out dtResults);
+			// TODO Use the other parse if it isn't a fucked up dateformat
+			DateTime[] startDates;
+			if (startTime == null)
+			{
+				startDates = dtParser.ParseDate(startDate, out dtResults);
+			}
+			else
+			{
+				startDates = new DateTime[] { dtParser.SimpleParse(startDate, startTime, out dtResults) };
+			}
 
 			//////// End date ////////
 			// Enddate
