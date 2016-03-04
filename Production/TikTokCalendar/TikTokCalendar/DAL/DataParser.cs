@@ -20,12 +20,12 @@ namespace TikTokCalendar.DAL
 		private readonly string[] scheduleFiles = new string[]
 		{
 			"timeedit/1klasse.json",
-			"timeedit/3d-grafikk.json",
-			"timeedit/1klasse.json",
-			"timeedit/1klasse.json",
-			"timeedit/1klasse.json",
-			"timeedit/1klasse.json",
-			"timeedit/1klasse.json"
+			"timeedit/e-business.json",
+			"timeedit/intelligente-systemer.json",
+			"timeedit/interaktivt-design.json",
+			"timeedit/programmering.json",
+			"timeedit/spilldesign.json",
+			"timeedit/spillprogrammering.json"
 		};
 		private readonly DateTimeParser dtParser = new DateTimeParser();
 
