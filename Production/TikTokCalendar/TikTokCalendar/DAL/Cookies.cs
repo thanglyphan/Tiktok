@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Web;
-
+using System.Web.UI;
 
 namespace TikTokCalendar.DAL
 {
-	public class Cookies
+	public class Cookies : System.Web.UI.Page
 	{
-		private static HttpCookie UsernameCookie = null;
-		private static HttpCookie CourseCookie = null;
-		private static HttpCookie WeekOrMonthCookie;
-
-		private static HttpCookie myCookie;
 
 
 		//Add cookie method.	
@@ -35,36 +30,52 @@ namespace TikTokCalendar.DAL
 			HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
 		}
 		*/
-		public static void SaveNameToCookie(String a)
+		public void SaveNameToCookie(String a)
 		{
-			UsernameCookie = new HttpCookie("UserName");
-			UsernameCookie.Value = a;
-			UsernameCookie.Expires = DateTime.Now.AddHours(1);
-			Console.WriteLine("FROM COOKES.CS" + a);
-			HttpContext.Current.Response.Cookies.Add(UsernameCookie);
+			try {
+				HttpCookie UsernameCookie = new HttpCookie("UserName" + "-" + a);
+				UsernameCookie.Value = a;
+				UsernameCookie.Expires = DateTime.Now.AddHours(1);
+				Console.WriteLine("FROM COOKES.CS" + a);
+				HttpContext.Current.Response.Cookies.Add(UsernameCookie);
+			}
+			catch (HttpException e) {
+				Console.Write("Cookies.cs - SaveNameToCookies");
+			}
 		}
 
-		public static void SaveCourseToCookie(String a)
+		public void SaveCourseToCookie(String a)
 		{
-			CourseCookie = new HttpCookie("UserCourse");
-			CourseCookie.Value = a;
-			CourseCookie.Expires = DateTime.Now.AddHours(1);
-			HttpContext.Current.Response.Cookies.Add(CourseCookie);
+			try {
+				HttpCookie CourseCookie = new HttpCookie("UserCourse" + "-" + a);
+				CourseCookie.Value = a;
+				CourseCookie.Expires = DateTime.Now.AddHours(1);
+				HttpContext.Current.Response.Cookies.Add(CourseCookie);
+			}
+			catch (HttpException e) {
+				Console.Write("Cookies.cs - SaveCourseToCookie");
+			}
 		}
-		public static String LoadStringFromCookie(String key)
+		public String LoadStringFromCookie(String key)
 		{
-			myCookie = new HttpCookie(key);
-			myCookie = HttpContext.Current.Request.Cookies[key];
+			try {
+				HttpCookie myCookie = new HttpCookie(key);
+				myCookie = HttpContext.Current.Request.Cookies[key];
 
-			Console.WriteLine(myCookie.Value);
+				if (myCookie == null) { //Returns the value og cookie if not null.
+					return null;
+				}
+				else {
+					Console.WriteLine(myCookie.Value);
+					return myCookie.Value;
+				}
+			}
+			catch (HttpException e) {
+				Console.Write("Cookies.cs - LoadStringFromCookie");
+			}
 
-			if (myCookie == null) { //Returns the value og cookie if not null.
-				return null;
-			}
-			else {
-				Console.WriteLine(myCookie.Value);
-				return myCookie.Value;
-			}
+			return null;
+
 		}
 
 		/*

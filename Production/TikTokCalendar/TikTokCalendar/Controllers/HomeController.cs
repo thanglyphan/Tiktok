@@ -12,11 +12,13 @@ using System.Diagnostics;
 
 namespace TikTokCalendar.Controllers
 {
-	public class HomeController : Controller
+	public class HomeController:Controller
 	{
 		// TODO Replace db with the DataWrapper
 		private CalendarEventContext db = new CalendarEventContext();
 		Cookies cookie = new Cookies();
+		string userName { get; set; }
+		string userCourse{ get; set; }
 		public ActionResult Index(string UserId)
 		{
 
@@ -215,17 +217,17 @@ namespace TikTokCalendar.Controllers
         }
 		public JsonResult UserName(string a)
 		{
-			Session.Add("UserName",a);
-			String name = Cookies.LoadStringFromCookie("UserName");
-			Console.WriteLine(name);
-            if (Cookies.LoadStringFromCookie("UserName") == null) {
-				Cookies.SaveNameToCookie(a);
-				Debug.WriteLine("Addet til cookie: " + a);
+			//Session.Add("UserName",a);
+			this.userName = cookie.LoadStringFromCookie("UserName" + "-" + a);
+
+            if (userName == null) {
+				cookie.SaveNameToCookie(a);
+				Debug.WriteLine("Addet til cookie navn: " + a);
 			}
 			else {
 				Debug.WriteLine("Cookie finnes fra før" + a);
 			}
-
+			
 			//Debug.Write(Session["UserName"]);
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
 
@@ -233,12 +235,14 @@ namespace TikTokCalendar.Controllers
 		}
 		public JsonResult UserCourse (string a)
 		{
-			
-			Session.Add("UserCourse",a);
-			
-			if(Cookies.LoadStringFromCookie("UserCourse") == null) {
-				Cookies.SaveCourseToCookie(a);
-				Debug.WriteLine("Addet til cookie: " + a);
+			// TODO: Noe rar logikk her. Denne skal lagre KUN dersom brukernavn IKKE finnes fra før.
+			//Session.Add("UserCourse",a);
+
+			this.userCourse = cookie.LoadStringFromCookie("UserCourse" + "-" + a);
+
+            if (userCourse == null) {
+				cookie.SaveCourseToCookie(a);
+				Debug.WriteLine("Addet til cookie kurs: " + a);
 			}
 			else {
 				Debug.WriteLine("Cookie finnes fra før");
@@ -252,17 +256,18 @@ namespace TikTokCalendar.Controllers
 			string name = "No User"; 
 			string course = "Course";
 
-			if (Cookies.LoadStringFromCookie("UserName") != null)
+			if (cookie.LoadStringFromCookie("UserName" + "-" + userName) != null)
 			{
-				name = Cookies.LoadStringFromCookie("UserName");
+				name = cookie.LoadStringFromCookie("UserName" + "-" + userName);
 			}
-			if (Cookies.LoadStringFromCookie("UserCourse") != null)
+			if (cookie.LoadStringFromCookie("UserCourse" + "-" + userCourse) != null)
 			{
-				course = Cookies.LoadStringFromCookie("UserCourse");
+				course = cookie.LoadStringFromCookie("UserCourse" + "-" + userCourse);
 			}
 
 			SchoolCourses schoolCourse = Course.GetCourseFromName(course);
 			return new StudentUser(name, schoolCourse);
 		}
 	}
+
 }
