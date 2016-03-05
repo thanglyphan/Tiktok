@@ -17,11 +17,8 @@ namespace TikTokCalendar.Controllers
 		// TODO Replace db with the DataWrapper
 		private CalendarEventContext db = new CalendarEventContext();
 		Cookies cookie = new Cookies();
-		string userName { get; set; }
-		string userCourse{ get; set; }
 		public ActionResult Index(string UserId)
 		{
-
 
 			//Debug.WriteLine(inputValue); // HER PRINTES DET SOM ER SKREVET INN
 			//string id = inputValue; // HER PRINTES DET SOM ER SKREVET INN
@@ -145,6 +142,7 @@ namespace TikTokCalendar.Controllers
 			{
 				modelWrapper.calEvents[i].Events = modelWrapper.calEvents[i].Events.OrderBy(x => x.StartTime).ToList();
 			}
+			bool IsVisited = GetVisited(); //This prints debug line and return true if visited, else false.
 
 			return View(modelWrapper);//.calEvents);
 		}
@@ -217,8 +215,8 @@ namespace TikTokCalendar.Controllers
         }
 		public JsonResult UserName(string a)
 		{
-			//Session.Add("UserName",a);
-			this.userName = cookie.LoadStringFromCookie("UserName" + "-" + a);
+			//Session.Add("UserName",a);   "UserName" + "-" + a
+			string userName = cookie.LoadStringFromCookie("UserName");
 
             if (userName == null) {
 				cookie.SaveNameToCookie(a);
@@ -236,9 +234,9 @@ namespace TikTokCalendar.Controllers
 		public JsonResult UserCourse (string a)
 		{
 			// TODO: Noe rar logikk her. Denne skal lagre KUN dersom brukernavn IKKE finnes fra før.
-			//Session.Add("UserCourse",a);
+			//Session.Add("UserCourse",a);    + "-" + a
 
-			this.userCourse = cookie.LoadStringFromCookie("UserCourse" + "-" + a);
+			string userCourse = cookie.LoadStringFromCookie("UserCourse");
 
             if (userCourse == null) {
 				cookie.SaveCourseToCookie(a);
@@ -250,19 +248,28 @@ namespace TikTokCalendar.Controllers
 			//Debug.Write(Session["UserCourse"]);
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
 		}
-
+		public bool GetVisited()
+		{
+			if (cookie.LoadStringFromCookie("UserName") != null) {
+				Debug.WriteLine("Halla, " + cookie.LoadStringFromCookie("UserName") + "! Du går: " + cookie.LoadStringFromCookie("UserCourse"));
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
 		public StudentUser GetUserFromNameCourse()
 		{
 			string name = "No User"; 
 			string course = "Course";
 
-			if (cookie.LoadStringFromCookie("UserName" + "-" + userName) != null)
+			if (cookie.LoadStringFromCookie("UserName") != null)
 			{
-				name = cookie.LoadStringFromCookie("UserName" + "-" + userName);
+				name = cookie.LoadStringFromCookie("UserName");
 			}
-			if (cookie.LoadStringFromCookie("UserCourse" + "-" + userCourse) != null)
+			if (cookie.LoadStringFromCookie("UserCourse") != null)
 			{
-				course = cookie.LoadStringFromCookie("UserCourse" + "-" + userCourse);
+				course = cookie.LoadStringFromCookie("UserCourse");
 			}
 
 			SchoolCourses schoolCourse = Course.GetCourseFromName(course);

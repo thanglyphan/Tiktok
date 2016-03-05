@@ -33,7 +33,7 @@ namespace TikTokCalendar.DAL
 		public void SaveNameToCookie(String a)
 		{
 			try {
-				HttpCookie UsernameCookie = new HttpCookie("UserName" + "-" + a);
+				HttpCookie UsernameCookie = new HttpCookie("UserName");
 				UsernameCookie.Value = a;
 				UsernameCookie.Expires = DateTime.Now.AddHours(1);
 				Console.WriteLine("FROM COOKES.CS" + a);
@@ -47,7 +47,7 @@ namespace TikTokCalendar.DAL
 		public void SaveCourseToCookie(String a)
 		{
 			try {
-				HttpCookie CourseCookie = new HttpCookie("UserCourse" + "-" + a);
+				HttpCookie CourseCookie = new HttpCookie("UserCourse");
 				CourseCookie.Value = a;
 				CourseCookie.Expires = DateTime.Now.AddHours(1);
 				HttpContext.Current.Response.Cookies.Add(CourseCookie);
