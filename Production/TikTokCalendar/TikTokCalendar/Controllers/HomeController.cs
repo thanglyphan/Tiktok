@@ -71,8 +71,13 @@ namespace TikTokCalendar.Controllers
 
 			bool weekView = (weekOrMonthView == 0);
 
-			ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}", user.ClassYear, user.GetCurrentSemester(), user.ValidUsername(user.UserName));
-
+			
+			if(cookie.LoadStringFromCookie("UserName") != null){
+				ViewBag.Title = string.Format("Halla, {0}! Du går: {1}",cookie.LoadStringFromCookie("UserName"),cookie.LoadStringFromCookie("Usercourse"));
+			}
+			else {
+				ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
+			}
 			var events = db.CalendarEvents.ToList();
 			// TODO Refactor instances of Month into something else
 			// TODO Make the year go from august to june like a schoolyear
