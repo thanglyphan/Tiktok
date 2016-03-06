@@ -11,8 +11,18 @@
     },
     {
       "id": "2",
-      "code": "PJ2100-15",
-      "name": "PJ Fag"
+      "code": "PG4500-15",
+      "name": "C++ Programmering"
+    },
+    {
+      "id": "3",
+      "code": "RF3100-15",
+      "name": "Matematikk og fysikk"
+    },
+    {
+      "id": "4",
+      "code": "PJ3100-15",
+      "name": "Prosjekt software engeneering"
     }
   ]
 }
