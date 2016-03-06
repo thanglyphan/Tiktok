@@ -14,7 +14,7 @@ namespace TikTokCalendar.Models
 		public DateTime StartDateTime { get; private set; }
 		public DateTime EndDateTime { get; private set; }
 		public bool HasEndDateTime { get; private set; }
-		public string EventName { get; private set; } // TODO Not needed
+		//public string EventName { get { return Subject.Name + Subject.Code; } } // TODO Not needed
 		public Subject Subject { get; private set; }
 		public int ClassYear { get; private set; }
 		public List<SchoolCourses> Courses { get; private set; }

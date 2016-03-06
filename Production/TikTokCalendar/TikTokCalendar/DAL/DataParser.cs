@@ -51,7 +51,7 @@ namespace TikTokCalendar.DAL
 
 			foreach (var item in events)
 			{
-				Printer.Print("Event: " + item.EventName);
+				Printer.Print("Event: " + item.Subject.Name);
 			}
 		}
 
@@ -165,6 +165,7 @@ namespace TikTokCalendar.DAL
 			// TODO Null check
 			string subjectCode = Subject.GetSubjectCode(subjectString);
 			Subject subject = DataWrapper.Instance.GetSubjectByCode(subjectCode);
+			if (subject == null) return retEvents;
 
 			//////// Year and course ////////
 			List<SchoolCourses> courses = new List<SchoolCourses>();

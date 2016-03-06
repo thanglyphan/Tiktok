@@ -9,13 +9,25 @@
       "id": "1",
       "courseId": "1",
       "subjectId": "1",
-      "semester": "1"
+      "semester": "4"
     },
     {
       "id": "2",
       "courseId": "1",
       "subjectId": "2",
-      "semester": "1"
+      "semester": "4"
+    },
+    {
+      "id": "3",
+      "courseId": "1",
+      "subjectId": "3",
+      "semester": "4"
+    },
+    {
+      "id": "4",
+      "courseId": "1",
+      "subjectId": "4",
+      "semester": "4"
     }
   ]
 }

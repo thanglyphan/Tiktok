@@ -167,6 +167,8 @@
     <Compile Include="DAL\Cookies.cs" />
     <Compile Include="DAL\CourseInfoHelper.cs" />
     <Compile Include="DAL\CoursesEnum.cs" />
+    <Compile Include="DAL\CustomEventMonth.cs" />
+    <Compile Include="DAL\CustomEventWeek.cs" />
     <Compile Include="DAL\DataParser.cs" />
     <Compile Include="DAL\EventMonth.cs" />
     <Compile Include="DAL\ExamInit.cs" />

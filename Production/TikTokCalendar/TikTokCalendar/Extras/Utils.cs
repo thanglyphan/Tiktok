@@ -22,5 +22,11 @@ namespace TikTokCalendar.Extras
 			}
 			return -1;
 		}
+
+		public static int GetWeekNumberOfYear(this DateTime dt)
+		{
+			Calendar cal = new GregorianCalendar();
+			return cal.GetWeekOfYear(dt, CalendarWeekRule.FirstDay, DayOfWeek.Monday);
+		}
 	}
 }

@@ -52,6 +52,8 @@ namespace TikTokCalendar.Controllers
 			//SchoolCourses course = SchoolCourses.Spillprogrammering;
 			//StudentUser user = new StudentUser(name, course); // TODO Get this from cookies
 			StudentUser user = GetUserFromNameCourse();
+			DataParser dataParser = new DataParser();
+			dataParser.ParseAllData();
 
 			int weekOrMonthView = 0; // TODO Get this from cookies
 
@@ -76,11 +78,15 @@ namespace TikTokCalendar.Controllers
 			var events = db.CalendarEvents.ToList();
 			// TODO Refactor instances of Month into something else
 			// TODO Make the year go from august to june like a schoolyear
-			int eventGroupCount = (weekView) ? 52 : 12;
-			var modelWrapper = new ModelDataWrapper();
-			modelWrapper.calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
+			
 			int startMonth = 8; // Starting month number
-			int monthNum = startMonth; 
+			int monthNum = startMonth;
+			
+			var modelWrapper = new ModelDataWrapper();
+			int eventGroupCount = (weekView) ? 52 : 12;
+			modelWrapper.calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
+			modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("name", SchoolCourses.Spillprogrammering));
+			
 			//for (var i = monthNum; i < 12 + monthNum; i++)
 			for (int i = 0; i < eventGroupCount; i++)
 			{

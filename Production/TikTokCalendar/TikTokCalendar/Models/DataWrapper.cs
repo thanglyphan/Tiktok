@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TikTokCalendar.DAL;
+using TikTokCalendar.Extras;
 
 namespace TikTokCalendar.Models
 {
@@ -24,6 +26,54 @@ namespace TikTokCalendar.Models
 		public void SetSchoolSystemDependantData(List<CustomEvent> allEvents)
 		{
 			AllEvents = allEvents;
+		}
+
+		public List<CustomEventMonth> GetEventsWithUser(StudentUser user)
+		{
+			List<CustomEventMonth> months = GetInitializedEventMonthList();
+			foreach (var evnt in AllEvents)
+			{
+				if (evnt.Courses.Contains(user.Course))
+				{
+					months[evnt.StartDateTime.Month - 1].AddEvent(evnt);
+					Printer.Print("E: " + evnt.Subject.Name);
+				}
+			}
+			return months;
+		}
+
+		public List<CustomEventMonth> GetEventsWithSubject(Subject subject)
+		{
+			List<CustomEventMonth> months = GetInitializedEventMonthList();
+			foreach (var evnt in AllEvents)
+			{
+				if (evnt.Subject == subject)
+				{
+					months[evnt.StartDateTime.Month - 1].AddEvent(evnt);
+				}
+			}
+			return months;
+		}
+
+		private List<CustomEventMonth> GetInitializedEventMonthList()
+		{
+			List<CustomEventMonth> months = new List<CustomEventMonth>();
+			for (int i = 0; i < 12; i++)
+			{
+				months.Add(new CustomEventMonth(i+1));
+				DateTime date = DateTime.Today;
+				// first generate all dates in the month of 'date'
+				var dates = Enumerable.Range(1, DateTime.DaysInMonth(date.Year, date.Month)).Select(n => new DateTime(date.Year, date.Month, n));
+				// then filter the only the start of weeks
+				var weekends = from d in dates
+							   where d.DayOfWeek == DayOfWeek.Monday
+							   select d;
+				foreach (var weeks in weekends)
+				{
+					months[i].Weeks.Add(new CustomEventWeek(weeks.GetWeekNumberOfYear()));
+				}
+			}
+			return months;
 		}
 
 		/// <summary>
