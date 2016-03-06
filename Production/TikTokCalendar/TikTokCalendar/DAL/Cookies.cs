@@ -43,6 +43,19 @@ namespace TikTokCalendar.DAL
 				Console.Write("Cookies.cs - SaveNameToCookies");
 			}
 		}
+		public void SaveIntToCookie(int a)
+		{
+			try {
+				HttpCookie WeekOrMonthCookie = new HttpCookie("WeekMonth");
+				WeekOrMonthCookie.Value = a.ToString();
+				WeekOrMonthCookie.Expires = DateTime.Now.AddSeconds(10);
+				Console.WriteLine("FROM COOKES.CS" + a);
+				HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
+			}
+			catch (HttpException e) {
+				Console.Write("Cookies.cs - SaveIntToCookies");
+			}
+		}
 
 		public void SaveCourseToCookie(String a)
 		{
@@ -78,8 +91,7 @@ namespace TikTokCalendar.DAL
 
 		}
 
-		/*
-		public static int LoadIntFromCookie(String key) //Week or month view by user.
+		public int LoadIntFromCookie(String key) //Week or month view by user.
 		{
 			String s = LoadStringFromCookie(key);
 			int number;
@@ -88,6 +100,5 @@ namespace TikTokCalendar.DAL
 			}
 			return -1;
 		}
-		*/
 	}
 }

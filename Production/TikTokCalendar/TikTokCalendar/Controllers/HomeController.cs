@@ -219,11 +219,8 @@ namespace TikTokCalendar.Controllers
 
             if (userName == null) {
 				cookie.SaveNameToCookie(a);
-				Debug.WriteLine("Addet til cookie navn: " + a);
 			}
-			else {
-				Debug.WriteLine("Cookie finnes fra før" + a);
-			}
+
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
 		}
 		public JsonResult UserCourse (string a)
@@ -232,11 +229,8 @@ namespace TikTokCalendar.Controllers
 
             if (userCourse == null) {
 				cookie.SaveCourseToCookie(a);
-				Debug.WriteLine("Addet til cookie kurs: " + a);
 			}
-			else {
-				Debug.WriteLine("Cookie finnes fra før");
-			}
+			
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
 		}
 		public bool GetVisited() //If been here, return true, else false.
