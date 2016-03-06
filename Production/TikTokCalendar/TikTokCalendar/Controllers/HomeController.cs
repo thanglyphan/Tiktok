@@ -22,8 +22,8 @@ namespace TikTokCalendar.Controllers
 
 			// DEBUG For testing
 			//Printer.Print("User: " + id);
-			
 
+			/*
 			string name = "trotor14";
 			SchoolCourses course = SchoolCourses.Spillprogrammering;
 			if (id.Contains("prog"))
@@ -44,12 +44,15 @@ namespace TikTokCalendar.Controllers
 				course = SchoolCourses.Mobilprogrammering;
 				Printer.Print("User: " + id + " idesign");
 			}
+			*/
 			//Cookies cookie;
 			//string user = cookie.LoadFromCookie("Username");
 			//int program = cookie.LoadFromCookie("Program");
+			//string name = "trotor14";
+			//SchoolCourses course = SchoolCourses.Spillprogrammering;
+			//StudentUser user = new StudentUser(name, course); // TODO Get this from cookies
+			StudentUser user = GetUserFromNameCourse();
 
-			StudentUser user = new StudentUser(name, course); // TODO Get this from cookies
-			//StudentUser user = GetUserFromNameCourse();
 			int weekOrMonthView = 0; // TODO Get this from cookies
 
 			if (id.StartsWith("0"))
@@ -247,9 +250,9 @@ namespace TikTokCalendar.Controllers
 		}
 		public StudentUser GetUserFromNameCourse()
 		{
-			string name = "phatha15"; 
-			string course = "Course";
-
+			string name = "phatha14"; 
+			string course = "Programmering";
+			
 			if (cookie.LoadStringFromCookie("UserName") != null)
 			{
 				name = cookie.LoadStringFromCookie("UserName");
@@ -258,7 +261,7 @@ namespace TikTokCalendar.Controllers
 			{
 				course = cookie.LoadStringFromCookie("UserCourse");
 			}
-
+			
 			SchoolCourses schoolCourse = Course.GetCourseFromName(course);
 			return new StudentUser(name, schoolCourse);
 		}
