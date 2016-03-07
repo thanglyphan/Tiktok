@@ -58,6 +58,7 @@ namespace TikTokCalendar.Models
 		private List<CustomEventMonth> GetInitializedEventMonthList()
 		{
 			List<CustomEventMonth> months = new List<CustomEventMonth>();
+			int weekNr = 1;
 			for (int i = 0; i < 12; i++)
 			{
 				months.Add(new CustomEventMonth(i+1));
@@ -70,7 +71,8 @@ namespace TikTokCalendar.Models
 				var weekends = from d in dates where d.DayOfWeek == DayOfWeek.Monday select d;
 				foreach (var weeks in weekends)
 				{
-					months[i].Weeks.Add(new CustomEventWeek(weeks.GetWeekNumberOfYear()));
+					months[i].Weeks.Add(new CustomEventWeek(weekNr));//weeks.GetWeekNumberOfYear()));
+					weekNr ++;
 				}
 			}
 			return months;

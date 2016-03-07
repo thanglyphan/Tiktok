@@ -86,7 +86,7 @@ namespace TikTokCalendar.Controllers
 			var modelWrapper = new ModelDataWrapper();
 			int eventGroupCount = (weekView) ? 52 : 12;
 			modelWrapper.calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
+			//modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
 			
 			//for (var i = monthNum; i < 12 + monthNum; i++)
 			for (int i = 0; i < eventGroupCount; i++)
@@ -254,12 +254,14 @@ namespace TikTokCalendar.Controllers
 		{
 			string name = "phatha14"; 
 			string course = "Programmering";
-			
-			if (cookie.LoadStringFromCookie("UserName") != null)
+
+			string un = cookie.LoadStringFromCookie("UserName");
+			if (!string.IsNullOrEmpty(un))
 			{
 				name = cookie.LoadStringFromCookie("UserName");
 			}
-			if (cookie.LoadStringFromCookie("UserCourse") != null)
+			string uc = cookie.LoadStringFromCookie("UserCourse");
+			if (!string.IsNullOrEmpty(uc))
 			{
 				course = cookie.LoadStringFromCookie("UserCourse");
 			}

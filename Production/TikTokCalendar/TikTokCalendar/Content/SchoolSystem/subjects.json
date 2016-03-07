@@ -132,14 +132,14 @@
     {
       "id": "26",
       "code": "DS4500",
-      "name": "Leveldesign 1, flerspiller" 
+      "name": "Leveldesign 1, flerspiller"
     },
     {
       "id": "27",
       "code": "DS4450",
       "name": "Spillhistorie og -kultur"
     },
-        {
+    {
       "id": "28",
       "code": "DS5500",
       "name": "Level design 2; single player"
@@ -288,11 +288,26 @@
       "id": "57",
       "code": "TK2100",
       "name": "Informasjonssikkerhet"
-    },    
+    },
     {
       "id": "58",
       "code": "PGR101",
       "name": "Programmering 2"
+    },
+    {
+      "id": "59",
+      "code": "IS4200",
+      "name": "CRM Systemer"
+    },
+    {
+      "id": "60",
+      "code": "DS4210",
+      "name": "Designlab"
+    },    
+    {  
+      "id": "61",
+      "code": "DS5400",
+      "name": "Game design 2"
     }
   ]
 }
