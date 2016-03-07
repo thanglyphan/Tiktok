@@ -55,15 +55,6 @@ header .ui-widget {
     margin-left: 10px !important;
 }
 
-@media screen and (max-width: 480px) {
-
-    #tags {
-        max-width: 150px !important;
-    }
-}
-
-
-
 header i.fa-calendar-check-o {
     float: left;
     margin-top: 2px;
@@ -98,13 +89,13 @@ header .login-button {
         margin-left: 20px;
     }
 
-        .navbar-left i.fa-calendar-check-o {
-            font-size: 32px;
-        }
+    .navbar-left i.fa-calendar-check-o {
+        font-size: 32px;
+    }
 
-        .navbar-left p {
-            font-size: 27px;
-        }
+    .navbar-left p {
+        font-size: 27px;
+    }
 }
 
 /*===================================
@@ -204,55 +195,55 @@ header .login-button {
     padding-top: 17px;
 }
 
-    .feed-container .content .class-info {
-        width: 90%;
-        height: 50%;
-        margin: 0 auto;
-    }
+.feed-container .content .class-info {
+    width: 90%;
+    height: 50%;
+    margin: 0 auto;
+}
 
-        /* Top middle row:   Mattematikk og Fysikk */
-        .feed-container .content .class-info p.name {
-            float: left;
-            color: #6a7586;
-            font-size: 19px;
-            font-weight: normal;
-        }
+/* Top middle row:   Mattematikk og Fysikk */
+.feed-container .content .class-info p.name {
+    float: left;
+    color: #6a7586;
+    font-size: 19px;
+    font-weight: normal;
+}
 
-        /* Positioning for top row right:   Rom 40*/
-        .feed-container .content .class-info .right-position {
-            float: right;
-            margin-top: 4px;
-        }
+/* Positioning for top row right:   Rom 40*/
+.feed-container .content .class-info .right-position {
+    float: right;
+    margin-top: 4px;
+}
 
 
-            /* Top row right:  Rom 40   */
-            .feed-container .content .class-info .right-position i, .feed-container .content .class-info .right-position p {
-                float: left;
-                color: #6a7586;
-                font-weight: 400;
-                font-size: 14px;
-            }
+/* Top row right:  Rom 40   */
+.feed-container .content .class-info .right-position i, .feed-container .content .class-info .right-position p {
+    float: left;
+    color: #6a7586;
+    font-weight: 400;
+    font-size: 14px;
+}
 
-    /* Bottom row:  man, 12.15 - 16.00                       ...*/
-    .feed-container .content .time-info {
-        width: 77%;
-        height: 50%;
-        margin: 0 auto;
-        color: #474f5c;
-        font-weight: 300;
-        font-size: 18px;
-        float: right;
-        margin-right: 30px;
-    }
+/* Bottom row:  man, 12.15 - 16.00                       ...*/
+.feed-container .content .time-info {
+    width: 77%;
+    height: 50%;
+    margin: 0 auto;
+    color: #474f5c;
+    font-weight: 300;
+    font-size: 18px;
+    float: right;
+    margin-right: 30px;
+}
 
-        .feed-container .content .time-info i {
-            color: #a4b0c3;
-            opacity: 0.3;
-        }
+.feed-container .content .time-info i {
+    color: #a4b0c3;
+    opacity: 0.3;
+}
 
-        .feed-container .content .time-info {
-            margin-top: 10px;
-        }
+.feed-container .content .time-info {
+    margin-top: 10px;
+}
 
 /*======================================
   SPECIAL BOXES FOR SPECIAL EVENTS
