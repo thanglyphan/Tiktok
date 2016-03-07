@@ -32,6 +32,12 @@ namespace TikTokCalendar.Models
 
 		public List<CustomEventMonth> GetEventsWithUser(StudentUser user)
 		{
+			// Problem: json filene viser ikke lengre enn til slutten av PJ perioden???
+			// TODO: Lage ny uke ved ny måned
+
+
+
+
 			List<CustomEventMonth> months = new List<CustomEventMonth>();
 			//months = GetInitializedEventMonthList();
 			//foreach (var evnt in AllEvents)
@@ -52,30 +58,35 @@ namespace TikTokCalendar.Models
 				if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
 				{
 					DateTime curDate = evnt.StartDateTime;
+					if (curDate.Month == 3)
+					{
 
-					if (month == null || prevDate.Month != curDate.Month)
+					}
+					if (month == null || month.MonthNumber != curDate.Month)
 					{
 						// New month
 						month = new CustomEventMonth(curDate.Month);
-						Printer.Print("Month num: " + (curDate.Month));
+						Printer.Print("New month: " + (curDate.Month));
 						months.Add(month);
 					}
 
-					if (week == null || curDate.DayOfWeek == DayOfWeek.Monday && prevDate.DayOfWeek != DayOfWeek.Monday)
+					if (week == null || (curDate.DayOfWeek == DayOfWeek.Monday && prevMon != curDate))
 					{
 						// New week
 						int weekNr = curDate.GetWeekNumberOfYear();
 						week = new CustomEventWeek(weekNr, 1);
 
 						prevMon = curDate;
+						Printer.Print(string.Format("New week [{0}] in month [{1}]", week.WeekNumber, month.MonthNumber));
 
 						month.Weeks.Add(week);
 					}
 
 					//if (week != null)
-					{
+					//{
 						week.events.Add(evnt);
-					}
+						Printer.Print(string.Format("adding eveent [{0}] to week [{1}]", evnt.Subject.Name, week.WeekNumber));
+					//}
 
 
 					prevDate = evnt.StartDateTime;
