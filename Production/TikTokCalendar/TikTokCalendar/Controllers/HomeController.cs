@@ -75,6 +75,7 @@ namespace TikTokCalendar.Controllers
 			else {
 				ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
 			}
+
 			var events = db.CalendarEvents.ToList();
 			// TODO Refactor instances of Month into something else
 			// TODO Make the year go from august to june like a schoolyear
@@ -85,7 +86,7 @@ namespace TikTokCalendar.Controllers
 			var modelWrapper = new ModelDataWrapper();
 			int eventGroupCount = (weekView) ? 52 : 12;
 			modelWrapper.calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("name", SchoolCourses.Spillprogrammering));
+			modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
 			
 			//for (var i = monthNum; i < 12 + monthNum; i++)
 			for (int i = 0; i < eventGroupCount; i++)
