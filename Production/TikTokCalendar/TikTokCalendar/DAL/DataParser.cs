@@ -242,7 +242,7 @@ namespace TikTokCalendar.DAL
 			//////// Year and course ////////
 			List<SchoolCourses> courses = DataWrapper.Instance.GetCoursesWithSubject(subject);
 			// TODO Get courses with a subject
-			
+			if (courses.Count <= 0) return retEvents;
 
 			//////// Making the events ////////
 			EventType eventType = EventType.None;
