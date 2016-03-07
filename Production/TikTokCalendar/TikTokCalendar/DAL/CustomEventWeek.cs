@@ -9,6 +9,7 @@ namespace TikTokCalendar.DAL
 	public class CustomEventWeek
 	{
 		public int WeekNumber { get; private set; }
+		public string WeekName { get { return "Uke " + WeekNumber; } }
 		public List<CustomEvent> events { get; set; }
 
 		public CustomEventWeek(int weekNumber)

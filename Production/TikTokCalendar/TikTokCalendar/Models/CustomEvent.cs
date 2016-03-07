@@ -57,6 +57,16 @@ namespace TikTokCalendar.Models
 		{
 			return DateTime.MinValue;
 		}
+
+		public string GetDayOfWeek()
+		{
+			return "dag";
+		}
+
+		public string GetTimeSlot()
+		{
+			return StartTimeLabel;
+		}
 	}
 
 	public enum EventType

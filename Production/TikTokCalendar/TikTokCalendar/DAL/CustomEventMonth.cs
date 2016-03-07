@@ -22,5 +22,11 @@ namespace TikTokCalendar.DAL
 		{
 			Weeks[evnt.StartDateTime.GetWeekNumberOfYear()].events.Add(evnt);
 		}
+
+		public string GetMonthName()
+		{
+			
+			return "Måned";
+		}
 	}
 }
