@@ -41,12 +41,26 @@ namespace TikTokCalendar.Models
 			//}
 
 			DateTime prevDate = DateTime.MinValue;
+			DateTime prevMon = DateTime.MinValue;
 			foreach (var evnt in AllEvents)
 			{
 				if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
 				{
 					DateTime curDate = evnt.StartDateTime;
+
+					if (prevDate.Month != curDate.Month)
+					{
+						// New month
+					}
+
+					if (curDate == DayOfWeek.Monday)
+					{
+
+						prevMon = curDate;
+					}
 					
+
+					prevDate = evnt.StartDateTime;
 				}
 			}
 
