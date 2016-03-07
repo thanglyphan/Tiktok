@@ -254,12 +254,14 @@ namespace TikTokCalendar.Controllers
 		{
 			string name = "phatha14"; 
 			string course = "Programmering";
-			
-			if (cookie.LoadStringFromCookie("UserName") != null)
+
+			string un = cookie.LoadStringFromCookie("UserName");
+			if (!string.IsNullOrEmpty(un))
 			{
 				name = cookie.LoadStringFromCookie("UserName");
 			}
-			if (cookie.LoadStringFromCookie("UserCourse") != null)
+			string uc = cookie.LoadStringFromCookie("UserCourse");
+			if (!string.IsNullOrEmpty(uc))
 			{
 				course = cookie.LoadStringFromCookie("UserCourse");
 			}
