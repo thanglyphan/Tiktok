@@ -27,6 +27,17 @@
             })
             //$("#user-name").html(data.username);
             if (data === false) {
+                $.ajax({
+                    url: "Home/ShowDefault",
+                    type: "POST",
+                    data: { a: "Default" },
+                    error: function () {
+                        console.log("error");
+                    },
+                    success: function (a) {
+                        console.log("success" + a);
+                    }
+                })
                 return console.log('Cancelled');
             }
 
@@ -44,7 +55,7 @@
 
                         $.extend({}, vex.dialog.buttons.NO, {
                             className: 'vex-dialog-button', text: 'Bachelor IT', click: function ($vexContent, event) {
-                                $vexContent.data().vex.value = 'Programmering';
+                                $vexContent.data().vex.value = 'Bachelor IT';
                                 vex.close($vexContent.data().vex.id);
                             }
                         }),

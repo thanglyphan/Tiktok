@@ -277,6 +277,11 @@ namespace TikTokCalendar.Controllers
 			
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
 		}
+		public JsonResult ShowDefault(string a)
+		{
+			Debug.WriteLine(a);
+			return Json("fungerer",JsonRequestBehavior.AllowGet);
+		}
 		public bool GetVisited() //If been here, return true, else false.
 		{
 			if (cookie.LoadStringFromCookie("UserName") != null) {
