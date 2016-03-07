@@ -69,15 +69,19 @@ namespace TikTokCalendar.DAL
 
 		private int ParseYear(string name)
 		{
-			string num = name.Substring(name.Length - 2);
-			// Splice the year at the end of the username to the first to letters of the current year (eg. "20" in "2016" and "name14" becomes "2014")
-			// TODO Find a better way to do this
-			num = DateTime.Today.Year.ToString().Substring(0, 2) + num;
-
-			int year = 0;
-			if (int.TryParse(num, NumberStyles.Integer, new NumberFormatInfo(), out year))
+			if (name.Length > 2)
 			{
-				return year;
+				string num = name.Substring(name.Length - 2);
+				// Splice the year at the end of the username to the first to letters of the current year (eg. "20" in "2016" and "name14" becomes "2014")
+				// TODO Find a better way to do this
+				num = DateTime.Today.Year.ToString().Substring(0, 2) + num;
+
+				int year = 0;
+				if (int.TryParse(num, NumberStyles.Integer, new NumberFormatInfo(), out year))
+				{
+					return year;
+
+				}
 			}
 			return -1;
 		}
