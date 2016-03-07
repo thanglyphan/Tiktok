@@ -32,7 +32,7 @@ namespace TikTokCalendar.Extras
 		public static string FirstCharToUpper(this string input)
 		{
 			if (string.IsNullOrEmpty(input))
-				throw new ArgumentException("Could not capitalize first letter of that word");
+				return null;
 			return input.First().ToString().ToUpper() + input.Substring(1);
 		}
 	}

@@ -167,6 +167,29 @@ namespace TikTokCalendar.Controllers
 			return View(modelWrapper);//.calEvents);
 		}
 
+		public string CalTest()
+		{
+			DataParser dataParser = new DataParser();
+			dataParser.ParseAllData();
+			List<CustomEventMonth> months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.Spillprogrammering));
+
+			string page = "";
+			foreach (var month in months)
+			{
+				page += "Month: " + month.GetMonthName() + "<br>";
+				foreach (var week in month.Weeks)
+				{
+					page += " -- Week: " + week.WeekName + "<br>";
+					foreach (var evnt in week.events)
+					{
+						page += " ---- Evnt: " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.ClassYear + "<br>";
+					}
+				}
+			}
+
+			return page;
+		}
+
 		private bool SameYear(CalendarEvent calEvent, StudentUser user)
 		{
 			if (calEvent.Year < 0) return true;
