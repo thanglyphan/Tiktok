@@ -25,12 +25,15 @@ namespace TikTokCalendar.Models
 
 		public void SetSchoolSystemDependantData(List<CustomEvent> allEvents)
 		{
-			AllEvents = allEvents;
+			AllEvents = allEvents.OrderBy(x => x.StartDateTime).ToList();
+			//AllEvents.OrderBy(x => x.StartDateTime);
+			//OrderBy(x => x.StartTime).ToList();
 		}
 
 		public List<CustomEventMonth> GetEventsWithUser(StudentUser user)
 		{
-			List<CustomEventMonth> months = GetInitializedEventMonthList();
+			List<CustomEventMonth> months = new List<CustomEventMonth>();
+			//months = GetInitializedEventMonthList();
 			//foreach (var evnt in AllEvents)
 			//{
 			//	if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
@@ -39,6 +42,8 @@ namespace TikTokCalendar.Models
 			//		Printer.Print("E: " + evnt.Subject.Name);
 			//	}
 			//}
+			CustomEventMonth month = null;
+			CustomEventWeek week = null;
 
 			DateTime prevDate = DateTime.MinValue;
 			DateTime prevMon = DateTime.MinValue;
@@ -48,17 +53,30 @@ namespace TikTokCalendar.Models
 				{
 					DateTime curDate = evnt.StartDateTime;
 
-					if (prevDate.Month != curDate.Month)
+					if (month == null || prevDate.Month != curDate.Month)
 					{
 						// New month
+						month = new CustomEventMonth(curDate.Month);
+						Printer.Print("Month num: " + (curDate.Month));
+						months.Add(month);
 					}
 
-					if (curDate == DayOfWeek.Monday)
+					if (week == null || curDate.DayOfWeek == DayOfWeek.Monday && prevDate.DayOfWeek != DayOfWeek.Monday)
 					{
+						// New week
+						int weekNr = curDate.GetWeekNumberOfYear();
+						week = new CustomEventWeek(weekNr, 1);
 
 						prevMon = curDate;
+
+						month.Weeks.Add(week);
 					}
-					
+
+					//if (week != null)
+					{
+						week.events.Add(evnt);
+					}
+
 
 					prevDate = evnt.StartDateTime;
 				}

@@ -14,12 +14,13 @@ namespace TikTokCalendar.DAL
 		public int FirstWeekOfMonthNumber { get; private set; }
 		public List<CustomEventWeek> Weeks { get; set; }
 		private DateTime firstDate;
+
 		public CustomEventMonth(int monthNumber)
 		{
 			MonthNumber = monthNumber;
 			Weeks = new List<CustomEventWeek>();
-			firstDate = new DateTime(DateTime.Now.Year, monthNumber, 1);
-			FirstWeekOfMonthNumber = firstDate.GetWeekNumberOfYear();
+			//firstDate = new DateTime(DateTime.Now.Year, monthNumber, 1);
+			//FirstWeekOfMonthNumber = firstDate.GetWeekNumberOfYear();
 		}
 
 		public void AddEvent(CustomEvent evnt)
