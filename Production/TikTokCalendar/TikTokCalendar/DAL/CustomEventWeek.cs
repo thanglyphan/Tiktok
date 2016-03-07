@@ -8,13 +8,22 @@ namespace TikTokCalendar.DAL
 {
 	public class CustomEventWeek
 	{
+		/// <summary>
+		/// The weeknumber in relation to the year (1-52)
+		/// </summary>
 		public int WeekNumber { get; private set; }
+
+		/// <summary>
+		/// The weeknumber in this month (usually 1-4), used for iterating
+		/// </summary>
+		public int LocalWeekNumber { get; private set; }
 		public string WeekName { get { return "Uke " + WeekNumber; } }
 		public List<CustomEvent> events { get; set; }
 
-		public CustomEventWeek(int weekNumber)
+		public CustomEventWeek(int weekNumber, int localWeekNumber)
 		{
 			WeekNumber = weekNumber;
+			LocalWeekNumber = localWeekNumber;
 			events = new List<CustomEvent>();
 		}
 	}

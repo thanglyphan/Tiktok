@@ -30,7 +30,7 @@ namespace TikTokCalendar.Models
 				return null;
 			}
 			string code = name.Substring(name.Length - 11);
-			return code.Substring(1, code.Length - 2);
+			return code.Substring(1, code.Length - 5);
 		}
 
 		public string GetSubjectCode()

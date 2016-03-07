@@ -23,18 +23,25 @@ namespace TikTokCalendar.Models
 			Name = name;
 
 			// Parse the name to a course enum
+			// TODO Something is fucky here
 			int bestMatch = 1000;
 			SchoolCourses course = SchoolCourses.Programmering;
-			string[] courses = Enum.GetNames(typeof(SchoolCourses));
-			for (int i = 1; i < courses.Length + 1; i ++)
-			{
-				int match = Math.Abs(name.CompareTo(courses[i - 1]));
-				if (match <= bestMatch)
-				{
-					course = (SchoolCourses)i;
-					bestMatch = match;
-				}
-			}
+			//string[] courses = Enum.GetNames(typeof(SchoolCourses));
+			//for (int i = 1; i < courses.Length + 1; i ++)
+			//{
+			//	int match = Math.Abs(name.CompareTo(courses[i - 1]));
+			//	if (match <= bestMatch)
+			//	{
+			//		course = (SchoolCourses)i;
+			//		bestMatch = match;
+			//	}
+			//}
+			// Replace spaces and dashes so it matches the enum
+			// TODO User RegEx
+			string safeName = name.Replace("-", "");
+			safeName = safeName.Replace(" ", "");
+			Enum.TryParse(safeName, out course);
+
 			SchoolCourse = course;
 			Debug.WriteLine(name + " is course: " + course);
 		}

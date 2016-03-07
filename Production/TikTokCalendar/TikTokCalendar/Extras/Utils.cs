@@ -8,6 +8,7 @@ namespace TikTokCalendar.Extras
 {
 	public static class Utils
 	{
+		private static Calendar cal = new GregorianCalendar();
 		/// <summary>
 		/// Parses a string to an integer. If the parsing failed or the parsed int is negative, -1 is returned, otherwise the parsed int is returned.
 		/// </summary>
@@ -25,8 +26,14 @@ namespace TikTokCalendar.Extras
 
 		public static int GetWeekNumberOfYear(this DateTime dt)
 		{
-			Calendar cal = new GregorianCalendar();
 			return cal.GetWeekOfYear(dt, CalendarWeekRule.FirstDay, DayOfWeek.Monday);
+		}
+
+		public static string FirstCharToUpper(this string input)
+		{
+			if (string.IsNullOrEmpty(input))
+				throw new ArgumentException("Could not capitalize first letter of that word");
+			return input.First().ToString().ToUpper() + input.Substring(1);
 		}
 	}
 }

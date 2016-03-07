@@ -51,7 +51,7 @@ namespace TikTokCalendar.DAL
 
 			foreach (var item in events)
 			{
-				Printer.Print("Event: " + item.Subject.Name);
+				Printer.Print("Event in eventssssss: " + item.Subject.Name);
 			}
 		}
 
@@ -213,7 +213,7 @@ namespace TikTokCalendar.DAL
 			// This makes it so that events where we couldn't parse a date from, will not be added
 			foreach (var date in startDates)
 			{
-				CustomEvent evnt = new CustomEvent(parsedId, DateTime.MinValue, endDateTime, hasEndDateTime,
+				CustomEvent evnt = new CustomEvent(parsedId, date, endDateTime, hasEndDateTime,
 					subject, classYear, courses, room, teacher, eventType, comment);
 				retEvents.Add(evnt);
 			}

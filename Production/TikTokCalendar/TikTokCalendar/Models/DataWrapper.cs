@@ -31,14 +31,25 @@ namespace TikTokCalendar.Models
 		public List<CustomEventMonth> GetEventsWithUser(StudentUser user)
 		{
 			List<CustomEventMonth> months = GetInitializedEventMonthList();
+			//foreach (var evnt in AllEvents)
+			//{
+			//	if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
+			//	{
+			//		months[evnt.StartDateTime.Month - 1].AddEvent(evnt);
+			//		Printer.Print("E: " + evnt.Subject.Name);
+			//	}
+			//}
+
+			DateTime prevDate = DateTime.MinValue;
 			foreach (var evnt in AllEvents)
 			{
-				if (evnt.Courses.Contains(user.Course))
+				if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
 				{
-					months[evnt.StartDateTime.Month - 1].AddEvent(evnt);
-					Printer.Print("E: " + evnt.Subject.Name);
+					DateTime curDate = evnt.StartDateTime;
+					
 				}
 			}
+
 			return months;
 		}
 
@@ -66,16 +77,34 @@ namespace TikTokCalendar.Models
 				DateTime date = new DateTime(today.Year, i+1, 1);
 				//DateTime date = DateTime.Today;
 				// first generate all dates in the month of 'date'
-				var dates = Enumerable.Range(1, DateTime.DaysInMonth(date.Year, date.Month)).Select(n => new DateTime(date.Year, date.Month, n));
-				// then filter the only the start of weeks
-				var weekends = from d in dates where d.DayOfWeek == DayOfWeek.Monday select d;
-				foreach (var weeks in weekends)
+
+				// TODO Here correctly get the start of each week
+				//var dates = Enumerable.Range(1, DateTime.DaysInMonth(date.Year, date.Month)).Select(n => new DateTime(date.Year, date.Month, n));
+				//// then filter the only the start of weeks
+				//var weekends = from d in dates where d.DayOfWeek == DayOfWeek.Monday select d;
+
+				int numOfWeeks = MondaysInMonth(date);
+				//foreach (var weeks in weekends)
+				for(int j = 0; j < numOfWeeks+1; j ++)
 				{
-					months[i].Weeks.Add(new CustomEventWeek(weekNr));//weeks.GetWeekNumberOfYear()));
+					months[i].Weeks.Add(new CustomEventWeek(weekNr, j+1));//weeks.GetWeekNumberOfYear()));
 					weekNr ++;
 				}
 			}
 			return months;
+		}
+
+		private int MondaysInMonth(DateTime thisMonth)
+		{
+			int mondays = 0;
+			int month = thisMonth.Month;
+			int year = thisMonth.Year;
+			int daysThisMonth = DateTime.DaysInMonth(year, month);
+			DateTime beginingOfThisMonth = new DateTime(year, month, 1);
+			for (int i = 0; i < daysThisMonth; i++)
+				if (beginingOfThisMonth.AddDays(i).DayOfWeek == DayOfWeek.Monday)
+					mondays++;
+			return mondays;
 		}
 
 		/// <summary>
@@ -123,7 +152,7 @@ namespace TikTokCalendar.Models
 			{
 				foreach (var cs in CourseSubjects)
 				{
-					if (cs.Subject.ID == subject.ID)
+					if (cs.Subject.ID == subject.ID && !retList.Contains(cs.Course.SchoolCourse))
 					{
 						retList.Add(cs.Course.SchoolCourse);
 					}
