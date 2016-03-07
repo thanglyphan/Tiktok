@@ -34,8 +34,14 @@ namespace TikTokCalendar.DAL
 		{
 			try {
 				HttpCookie UsernameCookie = new HttpCookie("UserName");
-				UsernameCookie.Value = a;
-				UsernameCookie.Expires = DateTime.Now.AddSeconds(10);
+				if (a == "Default") {
+					UsernameCookie.Value = "anonym14";
+					UsernameCookie.Expires = DateTime.Now.AddSeconds(10);
+				}
+				else {
+					UsernameCookie.Value = a;
+					UsernameCookie.Expires = DateTime.Now.AddYears(1);
+				}
 				Console.WriteLine("FROM COOKES.CS" + a);
 				HttpContext.Current.Response.Cookies.Add(UsernameCookie);
 			}
@@ -48,7 +54,7 @@ namespace TikTokCalendar.DAL
 			try {
 				HttpCookie WeekOrMonthCookie = new HttpCookie("WeekMonth");
 				WeekOrMonthCookie.Value = a.ToString();
-				WeekOrMonthCookie.Expires = DateTime.Now.AddSeconds(10);
+				WeekOrMonthCookie.Expires = DateTime.Now.AddYears(1);
 				Console.WriteLine("FROM COOKES.CS" + a);
 				HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
 			}
@@ -61,8 +67,14 @@ namespace TikTokCalendar.DAL
 		{
 			try {
 				HttpCookie CourseCookie = new HttpCookie("UserCourse");
-				CourseCookie.Value = a;
-				CourseCookie.Expires = DateTime.Now.AddSeconds(10);
+				if (a == "Default") {
+					CourseCookie.Value = "Programmering"; //Vis alt. Enum?
+					CourseCookie.Expires = DateTime.Now.AddSeconds(10);
+				}
+				else {
+					CourseCookie.Value = a;
+					CourseCookie.Expires = DateTime.Now.AddYears(1);
+				}
 				HttpContext.Current.Response.Cookies.Add(CourseCookie);
 			}
 			catch (HttpException e) {

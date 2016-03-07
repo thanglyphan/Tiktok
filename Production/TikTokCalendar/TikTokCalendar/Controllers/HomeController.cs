@@ -279,7 +279,9 @@ namespace TikTokCalendar.Controllers
 		}
 		public JsonResult ShowDefault(string a)
 		{
-			Debug.WriteLine(a);
+			cookie.SaveNameToCookie(a); //Add cookie 5 seconds
+			cookie.SaveCourseToCookie(a); //Add cookie 5 seconds
+
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
 		}
 		public bool GetVisited() //If been here, return true, else false.
@@ -306,9 +308,9 @@ namespace TikTokCalendar.Controllers
 			{
 				course = cookie.LoadStringFromCookie("UserCourse");
 			}
-			
+
 			SchoolCourses schoolCourse = Course.GetCourseFromName(course);
-			return new StudentUser(name, schoolCourse);
+			return new StudentUser(name, schoolCourse); //If cookie name && course == default, name = anonym14, course = "VisAlt"
 		}
 	}
 
