@@ -216,7 +216,8 @@ namespace TikTokCalendar.Controllers
                 {
                 }
             }*/
-            var result = data.Where(x => x.ToLower().StartsWith(search.ToLower())).ToList();
+            //var result = data.Where(x => x.ToLower().StartsWith(search.ToLower())).ToList(); <-- starter-med-søk
+            var result = data.Where(x => x.ToLower().Contains(search.ToLower())).ToList();
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
