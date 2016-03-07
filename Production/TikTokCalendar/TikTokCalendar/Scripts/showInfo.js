@@ -1,6 +1,7 @@
 ﻿function showInfo(item) {
 	vex.dialog.open({
-		message: "id: " + item.ID + "noe annet: " + item.EventName,
+		message: "sfsef",
+		content: "f4f4",
 		showCloseButton: true,
 		buttons: []
 	});

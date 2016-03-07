@@ -41,8 +41,8 @@
                     }
                     var className = "month-month";
 
-                <!-- Displays the month name -->
-//<a class="btn btn-default" data-toggle="collapse" data-target="#@month.GetMonthId()">lukk mnd</a>
+					<!-- Displays the month name -->
+					//<a class="btn btn-default" data-toggle="collapse" data-target="#@month.GetMonthId()">lukk mnd</a>
 
                     {
                         var weekOrMonth = month.GetMonthName();
@@ -62,15 +62,9 @@
 
                         @foreach (var item in month.Events)
                         {
-							<!-- Funker ikke (?), koden nås ikke -->
-							<script type="text/javascript">
-								jsItem = JSON.stringify(@item.GetEventAsArray);
-							</script>
+							<a class="feed-container" data-toggle="modal" data-target="#@item.ID">
 
-							<a class="feed-container" onclick="showInfo(jsItem)">
-
-
-                                <!-- Container for the event content -->
+								<!-- Container for the event content -->
                                 <div class="content">
 
                                     <!-- add this to toggle: data-toggle="collapse" data-target="#@item.ID" -->
@@ -156,25 +150,24 @@
                         </a>
 
                         <div class="horizontal-line"></div>
-						@*
+						
 						<!-- "More info" modal -->
 						<div class="content-hidden modal fade" id="@item.ID" role="dialog">
 							<div class="modal-dialog modal-lg">
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										Informasjon
+										@item.GetEventNameWithoutSubjectCode()
 									</div>
 									<div class="modal-body">
 										<p>
-											Kommentar:<br />
+											<strong>Kommentar:</strong>
 											@item.Comment
 										</p>
 									</div>
 								</div>
 							</div>
 						</div>
-						*@
 						
 						}
                  </div>
