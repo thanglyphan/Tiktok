@@ -86,7 +86,7 @@ namespace TikTokCalendar.Controllers
 			var modelWrapper = new ModelDataWrapper();
 			int eventGroupCount = (weekView) ? 52 : 12;
 			modelWrapper.calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
+			//modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
 			
 			//for (var i = monthNum; i < 12 + monthNum; i++)
 			for (int i = 0; i < eventGroupCount; i++)

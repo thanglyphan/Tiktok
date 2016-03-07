@@ -20,7 +20,9 @@ namespace TikTokCalendar.DAL
 
 		public void AddEvent(CustomEvent evnt)
 		{
-			Weeks[evnt.StartDateTime.GetWeekNumberOfYear()].events.Add(evnt);
+			int weekNr = evnt.StartDateTime.GetWeekNumberOfYear() - 1;
+			weekNr = weekNr / MonthNumber;
+			Weeks[weekNr].events.Add(evnt);
 		}
 
 		public string GetMonthName()
