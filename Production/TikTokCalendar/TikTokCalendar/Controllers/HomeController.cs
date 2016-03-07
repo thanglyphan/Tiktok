@@ -17,7 +17,7 @@ namespace TikTokCalendar.Controllers
 		// TODO Replace db with the DataWrapper
 		private CalendarEventContext db = new CalendarEventContext();
 		Cookies cookie = new Cookies();
-		public ActionResult Index(string id = "")
+		public ActionResult Index(string id = "", string tags = "")
 		{
 
 			// DEBUG For testing
@@ -134,10 +134,23 @@ namespace TikTokCalendar.Controllers
 
 							// Only add event if we haven't already added this TimeEditID already
 							if (!addedEvents.Contains(calEvent.TimeEditID))
-							{
-								modelWrapper.calEvents[monthIndex].Events.Add(calEvent);
-								addedEvents.Add(calEvent.TimeEditID);
-							}
+                            {
+                                string temp = "" + tags.ToLower();
+                                if (tags != "")
+                                {
+                                    if (calEvent.EventName.Contains(temp) || calEvent.Teacher.Contains(temp) || calEvent.RoomName.Contains(temp) || calEvent.Comment.Contains(temp))
+                                    {
+                                        Debug.WriteLine("####1!!!!!!!!!!!" + calEvent.EventName);
+                                        modelWrapper.calEvents[monthIndex].Events.Add(calEvent);
+                                        addedEvents.Add(calEvent.TimeEditID);
+                                    }
+                                }
+                                else
+                                {
+                                    modelWrapper.calEvents[monthIndex].Events.Add(calEvent);
+                                    addedEvents.Add(calEvent.TimeEditID);
+                                }
+                            }
 						}
 					}
 				}

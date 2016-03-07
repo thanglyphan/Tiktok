@@ -70,7 +70,11 @@
 			<!-- Search box -->
             <div class="ui-widget">
                 <label for="tags"></label>
-                <input id="tags" type="text" class="search-box" placeholder="Søk" />
+                @using (Html.BeginForm("Index", "Home"))
+                {
+                    <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" />
+                    <input type="submit" value="Search" style="position: absolute; left: -9999px" />
+                }
             </div>
 		</div>
 	</header>
