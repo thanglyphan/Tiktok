@@ -1,0 +1,20 @@
+﻿.content-hidden {
+	
+}
+
+.content-hidden .modal-header, .vex-dialog-message {
+	border: 0;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.content-hidden .modal-content {
+	box-shadow: none;
+	border: 0;
+	border-radius: 5px;
+	background-color: #f0f0f0;
+}
+
+.modal-backdrop {
+	background-color: #333;
+}

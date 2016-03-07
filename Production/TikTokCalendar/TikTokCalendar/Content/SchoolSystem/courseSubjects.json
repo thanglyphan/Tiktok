@@ -8,26 +8,278 @@
     {
       "id": "1",
       "courseId": "1",
-      "subjectId": "1",
-      "semester": "4"
+      "subjectId": "52",
+      "semester": "1"
     },
     {
       "id": "2",
       "courseId": "1",
-      "subjectId": "2",
-      "semester": "4"
+      "subjectId": "53",
+      "semester": "1"
     },
     {
       "id": "3",
       "courseId": "1",
-      "subjectId": "3",
-      "semester": "4"
+      "subjectId": "54",
+      "semester": "1"
     },
     {
       "id": "4",
       "courseId": "1",
+      "subjectId": "55",
+      "semester": "1"
+    },
+        {
+      "id": "5",
+      "courseId": "1",
+      "subjectId": "56",
+      "semester": "2"
+    },
+    {
+      "id": "6",
+      "courseId": "1",
+      "subjectId": "57",
+      "semester": "2"
+    },
+    {
+      "id": "7",
+      "courseId": "1",
+      "subjectId": "58",
+      "semester": "2"
+    },
+    {
+      "id": "8",
+      "courseId": "1",
+      "subjectId": "10",
+      "semester": "2"
+    },//FØRSTE KLASSE SPILL
+        {
+      "id": "9",
+      "courseId": "1",
+      "subjectId": "1",
+      "semester": "3"
+    },
+    {
+      "id": "10",
+      "courseId": "1",
+      "subjectId": "2",
+      "semester": "3"
+    },
+    {
+      "id": "11",
+      "courseId": "1",
+      "subjectId": "3",
+      "semester": "3"
+    },
+    {
+      "id": "12",
+      "courseId": "1",
       "subjectId": "4",
+      "semester": "3"
+    }, //3 SEMESTER SPILL
+        {
+      "id": "13",
+      "courseId": "1",
+      "subjectId": "1",
       "semester": "4"
-    }
+    },
+    {
+      "id": "14",
+      "courseId": "1",
+      "subjectId": "6",
+      "semester": "4"
+    },
+    {
+      "id": "15",
+      "courseId": "1",
+      "subjectId": "7",
+      "semester": "4"
+    },
+    {
+      "id": "16",
+      "courseId": "1",
+      "subjectId": "8",
+      "semester": "4"
+    }, //4 SEMESTER SPILL
+    {
+      "id": "17",
+      "courseId": "1",
+      "subjectId": "9",
+      "semester": "5"
+    },
+    {
+      "id": "18",
+      "courseId": "1",
+      "subjectId": "10",
+      "semester": "5"
+    },
+    {
+      "id": "19",
+      "courseId": "1",
+      "subjectId": "11",
+      "semester": "5"
+    },
+    {
+      "id": "20",
+      "courseId": "1",
+      "subjectId": "12",
+      "semester": "5"
+    },//5 SEMESTER SPILL
+    {
+      "id": "21",
+      "courseId": "1",
+      "subjectId": "13",
+      "semester": "6"
+    },
+    {
+      "id": "22",
+      "courseId": "1",
+      "subjectId": "14",
+      "semester": "6"
+    },
+    {
+      "id": "23",
+      "courseId": "1",
+      "subjectId": "15",
+      "semester": "6"
+    }, // 6 SEMESTER SPILL ...........................
+          {
+      "id": "24",
+      "courseId": "2",
+      "subjectId": "52",
+      "semester": "1"
+    },
+    {
+      "id": "25",
+      "courseId": "2",
+      "subjectId": "53",
+      "semester": "1"
+    },
+    {
+      "id": "26",
+      "courseId": "2",
+      "subjectId": "54",
+      "semester": "1"
+    },
+    {
+      "id": "27",
+      "courseId": "2",
+      "subjectId": "55",
+      "semester": "1"
+    },
+    {
+      "id": "28",
+      "courseId": "2",
+      "subjectId": "56",
+      "semester": "2"
+    },
+    {
+      "id": "29",
+      "courseId": "2",
+      "subjectId": "57",
+      "semester": "2"
+    },
+    {
+      "id": "30",
+      "courseId": "2",
+      "subjectId": "58",
+      "semester": "2"
+    },
+    {
+      "id": "31",
+      "courseId": "2",
+      "subjectId": "10",
+      "semester": "2"
+    },//FØRSTE KLASSE PROG
+    {
+      "id": "32",
+      "courseId": "2",
+      "subjectId": "1",
+      "semester": "3"
+    },
+    {
+      "id": "33",
+      "courseId": "2",
+      "subjectId": "2",
+      "semester": "3"
+    },
+    {
+      "id": "34",
+      "courseId": "2",
+      "subjectId": "3",
+      "semester": "3"
+    },
+    {
+      "id": "35",
+      "courseId": "2",
+      "subjectId": "16",
+      "semester": "3"
+    }, //3 SEMESTER PROG
+        {
+      "id": "36",
+      "courseId": "2",
+      "subjectId": "1",
+      "semester": "4"
+    },
+    {
+      "id": "37",
+      "courseId": "2",
+      "subjectId": "17",
+      "semester": "4"
+    },
+    {
+      "id": "38",
+      "courseId": "2",
+      "subjectId": "18",
+      "semester": "4"
+    },
+    {
+      "id": "39",
+      "courseId": "2",
+      "subjectId": "16",
+      "semester": "4"
+    }, //4 SEMESTER PROG
+    {
+      "id": "40",
+      "courseId": "2",
+      "subjectId": "9",
+      "semester": "5"
+    },
+    {
+      "id": "41",
+      "courseId": "2",
+      "subjectId": "10",
+      "semester": "5"
+    },
+    {
+      "id": "42",
+      "courseId": "2",
+      "subjectId": "4",
+      "semester": "5"
+    },
+    {
+      "id": "43",
+      "courseId": "2",
+      "subjectId": "20",
+      "semester": "5"
+    },//5 SEMESTER PROG
+    {
+      "id": "44",
+      "courseId": "2",
+      "subjectId": "13",
+      "semester": "6"
+    },
+    {
+      "id": "45",
+      "courseId": "2",
+      "subjectId": "21",
+      "semester": "6"
+    },
+    {
+      "id": "46",
+      "courseId": "2",
+      "subjectId": "14",
+      "semester": "6"
+    }// 6 SEMESTER PROG
   ]
 }
