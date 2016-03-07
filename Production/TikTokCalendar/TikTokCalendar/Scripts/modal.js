@@ -106,6 +106,8 @@
                                 console.log("success" + a);
                             }
                         })
+
+                        location.reload();
                     }
                 })
             }
