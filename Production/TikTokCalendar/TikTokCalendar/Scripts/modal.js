@@ -1,5 +1,25 @@
-﻿function showLogin() {
+﻿/*
+function checkLogin() {
+    $.ajax({
+        url: "Home/GetVisited",
+        type: 'GET',
+        success: function (data) {
+            if (data) {
+                showLogin();
+            } else {
+                alert("Noe gikk galt");
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+        }
+    });
 
+}
+*/
+function showLogin() {
+    
     var username = "";
 
     vex.dialog.open({

@@ -294,13 +294,13 @@ namespace TikTokCalendar.Controllers
 
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
 		}
-		public bool GetVisited() //If been here, return true, else false.
+		public ActionResult GetVisited() //If been here, return true, else false.
 		{
 			if (cookie.LoadStringFromCookie("UserName") != null) {
-				return true;
+				return Json(true,JsonRequestBehavior.AllowGet);
 			}
 			else {
-				return false;
+				return Json(false,JsonRequestBehavior.AllowGet);
 			}
 		}
 		public StudentUser GetUserFromNameCourse()
