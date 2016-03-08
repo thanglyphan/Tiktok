@@ -38,27 +38,14 @@ namespace TikTokCalendar.Models
 			
 			foreach (var evnt in AllEvents)
 			{
-				if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
+				if (user.Course == SchoolCourses.VisAlt 
+					|| (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear))
 				{
-					DateTime curDate = evnt.StartDateTime;
-					bool newMonth = false;
-					if (month == null || month.MonthNumber != curDate.Month)
+					CustomEventMonth m = AddEvent(evnt, ref month, ref week);
+					if (m != null)
 					{
-						// New month
-						month = new CustomEventMonth(curDate.Month);
-						months.Add(month);
-						newMonth = true;
+						months.Add(m);
 					}
-
-					if (week == null || newMonth || curDate.GetWeekNumberOfYear() != week.WeekNumber)
-					{
-						// New week
-						int weekNr = curDate.GetWeekNumberOfYear();
-						week = new CustomEventWeek(weekNr, 1);
-
-						month.Weeks.Add(week);
-					}
-					week.events.Add(evnt);
 				}
 			}
 			return months;
@@ -79,33 +66,41 @@ namespace TikTokCalendar.Models
 						continue;
 					}
 
-					DateTime curDate = evnt.StartDateTime;
-					bool newMonth = false;
-					if (month == null || month.MonthNumber != curDate.Month)
+					CustomEventMonth m = AddEvent(evnt, ref month, ref week);
+					if (m != null)
 					{
-						// New month
-						month = new CustomEventMonth(curDate.Month);
-						months.Add(month);
-						newMonth = true;
+						months.Add(m);
 					}
-
-					if (week == null || newMonth || curDate.GetWeekNumberOfYear() != week.WeekNumber)
-					{
-						// New week
-						int weekNr = curDate.GetWeekNumberOfYear();
-						week = new CustomEventWeek(weekNr, 1);
-
-						month.Weeks.Add(week);
-					}
-					week.events.Add(evnt);
 				}
 			}
 			return months;
 		}
 
-		private void AddEvent(CustomEvent evnt, ref CustomEventMonth month, ref CustomEventWeek week)
+		private CustomEventMonth AddEvent(CustomEvent evnt, ref CustomEventMonth month, ref CustomEventWeek week)
 		{
-			
+			CustomEventMonth retMonth = null;
+
+			DateTime curDate = evnt.StartDateTime;
+			bool newMonth = false;
+			if (month == null || month.MonthNumber != curDate.Month)
+			{
+				// New month
+				month = new CustomEventMonth(curDate.Month);
+				//months.Add(month);
+				retMonth = month;
+				newMonth = true;
+			}
+
+			if (week == null || newMonth || curDate.GetWeekNumberOfYear() != week.WeekNumber)
+			{
+				// New week
+				int weekNr = curDate.GetWeekNumberOfYear();
+				week = new CustomEventWeek(weekNr, 1);
+
+				month.Weeks.Add(week);
+			}
+			week.events.Add(evnt);
+			return retMonth;
 		}
 
 		public List<CustomEventMonth> GetEventsWithSubject(Subject subject)

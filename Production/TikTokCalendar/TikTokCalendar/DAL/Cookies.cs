@@ -36,7 +36,7 @@ namespace TikTokCalendar.DAL
 				HttpCookie UsernameCookie = new HttpCookie("UserName");
 				if (a == "Default") {
 					UsernameCookie.Value = "anonym14";
-					UsernameCookie.Expires = DateTime.Now.AddSeconds(10);
+					UsernameCookie.Expires = DateTime.Now.AddSeconds(5);
 				}
 				else {
 					UsernameCookie.Value = a;
@@ -68,8 +68,8 @@ namespace TikTokCalendar.DAL
 			try {
 				HttpCookie CourseCookie = new HttpCookie("UserCourse");
 				if (a == "Default") {
-					CourseCookie.Value = "Programmering"; //Vis alt. Enum?
-					CourseCookie.Expires = DateTime.Now.AddSeconds(10);
+					CourseCookie.Value = "VisAlt"; //Vis alt. Enum?
+					CourseCookie.Expires = DateTime.Now.AddSeconds(5);
 				}
 				else {
 					CourseCookie.Value = a;

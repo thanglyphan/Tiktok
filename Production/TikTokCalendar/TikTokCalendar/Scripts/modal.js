@@ -1,5 +1,27 @@
-﻿function showLogin() {
+﻿
+function checkLogin() {
+    $.ajax({
+        url: "Home/GetVisited",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            if (data) {
+                
+            } else {
+                showLogin();
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+        }
+    });
 
+}
+
+function showLogin() {
+    
     var username = "";
 
     vex.dialog.open({
@@ -38,7 +60,8 @@
                         console.log("success" + a);
                     }
                 })
-                return console.log('Cancelled');
+                location.reload();
+                return;
             }
 
 

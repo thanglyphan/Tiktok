@@ -103,58 +103,59 @@ namespace TikTokCalendar.Controllers
 
 			// TODO Make this a function call with parameters for easier accessing when adding functionality
 			// Go through all course subjects
-			foreach (var item in db.CourseSubject)
-			{
-				// Check if the coursesubject has the same ID and semester as the user
-				//if (item.CourseID == acc.CourseID && item.Semester == acc.SemesterID)
-				if (item.CourseID == (int)user.Course && item.Semester == user.GetCurrentSemester())
-				{
+			//foreach (var item in db.CourseSubject)
+			//{
+			//	// Check if the coursesubject has the same ID and semester as the user
+			//	//if (item.CourseID == acc.CourseID && item.Semester == acc.SemesterID)
+			//	if (user.Course == SchoolCourses.VisAlt 
+			//		|| (item.CourseID == (int)user.Course && item.Semester == user.GetCurrentSemester()))
+			//	{
 
-					// Go through all events
-					foreach (var calEvent in events)
-					{
-						if (calEvent.SubjectID == item.SubjectID && SameYear(calEvent, user))
-						{
-							int monthIndex = -1;
-							if (weekView)
-							{
-								monthIndex = calEvent.GetWeekNumber() - 1;
-							}
-							else
-							{
-								//monthIndex = calEvent.StartTime.Month - 1;
-								for (int i = 0; i < modelWrapper.calEvents.Count; i++)
-								{
-									if (modelWrapper.calEvents[i].Month == calEvent.StartTime.Month)
-									{
-										monthIndex = i;
-									}
-								}
-							}
+			//		// Go through all events
+			//		foreach (var calEvent in events)
+			//		{
+			//			if (calEvent.SubjectID == item.SubjectID && SameYear(calEvent, user))
+			//			{
+			//				int monthIndex = -1;
+			//				if (weekView)
+			//				{
+			//					monthIndex = calEvent.GetWeekNumber() - 1;
+			//				}
+			//				else
+			//				{
+			//					//monthIndex = calEvent.StartTime.Month - 1;
+			//					for (int i = 0; i < modelWrapper.calEvents.Count; i++)
+			//					{
+			//						if (modelWrapper.calEvents[i].Month == calEvent.StartTime.Month)
+			//						{
+			//							monthIndex = i;
+			//						}
+			//					}
+			//				}
 
-							// Only add event if we haven't already added this TimeEditID already
-							if (!addedEvents.Contains(calEvent.TimeEditID))
-                            {
-                                string temp = "" + tags.ToLower();
-                                if (tags != "")
-                                {
-                                    if (calEvent.EventName.Contains(temp) || calEvent.Teacher.Contains(temp) || calEvent.RoomName.Contains(temp) || calEvent.Comment.Contains(temp))
-                                    {
-                                        Debug.WriteLine("####1!!!!!!!!!!!" + calEvent.EventName);
-                                        modelWrapper.calEvents[monthIndex].Events.Add(calEvent);
-                                        addedEvents.Add(calEvent.TimeEditID);
-                                    }
-                                }
-                                else
-                                {
-                                    modelWrapper.calEvents[monthIndex].Events.Add(calEvent);
-                                    addedEvents.Add(calEvent.TimeEditID);
-                                }
-                            }
-						}
-					}
-				}
-			}
+			//				// Only add event if we haven't already added this TimeEditID already
+			//				if (!addedEvents.Contains(calEvent.TimeEditID))
+   //                         {
+   //                             string temp = "" + tags.ToLower();
+   //                             if (tags != "")
+   //                             {
+   //                                 if (calEvent.EventName.Contains(temp) || calEvent.Teacher.Contains(temp) || calEvent.RoomName.Contains(temp) || calEvent.Comment.Contains(temp))
+   //                                 {
+   //                                     Debug.WriteLine("####1!!!!!!!!!!!" + calEvent.EventName);
+   //                                     modelWrapper.calEvents[monthIndex].Events.Add(calEvent);
+   //                                     addedEvents.Add(calEvent.TimeEditID);
+   //                                 }
+   //                             }
+   //                             else
+   //                             {
+   //                                 modelWrapper.calEvents[monthIndex].Events.Add(calEvent);
+   //                                 addedEvents.Add(calEvent.TimeEditID);
+   //                             }
+   //                         }
+			//			}
+			//		}
+			//	}
+			//}
 
 
 			// Sort that shit
@@ -162,16 +163,25 @@ namespace TikTokCalendar.Controllers
 			{
 				modelWrapper.calEvents[i].Events = modelWrapper.calEvents[i].Events.OrderBy(x => x.StartTime).ToList();
 			}
-			bool IsVisited = GetVisited(); //This prints debug line and return true if visited, else false.
+			//bool IsVisited = GetVisited(); //This prints debug line and return true if visited, else false.
 
 			return View(modelWrapper);//.calEvents);
 		}
 
-		public string CalTest()
+		public string CalTest(string id = "")
 		{
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
-			List<CustomEventMonth> months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.Spillprogrammering));
+			List<CustomEventMonth> months = null;
+			if (string.IsNullOrEmpty(id))
+			{
+				months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.VisAlt));
+			}
+			else
+			{
+				months = DataWrapper.Instance.GetEventsWithName(new StudentUser("trotor14", SchoolCourses.Spillprogrammering), id);
+			}
+
 
 			string page = "";
 			foreach (var month in months)
@@ -182,7 +192,7 @@ namespace TikTokCalendar.Controllers
 					page += " -- Week: " + week.WeekName + "<br>";
 					foreach (var evnt in week.events)
 					{
-						page += " ---- Evnt: " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.ClassYear + "<br>";
+						page += " ---- Evnt: " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.ClassYear + " - " + evnt.CoursesLabel + "<br>";
 					}
 				}
 			}
@@ -284,13 +294,13 @@ namespace TikTokCalendar.Controllers
 
 			return Json("fungerer",JsonRequestBehavior.AllowGet);
 		}
-		public bool GetVisited() //If been here, return true, else false.
+		public ActionResult GetVisited() //If been here, return true, else false.
 		{
 			if (cookie.LoadStringFromCookie("UserName") != null) {
-				return true;
+				return Json(true,JsonRequestBehavior.AllowGet);
 			}
 			else {
-				return false;
+				return Json(false,JsonRequestBehavior.AllowGet);
 			}
 		}
 		public StudentUser GetUserFromNameCourse()
