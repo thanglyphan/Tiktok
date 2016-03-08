@@ -236,10 +236,7 @@ header .login-button {
     margin-right: 30px;
 }
 
-.feed-container .content .time-info i {
-    color: #a4b0c3;
-    opacity: 0.3;
-}
+
 
 .feed-container .content .time-info {
     margin-top: 10px;
@@ -290,6 +287,13 @@ header .login-button {
     font-weight: 300;
     font-size: 14px;
     margin-top: 5px;
+}
+
+.seen-by {
+	float: right;
+	font-size: 14px;
+	color: #858f9f;
+	opacity: initial;
 }
 
 /*======================================
