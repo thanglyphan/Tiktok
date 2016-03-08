@@ -67,7 +67,7 @@ namespace TikTokCalendar.Models
                     string teacher = evnt.Teacher.ToLower(); 
                     string comment = evnt.Comment.ToLower();
                     string subjectcode = evnt.Subject.Code.ToLower();
-                    string eventtype = evnt.EventType.ToString().ToLower();
+                    string eventtype = evnt.eventType.ToString().ToLower();
                     if (eventname.Contains(temp) || roomname.Contains(temp) || teacher.Contains(temp) || comment.Contains(temp) || subjectcode.Contains(temp) || eventtype.Contains(temp))
                     {
                         CustomEventMonth m = AddEvent(evnt, ref month, ref week);

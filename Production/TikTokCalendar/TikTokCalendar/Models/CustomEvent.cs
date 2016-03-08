@@ -21,10 +21,10 @@ namespace TikTokCalendar.Models
 		public string RoomName { get; private set; }
 		public string Teacher { get; private set; }
 		//public string EventType { get; private set; }
-		public EventType EventType { get; private set; }
+		public EventType eventType { get; private set; }
 		public string Comment { get; private set; }
 
-		public string EventTypeLabel { get { return EventType.ToString(); } }
+		public string EventTypeLabel { get { return eventType.ToString(); } }
 
 		public string CoursesLabel
 		{
@@ -65,9 +65,9 @@ namespace TikTokCalendar.Models
 			RoomName = room;
 			Teacher = teacher;
 
-			int rndEvnt = new Random().Next(1, 5);
-			EventType = (EventType)rndEvnt;
-			//EventType = eventType;
+			//int rndEvnt = new Random().Next(1, 5);
+			//EventType = (EventType)rndEvnt;
+			this.eventType = eventType;
 			Comment = comment;
 		}
 
