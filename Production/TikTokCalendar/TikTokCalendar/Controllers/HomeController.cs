@@ -14,158 +14,32 @@ namespace TikTokCalendar.Controllers
 {
 	public class HomeController:Controller
 	{
-		// TODO Replace db with the DataWrapper
-		private CalendarEventContext db = new CalendarEventContext();
 		Cookies cookie = new Cookies();
+
 		public ActionResult Index(string id = "", string tags = "")
 		{
-
-			// DEBUG For testing
-			//Printer.Print("User: " + id);
-
-			/*
-			string name = "trotor14";
-			SchoolCourses course = SchoolCourses.Spillprogrammering;
-			if (id.Contains("prog"))
-			{
-				name = id;
-				course = SchoolCourses.Programmering;
-				Printer.Print("User: " + id + " prog");
-			}
-			else if(id.Contains("intsys"))
-			{
-				name = id;
-				course = SchoolCourses.IntelligenteSystemer;
-				Printer.Print("User: " + id + " intsys");
-			}
-			else if (id.Contains("idesign"))
-			{
-				name = id;
-				course = SchoolCourses.Mobilprogrammering;
-				Printer.Print("User: " + id + " idesign");
-			}
-			*/
-			//Cookies cookie;
-			//string user = cookie.LoadFromCookie("Username");
-			//int program = cookie.LoadFromCookie("Program");
-			//string name = "trotor14";
-			//SchoolCourses course = SchoolCourses.Spillprogrammering;
-			//StudentUser user = new StudentUser(name, course); // TODO Get this from cookies
 			StudentUser user = GetUserFromNameCourse();
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
 
-			int weekOrMonthView = 0; // TODO Get this from cookies
-
-			if (id.StartsWith("0"))
-			{
-				weekOrMonthView = 0;
-			}
-			else if (id.StartsWith("1"))
-			{
-				weekOrMonthView = 1;
-			}
-
-			bool weekView = (weekOrMonthView == 0);
-
-			
 			if(cookie.LoadStringFromCookie("UserName") != null){
 				ViewBag.Title = string.Format("Halla, {0}! Du går: {1}",cookie.LoadStringFromCookie("UserName"),cookie.LoadStringFromCookie("Usercourse"));
 			}
 			else {
 				ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
 			}
-
-			var events = db.CalendarEvents.ToList();
-			// TODO Refactor instances of Month into something else
-			// TODO Make the year go from august to june like a schoolyear
 			
-			int startMonth = 8; // Starting month number
-			int monthNum = startMonth;
-			
-			var modelWrapper = new ModelDataWrapper();
-			int eventGroupCount = (weekView) ? 52 : 12;
-			modelWrapper.calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
-			
-			//for (var i = monthNum; i < 12 + monthNum; i++)
-			for (int i = 0; i < eventGroupCount; i++)
-			{
-				modelWrapper.calEvents[i] = new EventMonth(i+1, weekView);
-				//monthNum++;
-				//if (monthNum > 12) monthNum = 1;
-			}
+            var modelWrapper = new ModelDataWrapper();
+            if (string.IsNullOrEmpty(tags))
+            {
+                modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
+            }
+            else
+            {
+                modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
+            }
 
-			// Used to keep track of which TimeEditIDs we have already added so we don't get duplicate events
-			// TODO This could be fixed by making sure the data doesn't have any duplicates
-			var addedEvents = new HashSet<int>();
-			
-
-			// TODO Make this a function call with parameters for easier accessing when adding functionality
-			// Go through all course subjects
-			//foreach (var item in db.CourseSubject)
-			//{
-			//	// Check if the coursesubject has the same ID and semester as the user
-			//	//if (item.CourseID == acc.CourseID && item.Semester == acc.SemesterID)
-			//	if (user.Course == SchoolCourses.VisAlt 
-			//		|| (item.CourseID == (int)user.Course && item.Semester == user.GetCurrentSemester()))
-			//	{
-
-			//		// Go through all events
-			//		foreach (var calEvent in events)
-			//		{
-			//			if (calEvent.SubjectID == item.SubjectID && SameYear(calEvent, user))
-			//			{
-			//				int monthIndex = -1;
-			//				if (weekView)
-			//				{
-			//					monthIndex = calEvent.GetWeekNumber() - 1;
-			//				}
-			//				else
-			//				{
-			//					//monthIndex = calEvent.StartTime.Month - 1;
-			//					for (int i = 0; i < modelWrapper.calEvents.Count; i++)
-			//					{
-			//						if (modelWrapper.calEvents[i].Month == calEvent.StartTime.Month)
-			//						{
-			//							monthIndex = i;
-			//						}
-			//					}
-			//				}
-
-			//				// Only add event if we haven't already added this TimeEditID already
-			//				if (!addedEvents.Contains(calEvent.TimeEditID))
-   //                         {
-   //                             string temp = "" + tags.ToLower();
-   //                             if (tags != "")
-   //                             {
-   //                                 if (calEvent.EventName.Contains(temp) || calEvent.Teacher.Contains(temp) || calEvent.RoomName.Contains(temp) || calEvent.Comment.Contains(temp))
-   //                                 {
-   //                                     Debug.WriteLine("####1!!!!!!!!!!!" + calEvent.EventName);
-   //                                     modelWrapper.calEvents[monthIndex].Events.Add(calEvent);
-   //                                     addedEvents.Add(calEvent.TimeEditID);
-   //                                 }
-   //                             }
-   //                             else
-   //                             {
-   //                                 modelWrapper.calEvents[monthIndex].Events.Add(calEvent);
-   //                                 addedEvents.Add(calEvent.TimeEditID);
-   //                             }
-   //                         }
-			//			}
-			//		}
-			//	}
-			//}
-
-
-			// Sort that shit
-			for (int i = 0; i < modelWrapper.calEvents.Count; i++)
-			{
-				modelWrapper.calEvents[i].Events = modelWrapper.calEvents[i].Events.OrderBy(x => x.StartTime).ToList();
-			}
-			//bool IsVisited = GetVisited(); //This prints debug line and return true if visited, else false.
-
-			return View(modelWrapper);//.calEvents);
+            return View(modelWrapper);//.calEvents);
 		}
 
 		
