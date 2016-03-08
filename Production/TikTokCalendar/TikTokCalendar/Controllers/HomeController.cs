@@ -88,11 +88,11 @@ namespace TikTokCalendar.Controllers
             modelWrapper.calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
             if (string.IsNullOrEmpty(tags))
             {
-                modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.VisAlt));
+                modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
             }
             else
             {
-                modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(new StudentUser("trotor14", SchoolCourses.Spillprogrammering), tags);
+                modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
             }
 
             //for (var i = monthNum; i < 12 + monthNum; i++)
