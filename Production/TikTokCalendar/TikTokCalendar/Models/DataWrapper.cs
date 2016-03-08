@@ -32,68 +32,80 @@ namespace TikTokCalendar.Models
 
 		public List<CustomEventMonth> GetEventsWithUser(StudentUser user)
 		{
-			// Problem: json filene viser ikke lengre enn til slutten av PJ perioden???
-			// TODO: Lage ny uke ved ny måned
-
-
-
-
 			List<CustomEventMonth> months = new List<CustomEventMonth>();
-			//months = GetInitializedEventMonthList();
-			//foreach (var evnt in AllEvents)
-			//{
-			//	if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
-			//	{
-			//		months[evnt.StartDateTime.Month - 1].AddEvent(evnt);
-			//		Printer.Print("E: " + evnt.Subject.Name);
-			//	}
-			//}
 			CustomEventMonth month = null;
 			CustomEventWeek week = null;
-
-			DateTime prevDate = DateTime.MinValue;
-			DateTime prevMon = DateTime.MinValue;
+			
 			foreach (var evnt in AllEvents)
 			{
 				if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
 				{
 					DateTime curDate = evnt.StartDateTime;
-					if (curDate.Month == 3)
-					{
-
-					}
+					bool newMonth = false;
 					if (month == null || month.MonthNumber != curDate.Month)
 					{
 						// New month
 						month = new CustomEventMonth(curDate.Month);
-						Printer.Print("New month: " + (curDate.Month));
 						months.Add(month);
+						newMonth = true;
 					}
 
-					if (week == null || (curDate.DayOfWeek == DayOfWeek.Monday && prevMon != curDate))
+					if (week == null || newMonth || curDate.GetWeekNumberOfYear() != week.WeekNumber)
 					{
 						// New week
 						int weekNr = curDate.GetWeekNumberOfYear();
 						week = new CustomEventWeek(weekNr, 1);
 
-						prevMon = curDate;
-						Printer.Print(string.Format("New week [{0}] in month [{1}]", week.WeekNumber, month.MonthNumber));
+						month.Weeks.Add(week);
+					}
+					week.events.Add(evnt);
+				}
+			}
+			return months;
+		}
+
+		public List<CustomEventMonth> GetEventsWithName(StudentUser user, string name)
+		{
+			List<CustomEventMonth> months = new List<CustomEventMonth>();
+			CustomEventMonth month = null;
+			CustomEventWeek week = null;
+
+			foreach (var evnt in AllEvents)
+			{
+				if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
+				{
+					if (!evnt.Subject.Name.Contains(name) && !evnt.Subject.Code.Contains(name))
+					{
+						continue;
+					}
+
+					DateTime curDate = evnt.StartDateTime;
+					bool newMonth = false;
+					if (month == null || month.MonthNumber != curDate.Month)
+					{
+						// New month
+						month = new CustomEventMonth(curDate.Month);
+						months.Add(month);
+						newMonth = true;
+					}
+
+					if (week == null || newMonth || curDate.GetWeekNumberOfYear() != week.WeekNumber)
+					{
+						// New week
+						int weekNr = curDate.GetWeekNumberOfYear();
+						week = new CustomEventWeek(weekNr, 1);
 
 						month.Weeks.Add(week);
 					}
-
-					//if (week != null)
-					//{
-						week.events.Add(evnt);
-						Printer.Print(string.Format("adding eveent [{0}] to week [{1}]", evnt.Subject.Name, week.WeekNumber));
-					//}
-
-
-					prevDate = evnt.StartDateTime;
+					week.events.Add(evnt);
 				}
 			}
-
 			return months;
+		}
+
+		private void AddEvent(CustomEvent evnt, ref CustomEventMonth month, ref CustomEventWeek week)
+		{
+			
 		}
 
 		public List<CustomEventMonth> GetEventsWithSubject(Subject subject)

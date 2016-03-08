@@ -22,7 +22,7 @@ namespace TikTokCalendar.DAL
 		private List<Subject> subjects = new List<Subject>();
 		protected override void Seed(CalendarEventContext context)
 		{
-			InsertDummyData(context);
+			//InsertDummyData(context);
 			//ReadJsonFile(context);
 			//new ExamInit(context);
 			//InitializeDummy();
