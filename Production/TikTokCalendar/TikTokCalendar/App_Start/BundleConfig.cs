@@ -9,7 +9,7 @@ namespace TikTokCalendar
 		public static void RegisterBundles(BundleCollection bundles)
 		{
 
-			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+			bundles.Add(new ScriptBundle("~/bundles/textfill").Include(
 						"~/Scripts/textfill.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
