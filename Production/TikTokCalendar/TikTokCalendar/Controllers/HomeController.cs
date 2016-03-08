@@ -134,24 +134,25 @@ namespace TikTokCalendar.Controllers
 
         public JsonResult AutoComplete(string search)
         {
+            /*
             var data = new[] {"Programmering","Spillprogrammering","Intelligente systemer","Mobil apputvikling",
                 "Prosjekt software engineering","Matematikk og fysikk","C++ programmering","",
                 "Game AI","Embedded systems","Mobil utvikling","Ruby on rails",
                 "Avansert javaprogrammering","Undersøkelsesmetoder","Enterprise programmering 2","Innlevering",
                 "Forelesning","Eksamen" };
-            /*ModelDataWrapper model = new ModelDataWrapper();
-            foreach (var month in model.calEvents)
-            {
-                foreach (var item in month.Events)
-                {
-                }
-            }*/
+            */
+            StudentUser user = GetUserFromNameCourse();
+            List<string> list = DataWrapper.Instance.GetUserKeywords(user);
+            list.Add("Innlevering");
+            list.Add("Eksamen");
+            list.Add("Forelesning");
+            list.RemoveAll(item => item == null);
             //var result = data.Where(x => x.ToLower().StartsWith(search.ToLower())).ToList(); <-- starter-med-søk
-            var result = data.Where(x => x.ToLower().Contains(search.ToLower())).ToList();
+            var result = list.Where(x => x.ToLower().Contains(search.ToLower())).ToList();
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-		public JsonResult UserName(string a)
+        public JsonResult UserName(string a)
 		{
 			string userName = cookie.LoadStringFromCookie("UserName");
 
