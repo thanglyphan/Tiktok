@@ -168,6 +168,8 @@ namespace TikTokCalendar.Controllers
 			return View(modelWrapper);//.calEvents);
 		}
 
+		
+
 		public string CalTest(string id = "")
 		{
 			DataParser dataParser = new DataParser();
@@ -233,6 +235,12 @@ namespace TikTokCalendar.Controllers
 		{
 			ViewBag.Message = "Your contact page.";
 
+			return View();
+		}
+
+		public ActionResult Mobile()
+		{
+			ViewBag.Message = "Your contact page.";
 			return View();
 		}
 

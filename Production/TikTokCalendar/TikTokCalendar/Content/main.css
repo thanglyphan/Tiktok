@@ -280,18 +280,18 @@ header .login-button {
     float: left;
 }
 
-    .feed-container .content .time-info .left-position i, .feed-container .content .time-info .left-position p {
-        float: left;
-        color: #858f9f;
-        font-weight: 300;
-        font-size: 14px;
-    }
+.feed-container .content .time-info .left-position i, .feed-container .content .time-info .left-position p {
+    float: left;
+    color: #858f9f;
+    font-weight: 300;
+    font-size: 14px;
+}
 
-        .feed-container .content .time-info .left-position i strong, .feed-container .content .time-info .left-position p strong {
-            color: #6a7586;
-            font-weight: 400;
-            font-size: 14px;
-        }
+.feed-container .content .time-info .left-position i strong, .feed-container .content .time-info .left-position p strong {
+    color: #6a7586;
+    font-weight: 400;
+    font-size: 14px;
+}
 
 .feed-container .content .time-info i.fa-ellipsis-h {
     float: right;
