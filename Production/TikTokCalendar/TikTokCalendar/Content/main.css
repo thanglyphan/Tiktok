@@ -126,7 +126,7 @@ header .login-button {
     width: 100%;
     display: block;
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .week-header {

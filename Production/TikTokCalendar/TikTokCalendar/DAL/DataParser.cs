@@ -196,17 +196,18 @@ namespace TikTokCalendar.DAL
 
 			//////// Making the events ////////
 			EventType eventType = EventType.None;
-			int bestMatch = 1000;
-			string[] events = Enum.GetNames(typeof(SchoolCourses));
-			for (int i = 1; i < events.Length + 1; i++)
-			{
-				int match = Math.Abs(activity.CompareTo(events[i - 1]));
-				if (match <= bestMatch)
-				{
-					eventType = (EventType)i;
-					bestMatch = match;
-				}
-			}
+			Enum.TryParse(activity, out eventType);
+			//int bestMatch = 1000;
+			//string[] events = Enum.GetNames(typeof(SchoolCourses));
+			//for (int i = 1; i < events.Length + 1; i++)
+			//{
+			//	int match = Math.Abs(activity.CompareTo(events[i - 1]));
+			//	if (match <= bestMatch)
+			//	{
+			//		eventType = (EventType)i;
+			//		bestMatch = match;
+			//	}
+			//}
 
 			//////// Making the events ////////
 			// Go through the startdates that was parsed.

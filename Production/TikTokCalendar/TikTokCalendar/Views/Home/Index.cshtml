@@ -92,7 +92,7 @@
 													@if (timeLeft != "") {
 														if (flag1) {
 														<div class="tip tip-specific-class">@timeLeft</div>
-														}
+}
 														if (!flag2 && !flag5) {
 
 															if (item.StartDateTime < DateTime.Now.AddHours(24)) {
@@ -107,6 +107,26 @@
 													}
 												</div>
 												<div class="right-position">
+													@{
+														var typeClass = "";
+														var typeText = "";
+
+														if (item.eventType == TikTokCalendar.Models.EventType.Innlevering) {
+															typeClass = "assignment";
+															typeText = "Innlevering";
+														}
+														else if (item.eventType == TikTokCalendar.Models.EventType.Eksamen) {
+															typeClass = "exam";
+															typeText = "Eksamen";
+														}
+														else {
+															typeClass = "exam";
+															typeText = "Forelesning";
+														}
+													}
+
+													
+													<p class="@typeClass">@typeText</p>
 													<p class="room">@item.RoomName</p>  <!-- "Rom 41" -->
 												</div>
 											</div>

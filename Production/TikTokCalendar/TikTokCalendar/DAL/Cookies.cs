@@ -23,9 +23,10 @@ namespace TikTokCalendar.DAL
 				HttpContext.Current.Response.Cookies.Add(UsernameCookie);
 			}
 			catch (HttpException e) {
-				Console.Write("Cookies.cs - SaveNameToCookies");
+				Console.Write("Cookies.cs - SaveNameToCookies " + e.ErrorCode);
 			}
 		}
+		/*
 		public void SaveIntToCookie(int a)
 		{
 			try {
@@ -36,9 +37,10 @@ namespace TikTokCalendar.DAL
 				HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
 			}
 			catch (HttpException e) {
-				Console.Write("Cookies.cs - SaveIntToCookies");
+				Console.Write("Cookies.cs - SaveIntToCookies " + e.ErrorCode);
 			}
 		}
+		*/
 
 		public void SaveCourseToCookie(String a)
 		{
@@ -55,7 +57,7 @@ namespace TikTokCalendar.DAL
 				HttpContext.Current.Response.Cookies.Add(CourseCookie);
 			}
 			catch (HttpException e) {
-				Console.Write("Cookies.cs - SaveCourseToCookie");
+				Console.Write("Cookies.cs - SaveCourseToCookie " + e);
 			}
 		}
 		public String LoadStringFromCookie(String key)
@@ -73,7 +75,7 @@ namespace TikTokCalendar.DAL
 				}
 			}
 			catch (HttpException e) {
-				Console.Write("Cookies.cs - LoadStringFromCookie");
+				Console.Write("Cookies.cs - LoadStringFromCookie " + e.ErrorCode);
 			}
 
 			return null;
