@@ -46,25 +46,6 @@ namespace TikTokCalendar.Models
 					{
 						months.Add(m);
 					}
-					//DateTime curDate = evnt.StartDateTime;
-					//bool newMonth = false;
-					//if (month == null || month.MonthNumber != curDate.Month)
-					//{
-					//	// New month
-					//	month = new CustomEventMonth(curDate.Month);
-					//	months.Add(month);
-					//	newMonth = true;
-					//}
-
-					//if (week == null || newMonth || curDate.GetWeekNumberOfYear() != week.WeekNumber)
-					//{
-					//	// New week
-					//	int weekNr = curDate.GetWeekNumberOfYear();
-					//	week = new CustomEventWeek(weekNr, 1);
-
-					//	month.Weeks.Add(week);
-					//}
-					//week.events.Add(evnt);
 				}
 			}
 			return months;
@@ -84,30 +65,12 @@ namespace TikTokCalendar.Models
 					{
 						continue;
 					}
+
 					CustomEventMonth m = AddEvent(evnt, ref month, ref week);
 					if (m != null)
 					{
 						months.Add(m);
 					}
-					//DateTime curDate = evnt.StartDateTime;
-					//bool newMonth = false;
-					//if (month == null || month.MonthNumber != curDate.Month)
-					//{
-					//	// New month
-					//	month = new CustomEventMonth(curDate.Month);
-					//	months.Add(month);
-					//	newMonth = true;
-					//}
-
-					//if (week == null || newMonth || curDate.GetWeekNumberOfYear() != week.WeekNumber)
-					//{
-					//	// New week
-					//	int weekNr = curDate.GetWeekNumberOfYear();
-					//	week = new CustomEventWeek(weekNr, 1);
-
-					//	month.Weeks.Add(week);
-					//}
-					//week.events.Add(evnt);
 				}
 			}
 			return months;
