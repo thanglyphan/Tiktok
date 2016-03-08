@@ -24,6 +24,8 @@ namespace TikTokCalendar.Models
 		public EventType EventType { get; private set; }
 		public string Comment { get; private set; }
 
+		public string EventTypeLabel { get { return EventType.ToString(); } }
+
 		public string CoursesLabel
 		{
 			get
