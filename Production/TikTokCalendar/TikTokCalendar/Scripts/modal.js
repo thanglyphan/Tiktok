@@ -1,13 +1,15 @@
-﻿/*
+﻿
 function checkLogin() {
     $.ajax({
         url: "Home/GetVisited",
-        type: 'GET',
+        type: "GET",
+        dataType: "json",
         success: function (data) {
+            console.log(data);
             if (data) {
-                showLogin();
+                
             } else {
-                alert("Noe gikk galt");
+                showLogin();
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -17,7 +19,7 @@ function checkLogin() {
     });
 
 }
-*/
+
 function showLogin() {
     
     var username = "";

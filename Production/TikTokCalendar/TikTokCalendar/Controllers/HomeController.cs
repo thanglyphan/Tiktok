@@ -163,7 +163,7 @@ namespace TikTokCalendar.Controllers
 			{
 				modelWrapper.calEvents[i].Events = modelWrapper.calEvents[i].Events.OrderBy(x => x.StartTime).ToList();
 			}
-			bool IsVisited = GetVisited(); //This prints debug line and return true if visited, else false.
+			//bool IsVisited = GetVisited(); //This prints debug line and return true if visited, else false.
 
 			return View(modelWrapper);//.calEvents);
 		}
