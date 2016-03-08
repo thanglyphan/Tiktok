@@ -167,11 +167,20 @@ namespace TikTokCalendar.Controllers
 			return View(modelWrapper);//.calEvents);
 		}
 
-		public string CalTest()
+		public string CalTest(string id = "")
 		{
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
-			List<CustomEventMonth> months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.Spillprogrammering));
+			List<CustomEventMonth> months = null;
+			if (string.IsNullOrEmpty(id))
+			{
+				months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.VisAlt));
+			}
+			else
+			{
+				months = DataWrapper.Instance.GetEventsWithName(new StudentUser("trotor14", SchoolCourses.Spillprogrammering), id);
+			}
+
 
 			string page = "";
 			foreach (var month in months)
@@ -182,7 +191,7 @@ namespace TikTokCalendar.Controllers
 					page += " -- Week: " + week.WeekName + "<br>";
 					foreach (var evnt in week.events)
 					{
-						page += " ---- Evnt: " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.ClassYear + "<br>";
+						page += " ---- Evnt: " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.ClassYear + " - " + evnt.CoursesLabel + "<br>";
 					}
 				}
 			}
