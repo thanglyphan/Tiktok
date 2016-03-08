@@ -82,13 +82,6 @@ namespace TikTokCalendar.Models
 		{
 			if (e == null) return false;
 			return TimeEditID == e.TimeEditID;
-			return (SubjectID == e.SubjectID);
-			bool sameDate = DateTime.Compare(StartTime, e.StartTime) == 0;
-			if (sameDate && SubjectID == e.SubjectID && RoomName == e.RoomName)
-			{
-				return true;
-			}
-			return false;
 		}
 
 		public string ToText()

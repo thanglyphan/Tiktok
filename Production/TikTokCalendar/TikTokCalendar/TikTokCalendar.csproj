@@ -171,7 +171,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SessionAuthenticationConfig.cs" />
-    <Compile Include="Controllers\CalendarEventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\CalendarEventContext.cs" />
@@ -277,6 +276,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Properties\PublishProfiles\tiktokcal %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\tiktokcal %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\tiktokcal %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\tiktokcal %285%29.pubxml" />
     <None Include="Properties\PublishProfiles\tiktokcal - FTP %282%29.pubxml" />
