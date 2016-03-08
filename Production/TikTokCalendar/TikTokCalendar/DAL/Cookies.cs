@@ -26,6 +26,7 @@ namespace TikTokCalendar.DAL
 				Console.Write("Cookies.cs - SaveNameToCookies " + e.ErrorCode);
 			}
 		}
+		/*
 		public void SaveIntToCookie(int a)
 		{
 			try {
@@ -39,6 +40,7 @@ namespace TikTokCalendar.DAL
 				Console.Write("Cookies.cs - SaveIntToCookies " + e.ErrorCode);
 			}
 		}
+		*/
 
 		public void SaveCourseToCookie(String a)
 		{
