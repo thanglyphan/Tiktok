@@ -51,7 +51,7 @@ namespace TikTokCalendar.Models
 			return months;
 		}
 
-		public List<CustomEventMonth> GetEventsWithName(StudentUser user, string name)
+		public List<CustomEventMonth> GetEventsWithName(StudentUser user, string tags)
 		{
 			List<CustomEventMonth> months = new List<CustomEventMonth>();
 			CustomEventMonth month = null;
@@ -59,19 +59,24 @@ namespace TikTokCalendar.Models
 
 			foreach (var evnt in AllEvents)
 			{
-				if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
-				{
-					if (!evnt.Subject.Name.Contains(name) && !evnt.Subject.Code.Contains(name))
-					{
-						continue;
-					}
-
-					CustomEventMonth m = AddEvent(evnt, ref month, ref week);
-					if (m != null)
-					{
-						months.Add(m);
-					}
-				}
+                if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
+                {
+                    string temp = tags.ToLower();
+                    string eventname = evnt.Subject.Name.ToLower();
+                    string roomname = evnt.RoomName.ToLower();
+                    string teacher = evnt.Teacher.ToLower(); 
+                    string comment = evnt.Comment.ToLower();
+                    string subjectcode = evnt.Subject.Code.ToLower();
+                    string eventtype = evnt.EventType.ToString().ToLower();
+                    if (eventname.Contains(temp) || roomname.Contains(temp) || teacher.Contains(temp) || comment.Contains(temp) || subjectcode.Contains(temp) || eventtype.Contains(temp))
+                    {
+                        CustomEventMonth m = AddEvent(evnt, ref month, ref week);
+                        if (m != null)
+                        {
+                            months.Add(m);
+                        }
+                    }
+                }
 			}
 			return months;
 		}

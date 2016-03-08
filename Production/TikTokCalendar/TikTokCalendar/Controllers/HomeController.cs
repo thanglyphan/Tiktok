@@ -82,14 +82,21 @@ namespace TikTokCalendar.Controllers
 			
 			int startMonth = 8; // Starting month number
 			int monthNum = startMonth;
-			
-			var modelWrapper = new ModelDataWrapper();
-			int eventGroupCount = (weekView) ? 52 : 12;
-			modelWrapper.calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
-			
-			//for (var i = monthNum; i < 12 + monthNum; i++)
-			for (int i = 0; i < eventGroupCount; i++)
+
+            var modelWrapper = new ModelDataWrapper();
+            int eventGroupCount = (weekView) ? 52 : 12;
+            modelWrapper.calEvents = new List<EventMonth>(new EventMonth[eventGroupCount]);
+            if (string.IsNullOrEmpty(tags))
+            {
+                modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.VisAlt));
+            }
+            else
+            {
+                modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(new StudentUser("trotor14", SchoolCourses.Spillprogrammering), tags);
+            }
+
+            //for (var i = monthNum; i < 12 + monthNum; i++)
+            for (int i = 0; i < eventGroupCount; i++)
 			{
 				modelWrapper.calEvents[i] = new EventMonth(i+1, weekView);
 				//monthNum++;
