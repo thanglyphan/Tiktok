@@ -38,7 +38,8 @@
                         console.log("success" + a);
                     }
                 })
-                return console.log('Cancelled');
+                location.reload();
+                return;
             }
 
 
