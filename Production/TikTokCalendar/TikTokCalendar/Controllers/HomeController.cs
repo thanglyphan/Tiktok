@@ -107,7 +107,8 @@ namespace TikTokCalendar.Controllers
 			{
 				// Check if the coursesubject has the same ID and semester as the user
 				//if (item.CourseID == acc.CourseID && item.Semester == acc.SemesterID)
-				if (item.CourseID == (int)user.Course && item.Semester == user.GetCurrentSemester())
+				if (user.Course == SchoolCourses.VisAlt 
+					|| (item.CourseID == (int)user.Course && item.Semester == user.GetCurrentSemester()))
 				{
 
 					// Go through all events
