@@ -64,7 +64,10 @@ namespace TikTokCalendar.Models
 			Courses = courses;
 			RoomName = room;
 			Teacher = teacher;
-			EventType = eventType;
+
+			int rndEvnt = new Random().Next(1, 5);
+			EventType = (EventType)rndEvnt;
+			//EventType = eventType;
 			Comment = comment;
 		}
 
