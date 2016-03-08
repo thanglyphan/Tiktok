@@ -152,17 +152,42 @@
 						<div class="content-hidden modal fade" id="@item.ID" role="dialog">
 							<div class="modal-dialog modal-lg">
 								<div class="modal-content">
+
+									<!-- Modal header -->
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
 										@item.GetEventNameWithoutSubjectCode()
 									</div>
+
+									<!-- Modal body -->
 									<div class="modal-body">
+										<p>
+											<strong>Tid:</strong>
+											@item.GetDayOfWeek(), @item.GetTimeSlot()
+										</p>
+										<p>
+											<strong>Attendees:</strong>
+											@item.Attendees
+										</p>
+										<p>
+											<strong>EventName:</strong>
+											@item.EventName
+										</p>
+										<p>
+											<strong>Uke:</strong>
+											@item.GetWeekNumber()
+										</p>
+										<p>
+											<strong>Rom:</strong>
+											@item.RoomName
+										</p>
+										<p>
+											<strong>Lærer:</strong>
+											@item.Teacher
+										</p>
 										<p>
 											<strong>Kommentar:</strong>
 											@item.Comment
-											<br />
-											<strong>Tid:</strong>
-											@item.StartTime.DayOfWeek @item.StartTime.Hour:@item.StartTime.Minute - @item.EndTime.Hour:@item.EndTime.Minute
 										</p>
 									</div>
 								</div>
