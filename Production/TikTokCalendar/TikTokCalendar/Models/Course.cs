@@ -24,7 +24,7 @@ namespace TikTokCalendar.Models
 
 			// Parse the name to a course enum
 			// TODO Something is fucky here
-			int bestMatch = 1000;
+			//int bestMatch = 1000;
 			SchoolCourses course = SchoolCourses.Programmering;
 			//string[] courses = Enum.GetNames(typeof(SchoolCourses));
 			//for (int i = 1; i < courses.Length + 1; i ++)

@@ -171,7 +171,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SessionAuthenticationConfig.cs" />
-    <Compile Include="Controllers\CalendarEventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\CalendarEventContext.cs" />
@@ -223,7 +222,7 @@
     <Content Include="Content\SchoolSystem\courses.json" />
     <Content Include="Content\SchoolSystem\subjects.json" />
     <Content Include="Content\SchoolSystem\courseSubjects.json" />
-    <Content Include="Content\mobile.scss" />
+    <Content Include="Content\mobile.css" />
     <None Include="Content\timeedit\1klasse.json" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -250,6 +249,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\board.jpg" />
+    <Content Include="img\bottom-fade.png" />
     <Content Include="img\eksamen.png" />
     <Content Include="img\forelesning.png" />
     <Content Include="img\innlevering.png" />
@@ -277,6 +277,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Properties\PublishProfiles\tiktokcal %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\tiktokcal %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\tiktokcal %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\tiktokcal %285%29.pubxml" />
     <None Include="Properties\PublishProfiles\tiktokcal - FTP %282%29.pubxml" />
@@ -309,6 +310,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\showInfo.js" />
+    <Content Include="Scripts\textfill.js" />
     <Content Include="Scripts\vex\build-test-amd.html" />
     <Content Include="Scripts\vex\build-test.html" />
     <Content Include="Scripts\vex\vex.combined.min.js" />
@@ -338,6 +340,7 @@
     <Content Include="Views\CalendarEvent\Details.cshtml" />
     <Content Include="Views\CalendarEvent\Edit.cshtml" />
     <Content Include="Views\CalendarEvent\Index.cshtml" />
+    <Content Include="Views\Home\Mobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

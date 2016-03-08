@@ -13,7 +13,6 @@ namespace TikTokCalendar.DAL
 		public int MonthNumber { get; set; }
 		public int FirstWeekOfMonthNumber { get; private set; }
 		public List<CustomEventWeek> Weeks { get; set; }
-		private DateTime firstDate;
 
 		public CustomEventMonth(int monthNumber)
 		{

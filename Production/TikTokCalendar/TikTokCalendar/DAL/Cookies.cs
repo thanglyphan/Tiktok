@@ -7,29 +7,6 @@ namespace TikTokCalendar.DAL
 	public class Cookies : System.Web.UI.Page
 	{
 
-
-		//Add cookie method.	
-		/*
-		public void SaveToCookie(String UserNameKey,String CourseKey,int WeekOrMonthKey, StudentUser a)
-		{
-
-			HttpCookie UsernameCookie = new HttpCookie(UserNameKey);
-			HttpCookie CourseCookie = new HttpCookie(CourseKey);
-			HttpCookie WeekOrMonthCookie = new HttpCookie(WeekOrMonthKey.ToString());
-			UsernameCookie.Value = a.UserName;
-			CourseCookie.Value =((int) a.Course).ToString();
-			WeekOrMonthCookie.Value = ((int)a.WeekOrMonthShow).ToString();
-
-			UsernameCookie.Expires = DateTime.Now.AddHours(1);
-			CourseCookie.Expires = DateTime.Now.AddHours(1);
-			WeekOrMonthCookie.Expires = DateTime.Now.AddHours(1);
-
-
-            HttpContext.Current.Response.Cookies.Add(UsernameCookie);
-			HttpContext.Current.Response.Cookies.Add(CourseCookie);
-			HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
-		}
-		*/
 		public void SaveNameToCookie(String a)
 		{
 			try {
@@ -46,7 +23,7 @@ namespace TikTokCalendar.DAL
 				HttpContext.Current.Response.Cookies.Add(UsernameCookie);
 			}
 			catch (HttpException e) {
-				Console.Write("Cookies.cs - SaveNameToCookies");
+				Console.Write("Cookies.cs - SaveNameToCookies " + e.ErrorCode);
 			}
 		}
 		public void SaveIntToCookie(int a)
@@ -59,7 +36,7 @@ namespace TikTokCalendar.DAL
 				HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
 			}
 			catch (HttpException e) {
-				Console.Write("Cookies.cs - SaveIntToCookies");
+				Console.Write("Cookies.cs - SaveIntToCookies " + e.ErrorCode);
 			}
 		}
 
@@ -78,7 +55,7 @@ namespace TikTokCalendar.DAL
 				HttpContext.Current.Response.Cookies.Add(CourseCookie);
 			}
 			catch (HttpException e) {
-				Console.Write("Cookies.cs - SaveCourseToCookie");
+				Console.Write("Cookies.cs - SaveCourseToCookie " + e);
 			}
 		}
 		public String LoadStringFromCookie(String key)
@@ -96,7 +73,7 @@ namespace TikTokCalendar.DAL
 				}
 			}
 			catch (HttpException e) {
-				Console.Write("Cookies.cs - LoadStringFromCookie");
+				Console.Write("Cookies.cs - LoadStringFromCookie " + e.ErrorCode);
 			}
 
 			return null;

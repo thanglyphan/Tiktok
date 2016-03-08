@@ -25,8 +25,10 @@ namespace TikTokCalendar.Controllers
 			if(cookie.LoadStringFromCookie("UserName") != null){
 				ViewBag.Title = string.Format("Halla, {0}! Du går: {1}",cookie.LoadStringFromCookie("UserName"),cookie.LoadStringFromCookie("Usercourse"));
 			}
-			else {
-				ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
+			else
+			{
+				ViewBag.Title = "tiktok";
+				//ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
 			}
 			
             var modelWrapper = new ModelDataWrapper();
@@ -41,6 +43,8 @@ namespace TikTokCalendar.Controllers
 
             return View(modelWrapper);//.calEvents);
 		}
+
+		
 
 		public string CalTest(string id = "")
 		{
@@ -107,6 +111,12 @@ namespace TikTokCalendar.Controllers
 		{
 			ViewBag.Message = "Your contact page.";
 
+			return View();
+		}
+
+		public ActionResult Mobile()
+		{
+			ViewBag.Message = "Your contact page.";
 			return View();
 		}
 
