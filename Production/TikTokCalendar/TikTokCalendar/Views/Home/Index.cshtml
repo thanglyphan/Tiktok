@@ -69,7 +69,13 @@
 							<div class="feed-week">
 
 								@foreach (var item in week.events) {
-									<a class="feed-container" data-toggle="modal" data-target="#@item.ID">
+
+									var today = "";
+									if (item.StartDateTime.Date.Equals(DateTime.Now.Date)) {
+										today = "today";
+									}
+
+									<a class="feed-container @today" data-toggle="modal" data-target="#@item.ID">
 
 										<!-- Container for the event content -->
 										<div class="content">
@@ -169,22 +175,21 @@
 
 												<!-- Modal body -->
 												<div class="modal-body">
-													@*
 													<p>
 														<strong>Tid:</strong>
 														@item.GetDayOfWeek(), @item.GetTimeSlot()
 													</p>
 													<p>
 														<strong>Attendees:</strong>
-														@item.Attendees
+														
 													</p>
 													<p>
 														<strong>EventName:</strong>
-														@item.EventName
+														@item.Subject.Name
 													</p>
 													<p>
 														<strong>Uke:</strong>
-														@item.GetWeekNumber()
+														@week.WeekNumber
 													</p>
 													<p>
 														<strong>Rom:</strong>
@@ -198,7 +203,6 @@
 														<strong>Kommentar:</strong>
 														@item.Comment
 													</p>
-													*@
 												</div>
 											</div>
 										</div>
