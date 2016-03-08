@@ -60,8 +60,8 @@ function showLogin() {
                         console.log("success" + a);
                     }
                 })
-                location.reload();
-                return;
+                //window.location.reload();
+                //return;
             }
 
 
@@ -142,7 +142,7 @@ function showLogin() {
                             }
                         })
 
-                        location.reload();
+                        //window.location.reload();
                     }
                 })
             }

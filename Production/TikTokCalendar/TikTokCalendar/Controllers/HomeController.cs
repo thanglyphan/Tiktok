@@ -19,6 +19,7 @@ namespace TikTokCalendar.Controllers
 		public ActionResult Index(string id = "", string tags = "")
 		{
 			StudentUser user = GetUserFromNameCourse();
+
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
 
