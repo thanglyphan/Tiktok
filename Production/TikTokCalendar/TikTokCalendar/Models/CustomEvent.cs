@@ -24,6 +24,19 @@ namespace TikTokCalendar.Models
 		public EventType EventType { get; private set; }
 		public string Comment { get; private set; }
 
+		public string CoursesLabel
+		{
+			get
+			{
+				string text = "";
+				for (int i = 0; i < Courses.Count; i ++)
+				{
+					text += Courses[i] + ((i < Courses.Count - 1) ? ", " : "");
+				}
+				return text;
+			}
+		}
+
 		//////// Getters for the non-string field to be used in the view for displaying the data ////////
 		public string StartTimeLabel {
 			get
