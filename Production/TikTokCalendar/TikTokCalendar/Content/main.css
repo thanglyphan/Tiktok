@@ -129,6 +129,18 @@ header .login-button {
     text-decoration: none;
 }
 
+.week-header {
+	background-color: #99cdf1;
+	padding: 5px;
+	text-align: center;
+	margin-top: 8px;
+	color: #fff;
+}
+
+.feed-week {
+	
+}
+
 .week, .week p {
     background-color: #8DB3f1;
     padding-top: 2px;
