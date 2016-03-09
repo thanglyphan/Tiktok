@@ -26,5 +26,18 @@ namespace TikTokCalendar.DAL
 			LocalWeekNumber = localWeekNumber;
 			events = new List<CustomEvent>();
 		}
+
+		public int GetEventTypeCount(EventType evntType)
+		{
+			int count = 0;
+			foreach (var evnt in events)
+			{
+				if (evnt.eventType == evntType)
+				{
+					count++;
+				}
+			}
+			return count;
+		}
 	}
 }

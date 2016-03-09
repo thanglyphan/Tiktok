@@ -77,10 +77,10 @@ namespace TikTokCalendar.Controllers
 			string page = "";
 			foreach (var month in months)
 			{
-				page += "Month: " + month.GetMonthName() + "<br>";
+				page += "Month: " + month.GetMonthName() + "(" + month.GetEventTypeCount(EventType.Forelesning) + ")"  + "<br>";
 				foreach (var week in month.Weeks)
 				{
-					page += " -- Week: " + week.WeekName + "<br>";
+					page += " -- Week: " + week.WeekName + "(" + week.GetEventTypeCount(EventType.Forelesning) + ")" + "<br>";
 					foreach (var evnt in week.events)
 					{
 						page += " ---- Evnt(" + evnt.ID + "): " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.ClassYear + " - " + evnt.CoursesLabel + "<br>";
