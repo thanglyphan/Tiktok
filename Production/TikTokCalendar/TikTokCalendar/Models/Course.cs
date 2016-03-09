@@ -43,23 +43,26 @@ namespace TikTokCalendar.Models
 			Enum.TryParse(safeName, out course);
 
 			SchoolCourse = course;
-			Debug.WriteLine(name + " is course: " + course);
 		}
 
 		public static SchoolCourses GetCourseFromName(string name)
 		{
-			int bestMatch = 1000;
 			SchoolCourses course = SchoolCourses.Programmering;
-			string[] courses = Enum.GetNames(typeof(SchoolCourses));
-			for (int i = 1; i < courses.Length + 1; i++)
+			if (!Enum.TryParse(name, out course))
 			{
-				int match = Math.Abs(name.CompareTo(courses[i - 1]));
-				if (match <= bestMatch)
-				{
-					course = (SchoolCourses)i;
-					bestMatch = match;
-				}
+				Debug.WriteLine("WARNING: ERROR: Couldn't parse course enum '" + name + "'!");
 			}
+			//int bestMatch = 1000;
+			//string[] courses = Enum.GetNames(typeof(SchoolCourses));
+			//for (int i = 1; i < courses.Length + 1; i++)
+			//{
+			//	int match = Math.Abs(name.CompareTo(courses[i - 1]));
+			//	if (match <= bestMatch)
+			//	{
+			//		course = (SchoolCourses)i;
+			//		bestMatch = match;
+			//	}
+			//}
 			return course;
 		}
 
