@@ -52,8 +52,19 @@ namespace TikTokCalendar.DAL
 
 		private string GetFileContents(string contentFolderRelativePath)
 		{
-			var dataPath = HttpContext.Current.Server.MapPath("~/Content/" + contentFolderRelativePath);
-			return File.ReadAllText(dataPath);
+
+			string dataPath = null;
+			string ret = null;
+			try
+			{
+				dataPath = HttpContext.Current.Server.MapPath("~/Content/" + contentFolderRelativePath);
+				ret = File.ReadAllText(dataPath);
+			}
+			catch (Exception e)
+			{
+				throw;
+			}
+			return ret;
 		}
 
 		private List<Subject> GetSubjects()
@@ -123,8 +134,6 @@ namespace TikTokCalendar.DAL
 			var container = JsonConvert.DeserializeObject<JRootExamReservationRootObject>(file);
 			foreach (var r in container.reservations)
 			{
-				//var evnts = ParseEvent("-1", r.Dato, null, null, null, string.Format("{0}({1})", r.Emnenavn, r.Emnekode), null,
-				//	null, null, r.Vurderingstype, "Vekting: " + r.Vekting + "\n" + r.Hjelpemidler);
 				var evnts = ParseExamEvent(r.Dato, r.Emnenavn, r.Emnekode, r.Vurderingstype, r.Vekting.ToString(), r.Varighet, r.Hjelpemidler);
 				events.AddRange(evnts);
 			}
