@@ -266,6 +266,7 @@ header .login-button {
     display: inline-block;
     border-radius: 2px;
     margin-left: 14px;
+	margin-right: 10px;
     padding: 4px;
 }
 
@@ -396,6 +397,10 @@ header .login-button {
 
 .ongoing {
     color: #e28138;
+}
+
+.usersgoing {
+    font-size: 12px;
 }
 
 /*======================================

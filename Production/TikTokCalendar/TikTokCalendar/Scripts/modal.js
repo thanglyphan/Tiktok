@@ -60,8 +60,8 @@ function showLogin() {
                         console.log("success" + a);
                     }
                 })
-                location.reload();
-                return;
+                //window.location.reload();
+                //return;
             }
 
 
@@ -134,6 +134,7 @@ function showLogin() {
                             type: "POST",
                             data: { a: value },
                             error: function () {
+                                alert("usercourse failer");
                                 console.log("error");
                             },
                             success: function (a) {
@@ -141,7 +142,7 @@ function showLogin() {
                             }
                         })
 
-                        location.reload();
+                        //window.location.reload();
                     }
                 })
             }

@@ -21,6 +21,7 @@ namespace TikTokCalendar.DAL
 		public DbSet<CalendarEvent> CalendarEvents { get; set; }
 		public DbSet<CourseSubject> CourseSubject { get; set; }
 		public DbSet<Account> Accounts { get; set; }
+        public DbSet<EventUserStat> EventUserStats { get; set; }
 
 		// This makes it so that table names won't become plurizized (Rooms, Subjects, etc)
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)

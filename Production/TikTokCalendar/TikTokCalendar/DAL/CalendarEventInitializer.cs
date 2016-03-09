@@ -11,12 +11,12 @@ using System.Globalization;
 //The Seed() function is called either always or on a change (depending on what class it inherits from)
 namespace TikTokCalendar.DAL
 {
-	//public class CalendarEventInitializer : DropCreateDatabaseIfModelChanges<CalendarEventContext>
+	public class CalendarEventInitializer : DropCreateDatabaseIfModelChanges<CalendarEventContext>
 	/*NOTE: 
 	 * Modifying the insertion doesn't count as model change.
 	 * Modifying the DB name in the connection string DOES count as model change.
 	 */
-	public class CalendarEventInitializer : DropCreateDatabaseAlways<CalendarEventContext>
+	//public class CalendarEventInitializer : DropCreateDatabaseAlways<CalendarEventContext>
 	{
 		private const string Format = "dd.MM.yyyy HH:mm:ss";
 		private List<Subject> subjects = new List<Subject>();

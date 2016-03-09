@@ -85,6 +85,11 @@ namespace TikTokCalendar.Models
 		{
 			return StartTimeLabel;
 		}
+
+		public int EventIsToday()
+		{
+			return 0;
+		}
 	}
 
 	public enum EventType
