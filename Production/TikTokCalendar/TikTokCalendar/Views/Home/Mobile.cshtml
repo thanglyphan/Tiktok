@@ -16,19 +16,34 @@
 
 
     <!-- E V E N T -->
-    <section class="mobile-content">
-        <div class="mobile-content-container">
-            <div class="mobile-content-container-inner">
-                <div class="mobile-course">Introduksjon til Intelligente systemer</div>
-                <div class="mobile-room"><span>Auditoriet</span></div>
-                <div class="mobile-date">i dag, 10:15 - 14:00</div>
-                <div class="button-container">
-                    <button class="mobile-checkin pulse-button">Check in</button>
+@foreach (var month in Model.Months)
+{
+    foreach (var week in month.Weeks)
+    {
+        foreach (var day in week.events)
+        {
+        <section class="mobile-content">
+            <div class="mobile-content-container">
+                <div class="mobile-content-container-inner">
+                    <div class="mobile-course">@day.Subject.Name</div>
+                    <div class="mobile-room"><span>@day.RoomName</span></div>
+
+                    if (@day.StartDateTime.Minute == 0) {
+                        var startTime = "00";
+                    }
+                    else {
+                        var startTime = 
+                    }
+                    <div class="mobile-date">i dag, @day.StartDateTime.Hour:@day.StartDateTime.Minute - @day.EndDateTime.Hour:@day.EndDateTime.Minute</div>
+                    <div class="button-container">
+                        <button class="mobile-checkin pulse-button">Check in</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+        }
+    }
+}
 
     <!-- E V E N T -->
     <section class="mobile-content">
