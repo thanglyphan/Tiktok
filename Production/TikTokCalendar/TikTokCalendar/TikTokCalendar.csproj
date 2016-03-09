@@ -191,6 +191,7 @@
     <Compile Include="DAL\StudentUser.cs" />
     <Compile Include="Encoder\SHA1.cs" />
     <Compile Include="Extras\DateTimeParser.cs" />
+    <Compile Include="Extras\EventUserStatHandler.cs" />
     <Compile Include="Extras\TimeLeft.cs" />
     <Compile Include="Extras\Utils.cs" />
     <Compile Include="Global.asax.cs">
@@ -205,6 +206,7 @@
     <Compile Include="Models\CourseSubject.cs" />
     <Compile Include="Models\CustomEvent.cs" />
     <Compile Include="Models\DataWrapper.cs" />
+    <Compile Include="Models\EventUserStat.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -301,6 +303,8 @@
     <Content Include="Scripts\jquery.easing.1.3.js" />
     <Content Include="Scripts\jquery.plugin.js" />
     <Content Include="Scripts\jquery.plugin.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -341,6 +345,7 @@
     <Content Include="Views\CalendarEvent\Edit.cshtml" />
     <Content Include="Views\CalendarEvent\Index.cshtml" />
     <Content Include="Views\Home\Mobile.cshtml" />
+    <Content Include="Views\Home\_UserStatUpdate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
