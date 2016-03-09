@@ -43,6 +43,15 @@ header {
     z-index: 1;
 }
 
+header a.logo {
+	text-decoration: none;
+	margin-right: 10px;
+}
+
+header .logout {
+	cursor: pointer;
+}
+
 .header-content {
     margin: 0 auto; 
     max-width: 900px;
@@ -65,7 +74,7 @@ header p {
     font-size: 19px;
     float: left;
     padding-top: 7px;
-    padding-left: 10px;
+    padding-left: 0;
 }
 
 header .ui-widget {
@@ -75,7 +84,6 @@ header .ui-widget {
 }
 
 header  i {
-    margin-right: 20px;
     opacity: 0.5;
     color: #474f5c;
     float: right;

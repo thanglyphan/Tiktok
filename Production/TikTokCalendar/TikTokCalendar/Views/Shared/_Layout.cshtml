@@ -62,8 +62,12 @@
 	<!-- The navbar with the tiktok logo  -->
 	<header class="header-desktop">
 		<div class="header-content">
-			<i class="fa fa-calendar-check-o"></i>
-			<p>tiktok</p>
+			<a href="/" class="logo">
+				<i class="fa fa-calendar-check-o"></i>
+				<p>tiktok</p>
+			</a>
+
+			<a title="DEBUG: logout / delete cookies" onclick="delCookie()" class="logout"><i class="fa fa-sign-out fa-2x"></i></a>
 
 			<!-- Search box -->
             <div class="ui-widget">        
@@ -72,22 +76,22 @@
                 @using (Html.BeginForm("Index", "Home"))
                 {
                     <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" />
-                    <input type="submit" value="Search" style="position: absolute; left: -9999px" />
                 }
                          
             </div>
 
-            <a class="logout"><i class="fa fa-sign-out fa-2x"></i></a>
+            
 
-            <button onclick="delCookie()">Delete cookies</button>
+            @*<button onclick="delCookie()">Delete cookies</button>*@
             <script>
                 function delCookie() {
                     $.ajax({
-                        url: "../Home/DeleteCookies",
+                        url: "/Home/DeleteCookies",
                         type: "POST",
                         dataType: "json",
                         success: function (data) {
-                            console.log(data);
+                        	console.log(data);
+                        	window.location.reload();
                         },
                         error: function (xhr, ajaxOptions, thrownError) {
                             console.log("FEIL");
