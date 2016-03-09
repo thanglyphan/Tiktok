@@ -43,7 +43,6 @@ namespace TikTokCalendar.Models
 			Enum.TryParse(safeName, out course);
 
 			SchoolCourse = course;
-			Debug.WriteLine(name + " is course: " + course);
 		}
 
 		public static SchoolCourses GetCourseFromName(string name)
