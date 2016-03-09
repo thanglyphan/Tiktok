@@ -18,7 +18,18 @@ namespace TikTokCalendar.Controllers
 
 		public ActionResult Index(string id = "", string tags = "")
 		{
+
+            // temporary: delete EventUserStats content
+            /*var db = new CalendarEventContext();
+            foreach (var entity in db.EventUserStats)
+            {
+                db.EventUserStats.Remove(entity);
+                
+            }
+            db.SaveChanges();*/
+
 			StudentUser user = GetUserFromNameCourse();
+
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
 
@@ -27,7 +38,7 @@ namespace TikTokCalendar.Controllers
 			}
 			else
 			{
-				ViewBag.Title = "tiktok";
+				ViewBag.Title = "not logged in";
 				//ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
 			}
 			
@@ -53,7 +64,7 @@ namespace TikTokCalendar.Controllers
 			List<CustomEventMonth> months = null;
 			if (string.IsNullOrEmpty(id))
 			{
-				months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.VisAlt));
+				months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.Spillprogrammering));
 			}
 			else
 			{
@@ -70,12 +81,16 @@ namespace TikTokCalendar.Controllers
 					page += " -- Week: " + week.WeekName + "<br>";
 					foreach (var evnt in week.events)
 					{
-						page += " ---- Evnt: " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.ClassYear + " - " + evnt.CoursesLabel + "<br>";
+						page += " ---- Evnt(" + evnt.ID + "): " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.ClassYear + " - " + evnt.CoursesLabel + "<br>";
 					}
 				}
 			}
 
 			return page;
+		}
+		public ActionResult Test()
+		{
+			return View();
 		}
 
 		private bool SameYear(CalendarEvent calEvent, StudentUser user)
@@ -134,24 +149,25 @@ namespace TikTokCalendar.Controllers
 
         public JsonResult AutoComplete(string search)
         {
+            /*
             var data = new[] {"Programmering","Spillprogrammering","Intelligente systemer","Mobil apputvikling",
                 "Prosjekt software engineering","Matematikk og fysikk","C++ programmering","",
                 "Game AI","Embedded systems","Mobil utvikling","Ruby on rails",
                 "Avansert javaprogrammering","Undersøkelsesmetoder","Enterprise programmering 2","Innlevering",
                 "Forelesning","Eksamen" };
-            /*ModelDataWrapper model = new ModelDataWrapper();
-            foreach (var month in model.calEvents)
-            {
-                foreach (var item in month.Events)
-                {
-                }
-            }*/
+            */
+            StudentUser user = GetUserFromNameCourse();
+            List<string> list = DataWrapper.Instance.GetUserKeywords(user);
+            list.Add("Innlevering");
+            list.Add("Eksamen");
+            list.Add("Forelesning");
+            list.RemoveAll(item => item == null);
             //var result = data.Where(x => x.ToLower().StartsWith(search.ToLower())).ToList(); <-- starter-med-søk
-            var result = data.Where(x => x.ToLower().Contains(search.ToLower())).ToList();
+            var result = list.Where(x => x.ToLower().Contains(search.ToLower())).ToList();
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-		public JsonResult UserName(string a)
+        public JsonResult UserName(string a)
 		{
 			string userName = cookie.LoadStringFromCookie("UserName");
 
@@ -190,7 +206,7 @@ namespace TikTokCalendar.Controllers
 		public StudentUser GetUserFromNameCourse()
 		{
 			string name = "phatha14"; 
-			string course = "Programmering";
+			string course = "SpillProgrammering";
 
 			string un = cookie.LoadStringFromCookie("UserName");
 			if (!string.IsNullOrEmpty(un))
@@ -207,10 +223,21 @@ namespace TikTokCalendar.Controllers
 			return new StudentUser(name, schoolCourse); //If cookie name && course == default, name = anonym14, course = "VisAlt"
 		}
 
-		public ActionResult Test()
-		{
-			return View();
-		}
+        public PartialViewResult UserStatUpdate(int eventid)
+        {
+            //System.Threading.Thread.Sleep(3000);
+            var db = new CalendarEventContext();
+            string userName = cookie.LoadStringFromCookie("UserName");
+            //int eventID = Int32.Parse(Request.Form["eventid"]);
+            if (userName.Length >= 8)
+            {
+                db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now });
+                db.SaveChanges();
+            }
+            ModelDataWrapper modelWrapper = new ModelDataWrapper();
+            EUSH_global.ID_ATM = eventid;
+            return PartialView("_UserStatUpdate", modelWrapper);
+        }
 	}
 
 }

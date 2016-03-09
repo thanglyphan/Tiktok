@@ -48,11 +48,6 @@ namespace TikTokCalendar.DAL
 			// We have to do this in two different calls, as GetEvents() has functions that depend on DataWrapper to have the info about the base SchoolSystem(subjects, courses, etc)
 			var events = GetEvents();
 			DataWrapper.Instance.SetSchoolSystemDependantData(events);
-
-			foreach (var item in events)
-			{
-				Printer.Print("Event in eventssssss: " + item.Subject.Name);
-			}
 		}
 
 		private string GetFileContents(string contentFolderRelativePath)

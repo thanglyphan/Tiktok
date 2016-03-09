@@ -221,5 +221,36 @@ namespace TikTokCalendar.Models
 		static DataWrapper() { }
 		private static readonly DataWrapper _instance = new DataWrapper();
 		public static DataWrapper Instance { get { return _instance; } }
-	}
+
+        /// <summary>
+		/// Gets all keywords from AllEvents (user specific, mainly for the autocomplete)
+		/// </summary>
+        public List<string> GetUserKeywords(StudentUser user)
+        {
+            List<string> list = new List<string>();
+            foreach (var evnt in AllEvents)
+            {
+                if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
+                {
+                    if (!list.Contains(evnt.Subject.Name))
+                    {
+                        list.Add(evnt.Subject.Name);
+                    }
+                    if (!list.Contains(evnt.Subject.Code))
+                    {
+                        list.Add(evnt.Subject.Code);
+                    }
+                    if (!list.Contains(evnt.RoomName))
+                    {
+                        list.Add(evnt.RoomName);
+                    }
+                    if (!list.Contains(evnt.Teacher))
+                    {
+                        list.Add(evnt.Teacher);
+                    }
+                }
+            }
+            return list;
+        }
+    }
 }
