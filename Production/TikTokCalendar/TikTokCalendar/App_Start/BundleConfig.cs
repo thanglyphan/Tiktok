@@ -42,6 +42,17 @@ namespace TikTokCalendar
             bundles.Add(new ScriptBundle("~/bundles/countdown").Include(
                       "~/Scripts/jquery.plugin.js",
                       "~/Scripts/jquery.countdown.js"));
+
+            // random usortert
+            bundles.Add(new ScriptBundle("~/bundles/random").Include(
+                "~/Scripts/vex/vex.combined.min.js",
+                "~/Scripts/modal.js",
+                "~/Scripts/script.js"
+                ));
+
+            // showinfo & tooltip
+            bundles.Add(new ScriptBundle("~/bundles/showinfo").Include(
+            "~/Scripts/showInfo.js"));
         }
 	}
 }

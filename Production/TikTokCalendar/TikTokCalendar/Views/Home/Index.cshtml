@@ -11,20 +11,19 @@
     bool flag4 = false;
     bool flag5 = false;
 }
-<script runat="server" language="c#">
-    public void Page_Load(Object sender, EventArgs e)
-    {
-        if (Request.Browser["IsMobileDevice"] == "true" )
-        {
-            Response.Redirect("Home/Mobile.cshtml");
-            Debug.WriteLine("Mobile");
-        }
-        else
-        {
-            Debug.WriteLine("Not mobile");
-
-        }
-    }
+@if (Request.Browser.IsMobileDevice)
+{
+    Response.Redirect("~/Home/Mobile.cshtml");
+}
+else
+{
+    // for desktop
+}
+<!-- Go to current month -->
+<script>
+$(function() {
+    $(document).scrollTop( $("#goto-@DateTime.Now.Month").offset().top );
+});
 </script>
 
 <!-- Holds global settings and spans the entire page   -->
@@ -34,13 +33,18 @@
         <!-- Looping throught every month -->
         @foreach (var month in Model.Months)
         {
+            var isCollapsed = "in";
+            if (month.MonthNumber < DateTime.Now.Month)
+            {
+                isCollapsed = ""; // true
+            }
+            <div class="goto" id="goto-@month.MonthNumber"></div>
             <!-- Month box e.g. "August" -->
             <a class="feed-month" data-toggle="collapse" data-target="#month-@month.MonthNumber">
                 <p class="month">@month.GetMonthName()</p> 
             </a>
-
             <!-- Container for an entire month of events -->
-            <div class="feed collapse in" id="month-@month.MonthNumber">
+            <div class="feed collapse @isCollapsed" id="month-@month.MonthNumber">
 
                 <!-- Looping throught every week -->
                 @foreach (var week in month.Weeks)
@@ -56,12 +60,81 @@
                     <div class="feed-week">
 
                         <!-- Looping throught every events -->
-                        @foreach (var item in week.events) {
+                        @foreach (var item in week.events)
+                        {
+                            // eventually limit the number of weeks for going/check-in to show here:
+                            //if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime.AddDays(21))
+                            //{
+                            using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                UpdateTargetId = "going-" + item.ID,
+                                InsertionMode = InsertionMode.Replace
+                            }))
+                            {
+                                    <div class="check-in" style="position:absolute; margin-left: -132px; margin-top: 30px;" id="going-@item.ID">
+                                        @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
+                                        {
+                                            if (!EUSH.UserAttending(item.ID))
+                                            {
+                                                <input type="hidden" name="eventid" value="@item.ID" />
+                                                <input type="hidden" name="attend" value="true" />
+                                                <input type="submit" value="Check-in" />
+                                            }
+                                            else
+                                            {
+                                                <strong>Innsjekket &#10004;</strong>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (!EUSH.UserGoing(item.ID))
+                                            {
+                                                <input type="hidden" name="eventid" value="@item.ID" />
+                                                <input type="hidden" name="attend" value="false" />
+                                                <input type="submit" value="Skal" />
+                                            }
+                                            else
+                                            {
+                                                <strong>Du skal.</strong>
+                                            }
+                                        }
+                                        <div class="tip-item">
+                                            @{
+                                                var howMany = EUSH.HowManyUsersGoing(item.ID);
+                                                var showTip = "hide";
+                                                if (howMany > 0)
+                                                {
+                                                    showTip = ""; // false (hide box if no users to display)
+                                                }
+                                            }
+                                            <span class="activator usersgoing">[@howMany skal]</span>
+                                            <div class="tip usersgoing @showTip">
+                                                @foreach (var eus in Model.eventUserStats)
+                                                {
+                                                    if (eus.EventID == item.ID)
+                                                    {
+                                                        <span class="no-linebreak">
+                                                            @if (EUSH.UserAttending(item.ID))
+                                                            {
+                                                                <text>&#10004;</text>
+                                                            }
+                                                            @eus.UserName<br />
+                                                        </span>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                                    }
+                                                //}
 
-							var today = "";
-							if (item.StartDateTime.Date.Equals(DateTime.Now.Date)) {
-								today = "today";
-							}
+
+                                                var today = "";
+                                                if (item.StartDateTime.Date.Equals(DateTime.Now.Date))
+                                                {
+                                                    today = "today";
+                                                }
 
                             <!-- Link on every event -->
                             <a class="feed-container @today" data-toggle="modal" data-target="#@item.ID">
@@ -167,55 +240,7 @@
 
                                         @*<i class="seen-by">Sett av @randomNumber</i>*@
 
-										@using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions {
-												HttpMethod = "POST",
-												UpdateTargetId = "going-" + item.ID,
-												InsertionMode = InsertionMode.Replace })) 
-											{
-												<div class="check-in" style="position:absolute; margin-left: -200px;" id="going-@item.ID">
-														@if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
-                                                        {
-                                                            if (!EUSH.UserAttending(item.ID))
-                                                            {
-                                                                <input type="hidden" name="attend" value="true" />
-                                                                <input type="submit" value="Check-in" />
-                                                            }
-                                                            else
-                                                            {
-                                                                <strong>Innsjekket &#10004;</strong>
-                                                            }
-                                                        }
-                                                        else
-                                                        {
-                                                            if (!EUSH.UserGoing(item.ID))
-                                                            {
-                                                                <input type="hidden" name="eventid" value="@item.ID" />
-                                                                <input type="hidden" name="attend" value="false" />
-                                                                <input type="submit" value="Skal" />
-                                                            }
-                                                            else
-                                                            {
-                                                                <strong>Du skal.</strong>
-                                                            }
-                                                        }
-														<div class="tip-item">
-															<span class="activator usersgoing">[@EUSH.HowManyUsersGoing(item.ID) skal]</span>
-															<div class="tip usersgoing">
-																@foreach (var eus in Model.eventUserStats) {
-																	if (eus.EventID == item.ID) {
-																		<span>
-                                                                            @if(EUSH.UserAttending(item.ID))
-                                                                            {
-                                                                            <span>&#10004;</span>
-                                                                            }
-                                                                @eus.UserName<br />
-                                                                        </span>
-																	}
-																}
-															</div>
-														</div>
-													</div>
-												}
+										<!-- FLYTT GOING HIT NÅR FIXED -->
 
                                     </div>
                                 </div>

@@ -3,21 +3,27 @@
 @{
     EventUserStatHandler EUSH = new EventUserStatHandler();
 }
+<div style="display:none"> <!-- this is strange but needed -->
+    <script>
+        $(function () {
+            $('.activator.usersgoing').BAToolTip({
+                tipOpacity: 0.9,
+                tipOffset: 20
+            });
+        })
+    </script>
+</div>
 
-<script type="text/javascript">
-			jQuery(function () {
-				jQuery('.activator.usersgoing').BAToolTip({
-				    tipOpacity: 0.9,
-				    tipOffset: 20
-				});
-			})
-		</script>
-
-@*@if (!EUSH.UserGoing(EUSH_global.ID_ATM))
+@if (EUSH.UserAttending(EUSH_global.ID_ATM))
 {
-    <input type="hidden" name="eventid" value="@EUSH_global.ID_ATM" />
-    <input type="submit" value="Skal" />
-}*@
+<strong>Innsjekket &#10004;</strong>
+}
+else if (EUSH.UserGoing(EUSH_global.ID_ATM))
+{
+    <strong>Du skal.</strong>
+}
+
+<!-- hover box displaying users -->
 <div class="tip-item">
     <span class="activator usersgoing">[@EUSH.HowManyUsersGoing(EUSH_global.ID_ATM) skal]</span>
     <div class="tip usersgoing">
@@ -36,11 +42,3 @@
         }
     </div>
 </div>
-@if (EUSH.UserGoing(EUSH_global.ID_ATM))
-{
-    <strong>Du skal.</strong>
-}
-else if (EUSH.UserAttending(EUSH_global.ID_ATM))
-{
-    <strong>Innsjekket &#10004;</strong>
-}
