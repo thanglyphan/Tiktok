@@ -1,21 +1,22 @@
-﻿@media screen and (max-width: 480px) {
-//============================================
-//      M O B I L
-//============================================
-.mobile-main, html, body {
-	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	height: 100%;
-	background-color: #f7f7f7;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
-}
+﻿@media scrren and (max-width: 480px) {
 
-/*===================================
-	N A V B A R
-===================================*/
+    //============================================
+    //      M O B I L
+    //============================================
+    .mobile-main, html, body {
+        font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        height: 100%;
+        background-color: #f7f7f7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    /*===================================
+    N A V B A R
+    ===================================*/
     i {
-        padding-top: 6px !important;
+        padding-top: 1px !important;
         color: #8E8F94;
     }
 
@@ -51,7 +52,7 @@
 
 
     /*===================================
-	E V E N T S
+E V E N T S
 ===================================*/
 
     .mobile-content {
@@ -67,7 +68,7 @@
         padding: 10px;
         border: 1px solid #899093;
         text-align: center;
-        height: 70%;
+        height: 380px;
         padding-bottom: 60px;
     }
 

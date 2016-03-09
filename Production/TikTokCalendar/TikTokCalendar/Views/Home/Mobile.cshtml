@@ -25,16 +25,42 @@
         <section class="mobile-content">
             <div class="mobile-content-container">
                 <div class="mobile-content-container-inner">
-                    <div class="mobile-course">@day.Subject.Name</div>
-                    <div class="mobile-room"><span>@day.RoomName</span></div>
+                    <div class="mobile-course">@day.Subject.Name</div>              <!-- Course name e.g. "Grensesnittdesign"-->
+                    <div class="mobile-room"><span>@day.RoomName</span></div>       <!-- Room   name e.g. "Rom 40"-->
 
-                    if (@day.StartDateTime.Minute == 0) {
-                        var startTime = "00";
+                    <!-- Format time to show double 00 if the clock is 14:00 (if not it shows 14:0) -->
+                    @{  var startTime = "";
+                        var endTime   = "";
+                        var whichDay  = "";
+                        if (@day.StartDateTime.Minute == 0)
+                        {
+                            startTime = "00";
+                        }
+                        else {
+                            startTime = @day.StartDateTime.Minute.ToString();
+                        }
+                        if (@day.EndDateTime.Minute == 0)
+                        {
+                            endTime = "00";
+                        }
+                        else {
+                            endTime = @day.EndDateTime.Minute.ToString();
+                        }
+
+
+                        if (day.StartDateTime.Date.Equals(DateTime.Now.Date))
+                        {
+                            whichDay = "i dag";
+                        }
+                        else
+                        {
+                            var shortMonthName = @month.GetMonthName().Substring(0, 3);
+                            whichDay = @day.StartDateTime.Day.ToString() + " " + shortMonthName;
+                        }
                     }
-                    else {
-                        var startTime = 
-                    }
-                    <div class="mobile-date">i dag, @day.StartDateTime.Hour:@day.StartDateTime.Minute - @day.EndDateTime.Hour:@day.EndDateTime.Minute</div>
+
+                    <!-- Showing date e.g. "i dag, 10:15 - 14:00" -->
+                    <div class="mobile-date">@whichDay, @day.StartDateTime.Hour:@startTime - @day.EndDateTime.Hour:@endTime</div>
                     <div class="button-container">
                         <button class="mobile-checkin pulse-button">Check in</button>
                     </div>

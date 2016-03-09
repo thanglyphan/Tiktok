@@ -221,6 +221,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bs-modal.css" />
     <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\modal.css" />
     <Content Include="Content\SchoolSystem\courses.json" />
     <Content Include="Content\SchoolSystem\subjects.json" />
     <Content Include="Content\SchoolSystem\courseSubjects.json" />
