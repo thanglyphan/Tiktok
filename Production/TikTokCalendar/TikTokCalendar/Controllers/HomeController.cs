@@ -38,19 +38,20 @@ namespace TikTokCalendar.Controllers
 			}
 			else
 			{
-				ViewBag.Title = "not logged in";
+				ViewBag.Title = "not logged in " + cookie.LoadStringFromCookie("Usercourse");
 				//ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
 			}
 			
             var modelWrapper = new ModelDataWrapper();
-            if (string.IsNullOrEmpty(tags))
-            {
-                modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
-            }
-            else
-            {
-                modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
-            }
+			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
+            //if (string.IsNullOrEmpty(tags))
+            //{
+            //    modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
+            //}
+            //else
+            //{
+            //    modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
+            //}
 
             return View(modelWrapper);//.calEvents);
 		}
@@ -62,23 +63,24 @@ namespace TikTokCalendar.Controllers
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
 			List<CustomEventMonth> months = null;
-			if (string.IsNullOrEmpty(id))
-			{
-				months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.Spillprogrammering));
-			}
-			else
-			{
-				months = DataWrapper.Instance.GetEventsWithName(new StudentUser("trotor14", SchoolCourses.Spillprogrammering), id);
-			}
+			months = DataWrapper.Instance.GetEventsWithName(new StudentUser("trotor14", SchoolCourses.Spillprogrammering), id);
+			//if (string.IsNullOrEmpty(id))
+			//{
+			//	months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.Spillprogrammering));
+			//}
+			//else
+			//{
+			//	months = DataWrapper.Instance.GetEventsWithName(new StudentUser("trotor14", SchoolCourses.Spillprogrammering), id);
+			//}
 
 
 			string page = "";
 			foreach (var month in months)
 			{
-				page += "Month: " + month.GetMonthName() + "<br>";
+				page += "Month: " + month.GetMonthName() + "(" + month.GetEventTypeCount(EventType.Forelesning) + ")"  + "<br>";
 				foreach (var week in month.Weeks)
 				{
-					page += " -- Week: " + week.WeekName + "<br>";
+					page += " -- Week: " + week.WeekName + "(" + week.GetEventTypeCount(EventType.Forelesning) + ")" + "<br>";
 					foreach (var evnt in week.events)
 					{
 						page += " ---- Evnt(" + evnt.ID + "): " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.ClassYear + " - " + evnt.CoursesLabel + "<br>";
@@ -241,10 +243,16 @@ namespace TikTokCalendar.Controllers
 			{
 				name = cookie.LoadStringFromCookie("UserName");
 			}
+			else {
+				name = "anonym14";
+			}
 			string uc = cookie.LoadStringFromCookie("UserCourse");
 			if (!string.IsNullOrEmpty(uc))
 			{
 				course = cookie.LoadStringFromCookie("UserCourse");
+			}
+			else {
+				course = "VisAlt";
 			}
 
 			SchoolCourses schoolCourse = Course.GetCourseFromName(course);

@@ -35,5 +35,15 @@ namespace TikTokCalendar.DAL
 		{
 			return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(MonthNumber).FirstCharToUpper();
 		}
+
+		public int GetEventTypeCount(EventType evntType)
+		{
+			int count = 0;
+			foreach (var week in Weeks)
+			{
+				count += week.GetEventTypeCount(evntType);
+			}
+			return count;
+		}
 	}
 }

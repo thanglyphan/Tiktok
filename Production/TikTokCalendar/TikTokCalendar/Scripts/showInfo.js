@@ -6,3 +6,14 @@
 		buttons: []
 	});
 }
+
+$(function () {
+    $('.activator.timeleft').BAToolTip({
+        tipOpacity: 0.9,
+        tipOffset: 20
+    });
+    $('.activator.usersgoing').BAToolTip({
+        tipOpacity: 0.9,
+        tipOffset: 20
+    });
+})

@@ -24,6 +24,7 @@
         {
         <section class="mobile-content">
             <div class="mobile-content-container">
+                <div class="mobile-date-top">@day.StartDateTime.Day.ToString() @month.GetMonthName()</div>
                 <div class="mobile-content-container-inner">
                     <div class="mobile-course">@day.Subject.Name</div>              <!-- Course name e.g. "Grensesnittdesign"-->
                     <div class="mobile-room"><span>@day.RoomName</span></div>       <!-- Room   name e.g. "Rom 40"-->
@@ -60,7 +61,7 @@
                     }
 
                     <!-- Showing date e.g. "i dag, 10:15 - 14:00" -->
-                    <div class="mobile-date">@whichDay, @day.StartDateTime.Hour:@startTime - @day.EndDateTime.Hour:@endTime</div>
+                    <div class="mobile-date">@day.StartDateTime.Hour:@startTime - @day.EndDateTime.Hour:@endTime</div>
                     <div class="button-container">
                         <button class="mobile-checkin pulse-button">Check in</button>
                     </div>

@@ -35,16 +35,18 @@ namespace TikTokCalendar.Models
 			List<CustomEventMonth> months = new List<CustomEventMonth>();
 			CustomEventMonth month = null;
 			CustomEventWeek week = null;
-			
+			HashSet<int> addedIDs = new HashSet<int>();
+
 			foreach (var evnt in AllEvents)
 			{
-				if (user.Course == SchoolCourses.VisAlt 
-					|| (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear))
+				if (!addedIDs.Contains(evnt.ID) && (user.Course == SchoolCourses.VisAlt 
+					|| (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)))
 				{
 					CustomEventMonth m = AddEvent(evnt, ref month, ref week);
 					if (m != null)
 					{
 						months.Add(m);
+						addedIDs.Add(evnt.ID);
 					}
 				}
 			}
@@ -59,24 +61,31 @@ namespace TikTokCalendar.Models
 
 			foreach (var evnt in AllEvents)
 			{
-                if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
-                {
-                    string temp = tags.ToLower();
-                    string eventname = evnt.Subject.Name.ToLower();
-                    string roomname = evnt.RoomName.ToLower();
-                    string teacher = evnt.Teacher.ToLower(); 
-                    string comment = evnt.Comment.ToLower();
-                    string subjectcode = evnt.Subject.Code.ToLower();
-                    string eventtype = evnt.eventType.ToString().ToLower();
-                    if (eventname.Contains(temp) || roomname.Contains(temp) || teacher.Contains(temp) || comment.Contains(temp) || subjectcode.Contains(temp) || eventtype.Contains(temp))
-                    {
-                        CustomEventMonth m = AddEvent(evnt, ref month, ref week);
-                        if (m != null)
-                        {
-                            months.Add(m);
-                        }
-                    }
-                }
+				if (user.Course == SchoolCourses.VisAlt
+					|| (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear))
+				{
+					string temp = "";
+					if (!string.IsNullOrEmpty(tags))
+					{
+						temp = tags.ToLower();
+						string eventname = evnt.Subject.Name.ToLower();
+						string roomname = evnt.RoomName.ToLower();
+						string teacher = evnt.Teacher.ToLower();
+						string comment = evnt.Comment.ToLower();
+						string subjectcode = evnt.Subject.Code.ToLower();
+						string eventtype = evnt.eventType.ToString().ToLower();
+						if (!(eventname.Contains(temp) || roomname.Contains(temp) || teacher.Contains(temp) || comment.Contains(temp) || subjectcode.Contains(temp) || eventtype.Contains(temp)))
+						{
+							continue;
+						}
+					}
+
+					CustomEventMonth m = AddEvent(evnt, ref month, ref week);
+					if (m != null)
+					{
+						months.Add(m);
+					}
+				}
 			}
 			return months;
 		}

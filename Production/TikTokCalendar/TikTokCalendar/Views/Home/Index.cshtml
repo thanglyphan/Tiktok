@@ -1,11 +1,6 @@
-﻿@*@model IEnumerable<TikTokCalendar.Models.CalendarEvent>*@
-@*@model IEnumerable<IEnumerable<TikTokCalendar.Models.CalendarEvent>>*@
-@*@model IEnumerable<TikTokCalendar.DAL.EventMonth>*@
-@model TikTokCalendar.DAL.ModelDataWrapper
+﻿@model TikTokCalendar.DAL.ModelDataWrapper
 
 @{
-    //ViewBag.Title = "TikTok";
-    //ViewBag.Title = Model.ToString();
 
     TimeLeft TimeLeft = new TimeLeft();
     EventUserStatHandler EUSH = new EventUserStatHandler();
@@ -16,51 +11,38 @@
     bool flag4 = false;
     bool flag5 = false;
 }
+<script runat="server" language="c#">
+    public void Page_Load(Object sender, EventArgs e)
+    {
+        if (Request.Browser["IsMobileDevice"] == "true" )
+        {
+            Response.Redirect("Home/Mobile.cshtml");
+            Debug.WriteLine("Mobile");
+        }
+        else
+        {
+            Debug.WriteLine("Not mobile");
+
+        }
+    }
+</script>
 
 <!-- Holds global settings and spans the entire page   -->
 <main>
-
-    <!-- tooltip hover plugin initialization -->
-    <script type="text/javascript">
-        jQuery(function () {
-            jQuery('.activator.timeleft').BAToolTip({
-                tipOpacity: 0.9,
-                tipOffset: 20
-            });
-            jQuery('.activator.usersgoing').BAToolTip({
-                tipOpacity: 0.9,
-                tipOffset: 20
-            });
-        })
-    </script>
-
     <div class="main-body">
 
+        <!-- Looping throught every month -->
         @foreach (var month in Model.Months)
         {
-            //var className = "month-month";
-
-					<!-- Displays the month name -->
-
-            @*
-                {
-                    var weekOrMonth = month.GetMonthName();
-
-                    if (weekOrMonth[0] == 'U')
-                    {
-                        className = "week";
-                    }
-                }
-            *@
-
+            <!-- Month box e.g. "August" -->
             <a class="feed-month" data-toggle="collapse" data-target="#month-@month.MonthNumber">
-                <p class="month">@month.GetMonthName()</p>  <!-- August -->
+                <p class="month">@month.GetMonthName()</p> 
             </a>
 
-
-                    <!-- Container for an entire month of events -->
+            <!-- Container for an entire month of events -->
             <div class="feed collapse in" id="month-@month.MonthNumber">
 
+                <!-- Looping throught every week -->
                 @foreach (var week in month.Weeks)
                 {
 
@@ -69,20 +51,19 @@
                         continue;
                     }
 
+                    <!-- Week box e.g. "Uke 2" -->
                     <div class="week-header">@week.WeekName</div>
-
                     <div class="feed-week">
 
+                        <!-- Looping throught every events -->
                         @foreach (var item in week.events) {
-                                    <!-- Start: SETT DETTE ET FINT STED (foreløpig er det her fordi over-hele-hendelse-klikkingen som gir lightbox er for overveldende) -->
 
-
-                                    <!-- End: SETT DETTE ET FINT STED (foreløpig er det her fordi over-hele-hendelse-klikkingen som gir lightbox er for overveldende) -->
 							var today = "";
 							if (item.StartDateTime.Date.Equals(DateTime.Now.Date)) {
 								today = "today";
 							}
 
+                            <!-- Link on every event -->
                             <a class="feed-container @today" data-toggle="modal" data-target="#@item.ID">
 
                                 <!-- Container for the event content -->
@@ -91,11 +72,16 @@
                                     <!-- Container for the top row -->
                                     <div class="class-info">
                                         <div class="class-date">
-                                            <p class="date-number">@item.StartDateTime.Day</p>  <!-- 17 -->
+
+                                            <!-- 17 -->
+                                            <p class="date-number">@item.StartDateTime.Day</p>  
                                         </div>
+
                                         <!-- tooltip hover extravaganza -->
                                         <div class="tip-item">
-                                            <p class="name activator timeleft">@item.Subject.Name</p>  <!-- "Grensesnittdesign" -->
+
+                                            <!-- "Grensesnittdesign" -->
+                                            <p class="name activator timeleft">@item.Subject.Name</p>
                                             @{
                                                 string timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
                                             }
@@ -118,7 +104,7 @@
                                         </div>
                                         <div class="right-position">
                                             @{
-var typeClass = "";
+                                                var typeClass = "";
 												var typeText = "";
 
 												if (item.eventType == TikTokCalendar.Models.EventType.Innlevering) {
@@ -148,7 +134,8 @@ var typeClass = "";
                                                         <!-- INSERT CHECK/ATTEND BUTTON HERE -->
 }
                                                 @if (flag2 && !flag3) {
-														<!-- real time countdown script -->
+												    
+                                                    <!-- real time countdown script -->
                                                     <script>
                                                         $(function () {
                                                             var date = new Date();
@@ -159,14 +146,14 @@ var typeClass = "";
                                                     </script>
                                                     <span>&nbsp;|</span>
                                                             <span class="countdown"></span>
-flag1 = true;
+                                                    flag1 = true;
 													flag3 = true;
 												}
                                                 @if (flag4) {
                                                     <b>&nbsp;|&nbsp;&nbsp;</b><span class="countdown">@timeLeft</span>
 
                                                         <!-- INSERT AJAX BEGIN FORM HERE WHEN READY-->
-flag1 = true;
+                                                    flag1 = true;
 													flag4 = false;
 													flag5 = true;
 
@@ -176,7 +163,7 @@ flag1 = true;
                                         </div>
 
                                         <!-- Icon displaying "..."  -->
-                                        @*<i class="fa fa-ellipsis-h fa-2x"></i>*@
+                                        
 
                                         @*<i class="seen-by">Sett av @randomNumber</i>*@
 
@@ -185,44 +172,21 @@ flag1 = true;
 												UpdateTargetId = "going-" + item.ID,
 												InsertionMode = InsertionMode.Replace })) 
 											{
-												<div class="check-in" style="position:absolute; margin-left: -200px;" id="going-@item.ID">
-														@if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
-                                                        {
-                                                            if (!EUSH.UserAttending(item.ID))
-                                                            {
-                                                                <input type="hidden" name="attend" value="true" />
-                                                                <input type="submit" value="Check-in" />
-                                                            }
-                                                            else
-                                                            {
-                                                                <strong>Innsjekket &#10004;</strong>
-                                                            }
-                                                        }
-                                                        else
-                                                        {
-                                                            if (!EUSH.UserGoing(item.ID))
-                                                            {
-                                                                <input type="hidden" name="eventid" value="@item.ID" />
-                                                                <input type="hidden" name="attend" value="false" />
-                                                                <input type="submit" value="Skal" />
-                                                            }
-                                                            else
-                                                            {
-                                                                <strong>Du skal.</strong>
-                                                            }
-                                                        }
+												<div class="check-in" id="going-@item.ID">
+														
+														@if (!EUSH.UserGoing(item.ID)) {
+															<input type="hidden" name="eventid" value="@item.ID" />
+															<input type="submit" value="Skal" />
+														}
+														@if (EUSH.UserGoing(item.ID)) {
+															<strong>Du skal.</strong>
+														}
 														<div class="tip-item">
 															<span class="activator usersgoing">[@EUSH.HowManyUsersGoing(item.ID) skal]</span>
 															<div class="tip usersgoing">
 																@foreach (var eus in Model.eventUserStats) {
 																	if (eus.EventID == item.ID) {
-																		<span>
-                                                                            @if(EUSH.UserAttending(item.ID))
-                                                                            {
-                                                                            <span>&#10004;</span>
-                                                                            }
-                                                                @eus.UserName<br />
-                                                                        </span>
+																		<span>@eus.UserName<br /></span>
 																	}
 																}
 															</div>
@@ -238,67 +202,67 @@ flag1 = true;
 
                             <div class="horizontal-line"></div>
 
-                                            <!-- "More info" modal -->
-                                            <div class="content-hidden modal fade" id="@item.ID" role="dialog">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
+                                <!-- "More info" modal -->
+                                <div class="content-hidden modal fade" id="@item.ID" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
 
-                                                        <!-- Modal header -->
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                            @item.Subject.Name
-                                                        </div>
+                                            <!-- Modal header -->
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                @item.Subject.Name
+                                            </div>
 
-                                                        <!-- Modal body -->
-                                                        <div class="modal-body">
-                                                            <div class="info-rows">
-                                                                <span class="modal-left">
-                                                                    <strong>Tid</strong>
-                                                                </span>
-                                                                <span class="modal-right">
-                                                                    @item.GetDayOfWeek(), @item.GetTimeSlot()
-                                                                </span>
-                                                            </div>
-                                                            <div class="info-rows">
-                                                                <span class="modal-left">
-                                                                    <strong>Uke</strong>
-                                                                </span>
-                                                                <span class="modal-right">
-                                                                    @week.WeekNumber
-                                                                </span>
-                                                            </div>
-                                                            <div class="info-rows">
-                                                                <span class="modal-left">
-                                                                    <strong>Rom</strong>
-                                                                </span>
-                                                                <span class="modal-right">
-                                                                    @item.RoomName
-                                                                </span>
-                                                            </div>
-                                                            <div class="info-rows">
-                                                                <span class="modal-left">
-                                                                    <strong>Lærer</strong>
-                                                                </span>
-                                                                <span class="modal-right">
-                                                                    @item.Teacher
-                                                                </span>
-                                                            </div>
-                                                            <div class="info-rows">
-                                                                <span class="modal-left">
-                                                                    <strong>Kommentar</strong>
-                                                                </span>
-                                                                <span class="modal-right">
-                                                                    @item.Comment
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                <div class="info-rows">
+                                                    <span class="modal-left">
+                                                        <strong>Tid</strong>
+                                                    </span>
+                                                    <span class="modal-right">
+                                                        @item.GetDayOfWeek(), @item.GetTimeSlot()
+                                                    </span>
+                                                </div>
+                                                <div class="info-rows">
+                                                    <span class="modal-left">
+                                                        <strong>Uke</strong>
+                                                    </span>
+                                                    <span class="modal-right">
+                                                        @week.WeekNumber
+                                                    </span>
+                                                </div>
+                                                <div class="info-rows">
+                                                    <span class="modal-left">
+                                                        <strong>Rom</strong>
+                                                    </span>
+                                                    <span class="modal-right">
+                                                        @item.RoomName
+                                                    </span>
+                                                </div>
+                                                <div class="info-rows">
+                                                    <span class="modal-left">
+                                                        <strong>Lærer</strong>
+                                                    </span>
+                                                    <span class="modal-right">
+                                                        @item.Teacher
+                                                    </span>
+                                                </div>
+                                                <div class="info-rows">
+                                                    <span class="modal-left">
+                                                        <strong>Kommentar</strong>
+                                                    </span>
+                                                    <span class="modal-right">
+                                                        @item.Comment
+                                                    </span>
                                                 </div>
                                             </div>
-                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                }
 
-                    </div>
-                                           }
+        </div>
+                                }
             </div>
           }
     </div>
