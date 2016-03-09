@@ -48,6 +48,7 @@
 								today = "today";
 							}
 
+                            <!-- Link on every event -->
                             <a class="feed-container @today" data-toggle="modal" data-target="#@item.ID">
 
                                 <!-- Container for the event content -->
@@ -56,13 +57,18 @@
                                     <!-- Container for the top row -->
                                     <div class="class-info">
                                         <div class="class-date">
-                                            <p class="date-number">@item.StartDateTime.Day</p>  <!-- 17 -->
+
+                                            <!-- 17 -->
+                                            <p class="date-number">@item.StartDateTime.Day</p>  
                                         </div>
+
                                         <!-- tooltip hover extravaganza -->
                                         <div class="tip-item">
-                                            <p class="name activator timeleft">@item.Subject.Name</p>  <!-- "Grensesnittdesign" -->
+
+                                            <!-- "Grensesnittdesign" -->
+                                            <p class="name activator timeleft">@item.Subject.Name</p>
                                             @{
-string timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
+                                                string timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
                                             }
                                             @if (timeLeft != "") {
 												if (flag1) {
@@ -113,7 +119,8 @@ var typeClass = "";
                                                         <!-- INSERT CHECK/ATTEND BUTTON HERE -->
 }
                                                 @if (flag2 && !flag3) {
-														<!-- real time countdown script -->
+												    
+                                                    <!-- real time countdown script -->
                                                     <script>
                                                         $(function () {
                                                             var date = new Date();
@@ -141,7 +148,7 @@ flag1 = true;
                                         </div>
 
                                         <!-- Icon displaying "..."  -->
-                                        @*<i class="fa fa-ellipsis-h fa-2x"></i>*@
+                                        
 
                                         @*<i class="seen-by">Sett av @randomNumber</i>*@
 
