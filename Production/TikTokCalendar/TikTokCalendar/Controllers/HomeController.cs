@@ -242,10 +242,13 @@ namespace TikTokCalendar.Controllers
 				name = cookie.LoadStringFromCookie("UserName");
 			}
 			string uc = cookie.LoadStringFromCookie("UserCourse");
+			/*
 			if (!string.IsNullOrEmpty(uc))
 			{
 				course = cookie.LoadStringFromCookie("UserCourse");
 			}
+			*/
+			course = uc;
 
 			SchoolCourses schoolCourse = Course.GetCourseFromName(course);
 			return new StudentUser(name, schoolCourse); //If cookie name && course == default, name = anonym14, course = "VisAlt"

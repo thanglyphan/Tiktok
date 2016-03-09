@@ -61,7 +61,7 @@ function showLogin() {
                     }
                 })
                 //window.location.reload();
-                //return;
+                return;
             }
 
 

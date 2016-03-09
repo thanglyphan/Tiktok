@@ -7,6 +7,41 @@ namespace TikTokCalendar.DAL
 	public class Cookies : System.Web.UI.Page
 	{
 		
+		/*
+		public void SaveIntToCookie(int a)
+		{
+			try {
+				HttpCookie WeekOrMonthCookie = new HttpCookie("WeekMonth");
+				WeekOrMonthCookie.Value = a.ToString();
+				WeekOrMonthCookie.Expires = DateTime.Now.AddYears(1);
+				Console.WriteLine("FROM COOKES.CS" + a);
+				HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
+			}
+			catch (HttpException e) {
+				Console.Write("Cookies.cs - SaveIntToCookies " + e.ErrorCode);
+			}
+		}
+		*/
+		public void DeleteCookies()
+		{
+			try {
+				HttpCookie delC = new HttpCookie("UserName");
+				HttpCookie delD = new HttpCookie("UserCouese");
+
+				delC.Expires = DateTime.Now.AddDays(-1);
+				delD.Expires = DateTime.Now.AddDays(-1);
+
+				delC.Value = "anonym14";
+				delD.Value = "VisAlt";
+
+				HttpContext.Current.Response.Cookies.Add(delC);
+				HttpContext.Current.Response.Cookies.Add(delD);
+			}catch (HttpException e) {
+				Console.WriteLine(e.ToString());
+			}
+
+
+		}
 		public void SaveNameToCookie(String a)
 		{
 			try {
@@ -26,37 +61,6 @@ namespace TikTokCalendar.DAL
 				Console.Write("Cookies.cs - SaveNameToCookies " + e.ErrorCode);
 			}
 		}
-		/*
-		public void SaveIntToCookie(int a)
-		{
-			try {
-				HttpCookie WeekOrMonthCookie = new HttpCookie("WeekMonth");
-				WeekOrMonthCookie.Value = a.ToString();
-				WeekOrMonthCookie.Expires = DateTime.Now.AddYears(1);
-				Console.WriteLine("FROM COOKES.CS" + a);
-				HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
-			}
-			catch (HttpException e) {
-				Console.Write("Cookies.cs - SaveIntToCookies " + e.ErrorCode);
-			}
-		}
-		*/
-		public void DeleteCookies()
-		{
-			HttpCookie delC = new HttpCookie("UserName");
-			HttpCookie delD = new HttpCookie("UserCouese");
-
-			delC.Expires = DateTime.Now.AddDays(-1);
-			delD.Expires = DateTime.Now.AddDays(-1);
-
-			delC.Value = "anonym14";
-			delD.Value = "VisAlt";
-
-			HttpContext.Current.Response.Cookies.Add(delC);
-			HttpContext.Current.Response.Cookies.Add(delC);
-
-		}
-
 		public void SaveCourseToCookie(String a)
 		{
 			try {
