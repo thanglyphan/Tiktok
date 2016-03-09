@@ -142,7 +142,7 @@ function showLogin() {
                             	window.location.reload();
                             }
                         })
-
+                        return;
                         //window.location.reload();
                     }
                 })

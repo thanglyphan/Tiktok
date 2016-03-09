@@ -25,17 +25,26 @@ namespace TikTokCalendar.DAL
 		public void DeleteCookies()
 		{
 			try {
-				HttpCookie delC = new HttpCookie("UserName");
-				HttpCookie delD = new HttpCookie("UserCouese");
+				
+				HttpCookie name = new HttpCookie("UserName");
+				HttpCookie course = new HttpCookie("UserCourse");
+				
+				name.Value = "anonym14";
+				course.Value = "VisAlt";
 
-				delC.Expires = DateTime.Now.AddDays(-1);
-				delD.Expires = DateTime.Now.AddDays(-1);
+				name.Expires = DateTime.Now.AddDays(-1);
+				course.Expires = DateTime.Now.AddDays(-1);
 
-				delC.Value = "anonym14";
-				delD.Value = "VisAlt";
-
-				HttpContext.Current.Response.Cookies.Add(delC);
-				HttpContext.Current.Response.Cookies.Add(delD);
+				HttpContext.Current.Response.Cookies.Add(name);
+				HttpContext.Current.Response.Cookies.Add(course);
+				
+				/*
+				HttpCookie name = new HttpCookie("UserName");
+				HttpCookie course = new HttpCookie("UserCouese");
+				name = HttpContext.Current.Request.Cookies["UserName"];
+				course = HttpContext.Current.Request.Cookies[key];
+				if ()
+					*/
 			}catch (HttpException e) {
 				Console.WriteLine(e.ToString());
 			}
