@@ -49,8 +49,8 @@ namespace TikTokCalendar.DAL
 			delC.Expires = DateTime.Now.AddDays(-1);
 			delD.Expires = DateTime.Now.AddDays(-1);
 
-			delC.Value = null;
-			delD.Value = null;
+			delC.Value = "anonym14";
+			delD.Value = "VisAlt";
 
 			HttpContext.Current.Response.Cookies.Add(delC);
 			HttpContext.Current.Response.Cookies.Add(delC);
