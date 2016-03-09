@@ -138,7 +138,8 @@ function showLogin() {
                                 console.log("error");
                             },
                             success: function (a) {
-                                console.log("success" + a);
+                            	console.log("success" + a);
+                            	window.location.reload();
                             }
                         })
 
