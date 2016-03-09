@@ -119,7 +119,7 @@ header .login-button {
 
 .feed-month, month-month {
     background-color: #699df1;
-    margin-bottom: 8px;
+	margin-top: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 3px 3px 0px 0px;
@@ -306,11 +306,25 @@ header .login-button {
     margin-top: 5px;
 }
 
-.seen-by {
+.check-in {
 	float: right;
 	font-size: 14px;
-	color: #aaa;
 	opacity: initial;
+}
+
+.check-in * {
+	display: inline;
+}
+
+.check-in input {
+	background-color: #3288e6;
+	color: #fff;
+	border-radius: 2px;
+	border: 0;
+	padding: 0.3em;
+	font-family: "Helvetica Neue", sans-serif;
+	text-transform: uppercase;
+	font-size: 0.8em;
 }
 
 /*======================================

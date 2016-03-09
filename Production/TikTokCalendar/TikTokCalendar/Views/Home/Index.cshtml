@@ -73,51 +73,16 @@
 
                     <div class="feed-week">
 
-                        @foreach (var item in week.events)
-                        {
+                        @foreach (var item in week.events) {
 
                                     <!-- Start: SETT DETTE ET FINT STED (foreløpig er det her fordi over-hele-hendelse-klikkingen som gir lightbox er for overveldende) -->
 
-                            using (Ajax.BeginForm("UserStatUpdate", "Home",
-                                new AjaxOptions
-                                {
-                                    HttpMethod = "POST",
-                                    UpdateTargetId = "going-" + item.ID,
-                                    InsertionMode = InsertionMode.Replace
-                                }))
-                            {
-                                <div style="position: absolute; margin-left: -60px; margin-top: 15px">
-                                    <div id="going-@item.ID">
-                                        <div class="tip-item">
-                                            <span class="activator usersgoing">[@EUSH.HowManyUsersGoing(item.ID) skal]</span>
-                                            <div class="tip usersgoing">
-                                                @foreach (var eus in Model.eventUserStats)
-                                                {
-                                                    if (eus.EventID == item.ID)
-                                                    {
-                                                        <span>@eus.UserName<br /></span>
-                                                    }
-                                                }
-                                            </div>
-                                        </div>
-                                        @if (!EUSH.UserGoing(item.ID))
-                                        {
-                                            <input type="hidden" name="eventid" value="@item.ID" />
-                                            <input type="submit" value="Skal" />
-                                        }
-                                        @if (EUSH.UserGoing(item.ID))
-                                        {
-                                            <b>Du skal.</b>
-                                        }
-                                    </div>
-                                </div>
-                            }
+
                                     <!-- End: SETT DETTE ET FINT STED (foreløpig er det her fordi over-hele-hendelse-klikkingen som gir lightbox er for overveldende) -->
-                            var today = "";
-                            if (item.StartDateTime.Date.Equals(DateTime.Now.Date))
-                            {
-                                today = "today";
-                            }
+							var today = "";
+							if (item.StartDateTime.Date.Equals(DateTime.Now.Date)) {
+								today = "today";
+							}
 
                             <a class="feed-container @today" data-toggle="modal" data-target="#@item.ID">
 
@@ -133,46 +98,38 @@
                                         <div class="tip-item">
                                             <p class="name activator timeleft">@item.Subject.Name</p>  <!-- "Grensesnittdesign" -->
                                             @{
-                                                string timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
+string timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
                                             }
-                                            @if (timeLeft != "")
-                                            {
-                                                if (flag1)
-                                                {
+                                            @if (timeLeft != "") {
+												if (flag1) {
                                                     <div class="tip timeleft">@timeLeft</div>
-                                                }
-                                                if (!flag2 && !flag5)
-                                                {
+}
+												if (!flag2 && !flag5) {
 
-                                                    if (item.StartDateTime < DateTime.Now.AddHours(24))
-                                                    {
-                                                        if (item.StartDateTime < DateTime.Now.AddHours(1))
-                                                        {
-                                                            flag2 = true;
-                                                        }
-                                                        else
-                                                        {
-                                                            flag4 = true;
-                                                        }
-                                                    }
-                                                }
-                                            }
+													if (item.StartDateTime < DateTime.Now.AddHours(24)) {
+														if (item.StartDateTime < DateTime.Now.AddHours(1)) {
+															flag2 = true;
+														}
+														else {
+															flag4 = true;
+														}
+													}
+												}
+											}
                                         </div>
                                         <div class="right-position">
                                             @{
-                                                var typeClass = "";
-                                                var typeText = "";
+var typeClass = "";
+												var typeText = "";
 
-                                                if (item.eventType == TikTokCalendar.Models.EventType.Innlevering)
-                                                {
-                                                    typeClass = "assignment";
-                                                    typeText = "Innlevering";
-                                                }
-                                                else if (item.eventType == TikTokCalendar.Models.EventType.Eksamen)
-                                                {
-                                                    typeClass = "exam";
-                                                    typeText = "Eksamen";
-                                                }
+												if (item.eventType == TikTokCalendar.Models.EventType.Innlevering) {
+													typeClass = "assignment";
+													typeText = "Innlevering";
+												}
+												else if (item.eventType == TikTokCalendar.Models.EventType.Eksamen) {
+													typeClass = "exam";
+													typeText = "Eksamen";
+												}
                                             }
 
 
@@ -187,13 +144,11 @@
                                             <!-- Date and time  -->
                                             <p class="time">
                                                 <strong>&nbsp;@item.GetDayOfWeek()</strong>, @item.GetTimeSlot()
-                                                @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
-                                                {
+                                                @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
                                                     <b>&nbsp;|&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
                                                         <!-- INSERT CHECK/ATTEND BUTTON HERE -->
-                                                }
-                                                @if (flag2 && !flag3)
-                                                {
+}
+                                                @if (flag2 && !flag3) {
 														<!-- real time countdown script -->
                                                     <script>
                                                         $(function () {
@@ -205,31 +160,53 @@
                                                     </script>
                                                     <span>&nbsp;|</span>
                                                             <span class="countdown"></span>
-                                                    flag1 = true;
-                                                    flag3 = true;
-                                                }
-                                                @if (flag4)
-                                                {
+flag1 = true;
+													flag3 = true;
+												}
+                                                @if (flag4) {
                                                     <b>&nbsp;|&nbsp;&nbsp;</b><span class="countdown">@timeLeft</span>
 
                                                         <!-- INSERT AJAX BEGIN FORM HERE WHEN READY-->
-                                                    flag1 = true;
-                                                    flag4 = false;
-                                                    flag5 = true;
+flag1 = true;
+													flag4 = false;
+													flag5 = true;
 
 
-                                                }
+												}
                                             </p>
                                         </div>
 
                                         <!-- Icon displaying "..."  -->
                                         @*<i class="fa fa-ellipsis-h fa-2x"></i>*@
 
-                                        @{
-                                            var r = new Random();
-                                            var randomNumber = r.Next(20);
-                                        }
-                                        <i class="seen-by">Sett av @randomNumber</i>
+                                        @*<i class="seen-by">Sett av @randomNumber</i>*@
+
+										@using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions {
+												HttpMethod = "POST",
+												UpdateTargetId = "going-" + item.ID,
+												InsertionMode = InsertionMode.Replace })) 
+											{
+												<div class="check-in" id="going-@item.ID">
+														
+														@if (!EUSH.UserGoing(item.ID)) {
+															<input type="hidden" name="eventid" value="@item.ID" />
+															<input type="submit" value="Skal" />
+														}
+														@if (EUSH.UserGoing(item.ID)) {
+															<strong>Du skal.</strong>
+														}
+														<div class="tip-item">
+															<span class="activator usersgoing">[@EUSH.HowManyUsersGoing(item.ID) skal]</span>
+															<div class="tip usersgoing">
+																@foreach (var eus in Model.eventUserStats) {
+																	if (eus.EventID == item.ID) {
+																		<span>@eus.UserName<br /></span>
+																	}
+																}
+															</div>
+														</div>
+													</div>
+												}
 
                                     </div>
                                 </div>
