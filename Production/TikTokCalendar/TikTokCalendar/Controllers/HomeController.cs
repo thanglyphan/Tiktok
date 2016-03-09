@@ -38,7 +38,7 @@ namespace TikTokCalendar.Controllers
 			}
 			else
 			{
-				ViewBag.Title = "shit why";
+				ViewBag.Title = "not logged in";
 				//ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
 			}
 			
