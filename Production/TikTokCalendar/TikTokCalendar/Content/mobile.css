@@ -65,11 +65,10 @@ E V E N T S
 
     .mobile-content-container {
         background-color: white;
-        padding: 10px;
         border: 1px solid #899093;
         text-align: center;
         height: 380px;
-        padding-bottom: 60px;
+        
     }
 
     .mobile-content-container-inner {
@@ -77,6 +76,16 @@ E V E N T S
         margin: 0 auto;
     }
 
+    .mobile-date-top {
+        height: 20px;
+        width: 100%;
+        background-color: #b8bcc1;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        line-height: 0em;
+        padding: 1.3em;
+    }
 
     .mobile-course {
         padding-top: 30px;
