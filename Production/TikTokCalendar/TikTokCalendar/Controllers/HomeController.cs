@@ -88,6 +88,10 @@ namespace TikTokCalendar.Controllers
 
 			return page;
 		}
+		public ActionResult Test()
+		{
+			return View();
+		}
 
 		private bool SameYear(CalendarEvent calEvent, StudentUser user)
 		{
