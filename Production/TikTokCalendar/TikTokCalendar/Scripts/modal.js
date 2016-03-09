@@ -1,7 +1,7 @@
 ﻿
 function checkLogin() {
     $.ajax({
-        url: "Home/GetVisited",
+        url: "/Home/GetVisited",
         type: "GET",
         dataType: "json",
         success: function (data) {
