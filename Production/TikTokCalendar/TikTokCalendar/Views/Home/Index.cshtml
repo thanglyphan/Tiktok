@@ -178,7 +178,7 @@
 
 									<!-- "More info" modal -->
 									<div class="content-hidden modal fade" id="@item.ID" role="dialog">
-										<div class="modal-dialog modal-lg">
+										<div class="modal-dialog">
 											<div class="modal-content">
 
 												<!-- Modal header -->
@@ -189,34 +189,46 @@
 
 												<!-- Modal body -->
 												<div class="modal-body">
-													<p>
-														<strong>Tid:</strong>
-														@item.GetDayOfWeek(), @item.GetTimeSlot()
-													</p>
-													<p>
-														<strong>Attendees:</strong>
-														
-													</p>
-													<p>
-														<strong>EventName:</strong>
-														@item.Subject.Name
-													</p>
-													<p>
-														<strong>Uke:</strong>
-														@week.WeekNumber
-													</p>
-													<p>
-														<strong>Rom:</strong>
-														@item.RoomName
-													</p>
-													<p>
-														<strong>Lærer:</strong>
-														@item.Teacher
-													</p>
-													<p>
-														<strong>Kommentar:</strong>
-														@item.Comment
-													</p>
+													<div class="info-rows">
+														<span class="modal-left">
+															<strong>Tid:</strong>
+														</span>
+														<span class="modal-right">
+															@item.GetDayOfWeek(), @item.GetTimeSlot()
+														</span>
+													</div>
+													<div class="info-rows">
+														<span class="modal-left">
+															<strong>Uke:</strong>
+														</span>
+														<span class="modal-right">
+															@week.WeekNumber
+														</span>
+													</div>
+													<div class="info-rows">
+														<span class="modal-left">
+															<strong>Rom:</strong>
+														</span>
+														<span class="modal-right">
+															@item.RoomName
+														</span>
+													</div>
+													<div class="info-rows">
+														<span class="modal-left">
+															<strong>Lærer:</strong>
+														</span>
+														<span class="modal-right">
+															@item.Teacher
+														</span>
+													</div>
+													<div class="info-rows">
+														<span class="modal-left">
+															<strong>Kommentar:</strong>
+														</span>
+														<span class="modal-right">
+															@item.Comment
+														</span>
+													</div>
 												</div>
 											</div>
 										</div>

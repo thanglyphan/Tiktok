@@ -1,9 +1,22 @@
-﻿.content-hidden {
+﻿.content-hidden .modal-dialog {
+	width: 400px;
+}
+
+.content-hidden .modal-left {
 	
 }
 
+.content-hidden .modal-right {
+	float: right;
+}
+
+.content-hidden .info-rows {
+	margin-top:  5px;
+	margin-bottom:  5px;
+}
+
 .content-hidden .modal-header, .vex-dialog-message {
-	border: 0;
+	
 	font-size: 1.5em;
 	text-align: center;
 }
@@ -13,6 +26,7 @@
 	border: 0;
 	border-radius: 5px;
 	background-color: #f0f0f0;
+	
 }
 
 .modal-backdrop {
