@@ -251,17 +251,42 @@ namespace TikTokCalendar.Controllers
 			return new StudentUser(name, schoolCourse); //If cookie name && course == default, name = anonym14, course = "VisAlt"
 		}
 
-        public PartialViewResult UserStatUpdate(int eventid)
+        public PartialViewResult UserStatUpdate(int eventid, bool attend)
         {
-            //System.Threading.Thread.Sleep(3000);
             var db = new CalendarEventContext();
             string userName = cookie.LoadStringFromCookie("UserName");
             //int eventID = Int32.Parse(Request.Form["eventid"]);
             if (userName.Length >= 8)
             {
-                db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now });
+                if (attend)
+                {
+                    bool alreadyGoing = false;
+                    foreach (EventUserStat eus in db.EventUserStats)
+                    {
+                        if (eus.UserName == userName && eus.EventID == eventid
+                            && !eus.Attend) // just in case
+                        {
+                            eus.Attend = true;
+                            alreadyGoing = true;
+                            // here: calculate score based on eus.GoingTime, ADD "SCORE" TO ACCOUNT.CS?
+                        }
+                    }
+                    if (!alreadyGoing)
+                    {
+                        db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now, Attend = true });
+                    }
+                }
+                else
+                {
+                    db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now });
+                }
                 db.SaveChanges();
             }
+            else
+            {
+                // possibly return another view showing error message (maybe do more validation like this?)
+            }
+
             ModelDataWrapper modelWrapper = new ModelDataWrapper();
             EUSH_global.ID_ATM = eventid;
             return PartialView("_UserStatUpdate", modelWrapper);

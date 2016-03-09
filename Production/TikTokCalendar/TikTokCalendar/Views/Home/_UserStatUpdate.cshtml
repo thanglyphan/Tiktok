@@ -13,11 +13,11 @@
 			})
 		</script>
 
-@if (!EUSH.UserGoing(EUSH_global.ID_ATM))
+@*@if (!EUSH.UserGoing(EUSH_global.ID_ATM))
 {
     <input type="hidden" name="eventid" value="@EUSH_global.ID_ATM" />
     <input type="submit" value="Skal" />
-}
+}*@
 <div class="tip-item">
     <span class="activator usersgoing">[@EUSH.HowManyUsersGoing(EUSH_global.ID_ATM) skal]</span>
     <div class="tip usersgoing">
@@ -25,12 +25,22 @@
         {
             if (eus.EventID == EUSH_global.ID_ATM)
             {
-                <span>@eus.UserName<br /></span>
+                <span>
+                    @if (EUSH.UserAttending(EUSH_global.ID_ATM))
+                    {
+                        <span>&#10004;</span>
+                    }
+                    @eus.UserName<br />
+                </span>
             }
         }
     </div>
 </div>
 @if (EUSH.UserGoing(EUSH_global.ID_ATM))
 {
-    <b>Du skal.</b>
+    <strong>Du skal.</strong>
+}
+else if (EUSH.UserAttending(EUSH_global.ID_ATM))
+{
+    <strong>Innsjekket &#10004;</strong>
 }

@@ -74,7 +74,6 @@
                     <div class="feed-week">
 
                         @foreach (var item in week.events) {
-
                                     <!-- Start: SETT DETTE ET FINT STED (foreløpig er det her fordi over-hele-hendelse-klikkingen som gir lightbox er for overveldende) -->
 
 
@@ -98,7 +97,7 @@
                                         <div class="tip-item">
                                             <p class="name activator timeleft">@item.Subject.Name</p>  <!-- "Grensesnittdesign" -->
                                             @{
-string timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
+                                                string timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
                                             }
                                             @if (timeLeft != "") {
 												if (flag1) {
@@ -186,21 +185,44 @@ flag1 = true;
 												UpdateTargetId = "going-" + item.ID,
 												InsertionMode = InsertionMode.Replace })) 
 											{
-												<div class="check-in" id="going-@item.ID">
-														
-														@if (!EUSH.UserGoing(item.ID)) {
-															<input type="hidden" name="eventid" value="@item.ID" />
-															<input type="submit" value="Skal" />
-														}
-														@if (EUSH.UserGoing(item.ID)) {
-															<strong>Du skal.</strong>
-														}
+												<div class="check-in" style="position:absolute; margin-left: -200px;" id="going-@item.ID">
+														@if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
+                                                        {
+                                                            if (!EUSH.UserAttending(item.ID))
+                                                            {
+                                                                <input type="hidden" name="attend" value="true" />
+                                                                <input type="submit" value="Check-in" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <strong>Innsjekket &#10004;</strong>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            if (!EUSH.UserGoing(item.ID))
+                                                            {
+                                                                <input type="hidden" name="eventid" value="@item.ID" />
+                                                                <input type="hidden" name="attend" value="false" />
+                                                                <input type="submit" value="Skal" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <strong>Du skal.</strong>
+                                                            }
+                                                        }
 														<div class="tip-item">
 															<span class="activator usersgoing">[@EUSH.HowManyUsersGoing(item.ID) skal]</span>
 															<div class="tip usersgoing">
 																@foreach (var eus in Model.eventUserStats) {
 																	if (eus.EventID == item.ID) {
-																		<span>@eus.UserName<br /></span>
+																		<span>
+                                                                            @if(EUSH.UserAttending(item.ID))
+                                                                            {
+                                                                            <span>&#10004;</span>
+                                                                            }
+                                                                @eus.UserName<br />
+                                                                        </span>
 																	}
 																}
 															</div>

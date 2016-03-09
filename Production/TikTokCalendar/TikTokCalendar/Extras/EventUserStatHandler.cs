@@ -30,6 +30,19 @@ namespace TikTokCalendar
             return false;
         }
 
+        public bool UserAttending(int id)
+        {
+            string userName = cookie.LoadStringFromCookie("UserName");
+            foreach (EventUserStat eus in db.EventUserStats)
+            {
+                if (eus.UserName == userName && eus.EventID == id && eus.Attend)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public int HowManyUsersGoing(int id)
         {
             int counter = 0;
