@@ -341,6 +341,7 @@
     <Content Include="Views\CalendarEvent\Edit.cshtml" />
     <Content Include="Views\CalendarEvent\Index.cshtml" />
     <Content Include="Views\Home\Mobile.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

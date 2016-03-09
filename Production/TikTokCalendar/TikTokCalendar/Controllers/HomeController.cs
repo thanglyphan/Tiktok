@@ -206,6 +206,11 @@ namespace TikTokCalendar.Controllers
 			SchoolCourses schoolCourse = Course.GetCourseFromName(course);
 			return new StudentUser(name, schoolCourse); //If cookie name && course == default, name = anonym14, course = "VisAlt"
 		}
+
+		public ActionResult Test()
+		{
+			return View();
+		}
 	}
 
 }
