@@ -17,229 +17,231 @@
     bool flag5 = false;
 }
 
-    <!-- Holds global settings and spans the entire page   -->
-    <main>
+<!-- Holds global settings and spans the entire page   -->
+<main>
 
-        <!-- tooltip hover plugin initialization -->
-        <script type="text/javascript">
-			jQuery(function () {
-				jQuery('.activator.timeleft').BAToolTip({
-					tipOpacity: 0.9,
-					tipOffset: 20
-				});
-				jQuery('.activator.usersgoing').BAToolTip({
-				    tipOpacity: 0.9,
-				    tipOffset: 20
-				});
-			})
-		</script>
+    <!-- tooltip hover plugin initialization -->
+    <script type="text/javascript">
+        jQuery(function () {
+            jQuery('.activator.timeleft').BAToolTip({
+                tipOpacity: 0.9,
+                tipOffset: 20
+            });
+            jQuery('.activator.usersgoing').BAToolTip({
+                tipOpacity: 0.9,
+                tipOffset: 20
+            });
+        })
+    </script>
 
-        <div class="main-body">
+    <div class="main-body">
 
-                @foreach (var month in Model.Months)
-                {	
-                    //var className = "month-month";
+        @foreach (var month in Model.Months)
+        {
+            //var className = "month-month";
 
 					<!-- Displays the month name -->
-					
-					@*
+
+            @*
+                {
+                    var weekOrMonth = month.GetMonthName();
+
+                    if (weekOrMonth[0] == 'U')
                     {
-                        var weekOrMonth = month.GetMonthName();
-
-                        if (weekOrMonth[0] == 'U')
-                        {
-                            className = "week";
-                        }
+                        className = "week";
                     }
-					*@
+                }
+            *@
 
-                    <a class="feed-month" data-toggle="collapse" data-target="#month-@month.MonthNumber">
-                        <p class="month">@month.GetMonthName()</p>  <!-- August -->
-                    </a>
-					
+            <a class="feed-month" data-toggle="collapse" data-target="#month-@month.MonthNumber">
+                <p class="month">@month.GetMonthName()</p>  <!-- August -->
+            </a>
+
 
                     <!-- Container for an entire month of events -->
-                    <div class="feed collapse in" id="month-@month.MonthNumber">
+            <div class="feed collapse in" id="month-@month.MonthNumber">
 
-						@foreach (var week in month.Weeks) {
+                @foreach (var week in month.Weeks)
+                {
 
-							if (week.events.Count <= 0) {
-								continue;
-							}
+                    if (week.events.Count <= 0)
+                    {
+                        continue;
+                    }
 
-							<div class="week-header">@week.WeekName</div>
+                    <div class="week-header">@week.WeekName</div>
 
-							<div class="feed-week">
+                    <div class="feed-week">
 
-								@foreach (var item in week.events)
-                                {
+                        @foreach (var item in week.events)
+                        {
 
                                     <!-- Start: SETT DETTE ET FINT STED (foreløpig er det her fordi over-hele-hendelse-klikkingen som gir lightbox er for overveldende) -->
 
-                                    using (Ajax.BeginForm("UserStatUpdate", "Home",
-                                        new AjaxOptions
-                                        {
-                                            HttpMethod = "POST",
-                                            UpdateTargetId = "going-" + item.ID,
-                                            InsertionMode = InsertionMode.Replace
-                                        }))
-                                    {
-                                        <div style="position: absolute; margin-left: -60px; margin-top: 15px">
-                                            <div id="going-@item.ID">
-                                                <div class="tip-item">
-                                                    <span class="activator usersgoing">[@EUSH.HowManyUsersGoing(item.ID) skal]</span>
-                                                    <div class="tip usersgoing">
-                                                        @foreach (var eus in Model.eventUserStats)
-                                                        {
-                                                            if (eus.EventID == item.ID)
-                                                            {
-                                                                <span>@eus.UserName<br /></span>
-                                                            }
-                                                        }
-                                                    </div>
-                                                </div>
-                                                @if (!EUSH.UserGoing(item.ID))
+                            using (Ajax.BeginForm("UserStatUpdate", "Home",
+                                new AjaxOptions
+                                {
+                                    HttpMethod = "POST",
+                                    UpdateTargetId = "going-" + item.ID,
+                                    InsertionMode = InsertionMode.Replace
+                                }))
+                            {
+                                <div style="position: absolute; margin-left: -60px; margin-top: 15px">
+                                    <div id="going-@item.ID">
+                                        <div class="tip-item">
+                                            <span class="activator usersgoing">[@EUSH.HowManyUsersGoing(item.ID) skal]</span>
+                                            <div class="tip usersgoing">
+                                                @foreach (var eus in Model.eventUserStats)
                                                 {
-                                                    <input type="hidden" name="eventid" value="@item.ID" />
-                                                    <input type="submit" value="Skal" />
-                                                }
-                                                @if (EUSH.UserGoing(item.ID))
-                                                {
-                                                    <b>Du skal.</b>
+                                                    if (eus.EventID == item.ID)
+                                                    {
+                                                        <span>@eus.UserName<br /></span>
+                                                    }
                                                 }
                                             </div>
                                         </div>
-                                    }
-                                            <!-- End: SETT DETTE ET FINT STED (foreløpig er det her fordi over-hele-hendelse-klikkingen som gir lightbox er for overveldende) -->
-                                            var today = "";
-                                            if (item.StartDateTime.Date.Equals(DateTime.Now.Date))
+                                        @if (!EUSH.UserGoing(item.ID))
+                                        {
+                                            <input type="hidden" name="eventid" value="@item.ID" />
+                                            <input type="submit" value="Skal" />
+                                        }
+                                        @if (EUSH.UserGoing(item.ID))
+                                        {
+                                            <b>Du skal.</b>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                                    <!-- End: SETT DETTE ET FINT STED (foreløpig er det her fordi over-hele-hendelse-klikkingen som gir lightbox er for overveldende) -->
+                            var today = "";
+                            if (item.StartDateTime.Date.Equals(DateTime.Now.Date))
+                            {
+                                today = "today";
+                            }
+
+                            <a class="feed-container @today" data-toggle="modal" data-target="#@item.ID">
+
+                                <!-- Container for the event content -->
+                                <div class="content">
+
+                                    <!-- Container for the top row -->
+                                    <div class="class-info">
+                                        <div class="class-date">
+                                            <p class="date-number">@item.StartDateTime.Day</p>  <!-- 17 -->
+                                        </div>
+                                        <!-- tooltip hover extravaganza -->
+                                        <div class="tip-item">
+                                            <p class="name activator timeleft">@item.Subject.Name</p>  <!-- "Grensesnittdesign" -->
+                                            @{
+                                                string timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
+                                            }
+                                            @if (timeLeft != "")
                                             {
-                                            today = "today";
+                                                if (flag1)
+                                                {
+                                                    <div class="tip timeleft">@timeLeft</div>
+                                                }
+                                                if (!flag2 && !flag5)
+                                                {
+
+                                                    if (item.StartDateTime < DateTime.Now.AddHours(24))
+                                                    {
+                                                        if (item.StartDateTime < DateTime.Now.AddHours(1))
+                                                        {
+                                                            flag2 = true;
+                                                        }
+                                                        else
+                                                        {
+                                                            flag4 = true;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        </div>
+                                        <div class="right-position">
+                                            @{
+                                                var typeClass = "";
+                                                var typeText = "";
+
+                                                if (item.eventType == TikTokCalendar.Models.EventType.Innlevering)
+                                                {
+                                                    typeClass = "assignment";
+                                                    typeText = "Innlevering";
+                                                }
+                                                else if (item.eventType == TikTokCalendar.Models.EventType.Eksamen)
+                                                {
+                                                    typeClass = "exam";
+                                                    typeText = "Eksamen";
+                                                }
                                             }
 
-                                            <a class="feed-container @today" data-toggle="modal" data-target="#@item.ID">
 
-                                                <!-- Container for the event content -->
-                                                <div class="content">
+                                            <p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
+                                            <p class="room">@item.RoomName</p>  <!-- "Rom 41" -->
+                                        </div>
+                                    </div>
 
-                                                    <!-- Container for the top row -->
-                                                    <div class="class-info">
-                                                        <div class="class-date">
-                                                            <p class="date-number">@item.StartDateTime.Day</p>  <!-- 17 -->
-                                                        </div>
-                                                        <!-- tooltip hover extravaganza -->
-                                                        <div class="tip-item">
-                                                            <p class="name activator timeleft">@item.Subject.Name</p>  <!-- "Grensesnittdesign" -->
-                                                            @{
-                                                                string timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
-                                                            }
-                                                            @if (timeLeft != "")
-                                                            {
-                                                                if (flag1)
-                                                                {
-                                                                    <div class="tip timeleft">@timeLeft</div>
-                                                                }
-                                                                if (!flag2 && !flag5)
-                                                                {
-
-                                                                    if (item.StartDateTime < DateTime.Now.AddHours(24))
-                                                                    {
-                                                                        if (item.StartDateTime < DateTime.Now.AddHours(1))
-                                                                        {
-                                                                            flag2 = true;
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            flag4 = true;
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        </div>
-                                                        <div class="right-position">
-                                                            @{
-                                                                var typeClass = "";
-                                                                var typeText = "";
-
-                                                                if (item.eventType == TikTokCalendar.Models.EventType.Innlevering)
-                                                                {
-                                                                    typeClass = "assignment";
-                                                                    typeText = "Innlevering";
-                                                                }
-                                                                else if (item.eventType == TikTokCalendar.Models.EventType.Eksamen)
-                                                                {
-                                                                    typeClass = "exam";
-                                                                    typeText = "Eksamen";
-                                                                }
-                                                            }
-
-
-                                                            <p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
-                                                            <p class="room">@item.RoomName</p>  <!-- "Rom 41" -->
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Container for bottom row -->
-                                                    <div class="time-info">
-                                                        <div class="left-position">
-                                                            <!-- Date and time  -->
-                                                            <p class="time">
-                                                                <strong>&nbsp;@item.GetDayOfWeek()</strong>, @item.GetTimeSlot()
-                                                                @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
-                                                                {
-                                                                    <b>&nbsp;|&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
+                                    <!-- Container for bottom row -->
+                                    <div class="time-info">
+                                        <div class="left-position">
+                                            <!-- Date and time  -->
+                                            <p class="time">
+                                                <strong>&nbsp;@item.GetDayOfWeek()</strong>, @item.GetTimeSlot()
+                                                @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
+                                                {
+                                                    <b>&nbsp;|&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
                                                         <!-- INSERT CHECK/ATTEND BUTTON HERE -->
-                                                                }
-                                                                @if (flag2 && !flag3)
-                                                                {
+                                                }
+                                                @if (flag2 && !flag3)
+                                                {
 														<!-- real time countdown script -->
-                                                                    <script>
-                                                                        $(function () {
-                                                                            var date = new Date();
-                                                                            date = new Date(@item.StartDateTime.Year , @item.StartDateTime.AddMonths(-1).Month , @item.StartDateTime.Day , @item.StartDateTime.Hour , @item.StartDateTime.Minute , @item.StartDateTime.Second );
-                                                                            $('.countdown').countdown({until: date, compact: true,
-                                                                                layout: '&nbsp;{hnn}{sep}{mnn}{sep}{snn}'});
-                                                                        });
-                                                                    </script>
-                                                                    <span>&nbsp;|</span>
-                                                                    <span class="countdown"></span>
-                                                                    flag1 = true;
-                                                                    flag3 = true;
-                                                                }
-                                                                @if (flag4)
-                                                                {
-                                                                    <b>&nbsp;|&nbsp;&nbsp;</b><span class="countdown">@timeLeft</span>
+                                                    <script>
+                                                        $(function () {
+                                                            var date = new Date();
+                                                            date = new Date(@item.StartDateTime.Year , @item.StartDateTime.AddMonths(-1).Month , @item.StartDateTime.Day , @item.StartDateTime.Hour , @item.StartDateTime.Minute , @item.StartDateTime.Second );
+                                                            $('.countdown').countdown({until: date, compact: true,
+                                                                layout: '&nbsp;{hnn}{sep}{mnn}{sep}{snn}'});
+                                                        });
+                                                    </script>
+                                                    <span>&nbsp;|</span>
+                                                            <span class="countdown"></span>
+                                                    flag1 = true;
+                                                    flag3 = true;
+                                                }
+                                                @if (flag4)
+                                                {
+                                                    <b>&nbsp;|&nbsp;&nbsp;</b><span class="countdown">@timeLeft</span>
 
                                                         <!-- INSERT AJAX BEGIN FORM HERE WHEN READY-->
-                                                                    flag1 = true;
-                                                                    flag4 = false;
-                                                                    flag5 = true;
+                                                    flag1 = true;
+                                                    flag4 = false;
+                                                    flag5 = true;
 
 
-                                                                }
-                                                            </p>
-                                                        </div>
+                                                }
+                                            </p>
+                                        </div>
 
-                                                        <!-- Icon displaying "..."  -->
-                                                        @*<i class="fa fa-ellipsis-h fa-2x"></i>*@
+                                        <!-- Icon displaying "..."  -->
+                                        @*<i class="fa fa-ellipsis-h fa-2x"></i>*@
 
-                                                        @{
-                                                            var r = new Random();
-                                                            var randomNumber = r.Next(20);
-                                                        }
-                                                        <i class="seen-by">Sett av @randomNumber</i>
+                                        @{
+                                            var r = new Random();
+                                            var randomNumber = r.Next(20);
+                                        }
+                                        <i class="seen-by">Sett av @randomNumber</i>
 
-                                                    </div>
-                                                </div>
+                                    </div>
+                                </div>
 
 
-                                            </a>
+                            </a>
 
-                                            <div class="horizontal-line"></div>
+                            <div class="horizontal-line"></div>
 
                                             <!-- "More info" modal -->
                                             <div class="content-hidden modal fade" id="@item.ID" role="dialog">
-                                                <div class="modal-dialog modal-lg">
+                                                <div class="modal-dialog">
                                                     <div class="modal-content">
 
                                                         <!-- Modal header -->
@@ -250,43 +252,55 @@
 
                                                         <!-- Modal body -->
                                                         <div class="modal-body">
-                                                            <p>
-                                                                <strong>Tid:</strong>
-                                                                @item.GetDayOfWeek(), @item.GetTimeSlot()
-                                                            </p>
-                                                            <p>
-                                                                <strong>Attendees:</strong>
-
-                                                            </p>
-                                                            <p>
-                                                                <strong>EventName:</strong>
-                                                                @item.Subject.Name
-                                                            </p>
-                                                            <p>
-                                                                <strong>Uke:</strong>
-                                                                @week.WeekNumber
-                                                            </p>
-                                                            <p>
-                                                                <strong>Rom:</strong>
-                                                                @item.RoomName
-                                                            </p>
-                                                            <p>
-                                                                <strong>Lærer:</strong>
-                                                                @item.Teacher
-                                                            </p>
-                                                            <p>
-                                                                <strong>Kommentar:</strong>
-                                                                @item.Comment
-                                                            </p>
+                                                            <div class="info-rows">
+                                                                <span class="modal-left">
+                                                                    <strong>Tid:</strong>
+                                                                </span>
+                                                                <span class="modal-right">
+                                                                    @item.GetDayOfWeek(), @item.GetTimeSlot()
+                                                                </span>
+                                                            </div>
+                                                            <div class="info-rows">
+                                                                <span class="modal-left">
+                                                                    <strong>Uke:</strong>
+                                                                </span>
+                                                                <span class="modal-right">
+                                                                    @week.WeekNumber
+                                                                </span>
+                                                            </div>
+                                                            <div class="info-rows">
+                                                                <span class="modal-left">
+                                                                    <strong>Rom:</strong>
+                                                                </span>
+                                                                <span class="modal-right">
+                                                                    @item.RoomName
+                                                                </span>
+                                                            </div>
+                                                            <div class="info-rows">
+                                                                <span class="modal-left">
+                                                                    <strong>Lærer:</strong>
+                                                                </span>
+                                                                <span class="modal-right">
+                                                                    @item.Teacher
+                                                                </span>
+                                                            </div>
+                                                            <div class="info-rows">
+                                                                <span class="modal-left">
+                                                                    <strong>Kommentar:</strong>
+                                                                </span>
+                                                                <span class="modal-right">
+                                                                    @item.Comment
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             }
 
-                                        </div>
-                                                            }
-                 </div>
-                }
-         </div>
- </main>
+                    </div>
+                                            }
+            </div>
+                                            }
+    </div>
+</main>
