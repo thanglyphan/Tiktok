@@ -29,9 +29,6 @@ namespace TikTokCalendar.DAL
 				HttpCookie name = new HttpCookie("UserName");
 				HttpCookie course = new HttpCookie("UserCourse");
 				
-				name.Value = "anonym14";
-				course.Value = "VisAlt";
-
 				name.Expires = DateTime.Now.AddDays(-1);
 				course.Expires = DateTime.Now.AddDays(-1);
 
