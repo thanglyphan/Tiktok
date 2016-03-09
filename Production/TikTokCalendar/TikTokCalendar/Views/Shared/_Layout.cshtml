@@ -66,14 +66,17 @@
 			<p>tiktok</p>
 
 			<!-- Search box -->
-            <div class="ui-widget">
+            <div class="ui-widget">        
                 <label for="tags"></label>
+                
                 @using (Html.BeginForm("Index", "Home"))
                 {
                     <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" />
                     <input type="submit" value="Search" style="position: absolute; left: -9999px" />
                 }
+                         
             </div>
+            <a class="logout"><i class="fa fa-sign-out fa-2x"></i></a>
 		</div>
 	</header>
 	
