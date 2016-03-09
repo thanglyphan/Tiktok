@@ -50,11 +50,6 @@ header {
     position: relative;
 }
 
-header .ui-widget {
-    float: right;
-    margin-left: 10px !important;
-}
-
 header i.fa-calendar-check-o {
     float: left;
     margin-top: 2px;
@@ -73,14 +68,20 @@ header p {
     padding-left: 10px;
 }
 
-header .login-button {
+header .ui-widget {
+    float: right;
+    margin-right: 10px !important;
+    width: 200px;
+}
+
+header  i {
+    margin-right: 20px;
     opacity: 0.5;
     color: #474f5c;
     float: right;
-    margin-right: 20px;
-    font-size: 32px;
-    margin-top: 2px;
+    width: 20px;
 }
+
 
 @media only screen and (min-width: 768px) {
 

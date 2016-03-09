@@ -6,7 +6,7 @@ namespace TikTokCalendar.DAL
 {
 	public class Cookies : System.Web.UI.Page
 	{
-
+		
 		public void SaveNameToCookie(String a)
 		{
 			try {
@@ -41,6 +41,21 @@ namespace TikTokCalendar.DAL
 			}
 		}
 		*/
+		public void DeleteCookies()
+		{
+			HttpCookie delC = new HttpCookie("UserName");
+			HttpCookie delD = new HttpCookie("UserCouese");
+
+			delC.Expires = DateTime.Now.AddDays(-1);
+			delD.Expires = DateTime.Now.AddDays(-1);
+
+			delC.Value = null;
+			delD.Value = null;
+
+			HttpContext.Current.Response.Cookies.Add(delC);
+			HttpContext.Current.Response.Cookies.Add(delC);
+
+		}
 
 		public void SaveCourseToCookie(String a)
 		{

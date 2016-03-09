@@ -226,6 +226,11 @@ namespace TikTokCalendar.Controllers
 				return Json(false,JsonRequestBehavior.AllowGet);
 			}
 		}
+		public JsonResult DeleteCookies()
+		{
+			cookie.DeleteCookies();
+			return Json("hei",JsonRequestBehavior.AllowGet);
+		}
 		public StudentUser GetUserFromNameCourse()
 		{
 			string name = "phatha14"; 
