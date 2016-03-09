@@ -76,7 +76,27 @@
                 }
                          
             </div>
+
             <a class="logout"><i class="fa fa-sign-out fa-2x"></i></a>
+
+            <button onclick="delCookie()">Delete cookies</button>
+            <script>
+                function delCookie() {
+                    $.ajax({
+                        url: "../Home/DeleteCookies",
+                        type: "POST",
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            console.log("FEIL");
+                        }
+                    });
+                }
+            </script>
+
+
 		</div>
 	</header>
 	
