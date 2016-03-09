@@ -1,0 +1,36 @@
+﻿@model TikTokCalendar.DAL.ModelDataWrapper
+
+@{
+    EventUserStatHandler EUSH = new EventUserStatHandler();
+}
+
+<script type="text/javascript">
+			jQuery(function () {
+				jQuery('.activator.usersgoing').BAToolTip({
+				    tipOpacity: 0.9,
+				    tipOffset: 20
+				});
+			})
+		</script>
+
+@if (!EUSH.UserGoing(EUSH_global.ID_ATM))
+{
+    <input type="hidden" name="eventid" value="@EUSH_global.ID_ATM" />
+    <input type="submit" value="Skal" />
+}
+<div class="tip-item">
+    <span class="activator usersgoing">[@EUSH.HowManyUsersGoing(EUSH_global.ID_ATM) skal]</span>
+    <div class="tip usersgoing">
+        @foreach (var eus in Model.eventUserStats)
+        {
+            if (eus.EventID == EUSH_global.ID_ATM)
+            {
+                <span>@eus.UserName<br /></span>
+            }
+        }
+    </div>
+</div>
+@if (EUSH.UserGoing(EUSH_global.ID_ATM))
+{
+    <b>Du skal.</b>
+}

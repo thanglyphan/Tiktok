@@ -18,7 +18,17 @@ namespace TikTokCalendar.Controllers
 
 		public ActionResult Index(string id = "", string tags = "")
 		{
-			StudentUser user = GetUserFromNameCourse();
+
+            // temporary: delete EventUserStats content
+            /*var db = new CalendarEventContext();
+            foreach (var entity in db.EventUserStats)
+            {
+                db.EventUserStats.Remove(entity);
+                
+            }
+            db.SaveChanges();*/
+
+            StudentUser user = GetUserFromNameCourse();
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
 
@@ -207,6 +217,22 @@ namespace TikTokCalendar.Controllers
 			SchoolCourses schoolCourse = Course.GetCourseFromName(course);
 			return new StudentUser(name, schoolCourse); //If cookie name && course == default, name = anonym14, course = "VisAlt"
 		}
-	}
+
+        public PartialViewResult UserStatUpdate(int eventid)
+        {
+            //System.Threading.Thread.Sleep(3000);
+            var db = new CalendarEventContext();
+            string userName = cookie.LoadStringFromCookie("UserName");
+            //int eventID = Int32.Parse(Request.Form["eventid"]);
+            if (userName.Length >= 8)
+            {
+                db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now });
+                db.SaveChanges();
+            }
+            ModelDataWrapper modelWrapper = new ModelDataWrapper();
+            EUSH_global.ID_ATM = eventid;
+            return PartialView("_UserStatUpdate", modelWrapper);
+        }
+    }
 
 }
