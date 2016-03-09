@@ -4,7 +4,8 @@
 
     TimeLeft TimeLeft = new TimeLeft();
     EventUserStatHandler EUSH = new EventUserStatHandler();
-    // Various flags to get code to be written only once and at the right place in foreach loop
+    // Various flags to get code to be written only once
+    // and at the right place in our huge nested foreach loop
     bool flag1 = false;
     bool flag2 = false;
     bool flag3 = false;
@@ -72,6 +73,7 @@ $(function() {
                                 InsertionMode = InsertionMode.Replace
                             }))
                             {
+                                // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
                                     <div class="check-in" style="position:absolute; margin-left: -132px; margin-top: 30px;" id="going-@item.ID">
                                         @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
                                         {
@@ -128,7 +130,6 @@ $(function() {
                                     </div>
                                                     }
                                                 //}
-
 
                                                 var today = "";
                                                 if (item.StartDateTime.Date.Equals(DateTime.Now.Date))
@@ -190,7 +191,6 @@ $(function() {
 												}
                                             }
 
-
                                             <p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
                                             <p class="room">@item.RoomName</p>  <!-- "Rom 41" -->
                                         </div>
@@ -204,7 +204,6 @@ $(function() {
                                                 <strong>&nbsp;@item.GetDayOfWeek()</strong>, @item.GetTimeSlot()
                                                 @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
                                                     <b>&nbsp;|&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
-                                                        <!-- INSERT CHECK/ATTEND BUTTON HERE -->
 }
                                                 @if (flag2 && !flag3) {
 												    
@@ -225,11 +224,9 @@ $(function() {
                                                 @if (flag4) {
                                                     <b>&nbsp;|&nbsp;&nbsp;</b><span class="countdown">@timeLeft</span>
 
-                                                        <!-- INSERT AJAX BEGIN FORM HERE WHEN READY-->
                                                     flag1 = true;
 													flag4 = false;
 													flag5 = true;
-
 
 												}
                                             </p>
@@ -237,14 +234,12 @@ $(function() {
 
                                         <!-- Icon displaying "..."  -->
                                         
-
                                         @*<i class="seen-by">Sett av @randomNumber</i>*@
 
-										<!-- FLYTT GOING HIT NÅR FIXED -->
+										<!-- FLYTT GOING/ATTEND KODEBLOKK NED HIT NÅR EVENT-CLICK ER FIKSA -->
 
                                     </div>
                                 </div>
-
 
                             </a>
 
