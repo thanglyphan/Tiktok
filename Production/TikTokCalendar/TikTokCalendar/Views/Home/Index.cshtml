@@ -11,6 +11,21 @@
     bool flag4 = false;
     bool flag5 = false;
 }
+<script runat="server" language="c#">
+    public void Page_Load(Object sender, EventArgs e)
+    {
+        if (Request.Browser["IsMobileDevice"] == "true" )
+        {
+            Response.Redirect("Home/Mobile.cshtml");
+            Debug.WriteLine("Mobile");
+        }
+        else
+        {
+            Debug.WriteLine("Not mobile");
+
+        }
+    }
+</script>
 
 <!-- Holds global settings and spans the entire page   -->
 <main>
