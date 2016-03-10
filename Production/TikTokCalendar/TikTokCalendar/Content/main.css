@@ -139,11 +139,16 @@ div.ui-widget {
     float: left;
 }
 
+/*===================================
+  C H E C K   I N
+===================================*/
+.check-in {
+    
+}
 
 /*===================================
   M O D A L
 ===================================*/
-
 .vex-dialog-button, vex-dialog-buttons {
     width: 100%;
 }
@@ -308,6 +313,7 @@ div.ui-widget {
     font-size: 18px;
     float: right;
     margin-right: 30px;
+    position: relative;
 }
 
 
