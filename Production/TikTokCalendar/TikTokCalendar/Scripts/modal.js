@@ -32,7 +32,11 @@ function showLogin() {
         buttons: [
         $.extend({}, vex.dialog.buttons.YES, {
             text: 'Login'
-        })
+        }),
+         $.extend({}, vex.dialog.buttons.NO, {
+             className: 'show-all-events',
+             text: 'Vis alle hendelser'
+         })
         ],
 
         callback: function (data) {
