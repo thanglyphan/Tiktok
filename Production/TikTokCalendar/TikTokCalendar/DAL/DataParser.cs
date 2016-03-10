@@ -76,6 +76,7 @@ namespace TikTokCalendar.DAL
 			{
 				var s = new Subject();
 				s.SetAndParse(subject.id, subject.name, subject.code);
+				Printer.Print("Add: subject [" + s.Code + "] " + s.Name);
 				subjects.Add(s);
 			}
 
@@ -237,14 +238,12 @@ namespace TikTokCalendar.DAL
 			DateParseResults dtResults = DateParseResults.NoDate;
 			// TODO Use the other parse if it isn't a fucked up dateformat
 			DateTime[] startDates = dtParser.ParseDate(startDate, out dtResults);
-			
+			if (startDates.Length <= 0) return retEvents;
+
 			//////// Subject ////////
 			// TODO Null check
 			//string subjectCode = Subject.GetSubjectCode(subjectString);
 			Subject subject = DataWrapper.Instance.GetSubjectByCode(subjectCode);
-
-			// TODO Figure out a better way to do this
-			// Subject basically cant be null
 			if (subject == null) return retEvents; 
 
 			//////// Year and course ////////
@@ -277,6 +276,7 @@ namespace TikTokCalendar.DAL
 				CustomEvent evnt = new CustomEvent(-1, date, DateTime.MinValue, false,
 					subject, -1, courses, null, null, eventType, comment);
 				retEvents.Add(evnt);
+				//Printer.Print("Added " + eventType.ToString() + " - " + subject.Name);
 			}
 			return retEvents;
 		}
