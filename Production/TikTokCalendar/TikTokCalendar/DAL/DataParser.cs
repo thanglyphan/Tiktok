@@ -256,23 +256,18 @@ namespace TikTokCalendar.DAL
 			//////// Year and course ////////
 			List<SchoolCourses> courses = DataWrapper.Instance.GetCoursesWithSubject(subject);
 			// TODO Get courses with a subject
-			if (courses.Count <= 0) return retEvents;
+			if (courses.Count <= 0)
+			{
+				return retEvents;
+			}
+			//foreach (var c in DataWrapper.Instance.GetCourseSubjectWithSchoolCourse()
+			//{
+
+			//}
+			// TODO Figure out all the years that the "SchoolCourses" has this "subject" this year
 
 			//////// Making the events ////////
 			EventType eventType = ParseEventType(activity);
-			//int bestMatch = 1000;
-			//string[] events = Enum.GetNames(typeof(EventType));
-			//for (int i = 1; i < events.Length + 1; i++)
-			//{
-			//	if (i > courses.Count) break;
-			//	int match = Math.Abs(activity.CompareTo(courses[i - 1].ToString()));
-			//	if (match <= bestMatch)
-			//	{
-			//		eventType = (EventType)i;
-			//		bestMatch = match;
-			//	}
-			//}
-
 
 			string comment = "Vekting: " +  weighting + "\nVarighet: " + duration + "\nHjelpemidler: " + helpers;
 

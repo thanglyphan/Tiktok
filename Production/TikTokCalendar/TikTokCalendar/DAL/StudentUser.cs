@@ -58,7 +58,8 @@ namespace TikTokCalendar.DAL
 				return semester;
 			}
 
-			// Make it overflow so we get an error if we somehow cant get the current semester calculated
+			// HACK: Make it overflow so we get an error if we somehow cant get the current semester calculated
+			// Futureme: handle this better
 			int overflow = 10;
 			return int.MaxValue + overflow;
 		}

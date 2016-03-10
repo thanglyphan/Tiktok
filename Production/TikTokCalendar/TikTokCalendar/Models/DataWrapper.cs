@@ -231,6 +231,19 @@ namespace TikTokCalendar.Models
 			return retList;
 		}
 
+		public List<CourseSubject> GetCourseSubjectWithSchoolCourse(SchoolCourses schoolCourse)
+		{
+			var retList = new List<CourseSubject>();
+			foreach (var cs in CourseSubjects)
+			{
+				if (cs.Course == Courses[(int)schoolCourse])
+				{
+					retList.Add(cs);
+				}
+			}
+			return retList;
+		}
+
 		// Singleton stuff
 		private DataWrapper() { }
 		static DataWrapper() { }
