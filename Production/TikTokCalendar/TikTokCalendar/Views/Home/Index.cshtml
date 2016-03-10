@@ -44,9 +44,11 @@ $(function() {
             <!-- Month box e.g. "August" -->
             <a class="feed-month" data-toggle="collapse" data-target="#month-@month.MonthNumber">
 
-				<span class="badge badge-exam pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Eksamen)</span>
-				<span class="badge badge-assignment pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Innlevering)</span>
-				<span class="badge badge-lecture pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Forelesning)</span>
+				<span class="badge-container">
+					<span class="badge badge-exam pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Eksamen)</span>
+					<span class="badge badge-assignment pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Innlevering)</span>
+					<span class="badge badge-lecture pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Forelesning)</span>
+				</span>
 
                 <p class="month">
 					@month.GetMonthName()
