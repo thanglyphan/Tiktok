@@ -43,12 +43,16 @@ $(function() {
             <div class="goto" id="goto-@month.MonthNumber"></div>
             <!-- Month box e.g. "August" -->
             <a class="feed-month" data-toggle="collapse" data-target="#month-@month.MonthNumber">
-                <p class="month">
-					@month.GetMonthName()
+
+				<span class="badge-container">
 					<span class="badge badge-exam pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Eksamen)</span>
 					<span class="badge badge-assignment pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Innlevering)</span>
 					<span class="badge badge-lecture pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Forelesning)</span>
-				</p> 
+				</span>
+
+                <p class="month">
+					@month.GetMonthName()
+				</p>
 				
             </a>
             <!-- Container for an entire month of events -->
@@ -70,74 +74,6 @@ $(function() {
                         <!-- Looping throught every events -->
                         @foreach (var item in week.events)
                         {
-                            // eventually limit the number of weeks for going/check-in to show here:
-                            //if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime.AddDays(21))
-                            //{
-                            using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
-                            {
-                                HttpMethod = "POST",
-                                UpdateTargetId = "going-" + item.ID,
-                                InsertionMode = InsertionMode.Replace
-                            }))
-                            {
-                                // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
-                                    <div class="check-in" style="position:absolute; margin-left: -132px; margin-top: 30px;" id="going-@item.ID">
-                                        @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
-                                        {
-                                            if (!EUSH.UserAttending(item.ID, cookie.LoadStringFromCookie("UserName")))
-                                            {
-                                                <input type="hidden" name="eventid" value="@item.ID" />
-                                                <input type="hidden" name="attend" value="true" />
-                                                <input type="submit" value="Check-in" />
-                                            }
-                                            else
-                                            {
-                                                <strong>Innsjekket &#10004;</strong>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            if (!EUSH.UserGoing(item.ID))
-                                            {
-                                                <input type="hidden" name="eventid" value="@item.ID" />
-                                                <input type="hidden" name="attend" value="false" />
-                                                <input type="submit" value="Skal" />
-                                            }
-                                            else
-                                            {
-                                                <strong>Du skal.</strong>
-                                            }
-                                        }
-                                        <div class="tip-item">
-                                            @{
-                                                var howMany = EUSH.HowManyUsersGoing(item.ID);
-                                                var showTip = "hide";
-                                                if (howMany > 0)
-                                                {
-                                                    showTip = ""; // false (hide box if no users to display)
-                                                }
-                                            }
-                                            <span class="activator usersgoing">[@howMany skal]</span>
-                                            <div class="tip usersgoing @showTip">
-                                                @foreach (var eus in Model.eventUserStats)
-                                                {
-                                                    if (eus.EventID == item.ID)
-                                                    {
-                                                        <span class="no-linebreak">
-                                                            @if (EUSH.UserAttending(item.ID, eus.UserName))
-                                                            {
-                                                                <text>&#10004;</text>
-                                                            }
-                                                            @eus.UserName<br />
-                                                        </span>
-                                                    }
-                                                }
-                                            </div>
-                                        </div>
-                                    </div>
-                                                    }
-                                                //}
-
                                                 var today = "";
                                                 if (item.StartDateTime.Date.Equals(DateTime.Now.Date))
                                                 {
@@ -145,13 +81,13 @@ $(function() {
                                                 }
 
                             <!-- Link on every event -->
-                            <a class="feed-container @today" data-toggle="modal" data-target="#@item.ID">
+                            <div class="feed-container @today">
 
                                 <!-- Container for the event content -->
                                 <div class="content">
 
                                     <!-- Container for the top row -->
-                                    <div class="class-info">
+                                    <div class="class-info" data-toggle="modal" data-target="#@item.ID">
                                         <div class="class-date">
 
                                             <!-- 17 -->
@@ -169,7 +105,7 @@ $(function() {
                                             @if (timeLeft != "") {
 												if (flag1) {
                                                     <div class="tip timeleft">@timeLeft</div>
-}
+												}
 												if (!flag2 && !flag5) {
 
 													if (item.StartDateTime < DateTime.Now.AddHours(24)) {
@@ -205,13 +141,13 @@ $(function() {
 
                                     <!-- Container for bottom row -->
                                     <div class="time-info">
-                                        <div class="left-position">
+                                        <div class="left-position" data-toggle="modal" data-target="#@item.ID">
                                             <!-- Date and time  -->
                                             <p class="time">
                                                 <strong>&nbsp;@item.GetDayOfWeek()</strong>, @item.GetTimeSlot()
                                                 @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
                                                     <b>&nbsp;|&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
-}
+												}
                                                 @if (flag2 && !flag3) {
 												    
                                                     <!-- real time countdown script -->
@@ -244,11 +180,77 @@ $(function() {
                                         @*<i class="seen-by">Sett av @randomNumber</i>*@
 
 										<!-- FLYTT GOING/ATTEND KODEBLOKK NED HIT NÅR EVENT-CLICK ER FIKSA -->
+                                        <!-- eventually limit the number of weeks for going/check-in to show here:
+                                        if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime.AddDays(21))
+                                        {-->
+                                        @using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
+                                        {
+                                        HttpMethod = "POST",
+                                        UpdateTargetId = "going-" + item.ID,
+                                        InsertionMode = InsertionMode.Replace
+                                        }))
+                                        {
+                                        // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
+                                        <div class="check-in" id="going-@item.ID">
+                                            @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
+                                            {
+                                                if (!EUSH.UserAttending(item.ID, cookie.LoadStringFromCookie("UserName")))
+                                                {
+                                                    <input type="hidden" name="eventid" value="@item.ID" />
+                                                    <input type="hidden" name="attend" value="true" />
+                                                    <input type="submit" value="Check-in" />
+                                                }
+                                                else
+                                                {
+                                                    <strong>Innsjekket &#10004;</strong>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (!EUSH.UserGoing(item.ID))
+                                                {
+                                                    <input type="hidden" name="eventid" value="@item.ID" />
+                                                    <input type="hidden" name="attend" value="false" />
+                                                    <input type="submit" value="Skal" />
+                                                }
+                                                else
+                                                {
+                                                    <strong>Du skal.</strong>
+                                                }
+                                            }
+                                            <div class="tip-item">
+                                                @{
+                                                    var howMany = EUSH.HowManyUsersGoing(item.ID);
+                                                    var showTip = "hide";
+                                                    if (howMany > 0)
+                                                    {
+                                                        showTip = ""; // false (hide box if no users to display)
+                                                    }
+                                                }
+                                                <span class="activator usersgoing">[@howMany skal]</span>
+                                                <div class="tip usersgoing @showTip">
+                                                    @foreach (var eus in Model.eventUserStats)
+                                                    {
+                                                        if (eus.EventID == item.ID)
+                                                        {
+                                                            <span class="no-linebreak">
+                                                                @if (EUSH.UserAttending(item.ID, eus.UserName))
+                                                                {
+                                                                    <text>&#10004;</text>
+                                                                }
+                                                                @eus.UserName<br />
+                                                            </span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        }
 
                                     </div>
                                 </div>
 
-                            </a>
+                            </div>
 
                             <div class="horizontal-line"></div>
 
@@ -311,9 +313,9 @@ $(function() {
                                 </div>
                                 }
 
-        </div>
-                                }
-            </div>
-          }
+					</div>
+				}
+			</div>
+		}
     </div>
 </main>
