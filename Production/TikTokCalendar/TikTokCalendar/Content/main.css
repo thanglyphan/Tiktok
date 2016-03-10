@@ -169,6 +169,7 @@ div.ui-widget {
     display: block;
     cursor: pointer;
     text-decoration: none !important;
+	position: relative;
 }
 
 .feed-month .badge {
@@ -177,9 +178,13 @@ div.ui-widget {
 	border-radius: 5px;
 }
 
+.feed-month .badge-container {
+	position: absolute;
+	right: 10px;
+}
+
 .feed-month .badge-exam {
 	background-color: #A6120D !important;
-	margin-right: 10px;
 }
 
 .feed-month .badge-assignment {
