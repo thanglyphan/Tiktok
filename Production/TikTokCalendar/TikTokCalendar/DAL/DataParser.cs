@@ -114,8 +114,6 @@ namespace TikTokCalendar.DAL
 		{
 			List<int> addedIDs = new List<int>();
 			var events = new List<CustomEvent>();
-			// TODO ParseEvent() with all the schedules jsons from TimeEdit
-			// TODO ParseEvent() with the eksamen/innlevering json
 
 			var file = "";
 			foreach (var fileName in scheduleFiles)
@@ -139,7 +137,7 @@ namespace TikTokCalendar.DAL
 			var container = JsonConvert.DeserializeObject<JRootExamReservationRootObject>(file);
 			foreach (var r in container.reservations)
 			{
-				var evnts = ParseExamEvent(r.Dato, r.Emnenavn, r.Emnekode, r.Vurderingstype, r.Vekting.ToString(), r.Varighet, r.Hjelpemidler);
+				var evnts = ParseExamEvent(r.Dato, r.Emnekode, r.Emnenavn, r.Vurderingstype, r.Vekting.ToString(), r.Varighet, r.Hjelpemidler);
 				events.AddRange(evnts);
 			}
 			return events;

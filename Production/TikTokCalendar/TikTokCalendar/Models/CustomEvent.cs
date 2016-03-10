@@ -78,7 +78,7 @@ namespace TikTokCalendar.Models
 
 		public string GetDayOfWeek()
 		{
-			return "dag";
+			return CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(StartDateTime.DayOfWeek).Substring(0, 3).ToLower();
 		}
 
 		public string GetTimeSlot()
