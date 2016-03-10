@@ -69,7 +69,11 @@ namespace TikTokCalendar.Models
 					{
 						temp = tags.ToLower();
 						string eventname = evnt.Subject.Name.ToLower();
-						string roomname = evnt.RoomName.ToLower();
+						string roomname = "";
+						if (evnt.RoomName != null)
+						{
+							evnt.RoomName.ToLower();
+						}
 						string teacher = evnt.Teacher.ToLower();
 						string comment = evnt.Comment.ToLower();
 						string subjectcode = evnt.Subject.Code.ToLower();
