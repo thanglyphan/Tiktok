@@ -39,7 +39,7 @@ function showLogin() {
             $.ajax({
                 url: "Home/UserName",
                 type: "POST",
-                data: { a: data.username },
+                data: { a: data.username + ";" + data.year },
                 error: function () {
                     console.log("error");
                 },
