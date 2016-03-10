@@ -128,7 +128,7 @@
     },
     {
       "Dato": "14.3.",
-      "Emnekode": "PG 4300",
+      "Emnekode": "PG4300",
       "Emnenavn": "Ruby on Rails",
       "Vurderingstype": "Skriftlig eksamen",
       "Vekting": 25,
@@ -146,7 +146,7 @@
     },
     {
       "Dato": "29.5.",
-      "Emnekode": "PG 4100",
+      "Emnekode": "PG4100",
       "Emnenavn": "Avansert Javaprogrammering 2",
       "Vurderingstype": "Mappe",
       "Vekting": 60,
@@ -155,7 +155,7 @@
     },
     {
       "Dato": "10.6.",
-      "Emnekode": "PG 4100",
+      "Emnekode": "PG4100",
       "Emnenavn": "Avansert Javaprogrammering 2",
       "Vurderingstype": "Skriftlig eksamen",
       "Vekting": 40,
@@ -263,7 +263,7 @@
     },
     {
       "Dato": "20.3.",
-      "Emnekode": "PG 4500",
+      "Emnekode": "PG4500",
       "Emnenavn": "Game AI",
       "Vurderingstype": "Innlevering",
       "Vekting": 40,
@@ -272,7 +272,7 @@
     },
     {
       "Dato": "5.6.",
-      "Emnekode": "PG 4500",
+      "Emnekode": "PG4500",
       "Emnenavn": "Game AI",
       "Vurderingstype": "Innlevering",
       "Vekting": 60,
@@ -299,7 +299,7 @@
     },
     {
       "Dato": "30.5.",
-      "Emnekode": "PG 4400",
+      "Emnekode": "PG4400",
       "Emnenavn": "C++ programmering",
       "Vurderingstype": "Skriftlig eksamen",
       "Vekting": 60,
@@ -308,7 +308,7 @@
     },
     {
       "Dato": "31.1.",
-      "Emnekode": "DS 4101",
+      "Emnekode": "DS4101",
       "Emnenavn": "Webutvikling 2",
       "Vurderingstype": "Innlevering",
       "Vekting": 20,
@@ -317,7 +317,7 @@
     },
     {
       "Dato": "21.2.",
-      "Emnekode": "DS 4101",
+      "Emnekode": "DS4101",
       "Emnenavn": "Webutvikling 2",
       "Vurderingstype": "Innlevering",
       "Vekting": 30,
@@ -326,7 +326,7 @@
     },
     {
       "Dato": "22.5.",
-      "Emnekode": "DS 4101",
+      "Emnekode": "DS4101",
       "Emnenavn": "Webutvikling 2",
       "Vurderingstype": "Innlevering",
       "Vekting": 50,
@@ -371,7 +371,7 @@
     },
     {
       "Dato": "31.1.",
-      "Emnekode": "DS 4101",
+      "Emnekode": "DS4101",
       "Emnenavn": "Webutvikling 2",
       "Vurderingstype": "Innlevering",
       "Vekting": 20,
@@ -380,7 +380,7 @@
     },
     {
       "Dato": "21.2.",
-      "Emnekode": "DS 4101",
+      "Emnekode": "DS4101",
       "Emnenavn": "Webutvikling 2",
       "Vurderingstype": "Innlevering",
       "Vekting": 30,
@@ -389,7 +389,7 @@
     },
     {
       "Dato": "22.5.",
-      "Emnekode": "DS 4101",
+      "Emnekode": "DS4101",
       "Emnenavn": "Webutvikling 2",
       "Vurderingstype": "Innlevering",
       "Vekting": 50,
