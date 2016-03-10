@@ -25,16 +25,16 @@ namespace TikTokCalendar.DAL
 		public void DeleteCookies()
 		{
 			try {
-				
+
 				HttpCookie name = new HttpCookie("UserName");
 				HttpCookie course = new HttpCookie("UserCourse");
-				
+
 				name.Expires = DateTime.Now.AddDays(-1);
 				course.Expires = DateTime.Now.AddDays(-1);
 
 				HttpContext.Current.Response.Cookies.Add(name);
 				HttpContext.Current.Response.Cookies.Add(course);
-				
+
 				/*
 				HttpCookie name = new HttpCookie("UserName");
 				HttpCookie course = new HttpCookie("UserCouese");
@@ -42,14 +42,30 @@ namespace TikTokCalendar.DAL
 				course = HttpContext.Current.Request.Cookies[key];
 				if ()
 					*/
-			}catch (HttpException e) {
+			}
+			catch (HttpException e) {
 				Console.WriteLine(e.ToString());
 			}
+		}
+		public void SaveYearToCookies(string a)
+		{
+			try {
+				HttpCookie YearCookie = new HttpCookie("Year");
+				YearCookie.Value = a;
+				YearCookie.Expires = DateTime.Now.AddYears(1);
+				HttpContext.Current.Response.Cookies.Add(YearCookie);
 
 
+			}catch (HttpException e) {
+				e.ToString();
+			}
 		}
 		public void SaveNameToCookie(String a)
 		{
+
+            string [] b = a.Split(';');
+			SaveYearToCookies(b[1]);
+
 			try {
 				HttpCookie UsernameCookie = new HttpCookie("UserName");
 				if (a == "Default") {
@@ -67,6 +83,7 @@ namespace TikTokCalendar.DAL
 				Console.Write("Cookies.cs - SaveNameToCookies " + e.ErrorCode);
 			}
 		}
+
 		public void SaveCourseToCookie(String a)
 		{
 			try {

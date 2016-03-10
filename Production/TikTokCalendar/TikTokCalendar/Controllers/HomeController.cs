@@ -63,7 +63,7 @@ namespace TikTokCalendar.Controllers
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
 			List<CustomEventMonth> months = null;
-			months = DataWrapper.Instance.GetEventsWithName(new StudentUser("trotor14", SchoolCourses.Spillprogrammering), id);
+			months = DataWrapper.Instance.GetEventsWithName(new StudentUser("trotor14", SchoolCourses.VisAlt), id);
 			//if (string.IsNullOrEmpty(id))
 			//{
 			//	months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.Spillprogrammering));
