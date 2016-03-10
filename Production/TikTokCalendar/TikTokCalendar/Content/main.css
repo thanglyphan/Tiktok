@@ -342,11 +342,13 @@ div.ui-widget {
 
 .exam {
     background: -webkit-linear-gradient(top, #DD1B16, #A6120D);
+	background-color: #A6120D;
 }
 
 
 .assignment {
     background: -webkit-linear-gradient(top, #fbb450, #f89406);
+	background-color: #f89406;
 }
 
 
