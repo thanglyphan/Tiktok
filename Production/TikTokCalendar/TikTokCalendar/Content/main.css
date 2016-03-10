@@ -153,6 +153,12 @@ div.ui-widget {
     width: 100%;
 }
 
+.input-year {
+    
+    background-color: #474f5c;
+    color: white;
+}
+
 
 /*===================================
   M O N T H
