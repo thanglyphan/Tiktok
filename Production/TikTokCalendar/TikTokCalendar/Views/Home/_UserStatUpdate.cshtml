@@ -1,23 +1,29 @@
 ﻿@model TikTokCalendar.DAL.ModelDataWrapper
-
 @{
     EventUserStatHandler EUSH = new EventUserStatHandler();
+    TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
+}
+<div style="display:none"> <!-- this is strange but needed -->
+    <script>
+        $(function () {
+            $('.activator.usersgoing').BAToolTip({
+                tipOpacity: 0.9,
+                tipOffset: 20
+            });
+        })
+    </script>
+</div>
+
+@if (EUSH.UserAttending(EUSH_global.ID_ATM, cookie.LoadStringFromCookie("UserName")))
+{
+<strong>Innsjekket &#10004;</strong>
+}
+else if (EUSH.UserGoing(EUSH_global.ID_ATM))
+{
+    <strong>Du skal.</strong>
 }
 
-<script type="text/javascript">
-			jQuery(function () {
-				jQuery('.activator.usersgoing').BAToolTip({
-				    tipOpacity: 0.9,
-				    tipOffset: 20
-				});
-			})
-		</script>
-
-@*@if (!EUSH.UserGoing(EUSH_global.ID_ATM))
-{
-    <input type="hidden" name="eventid" value="@EUSH_global.ID_ATM" />
-    <input type="submit" value="Skal" />
-}*@
+<!-- hover box displaying users -->
 <div class="tip-item">
     <span class="activator usersgoing">[@EUSH.HowManyUsersGoing(EUSH_global.ID_ATM) skal]</span>
     <div class="tip usersgoing">
@@ -25,10 +31,10 @@
         {
             if (eus.EventID == EUSH_global.ID_ATM)
             {
-                <span>
-                    @if (EUSH.UserAttending(EUSH_global.ID_ATM))
+                <span class="no-linebreak">
+                    @if (EUSH.UserAttending(EUSH_global.ID_ATM, eus.UserName))
                     {
-                        <span>&#10004;</span>
+                        <text>&#10004;</text>
                     }
                     @eus.UserName<br />
                 </span>
@@ -36,11 +42,3 @@
         }
     </div>
 </div>
-@if (EUSH.UserGoing(EUSH_global.ID_ATM))
-{
-    <strong>Du skal.</strong>
-}
-else if (EUSH.UserAttending(EUSH_global.ID_ATM))
-{
-    <strong>Innsjekket &#10004;</strong>
-}
