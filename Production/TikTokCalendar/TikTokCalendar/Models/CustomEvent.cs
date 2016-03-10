@@ -10,9 +10,10 @@ namespace TikTokCalendar.Models
 {
 	public class CustomEvent
 	{
-		public int ID { get; private set; }
+		public long ID { get; private set; }
 		public DateTime StartDateTime { get; private set; }
 		public DateTime EndDateTime { get; private set; }
+		public bool HasStartTime { get; set; }
 		public bool HasEndDateTime { get; private set; }
 		//public string EventName { get { return Subject.Name + Subject.Code; } } // TODO Not needed
 		public Subject Subject { get; private set; }
@@ -24,7 +25,30 @@ namespace TikTokCalendar.Models
 		public EventType eventType { get; private set; }
 		public string Comment { get; private set; }
 
-		public string EventTypeLabel { get { return eventType.ToString(); } }
+		public string EventTypeLabel
+		{
+			get
+			{
+				string text = "Annet";
+				if (eventType == EventType.Fremforing)
+				{
+					text = "Fremføring";
+				}
+				else if (eventType == EventType.Oving)
+				{
+					text = "Øving";
+				}
+				else if (eventType == EventType.SkriftligEksamen)
+				{
+					text = "Skriftlig eksamen";
+				}
+				else
+				{
+					text = eventType.ToString();
+				}
+				return text;
+			}
+		}
 
 		public string CoursesLabel
 		{
@@ -44,16 +68,19 @@ namespace TikTokCalendar.Models
 			get
 			{
 				string text = "";
-				text = StartDateTime.ToString("HH:mm");
-				if (HasEndDateTime)
+				if (HasStartTime)
 				{
-					text += string.Format(" - {0:HH:mm}", EndDateTime);
+					text = string.Format("{0:HH:mm}", StartDateTime);
+					if (HasEndDateTime)
+					{
+						text += string.Format(" - {0:HH:mm}", EndDateTime);
+					}
 				}
 				return text;
 			}
 		}
 
-		public CustomEvent(int id, DateTime startDateTime, DateTime endDateTime, bool hasEndDateTime, Subject subject, 
+		public CustomEvent(long id, DateTime startDateTime, bool hasStartTime, DateTime endDateTime, bool hasEndDateTime, Subject subject, 
 			int classYear, List<SchoolCourses> courses, string room, string teacher, EventType eventType, string comment)
 		{
 			ID = id;
@@ -71,11 +98,6 @@ namespace TikTokCalendar.Models
 			Comment = comment;
 		}
 
-		private DateTime ParseDate(string date)
-		{
-			return DateTime.MinValue;
-		}
-
 		public string GetDayOfWeek()
 		{
 			return CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(StartDateTime.DayOfWeek).Substring(0, 3).ToLower();
@@ -84,11 +106,6 @@ namespace TikTokCalendar.Models
 		public string GetTimeSlot()
 		{
 			return StartTimeLabel;
-		}
-
-		public int EventIsToday()
-		{
-			return 0;
 		}
 	}
 
@@ -99,6 +116,12 @@ namespace TikTokCalendar.Models
 		Eksamen,
 		Innlevering,
 		Prosjekt,
+		Hjemmeeksamen,
+		SkriftligEksamen,
+		Muntlig,
+		Mappe,
+		Fremforing,
+		Oving,
 		Annet
 	}
 }

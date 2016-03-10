@@ -35,7 +35,7 @@ namespace TikTokCalendar.Models
 			List<CustomEventMonth> months = new List<CustomEventMonth>();
 			CustomEventMonth month = null;
 			CustomEventWeek week = null;
-			HashSet<int> addedIDs = new HashSet<int>();
+			HashSet<long> addedIDs = new HashSet<long>();
 
 			foreach (var evnt in AllEvents)
 			{
