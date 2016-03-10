@@ -25,14 +25,18 @@ function showLogin() {
     var username = "";
 
     vex.dialog.open({
-        message: 'Westerdals brukernavn',
-        input: "<input name=\"username\" type=\"text\" placeholder=\"nelwil14\" required />",
+        message: 'Navn og klassetrinn',
+        input: "<input name=\"username\" type=\"text\" placeholder=\"nelwil14\" required />\n<input name=\"year\" type=\"text\" placeholder=\"2\" required />",
 
         showCloseButton: true,
         buttons: [
         $.extend({}, vex.dialog.buttons.YES, {
             text: 'Login'
-        })
+        }),
+         $.extend({}, vex.dialog.buttons.NO, {
+             className: 'show-all-events',
+             text: 'Vis alle hendelser'
+         })
         ],
 
         callback: function (data) {
