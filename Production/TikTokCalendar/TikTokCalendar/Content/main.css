@@ -17,12 +17,12 @@ html, body {
 main {
     max-width: 600px;
     margin: 0 auto;
-    margin-top: 54px;
+    margin-top: 100px;
 }
 
-    main .main-body {
-        margin: 20px;
-    }
+main .main-body {
+    margin: 20px;
+}
 
 footer {
     text-align: center;
@@ -34,35 +34,24 @@ footer {
 
 header {
     background-color: white;
-    padding-top: 5px;
     width: 100%;
     position: fixed;
     top: 0px;
     border-bottom: 0.5px solid #E3E3E3;
-    height: 44px;
     z-index: 1;
-}
-
-header a.logo {
-	text-decoration: none;
-	margin-right: 10px;
-}
-
-header .logout {
-	cursor: pointer;
+    font-size: 14px !important;
 }
 
 .header-content {
     margin: 0 auto; 
-    max-width: 900px;
-    height: 44px;
+    height: 61px;
     position: relative;
 }
 
-header i.fa-calendar-check-o {
+header a i.fa-calendar-check-o {
     float: left;
-    margin-top: 2px;
-    color: #6A7586;
+    margin-top: 12px;
+    color: #FF5A5F;
     font-size: 25px;
     margin-left: 20px;
     height: 30px;
@@ -70,42 +59,86 @@ header i.fa-calendar-check-o {
 }
 
 header p {
-    color:#6A7586;
-    font-size: 19px;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#8C95A2;
+    font-size: 14px;
     float: left;
-    padding-top: 7px;
+    padding-top: 15px;
     padding-left: 0;
 }
 
-header .ui-widget {
+/* Logout */
+header .header-content .right-1 {
+    height: 100%;
+    border-right: 1px solid #dce0e0;
     float: right;
-    margin-right: 10px !important;
+    text-decoration: none;
+    cursor: pointer;
+    padding-top: 17px;
+    padding-right: 19px;
+    padding-left: 19px;
+}
+
+/* Logout icon */
+header .header-content .right-1 i {
+    color: #E8E8E8;
+    padding-left: 10px;
+}
+
+/* Logout link */
+header .header-content .right-1 a {
+     color: #8C95A2;
+     text-decoration: none;
+}
+
+header .header-content .right-1 p {
+    padding-top: 10px;
+}
+
+/* Username */
+header .header-content .right-2 {
+    padding-right: 19px;
+    padding-left: 19px;
+    height: 100%;
+    border-right: 1px solid #dce0e0;
+    float: right;
+    cursor: pointer;
+}
+
+header .header-content .right-2 i {
+    color:#E8E8E8;
+    padding-left: 10px;
+}
+
+/* Left container */
+header .header-content .left-1 {
+    width: 67px;
+    height: 100%;
+    float: left;
+    border-right: 1px solid #dce0e0;
+}
+
+/* Calendar icon */
+header .header-content .left-1 i {
+    opacity: 0.9;
+    padding-top: 7px;
+    padding-left: 1px;
+}
+
+/* Search container */
+header .header-content .left-2 {
     width: 200px;
+    height: 100%;
+    float: left;
+    padding-top: 11px;
 }
 
-header  i {
-    opacity: 0.5;
-    color: #474f5c;
-    float: right;
-    width: 20px;
+/* Search */
+div.ui-widget {
+    height: 61px;
+    float: left;
 }
 
-
-@media only screen and (min-width: 768px) {
-
-    .navbar-left {
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    .navbar-left i.fa-calendar-check-o {
-        font-size: 32px;
-    }
-
-    .navbar-left p {
-        font-size: 27px;
-    }
-}
 
 /*===================================
   M O D A L
@@ -432,11 +465,12 @@ header  i {
 
 #tags {
 
-    max-width: 250px;
+    max-width: 150px;
     padding: 3px 0 4px 30px;
     border-radius: 20px;
-    border: 1px solid #e4e4e4;
+    border: 0px solid #e4e4e4;
     margin-left: 7px;
+    margin-top: 8px;
     background-image: url("../img/search.png");
     background-repeat: no-repeat;
     background-position: 5px 6px;

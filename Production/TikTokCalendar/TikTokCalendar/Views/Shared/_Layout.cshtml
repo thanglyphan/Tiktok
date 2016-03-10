@@ -62,46 +62,55 @@
 	<!-- The navbar with the tiktok logo  -->
 	<header class="header-desktop">
 		<div class="header-content">
-			<a href="/" class="logo">
-				<i class="fa fa-calendar-check-o"></i>
-				<p>tiktok</p>
-			</a>
-
-			<a title="DEBUG: logout / delete cookies" onclick="delCookie()" class="logout"><i class="fa fa-sign-out fa-2x"></i></a>
-
-			<!-- Search box -->
-            <div class="ui-widget">        
-                <label for="tags"></label>
-                
-                @using (Html.BeginForm("Index", "Home"))
-                {
-                    <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" />
-                }
-                         
+            <div class="left-1">
+                <a href="/" class="logo">
+                    <i class="fa fa-calendar-check-o"></i>
+                </a>
             </div>
 
-            
+            <div class="left-2">
+                <div class="ui-widget">
+                    <label for="tags"></label>
 
-            @*<button onclick="delCookie()">Delete cookies</button>*@
-            <script>
-                function delCookie() {
-                    $.ajax({
-                        url: "/Home/DeleteCookies",
-                        type: "POST",
-                        dataType: "json",
-                        success: function (data) {
-                        	console.log(data);
-                        	window.location.reload();
-                        },
-                        error: function (xhr, ajaxOptions, thrownError) {
-                            console.log("Feil ved sletting av cookies [delCookies()]");
-                        }
-                    });
-                }
-            </script>
+                    @using (Html.BeginForm("Index", "Home"))
+                    {
+                        <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" />}
+
+                </div>
+            </div>
+                
+            <div class="right-2">
+                <p>Adam Habes <i class="fa fa-user fa-2x"></i></p>
+            </div>
+
+                <!-- Search box -->
+                <div class="right-1">
+                    <a title="DEBUG: logout / delete cookies" onclick="delCookie()" class="logout"><p>Logg ut </p><i class="fa fa-sign-out fa-2x"></i></a>
+                </div>
 
 
-		</div>
+
+
+                @*<button onclick="delCookie()">Delete cookies</button>*@
+                <script>
+                    function delCookie() {
+                        $.ajax({
+                            url: "/Home/DeleteCookies",
+                            type: "POST",
+                            dataType: "json",
+                            success: function (data) {
+                                console.log(data);
+                                window.location.reload();
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                console.log("Feil ved sletting av cookies [delCookies()]");
+                            }
+                        });
+                    }
+                </script>
+
+
+            </div>
 	</header>
 	
     @RenderBody()
