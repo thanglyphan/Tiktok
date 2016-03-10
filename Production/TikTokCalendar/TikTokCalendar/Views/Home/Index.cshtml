@@ -87,7 +87,7 @@ $(function() {
                                 <div class="content">
 
                                     <!-- Container for the top row -->
-                                    <div class="class-info" data-toggle="modal" data-target="#@item.ID">
+                                    <div class="class-info event-id-@item.ID" data-toggle="modal" data-target="#@item.ID">
                                         <div class="class-date">
 
                                             <!-- 17 -->
@@ -146,7 +146,7 @@ $(function() {
                                             <p class="time">
                                                 <strong>&nbsp;@item.GetDayOfWeek()</strong>, @item.GetTimeSlot()
                                                 @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
-                                                    <b>&nbsp;|&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
+                                                    <b>&nbsp;&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
 												}
                                                 @if (flag2 && !flag3) {
 												    
@@ -165,7 +165,7 @@ $(function() {
 													flag3 = true;
 												}
                                                 @if (flag4) {
-                                                    <b>&nbsp;|&nbsp;&nbsp;</b><span class="countdown">@timeLeft</span>
+                                                    <b>&nbsp;&nbsp;&nbsp;</b><span class="countdown">@timeLeft</span>
 
                                                     flag1 = true;
 													flag4 = false;
@@ -211,7 +211,7 @@ $(function() {
                                                 {
                                                     <input type="hidden" name="eventid" value="@item.ID" />
                                                     <input type="hidden" name="attend" value="false" />
-                                                    <input type="submit" value="Skal" />
+                                                    <input type="submit" value="Skal" class="going-@item.ID"/>
                                                 }
                                                 else
                                                 {
