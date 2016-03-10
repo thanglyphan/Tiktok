@@ -43,12 +43,14 @@ $(function() {
             <div class="goto" id="goto-@month.MonthNumber"></div>
             <!-- Month box e.g. "August" -->
             <a class="feed-month" data-toggle="collapse" data-target="#month-@month.MonthNumber">
+
+				<span class="badge badge-exam pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Eksamen)</span>
+				<span class="badge badge-assignment pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Innlevering)</span>
+				<span class="badge badge-lecture pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Forelesning)</span>
+
                 <p class="month">
 					@month.GetMonthName()
-					<span class="badge badge-exam pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Eksamen)</span>
-					<span class="badge badge-assignment pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Innlevering)</span>
-					<span class="badge badge-lecture pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Forelesning)</span>
-				</p> 
+				</p>
 				
             </a>
             <!-- Container for an entire month of events -->
@@ -135,7 +137,7 @@ $(function() {
                                             </div>
                                         </div>
                                     </div>
-                                                    }
+								}
                                                 //}
 
                                                 var today = "";
@@ -169,7 +171,7 @@ $(function() {
                                             @if (timeLeft != "") {
 												if (flag1) {
                                                     <div class="tip timeleft">@timeLeft</div>
-}
+												}
 												if (!flag2 && !flag5) {
 
 													if (item.StartDateTime < DateTime.Now.AddHours(24)) {
@@ -211,7 +213,7 @@ $(function() {
                                                 <strong>&nbsp;@item.GetDayOfWeek()</strong>, @item.GetTimeSlot()
                                                 @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
                                                     <b>&nbsp;|&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
-}
+												}
                                                 @if (flag2 && !flag3) {
 												    
                                                     <!-- real time countdown script -->
@@ -311,9 +313,9 @@ $(function() {
                                 </div>
                                 }
 
-        </div>
-                                }
-            </div>
-          }
+					</div>
+				}
+			</div>
+		}
     </div>
 </main>
