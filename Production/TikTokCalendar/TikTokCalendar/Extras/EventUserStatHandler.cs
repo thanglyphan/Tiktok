@@ -19,7 +19,6 @@ namespace TikTokCalendar
         public bool UserGoing(int id)
         {
             string userName = cookie.LoadStringFromCookie("UserName");
-
             foreach (EventUserStat eus in db.EventUserStats)
             {
                 if (eus.UserName == userName && eus.EventID == id)
@@ -30,12 +29,11 @@ namespace TikTokCalendar
             return false;
         }
 
-        public bool UserAttending(int id)
+        public bool UserAttending(int id, string username)
         {
-            string userName = cookie.LoadStringFromCookie("UserName");
             foreach (EventUserStat eus in db.EventUserStats)
             {
-                if (eus.UserName == userName && eus.EventID == id && eus.Attend)
+                if (eus.UserName == username && eus.EventID == id && eus.Attend == true)
                 {
                     return true;
                 }

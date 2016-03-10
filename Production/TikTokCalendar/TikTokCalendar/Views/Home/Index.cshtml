@@ -4,6 +4,7 @@
 
     TimeLeft TimeLeft = new TimeLeft();
     EventUserStatHandler EUSH = new EventUserStatHandler();
+    TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
     // Various flags to get code to be written only once
     // and at the right place in our huge nested foreach loop
     bool flag1 = false;
@@ -77,7 +78,7 @@ $(function() {
                                     <div class="check-in" style="position:absolute; margin-left: -132px; margin-top: 30px;" id="going-@item.ID">
                                         @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
                                         {
-                                            if (!EUSH.UserAttending(item.ID))
+                                            if (!EUSH.UserAttending(item.ID, cookie.LoadStringFromCookie("UserName")))
                                             {
                                                 <input type="hidden" name="eventid" value="@item.ID" />
                                                 <input type="hidden" name="attend" value="true" />
@@ -117,7 +118,7 @@ $(function() {
                                                     if (eus.EventID == item.ID)
                                                     {
                                                         <span class="no-linebreak">
-                                                            @if (EUSH.UserAttending(item.ID))
+                                                            @if (EUSH.UserAttending(item.ID, eus.UserName))
                                                             {
                                                                 <text>&#10004;</text>
                                                             }
@@ -212,8 +213,8 @@ $(function() {
                                                         $(function () {
                                                             var date = new Date();
                                                             date = new Date(@item.StartDateTime.Year , @item.StartDateTime.AddMonths(-1).Month , @item.StartDateTime.Day , @item.StartDateTime.Hour , @item.StartDateTime.Minute , @item.StartDateTime.Second );
-                                                            $('.countdown').countdown({until: date, compact: true,
-                                                                layout: '&nbsp;{hnn}{sep}{mnn}{sep}{snn}'});
+                                                            $('.countdown').countdown({until: date, expiryUrl: ''+window.location.href, compact: true,
+                                                                layout: '&nbsp;{hnn}{sep}{mnn}{sep}{snn}' });
                                                         });
                                                     </script>
                                                     <span>&nbsp;|</span>
