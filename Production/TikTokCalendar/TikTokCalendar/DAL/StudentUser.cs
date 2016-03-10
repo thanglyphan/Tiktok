@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,8 @@ namespace TikTokCalendar.DAL
 		public SchoolCourses Course { get; set; }
 		public int Year { get; private set; }
 		public int WeekOrMonthShow { get; set; }
-		public int ClassYear { get { return DateTime.Now.Year - Year; } }
+		//public int ClassYear { get { return DateTime.Now.Year - Year; } }
+		public int ClassYear { set; get; }
 
 		// TESTING
 		private string name;
@@ -25,12 +27,20 @@ namespace TikTokCalendar.DAL
 			Printer.Print(name);
 		}
 
-		public StudentUser(string name, SchoolCourses course)
+		public StudentUser(string name, SchoolCourses course, string yearString)
 		{
 			UserName = name;
 			Course = course;
 			Year = GetYearFromName();
-
+			int y = 0;
+			if (int.TryParse(yearString, NumberStyles.Integer, new NumberFormatInfo(), out y))
+			{
+				ClassYear = y;
+			}
+			else
+			{
+				Debug.WriteLine("Error parsing year, couldn't parse '" + yearString + "' to an int!");
+			}
 			// TODO Check if username is valid, if it isn't make the user a special user that only have one event called EROOR or something
 		}
 
