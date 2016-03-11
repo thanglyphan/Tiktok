@@ -271,7 +271,7 @@ namespace TikTokCalendar.Controllers
             var db = new CalendarEventContext();
             string userName = cookie.LoadStringFromCookie("UserName");
             //int eventID = Int32.Parse(Request.Form["eventid"]);
-            if (userName.Length >= 8)
+            if (userName != "" || userName != null)
             {
                 if (attend)
                 {
