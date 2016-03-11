@@ -1,5 +1,15 @@
 ﻿@{
+	if (Request.Browser.IsMobileDevice) {
+		Response.Redirect("~/Home/Mobile.cshtml");
+	}
+
 	TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
+
+	var userName = "John Doe";
+
+	if (cookie.LoadStringFromCookie("UserName") != null) {
+		userName = cookie.LoadStringFromCookie("UserName");
+	}
 }
 <!DOCTYPE html>
 <html>
@@ -78,9 +88,10 @@
 
                 </div>
             </div>
-                
+			
+
             <div class="right-2">
-                <p>@cookie.LoadStringFromCookie("UserName") <i class="fa fa-user fa-2x"></i></p>
+                <p>@userName <i class="fa fa-user fa-2x"></i></p>
                 <div class="dropdown-content">
                     <!-- Search box -->
                     <div class="right-1">
