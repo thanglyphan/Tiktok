@@ -63,7 +63,6 @@ function showLogin() {
                     },
                     success: function (a) {
                         console.log("success" + a);
-                        window.location.reload();
                     }
                 })
                 
