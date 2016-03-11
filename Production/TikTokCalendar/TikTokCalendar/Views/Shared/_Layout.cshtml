@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+	TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -70,15 +73,14 @@
                 <div class="ui-widget">
                     <label for="tags"></label>
 
-                    @using (Html.BeginForm("Index", "Home"))
-                    {
+                    @using (Html.BeginForm("Index", "Home")) {
                         <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" />}
 
                 </div>
             </div>
                 
             <div class="right-2">
-                <p>Adam Habes <i class="fa fa-user fa-2x"></i></p>
+                <p>@cookie.LoadStringFromCookie("UserName") <i class="fa fa-user fa-2x"></i></p>
                 <div class="dropdown-content">
                     <!-- Search box -->
                     <div class="right-1">
