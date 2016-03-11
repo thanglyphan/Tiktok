@@ -24,11 +24,11 @@ else
 }
 
 
-<!-- Go to current month -->
+<!-- Go to current month/week -->
 <script>
 $(function() {
-	// $(document).scrollTop( $("#goto-@DateTime.Now.Month").offset().top );
-	$(document).scrollTop( $("#goto-@TikTokCalendar.Extras.Utils.GetWeekNumberOfYear(DateTime.Now)").offset().top );
+	@*$(document).scrollTop( $("#goto-@DateTime.Now.Month").offset().top );*@
+	$(document).scrollTop( $("#goto-week-@TikTokCalendar.Extras.Utils.GetWeekNumberOfYear(DateTime.Now)").offset().top - 65 );
 });
 </script>
 
@@ -323,3 +323,4 @@ $(function() {
 		}
     </div>
 </main>
+

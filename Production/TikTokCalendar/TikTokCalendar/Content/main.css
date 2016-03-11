@@ -34,6 +34,7 @@ footer {
 
 header {
     background-color: #F5F6F8;
+	background-color: red;
     width: 100%;
     position: fixed;
     top: 0px;

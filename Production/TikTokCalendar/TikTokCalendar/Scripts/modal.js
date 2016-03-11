@@ -66,7 +66,7 @@ function showLogin() {
                         window.location.reload();
                     }
                 })
-                window.location.reload();
+                
                 return;
             }
 
