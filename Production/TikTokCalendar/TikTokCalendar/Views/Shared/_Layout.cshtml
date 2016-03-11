@@ -1,5 +1,5 @@
 ﻿@{
-	@if (Request.Browser.IsMobileDevice) {
+	if (Request.Browser.IsMobileDevice) {
 		Response.Redirect("~/Home/Mobile.cshtml");
 	}
 
