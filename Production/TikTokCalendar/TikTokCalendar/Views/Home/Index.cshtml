@@ -211,7 +211,7 @@ $(function() {
                                                 {
                                                     <input type="hidden" name="eventid" value="@item.ID" />
                                                     <input type="hidden" name="attend" value="false" />
-                                                    <input type="submit" value="Skal" class="going-@item.ID"/>
+                                                    <input type="submit" value="Going" class="going-@item.ID"/>
                                                 }
                                                 else
                                                 {
@@ -227,7 +227,7 @@ $(function() {
                                                         showTip = ""; // false (hide box if no users to display)
                                                     }
                                                 }
-                                                <span class="activator usersgoing event-id-@item.ID">@howMany skal</span>
+                                                <span class="activator usersgoing event-id-@item.ID">@howMany going</span>
                                                 <div class="tip usersgoing @showTip">
                                                     @foreach (var eus in Model.eventUserStats)
                                                     {
