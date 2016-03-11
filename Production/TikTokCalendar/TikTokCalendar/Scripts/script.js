@@ -25,7 +25,7 @@ $(function () {
     $(".mobile-room").textfill();
     $(".mobile-date").textfill();
 
-    $("div[id^='event-id']").click(function () {
+    $("#event-id-4695]").click(function () {
         alert("poooop");
         alert($(this));
     });
