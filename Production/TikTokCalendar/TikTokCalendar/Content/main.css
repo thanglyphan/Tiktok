@@ -264,15 +264,18 @@ input [class^="going-"]{
 
 .feed-container {
     color: #474f5c;
-    height: 80px;
+    height: 100px;
     background-color: white;
     border-radius: 0px 0px 3px 3px;
     display: block;
     cursor: pointer;
+    border-bottom: 1px solid #d4d8e5;
+    border-left: 1px solid #e1e2ec;
+    border-right: 1px solid #e1e2ec;
 }
 
 .today {
-    box-shadow: 0px 0px 66px 2px rgba(141, 179, 241, 0.72) inset;
+    -webkit-box-shadow: 5px 6px 6px -6px gray, -5px 6px 6px -6px gray;
 }
 
 .feed-container .class-date {
@@ -305,7 +308,7 @@ input [class^="going-"]{
 .feed-container .content {
     width: 100%;
     height: 80%;
-    padding-top: 17px;
+    padding-top: 30px;
 }
 
 .feed-container .content .class-info {
@@ -433,6 +436,7 @@ input [class^="going-"]{
     float: right;
     border-bottom: 0.5px solid #dce0e0;
 }
+
 
 @media only screen and (max-width: 500px) {
 
