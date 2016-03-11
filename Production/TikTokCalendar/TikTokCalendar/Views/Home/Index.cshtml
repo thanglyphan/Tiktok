@@ -1,5 +1,6 @@
 ﻿@model TikTokCalendar.DAL.ModelDataWrapper
 
+
 @{
 
     TimeLeft TimeLeft = new TimeLeft();
@@ -21,10 +22,13 @@ else
 {
     // for desktop
 }
-<!-- Go to current month -->
+
+
+<!-- Go to current month/week -->
 <script>
 $(function() {
-    $(document).scrollTop( $("#goto-@DateTime.Now.Month").offset().top );
+	@*$(document).scrollTop( $("#goto-@DateTime.Now.Month").offset().top );*@
+	$(document).scrollTop( $("#goto-week-@TikTokCalendar.Extras.Utils.GetWeekNumberOfYear(DateTime.Now)").offset().top - 65 );
 });
 </script>
 
@@ -68,17 +72,17 @@ $(function() {
                     }
 
                     <!-- Week box e.g. "Uke 2" -->
-                    <div class="week-header">@week.WeekName</div>
+                    <div class="week-header" id="goto-week-@week.WeekNumber">@week.WeekName</div>
                     <div class="feed-week">
 
                         <!-- Looping throught every events -->
                         @foreach (var item in week.events)
                         {
-                                                var today = "";
-                                                if (item.StartDateTime.Date.Equals(DateTime.Now.Date))
-                                                {
-                                                    today = "today";
-                                                }
+							var today = "";
+							if (item.StartDateTime.Date.Equals(DateTime.Now.Date))
+							{
+								today = "today";
+							}
 
                             <!-- Link on every event -->
                             <div class="feed-container @today">
@@ -319,3 +323,4 @@ $(function() {
 		}
     </div>
 </main>
+
