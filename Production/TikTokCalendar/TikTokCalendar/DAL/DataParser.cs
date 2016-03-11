@@ -31,7 +31,7 @@ namespace TikTokCalendar.DAL
 			"timeedit/test.json"
 		};
 
-		private const long ExamEventStartID = 5000000; // Must be much higher than the ID's on the events from the TimeEdit json files
+		private const long ExamEventStartID = 500000; // Must be much higher than the ID's on the events from the TimeEdit json files
 		private long examEventID; // A unique ID for the exam events
 		private const int ColumnEmne = 0;
 		private const int ColumnStudieProgram = 1;
@@ -40,6 +40,11 @@ namespace TikTokCalendar.DAL
 		private const int ColumnAktivitet = 4;
 		private const int ColumnKommentar = 5;
 		private readonly DateTimeParser dtParser = new DateTimeParser();
+
+		public DataParser()
+		{
+			examEventID = ExamEventStartID;
+		}
 
 		public void ParseAllData()
 		{
@@ -182,18 +187,18 @@ namespace TikTokCalendar.DAL
 
 			//////// Year and course ////////
 			List<SchoolCourses> courses = new List<SchoolCourses>();
-			List<int> years = new List<int>();
 			if (courseData != null) {
 				// Figure out the classyear from the coursedata field
-				if (courseData.ToLower().Contains("bachelor i it")) {
-					years.Add(1);
-				}
-				if (courseData.ToLower().Contains("2.klasse")) {
-					years.Add(2);
-				}
-				if (courseData.ToLower().Contains("3.klasse")) {
-					years.Add(3);
-				}
+				//string courseName = courseData.ToLower();
+				//if (courseName.Contains("bachelor i it")) {
+				//	years.Add(1);
+				//}
+				//if (courseName.Contains("2.klasse")) {
+				//	years.Add(2);
+				//}
+				//if (courseName.Contains("3.klasse")) {
+				//	years.Add(3);
+				//}
 
 				// Get the courses from the courseData field
 				string[] courseDataLines = courseData.Split(',');
@@ -204,6 +209,7 @@ namespace TikTokCalendar.DAL
 					}
 				}
 			}
+			var years = GetClassYearsForEvent(courses, subject);
 
 			//////// Making the events ////////
 			EventType eventType = ParseEventType(activity);
@@ -257,12 +263,13 @@ namespace TikTokCalendar.DAL
 			if (courses.Count <= 0) {
 				return retEvents;
 			}
-			List<int> years = new List<int>();
-			foreach (var sc in courses) {
-				foreach (var cs in DataWrapper.Instance.GetCourseSubjectWithSchoolCourse(sc)) {
-					years.Add(CourseSubject.GetClassYearFromSemester(cs.Semester));
-				}
-			}
+			var years = GetClassYearsForEvent(courses, subject);
+			//foreach (var sc in courses) {
+			//	foreach (var cs in DataWrapper.Instance.GetCourseSubjectWithSchoolCourseSubject(sc, subject)) {
+			//		int y = CourseSubject.GetClassYearFromSemester(cs.Semester);
+			//		years.Add(y);
+			//	}
+			//}
 			//foreach (var c in DataWrapper.Instance.GetCourseSubjectWithSchoolCourse()
 			//{
 
@@ -284,6 +291,21 @@ namespace TikTokCalendar.DAL
 				//Printer.Print("Added " + eventType.ToString() + " - " + subject.Name);
 			}
 			return retEvents;
+		}
+
+		private HashSet<int> GetClassYearsForEvent(List<SchoolCourses> courses, Subject subject)
+		{
+			// TODO Something is fucked up here
+			var years = new HashSet<int>();
+			foreach (var sc in courses)
+			{
+				foreach (var cs in DataWrapper.Instance.GetCourseSubjectWithSchoolCourseSubject(sc, subject))
+				{
+					int y = CourseSubject.GetClassYearFromSemester(cs.Semester);
+					years.Add(y);
+				}
+			}
+			return years;
 		}
 
 		private EventType ParseEventType(string text)

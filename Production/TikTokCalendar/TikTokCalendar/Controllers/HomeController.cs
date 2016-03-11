@@ -67,18 +67,12 @@ namespace TikTokCalendar.Controllers
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
 			List<CustomEventMonth> months = null;
-			months = DataWrapper.Instance.GetEventsWithName(new StudentUser("trotor14", SchoolCourses.Spillprogrammering), id);
-			//if (string.IsNullOrEmpty(id))
-			//{
-			//	months = DataWrapper.Instance.GetEventsWithUser(new StudentUser("trotor14", SchoolCourses.Spillprogrammering));
-			//}
-			//else
-			//{
-			//	months = DataWrapper.Instance.GetEventsWithName(new StudentUser("trotor14", SchoolCourses.Spillprogrammering), id);
-			//}
+			Random rnd = new Random();
+			SchoolCourses c = (SchoolCourses)rnd.Next(1, 10);
+			StudentUser u = new StudentUser("tordtest", c, "second");
+			months = DataWrapper.Instance.GetEventsWithName(u, id);
 
-
-			string page = "";
+			string page = string.Format("{0} - {1}, {2}\n", u.UserName, u.Course, u.ClassYear);
 			foreach (var month in months)
 			{
 				page += "Month: " + month.GetMonthName() + "(" + month.GetEventTypeCount(EventType.Forelesning) + ")"  + "<br>";
@@ -87,7 +81,7 @@ namespace TikTokCalendar.Controllers
 					page += " -- Week: " + week.WeekName + "(" + week.GetEventTypeCount(EventType.Forelesning) + ")" + "<br>";
 					foreach (var evnt in week.events)
 					{
-						page += " ---- Evnt(" + evnt.ID + "): " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.EventTypeLabel + " - " + evnt.ClassYears + " - " + evnt.CoursesLabel + "<br>";
+						page += " ---- Evnt(" + evnt.ID + "): " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.EventTypeLabel + " - [" + evnt.YearLabelTest + "] - " + evnt.CoursesLabel + "<br>";
 					}
 				}
 			}
