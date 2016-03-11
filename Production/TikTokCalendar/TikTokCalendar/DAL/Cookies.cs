@@ -68,7 +68,10 @@ namespace TikTokCalendar.DAL
 		{
 
             string [] b = a.Split(';');
-			SaveYearToCookies(b[1]);
+			if (b.Length >= 2)
+			{
+				SaveYearToCookies(b[1]);
+			}
 
 			try {
 				HttpCookie UsernameCookie = new HttpCookie("UserName");

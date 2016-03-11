@@ -26,7 +26,7 @@ function showLogin() {
 
     vex.dialog.open({
         message: 'Navn og klassetrinn',
-        input: '<input name=\"username\" type=\"text\" placeholder=\"nelwil14\" required />\n<form><input class="input-year" type="radio" name="trinn" value="first" first> Første<input class="input-year" type="radio" name="trinn" value="second"> Andre<input class="input-year" type="radio" name="trinn" value="third"> Tredje</form> ',
+        input: '<input name=\"username\" type=\"text\" placeholder=\"Andreas\" required />\n<form><input class="input-year" type="radio" name="trinn" value="first" first> Første<input class="input-year" type="radio" name="trinn" value="second"> Andre<input class="input-year" type="radio" name="trinn" value="third"> Tredje</form> ',
 
         showCloseButton: true,
         buttons: [
@@ -155,8 +155,6 @@ function showLogin() {
     });
 }
 
-//  Check if username is invalid in some ways 
-//  TODO: Replace this with a to
 function isEmpty(str) {
     return typeof str == 'string' && !str.trim() || typeof str == 'undefined' || str === null;
 }

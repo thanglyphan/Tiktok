@@ -43,6 +43,12 @@ namespace TikTokCalendar.Models
 			}
 		}
 
-
+		public static int GetClassYearFromSemester(int semester)
+		{
+			int year = 0;
+			int partOfYear = (DateTime.Now.Month < 8) ? 0 : 1; // 0 if before august, 1 after august
+			year = (semester / 2) + partOfYear;
+			return year;
+		}
 	}
 }

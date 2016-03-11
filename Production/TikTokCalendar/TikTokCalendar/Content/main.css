@@ -33,11 +33,10 @@ footer {
 ==========================================*/
 
 header {
-    background-color: white;
+    background-color: #F5F6F8;
     width: 100%;
     position: fixed;
     top: 0px;
-    border-bottom: 0.5px solid #E3E3E3;
     z-index: 2;
     font-size: 14px !important;
 }
@@ -70,7 +69,6 @@ header p {
 /* Logout */
 header .header-content .right-1 {
     height: 100%;
-    border-right: 1px solid #dce0e0;
     float: right;
     text-decoration: none;
     cursor: pointer;
@@ -81,7 +79,7 @@ header .header-content .right-1 {
 
 /* Logout icon */
 header .header-content .right-1 i {
-    color: #E8E8E8;
+    color: #AAAAAA;
     padding-left: 10px;
 }
 
@@ -100,13 +98,13 @@ header .header-content .right-2 {
     padding-right: 19px;
     padding-left: 19px;
     height: 100%;
-    border-right: 1px solid #dce0e0;
+
     float: right;
     cursor: pointer;
 }
 
 header .header-content .right-2 i {
-    color:#E8E8E8;
+    color: #AAAAAA;
     padding-left: 10px;
 }
 
@@ -115,7 +113,7 @@ header .header-content .left-1 {
     width: 67px;
     height: 100%;
     float: left;
-    border-right: 1px solid #dce0e0;
+
 }
 
 /* Calendar icon */
@@ -144,6 +142,10 @@ div.ui-widget {
 ===================================*/
 .check-in [class^="going-"] {
     visibility: hidden;
+}
+
+input [class^="going-"]{
+    border: 1px solid #70e670;
 }
 
 /*===================================
@@ -186,20 +188,21 @@ div.ui-widget {
 .feed-month .badge {
 	margin-right: 5px;
 	margin-top: 1px;
-	border-radius: 5px;
+	border-radius: 25px;
 }
 
 .feed-month .badge-container {
 	position: absolute;
 	right: 10px;
+    opacity: 0.9;
 }
 
 .feed-month .badge-exam {
-	background-color: #A6120D !important;
+	background-color: #DF322E !important;
 }
 
 .feed-month .badge-assignment {
-	background-color: #f89406 !important;
+	background-color: #FFCF51 !important;
 }
 
 .feed-month .badge-lecture {
@@ -341,18 +344,17 @@ div.ui-widget {
     display: inline-block;
     border-radius: 2px;
     margin-left: 14px;
-	margin-right: 10px;
     padding: 4px;
 }
 
 
 .exam {
-    background-color: #A6120D;
+    background-color: #FF5A5F;
 }
 
 
 .assignment {
-    background-color: #f89406;
+    background-color: #FFCF51;
 }
 
 
@@ -384,7 +386,6 @@ div.ui-widget {
 .check-in {
 	float: right;
 	font-size: 14px;
-	opacity: initial;
 }
 
 .check-in * {
@@ -392,11 +393,12 @@ div.ui-widget {
 }
 
 .check-in input {
-	background-color: #3288e6;
-	color: #fff;
+	color: #6a7586;
 	border-radius: 2px;
-	border: 0;
-	padding: 0.3em;
+    margin-right: 7px;
+    background-color: white;
+    border: 1px solid #00bb3f;
+	padding: 0.4em;
 	font-family: "Helvetica Neue", sans-serif;
 	text-transform: uppercase;
 	font-size: 0.8em;
@@ -457,6 +459,12 @@ div.ui-widget {
     cursor: default;
 }
 
+.activator {
+    cursor: default;
+    font-size: 11px;
+    color: #a4b0c3;
+}
+
 .tip-item {
     position: relative;
 }
@@ -488,17 +496,13 @@ div.ui-widget {
     color: #e28138;
 }
 
-.usersgoing {
-    font-size: 12px;
-}
-
 /*======================================
   SEARCH (JQUERY-UI REPLACEMENT )
 =======================================*/
 
 #tags {
 
-    max-width: 150px;
+    max-width: 200px;
     padding: 3px 0 4px 30px;
     border-radius: 20px;
     border: 0px solid #e4e4e4;
@@ -509,6 +513,7 @@ div.ui-widget {
     background-position: 5px 6px;
     background-size: 20px;
     font-family: Tahoma, Geneva, sans-serif;
+     background-color: #F5F6F8 !important;
     font-size: 16px;
 }
 
@@ -520,7 +525,6 @@ div.ui-widget {
 .ui-widget-content {
     border: 1px solid #DCDCDC;
     border-top: none;
-    background-color: #FFF;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }

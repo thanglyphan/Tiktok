@@ -10,13 +10,14 @@ namespace TikTokCalendar
 {
     public static class EUSH_global
     {
-        public static int ID_ATM = 0; // event ID at the moment
+        public static long ID_ATM = 0; // event ID at the moment
     }
     public class EventUserStatHandler
     {
         private CalendarEventContext db = new CalendarEventContext();
         private Cookies cookie = new Cookies();
-        public bool UserGoing(int id)
+
+        public bool UserGoing(long id)
         {
             string userName = cookie.LoadStringFromCookie("UserName");
             foreach (EventUserStat eus in db.EventUserStats)
@@ -29,7 +30,7 @@ namespace TikTokCalendar
             return false;
         }
 
-        public bool UserAttending(int id, string username)
+        public bool UserAttending(long id, string username)
         {
             foreach (EventUserStat eus in db.EventUserStats)
             {
@@ -41,7 +42,7 @@ namespace TikTokCalendar
             return false;
         }
 
-        public int HowManyUsersGoing(int id)
+        public int HowManyUsersGoing(long id)
         {
             int counter = 0;
             foreach (EventUserStat eus in db.EventUserStats)
