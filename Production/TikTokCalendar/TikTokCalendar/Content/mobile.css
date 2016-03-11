@@ -31,14 +31,14 @@
     .mobile-navbar {
         width: 100%;
         height: 45px;
-        background-color: #565a5c;
-        border-bottom: 1px solid #F3f3f3;
+        background-color: #F5F6F8;
+        border-bottom: 2px solid #F3f3f3;
         color: white;
     }
 
     .mobile-navbar-container {
         margin: 0 auto;
-        width: 80%;
+        width: 100%;
         height: 35px;
     }
 
@@ -46,13 +46,45 @@
         float: left;
     }
 
-    .mobile-navbar-menu {
-        float: right;
-    }
+/*===================================
+    M E N U
+===================================*/
 
+/* The menu header */
+.mobile-navbar-menu {
+    float: right;
+    margin-top: 7px;
+}
 
-    /*===================================
-E V E N T S
+div.slicknav_menu {
+    color: black !important;
+    background-color: #F5F6F8 !important;
+    -webkit-box-shadow: 0 8px 6px -8px gray;
+}
+
+/* Menu header color*/
+a.slicknav_btn.slicknav_open, a.slicknav_btn.slicknav_collapsed { 
+    background-color: #F5F6F8 !important;
+}
+
+span.slicknav_menutxt {
+    display: none;
+    visibility: hidden;
+}
+/* Menu items */
+.menu-items {
+    padding: 13px;
+    font-size: 18px !important;
+    color: #858f9f !important;
+}
+
+/* Duplicate text outside of menu */
+ul#menu li {
+    visibility: hidden;
+}
+
+/*===================================
+    E V E N T S
 ===================================*/
 
     .mobile-content {
@@ -79,8 +111,8 @@ E V E N T S
     .mobile-date-top {
         height: 20px;
         width: 100%;
-        background-color: #b8bcc1;
-        color: white;
+        background-color: #f2f2f2;
+        color: #8E8F94;
         text-transform: uppercase;
         letter-spacing: .1em;
         line-height: 0em;

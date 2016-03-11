@@ -7,7 +7,7 @@ function checkLogin() {
         success: function (data) {
             console.log(data);
             if (data) {
-                
+                console.log("Data er: " + data)
             } else {
                 showLogin();
             }
@@ -33,12 +33,13 @@ function showLogin() {
         $.extend({}, vex.dialog.buttons.YES, {
             text: 'Login'
         }),
+        
          $.extend({}, vex.dialog.buttons.NO, {
              className: 'show-all-events',
              text: 'Vis alle hendelser'
-         })
+         }) 
         ],
-
+        
         callback: function (data) {
             $.ajax({
                 url: "Home/UserName",
@@ -70,6 +71,7 @@ function showLogin() {
 
 
             if (isEmpty(username)) {
+                
 
                 //  Check if username matches any of the registered users
                 //  userName === "whatever"
@@ -156,5 +158,5 @@ function showLogin() {
 }
 
 function isEmpty(str) {
-    return typeof str == 'string' && !str.trim() || typeof str == 'undefined' || str === null;
+    return typeof str == 'string' && !str.trim() || typeof str == null || str === null;
 }
