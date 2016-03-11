@@ -1,4 +1,8 @@
 ﻿@{
+	if (Request.Browser.IsMobileDevice) {
+		Response.Redirect("~/Home/Mobile.cshtml");
+	}
+
 	TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
 
 	var userName = "John Doe";
