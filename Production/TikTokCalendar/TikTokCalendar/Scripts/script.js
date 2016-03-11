@@ -48,6 +48,10 @@ $(function () {
         lastId = id;
     }
 
+    $('#menu').slicknav({
+        prependTo: '.mobile-navbar-container'
+    });
+
     function isEmpty(str) {
         return typeof str == 'string' && !str.trim() || typeof str == 'undefined' || str === null;
     }
