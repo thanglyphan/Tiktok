@@ -38,8 +38,9 @@ namespace TikTokCalendar.Controllers
 			}
 			else
 			{
-				ViewBag.Title = "not logged in " + cookie.LoadStringFromCookie("Usercourse");
+				//ViewBag.Title = "not logged in " + cookie.LoadStringFromCookie("Usercourse");
 				//ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
+				ViewBag.Title = string.Format("Halla, {0}! Du går: {1}", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Usercourse"));
 			}
 			
             var modelWrapper = new ModelDataWrapper();
