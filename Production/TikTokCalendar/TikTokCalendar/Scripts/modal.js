@@ -155,8 +155,6 @@ function showLogin() {
     });
 }
 
-//  Check if username is invalid in some ways 
-//  TODO: Replace this with a to
 function isEmpty(str) {
     return typeof str == 'string' && !str.trim() || typeof str == 'undefined' || str === null;
 }

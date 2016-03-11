@@ -25,10 +25,31 @@ $(function () {
     $(".mobile-room").textfill();
     $(".mobile-date").textfill();
 
-    $("#event-id-4695]").click(function () {
-        alert("poooop");
-        alert($(this));
+    var lastId = "";
+    $('*[class^="class-info event-id"]').hover(function () {
+        var eventId = $(this).attr('class');
+        var arrayId = eventId.split('-');
+        toggleOnHover(arrayId[3]);
     });
 
+    $('*[class^="activator usersgoing event-id"]').hover(function () {
+        var eventId = $(this).attr('class');
+        var arrayId = eventId.split('-');
+        toggleOnHover(arrayId[2]);
+    });
+
+    function toggleOnHover(id) {
+        var stringId = '.going-';
+        if (!lastId.isEmpty) {
+            $(stringId + lastId).css('visibility', 'hidden');
+        }
+
+        $(stringId + id).css('visibility', 'visible');
+        lastId = id;
+    }
+
+    function isEmpty(str) {
+        return typeof str == 'string' && !str.trim() || typeof str == 'undefined' || str === null;
+    }
 
 });

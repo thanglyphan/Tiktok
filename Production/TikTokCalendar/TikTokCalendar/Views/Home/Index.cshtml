@@ -89,7 +89,7 @@ $(function() {
                                     <!-- Container for the top row -->
                                     <div class="class-info event-id-@item.ID" data-toggle="modal" data-target="#@item.ID">
                                         <div class="class-date">
-
+                                           
                                             <!-- 17 -->
                                             <p class="date-number">@item.StartDateTime.Day</p>  
                                         </div>
@@ -215,7 +215,7 @@ $(function() {
                                                 }
                                                 else
                                                 {
-                                                    <strong>Du skal.</strong>
+                                                    <strong>going</strong>
                                                 }
                                             }
                                             <div class="tip-item">
@@ -227,7 +227,7 @@ $(function() {
                                                         showTip = ""; // false (hide box if no users to display)
                                                     }
                                                 }
-                                                <span class="activator usersgoing">[@howMany skal]</span>
+                                                <span class="activator usersgoing event-id-@item.ID">@howMany skal</span>
                                                 <div class="tip usersgoing @showTip">
                                                     @foreach (var eus in Model.eventUserStats)
                                                     {
