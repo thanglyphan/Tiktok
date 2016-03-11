@@ -235,9 +235,9 @@ namespace TikTokCalendar.Controllers
 		}
 		public StudentUser GetUserFromNameCourse()
 		{
-			string name = "phatha14"; 
-			string course = "SpillProgrammering";
-			string year = "2";
+			string name = ""; 
+			string course = "";
+			string year = "";
 
 			string op = cookie.LoadStringFromCookie("Year");
 			if (!string.IsNullOrEmpty(op)) {
@@ -250,7 +250,7 @@ namespace TikTokCalendar.Controllers
 				name = cookie.LoadStringFromCookie("UserName");
 			}
 			else {
-				name = "anonym14";
+				name = "John Doe";
 			}
 			string uc = cookie.LoadStringFromCookie("UserCourse");
 			if (!string.IsNullOrEmpty(uc))
