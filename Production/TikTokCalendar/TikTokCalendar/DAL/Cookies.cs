@@ -77,6 +77,7 @@ namespace TikTokCalendar.DAL
 				HttpCookie UsernameCookie = new HttpCookie("UserName");
 				if (a == "Default") {
 					UsernameCookie.Value = "John Doe";
+					SaveYearToCookies(DateTime.Now.Year.ToString());
 					UsernameCookie.Expires = DateTime.Now.AddSeconds(5);
 				}
 				else {

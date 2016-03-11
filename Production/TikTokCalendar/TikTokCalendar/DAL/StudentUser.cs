@@ -32,6 +32,13 @@ namespace TikTokCalendar.DAL
 			UserName = name;
 			Course = course;
 			Year = GetYearFromName();
+			switch (yearString) {
+				case "first": ClassYear = 1; break;
+				case "second": ClassYear = 2; break;
+				case "third": ClassYear = 3; break;
+				default: ClassYear = -1; break;
+			}
+			/*
 			int y = 0;
 			if (int.TryParse(yearString, NumberStyles.Integer, new NumberFormatInfo(), out y))
 			{
@@ -42,6 +49,7 @@ namespace TikTokCalendar.DAL
 				Debug.WriteLine("Error parsing year, couldn't parse '" + yearString + "' to an int!");
 			}
 			// TODO Check if username is valid, if it isn't make the user a special user that only have one event called EROOR or something
+	*/	
 		}
 
 		/// <summary>
