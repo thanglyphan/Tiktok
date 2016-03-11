@@ -23,10 +23,11 @@ function checkLogin() {
 function showLogin() {
     
     var username = "";
+    var year = "";
 
     vex.dialog.open({
         message: 'Navn og klassetrinn',
-        input: '<input name=\"username\" type=\"text\" placeholder=\"Andreas\" required />\n<form><input class="input-year" type="radio" name="trinn" value="first" first> Første<input class="input-year" type="radio" name="trinn" value="second"> Andre<input class="input-year" type="radio" name="trinn" value="third"> Tredje</form> ',
+        input: '<input name=\"username\" type=\"text\" placeholder=\"Andreas\" required />\n <input name=\"year\" type="radio" value="first"> Første<input name=\"year\" type="radio" value="second"> Andre<input name=\"year\" type="radio" value="third"> Tredje',
 
         showCloseButton: true,
         buttons: [

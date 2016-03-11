@@ -16,6 +16,7 @@ namespace TikTokCalendar.Controllers
 	{
 		Cookies cookie = new Cookies();
 
+
 		public ActionResult Index(string id = "", string tags = "")
 		{
 
@@ -32,8 +33,10 @@ namespace TikTokCalendar.Controllers
 
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
+			var username = cookie.LoadStringFromCookie("UserName");
+			var userCourse = cookie.LoadStringFromCookie("UserCourse");
 
-			if(cookie.LoadStringFromCookie("UserName") != null){
+			if (username != null && userCourse != null){
 				ViewBag.Title = string.Format("Halla, {0}! Du går: {1}",cookie.LoadStringFromCookie("UserName"),cookie.LoadStringFromCookie("Usercourse"));
 			}
 			else

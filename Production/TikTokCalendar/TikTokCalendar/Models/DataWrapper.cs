@@ -186,7 +186,7 @@ namespace TikTokCalendar.Models
 				foreach (var subj in Subjects)
 				{
 					bool e = subj.Code.Equals(code, StringComparison.OrdinalIgnoreCase);
-					Printer.Print(string.Format("{0} == {1} = {2}", subj.Code, code, e));
+					//Printer.Print(string.Format("{0} == {1} = {2}", subj.Code, code, e));
 					if (e)
 					{
 						subject = subj;
