@@ -237,6 +237,9 @@ input [class^="going-"]{
 	color: #fff;
 }
 
+.week-header:not(:first-child) {
+    border-radius: 3px 3px 0px 0px;
+}
 .week, .week p {
     background-color: #8DB3f1;
     padding-top: 2px;
