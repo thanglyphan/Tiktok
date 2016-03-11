@@ -1,5 +1,15 @@
 ﻿@model TikTokCalendar.DAL.ModelDataWrapper
+@{
+    TimeLeft TimeLeft = new TimeLeft();
+    EventUserStatHandler EUSH = new EventUserStatHandler();
+    TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
 
+    bool flag1 = false;
+    bool flag2 = false;
+    bool flag3 = false;
+    bool flag4 = false;
+    bool flag5 = false;
+}
 
 <main class="mobile-main">
 
@@ -23,8 +33,12 @@
             <div class="mobile-content-container">
                 <div class="mobile-date-top">@day.StartDateTime.Day.ToString() @month.GetMonthName()</div>
                 <div class="mobile-content-container-inner">
-                    <div class="mobile-course">@day.Subject.Name</div>              <!-- Course name e.g. "Grensesnittdesign"-->
-                    <div class="mobile-room"><span>@day.RoomName</span></div>       <!-- Room   name e.g. "Rom 40"-->
+                    <div class="tip-day">
+                        <!-- Course name e.g. "Grensesnittdesign"-->
+                        <div class="mobile-course">@day.Subject.Name</div>
+                    </div>         
+                        <!-- Room   name e.g. "Rom 40"-->     
+                    <div class="mobile-room"><span>@day.RoomName</span></div>       
 
                     <!-- Format time to show double 00 if the clock is 14:00 (if not it shows 14:0) -->
                     @{  var startTime = "";
@@ -59,9 +73,117 @@
 
                     <!-- Showing date e.g. "i dag, 10:15 - 14:00" -->
                     <div class="mobile-date">@day.StartDateTime.Hour:@startTime - @day.EndDateTime.Hour:@endTime</div>
+                    <!-- TimeLeft & countdown -->
+                    @{
+                        string timeLeft = TimeLeft.GetTimeLeft(day.StartDateTime);
+                        bool lessThanAnHour = false;
+                        bool lessThan24 = false;
+                    }
+                    @if (timeLeft != "")
+                        {
+                            if (day.StartDateTime < DateTime.Now.AddHours(24))
+                            {
+                                if (day.StartDateTime < DateTime.Now.AddHours(1))
+                                {
+                                    lessThanAnHour = true;
+                                }
+                                else
+                                {
+                                    lessThan24 = true;
+                                }
+                            }
+                        }
+                    @if (DateTime.Now > day.StartDateTime && DateTime.Now < day.EndDateTime)
+                    {
+                        <b>&nbsp;&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>}
+                    else if (lessThanAnHour)
+                    {
+                        <!-- real time countdown script -->
+                        <script>
+                            $(function () {
+                                var date = new Date();
+                                date = new Date(@day.StartDateTime.Year , @day.StartDateTime.AddMonths(-1).Month , @day.StartDateTime.Day , @day.StartDateTime.Hour , @day.StartDateTime.Minute , @day.StartDateTime.Second );
+                                $('.countdown-@day.ID').countdown({until: date, expiryUrl: ''+window.location.href, compact: true,
+                                    layout: '&nbsp;{hnn}{sep}{mnn}{sep}{snn}' });
+                            });
+                        </script>
+                        <span class="countdown-@day.ID"></span>
+                    }
+                    else if (lessThan24)
+                    {
+                        <span class="countdown">@timeLeft</span>
+                    }
+
                     <div class="button-container">
                         <button class="mobile-checkin pulse-button">Check in</button>
                     </div>
+
+                    <!-- GOING -->
+
+                    @using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
+                    {
+                        HttpMethod = "POST",
+                        UpdateTargetId = "going-" + day.ID,
+                        InsertionMode = InsertionMode.Replace
+                    }))
+                    {
+                        // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
+                        <div class="check-in" id="going-@day.ID">
+                            @if (DateTime.Now > day.StartDateTime && DateTime.Now < day.EndDateTime)
+                            {
+                                if (!EUSH.UserAttending(day.ID, cookie.LoadStringFromCookie("UserName")))
+                                {
+                                    <input type="hidden" name="eventid" value="@day.ID" />
+                                    <input type="hidden" name="attend" value="true" />
+                                                    <input type="submit" value="Check-in" />
+                                }
+                                else
+                                {
+                                    <strong>Innsjekket &#10004;</strong>
+                                }
+                            }
+                            else
+                            {
+                                if (!EUSH.UserGoing(day.ID))
+                                {
+                                    <input type="hidden" name="eventid" value="@day.ID" />
+                                    <input type="hidden" name="attend" value="false" />
+                                                    <input type="submit" value="Going" class="going-@day.ID" />
+                                }
+                                else
+                                {
+                                    <strong>going</strong>
+                                }
+                            }
+                            <div class="tip-day">
+                                @{
+                                    var howMany = EUSH.HowManyUsersGoing(day.ID);
+                                    var showTip = "hide";
+                                    if (howMany > 0)
+                                    {
+                                        showTip = ""; // false (hide box if no users to display)
+                                    }
+                                }
+                                <span class="activator usersgoing event-id-@day.ID">@howMany going</span>
+                                <div class="tip usersgoing @showTip">
+                                    @foreach (var eus in Model.eventUserStats)
+                                    {
+                                        if (eus.EventID == day.ID)
+                                        {
+                                            <span class="no-linebreak">
+                                                @if (EUSH.UserAttending(day.ID, eus.UserName))
+                                                {
+                                                    <text>&#10004;</text>
+                                                }
+                                                @eus.UserName<br />
+                                            </span>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                                    }
+
                 </div>
             </div>
         </section>
