@@ -27,7 +27,8 @@ namespace TikTokCalendar.DAL
 			"timeedit/interaktivt-design.json",
 			"timeedit/programmering.json",
 			"timeedit/spilldesign.json",
-			"timeedit/spillprogrammering.json"
+			"timeedit/spillprogrammering.json",
+			"timeedit/test.json"
 		};
 
 		private const long ExamEventStartID = 5000000; // Must be much higher than the ID's on the events from the TimeEdit json files

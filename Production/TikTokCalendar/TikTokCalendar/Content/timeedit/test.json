@@ -1,0 +1,31 @@
+{
+    "columnheaders":[
+        "Emne",
+        "Studieprogram",
+        "Rom",
+        "Lærer",
+        "Aktivitet",
+        "Kommentar"
+    ],
+    "info":{
+        "reservationlimit":200,
+        "reservationcount":40
+    },
+    "reservations":[
+        {
+            "id":"-10000",
+            "startdate":"11.03.2016",
+            "starttime":"10:15",
+            "enddate":"11.03.2016",
+            "endtime":"22:00",
+            "columns":[
+                "Interaktivt webprosjekt (PJ2100-15)",
+                "2.klasse, Spillprogrammering",
+                "Auditoriet",
+                "Siri Fagernes",
+                "Forelesning",
+                ""
+            ]
+        }
+    ]
+}
