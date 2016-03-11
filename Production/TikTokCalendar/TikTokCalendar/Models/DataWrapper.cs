@@ -35,7 +35,7 @@ namespace TikTokCalendar.Models
 			List<CustomEventMonth> months = new List<CustomEventMonth>();
 			CustomEventMonth month = null;
 			CustomEventWeek week = null;
-			HashSet<int> addedIDs = new HashSet<int>();
+			HashSet<long> addedIDs = new HashSet<long>();
 
 			foreach (var evnt in AllEvents)
 			{
@@ -226,6 +226,19 @@ namespace TikTokCalendar.Models
 					{
 						retList.Add(cs.Course.SchoolCourse);
 					}
+				}
+			}
+			return retList;
+		}
+
+		public List<CourseSubject> GetCourseSubjectWithSchoolCourse(SchoolCourses schoolCourse)
+		{
+			var retList = new List<CourseSubject>();
+			foreach (var cs in CourseSubjects)
+			{
+				if (cs.Course == Courses[(int)schoolCourse])
+				{
+					retList.Add(cs);
 				}
 			}
 			return retList;

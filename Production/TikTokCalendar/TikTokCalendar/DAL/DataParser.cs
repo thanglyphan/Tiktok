@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using TikTokCalendar.Extras;
 using TikTokCalendar.Models;
@@ -18,8 +20,7 @@ namespace TikTokCalendar.DAL
 		private const string subjectFile = "SchoolSystem/subjects.json";
 		private const string courseSubjectFile = "SchoolSystem/courseSubjects.json";
 		private const string examsFile = "timeedit/innlevering-eksamen-dato.json";
-		private readonly string[] scheduleFiles = new string[]
-		{
+		private readonly string[] scheduleFiles = new string[] {
 			"timeedit/1klasse.json",
 			"timeedit/e-business.json",
 			"timeedit/intelligente-systemer.json",
@@ -29,12 +30,14 @@ namespace TikTokCalendar.DAL
 			"timeedit/spillprogrammering.json"
 		};
 
-		public const int ColumnEmne = 0;
-		public const int ColumnStudieProgram = 1;
-		public const int ColumnRom = 2;
-		public const int ColumnLaerer = 3;
-		public const int ColumnAktivitet = 4;
-		public const int ColumnKommentar = 5;
+		private const long ExamEventStartID = 5000000; // Must be much higher than the ID's on the events from the TimeEdit json files
+		private long examEventID; // A unique ID for the exam events
+		private const int ColumnEmne = 0;
+		private const int ColumnStudieProgram = 1;
+		private const int ColumnRom = 2;
+		private const int ColumnLaerer = 3;
+		private const int ColumnAktivitet = 4;
+		private const int ColumnKommentar = 5;
 		private readonly DateTimeParser dtParser = new DateTimeParser();
 
 		public void ParseAllData()
@@ -58,10 +61,11 @@ namespace TikTokCalendar.DAL
 			try
 			{
 				dataPath = HttpContext.Current.Server.MapPath("~/Content/" + contentFolderRelativePath);
-				ret = File.ReadAllText(dataPath);
+				ret = File.ReadAllText(dataPath, Encoding.GetEncoding("iso-8859-1"));
 			}
 			catch (Exception e)
 			{
+				Debug.WriteLine("Error while getting the filecontents: " + e.Message);
 				throw;
 			}
 			return ret;
@@ -113,7 +117,7 @@ namespace TikTokCalendar.DAL
 
 		private List<CustomEvent> GetEvents()
 		{
-			List<int> addedIDs = new List<int>();
+			List<long> addedIDs = new List<long>();
 			var events = new List<CustomEvent>();
 
 			var file = "";
@@ -155,8 +159,8 @@ namespace TikTokCalendar.DAL
 
 			//////// Event ID ////////
 			// Parse ID
-			int parsedId = -1;
-			int.TryParse(id, NumberStyles.Integer, new NumberFormatInfo(), out parsedId);
+			long parsedId = -1;
+			long.TryParse(id, NumberStyles.Integer, new NumberFormatInfo(), out parsedId);
 
 			//////// Start date ////////
 			// Startdate
@@ -203,8 +207,8 @@ namespace TikTokCalendar.DAL
 			}
 
 			//////// Making the events ////////
-			EventType eventType = EventType.None;
-			Enum.TryParse(activity, out eventType);
+			EventType eventType = ParseEventType(activity);
+
 			//int bestMatch = 1000;
 			//string[] events = Enum.GetNames(typeof(SchoolCourses));
 			//for (int i = 1; i < events.Length + 1; i++)
@@ -222,7 +226,7 @@ namespace TikTokCalendar.DAL
 			// This makes it so that events where we couldn't parse a date from, will not be added
 			foreach (var date in startDates)
 			{
-				CustomEvent evnt = new CustomEvent(parsedId, date, endDateTime, hasEndDateTime,
+				CustomEvent evnt = new CustomEvent(parsedId, date, true, endDateTime, hasEndDateTime,
 					subject, classYear, courses, room, teacher, eventType, comment);
 				retEvents.Add(evnt);
 			}
@@ -232,6 +236,9 @@ namespace TikTokCalendar.DAL
 		public List<CustomEvent> ParseExamEvent(string startDate, string subjectCode, string subjectName, string activity, string weighting, string duration, string helpers)
 		{
 			List<CustomEvent> retEvents = new List<CustomEvent>();
+
+			long id = examEventID;
+			examEventID++;
 
 			//////// Start date ////////
 			// Startdate
@@ -249,22 +256,18 @@ namespace TikTokCalendar.DAL
 			//////// Year and course ////////
 			List<SchoolCourses> courses = DataWrapper.Instance.GetCoursesWithSubject(subject);
 			// TODO Get courses with a subject
-			if (courses.Count <= 0) return retEvents;
+			if (courses.Count <= 0)
+			{
+				return retEvents;
+			}
+			//foreach (var c in DataWrapper.Instance.GetCourseSubjectWithSchoolCourse()
+			//{
+
+			//}
+			// TODO Figure out all the years that the "SchoolCourses" has this "subject" this year
 
 			//////// Making the events ////////
-			EventType eventType = EventType.None;
-			int bestMatch = 1000;
-			string[] events = Enum.GetNames(typeof(EventType));
-			for (int i = 1; i < events.Length + 1; i++)
-			{
-				if (i > courses.Count) break;
-				int match = Math.Abs(activity.CompareTo(courses[i - 1].ToString()));
-				if (match <= bestMatch)
-				{
-					eventType = (EventType)i;
-					bestMatch = match;
-				}
-			}
+			EventType eventType = ParseEventType(activity);
 
 			string comment = "Vekting: " +  weighting + "\nVarighet: " + duration + "\nHjelpemidler: " + helpers;
 
@@ -273,12 +276,41 @@ namespace TikTokCalendar.DAL
 			// This makes it so that events where we couldn't parse a date from, will not be added
 			foreach (var date in startDates)
 			{
-				CustomEvent evnt = new CustomEvent(-1, date, DateTime.MinValue, false,
+				CustomEvent evnt = new CustomEvent(id, date, false, DateTime.MinValue, false,
 					subject, -1, courses, null, null, eventType, comment);
 				retEvents.Add(evnt);
 				//Printer.Print("Added " + eventType.ToString() + " - " + subject.Name);
 			}
 			return retEvents;
+		}
+
+		private EventType ParseEventType(string text)
+		{
+			EventType eventType = EventType.Annet;
+			if (text.ToLower().Contains("hjemmeeksamen"))
+			{
+				eventType = EventType.Hjemmeeksamen;
+			}
+			else if (text.ToLower().Contains("fremføring"))
+			{
+				eventType = EventType.Fremforing;
+			}
+			else if (text.ToLower().Contains("øving"))
+			{
+				eventType = EventType.Oving;
+			}
+			else if (text.ToLower().Contains("skriftlig eksamen"))
+			{
+				eventType = EventType.SkriftligEksamen;
+			}
+			else
+			{
+				if (!Enum.TryParse(text, true, out eventType))
+				{
+					eventType = EventType.Annet;
+				}
+			}
+			return eventType;
 		}
 
 
