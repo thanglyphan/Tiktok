@@ -18,12 +18,23 @@ namespace TikTokCalendar.Models
 		//public string EventName { get { return Subject.Name + Subject.Code; } } // TODO Not needed
 		public Subject Subject { get; private set; }
 		public int ClassYear { get; private set; }
+		public List<int> ClassYears { get; private set; }
 		public List<SchoolCourses> Courses { get; private set; }
 		public string RoomName { get; private set; }
 		public string Teacher { get; private set; }
 		//public string EventType { get; private set; }
 		public EventType eventType { get; private set; }
 		public string Comment { get; private set; }
+
+		public bool IsYear(int year)
+		{
+			foreach (var y in ClassYears) {
+				if (y == year) {
+					return true;
+				}
+			}
+			return false;
+		}
 
 		public string EventTypeLabel
 		{
@@ -81,13 +92,13 @@ namespace TikTokCalendar.Models
 		}
 
 		public CustomEvent(long id, DateTime startDateTime, bool hasStartTime, DateTime endDateTime, bool hasEndDateTime, Subject subject, 
-			int classYear, List<SchoolCourses> courses, string room, string teacher, EventType eventType, string comment)
+			List<int> classYears, List<SchoolCourses> courses, string room, string teacher, EventType eventType, string comment)
 		{
 			ID = id;
 			StartDateTime = startDateTime;
 			EndDateTime = endDateTime;
 			Subject = subject;
-			ClassYear = classYear;
+			ClassYears = classYears;
 			Courses = courses;
 			RoomName = room;
 			Teacher = teacher;

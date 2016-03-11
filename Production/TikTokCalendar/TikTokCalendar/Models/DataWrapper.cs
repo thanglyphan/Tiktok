@@ -40,7 +40,7 @@ namespace TikTokCalendar.Models
 			foreach (var evnt in AllEvents)
 			{
 				if (!addedIDs.Contains(evnt.ID) && (user.Course == SchoolCourses.VisAlt 
-					|| (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)))
+					|| (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear))))
 				{
 					CustomEventMonth m = AddEvent(evnt, ref month, ref week);
 					if (m != null)
@@ -62,7 +62,7 @@ namespace TikTokCalendar.Models
 			foreach (var evnt in AllEvents)
 			{
 				if (user.Course == SchoolCourses.VisAlt
-					|| (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear))
+					|| (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear)))
 				{
 					string temp = "";
 					if (!string.IsNullOrEmpty(tags))
@@ -236,7 +236,7 @@ namespace TikTokCalendar.Models
 			var retList = new List<CourseSubject>();
 			foreach (var cs in CourseSubjects)
 			{
-				if (cs.Course == Courses[(int)schoolCourse])
+				if (cs.Course == Courses[((int)schoolCourse)-1])
 				{
 					retList.Add(cs);
 				}
@@ -258,7 +258,7 @@ namespace TikTokCalendar.Models
             List<string> list = new List<string>();
             foreach (var evnt in AllEvents)
             {
-                if (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear)
+                if (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear))
                 {
                     if (!list.Contains(evnt.Subject.Name))
                     {

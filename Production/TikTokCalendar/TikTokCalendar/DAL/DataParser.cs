@@ -153,25 +153,25 @@ namespace TikTokCalendar.DAL
 		/// Parses an event and returns a List<CustomEvent>. 
 		/// The list contains either the date of the event, the date of the first day in the week of the event, or two dates (if the event has two dates)
 		/// </summary>
-		public List<CustomEvent> ParseEvent(string id, string startDate, string startTime, string endDate, string endTime,
-			string subjectString, string courseData, string room, string teacher, string activity, string comment)
+		public List<CustomEvent> ParseEvent(string id,string startDate,string startTime,string endDate,string endTime,
+			string subjectString,string courseData,string room,string teacher,string activity,string comment)
 		{
 			List<CustomEvent> retEvents = new List<CustomEvent>();
 
 			//////// Event ID ////////
 			// Parse ID
 			long parsedId = -1;
-			long.TryParse(id, NumberStyles.Integer, new NumberFormatInfo(), out parsedId);
+			long.TryParse(id,NumberStyles.Integer,new NumberFormatInfo(),out parsedId);
 
 			//////// Start date ////////
 			// Startdate
 			DateParseResults dtResults = DateParseResults.NoDate;
 			// TODO Use the other parse if it isn't a fucked up dateformat
-			DateTime[] startDates = new DateTime[] { dtParser.SimpleParse(startDate, startTime, out dtResults) };
+			DateTime[] startDates = new DateTime[] { dtParser.SimpleParse(startDate,startTime,out dtResults) };
 
 			//////// End date ////////
 			// Enddate
-			DateTime endDateTime = dtParser.SimpleParse(endDate, endTime, out dtResults);
+			DateTime endDateTime = dtParser.SimpleParse(endDate,endTime,out dtResults);
 			bool hasEndDateTime = (dtResults == DateParseResults.Single);
 
 			//////// Subject ////////
@@ -182,26 +182,24 @@ namespace TikTokCalendar.DAL
 
 			//////// Year and course ////////
 			List<SchoolCourses> courses = new List<SchoolCourses>();
-			int classYear = 1;
-			if (courseData != null)
-			{
+			List<int> years = new List<int>();
+			if (courseData != null) {
 				// Figure out the classyear from the coursedata field
-				if (courseData.Contains("2.klasse"))
-				{
-					classYear = 2;
+				if (courseData.ToLower().Contains("bachelor i it")) {
+					years.Add(1);
 				}
-				else if (courseData.Contains("3.klasse"))
-				{
-					classYear = 3;
+				if (courseData.ToLower().Contains("2.klasse")) {
+					years.Add(2);
+				}
+				if (courseData.ToLower().Contains("3.klasse")) {
+					years.Add(3);
 				}
 
 				// Get the courses from the courseData field
 				string[] courseDataLines = courseData.Split(',');
-				foreach (var line in courseDataLines)
-				{
+				foreach (var line in courseDataLines) {
 					Course c = DataWrapper.Instance.GetCourseFromName(line);
-					if (c != null)
-					{
+					if (c != null) {
 						courses.Add(c.SchoolCourse);
 					}
 				}
@@ -225,16 +223,15 @@ namespace TikTokCalendar.DAL
 			//////// Making the events ////////
 			// Go through the startdates that was parsed.
 			// This makes it so that events where we couldn't parse a date from, will not be added
-			foreach (var date in startDates)
-			{
-				CustomEvent evnt = new CustomEvent(parsedId, date, true, endDateTime, hasEndDateTime,
-					subject, classYear, courses, room, teacher, eventType, comment);
+			foreach (var date in startDates) {
+				CustomEvent evnt = new CustomEvent(parsedId,date,true,endDateTime,hasEndDateTime,
+					subject,years,courses,room,teacher,eventType,comment);
 				retEvents.Add(evnt);
 			}
 			return retEvents;
 		}
 
-		public List<CustomEvent> ParseExamEvent(string startDate, string subjectCode, string subjectName, string activity, string weighting, string duration, string helpers)
+		public List<CustomEvent> ParseExamEvent(string startDate,string subjectCode,string subjectName,string activity,string weighting,string duration,string helpers)
 		{
 			List<CustomEvent> retEvents = new List<CustomEvent>();
 
@@ -245,21 +242,26 @@ namespace TikTokCalendar.DAL
 			// Startdate
 			DateParseResults dtResults = DateParseResults.NoDate;
 			// TODO Use the other parse if it isn't a fucked up dateformat
-			DateTime[] startDates = dtParser.ParseDate(startDate, out dtResults);
+			DateTime[] startDates = dtParser.ParseDate(startDate,out dtResults);
 			if (startDates.Length <= 0) return retEvents;
 
 			//////// Subject ////////
 			// TODO Null check
 			//string subjectCode = Subject.GetSubjectCode(subjectString);
 			Subject subject = DataWrapper.Instance.GetSubjectByCode(subjectCode);
-			if (subject == null) return retEvents; 
+			if (subject == null) return retEvents;
 
 			//////// Year and course ////////
 			List<SchoolCourses> courses = DataWrapper.Instance.GetCoursesWithSubject(subject);
 			// TODO Get courses with a subject
-			if (courses.Count <= 0)
-			{
+			if (courses.Count <= 0) {
 				return retEvents;
+			}
+			List<int> years = new List<int>();
+			foreach (var sc in courses) {
+				foreach (var cs in DataWrapper.Instance.GetCourseSubjectWithSchoolCourse(sc)) {
+					years.Add(CourseSubject.GetClassYearFromSemester(cs.Semester));
+				}
 			}
 			//foreach (var c in DataWrapper.Instance.GetCourseSubjectWithSchoolCourse()
 			//{
@@ -270,15 +272,14 @@ namespace TikTokCalendar.DAL
 			//////// Making the events ////////
 			EventType eventType = ParseEventType(activity);
 
-			string comment = "Vekting: " +  weighting + "\nVarighet: " + duration + "\nHjelpemidler: " + helpers;
+			string comment = "Vekting: " + weighting + "\nVarighet: " + duration + "\nHjelpemidler: " + helpers;
 
 			//////// Making the events ////////
 			// Go through the startdates that was parsed.
 			// This makes it so that events where we couldn't parse a date from, will not be added
-			foreach (var date in startDates)
-			{
-				CustomEvent evnt = new CustomEvent(id, date, false, DateTime.MinValue, false,
-					subject, -1, courses, null, null, eventType, comment);
+			foreach (var date in startDates) {
+				CustomEvent evnt = new CustomEvent(id,date,false,DateTime.MinValue,false,
+					subject, years,courses,null,null,eventType,comment);
 				retEvents.Add(evnt);
 				//Printer.Print("Added " + eventType.ToString() + " - " + subject.Name);
 			}
