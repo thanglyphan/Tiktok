@@ -237,6 +237,12 @@ namespace TikTokCalendar.Controllers
 		{
 			string name = "phatha14"; 
 			string course = "SpillProgrammering";
+			string year = "2";
+
+			string op = cookie.LoadStringFromCookie("Year");
+			if (!string.IsNullOrEmpty(op)) {
+				year = cookie.LoadStringFromCookie("Year");
+			}
 
 			string un = cookie.LoadStringFromCookie("UserName");
 			if (!string.IsNullOrEmpty(un))
@@ -255,8 +261,9 @@ namespace TikTokCalendar.Controllers
 				course = "VisAlt";
 			}
 
+
 			SchoolCourses schoolCourse = Course.GetCourseFromName(course);
-			return new StudentUser(name, schoolCourse); //If cookie name && course == default, name = anonym14, course = "VisAlt"
+			return new StudentUser(name, schoolCourse, year); //If cookie name && course == default, name = anonym14, course = "VisAlt"
 		}
 
         public PartialViewResult UserStatUpdate(int eventid, bool attend)
