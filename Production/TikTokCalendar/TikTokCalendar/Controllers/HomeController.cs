@@ -69,7 +69,8 @@ namespace TikTokCalendar.Controllers
 			List<CustomEventMonth> months = null;
 			Random rnd = new Random();
 			SchoolCourses c = (SchoolCourses)rnd.Next(1, 10);
-			StudentUser u = new StudentUser("tordtest", c, "second");
+			c = SchoolCourses.Programmering;
+			StudentUser u = new StudentUser("tordtest", c, "first");
 			months = DataWrapper.Instance.GetEventsWithName(u, id);
 
 			string page = string.Format("{0} - {1}, {2}\n", u.UserName, u.Course, u.ClassYear);
