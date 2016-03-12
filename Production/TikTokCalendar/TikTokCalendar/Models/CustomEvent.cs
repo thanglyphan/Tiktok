@@ -18,6 +18,7 @@ namespace TikTokCalendar.Models
 		//public string EventName { get { return Subject.Name + Subject.Code; } } // TODO Not needed
 		public Subject Subject { get; private set; }
 		public int ClassYear { get; private set; }
+		public int Weighting { get; private set; }
 		public HashSet<int> ClassYears { get; private set; }
 		public string YearLabelTest { get { string s = "";
 				foreach (var y in ClassYears)
@@ -31,13 +32,20 @@ namespace TikTokCalendar.Models
 		public string Teacher { get; private set; }
 		//public string EventType { get; private set; }
 		public EventType eventType { get; private set; }
+		public MainEventType MainEventType { get; private set; }
 		public string Comment { get; private set; }
 
+		public bool IsFinal { get { return Weighting >= 100; } }
+		public bool HasWeighting { get { return Weighting > 0; } }
+
+		/// <summary>
+		/// Returns the eventtype, unless the event has no weighting, in which case it returns and empty string.
+		/// </summary>
 		public string EventTypeLabel
 		{
 			get
 			{
-				string text = "Annet";
+				string text = "";
 				if (eventType == EventType.Fremforing)
 				{
 					text = "Fremføring";
@@ -50,7 +58,7 @@ namespace TikTokCalendar.Models
 				{
 					text = "Skriftlig eksamen";
 				}
-				else
+				else if (HasWeighting)
 				{
 					text = eventType.ToString();
 				}
@@ -58,10 +66,8 @@ namespace TikTokCalendar.Models
 			}
 		}
 
-		public string CoursesLabel
-		{
-			get
-			{
+		public string CoursesLabel {
+			get {
 				string text = "";
 				for (int i = 0; i < Courses.Count; i ++)
 				{
@@ -73,8 +79,7 @@ namespace TikTokCalendar.Models
 
 		//////// Getters for the non-string field to be used in the view for displaying the data ////////
 		public string StartTimeLabel {
-			get
-			{
+			get {
 				string text = "";
 				if (HasStartTime)
 				{
@@ -89,7 +94,7 @@ namespace TikTokCalendar.Models
 		}
 
 		public CustomEvent(long id, DateTime startDateTime, bool hasStartTime, DateTime endDateTime, bool hasEndDateTime, Subject subject, 
-			HashSet<int> classYears, List<SchoolCourses> courses, string room, string teacher, EventType eventType, string comment)
+			HashSet<int> classYears, List<SchoolCourses> courses, string room, string teacher, EventType eventType, string comment, int weighting)
 		{
 			ID = id;
 			StartDateTime = startDateTime;
@@ -100,9 +105,54 @@ namespace TikTokCalendar.Models
 			RoomName = room;
 			Teacher = teacher;
 
-			//int rndEvnt = new Random().Next(1, 5);
-			//EventType = (EventType)rndEvnt;
+			Weighting = weighting;
 			this.eventType = eventType;
+			switch (eventType)
+			{
+				case EventType.None:
+					MainEventType = MainEventType.Forelesning;
+					break;
+				case EventType.Forelesning:
+					MainEventType = MainEventType.Forelesning;
+					break;
+				case EventType.Eksamen:
+					MainEventType = MainEventType.Eksamen;
+					break;
+				case EventType.Innlevering:
+					MainEventType = MainEventType.Innlevering;
+					break;
+				case EventType.Prosjekt:
+					if (IsFinal) MainEventType = MainEventType.Eksamen;
+					else MainEventType = MainEventType.Forelesning;
+					break;
+				case EventType.Hjemmeeksamen:
+					MainEventType = MainEventType.Eksamen;
+					break;
+				case EventType.SkriftligEksamen:
+					MainEventType = MainEventType.Eksamen;
+					break;
+				case EventType.Muntlig:
+					MainEventType = MainEventType.Eksamen;
+					break;
+				case EventType.Mappe:
+					if (IsFinal) MainEventType = MainEventType.Eksamen;
+					else MainEventType = MainEventType.Innlevering;
+					break;
+				case EventType.Fremforing:
+					if (IsFinal) MainEventType = MainEventType.Eksamen;
+					else MainEventType = MainEventType.Innlevering;
+					break;
+				case EventType.Oving:
+					MainEventType = MainEventType.Forelesning;
+					break;
+				case EventType.Annet:
+					MainEventType = MainEventType.Forelesning;
+					break;
+				default:
+					MainEventType = MainEventType.Forelesning;
+					break;
+			}
+
 			Comment = comment;
 		}
 
@@ -120,6 +170,13 @@ namespace TikTokCalendar.Models
 		{
 			return StartTimeLabel;
 		}
+	}
+
+	public enum MainEventType
+	{
+		Forelesning,
+		Innlevering,
+		Eksamen
 	}
 
 	public enum EventType

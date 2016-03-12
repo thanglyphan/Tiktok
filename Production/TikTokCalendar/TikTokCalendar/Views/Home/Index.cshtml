@@ -123,15 +123,15 @@ $(function() {
                                         <div class="right-position">
                                             @{
                                                 var typeClass = "";
-												var typeText = "";
+												var typeText = item.EventTypeLabel;
 
-												if (item.eventType == TikTokCalendar.Models.EventType.Innlevering) {
+												if (item.MainEventType == TikTokCalendar.Models.MainEventType.Innlevering) {
 													typeClass = "assignment";
-													typeText = "Innlevering";
+													//typeText = "Innlevering";
 												}
-												else if (item.eventType == TikTokCalendar.Models.EventType.Eksamen) {
+												else if (item.MainEventType == TikTokCalendar.Models.MainEventType.Eksamen) {
 													typeClass = "exam";
-													typeText = "Eksamen";
+													//typeText = "Eksamen";
 												}
                                             }
 

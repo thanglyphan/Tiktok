@@ -29,6 +29,7 @@ namespace TikTokCalendar.Models
 			if (Semester <= 2)
 			{
 				Course = courses[((int)SchoolCourses.BacheloriIT) - 1];
+				courseID = Course.ID;
 			}
 			else
 			{
@@ -49,6 +50,8 @@ namespace TikTokCalendar.Models
 					break;
 				}
 			}
+			CourseID = Course.ID;
+			SubjectID = Subject.ID;
 		}
 
 		public static int GetClassYearFromSemester(int semester)

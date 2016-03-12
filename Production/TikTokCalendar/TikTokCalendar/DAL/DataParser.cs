@@ -28,6 +28,7 @@ namespace TikTokCalendar.DAL
 			"timeedit/programmering.json",
 			"timeedit/spilldesign.json",
 			"timeedit/spillprogrammering.json",
+			"timeedit/mobilprogrammering.json",
 			"timeedit/test.json"
 		};
 
@@ -86,7 +87,6 @@ namespace TikTokCalendar.DAL
 			{
 				var s = new Subject();
 				s.SetAndParse(subject.id, subject.name, subject.code);
-				Printer.Print("Add: subject [" + s.Code + "] " + s.Name);
 				subjects.Add(s);
 			}
 
@@ -148,7 +148,7 @@ namespace TikTokCalendar.DAL
 			var container = JsonConvert.DeserializeObject<JRootExamReservationRootObject>(file);
 			foreach (var r in container.reservations)
 			{
-				var evnts = ParseExamEvent(r.Dato, r.Emnekode, r.Emnenavn, r.Vurderingstype, r.Vekting.ToString(), r.Varighet, r.Hjelpemidler);
+				var evnts = ParseExamEvent(r.Dato, r.Emnekode, r.Emnenavn, r.Vurderingstype, r.Vekting, r.Varighet, r.Hjelpemidler);
 				events.AddRange(evnts);
 			}
 			return events;
@@ -231,16 +231,17 @@ namespace TikTokCalendar.DAL
 			// This makes it so that events where we couldn't parse a date from, will not be added
 			foreach (var date in startDates) {
 				CustomEvent evnt = new CustomEvent(parsedId,date,true,endDateTime,hasEndDateTime,
-					subject,years,courses,room,teacher,eventType,comment);
+					subject,years,courses,room,teacher,eventType,comment, 0);
 				retEvents.Add(evnt);
 			}
 			return retEvents;
 		}
 
-		public List<CustomEvent> ParseExamEvent(string startDate,string subjectCode,string subjectName,string activity,string weighting,string duration,string helpers)
+		public List<CustomEvent> ParseExamEvent(string startDate,string subjectCode,string subjectName,string activity,int weighting,string duration,string helpers)
 		{
 			List<CustomEvent> retEvents = new List<CustomEvent>();
 
+			// TODO Give examevents that are the same (same startdate, subject and eventtype) the same ID to prevent duplicates
 			long id = examEventID;
 			examEventID++;
 
@@ -252,29 +253,15 @@ namespace TikTokCalendar.DAL
 			if (startDates.Length <= 0) return retEvents;
 
 			//////// Subject ////////
-			// TODO Null check
-			//string subjectCode = Subject.GetSubjectCode(subjectString);
 			Subject subject = DataWrapper.Instance.GetSubjectByCode(subjectCode);
 			if (subject == null) return retEvents;
 
 			//////// Year and course ////////
 			List<SchoolCourses> courses = DataWrapper.Instance.GetCoursesWithSubject(subject);
-			// TODO Get courses with a subject
 			if (courses.Count <= 0) {
 				return retEvents;
 			}
 			var years = GetClassYearsForEvent(courses, subject);
-			//foreach (var sc in courses) {
-			//	foreach (var cs in DataWrapper.Instance.GetCourseSubjectWithSchoolCourseSubject(sc, subject)) {
-			//		int y = CourseSubject.GetClassYearFromSemester(cs.Semester);
-			//		years.Add(y);
-			//	}
-			//}
-			//foreach (var c in DataWrapper.Instance.GetCourseSubjectWithSchoolCourse()
-			//{
-
-			//}
-			// TODO Figure out all the years that the "SchoolCourses" has this "subject" this year
 
 			//////// Making the events ////////
 			EventType eventType = ParseEventType(activity);
@@ -286,20 +273,19 @@ namespace TikTokCalendar.DAL
 			// This makes it so that events where we couldn't parse a date from, will not be added
 			foreach (var date in startDates) {
 				CustomEvent evnt = new CustomEvent(id,date,false,DateTime.MinValue,false,
-					subject, years,courses,null,null,eventType,comment);
+					subject, years,courses,null,null,eventType,comment, weighting);
 				retEvents.Add(evnt);
-				//Printer.Print("Added " + eventType.ToString() + " - " + subject.Name);
 			}
 			return retEvents;
 		}
 
 		private HashSet<int> GetClassYearsForEvent(List<SchoolCourses> courses, Subject subject)
 		{
-			// TODO Something is fucked up here
 			var years = new HashSet<int>();
 			foreach (var sc in courses)
 			{
-				foreach (var cs in DataWrapper.Instance.GetCourseSubjectWithSchoolCourseSubject(sc, subject))
+				var courseSubjs = DataWrapper.Instance.GetCourseSubjectWithSchoolCourseSubject(sc, subject);
+				foreach (var cs in courseSubjs)
 				{
 					int y = CourseSubject.GetClassYearFromSemester(cs.Semester);
 					years.Add(y);
@@ -311,19 +297,20 @@ namespace TikTokCalendar.DAL
 		private EventType ParseEventType(string text)
 		{
 			EventType eventType = EventType.Annet;
-			if (text.ToLower().Contains("hjemmeeksamen"))
+			string evntName = text.ToLower();
+			if (evntName.Contains("hjemmeeksamen"))
 			{
 				eventType = EventType.Hjemmeeksamen;
 			}
-			else if (text.ToLower().Contains("fremføring"))
+			else if (evntName.Contains("fremføring"))
 			{
 				eventType = EventType.Fremforing;
 			}
-			else if (text.ToLower().Contains("øving"))
+			else if (evntName.Contains("øving"))
 			{
 				eventType = EventType.Oving;
 			}
-			else if (text.ToLower().Contains("skriftlig eksamen"))
+			else if (evntName.Contains("skriftlig eksamen") || evntName == "skriftlig")
 			{
 				eventType = EventType.SkriftligEksamen;
 			}
