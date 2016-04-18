@@ -39,7 +39,7 @@ namespace TikTokCalendar.Controllers
 			// Make a new ModelDataWrapper with the events based on the user and the tags
 			var modelWrapper = new ModelDataWrapper();
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
-
+            if (!string.IsNullOrEmpty(tags)) modelWrapper.fromSearch = true;
 			// Send the model to the view
 			return View(modelWrapper);
 		}

@@ -12,6 +12,7 @@ namespace TikTokCalendar.DAL
 		public List<CustomEventMonth> Months { get; set; }
 		public StudentUser user;
         public List<EventUserStat> eventUserStats { get; set; }
+        public bool fromSearch { get; set; }
 
 		public ModelDataWrapper()
 		{
@@ -20,6 +21,23 @@ namespace TikTokCalendar.DAL
 			user = new StudentUser("trotor14", SchoolCourses.Spillprogrammering, "second");
             var db = new CalendarEventContext();
             eventUserStats = new List<EventUserStat>(db.EventUserStats);
+            fromSearch = false;
+        }
+
+        public int GetEventCount()
+        {
+            int events = 0;
+            foreach (var month in Months)
+            {
+                foreach (var week in month.Weeks)
+                {
+                    foreach (var item in week.events)
+                    {
+                        events++;
+                    }
+                }
+            }
+            return events;
         }
 	}
 }

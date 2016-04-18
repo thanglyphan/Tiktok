@@ -184,6 +184,12 @@ namespace TikTokCalendar.Models
 			return dayName;//.Substring(0, 3).ToLower();
 		}
 
+        public string GetMonthName()
+        {
+            string monthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(StartDateTime.Month);
+            return monthName;
+        }
+
 		public string GetTimeSlot()
 		{
 			return StartTimeLabel;
