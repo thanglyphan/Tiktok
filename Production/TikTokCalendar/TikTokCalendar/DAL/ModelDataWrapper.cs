@@ -17,7 +17,7 @@ namespace TikTokCalendar.DAL
 		{
 			calEvents = new List<EventMonth>();
 			Months = new List<CustomEventMonth>();
-			user = new StudentUser("trotor14", SchoolCourses.Spillprogrammering);
+			user = new StudentUser("trotor14", SchoolCourses.Spillprogrammering, "second");
             var db = new CalendarEventContext();
             eventUserStats = new List<EventUserStat>(db.EventUserStats);
         }
