@@ -18,7 +18,10 @@ namespace TikTokCalendar.Controllers
 
 		public ActionResult Index(string id = "", string tags = "")
 		{
+			// Get the user from cookies
 			StudentUser user = GetUserFromNameCourse();
+
+			// Parse all the JSON data
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
 
@@ -33,9 +36,11 @@ namespace TikTokCalendar.Controllers
 				ViewBag.Title = "Not logged in";
 			}
 
+			// Make a new ModelDataWrapper with the events based on the user and the tags
 			var modelWrapper = new ModelDataWrapper();
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
 
+			// Send the model to the view
 			return View(modelWrapper);
 		}
 
@@ -46,7 +51,7 @@ namespace TikTokCalendar.Controllers
 			List<CustomEventMonth> months = null;
 			Random rnd = new Random();
 			SchoolCourses c = (SchoolCourses)rnd.Next(1, 10);
-			c = SchoolCourses.Programmering;
+			//c = SchoolCourses.Programmering;
 			StudentUser u = new StudentUser("tordtest", c, "second");
 			months = DataWrapper.Instance.GetEventsWithName(u, id);
 

@@ -92,7 +92,7 @@ namespace TikTokCalendar.Models
 				string text = "";
 				if (HasStartTime)
 				{
-					text = string.Format("{0:HH:mm}", StartDateTime);
+					text = string.Format(", {0:HH:mm}", StartDateTime);
 					if (HasEndDateTime)
 					{
 						text += string.Format(" - {0:HH:mm}", EndDateTime);
@@ -107,6 +107,8 @@ namespace TikTokCalendar.Models
 		{
 			ID = id;
 			StartDateTime = startDateTime;
+			HasStartTime = hasStartTime;
+			HasEndDateTime = hasEndDateTime;
 			EndDateTime = endDateTime;
 			Subject = subject;
 			ClassYears = classYears;
@@ -172,7 +174,8 @@ namespace TikTokCalendar.Models
 
 		public string GetDayOfWeek()
 		{
-			return CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(StartDateTime.DayOfWeek).Substring(0, 3).ToLower();
+			string dayName = CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(StartDateTime.DayOfWeek);
+			return dayName;//.Substring(0, 3).ToLower();
 		}
 
 		public string GetTimeSlot()
