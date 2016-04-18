@@ -26,6 +26,35 @@ namespace TikTokCalendar.Models
 		public EventType eventType { get; private set; }
 		public string Comment { get; private set; }
 
+		public bool IsFinal
+		{
+			get
+			{
+				return MainEventType == MainEventType.Eksamen;
+			}
+		}
+
+		public MainEventType MainEventType
+		{
+			get
+			{
+				if (eventType == EventType.Eksamen || eventType == EventType.Hjemmeeksamen ||
+				    eventType == EventType.SkriftligEksamen ||
+				    ((eventType == EventType.Mappe || eventType == EventType.Muntlig) /* && vekting == 100*/))
+				{
+					return MainEventType.Eksamen;
+				}
+				else if (eventType == EventType.Innlevering /* || (eventType == EventType.Mappe && vekting == 100)*/)
+				{
+					return MainEventType.Innlevering;
+				}
+				else
+				{
+					return MainEventType.Forelesning;
+				}
+			}
+		}
+
 		public string EventTypeLabel
 		{
 			get
@@ -137,5 +166,12 @@ namespace TikTokCalendar.Models
 		Fremforing,
 		Oving,
 		Annet
+	}
+
+	public enum MainEventType
+	{
+		Forelesning,
+		Innlevering,
+		Eksamen
 	}
 }
