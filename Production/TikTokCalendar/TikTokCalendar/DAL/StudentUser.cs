@@ -10,10 +10,26 @@ namespace TikTokCalendar.DAL
 {
 	public class StudentUser
 	{
-		public string UserName { get; set; }
-		public SchoolCourses Course { get; set; }
-		public int Year { get; private set; }
-		public int WeekOrMonthShow { get; set; }
+		public string UserName { get; private set; }
+		public SchoolCourses Course {
+			get {
+				if (ClassYear == 1)
+				{
+					return SchoolCourses.BacheloriIT;
+				}
+				else
+				{
+					return _course;
+				}
+			}
+			private set
+			{
+				_course = value;
+			}
+		}
+		private SchoolCourses _course = SchoolCourses.VisAlt;
+		public int Year { get; set; }
+		private int WeekOrMonthShow { get; set; }
 		//public int ClassYear { get { return DateTime.Now.Year - Year; } }
 		public int ClassYear { set; get; }
 
@@ -27,7 +43,7 @@ namespace TikTokCalendar.DAL
 			Printer.Print(name);
 		}
 
-		public StudentUser(string name, SchoolCourses course, string yearString = "2")
+		public StudentUser(string name, SchoolCourses course, string yearString = "second")
 		{
 			UserName = name;
 			Course = course;

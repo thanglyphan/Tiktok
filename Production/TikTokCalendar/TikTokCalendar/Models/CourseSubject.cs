@@ -24,13 +24,22 @@ namespace TikTokCalendar.Models
 			int subjectID = Utils.ParsePositiveInt(subjectId);
 			Semester = Utils.ParsePositiveInt(semester);
 
+
 			// Find the course and subject that matches the IDs
-			foreach (var course in courses)
+			if (Semester <= 2)
 			{
-				if (course.ID == courseID)
+				Course = courses[((int)SchoolCourses.BacheloriIT) - 1];
+				courseID = Course.ID;
+			}
+			else
+			{
+				foreach (var course in courses)
 				{
-					Course = course;
-					break;
+					if (course.ID == courseID)
+					{
+						Course = course;
+						break;
+					}
 				}
 			}
 			foreach (var subject in subjects)
@@ -41,12 +50,14 @@ namespace TikTokCalendar.Models
 					break;
 				}
 			}
+			CourseID = Course.ID;
+			SubjectID = Subject.ID;
 		}
 
 		public static int GetClassYearFromSemester(int semester)
 		{
 			int year = 0;
-			int partOfYear = (DateTime.Now.Month < 8) ? 0 : 1; // 0 if before august, 1 after august
+			int partOfYear = (semester % 2 == 0) ? 0 : 1; // 0 if before august, 1 after august
 			year = (semester / 2) + partOfYear;
 			return year;
 		}

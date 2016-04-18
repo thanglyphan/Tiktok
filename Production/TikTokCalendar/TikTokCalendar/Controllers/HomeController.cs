@@ -38,9 +38,8 @@ namespace TikTokCalendar.Controllers
 			}
 			else
 			{
-				//ViewBag.Title = "not logged in " + cookie.LoadStringFromCookie("Usercourse");
+				ViewBag.Title = "not logged in " + cookie.LoadStringFromCookie("Usercourse");
 				//ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
-				ViewBag.Title = string.Format("Halla, {0}! Du går: {1}", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Usercourse"));
 			}
 			
             var modelWrapper = new ModelDataWrapper();
@@ -84,7 +83,7 @@ namespace TikTokCalendar.Controllers
 					page += " -- Week: " + week.WeekName + "(" + week.GetEventTypeCount(EventType.Forelesning) + ")" + "<br>";
 					foreach (var evnt in week.events)
 					{
-						page += " ---- Evnt(" + evnt.ID + "): " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.EventTypeLabel + " - " + evnt.ClassYear + " - " + evnt.CoursesLabel + "<br>";
+						page += " ---- Evnt(" + evnt.ID + "): " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.EventTypeLabel + " - [" + evnt.ClassYears + "] - " + evnt.CoursesLabel + "<br>";
 					}
 				}
 			}
@@ -236,9 +235,9 @@ namespace TikTokCalendar.Controllers
 		}
 		public StudentUser GetUserFromNameCourse()
 		{
-			string name = ""; 
-			string course = "";
-			string year = "";
+			string name = "phatha14"; 
+			string course = "SpillProgrammering";
+			string year = "2";
 
 			string op = cookie.LoadStringFromCookie("Year");
 			if (!string.IsNullOrEmpty(op)) {
@@ -251,7 +250,7 @@ namespace TikTokCalendar.Controllers
 				name = cookie.LoadStringFromCookie("UserName");
 			}
 			else {
-				name = "John Doe";
+				name = "anonym14";
 			}
 			string uc = cookie.LoadStringFromCookie("UserCourse");
 			if (!string.IsNullOrEmpty(uc))

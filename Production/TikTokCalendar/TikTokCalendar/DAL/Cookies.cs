@@ -66,7 +66,7 @@ namespace TikTokCalendar.DAL
 		}
 		public void SaveNameToCookie(String a)
 		{
-
+			Console.WriteLine(a);
             string [] b = a.Split(';');
 			if (b.Length >= 2)
 			{

@@ -1,8 +1,6 @@
 ﻿@model TikTokCalendar.DAL.ModelDataWrapper
 
-
 @{
-
     TimeLeft TimeLeft = new TimeLeft();
     EventUserStatHandler EUSH = new EventUserStatHandler();
     TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
@@ -15,15 +13,6 @@
     // Various flags to get code to be written only once
     // and at the right place in our huge nested foreach loop
 }
-@if (Request.Browser.IsMobileDevice)
-{
-    Response.Redirect("~/Home/Mobile.cshtml");
-}
-else
-{
-    // for desktop
-}
-
 
 <!-- Go to current month/week -->
 <script>
@@ -129,15 +118,15 @@ $(function() {
                                         <div class="right-position">
                                             @{
                                                 var typeClass = "";
-												var typeText = "";
+												var typeText = item.EventTypeLabel;
 
-												if (item.eventType == TikTokCalendar.Models.EventType.Innlevering) {
+												if (item.MainEventType == TikTokCalendar.Models.MainEventType.Innlevering) {
 													typeClass = "assignment";
-													typeText = "Innlevering";
+													//typeText = "Innlevering";
 												}
-												else if (item.eventType == TikTokCalendar.Models.EventType.Eksamen) {
+												else if (item.MainEventType == TikTokCalendar.Models.MainEventType.Eksamen) {
 													typeClass = "exam";
-													typeText = "Eksamen";
+													//typeText = "Eksamen";
 												}
                                             }
 
@@ -249,10 +238,8 @@ $(function() {
                                                     }
                                     </div>
                                 </div>
-
                             </div>
 
-                        
 
                                 <!-- "More info" modal -->
                                 <div class="content-hidden modal fade" id="@item.ID" role="dialog">
@@ -312,7 +299,6 @@ $(function() {
                                     </div>
                                 </div>
                                 }
-
 					</div>
 				}
 			</div>

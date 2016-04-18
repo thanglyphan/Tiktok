@@ -233,7 +233,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\reset.css" />
-    <Content Include="Content\timeedit\3d-grafikk.json" />
+    <Content Include="Content\timeedit\mobilprogrammering.json" />
     <Content Include="Content\timeedit\e-business.json" />
     <Content Include="Content\timeedit\intelligente-systemer.json" />
     <Content Include="Content\timeedit\interaktivt-design.json" />

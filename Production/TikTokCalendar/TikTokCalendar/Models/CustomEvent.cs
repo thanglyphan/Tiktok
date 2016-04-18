@@ -18,12 +18,42 @@ namespace TikTokCalendar.Models
 		//public string EventName { get { return Subject.Name + Subject.Code; } } // TODO Not needed
 		public Subject Subject { get; private set; }
 		public int ClassYear { get; private set; }
+		public int[] ClassYears { get; private set; }
 		public List<SchoolCourses> Courses { get; private set; }
 		public string RoomName { get; private set; }
 		public string Teacher { get; private set; }
 		//public string EventType { get; private set; }
 		public EventType eventType { get; private set; }
 		public string Comment { get; private set; }
+
+		public bool IsFinal
+		{
+			get
+			{
+				return MainEventType == MainEventType.Eksamen;
+			}
+		}
+
+		public MainEventType MainEventType
+		{
+			get
+			{
+				if (eventType == EventType.Eksamen || eventType == EventType.Hjemmeeksamen ||
+				    eventType == EventType.SkriftligEksamen ||
+				    ((eventType == EventType.Mappe || eventType == EventType.Muntlig) /* && vekting == 100*/))
+				{
+					return MainEventType.Eksamen;
+				}
+				else if (eventType == EventType.Innlevering /* || (eventType == EventType.Mappe && vekting == 100)*/)
+				{
+					return MainEventType.Innlevering;
+				}
+				else
+				{
+					return MainEventType.Forelesning;
+				}
+			}
+		}
 
 		public string EventTypeLabel
 		{
@@ -81,13 +111,14 @@ namespace TikTokCalendar.Models
 		}
 
 		public CustomEvent(long id, DateTime startDateTime, bool hasStartTime, DateTime endDateTime, bool hasEndDateTime, Subject subject, 
-			int classYear, List<SchoolCourses> courses, string room, string teacher, EventType eventType, string comment)
+			List<int> years, List<SchoolCourses> courses, string room, string teacher, EventType eventType, string comment)
 		{
 			ID = id;
 			StartDateTime = startDateTime;
 			EndDateTime = endDateTime;
 			Subject = subject;
-			ClassYear = classYear;
+			//ClassYear = classYear;
+			ClassYears = years.ToArray();
 			Courses = courses;
 			RoomName = room;
 			Teacher = teacher;
@@ -96,6 +127,18 @@ namespace TikTokCalendar.Models
 			//EventType = (EventType)rndEvnt;
 			this.eventType = eventType;
 			Comment = comment;
+		}
+
+		public bool IsYear(int year)
+		{
+			foreach (var y in ClassYears)
+			{
+				if (y == year)
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 
 		public string GetDayOfWeek()
@@ -123,5 +166,12 @@ namespace TikTokCalendar.Models
 		Fremforing,
 		Oving,
 		Annet
+	}
+
+	public enum MainEventType
+	{
+		Forelesning,
+		Innlevering,
+		Eksamen
 	}
 }
