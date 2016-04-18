@@ -41,7 +41,6 @@ function showLogin() {
         ],
 
         callback: function (data) {
-            window.alert(data.trinn);
 
             $.ajax({
                 url: "Home/UserName",
