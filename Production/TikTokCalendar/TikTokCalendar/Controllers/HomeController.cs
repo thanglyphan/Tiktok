@@ -16,18 +16,15 @@ namespace TikTokCalendar.Controllers
 	{
 		private readonly Cookies cookie = new Cookies();
 
-
 		public ActionResult Index(string id = "", string tags = "")
 		{
 			StudentUser user = GetUserFromNameCourse();
-			user = new StudentUser("tordtest", SchoolCourses.Spillprogrammering, "second");
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
-			var username = cookie.LoadStringFromCookie("UserName");
-			var userCourse = cookie.LoadStringFromCookie("UserCourse");
-			var userYear = cookie.LoadStringFromCookie("Year");
 
-			if (string.IsNullOrEmpty(username))
+			// DEBUG Set the page title
+			var username = cookie.LoadStringFromCookie("UserName");
+			if (!string.IsNullOrEmpty(username))
 			{
 				ViewBag.Title = string.Format("{0}[{1}]: {2}", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Year"), cookie.LoadStringFromCookie("Usercourse"));
 			}
@@ -38,19 +35,9 @@ namespace TikTokCalendar.Controllers
 
 			var modelWrapper = new ModelDataWrapper();
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
-			//if (string.IsNullOrEmpty(tags))
-			//{
-			//    modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
-			//}
-			//else
-			//{
-			//    modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
-			//}
 
-			return View(modelWrapper);//.calEvents);
+			return View(modelWrapper);
 		}
-
-
 
 		public string CalTest(string id = "")
 		{
@@ -78,10 +65,6 @@ namespace TikTokCalendar.Controllers
 			}
 
 			return page;
-		}
-		public ActionResult Test()
-		{
-			return View();
 		}
 
 		private bool SameYear(CalendarEvent calEvent, StudentUser user)
