@@ -31,3 +31,23 @@
 .modal-right {
     float: left;
 }
+
+.vex-dialog-input form {
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.vex-dialog-input label {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.vex-dialog-input input {
+    float: left;
+}
+
+form .class-box {
+    width: 33%;
+    float: left;
+}

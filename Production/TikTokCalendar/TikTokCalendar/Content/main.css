@@ -177,10 +177,19 @@ input [class^="going-"]{
 
 .input-year {
     
+    height: 20px;
+    width: 50px;
     background-color: #474f5c;
     color: white;
 }
 
+input[type="radio"]:checked + label {
+ 
+}
+
+.vex-dialog-button {
+    margin-top: 3px !important;
+}
 
 /*===================================
   M O N T H
@@ -215,6 +224,7 @@ input [class^="going-"]{
 	position: absolute;
 	right: 10px;
     opacity: 0.9;
+    display: none;
 }
 
 .feed-month .badge-exam {

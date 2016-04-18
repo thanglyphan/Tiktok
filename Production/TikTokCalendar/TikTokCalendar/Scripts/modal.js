@@ -26,20 +26,20 @@ function showLogin() {
 
     vex.dialog.open({
         message: 'Navn og klassetrinn',
-        input: '<input name=\"username\" type=\"text\" placeholder=\"Andreas\" required />\n<form><input class="input-year" type="radio" name="trinn" value="first" first> Første<input class="input-year" type="radio" name="trinn" value="second"> Andre<input class="input-year" type="radio" name="trinn" value="third"> Tredje</form> ',
+        input: '<input name=\"username\" type=\"text\" placeholder=\"Andreas\" required /><form><div class="class-box"><label for="first"> Første</label><input class="input-year" type="radio" name="trinn" value="first" id="first" first></div> <div class="class-box"><label for="second"> Andre</label><input class="input-year" type="radio" name="trinn" value="second" id="second"></div><div class="class-box"><label for="third"> Tredje</label><input class="input-year" type="radio" name="trinn" value="third" id="third"></div></form>',
 
         showCloseButton: true,
         buttons: [
         $.extend({}, vex.dialog.buttons.YES, {
             text: 'Login'
         }),
-        
-         $.extend({}, vex.dialog.buttons.NO, {
-             className: 'show-all-events',
-             text: 'Vis alle hendelser'
-         }) 
+
+        $.extend({}, vex.dialog.buttons.NO, {
+            className: 'show-available-rooms',
+            text: 'Vis ledige rom'
+        }) 
         ],
-        
+
         callback: function (data) {
             $.ajax({
                 url: "Home/UserName",
@@ -52,7 +52,7 @@ function showLogin() {
                     console.log("success" + a);
                 }
             })
-            //$("#user-name").html(data.username);
+
             if (data === false) {
                 $.ajax({
                     url: "Home/ShowDefault",
