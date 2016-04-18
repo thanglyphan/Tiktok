@@ -1,30 +1,29 @@
 ﻿@model TikTokCalendar.DAL.ModelDataWrapper
 
+
 @{
 
     TimeLeft TimeLeft = new TimeLeft();
     EventUserStatHandler EUSH = new EventUserStatHandler();
     TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
+    string userName = "";
+    userName = cookie.LoadStringFromCookie("UserName");
+    if (userName == null)
+    {
+        userName = "";
+    }
     // Various flags to get code to be written only once
     // and at the right place in our huge nested foreach loop
-    bool flag1 = false;
-    bool flag2 = false;
-    bool flag3 = false;
-    bool flag4 = false;
-    bool flag5 = false;
 }
-@if (Request.Browser.IsMobileDevice)
-{
-    Response.Redirect("~/Home/Mobile.cshtml");
-}
-else
-{
-    // for desktop
-}
-<!-- Go to current month -->
+
+
+
+
+<!-- Go to current month/week -->
 <script>
 $(function() {
-    $(document).scrollTop( $("#goto-@DateTime.Now.Month").offset().top );
+	@*$(document).scrollTop( $("#goto-@DateTime.Now.Month").offset().top );*@
+	$(document).scrollTop( $("#goto-week-@TikTokCalendar.Extras.Utils.GetWeekNumberOfYear(DateTime.Now)").offset().top - 65 );
 });
 </script>
 
@@ -68,17 +67,17 @@ $(function() {
                     }
 
                     <!-- Week box e.g. "Uke 2" -->
-                    <div class="week-header">@week.WeekName</div>
+                    <div class="week-header" id="goto-week-@week.WeekNumber">@week.WeekName</div>
                     <div class="feed-week">
 
                         <!-- Looping throught every events -->
                         @foreach (var item in week.events)
                         {
-                                                var today = "";
-                                                if (item.StartDateTime.Date.Equals(DateTime.Now.Date))
-                                                {
-                                                    today = "today";
-                                                }
+							var today = "";
+							if (item.StartDateTime.Date.Equals(DateTime.Now.Date))
+							{
+								today = "today";
+							}
 
                             <!-- Link on every event -->
                             <div class="feed-container @today">
@@ -101,36 +100,38 @@ $(function() {
                                             <p class="name activator timeleft">@item.Subject.Name</p>
                                             @{
                                                 string timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
+                                                bool lessThanAnHour = false;
+                                                bool lessThan24 = false;
                                             }
                                             @if (timeLeft != "") {
-												if (flag1) {
+                                                if (item.StartDateTime > DateTime.Now.AddHours(24))
+                                                {
                                                     <div class="tip timeleft">@timeLeft</div>
-												}
-												if (!flag2 && !flag5) {
-
-													if (item.StartDateTime < DateTime.Now.AddHours(24)) {
-														if (item.StartDateTime < DateTime.Now.AddHours(1)) {
-															flag2 = true;
-														}
-														else {
-															flag4 = true;
-														}
-													}
-												}
-											}
+                                                }
+                                                if (item.StartDateTime < DateTime.Now.AddHours(24))
+                                                {
+                                                    if (item.StartDateTime < DateTime.Now.AddHours(1))
+                                                    {
+                                                        lessThanAnHour = true;
+                                                    }
+                                                    else {
+                                                        lessThan24 = true;
+                                                    }
+                                                }
+                                            }
                                         </div>
                                         <div class="right-position">
                                             @{
                                                 var typeClass = "";
-												var typeText = "";
+												var typeText = item.EventTypeLabel;
 
-												if (item.eventType == TikTokCalendar.Models.EventType.Innlevering) {
+												if (item.MainEventType == TikTokCalendar.Models.MainEventType.Innlevering) {
 													typeClass = "assignment";
-													typeText = "Innlevering";
+													//typeText = "Innlevering";
 												}
-												else if (item.eventType == TikTokCalendar.Models.EventType.Eksamen) {
+												else if (item.MainEventType == TikTokCalendar.Models.MainEventType.Eksamen) {
 													typeClass = "exam";
-													typeText = "Eksamen";
+													//typeText = "Eksamen";
 												}
                                             }
 
@@ -148,53 +149,46 @@ $(function() {
                                                 @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
                                                     <b>&nbsp;&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
 												}
-                                                @if (flag2 && !flag3) {
+                                                else if (lessThanAnHour) {
 												    
                                                     <!-- real time countdown script -->
                                                     <script>
                                                         $(function () {
                                                             var date = new Date();
                                                             date = new Date(@item.StartDateTime.Year , @item.StartDateTime.AddMonths(-1).Month , @item.StartDateTime.Day , @item.StartDateTime.Hour , @item.StartDateTime.Minute , @item.StartDateTime.Second );
-                                                            $('.countdown').countdown({until: date, expiryUrl: ''+window.location.href, compact: true,
+                                                            $('.countdown-@item.ID').countdown({until: date, expiryUrl: ''+window.location.href, compact: true,
                                                                 layout: '&nbsp;{hnn}{sep}{mnn}{sep}{snn}' });
                                                         });
                                                     </script>
                                                     <span>&nbsp;|</span>
-                                                            <span class="countdown"></span>
-                                                    flag1 = true;
-													flag3 = true;
+                                                <span class="countdown-@item.ID"></span>
 												}
-                                                @if (flag4) {
+                                                else if (lessThan24) {
                                                     <b>&nbsp;&nbsp;&nbsp;</b><span class="countdown">@timeLeft</span>
-
-                                                    flag1 = true;
-													flag4 = false;
-													flag5 = true;
-
-												}
+                                                }
                                             </p>
                                         </div>
 
                                         <!-- Icon displaying "..."  -->
                                         
-                                        @*<i class="seen-by">Sett av @randomNumber</i>*@
-
 										<!-- FLYTT GOING/ATTEND KODEBLOKK NED HIT NÅR EVENT-CLICK ER FIKSA -->
                                         <!-- eventually limit the number of weeks for going/check-in to show here:
                                         if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime.AddDays(21))
                                         {-->
-                                        @using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
+                                        @if (userName != "" && userName != "Jon Doe")
                                         {
-                                        HttpMethod = "POST",
-                                        UpdateTargetId = "going-" + item.ID,
-                                        InsertionMode = InsertionMode.Replace
-                                        }))
-                                        {
-                                        // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
+                                            using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
+                                            {
+                                                HttpMethod = "POST",
+                                                UpdateTargetId = "going-" + item.ID,
+                                                InsertionMode = InsertionMode.Replace
+                                            }))
+                                            {
+                                                // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
                                         <div class="check-in" id="going-@item.ID">
                                             @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
                                             {
-                                                if (!EUSH.UserAttending(item.ID, cookie.LoadStringFromCookie("UserName")))
+                                                if (!EUSH.UserAttending(item.ID, userName))
                                                 {
                                                     <input type="hidden" name="eventid" value="@item.ID" />
                                                     <input type="hidden" name="attend" value="true" />
@@ -245,14 +239,14 @@ $(function() {
                                                 </div>
                                             </div>
                                         </div>
-                                        }
-
+                                                        }
+                                                    }
                                     </div>
                                 </div>
 
                             </div>
 
-                            <div class="horizontal-line"></div>
+                        
 
                                 <!-- "More info" modal -->
                                 <div class="content-hidden modal fade" id="@item.ID" role="dialog">
@@ -319,3 +313,4 @@ $(function() {
 		}
     </div>
 </main>
+

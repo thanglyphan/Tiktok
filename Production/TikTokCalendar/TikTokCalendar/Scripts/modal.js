@@ -7,7 +7,7 @@ function checkLogin() {
         success: function (data) {
             console.log(data);
             if (data) {
-                
+                console.log("Data er: " + data)
             } else {
                 showLogin();
             }
@@ -23,22 +23,24 @@ function checkLogin() {
 function showLogin() {
     
     var username = "";
+    var year = "";
 
     vex.dialog.open({
         message: 'Navn og klassetrinn',
-        input: '<input name=\"username\" type=\"text\" placeholder=\"Andreas\" required />\n<form><input class="input-year" type="radio" name="trinn" value="first" first> Første<input class="input-year" type="radio" name="trinn" value="second"> Andre<input class="input-year" type="radio" name="trinn" value="third"> Tredje</form> ',
+        input: '<input name=\"username\" type=\"text\" placeholder=\"Andreas\" required />\n <input name=\"year\" type="radio" value="first"> Første<input name=\"year\" type="radio" value="second"> Andre<input name=\"year\" type="radio" value="third"> Tredje',
 
         showCloseButton: true,
         buttons: [
         $.extend({}, vex.dialog.buttons.YES, {
             text: 'Login'
         }),
+        
          $.extend({}, vex.dialog.buttons.NO, {
              className: 'show-all-events',
              text: 'Vis alle hendelser'
-         })
+         }) 
         ],
-
+        
         callback: function (data) {
             $.ajax({
                 url: "Home/UserName",
@@ -70,6 +72,7 @@ function showLogin() {
 
 
             if (isEmpty(username)) {
+                
 
                 //  Check if username matches any of the registered users
                 //  userName === "whatever"
@@ -156,5 +159,5 @@ function showLogin() {
 }
 
 function isEmpty(str) {
-    return typeof str == 'string' && !str.trim() || typeof str == 'undefined' || str === null;
+    return typeof str == 'string' && !str.trim() || typeof str == null || str === null;
 }

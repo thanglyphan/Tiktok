@@ -71,6 +71,7 @@ header .header-content .right-1 {
     height: 100%;
     float: right;
     text-decoration: none;
+    display: inline-block;
     cursor: pointer;
     padding-top: 17px;
     padding-right: 19px;
@@ -80,7 +81,7 @@ header .header-content .right-1 {
 /* Logout icon */
 header .header-content .right-1 i {
     color: #AAAAAA;
-    padding-left: 10px;
+    
 }
 
 /* Logout link */
@@ -98,14 +99,15 @@ header .header-content .right-2 {
     padding-right: 19px;
     padding-left: 19px;
     height: 100%;
-
+    display: inline-block;
+    position: relative;
     float: right;
     cursor: pointer;
 }
 
 header .header-content .right-2 i {
     color: #AAAAAA;
-    padding-left: 10px;
+   padding-left: 10px;
 }
 
 /* Left container */
@@ -135,6 +137,24 @@ header .header-content .left-2 {
 div.ui-widget {
     height: 61px;
     float: left;
+}
+
+/*===================================
+  D R O P D O W N
+===================================*/
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin-top: 55px;
+    padding: 0px 15px 15px 15px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.right-2:hover .dropdown-content {
+    display: block;
 }
 
 /*===================================
@@ -217,6 +237,9 @@ input [class^="going-"]{
 	color: #fff;
 }
 
+.week-header:not(:first-child) {
+    border-radius: 3px 3px 0px 0px;
+}
 .week, .week p {
     background-color: #8DB3f1;
     padding-top: 2px;
@@ -244,15 +267,18 @@ input [class^="going-"]{
 
 .feed-container {
     color: #474f5c;
-    height: 80px;
+    height: 100px;
     background-color: white;
     border-radius: 0px 0px 3px 3px;
     display: block;
     cursor: pointer;
+    border-bottom: 1px solid #d4d8e5;
+    border-left: 1px solid #e1e2ec;
+    border-right: 1px solid #e1e2ec;
 }
 
 .today {
-    box-shadow: 0px 0px 66px 2px rgba(141, 179, 241, 0.72) inset;
+    -webkit-box-shadow: 5px 6px 6px -6px gray, -5px 6px 6px -6px gray;
 }
 
 .feed-container .class-date {
@@ -285,7 +311,7 @@ input [class^="going-"]{
 .feed-container .content {
     width: 100%;
     height: 80%;
-    padding-top: 17px;
+    padding-top: 30px;
 }
 
 .feed-container .content .class-info {
@@ -413,6 +439,7 @@ input [class^="going-"]{
     float: right;
     border-bottom: 0.5px solid #dce0e0;
 }
+
 
 @media only screen and (max-width: 500px) {
 
@@ -609,5 +636,5 @@ input [class^="going-"]{
 
 .goto {
     position: absolute;
-    margin-top: -44px
+    margin-top: -55px
 }

@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@{
+	if (Request.Browser.IsMobileDevice) {
+		Response.Redirect("~/Home/Mobile.cshtml");
+	}
+
+	TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
+
+	var userName = "John Doe";
+
+	if (cookie.LoadStringFromCookie("UserName") != null) {
+		userName = cookie.LoadStringFromCookie("UserName");
+	}
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -16,6 +29,7 @@
 	<link rel="stylesheet" href="@Url.Content("/Content/bs-modal.css")">
     <link rel="stylesheet" href= "@Url.Content("/Content/reset.css")">
     <link rel="stylesheet" href="@Url.Content("/Content/mobile.css")">
+    <link rel="stylesheet" href="@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.5.5/slicknav.min.css")">
     <link rel="stylesheet" href="@Url.Content("/Content/modal.css")">
     <link rel="stylesheet" href= "@Url.Content("/Content/vex/vex.css")" />
     <link rel="stylesheet" href= "@Url.Content("/Content/vex/vex-theme-default.css")" />
@@ -69,24 +83,23 @@
                 <div class="ui-widget">
                     <label for="tags"></label>
 
-                    @using (Html.BeginForm("Index", "Home"))
-                    {
+                    @using (Html.BeginForm("Index", "Home")) {
                         <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" />}
 
                 </div>
             </div>
-                
+			
+
             <div class="right-2">
-                <p>Adam Habes <i class="fa fa-user fa-2x"></i></p>
+                <p>@userName <i class="fa fa-user fa-2x"></i></p>
+                <div class="dropdown-content">
+                    <!-- Search box -->
+                    <div class="right-1">
+                        <a title="DEBUG: logout / delete cookies" onclick="delCookie()" class="logout"><p>Logg ut </p><i class="fa fa-sign-out fa-2x"></i></a>
+                    </div>
+                    </div>
             </div>
-
-                <!-- Search box -->
-                <div class="right-1">
-                    <a title="DEBUG: logout / delete cookies" onclick="delCookie()" class="logout"><p>Logg ut </p><i class="fa fa-sign-out fa-2x"></i></a>
-                </div>
-
-
-
+            
 
                 @*<button onclick="delCookie()">Delete cookies</button>*@
                 <script>
@@ -115,6 +128,7 @@
 	<footer class="footer">
 		
 	</footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.5.5/jquery.slicknav.min.js"></script>
     @Scripts.Render("~/bundles/showinfo")
     @Scripts.Render("~/bundles/script")
     @Scripts.Render("~/bundles/bootstrap")
