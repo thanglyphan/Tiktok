@@ -32,6 +32,7 @@ namespace TikTokCalendar.DAL
 			int count = 0;
 			foreach (var e in events)
 			{
+				// TODO Use MainEventType instead
 				if (e.eventType == evntType)
 				{
 					count++;

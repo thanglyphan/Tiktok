@@ -20,6 +20,8 @@ namespace TikTokCalendar.Models
 		public int ClassYear { get; private set; }
 		public int Weighting { get; private set; }
 		public HashSet<int> ClassYears { get; private set; }
+
+		// DEBUG
 		public string YearLabelTest {
 			get
 			{
@@ -47,6 +49,7 @@ namespace TikTokCalendar.Models
 		public bool IsFinal { get { return Weighting >= 100; } }
 		public bool HasWeighting { get { return Weighting > 0; } }
 
+		//////// Getters for the non-string field to be used in the view for displaying the data ////////
 		/// <summary>
 		/// Returns the eventtype, unless the event has no weighting, in which case it returns and empty string.
 		/// </summary>
@@ -86,7 +89,6 @@ namespace TikTokCalendar.Models
 			}
 		}
 
-		//////// Getters for the non-string field to be used in the view for displaying the data ////////
 		public string StartTimeLabel {
 			get {
 				string text = "";
@@ -115,56 +117,60 @@ namespace TikTokCalendar.Models
 			Courses = courses;
 			RoomName = room;
 			Teacher = teacher;
-
+			Comment = comment;
 			Weighting = weighting;
 			this.eventType = eventType;
-			switch (eventType)
-			{
-				case EventType.None:
-					MainEventType = MainEventType.Forelesning;
-					break;
-				case EventType.Forelesning:
-					MainEventType = MainEventType.Forelesning;
-					break;
-				case EventType.Eksamen:
-					MainEventType = MainEventType.Eksamen;
-					break;
-				case EventType.Innlevering:
-					MainEventType = MainEventType.Innlevering;
-					break;
-				case EventType.Prosjekt:
-					if (IsFinal) MainEventType = MainEventType.Eksamen;
-					else MainEventType = MainEventType.Forelesning;
-					break;
-				case EventType.Hjemmeeksamen:
-					MainEventType = MainEventType.Eksamen;
-					break;
-				case EventType.SkriftligEksamen:
-					MainEventType = MainEventType.Eksamen;
-					break;
-				case EventType.Muntlig:
-					MainEventType = MainEventType.Eksamen;
-					break;
-				case EventType.Mappe:
-					if (IsFinal) MainEventType = MainEventType.Eksamen;
-					else MainEventType = MainEventType.Innlevering;
-					break;
-				case EventType.Fremforing:
-					if (IsFinal) MainEventType = MainEventType.Eksamen;
-					else MainEventType = MainEventType.Innlevering;
-					break;
-				case EventType.Oving:
-					MainEventType = MainEventType.Forelesning;
-					break;
-				case EventType.Annet:
-					MainEventType = MainEventType.Forelesning;
-					break;
-				default:
-					MainEventType = MainEventType.Forelesning;
-					break;
-			}
 
-			Comment = comment;
+			// If the event has a weighting of 100%, the event is Eksamen
+			if (IsFinal)
+			{
+				MainEventType = MainEventType.Eksamen;
+			}
+			else
+			{
+				switch (eventType)
+				{
+					case EventType.None:
+						MainEventType = MainEventType.Forelesning;
+						break;
+					case EventType.Forelesning:
+						MainEventType = MainEventType.Forelesning;
+						break;
+					case EventType.Eksamen:
+						MainEventType = MainEventType.Eksamen;
+						break;
+					case EventType.Innlevering:
+						MainEventType = MainEventType.Innlevering;
+						break;
+					case EventType.Prosjekt:
+						MainEventType = MainEventType.Forelesning;
+						break;
+					case EventType.Hjemmeeksamen:
+						MainEventType = MainEventType.Eksamen;
+						break;
+					case EventType.SkriftligEksamen:
+						MainEventType = MainEventType.Eksamen;
+						break;
+					case EventType.Muntlig:
+						MainEventType = MainEventType.Eksamen;
+						break;
+					case EventType.Mappe:
+						MainEventType = MainEventType.Innlevering;
+						break;
+					case EventType.Fremforing:
+						MainEventType = MainEventType.Innlevering;
+						break;
+					case EventType.Oving:
+						MainEventType = MainEventType.Forelesning;
+						break;
+					case EventType.Annet:
+						MainEventType = MainEventType.Forelesning;
+						break;
+					default:
+						MainEventType = MainEventType.Forelesning;
+						break;
+				}
+			}
 		}
 
 		public bool IsYear(int year)
