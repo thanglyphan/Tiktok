@@ -55,17 +55,15 @@ namespace TikTokCalendar.DAL
 
 		private string GetFileContents(string contentFolderRelativePath)
 		{
-
-			string dataPath = null;
 			string ret = null;
 			try
 			{
-				dataPath = HttpContext.Current.Server.MapPath("~/Content/" + contentFolderRelativePath);
-				ret = File.ReadAllText(dataPath, Encoding.GetEncoding("iso-8859-1"));
+				string dataPath = HttpContext.Current.Server.MapPath("~/Content/" + contentFolderRelativePath);
+				ret = File.ReadAllText(dataPath);
 			}
 			catch (Exception e)
 			{
-				Debug.WriteLine("Error while getting the filecontents: " + e.Message);
+				Debug.WriteLine("Error reading the file contents: " + e.Message);
 				throw;
 			}
 			return ret;
@@ -181,17 +179,21 @@ namespace TikTokCalendar.DAL
 
 			//////// Year and course ////////
 			List<SchoolCourses> courses = new List<SchoolCourses>();
-			int classYear = 1;
+			List<int> years = new List<int>();
 			if (courseData != null)
 			{
 				// Figure out the classyear from the coursedata field
-				if (courseData.Contains("2.klasse"))
+				if (courseData.ToLower().Contains("Bachelor i IT"))
 				{
-					classYear = 2;
+					years.Add(1);
 				}
-				else if (courseData.Contains("3.klasse"))
+				if (courseData.ToLower().Contains("2.klasse"))
 				{
-					classYear = 3;
+					years.Add(2);
+				}
+				if (courseData.ToLower().Contains("3.klasse"))
+				{
+					years.Add(3);
 				}
 
 				// Get the courses from the courseData field
@@ -227,7 +229,7 @@ namespace TikTokCalendar.DAL
 			foreach (var date in startDates)
 			{
 				CustomEvent evnt = new CustomEvent(parsedId, date, true, endDateTime, hasEndDateTime,
-					subject, classYear, courses, room, teacher, eventType, comment);
+					subject, years, courses, room, teacher, eventType, comment);
 				retEvents.Add(evnt);
 			}
 			return retEvents;
@@ -260,6 +262,7 @@ namespace TikTokCalendar.DAL
 			{
 				return retEvents;
 			}
+			List<int> years = new List<int>();
 			//foreach (var c in DataWrapper.Instance.GetCourseSubjectWithSchoolCourse()
 			//{
 
@@ -277,7 +280,7 @@ namespace TikTokCalendar.DAL
 			foreach (var date in startDates)
 			{
 				CustomEvent evnt = new CustomEvent(id, date, false, DateTime.MinValue, false,
-					subject, -1, courses, null, null, eventType, comment);
+					subject, years, courses, null, null, eventType, comment);
 				retEvents.Add(evnt);
 				//Printer.Print("Added " + eventType.ToString() + " - " + subject.Name);
 			}
