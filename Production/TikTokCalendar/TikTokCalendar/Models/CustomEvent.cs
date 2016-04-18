@@ -20,13 +20,23 @@ namespace TikTokCalendar.Models
 		public int ClassYear { get; private set; }
 		public int Weighting { get; private set; }
 		public HashSet<int> ClassYears { get; private set; }
-		public string YearLabelTest { get { string s = "";
+		public string YearLabelTest {
+			get
+			{
+				string s = "";
+				int i = 0;
 				foreach (var y in ClassYears)
 				{
-					s += ", " + y;
+					s += y;
+					if (i < ClassYears.Count - 1)
+					{
+						s += ", ";
+					}
+					i++;
 				}
 				return s;
-			} }
+			}
+		}
 		public List<SchoolCourses> Courses { get; private set; }
 		public string RoomName { get; private set; }
 		public string Teacher { get; private set; }
