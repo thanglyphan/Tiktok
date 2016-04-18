@@ -26,7 +26,7 @@ function showLogin() {
 
     vex.dialog.open({
         message: 'Navn og klassetrinn',
-        input: '<input name=\"username\" type=\"text\" placeholder=\"Andreas\" required /><form><div class="class-box"><label for="first"> Første</label><input class="input-year" type="radio" name="trinn" value="first" id="first" first></div> <div class="class-box"><label for="second"> Andre</label><input class="input-year" type="radio" name="trinn" value="second" id="second"></div><div class="class-box"><label for="third"> Tredje</label><input class="input-year" type="radio" name="trinn" value="third" id="third"></div></form>',
+        input: '<input name=\"username\" type=\"text\" placeholder=\"Andreas\" required /><div class="class-box"><label for="first"> Første</label><input class="input-year" type="radio" name="trinn" value="first" id="first" first></div> <div class="class-box"><label for="second"> Andre</label><input class="input-year" type="radio" name="trinn" value="second" id="second"></div><div class="class-box"><label for="third"> Tredje</label><input class="input-year" type="radio" name="trinn" value="third" id="third"></div>',
 
         showCloseButton: true,
         buttons: [
@@ -41,10 +41,24 @@ function showLogin() {
         ],
 
         callback: function (data) {
+
             $.ajax({
                 url: "Home/UserName",
                 type: "POST",
-                data: { a: data.username + ";" + data.year },
+                data: { a: data.username },
+                error: function () {
+                    console.log("error");
+                },
+                success: function (a) {
+                    console.log("success" + a);
+                }
+            })
+
+
+            $.ajax({
+                url: "Home/UserYear",
+                type: "POST",
+                data: { a: data.trinn },
                 error: function () {
                     console.log("error");
                 },

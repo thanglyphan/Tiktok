@@ -43,7 +43,7 @@ namespace TikTokCalendar.DAL
 			Printer.Print(name);
 		}
 
-		public StudentUser(string name, SchoolCourses course, string yearString = "second")
+		public StudentUser(string name, SchoolCourses course, string yearString)
 		{
 			UserName = name;
 			Course = course;

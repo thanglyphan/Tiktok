@@ -66,13 +66,6 @@ namespace TikTokCalendar.DAL
 		}
 		public void SaveNameToCookie(String a)
 		{
-			Console.WriteLine(a);
-            string [] b = a.Split(';');
-			if (b.Length >= 2)
-			{
-				SaveYearToCookies(b[1]);
-			}
-
 			try {
 				HttpCookie UsernameCookie = new HttpCookie("UserName");
 				if (a == "Default") {
@@ -81,7 +74,7 @@ namespace TikTokCalendar.DAL
 					SaveYearToCookies(DateTime.Now.Year.ToString());
 				}
 				else {
-					UsernameCookie.Value = b[0];
+					UsernameCookie.Value = a;
 					UsernameCookie.Expires = DateTime.Now.AddYears(1);
 				}
 				//Console.WriteLine("FROM COOKES.CS" + a);
@@ -91,7 +84,6 @@ namespace TikTokCalendar.DAL
 				Console.Write("Cookies.cs - SaveNameToCookies " + e.ErrorCode);
 			}
 		}
-
 		public void SaveCourseToCookie(String a)
 		{
 			try {
