@@ -39,8 +39,8 @@ namespace TikTokCalendar.Models
 
 			foreach (var evnt in AllEvents)
 			{
-				if (!addedIDs.Contains(evnt.ID) && (user.Course == SchoolCourses.VisAlt 
-					|| (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.Year))))
+				if (!addedIDs.Contains(evnt.ID) && (user.Course == SchoolCourses.VisAlt
+					|| (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear))))
 				{
 					CustomEventMonth m = AddEvent(evnt, ref month, ref week);
 					if (m != null)
@@ -62,7 +62,7 @@ namespace TikTokCalendar.Models
 			foreach (var evnt in AllEvents)
 			{
 				if (user.Course == SchoolCourses.VisAlt
-					|| (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.Year)))
+					|| (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear)))
 				{
 					string temp = "";
 					if (!string.IsNullOrEmpty(tags))
@@ -140,9 +140,9 @@ namespace TikTokCalendar.Models
 			int weekNr = 1;
 			for (int i = 0; i < 12; i++)
 			{
-				months.Add(new CustomEventMonth(i+1));
+				months.Add(new CustomEventMonth(i + 1));
 				DateTime today = DateTime.Today;
-				DateTime date = new DateTime(today.Year, i+1, 1);
+				DateTime date = new DateTime(today.Year, i + 1, 1);
 				//DateTime date = DateTime.Today;
 				// first generate all dates in the month of 'date'
 
@@ -153,10 +153,10 @@ namespace TikTokCalendar.Models
 
 				int numOfWeeks = MondaysInMonth(date);
 				//foreach (var weeks in weekends)
-				for(int j = 0; j < numOfWeeks+1; j ++)
+				for (int j = 0; j < numOfWeeks + 1; j++)
 				{
-					months[i].Weeks.Add(new CustomEventWeek(weekNr, j+1));//weeks.GetWeekNumberOfYear()));
-					weekNr ++;
+					months[i].Weeks.Add(new CustomEventWeek(weekNr, j + 1));//weeks.GetWeekNumberOfYear()));
+					weekNr++;
 				}
 			}
 			return months;
@@ -186,7 +186,7 @@ namespace TikTokCalendar.Models
 				foreach (var subj in Subjects)
 				{
 					bool e = subj.Code.Equals(code, StringComparison.OrdinalIgnoreCase);
-					Printer.Print(string.Format("{0} == {1} = {2}", subj.Code, code, e));
+					//Printer.Print(string.Format("{0} == {1} = {2}", subj.Code, code, e));
 					if (e)
 					{
 						subject = subj;
@@ -231,12 +231,26 @@ namespace TikTokCalendar.Models
 			return retList;
 		}
 
-		public List<CourseSubject> GetCourseSubjectWithSchoolCourse(SchoolCourses schoolCourse)
+		public List<CourseSubject> GetCourseSubjectWithSchoolCourseSubject(SchoolCourses schoolCourse, Subject subject)
 		{
 			var retList = new List<CourseSubject>();
+			var courseSubjs = GetCourseSubjectWithSchollCourse(schoolCourse);
+			foreach (var cs in courseSubjs)
+			{
+				if (cs.SubjectID == subject.ID)
+				{
+					retList.Add(cs);
+				}
+			}
+			return retList;
+		}
+
+		public List<CourseSubject> GetCourseSubjectWithSchollCourse(SchoolCourses course)
+		{
+			List<CourseSubject> retList = new List<CourseSubject>();
 			foreach (var cs in CourseSubjects)
 			{
-				if (cs.Course == Courses[(int)schoolCourse])
+				if (cs.Course.SchoolCourse == course)
 				{
 					retList.Add(cs);
 				}
@@ -250,35 +264,35 @@ namespace TikTokCalendar.Models
 		private static readonly DataWrapper _instance = new DataWrapper();
 		public static DataWrapper Instance { get { return _instance; } }
 
-        /// <summary>
+		/// <summary>
 		/// Gets all keywords from AllEvents (user specific, mainly for the autocomplete)
 		/// </summary>
-        public List<string> GetUserKeywords(StudentUser user)
-        {
-            List<string> list = new List<string>();
-            foreach (var evnt in AllEvents)
-            {
-                if (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.Year))
-                {
-                    if (!list.Contains(evnt.Subject.Name))
-                    {
-                        list.Add(evnt.Subject.Name);
-                    }
-                    if (!list.Contains(evnt.Subject.Code))
-                    {
-                        list.Add(evnt.Subject.Code);
-                    }
-                    if (!list.Contains(evnt.RoomName))
-                    {
-                        list.Add(evnt.RoomName);
-                    }
-                    if (!list.Contains(evnt.Teacher))
-                    {
-                        list.Add(evnt.Teacher);
-                    }
-                }
-            }
-            return list;
-        }
-    }
+		public List<string> GetUserKeywords(StudentUser user)
+		{
+			List<string> list = new List<string>();
+			foreach (var evnt in AllEvents)
+			{
+				if (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear))
+				{
+					if (!list.Contains(evnt.Subject.Name))
+					{
+						list.Add(evnt.Subject.Name);
+					}
+					if (!list.Contains(evnt.Subject.Code))
+					{
+						list.Add(evnt.Subject.Code);
+					}
+					if (!list.Contains(evnt.RoomName))
+					{
+						list.Add(evnt.RoomName);
+					}
+					if (!list.Contains(evnt.Teacher))
+					{
+						list.Add(evnt.Teacher);
+					}
+				}
+			}
+			return list;
+		}
+	}
 }
