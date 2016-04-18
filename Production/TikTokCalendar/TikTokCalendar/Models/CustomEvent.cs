@@ -30,7 +30,6 @@ namespace TikTokCalendar.Models
 		public List<SchoolCourses> Courses { get; private set; }
 		public string RoomName { get; private set; }
 		public string Teacher { get; private set; }
-		//public string EventType { get; private set; }
 		public EventType eventType { get; private set; }
 		public MainEventType MainEventType { get; private set; }
 		public string Comment { get; private set; }

@@ -57,7 +57,7 @@ namespace TikTokCalendar.Controllers
             //    modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
             //}
 
-            return View(modelWrapper);//.calEvents);
+            return View(modelWrapper);
 		}
 
 		
