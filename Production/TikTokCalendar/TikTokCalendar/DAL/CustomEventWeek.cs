@@ -30,9 +30,18 @@ namespace TikTokCalendar.DAL
 		public int GetEventTypeCount(EventType evntType)
 		{
 			int count = 0;
-			foreach (var evnt in events)
+			foreach (var e in events)
 			{
-				if (evnt.eventType == evntType)
+				if (e.eventType == evntType)
+				{
+					count++;
+				}
+				else if ((e.eventType == EventType.Hjemmeeksamen || e.eventType == EventType.SkriftligEksamen || e.eventType == EventType.Muntlig) 
+					&& evntType == EventType.Eksamen)
+				{
+					count++;
+				}
+				else if ((e.eventType == EventType.Mappe || e.eventType == EventType.Fremforing) && e.IsFinal)
 				{
 					count++;
 				}
