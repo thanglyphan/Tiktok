@@ -9,6 +9,11 @@
     }
 
     int eventCount = Model.GetEventCount();
+    string searchLine = "";
+    if (Model.fromSearch)
+    {
+        searchLine = "border-left: 1px solid #c6cedb;";
+    }
 }
 <!DOCTYPE html>
 <html>
@@ -87,7 +92,7 @@
                 </div>
             </div>
 
-            <span class="results">
+            <span class="results" style="@searchLine">
                 @if (Model.fromSearch)
                 {
                     if (eventCount > 1)
