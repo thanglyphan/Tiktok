@@ -1,8 +1,6 @@
 ﻿@model TikTokCalendar.DAL.ModelDataWrapper
 
-
 @{
-
     TimeLeft TimeLeft = new TimeLeft();
     EventUserStatHandler EUSH = new EventUserStatHandler();
     TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
@@ -15,9 +13,6 @@
     // Various flags to get code to be written only once
     // and at the right place in our huge nested foreach loop
 }
-
-
-
 
 <!-- Go to current month/week -->
 <script>
@@ -243,10 +238,8 @@ $(function() {
                                                     }
                                     </div>
                                 </div>
-
                             </div>
 
-                        
 
                                 <!-- "More info" modal -->
                                 <div class="content-hidden modal fade" id="@item.ID" role="dialog">
@@ -306,7 +299,6 @@ $(function() {
                                     </div>
                                 </div>
                                 }
-
 					</div>
 				}
 			</div>

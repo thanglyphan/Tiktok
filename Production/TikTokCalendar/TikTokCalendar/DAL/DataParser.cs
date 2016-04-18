@@ -27,12 +27,10 @@ namespace TikTokCalendar.DAL
 			"timeedit/interaktivt-design.json",
 			"timeedit/programmering.json",
 			"timeedit/spilldesign.json",
-			"timeedit/spillprogrammering.json",
-			"timeedit/mobilprogrammering.json",
-			"timeedit/test.json"
+			"timeedit/spillprogrammering.json"
 		};
 
-		private const long ExamEventStartID = 500000; // Must be much higher than the ID's on the events from the TimeEdit json files
+		private const long ExamEventStartID = 5000000; // Must be much higher than the ID's on the events from the TimeEdit json files
 		private long examEventID; // A unique ID for the exam events
 		private const int ColumnEmne = 0;
 		private const int ColumnStudieProgram = 1;
@@ -41,11 +39,6 @@ namespace TikTokCalendar.DAL
 		private const int ColumnAktivitet = 4;
 		private const int ColumnKommentar = 5;
 		private readonly DateTimeParser dtParser = new DateTimeParser();
-
-		public DataParser()
-		{
-			examEventID = ExamEventStartID;
-		}
 
 		public void ParseAllData()
 		{
@@ -62,17 +55,15 @@ namespace TikTokCalendar.DAL
 
 		private string GetFileContents(string contentFolderRelativePath)
 		{
-
-			string dataPath = null;
 			string ret = null;
 			try
 			{
-				dataPath = HttpContext.Current.Server.MapPath("~/Content/" + contentFolderRelativePath);
-				ret = File.ReadAllText(dataPath, Encoding.GetEncoding("iso-8859-1"));
+				string dataPath = HttpContext.Current.Server.MapPath("~/Content/" + contentFolderRelativePath);
+				ret = File.ReadAllText(dataPath);
 			}
 			catch (Exception e)
 			{
-				Debug.WriteLine("Error while getting the filecontents: " + e.Message);
+				Debug.WriteLine("Error reading the file contents: " + e.Message);
 				throw;
 			}
 			return ret;
@@ -87,6 +78,7 @@ namespace TikTokCalendar.DAL
 			{
 				var s = new Subject();
 				s.SetAndParse(subject.id, subject.name, subject.code);
+				Printer.Print("Add: subject [" + s.Code + "] " + s.Name);
 				subjects.Add(s);
 			}
 
@@ -148,7 +140,7 @@ namespace TikTokCalendar.DAL
 			var container = JsonConvert.DeserializeObject<JRootExamReservationRootObject>(file);
 			foreach (var r in container.reservations)
 			{
-				var evnts = ParseExamEvent(r.Dato, r.Emnekode, r.Emnenavn, r.Vurderingstype, r.Vekting, r.Varighet, r.Hjelpemidler);
+				var evnts = ParseExamEvent(r.Dato, r.Emnekode, r.Emnenavn, r.Vurderingstype, r.Vekting.ToString(), r.Varighet, r.Hjelpemidler);
 				events.AddRange(evnts);
 			}
 			return events;
@@ -158,25 +150,25 @@ namespace TikTokCalendar.DAL
 		/// Parses an event and returns a List<CustomEvent>. 
 		/// The list contains either the date of the event, the date of the first day in the week of the event, or two dates (if the event has two dates)
 		/// </summary>
-		public List<CustomEvent> ParseEvent(string id,string startDate,string startTime,string endDate,string endTime,
-			string subjectString,string courseData,string room,string teacher,string activity,string comment)
+		public List<CustomEvent> ParseEvent(string id, string startDate, string startTime, string endDate, string endTime,
+			string subjectString, string courseData, string room, string teacher, string activity, string comment)
 		{
 			List<CustomEvent> retEvents = new List<CustomEvent>();
 
 			//////// Event ID ////////
 			// Parse ID
 			long parsedId = -1;
-			long.TryParse(id,NumberStyles.Integer,new NumberFormatInfo(),out parsedId);
+			long.TryParse(id, NumberStyles.Integer, new NumberFormatInfo(), out parsedId);
 
 			//////// Start date ////////
 			// Startdate
 			DateParseResults dtResults = DateParseResults.NoDate;
 			// TODO Use the other parse if it isn't a fucked up dateformat
-			DateTime[] startDates = new DateTime[] { dtParser.SimpleParse(startDate,startTime,out dtResults) };
+			DateTime[] startDates = new DateTime[] { dtParser.SimpleParse(startDate, startTime, out dtResults) };
 
 			//////// End date ////////
 			// Enddate
-			DateTime endDateTime = dtParser.SimpleParse(endDate,endTime,out dtResults);
+			DateTime endDateTime = dtParser.SimpleParse(endDate, endTime, out dtResults);
 			bool hasEndDateTime = (dtResults == DateParseResults.Single);
 
 			//////// Subject ////////
@@ -187,29 +179,34 @@ namespace TikTokCalendar.DAL
 
 			//////// Year and course ////////
 			List<SchoolCourses> courses = new List<SchoolCourses>();
-			if (courseData != null) {
+			List<int> years = new List<int>();
+			if (courseData != null)
+			{
 				// Figure out the classyear from the coursedata field
-				//string courseName = courseData.ToLower();
-				//if (courseName.Contains("bachelor i it")) {
-				//	years.Add(1);
-				//}
-				//if (courseName.Contains("2.klasse")) {
-				//	years.Add(2);
-				//}
-				//if (courseName.Contains("3.klasse")) {
-				//	years.Add(3);
-				//}
+				if (courseData.ToLower().Contains("Bachelor i IT"))
+				{
+					years.Add(1);
+				}
+				if (courseData.ToLower().Contains("2.klasse"))
+				{
+					years.Add(2);
+				}
+				if (courseData.ToLower().Contains("3.klasse"))
+				{
+					years.Add(3);
+				}
 
 				// Get the courses from the courseData field
 				string[] courseDataLines = courseData.Split(',');
-				foreach (var line in courseDataLines) {
+				foreach (var line in courseDataLines)
+				{
 					Course c = DataWrapper.Instance.GetCourseFromName(line);
-					if (c != null) {
+					if (c != null)
+					{
 						courses.Add(c.SchoolCourse);
 					}
 				}
 			}
-			var years = GetClassYearsForEvent(courses, subject);
 
 			//////// Making the events ////////
 			EventType eventType = ParseEventType(activity);
@@ -229,19 +226,19 @@ namespace TikTokCalendar.DAL
 			//////// Making the events ////////
 			// Go through the startdates that was parsed.
 			// This makes it so that events where we couldn't parse a date from, will not be added
-			foreach (var date in startDates) {
-				CustomEvent evnt = new CustomEvent(parsedId,date,true,endDateTime,hasEndDateTime,
-					subject,years,courses,room,teacher,eventType,comment, 0);
+			foreach (var date in startDates)
+			{
+				CustomEvent evnt = new CustomEvent(parsedId, date, true, endDateTime, hasEndDateTime,
+					subject, years, courses, room, teacher, eventType, comment);
 				retEvents.Add(evnt);
 			}
 			return retEvents;
 		}
 
-		public List<CustomEvent> ParseExamEvent(string startDate,string subjectCode,string subjectName,string activity,int weighting,string duration,string helpers)
+		public List<CustomEvent> ParseExamEvent(string startDate, string subjectCode, string subjectName, string activity, string weighting, string duration, string helpers)
 		{
 			List<CustomEvent> retEvents = new List<CustomEvent>();
 
-			// TODO Give examevents that are the same (same startdate, subject and eventtype) the same ID to prevent duplicates
 			long id = examEventID;
 			examEventID++;
 
@@ -249,68 +246,63 @@ namespace TikTokCalendar.DAL
 			// Startdate
 			DateParseResults dtResults = DateParseResults.NoDate;
 			// TODO Use the other parse if it isn't a fucked up dateformat
-			DateTime[] startDates = dtParser.ParseDate(startDate,out dtResults);
+			DateTime[] startDates = dtParser.ParseDate(startDate, out dtResults);
 			if (startDates.Length <= 0) return retEvents;
 
 			//////// Subject ////////
+			// TODO Null check
+			//string subjectCode = Subject.GetSubjectCode(subjectString);
 			Subject subject = DataWrapper.Instance.GetSubjectByCode(subjectCode);
-			if (subject == null) return retEvents;
+			if (subject == null) return retEvents; 
 
 			//////// Year and course ////////
 			List<SchoolCourses> courses = DataWrapper.Instance.GetCoursesWithSubject(subject);
-			if (courses.Count <= 0) {
+			// TODO Get courses with a subject
+			if (courses.Count <= 0)
+			{
 				return retEvents;
 			}
-			var years = GetClassYearsForEvent(courses, subject);
+			List<int> years = new List<int>();
+			//foreach (var c in DataWrapper.Instance.GetCourseSubjectWithSchoolCourse()
+			//{
+
+			//}
+			// TODO Figure out all the years that the "SchoolCourses" has this "subject" this year
 
 			//////// Making the events ////////
 			EventType eventType = ParseEventType(activity);
 
-			string comment = "Vekting: " + weighting + "\nVarighet: " + duration + "\nHjelpemidler: " + helpers;
+			string comment = "Vekting: " +  weighting + "\nVarighet: " + duration + "\nHjelpemidler: " + helpers;
 
 			//////// Making the events ////////
 			// Go through the startdates that was parsed.
 			// This makes it so that events where we couldn't parse a date from, will not be added
-			foreach (var date in startDates) {
-				CustomEvent evnt = new CustomEvent(id,date,false,DateTime.MinValue,false,
-					subject, years,courses,null,null,eventType,comment, weighting);
+			foreach (var date in startDates)
+			{
+				CustomEvent evnt = new CustomEvent(id, date, false, DateTime.MinValue, false,
+					subject, years, courses, null, null, eventType, comment);
 				retEvents.Add(evnt);
+				//Printer.Print("Added " + eventType.ToString() + " - " + subject.Name);
 			}
 			return retEvents;
-		}
-
-		private HashSet<int> GetClassYearsForEvent(List<SchoolCourses> courses, Subject subject)
-		{
-			var years = new HashSet<int>();
-			foreach (var sc in courses)
-			{
-				var courseSubjs = DataWrapper.Instance.GetCourseSubjectWithSchoolCourseSubject(sc, subject);
-				foreach (var cs in courseSubjs)
-				{
-					int y = CourseSubject.GetClassYearFromSemester(cs.Semester);
-					years.Add(y);
-				}
-			}
-			return years;
 		}
 
 		private EventType ParseEventType(string text)
 		{
 			EventType eventType = EventType.Annet;
-			string evntName = text.ToLower();
-			if (evntName.Contains("hjemmeeksamen"))
+			if (text.ToLower().Contains("hjemmeeksamen"))
 			{
 				eventType = EventType.Hjemmeeksamen;
 			}
-			else if (evntName.Contains("fremføring"))
+			else if (text.ToLower().Contains("fremføring"))
 			{
 				eventType = EventType.Fremforing;
 			}
-			else if (evntName.Contains("øving"))
+			else if (text.ToLower().Contains("øving"))
 			{
 				eventType = EventType.Oving;
 			}
-			else if (evntName.Contains("skriftlig eksamen") || evntName == "skriftlig")
+			else if (text.ToLower().Contains("skriftlig eksamen"))
 			{
 				eventType = EventType.SkriftligEksamen;
 			}

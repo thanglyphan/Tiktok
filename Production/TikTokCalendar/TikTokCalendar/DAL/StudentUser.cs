@@ -13,13 +13,22 @@ namespace TikTokCalendar.DAL
 		public string UserName { get; private set; }
 		public SchoolCourses Course {
 			get {
-				if (ClassYear == 1) { return SchoolCourses.BacheloriIT; }
-				else { return _course; }
+				if (ClassYear == 1)
+				{
+					return SchoolCourses.BacheloriIT;
+				}
+				else
+				{
+					return _course;
+				}
 			}
-			private set { _course = value; }
+			private set
+			{
+				_course = value;
+			}
 		}
 		private SchoolCourses _course = SchoolCourses.VisAlt;
-		private int Year { get; set; }
+		public int Year { get; set; }
 		private int WeekOrMonthShow { get; set; }
 		//public int ClassYear { get { return DateTime.Now.Year - Year; } }
 		public int ClassYear { set; get; }

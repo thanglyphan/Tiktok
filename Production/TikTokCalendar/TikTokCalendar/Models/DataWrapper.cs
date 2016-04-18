@@ -40,7 +40,7 @@ namespace TikTokCalendar.Models
 			foreach (var evnt in AllEvents)
 			{
 				if (!addedIDs.Contains(evnt.ID) && (user.Course == SchoolCourses.VisAlt 
-					|| (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear))))
+					|| (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.Year))))
 				{
 					CustomEventMonth m = AddEvent(evnt, ref month, ref week);
 					if (m != null)
@@ -62,7 +62,7 @@ namespace TikTokCalendar.Models
 			foreach (var evnt in AllEvents)
 			{
 				if (user.Course == SchoolCourses.VisAlt
-					|| (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear)))
+					|| (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.Year)))
 				{
 					string temp = "";
 					if (!string.IsNullOrEmpty(tags))
@@ -186,7 +186,7 @@ namespace TikTokCalendar.Models
 				foreach (var subj in Subjects)
 				{
 					bool e = subj.Code.Equals(code, StringComparison.OrdinalIgnoreCase);
-					//Printer.Print(string.Format("{0} == {1} = {2}", subj.Code, code, e));
+					Printer.Print(string.Format("{0} == {1} = {2}", subj.Code, code, e));
 					if (e)
 					{
 						subject = subj;
@@ -231,26 +231,12 @@ namespace TikTokCalendar.Models
 			return retList;
 		}
 
-		public List<CourseSubject> GetCourseSubjectWithSchoolCourseSubject(SchoolCourses schoolCourse, Subject subject)
+		public List<CourseSubject> GetCourseSubjectWithSchoolCourse(SchoolCourses schoolCourse)
 		{
 			var retList = new List<CourseSubject>();
-			var courseSubjs = GetCourseSubjectWithSchollCourse(schoolCourse);
-			foreach (var cs in courseSubjs)
-			{
-				if (cs.SubjectID == subject.ID)
-				{
-					retList.Add(cs);
-				}
-			}
-			return retList;
-		}
-
-		public List<CourseSubject> GetCourseSubjectWithSchollCourse(SchoolCourses course)
-		{
-			List<CourseSubject> retList = new List<CourseSubject>();
 			foreach (var cs in CourseSubjects)
 			{
-				if (cs.Course.SchoolCourse == course)
+				if (cs.Course == Courses[(int)schoolCourse])
 				{
 					retList.Add(cs);
 				}
@@ -272,7 +258,7 @@ namespace TikTokCalendar.Models
             List<string> list = new List<string>();
             foreach (var evnt in AllEvents)
             {
-                if (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear))
+                if (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.Year))
                 {
                     if (!list.Contains(evnt.Subject.Name))
                     {

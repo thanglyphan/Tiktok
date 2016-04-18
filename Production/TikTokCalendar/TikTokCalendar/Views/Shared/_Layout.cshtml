@@ -1,8 +1,4 @@
 ﻿@{
-	if (Request.Browser.IsMobileDevice) {
-		Response.Redirect("~/Home/Mobile.cshtml");
-	}
-
 	TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
 
 	var userName = "John Doe";
@@ -91,13 +87,19 @@
 			
 
             <div class="right-2">
-                <p>@userName <i class="fa fa-user fa-2x"></i></p>
-                <div class="dropdown-content">
-                    <!-- Search box -->
-                    <div class="right-1">
-                        <a title="DEBUG: logout / delete cookies" onclick="delCookie()" class="logout"><p>Logg ut </p><i class="fa fa-sign-out fa-2x"></i></a>
-                    </div>
-                    </div>
+				
+				@if (userName != "John Doe") {
+					<p>@userName <i class="fa fa-user fa-2x"></i></p>
+					<div class="dropdown-content">
+
+						<div class="right-1">
+							<a title="DEBUG: logout / delete cookies" onclick="delCookie()" class="logout"><p>Logg ut </p><i class="fa fa-sign-out fa-2x"></i></a>
+						</div>
+					</div>
+				}
+				else {
+					<p><a onclick="showLogin()" class="logout"><p>Logg inn </p><i class="fa fa-sign-in fa-2x"></i></a></p>
+				}
             </div>
             
 

@@ -52,6 +52,16 @@ $(function () {
         prependTo: '.mobile-navbar-container'
     });
 
+    $(".today").css("border-bottom", "0px");
+
+    $(".feed-month").mouseenter(function (event) {
+        $("badge-container").css("display", "inline-block");
+    });
+
+    $(".feed-month").mouseleave(function (event) {
+        $("badge-container").css("display", "none");
+    });
+
     function isEmpty(str) {
         return typeof str == 'string' && !str.trim() || typeof str == 'undefined' || str === null;
     }
