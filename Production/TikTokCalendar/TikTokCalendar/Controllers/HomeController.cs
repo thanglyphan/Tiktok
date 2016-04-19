@@ -73,16 +73,6 @@ namespace TikTokCalendar.Controllers
 			return page;
 		}
 
-		public ActionResult Rooms()
-		{
-			/*
-			string s = "";
-			foreach (var room in GetRooms())
-			{
-				s += room + "<br>";
-			}*/
-			return View();
-		}
 
 		public string GetRoom()
 		{
@@ -152,33 +142,9 @@ namespace TikTokCalendar.Controllers
 			return View(modelWrapper);//.calEvents);
 		}
 
-        public ActionResult Table(string id = "", string tags = "")
+        public ActionResult Rooms(string a)
         {
-            StudentUser user = GetUserFromNameCourse();
-            DataParser dataParser = new DataParser();
-            dataParser.ParseAllData();
-
-            if (cookie.LoadStringFromCookie("UserName") != null)
-            {
-                ViewBag.Title = string.Format("Halla, {0}! Du går: {1}", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Usercourse"));
-            }
-            else
-            {
-                ViewBag.Title = "tiktok";
-                //ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
-            }
-
-            var modelWrapper = new ModelDataWrapper();
-            if (string.IsNullOrEmpty(tags))
-            {
-                modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
-            }
-            else
-            {
-                modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
-            }
-
-            return View(modelWrapper);//.calEvents);
+            return View("Home/Rooms", new ModelDataWrapper()); //.calEvents);
         }
 
         private int FindCalEventIndex(List<CalendarEvent> list, int month)

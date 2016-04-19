@@ -359,7 +359,7 @@
     <Content Include="Views\Home\Mobile.cshtml" />
     <Content Include="Views\Home\_UserStatUpdate.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
-    <Content Include="Views\Home\Table.cshtml" />
+    <Content Include="Views\Home\Rooms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

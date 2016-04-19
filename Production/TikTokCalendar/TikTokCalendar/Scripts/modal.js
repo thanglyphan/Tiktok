@@ -57,7 +57,7 @@ function showLogin() {
                         console.log("success" + a);
                     }
                 })
-                window.location.reload();
+                //window.location.reload();
 
                 
                 
