@@ -124,7 +124,7 @@ $(function() {
                                         </div>
                                         <div class="right-position">
                                             @{
-var typeClass = "";
+												var typeClass = "";
 												var typeText = item.EventTypeLabel;
 
 												if (item.MainEventType == TikTokCalendar.Models.MainEventType.Innlevering) {
@@ -266,7 +266,7 @@ var typeClass = "";
                                                         <strong>Tid</strong>
                                                     </span>
                                                     <span class="modal-right">
-                                                        @item.GetDayOfWeek(), @item.GetTimeSlot()
+                                                        @item.GetDayOfWeek() @item.GetTimeSlot()
                                                     </span>
                                                 </div>
                                                 <div class="info-rows">
