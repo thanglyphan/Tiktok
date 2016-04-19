@@ -187,7 +187,7 @@ namespace TikTokCalendar.Models
         public string GetMonthName()
         {
             string monthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(StartDateTime.Month);
-            return monthName;
+            return monthName.Trim();
         }
 
 		public string GetTimeSlot()

@@ -79,7 +79,7 @@
 		<div class="header-content">
             <div class="left-1">
                 <a href="/" class="logo">
-                    <i class="fa fa-calendar-check-o"></i>
+                    <i class="fa fa-calendar-check-o fa-2x"></i>
                 </a>
             </div>
 
@@ -88,7 +88,7 @@
                     <label for="tags"></label>
 
                     @using (Html.BeginForm("Index", "Home")) {
-                        <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" />}
+                        <input id="tags" name="tags" type="text" class="search-box"  />}
                 </div>
             </div>
 
@@ -109,6 +109,15 @@
                     }
                 }
             </span>
+
+            
+            <div class="filter-container">
+                <form>
+                    <input class="filter schoolClass" type="checkbox" name="schoolClass" value="Forelesning" checked="checked"/>
+                    <input class="filter assignment" type="checkbox" name="assignment" value="Eksamen" checked="checked"/>
+                    <input class="filter exam" type="checkbox" name="exam" value="Eksamen" checked="checked"/>
+                 </form>
+            </div>
 
             <div class="right-2">
 				
