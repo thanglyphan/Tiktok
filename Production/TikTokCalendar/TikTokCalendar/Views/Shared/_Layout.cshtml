@@ -1,11 +1,19 @@
-﻿@{
-	TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
+﻿@model TikTokCalendar.DAL.ModelDataWrapper
+@{
+    TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
 
-	var userName = "John Doe";
+    var userName = "John Doe";
 
-	if (cookie.LoadStringFromCookie("UserName") != null) {
-		userName = cookie.LoadStringFromCookie("UserName");
-	}
+    if (cookie.LoadStringFromCookie("UserName") != null) {
+        userName = cookie.LoadStringFromCookie("UserName");
+    }
+
+    int eventCount = Model.GetEventCount();
+    string searchLine = "";
+    if (Model.fromSearch)
+    {
+        searchLine = "border-left: 1px solid #c6cedb;";
+    }
 }
 <!DOCTYPE html>
 <html>
@@ -81,10 +89,26 @@
 
                     @using (Html.BeginForm("Index", "Home")) {
                         <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" />}
-
                 </div>
             </div>
-			
+
+            <span class="results" style="@searchLine">
+                @if (Model.fromSearch)
+                {
+                    if (eventCount > 1)
+                    {
+                        <span>@eventCount hendelser funnet</span>
+                    }
+                    else if (eventCount > 0)
+                    {
+                        <span>Én hendelse funnet</span>
+                    }
+                    else
+                    {
+                        <span>Ingen resultater</span>
+                    }
+                }
+            </span>
 
             <div class="right-2">
 				

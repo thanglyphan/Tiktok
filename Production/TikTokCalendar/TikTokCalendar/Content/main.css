@@ -676,3 +676,17 @@ input[type="radio"]:checked + label {
     position: absolute;
     margin-top: -55px
 }
+
+/* show search results (event count) */
+
+.results {
+    position: relative;
+    padding: 8px 14px;
+    top: 30px;
+    left: 22px;
+    color: #858f9f;
+    font-weight: 300;
+    font-size: 14px;
+    height: 16px;
+    width: 100%;
+}

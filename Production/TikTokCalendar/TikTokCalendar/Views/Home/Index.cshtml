@@ -3,6 +3,8 @@
 @{
     TimeLeft TimeLeft = new TimeLeft();
     EventUserStatHandler EUSH = new EventUserStatHandler();
+
+    // This can be retrieved from Model.user so we don't have to do even more business logic here
     TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
     string userName = "";
     userName = cookie.LoadStringFromCookie("UserName");
@@ -10,15 +12,20 @@
     {
         userName = "";
     }
-    // Various flags to get code to be written only once
-    // and at the right place in our huge nested foreach loop
+
+    // show from week number (show from top when searching)
+    int anchor = 1;
+    if (!Model.fromSearch)
+    {
+        anchor = TikTokCalendar.Extras.Utils.GetWeekNumberOfYear(DateTime.Now);
+    }
 }
 
 <!-- Go to current month/week -->
 <script>
 $(function() {
 	@*$(document).scrollTop( $("#goto-@DateTime.Now.Month").offset().top );*@
-	$(document).scrollTop( $("#goto-week-@TikTokCalendar.Extras.Utils.GetWeekNumberOfYear(DateTime.Now)").offset().top - 65 );
+	$(document).scrollTop( $("#goto-week-@anchor").offset().top - 65 );
 });
 </script>
 
@@ -30,7 +37,7 @@ $(function() {
         @foreach (var month in Model.Months)
         {
             var isCollapsed = "in";
-            if (month.MonthNumber < DateTime.Now.Month)
+            if (month.MonthNumber < DateTime.Now.Month && !Model.fromSearch)
             {
                 isCollapsed = ""; // true
             }
@@ -75,7 +82,7 @@ $(function() {
 							}
 
                             <!-- Link on every event -->
-                            <div class="feed-container" id="@today">
+                            <div class="feed-container @today">
 
                                 <!-- Container for the event content -->
                                 <div class="content">
@@ -117,7 +124,7 @@ $(function() {
                                         </div>
                                         <div class="right-position">
                                             @{
-                                                var typeClass = "";
+var typeClass = "";
 												var typeText = item.EventTypeLabel;
 
 												if (item.MainEventType == TikTokCalendar.Models.MainEventType.Innlevering) {
@@ -140,7 +147,7 @@ $(function() {
                                         <div class="left-position" data-toggle="modal" data-target="#@item.ID">
                                             <!-- Date and time  -->
                                             <p class="time">
-                                                <strong>&nbsp;@item.GetDayOfWeek()</strong>,@item.GetTimeSlot() 
+                                                <strong>&nbsp;@item.GetDayOfWeek()</strong>@item.GetTimeSlot()
                                                 @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
                                                     <b>&nbsp;&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
 												}

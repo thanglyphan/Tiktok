@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Web;
 using TikTokCalendar.DAL;
 using TikTokCalendar.Extras;
@@ -53,48 +55,79 @@ namespace TikTokCalendar.Models
 			return months;
 		}
 
-		public List<CustomEventMonth> GetEventsWithName(StudentUser user, string tags)
-		{
-			List<CustomEventMonth> months = new List<CustomEventMonth>();
-			CustomEventMonth month = null;
-			CustomEventWeek week = null;
+        public List<CustomEventMonth> GetEventsWithName(StudentUser user, string tags)
+        {
+            List<CustomEventMonth> months = new List<CustomEventMonth>();
+            CustomEventMonth month = null;
+            CustomEventWeek week = null;
 
-			foreach (var evnt in AllEvents)
-			{
-				if (user.Course == SchoolCourses.VisAlt
-					|| (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear)))
-				{
-					string temp = "";
-					if (!string.IsNullOrEmpty(tags))
-					{
-						temp = tags.ToLower();
-						string eventname = evnt.Subject.Name.ToLower();
-						string roomname = "";
-						if (evnt.RoomName != null)
-						{
-							evnt.RoomName.ToLower();
-						}
-						string teacher = evnt.Teacher.ToLower();
-						string comment = evnt.Comment.ToLower();
-						string subjectcode = evnt.Subject.Code.ToLower();
-						string eventtype = evnt.eventType.ToString().ToLower();
-						if (!(eventname.Contains(temp) || roomname.Contains(temp) || teacher.Contains(temp) || comment.Contains(temp) || subjectcode.Contains(temp) || eventtype.Contains(temp)))
-						{
-							continue;
-						}
-					}
+            string temp = "";
+            if (!string.IsNullOrEmpty(tags))
+            {
+                temp = RemoveSpecialCharacters(tags).ToLower();
+            }
 
-					CustomEventMonth m = AddEvent(evnt, ref month, ref week);
-					if (m != null)
-					{
-						months.Add(m);
-					}
-				}
-			}
-			return months;
-		}
+            foreach (var evnt in AllEvents)
+            {
+                if (user.Course == SchoolCourses.VisAlt
+                    || (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear))
+                {
+                    if (temp != "")
+                    {
+                        string[] array = temp.Split(' ');
 
-		private CustomEventMonth AddEvent(CustomEvent evnt, ref CustomEventMonth month, ref CustomEventWeek week)
+                        string eventname = "";
+                        string roomname = "";
+                        string teacher = "";
+                        string comment = "";
+                        string subjectcode = "";
+                        string eventtype = "";
+                        string daynum = "";
+                        string dayname = "";
+                        string weeknum = "";
+                        string monthname = "";
+                        Debug.WriteLine("HHHHERE::::::::::: " + array.ToString());
+                        
+                        try { eventname = evnt.Subject.Name.ToLower(); } catch (NullReferenceException e) { }
+                        try { roomname = evnt.RoomName.ToLower(); } catch (NullReferenceException e) { }
+                        try { teacher = evnt.Teacher.ToLower(); } catch (NullReferenceException e) { }
+                        try { comment = evnt.Comment.ToLower(); } catch (NullReferenceException e) { }
+                        try { subjectcode = evnt.Subject.Code.ToLower(); } catch (NullReferenceException e) { }
+                        try { eventtype = evnt.eventType.ToString().ToLower(); } catch (NullReferenceException e) { }
+                        try { daynum = evnt.StartDateTime.Day.ToString(); } catch (NullReferenceException e) { }
+                        try { dayname = evnt.GetDayOfWeek().ToLower(); } catch (NullReferenceException e) { }
+                        try { weeknum = evnt.StartDateTime.GetWeekNumberOfYear().ToString(); } catch (NullReferenceException e) { }
+                        try { monthname = evnt.GetMonthName().ToLower(); } catch (NullReferenceException e) { }
+
+                        bool flagged = false;
+                        for (int i = 0; i < array.Length; i++)
+                        {
+                            if (!(eventname.Contains(array[i]) || roomname.Contains(array[i]) || teacher.Contains(array[i])
+                                || comment.Contains(array[i]) || subjectcode.Contains(array[i]) || eventtype.Contains(array[i])
+                                || daynum.Contains(array[i]) || dayname.Contains(array[i]) || weeknum.Contains(array[i]) || monthname.Contains(array[i])))
+                            {
+                                flagged = true;
+                                break;
+                            }
+                        }
+                        if (flagged)
+                        {
+                            continue;
+                        }
+
+                    }
+
+                    CustomEventMonth m = AddEvent(evnt, ref month, ref week);
+                    if (m != null)
+                    {
+                        months.Add(m);
+                    }
+                }
+            }
+            return months;
+        }
+
+        private CustomEventMonth AddEvent(CustomEvent evnt, ref CustomEventMonth month, ref CustomEventWeek week)
 		{
 			CustomEventMonth retMonth = null;
 
@@ -294,5 +327,19 @@ namespace TikTokCalendar.Models
 			}
 			return list;
 		}
-	}
+
+        public string RemoveSpecialCharacters(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in str)
+            {
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '.' || c == '_'
+                    || c == ' ' || c == 'æ' || c == 'ø' || c == 'å' || c == 'Æ' || c == 'Ø' || c == 'Å')
+                {
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString();
+        }
+    }
 }
