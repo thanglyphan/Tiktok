@@ -70,7 +70,7 @@ namespace TikTokCalendar.Models
             foreach (var evnt in AllEvents)
             {
                 if (user.Course == SchoolCourses.VisAlt
-                    || (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear))
+                    || (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear)))
                 {
                     if (temp != "")
                     {
