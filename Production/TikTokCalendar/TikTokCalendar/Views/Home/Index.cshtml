@@ -140,7 +140,7 @@ $(function() {
                                         <div class="left-position" data-toggle="modal" data-target="#@item.ID">
                                             <!-- Date and time  -->
                                             <p class="time">
-                                                <strong>&nbsp;@item.GetDayOfWeek()</strong>, @item.GetTimeSlot()
+                                                <strong>&nbsp;@item.GetDayOfWeek()</strong>,@item.GetTimeSlot() 
                                                 @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
                                                     <b>&nbsp;&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
 												}
