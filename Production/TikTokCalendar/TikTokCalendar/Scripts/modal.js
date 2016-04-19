@@ -51,8 +51,8 @@ function showLogin() {
                     type: 'GET',
                     dataType: 'html', // <-- to expect an html response
                 });
-                //window.location.reload();
-
+                window.location.reload();
+                return;
             }
 
             else {

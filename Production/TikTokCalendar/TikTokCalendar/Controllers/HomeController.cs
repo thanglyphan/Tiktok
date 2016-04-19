@@ -157,7 +157,7 @@ namespace TikTokCalendar.Controllers
 
 
 			var modelWrapper = new ModelDataWrapper();
-			return PartialView("Rooms", modelWrapper);//.calEvents);
+			return View("Rooms", modelWrapper);
 
 		}
 
