@@ -29,7 +29,7 @@ namespace TikTokCalendar.Controllers
 			var username = cookie.LoadStringFromCookie("UserName");
 			if (!string.IsNullOrEmpty(username))
 			{
-				ViewBag.Title = string.Format("{0}[{1}]: {2}", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Year"), cookie.LoadStringFromCookie("Usercourse"));
+				ViewBag.Title = string.Format("{0}[{1}]: {2} {{3}}", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Year"), cookie.LoadStringFromCookie("Usercourse"), tags);
 			}
 			else
 			{
@@ -40,6 +40,7 @@ namespace TikTokCalendar.Controllers
 			var modelWrapper = new ModelDataWrapper();
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
             if (!string.IsNullOrEmpty(tags)) modelWrapper.fromSearch = true;
+
 			// Send the model to the view
 			return View(modelWrapper);
 		}

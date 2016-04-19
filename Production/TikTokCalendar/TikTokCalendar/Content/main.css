@@ -259,7 +259,7 @@ input[type="radio"]:checked + label {
     border-radius: 3px 3px 0px 0px;
 }
 .week, .week p {
-    background-color: #8DB3f1;
+    background-color: #8DB3f;
     padding-top: 2px;
     padding-bottom: 2px;
     font-size: 19px !important;
@@ -299,21 +299,20 @@ input[type="radio"]:checked + label {
    animation: pulse 3s ease-in-out infinite;
 }
 
+.ongoing {
+    color: #FF5A5F;
+    animation: pulse 3s ease-in-out infinite;
+}
+
 @-webkit-keyframes pulse {
     0% {
-        -webkit-box-shadow: inset 0 0 10px #ffffff;
-        -moz-box-shadow: inset 0 0 1px #ffffff;
-        box-shadow: inset 0 0 1px #ffffff;
+        color: #6A7586;
     }
     50% {
-       -webkit-box-shadow: inset 0 0 1px 0px #c5e1bd;
-       -moz-box-shadow: inset 0 0 1px #c5e1bd;
-        box-shadow: inset 0 0 1px #c5e1bd;
+       color: #835152;
     }
     100% {
-       -webkit-box-shadow: inset 0 0 10px #ffffff;
-       -moz-box-shadow: inset 0 0 1px #ffffff;
-        box-shadow: inset 0 0 1px #ffffff;
+       color: #6A7586;
     }
 }
 
@@ -524,7 +523,7 @@ input[type="radio"]:checked + label {
 */
 
 .activator {
-    cursor: default;
+    cursor: pointer !important;
 }
 
 .activator {
