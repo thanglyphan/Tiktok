@@ -52,8 +52,6 @@ $(function () {
         prependTo: '.mobile-navbar-container'
     });
 
-    $(".today").css("border-bottom", "0px");
-
     $(".feed-month").mouseenter(function (event) {
         $("badge-container").css("display", "inline-block");
     });

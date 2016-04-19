@@ -33,15 +33,18 @@ footer {
 ==========================================*/
 
 header {
-    background-color: #F5F6F8;
+    background-color: #FffffF;
     width: 100%;
     position: fixed;
     top: 0px;
     z-index: 2;
     font-size: 14px !important;
+
+    box-shadow: 0 2px 1px -2px gray;
 }
 
 .header-content {
+    max-width: 1150px;
     margin: 0 auto; 
     height: 61px;
     position: relative;
@@ -53,8 +56,6 @@ header a i.fa-calendar-check-o {
     color: #FF5A5F;
     font-size: 25px;
     margin-left: 20px;
-    height: 30px;
-    width: 30px;
 }
 
 header p {
@@ -86,7 +87,7 @@ header .header-content .right-1 i {
 
 /* Logout link */
 header .header-content .right-1 a {
-     color: #8C95A2;
+     color: #AAAAAA;
      text-decoration: none;
 }
 
@@ -98,7 +99,7 @@ header .header-content .right-1 p {
 header .header-content .right-2 {
     padding-right: 19px;
     padding-left: 19px;
-    margin-top: 8px;
+    margin-top: 11px;
     border-radius: 20px;
     height: 40px;
     display: inline-block;
@@ -108,12 +109,13 @@ header .header-content .right-2 {
 }
 
 header .header-content .right-2 a {
-    color: #8C95A2;
+    color: #AAAAAA;
     text-decoration: none;
 }
 
 header .header-content .right-2 i {
     color: #AAAAAA;
+    opacity: 0.7;
     padding-left: 10px;
     margin-top: 8px;
 }
@@ -136,15 +138,29 @@ header .header-content .left-1 i {
 /* Search container */
 header .header-content .left-2 {
     width: 200px;
-    height: 100%;
+    height: 45px;
     float: left;
-    padding-top: 11px;
+    margin-top: 8px;
+    border-radius: 50px;
 }
 
 /* Search */
-div.ui-widget {
-    height: 61px;
+#tags {
+    margin-bottom: 15px;
+}
+
+/* Filter class, assignment and exam */
+.filter-container {
+    width: 300px;
+    height: 50px;
     float: left;
+    margin-top: 22px;
+}
+
+input.filter {
+    color: black;
+    float: left;
+    width: 50px;
 }
 
 /*===================================
@@ -184,7 +200,6 @@ input [class^="going-"]{
 }
 
 .input-year {
-    
     height: 20px;
     width: 50px;
     background-color: #474f5c;
@@ -259,7 +274,7 @@ input[type="radio"]:checked + label {
     border-radius: 3px 3px 0px 0px;
 }
 .week, .week p {
-    background-color: #8DB3f1;
+    background-color: #8DB3f;
     padding-top: 2px;
     padding-bottom: 2px;
     font-size: 19px !important;
@@ -299,24 +314,21 @@ input[type="radio"]:checked + label {
    animation: pulse 3s ease-in-out infinite;
 }
 
-@-webkit-keyframes pulse {
-    0% {
-        -webkit-box-shadow: inset 0 0 10px #ffffff;
-        -moz-box-shadow: inset 0 0 1px #ffffff;
-        box-shadow: inset 0 0 1px #ffffff;
-    }
-    50% {
-       -webkit-box-shadow: inset 0 0 1px 0px #c5e1bd;
-       -moz-box-shadow: inset 0 0 1px #c5e1bd;
-        box-shadow: inset 0 0 1px #c5e1bd;
-    }
-    100% {
-       -webkit-box-shadow: inset 0 0 10px #ffffff;
-       -moz-box-shadow: inset 0 0 1px #ffffff;
-        box-shadow: inset 0 0 1px #ffffff;
-    }
+.ongoing {
+    animation: pulse 3s ease-in-out infinite;
 }
 
+@-webkit-keyframes pulse {
+    0% {
+        color: #6A7586;
+    }
+    50% {
+       color: #FF5A5F;
+    }
+    100% {
+       color: #6A7586;
+    }
+}
 
 .feed-container {
   z-index: 1000;
@@ -524,7 +536,7 @@ input[type="radio"]:checked + label {
 */
 
 .activator {
-    cursor: default;
+    cursor: pointer !important;
 }
 
 .activator {
@@ -566,11 +578,10 @@ input[type="radio"]:checked + label {
 =======================================*/
 
 #tags {
-
     max-width: 200px;
     padding: 3px 0 4px 30px;
     border-radius: 20px;
-    border: 0px solid #e4e4e4;
+    border: 1px solid #e4e4e4;
     margin-left: 7px;
     margin-top: 8px;
     background-image: url("../img/search.png");
@@ -578,7 +589,7 @@ input[type="radio"]:checked + label {
     background-position: 5px 6px;
     background-size: 20px;
     font-family: Tahoma, Geneva, sans-serif;
-     background-color: #F5F6F8 !important;
+     background-color: #ffffff !important;
     font-size: 16px;
 }
 
