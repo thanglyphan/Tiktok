@@ -29,7 +29,7 @@ namespace TikTokCalendar.Controllers
 			var username = cookie.LoadStringFromCookie("UserName");
 			if (!string.IsNullOrEmpty(username))
 			{
-				ViewBag.Title = string.Format("{0}[{1}]: {2} {{3}}", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Year"), cookie.LoadStringFromCookie("Usercourse"), tags);
+				ViewBag.Title = string.Format("{0}[{1}]: {2} [{3}]", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Year"), cookie.LoadStringFromCookie("Usercourse"), tags);
 			}
 			else
 			{
@@ -71,6 +71,16 @@ namespace TikTokCalendar.Controllers
 			}
 
 			return page;
+		}
+
+		public string Rooms()
+		{
+			string s = "";
+			foreach (var room in GetRooms())
+			{
+				s += room + "<br>";
+			}
+			return s;
 		}
 
 		private string[] GetRooms()
