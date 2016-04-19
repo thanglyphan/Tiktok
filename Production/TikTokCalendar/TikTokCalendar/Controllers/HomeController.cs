@@ -73,6 +73,11 @@ namespace TikTokCalendar.Controllers
 			return page;
 		}
 
+		private string[] GetRooms()
+		{
+			return new[] {"Rom 40", "Rom 41", "Rom 82", "Rom 83", "Vrimle", "Auditoriet"};
+		}
+
 		private bool SameYear(CalendarEvent calEvent, StudentUser user)
 		{
 			if (calEvent.Year < 0) return true;
