@@ -98,11 +98,9 @@ header .header-content .right-1 p {
 /* Username */
 header .header-content .right-2 {
     padding-right: 19px;
-    padding-left: 19px;
-    margin-top: 11px;
+    margin-top:    -20px;
     border-radius: 20px;
-    height: 40px;
-    display: inline-block;
+    height:        40px;
     position: relative;
     float: right;
     cursor: pointer;
@@ -111,13 +109,18 @@ header .header-content .right-2 {
 header .header-content .right-2 a {
     color: #AAAAAA;
     text-decoration: none;
+    font-size: 12px; 
+}
+
+header .header-content .right-2 span {
+    margin-top: -10px !important;
 }
 
 header .header-content .right-2 i {
     color: #AAAAAA;
     opacity: 0.7;
     padding-left: 10px;
-    margin-top: 8px;
+    margin-top: 23px;
 }
 
 /* Left container */
@@ -151,11 +154,61 @@ header .header-content .left-2 {
 
 /* Filter class, assignment and exam */
 .filter-container {
-    width: 300px;
-    height: 50px;
-    float: left;
-    margin-top: 22px;
+     position: relative;
+     left: 20px;
+     top: 20px;
+     float: left;
+
 }
+.filter-container label {
+    color: #aaa;
+    margin-top: 0px;
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.9em;
+}
+
+.filter-container label span {
+   display: inline-block;
+   vertical-align: middle;
+   margin-top: 3px;
+   margin-left: 3px;
+   margin-right: 9px;
+}
+
+.filter-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    -webkit-appearance: initial;
+}
+
+.filter-container input[type="checkbox"]:nth-chil(1) {
+    margin-left: 15px;
+}
+
+.filter-container input[type="checkbox"].schoolClass {
+    background-color: rgba(173,212,156,0.6);
+}
+
+.filter-container input[type="checkbox"].assignment {
+    background-color: rgba(255,207,81, 0.6);
+
+}
+
+.filter-container input[type="checkbox"].exam {
+    background-color: rgba(255,90,95, 0.6);
+}
+
+.filter-container input[type="checkbox"]:checked:after
+{
+    margin-left: 3px;
+    content: "✓";  
+    color: #333;
+}
+
 
 input.filter {
     color: black;
@@ -167,23 +220,6 @@ input.filter {
     background-color: white;
 }
 
-/*===================================
-  D R O P D O W N
-===================================*/
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    margin-top: 55px;
-    padding: 0px 15px 15px 15px;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.right-2:hover .dropdown-content {
-    display: block;
-}
 
 /*===================================
   C H E C K   I N
