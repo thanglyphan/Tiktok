@@ -15,7 +15,6 @@ namespace TikTokCalendar.DAL
 	public class DataParser
 	{
 		// Filepaths are relative to the Content folder
-		private const string eventFile = "dummy-data.json";
 		private const string courseFile = "SchoolSystem/courses.json";
 		private const string subjectFile = "SchoolSystem/subjects.json";
 		private const string courseSubjectFile = "SchoolSystem/courseSubjects.json";
