@@ -163,6 +163,10 @@ input.filter {
     width: 50px;
 }
 
+.rooms-available {
+    background-color: white;
+}
+
 /*===================================
   D R O P D O W N
 ===================================*/

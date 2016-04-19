@@ -178,33 +178,38 @@ $(function() {
                                         if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime.AddDays(21))
                                         {-->
                                         @if (userName != "" && userName != "Jon Doe" && item.MainEventType != TikTokCalendar.Models.MainEventType.Innlevering)
-                                        {
-                                            using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
-                                            {
-                                                HttpMethod = "POST",
-                                                UpdateTargetId = "going-" + item.ID,
-                                                InsertionMode = InsertionMode.Replace
-                                            }))
-                                            {
-                                                // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
+										{
+											using (Ajax.BeginForm("UserStatUpdate", "Home", new { id = "check-in-form-" + @item.ID }, new AjaxOptions
+											{
+												HttpMethod = "POST",
+												UpdateTargetId = "going-" + item.ID,
+												InsertionMode = InsertionMode.Replace
+											}))
+											{
+												// Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
                                         <div class="check-in" id="going-@item.ID">
                                             @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
-                                            {
-                                                if (!EUSH.UserAttending(item.ID, userName))
-                                                {
-                                                    <input type="hidden" name="eventid" value="@item.ID" />
-                                                    <input type="hidden" name="attend" value="true" />
-                                                    <input type="submit" value="Check-in" />
-                                                }
-                                                else
-                                                {
-                                                    <strong>Innsjekket &#10004;</strong>
-                                                }
-                                            }
-                                            else
-                                            {
-                                                if (!EUSH.UserGoing(item.ID))
-                                                {
+											{
+												bool geo = true;
+												if (!EUSH.UserAttending(item.ID, userName))
+															{
+													<input type="hidden" name="eventid" value="@item.ID" />
+													<input type="hidden" name="attend" value="true" />
+													<input type="submit" value="Check-in" />
+												}
+												else if (geo) {
+													<input type="hidden" name="eventid" value="@item.ID" />
+													<input type="hidden" name="attend" value="true" />
+													<input type="submit" style="display:none;" value="Check-in" onload="(this).submit()" />
+												}
+												else {
+
+													<strong>Innsjekket &#10004;</strong>
+												}
+
+											}
+											else {
+												if (!EUSH.UserGoing(item.ID)) {
                                                     <input type="hidden" name="eventid" value="@item.ID" />
                                                     <input type="hidden" name="attend" value="false" />
                                                     <input type="submit" value="Going" class="going-@item.ID"/>
@@ -266,7 +271,7 @@ $(function() {
                                                         <strong>Tid</strong>
                                                     </span>
                                                     <span class="modal-right">
-                                                        @item.GetDayOfWeek() @item.GetTimeSlot()
+                                                        @item.GetDayOfWeek()@item.GetTimeSlot()
                                                     </span>
                                                 </div>
                                                 <div class="info-rows">
