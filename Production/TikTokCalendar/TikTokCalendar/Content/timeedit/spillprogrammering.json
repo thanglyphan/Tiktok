@@ -628,6 +628,786 @@
         "Prosjekt",
         "Prosjektuke uten annen undervisning. Sjekk emnesiden."
       ]
-    }
+    }, //start her
+    {
+      "id":"1000099",
+      "startdate":"04.03.2016",
+      "starttime":"09:00",
+      "enddate":"04.03.2016",
+      "endtime":"15:00",
+      "columns":[
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+        ]
+     },
+     {
+       "id":"1000100",
+       "startdate":"04.03.2016",
+       "starttime":"09:15",
+       "enddate":"04.03.2016",
+       "endtime":"11:00",
+       "columns":[
+         "Undersøkelsesmetoder (PJ6100-15)",
+         "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+         "Auditoriet",
+         "Faltin Karlsen",
+         "Forelesning",
+         ""
+         ]
+      },
+      {
+        "id":"1000101",
+        "startdate":"04.03.2016",
+        "starttime":"11:15",
+        "enddate":"04.03.2016",
+        "endtime":"13:00",
+        "columns":[
+          "Undersøkelsesmetoder (PJ6100-15)",
+          "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+          "Rom 79-80",
+          "Faltin Karlsen",
+          "Forelesning",
+          ""
+          ]
+      },
+      {  
+         "id":"1000102",
+         "startdate":"07.03.2016",
+         "starttime":"12:15",
+         "enddate":"07.03.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Grafikkprogrammering (PG6200-15)",
+            "3.klasse, Bachelor Spillprogrammering",
+            "Rom 82",
+            "Martin Lilleeng Sætra",
+            "Forelesning",
+            "NB - merk romendring denne gangen!"
+         ]
+      },
+      {  
+         "id":"1000103",
+         "startdate":"07.03.2016",
+         "starttime":"09:00",
+         "enddate":"07.03.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000104",
+         "startdate":"08.03.2016",
+         "starttime":"09:00",
+         "enddate":"08.03.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000105",
+         "startdate":"09.03.2016",
+         "starttime":"09:00",
+         "enddate":"09.03.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000106",
+         "startdate":"10.03.2016",
+         "starttime":"09:00",
+         "enddate":"10.03.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000107",
+         "startdate":"11.03.2016",
+         "starttime":"09:00",
+         "enddate":"11.03.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000108",
+         "startdate":"11.03.2016",
+         "starttime":"09:15",
+         "enddate":"11.03.2016",
+         "endtime":"11:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Auditoriet",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000109",
+         "startdate":"11.03.2016",
+         "starttime":"11:15",
+         "enddate":"11.03.2016",
+         "endtime":"13:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Rom 82",
+            "Faltin Karlsen",
+            "Forelesning",
+            "NB - merk romendring!"
+         ]
+      },
+      {  
+         "id":"1000110",
+         "startdate":"14.03.2016",
+         "starttime":"12:15",
+         "enddate":"14.03.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Grafikkprogrammering (PG6200-15)",
+            "3.klasse, Bachelor Spillprogrammering",
+            "Rom 45",
+            "Martin Lilleeng Sætra",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000111",
+         "startdate":"14.03.2016",
+         "starttime":"12:15",
+         "enddate":"14.03.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Matematikk og fysikk (RF3100-15)",
+            "2.klasse, Bachelor Spillprogrammering",
+            "Rom 82",
+            "Lars Sydnes",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000112",
+         "startdate":"15.03.2016",
+         "starttime":"08:15",
+         "enddate":"15.03.2016",
+         "endtime":"12:00",
+         "columns":[  
+            "Game AI (PG4500-15)",
+            "2.klasse, Bachelor Spillprogrammering",
+            "Rom 41",
+            "Kjetil Raaen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000113",
+         "startdate":"16.03.2016",
+         "starttime":"10:15",
+         "enddate":"16.03.2016",
+         "endtime":"14:00",
+         "columns":[  
+            "C++ programmering (PG4400-15)",
+            "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+            "Rom 40",
+            "Tomas Sandnes",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000114",
+         "startdate":"18.03.2016",
+         "starttime":"09:15",
+         "enddate":"18.03.2016",
+         "endtime":"11:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Auditoriet",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000115",
+         "startdate":"18.03.2016",
+         "starttime":"11:15",
+         "enddate":"18.03.2016",
+         "endtime":"13:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Rom 79-80",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000116",
+         "startdate":"29.03.2016",
+         "starttime":"08:15",
+         "enddate":"29.03.2016",
+         "endtime":"12:00",
+         "columns":[  
+            "Game AI (PG4500-15)",
+            "2.klasse, Bachelor Spillprogrammering",
+            "Rom 41",
+            "Kjetil Raaen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000117",
+         "startdate":"30.03.2016",
+         "starttime":"10:15",
+         "enddate":"30.03.2016",
+         "endtime":"14:00",
+         "columns":[  
+            "C++ programmering (PG4400-15)",
+            "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+            "Rom 40",
+            "Tomas Sandnes",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000118",
+         "startdate":"04.04.2016",
+         "starttime":"12:15",
+         "enddate":"04.04.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Matematikk og fysikk (RF3100-15)",
+            "2.klasse, Bachelor Spillprogrammering",
+            "Rom 82",
+            "Lars Sydnes",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000119",
+         "startdate":"05.04.2016",
+         "starttime":"08:15",
+         "enddate":"05.04.2016",
+         "endtime":"12:00",
+         "columns":[  
+            "Game AI (PG4500-15)",
+            "2.klasse, Bachelor Spillprogrammering",
+            "Rom 41",
+            "Kjetil Raaen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000120",
+         "startdate":"06.04.2016",
+         "starttime":"10:15",
+         "enddate":"06.04.2016",
+         "endtime":"14:00",
+         "columns":[  
+            "C++ programmering (PG4400-15)",
+            "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+            "Rom 40",
+            "Tomas Sandnes",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000121",
+         "startdate":"08.04.2016",
+         "starttime":"09:15",
+         "enddate":"08.04.2016",
+         "endtime":"11:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Auditoriet",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000122",
+         "startdate":"08.04.2016",
+         "starttime":"11:15",
+         "enddate":"08.04.2016",
+         "endtime":"13:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Rom 79-80",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000123",
+         "startdate":"11.04.2016",
+         "starttime":"12:15",
+         "enddate":"11.04.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Grafikkprogrammering (PG6200-15)",
+            "3.klasse, Bachelor Spillprogrammering",
+            "Rom 45",
+            "Martin Lilleeng Sætra",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000124",
+         "startdate":"11.04.2016",
+         "starttime":"12:15",
+         "enddate":"11.04.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Matematikk og fysikk (RF3100-15)",
+            "2.klasse, Bachelor Spillprogrammering",
+            "Rom 82",
+            "Lars Sydnes",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000125",
+         "startdate":"12.04.2016",
+         "starttime":"08:15",
+         "enddate":"12.04.2016",
+         "endtime":"12:00",
+         "columns":[  
+            "Game AI (PG4500-15)",
+            "2.klasse, Bachelor Spillprogrammering",
+            "Rom 41",
+            "Kjetil Raaen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000126",
+         "startdate":"13.04.2016",
+         "starttime":"10:15",
+         "enddate":"13.04.2016",
+         "endtime":"14:00",
+         "columns":[  
+            "C++ programmering (PG4400-15)",
+            "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+            "Rom 40",
+            "Tomas Sandnes",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000127",
+         "startdate":"15.04.2016",
+         "starttime":"09:15",
+         "enddate":"15.04.2016",
+         "endtime":"11:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Auditoriet",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000128",
+         "startdate":"15.04.2016",
+         "starttime":"11:15",
+         "enddate":"15.04.2016",
+         "endtime":"13:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Rom 79-80",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000129",
+         "startdate":"18.04.2016",
+         "starttime":"12:15",
+         "enddate":"18.04.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Grafikkprogrammering (PG6200-15)",
+            "3.klasse, Bachelor Spillprogrammering",
+            "Rom 45",
+            "Martin Lilleeng Sætra",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000130",
+         "startdate":"18.04.2016",
+         "starttime":"09:00",
+         "enddate":"18.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000131",
+         "startdate":"19.04.2016",
+         "starttime":"09:00",
+         "enddate":"19.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000132",
+         "startdate":"20.04.2016",
+         "starttime":"09:00",
+         "enddate":"20.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000133",
+         "startdate":"21.04.2016",
+         "starttime":"09:00",
+         "enddate":"21.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000134",
+         "startdate":"22.04.2016",
+         "starttime":"09:00",
+         "enddate":"22.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000135",
+         "startdate":"22.04.2016",
+         "starttime":"09:15",
+         "enddate":"22.04.2016",
+         "endtime":"11:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Auditoriet",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000136",
+         "startdate":"22.04.2016",
+         "starttime":"11:15",
+         "enddate":"22.04.2016",
+         "endtime":"13:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Rom 79-80",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000137",
+         "startdate":"25.04.2016",
+         "starttime":"12:15",
+         "enddate":"25.04.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Grafikkprogrammering (PG6200-15)",
+            "3.klasse, Bachelor Spillprogrammering",
+            "Rom 45",
+            "Martin Lilleeng Sætra",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000138",
+         "startdate":"25.04.2016",
+         "starttime":"09:00",
+         "enddate":"25.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000139",
+         "startdate":"26.04.2016",
+         "starttime":"09:00",
+         "enddate":"26.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000140",
+         "startdate":"27.04.2016",
+         "starttime":"09:00",
+         "enddate":"27.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000141",
+         "startdate":"28.04.2016",
+         "starttime":"09:00",
+         "enddate":"28.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000142",
+         "startdate":"29.04.2016",
+         "starttime":"09:00",
+         "enddate":"29.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000143",
+         "startdate":"29.04.2016",
+         "starttime":"09:15",
+         "enddate":"29.04.2016",
+         "endtime":"11:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Auditoriet",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000144",
+         "startdate":"29.04.2016",
+         "starttime":"11:15",
+         "enddate":"29.04.2016",
+         "endtime":"13:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Rom 79-80",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000145",
+         "startdate":"02.05.2016",
+         "starttime":"12:15",
+         "enddate":"02.05.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Grafikkprogrammering (PG6200-15)",
+            "3.klasse, Bachelor Spillprogrammering",
+            "Rom 45",
+            "Martin Lilleeng Sætra",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000146",
+         "startdate":"02.05.2016",
+         "starttime":"12:15",
+         "enddate":"02.05.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Matematikk og fysikk (RF3100-15)",
+            "2.klasse, Bachelor Spillprogrammering",
+            "Rom 82",
+            "Lars Sydnes",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000147",
+         "startdate":"03.05.2016",
+         "starttime":"08:15",
+         "enddate":"03.05.2016",
+         "endtime":"12:00",
+         "columns":[  
+            "Game AI (PG4500-15)",
+            "2.klasse, Bachelor Spillprogrammering",
+            "Rom 41",
+            "Kjetil Raaen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000148",
+         "startdate":"04.05.2016",
+         "starttime":"10:15",
+         "enddate":"04.05.2016",
+         "endtime":"14:00",
+         "columns":[  
+            "C++ programmering (PG4400-15)",
+            "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+            "Rom 40",
+            "Tomas Sandnes",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000149",
+         "startdate":"09.05.2016",
+         "starttime":"12:15",
+         "enddate":"09.05.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Matematikk og fysikk (RF3100-15)",
+            "2.klasse, Bachelor Spillprogrammering",
+            "Rom 82",
+            "Lars Sydnes",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000150",
+         "startdate":"11.05.2016",
+         "starttime":"10:15",
+         "enddate":"11.05.2016",
+         "endtime":"14:00",
+         "columns":[  
+            "C++ programmering (PG4400-15)",
+            "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+            "Rom 40",
+            "Tomas Sandnes",
+            "Forelesning",
+            ""
+         ]
+      }
   ]
 }
