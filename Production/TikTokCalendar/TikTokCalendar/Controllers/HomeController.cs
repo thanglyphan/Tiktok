@@ -45,7 +45,7 @@ namespace TikTokCalendar.Controllers
 			return View(modelWrapper);
 		}
 
-		public string CalTest(string id = "")
+        public string CalTest(string id = "")
 		{
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
@@ -73,11 +73,21 @@ namespace TikTokCalendar.Controllers
 			return page;
 		}
 
-		public string Rooms(string a = "")
+		public ActionResult Rooms()
 		{
+			/*
 			string s = "";
 			foreach (var room in GetRooms())
 			{
+				s += room + "<br>";
+			}*/
+			return View();
+		}
+
+		public string GetRoom()
+		{
+			string s = "";
+			foreach (var room in GetRooms()) {
 				s += room + "<br>";
 			}
 			return s;
@@ -113,7 +123,7 @@ namespace TikTokCalendar.Controllers
 			else { return userCourse; }
 		}
 
-		public ActionResult Mobile(string id = "", string tags = "")
+        public ActionResult Mobile(string id = "", string tags = "")
 		{
 			StudentUser user = GetUserFromNameCourse();
 			DataParser dataParser = new DataParser();
@@ -142,7 +152,36 @@ namespace TikTokCalendar.Controllers
 			return View(modelWrapper);//.calEvents);
 		}
 
-		private int FindCalEventIndex(List<CalendarEvent> list, int month)
+        public ActionResult Table(string id = "", string tags = "")
+        {
+            StudentUser user = GetUserFromNameCourse();
+            DataParser dataParser = new DataParser();
+            dataParser.ParseAllData();
+
+            if (cookie.LoadStringFromCookie("UserName") != null)
+            {
+                ViewBag.Title = string.Format("Halla, {0}! Du går: {1}", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Usercourse"));
+            }
+            else
+            {
+                ViewBag.Title = "tiktok";
+                //ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
+            }
+
+            var modelWrapper = new ModelDataWrapper();
+            if (string.IsNullOrEmpty(tags))
+            {
+                modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
+            }
+            else
+            {
+                modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
+            }
+
+            return View(modelWrapper);//.calEvents);
+        }
+
+        private int FindCalEventIndex(List<CalendarEvent> list, int month)
 		{
 			for (int i = 0; i < list.Count; i++)
 			{
