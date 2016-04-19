@@ -21,7 +21,6 @@ function checkLogin() {
 }
 
 function showLogin() {
-    
     var username = "";
     var showRooms = false;
     vex.dialog.open({
@@ -45,9 +44,22 @@ function showLogin() {
         ],
 
         callback: function (data) {
-
             if (data === 'available') {
-                alert("Yohoo");
+
+                vex.dialog.open({
+
+                    
+                    message: "Ledige rom",
+
+                    buttons: [
+                        $.extend({}, vex.dialog.buttons.NO, {
+                            className: 'vex-dialog-button', text: vexHelper()
+                        })
+                    ]
+                })
+                
+                
+                
             }
 
             else {
@@ -183,4 +195,10 @@ function showLogin() {
 
 function isEmpty(str) {
     return typeof str == 'string' && !str.trim() || typeof str == null || str === null;
+}
+function vexHelper() {
+    for (var a = 0; a < 3; a++) {
+
+    }
+    return "lol økaøai jailø jiaøw jaiwøf jawøoed |wakød awfljea u5l-dhawfueah aekfhaeku hfaekuhu";
 }
