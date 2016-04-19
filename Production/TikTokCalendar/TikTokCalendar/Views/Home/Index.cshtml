@@ -15,7 +15,7 @@
 
     // show from week number (show from top when searching)
     int anchor = 1;
-    if (!Model.fromSearch)
+    if (Model.searchWords == "")
     {
         anchor = TikTokCalendar.Extras.Utils.GetWeekNumberOfYear(DateTime.Now);
     }
@@ -37,7 +37,7 @@ $(function() {
         @foreach (var month in Model.Months)
         {
             var isCollapsed = "in";
-            if (month.MonthNumber < DateTime.Now.Month && !Model.fromSearch)
+            if (month.MonthNumber < DateTime.Now.Month && Model.searchWords == "")
             {
                 isCollapsed = ""; // true
             }
@@ -177,7 +177,7 @@ var typeClass = "";
                                         <!-- eventually limit the number of weeks for going/check-in to show here:
                                         if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime.AddDays(21))
                                         {-->
-                                        @if (userName != "" && userName != "Jon Doe")
+                                        @if (userName != "" && userName != "Jon Doe" && item.MainEventType != TikTokCalendar.Models.MainEventType.Innlevering)
                                         {
                                             using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
                                             {
