@@ -111,13 +111,6 @@ function showLogin() {
                         buttons: [
 
                             $.extend({}, vex.dialog.buttons.NO, {
-                                className: 'vex-dialog-button', text: 'Bachelor IT', click: function ($vexContent, event) {
-                                    $vexContent.data().vex.value = 'Bachelor IT';
-                                    vex.close($vexContent.data().vex.id);
-                                }
-                            }),
-
-                            $.extend({}, vex.dialog.buttons.NO, {
                                 className: 'vex-dialog-button', text: 'Programmering', click: function ($vexContent, event) {
                                     $vexContent.data().vex.value = 'Programmering';
                                     vex.close($vexContent.data().vex.id);
