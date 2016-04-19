@@ -151,10 +151,12 @@ namespace TikTokCalendar.Controllers
 
         public ActionResult Rooms(string a)
         {
-            return View("Home/Rooms", new ModelDataWrapper()); //.calEvents);
-        }
 
-        private int FindCalEventIndex(List<CalendarEvent> list, int month)
+			return RedirectToAction("Rooms");
+
+		}
+
+		private int FindCalEventIndex(List<CalendarEvent> list, int month)
 		{
 			for (int i = 0; i < list.Count; i++)
 			{
