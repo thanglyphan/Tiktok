@@ -36,10 +36,17 @@ namespace TikTokCalendar.Controllers
 				ViewBag.Title = "Not logged in";
 			}
 
-			// Make a new ModelDataWrapper with the events based on the user and the tags
-			var modelWrapper = new ModelDataWrapper();
+            // Make a new ModelDataWrapper with the events based on the user and the tags
+            ModelDataWrapper modelWrapper;
+            if (string.IsNullOrEmpty(tags))
+            {
+                modelWrapper = new ModelDataWrapper();
+            }
+            else
+            {
+                modelWrapper = new ModelDataWrapper(tags);
+            }
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
-            if (!string.IsNullOrEmpty(tags)) modelWrapper.fromSearch = true;
 
 			// Send the model to the view
 			return View(modelWrapper);

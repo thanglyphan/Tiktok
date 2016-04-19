@@ -332,8 +332,9 @@ namespace TikTokCalendar.Models
             StringBuilder sb = new StringBuilder();
             foreach (char c in str)
             {
-                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '.' || c == '_'
-                    || c == ' ' || c == 'æ' || c == 'ø' || c == 'å' || c == 'Æ' || c == 'Ø' || c == 'Å')
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')
+                    || c == ',' || c == ' ' || c == '.' || c == '_' || c == '+' || c == '#' || c == ':'
+                     || c == 'æ' || c == 'ø' || c == 'å' || c == 'Æ' || c == 'Ø' || c == 'Å')
                 {
                     sb.Append(c);
                 }

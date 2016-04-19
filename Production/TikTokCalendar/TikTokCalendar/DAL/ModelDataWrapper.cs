@@ -12,16 +12,26 @@ namespace TikTokCalendar.DAL
 		public List<CustomEventMonth> Months { get; set; }
 		public StudentUser user;
         public List<EventUserStat> eventUserStats { get; set; }
-        public bool fromSearch { get; set; }
+        public string searchWords { get; private set; }
 
 		public ModelDataWrapper()
 		{
-			calEvents = new List<EventMonth>();
-			Months = new List<CustomEventMonth>();
-			user = new StudentUser("trotor14", SchoolCourses.Spillprogrammering, "second");
+            init();
+            searchWords = "";
+        }
+
+        public ModelDataWrapper(string tags)
+        {
+            init();
+            searchWords = tags;
+        }
+        private void init()
+        {
+            calEvents = new List<EventMonth>();
+            Months = new List<CustomEventMonth>();
+            user = new StudentUser("trotor14", SchoolCourses.Spillprogrammering, "second");
             var db = new CalendarEventContext();
             eventUserStats = new List<EventUserStat>(db.EventUserStats);
-            fromSearch = false;
         }
 
         public int GetEventCount()
