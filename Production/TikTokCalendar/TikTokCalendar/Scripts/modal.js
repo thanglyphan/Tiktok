@@ -47,20 +47,12 @@ function showLogin() {
             if (data === 'available') {
 
                 $.ajax({
-                    url: "Home/Rooms",
-                    type: "POST",
-                    data: { a: "yes" },
-                    error: function () {
-                        console.log("error");
-                    },
-                    success: function (a) {
-                        console.log("success" + a);
-                    }
-                })
-                //window.location.reload();
-
-                
-                
+                    url: "/Home/Rooms",
+                    type: 'GET',
+                    dataType: 'html', // <-- to expect an html response
+                });
+                window.location.reload();
+                return;
             }
 
             else {
@@ -119,13 +111,6 @@ function showLogin() {
                         buttons: [
 
                             $.extend({}, vex.dialog.buttons.NO, {
-                                className: 'vex-dialog-button', text: 'Bachelor IT', click: function ($vexContent, event) {
-                                    $vexContent.data().vex.value = 'Bachelor IT';
-                                    vex.close($vexContent.data().vex.id);
-                                }
-                            }),
-
-                            $.extend({}, vex.dialog.buttons.NO, {
                                 className: 'vex-dialog-button', text: 'Programmering', click: function ($vexContent, event) {
                                     $vexContent.data().vex.value = 'Programmering';
                                     vex.close($vexContent.data().vex.id);
@@ -175,8 +160,8 @@ function showLogin() {
                                 url: "Home/UserCourse",
                                 type: "POST",
                                 data: { a: value },
-                                error: function () {
-                                    alert("Error in the usercourses AJAX");
+                                error: function (jqXHR, textStatus, errorThrown) {
+                                	alert("Error in the usercourses AJAX:\n\n" + textStatus + "\n\n" + errorThrown);
                                     console.log("error");
                                 },
                                 success: function (a) {

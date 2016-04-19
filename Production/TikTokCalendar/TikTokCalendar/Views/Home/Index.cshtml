@@ -199,6 +199,9 @@ $(function() {
 													if (geo)
 													{
 														<input type="submit" style="display:none;" value="Check-in" onload="(this).submit()" />
+														if (EUSH.UserAttending(item.ID, userName)) {
+															<strong>Innsjekket &#10004;</strong>
+														}
 													}
 													else {
 														<input type="submit" value="Check-in" />
