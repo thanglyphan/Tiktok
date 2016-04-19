@@ -16,41 +16,80 @@ namespace TikTokCalendar.Controllers
 	{
 		private readonly Cookies cookie = new Cookies();
 
-		public ActionResult Index(string id = "", string tags = "")
+		public ActionResult Index(string tags = "", string lecture = "", string assignment = "", string exam = "", bool filtered = false)
 		{
-			// Get the user from cookies
-			StudentUser user = GetUserFromNameCourse();
-
-			// Parse all the JSON data
-			DataParser dataParser = new DataParser();
-			dataParser.ParseAllData();
-
-			// DEBUG Set the page title
-			var username = cookie.LoadStringFromCookie("UserName");
-			if (!string.IsNullOrEmpty(username))
-			{
-				ViewBag.Title = string.Format("{0}[{1}]: {2} [{3}]", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Year"), cookie.LoadStringFromCookie("Usercourse"), tags);
-			}
-			else
-			{
-				ViewBag.Title = "Not logged in";
-			}
-
-            // Make a new ModelDataWrapper with the events based on the user and the tags
-            ModelDataWrapper modelWrapper;
-            if (string.IsNullOrEmpty(tags))
+            bool lec = false, ass = false, exa = false;
+            if (filtered)
             {
-                modelWrapper = new ModelDataWrapper();
+                if (lecture.Length > 0) lec = true;
+                if (assignment.Length > 0) ass = true;
+                if (exam.Length > 0) exa = true;
+
+                //Check if actually empty page before continuing
+                if (!lec && !ass && !exa)
+                {
+                    ModelDataWrapper emptyWrap;
+                    emptyWrap = new ModelDataWrapper(" ", false, false, false);
+                    return View(emptyWrap);
+                }
             }
             else
             {
-                modelWrapper = new ModelDataWrapper(tags);
+                lec = true;
+                ass = true;
+                exa = true;
             }
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
+            if (!filtered)
+            {
+
+            }
+            else
+            {
+                
+            }
+
+            // Make a new ModelDataWrapper with the events based on the user, tags, and filters
+            ModelDataWrapper modelWrapper;
+            if (string.IsNullOrEmpty(tags))
+            {
+                modelWrapper = new ModelDataWrapper(lec, ass, exa);
+            }
+            else
+            {
+                modelWrapper = new ModelDataWrapper(tags, lec, ass, exa);
+            }
+			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(InitUser(tags), tags, lec, ass, exa);
 
 			// Send the model to the view
 			return View(modelWrapper);
 		}
+
+        public StudentUser InitUser(string tags)
+        {
+            // Get the user from cookies
+            StudentUser user = GetUserFromNameCourse();
+
+            // Parse all the JSON data
+            DataParser dataParser = new DataParser();
+            dataParser.ParseAllData();
+
+            // DEBUG Set the page title
+            var username = cookie.LoadStringFromCookie("UserName");
+            if (!string.IsNullOrEmpty(username))
+            {
+                ViewBag.Title = string.Format("{0}[{1}]: {2} [{3}]", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Year"), cookie.LoadStringFromCookie("Usercourse"), tags);
+            }
+            else
+            {
+                ViewBag.Title = "Not logged in";
+            }
+            return user;
+        }
+
+        //public void Filter(string tags = "", bool lecture = false, bool assignment = false, bool exam = false)
+        //{
+        //    Index("", tags, lecture, assignment, exam);
+        //}
 
         public string CalTest(string id = "")
 		{
@@ -61,7 +100,7 @@ namespace TikTokCalendar.Controllers
 			SchoolCourses c = (SchoolCourses)rnd.Next(1, 10);
 			//c = SchoolCourses.Programmering;
 			StudentUser u = new StudentUser("tordtest", c, "second");
-			months = DataWrapper.Instance.GetEventsWithName(u, id);
+			months = DataWrapper.Instance.GetEventsWithName(u, id, true, true, true);
 
 			string page = string.Format("{0} - {1}, {2}\n", u.UserName, u.Course, u.ClassYear);
 			foreach (var month in months)
@@ -120,7 +159,7 @@ namespace TikTokCalendar.Controllers
 			else { return userCourse; }
 		}
 
-        public ActionResult Mobile(string id = "", string tags = "")
+        public ActionResult Mobile(string id = "", string tags = "", bool lecture = true, bool assignment = true, bool exam = true)
 		{
 			StudentUser user = GetUserFromNameCourse();
 			DataParser dataParser = new DataParser();
@@ -143,7 +182,7 @@ namespace TikTokCalendar.Controllers
 			}
 			else
 			{
-				modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags);
+				modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, true, true, true);
 			}
 
 			return View(modelWrapper);//.calEvents);
@@ -326,6 +365,12 @@ namespace TikTokCalendar.Controllers
 			EUSH_global.ID_ATM = eventid;
 			return PartialView("_UserStatUpdate", modelWrapper);
 		}
-	}
+
+        public ActionResult GetMessage()
+        {
+            string message = "Welcome";
+            return new JsonResult { Data = message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+    }
 
 }

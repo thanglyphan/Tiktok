@@ -733,8 +733,8 @@ input[type="radio"]:checked + label {
 .results {
     position: relative;
     padding: 8px 14px;
-    top: 30px;
-    left: 22px;
+    top: 26px;
+    left: 26px;
     color: #858f9f;
     font-weight: 300;
     font-size: 14px;

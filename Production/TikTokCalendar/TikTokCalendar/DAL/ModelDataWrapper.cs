@@ -13,17 +13,35 @@ namespace TikTokCalendar.DAL
 		public StudentUser user;
         public List<EventUserStat> eventUserStats { get; set; }
         public string searchWords { get; private set; }
+        public bool showingLectures { get; private set; }
+        public bool showingAssignments { get; private set; }
+        public bool showingExams { get; private set; }
 
-		public ModelDataWrapper()
+        public ModelDataWrapper()
 		{
             init();
             searchWords = "";
+            showingLectures = true;
+            showingAssignments = true;
+            showingExams = true;
         }
 
-        public ModelDataWrapper(string tags)
+        public ModelDataWrapper(bool lecture, bool assignment, bool exam)
+        {
+            init();
+            showingLectures = lecture;
+            showingAssignments = assignment;
+            showingExams = exam;
+            searchWords = "";
+        }
+
+        public ModelDataWrapper(string tags, bool lecture, bool assignment, bool exam)
         {
             init();
             searchWords = tags;
+            showingLectures = lecture;
+            showingAssignments = assignment;
+            showingExams = exam;
         }
         private void init()
         {

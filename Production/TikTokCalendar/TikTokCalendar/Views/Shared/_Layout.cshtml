@@ -14,6 +14,19 @@
     {
         searchLine = "border-left: 1px solid #c6cedb;";
     }
+    string check1 = "", check2 = "", check3 = "";
+    if (Model.showingLectures)
+    {
+        check1 = "checked";
+    }
+    if (Model.showingAssignments)
+    {
+        check2 = "checked";
+    }
+    if (Model.showingExams)
+    {
+        check3 = "checked";
+    }
 }
 <!DOCTYPE html>
 <html>
@@ -88,7 +101,13 @@
                     <label for="tags"></label>
 
                     @using (Html.BeginForm("Index", "Home")) {
-                        <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" value="@Model.searchWords" />}
+                        <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" value="@Model.searchWords" />
+
+                        <input type="hidden" name="lecture" value="@check1" />
+                        <input type="hidden" name="assignment" value="@check2" />
+                        <input type="hidden" name="exam" value="@check3" />
+                        <input type="hidden" name="filtered" value="true" />
+                    }
                 </div>
             </div>
 
@@ -111,11 +130,14 @@
             </span>
 
             <div class="filter-container">
-                <form>
-                    <label><input class="filter schoolClass" type="checkbox" name="schoolClass" value="Forelesning" checked="checked" /> <span>Forelesning</span> </label>
-                    <label><input class="filter assignment" type="checkbox" name="assignment" value="Eksamen" checked="checked" /> <span>Innlevering</span> </label>
-                    <label><input class="filter exam" type="checkbox" name="exam" value="Eksamen" checked="checked" /><span>Eksamen</span> </label>
-                </form>
+                    @using (Html.BeginForm("Index", "Home"))
+                    {
+                        <input id="filter" type="hidden" name="tags" value="@Model.searchWords" />
+                    <label><input class="filter schoolClass" type="checkbox" name="lecture" @check1 onchange="this.form.submit()" /><span>Forelesning</span></label>
+                    <label><input class="filter assignment" type="checkbox" name="assignment" @check2 onchange="this.form.submit()" /><span>Innlevering</span></label>
+                    <label><input class="filter exam" type="checkbox" name="exam" @check3 onchange="this.form.submit()" /><span>Eksamen</span></label>     
+                    <input type="hidden" name="filtered" value="true" />      
+                    }
             </div>
 
             <div class="right-2">
