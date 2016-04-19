@@ -153,6 +153,56 @@ namespace TikTokCalendar.DAL
 			return events;
 		}
 
+		private class EventDuplicate
+		{
+			private string subjectCode;
+			private List<Course> courses;
+			private string roomName;
+			private DateTime startDateTime;
+
+			public EventDuplicate(string subjectCode, List<Course> courses, string roomName, DateTime startDateTime)
+			{
+				this.subjectCode = subjectCode;
+				this.courses = courses;
+				this.roomName = roomName;
+				this.startDateTime = startDateTime;
+			}
+
+			public override bool Equals(object obj)
+			{
+				try {
+					return (this == (EventDuplicate)obj);
+				}
+				catch
+				{
+					return false;
+				}
+			}
+
+			public static bool operator ==(EventDuplicate a, EventDuplicate b)
+			{
+				if (object.ReferenceEquals(a, b))
+				{
+					return true;
+				}
+				if (object.ReferenceEquals(a, null) ||
+					object.ReferenceEquals(b, null))
+				{
+					return false;
+				}
+
+				return (a.subjectCode == b.subjectCode && a.roomName == b.roomName && a.startDateTime == b.startDateTime);
+			}
+
+			public static bool operator !=(EventDuplicate a, EventDuplicate b)
+			{
+
+				return !(a == b);
+			}
+		}
+
+		private List<EventDuplicate> duplicateEvents = new List<EventDuplicate>();
+
 		/// <summary>
 		/// Parses an event and returns a List<CustomEvent>. 
 		/// The list contains either the date of the event, the date of the first day in the week of the event, or two dates (if the event has two dates)
@@ -167,39 +217,24 @@ namespace TikTokCalendar.DAL
 			long parsedId = -1;
 			long.TryParse(id, NumberStyles.Integer, new NumberFormatInfo(), out parsedId);
 
-			//////// Start date ////////
 			// Startdate
 			DateParseResults dtResults = DateParseResults.NoDate;
 			// TODO Use the other parse if it isn't a fucked up dateformat
 			DateTime[] startDates = new DateTime[] { dtParser.SimpleParse(startDate, startTime, out dtResults) };
 
-			//////// End date ////////
 			// Enddate
 			DateTime endDateTime = dtParser.SimpleParse(endDate, endTime, out dtResults);
 			bool hasEndDateTime = (dtResults == DateParseResults.Single);
 
-			//////// Subject ////////
-			// TODO Null check
+			// Get subject & code
 			string subjectCode = Subject.GetSubjectCode(subjectString);
 			Subject subject = DataWrapper.Instance.GetSubjectByCode(subjectCode);
 			if (subject == null) return retEvents;
-
-			//////// Year and course ////////
+			
+			// Get courses
 			List<SchoolCourses> courses = new List<SchoolCourses>();
 			if (courseData != null)
 			{
-				// Figure out the classyear from the coursedata field
-				//string courseName = courseData.ToLower();
-				//if (courseName.Contains("bachelor i it")) {
-				//	years.Add(1);
-				//}
-				//if (courseName.Contains("2.klasse")) {
-				//	years.Add(2);
-				//}
-				//if (courseName.Contains("3.klasse")) {
-				//	years.Add(3);
-				//}
-
 				// Get the courses from the courseData field
 				string[] courseDataLines = courseData.Split(',');
 				foreach (var line in courseDataLines)
@@ -211,24 +246,23 @@ namespace TikTokCalendar.DAL
 					}
 				}
 			}
+
+			if (courses.Count > 1)
+			{
+				// TODO Add this event to a list
+				// then check if when parsing an event to see if an event already (subject code, course, roomname, startdate)
+				var evDup = new EventDuplicate(subject.Code, new List<Course>(), room, startDates[0]);
+				// TODO Find this evDup in the eventDuplicates list
+				// if its there, stop parsing this one
+				// else keep parsin
+			}
+
+			// Get years
 			var years = GetClassYearsForEvent(courses, subject);
 
-			//////// Making the events ////////
+			// Get event type
 			EventType eventType = ParseEventType(activity);
 
-			//int bestMatch = 1000;
-			//string[] events = Enum.GetNames(typeof(SchoolCourses));
-			//for (int i = 1; i < events.Length + 1; i++)
-			//{
-			//	int match = Math.Abs(activity.CompareTo(events[i - 1]));
-			//	if (match <= bestMatch)
-			//	{
-			//		eventType = (EventType)i;
-			//		bestMatch = match;
-			//	}
-			//}
-
-			//////// Making the events ////////
 			// Go through the startdates that was parsed.
 			// This makes it so that events where we couldn't parse a date from, will not be added
 			foreach (var date in startDates)
@@ -328,7 +362,6 @@ namespace TikTokCalendar.DAL
 			}
 			return eventType;
 		}
-
 
 		//////// JSON Classes ////////
 		private class JCourseSubject
