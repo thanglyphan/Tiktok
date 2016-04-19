@@ -3740,7 +3740,6 @@ tbody.collapse.in {
 }
 .btn-lg .caret {
   border-width: 5px 5px 0;
-  border-bottom-width: 0;
 }
 .dropup .btn-lg .caret {
   border-width: 0 5px 5px;
@@ -6183,14 +6182,12 @@ button.close {
   margin-left: -11px;
   border-top-color: #999;
   border-top-color: rgba(0, 0, 0, .25);
-  border-bottom-width: 0;
 }
 .popover.top > .arrow:after {
   bottom: 1px;
   margin-left: -10px;
   content: " ";
   border-top-color: #fff;
-  border-bottom-width: 0;
 }
 .popover.right > .arrow {
   top: 50%;
