@@ -46,16 +46,16 @@ function showLogin() {
         callback: function (data) {
             if (data === 'available') {
 
-                vex.dialog.open({
-
-                    
-                    message: "Ledige rom",
-
-                    buttons: [
-                        $.extend({}, vex.dialog.buttons.NO, {
-                            className: 'vex-dialog-button', text: vexHelper()
-                        })
-                    ]
+                $.ajax({
+                    url: "Home/Rooms",
+                    type: "POST",
+                    data: { a: "yes" },
+                    error: function () {
+                        console.log("error");
+                    },
+                    success: function (a) {
+                        console.log("success" + a);
+                    }
                 })
                 
                 
