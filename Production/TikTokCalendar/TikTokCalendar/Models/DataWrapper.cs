@@ -70,7 +70,7 @@ namespace TikTokCalendar.Models
             foreach (var evnt in AllEvents)
             {
                 if (user.Course == SchoolCourses.VisAlt
-                    || (evnt.Courses.Contains(user.Course) && evnt.ClassYear == user.ClassYear))
+                    || (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear)))
                 {
                     if (temp != "")
                     {
@@ -86,18 +86,17 @@ namespace TikTokCalendar.Models
                         string dayname = "";
                         string weeknum = "";
                         string monthname = "";
-                        Debug.WriteLine("HHHHERE::::::::::: " + array.ToString());
                         
-                        try { eventname = evnt.Subject.Name.ToLower(); } catch (NullReferenceException e) { }
-                        try { roomname = evnt.RoomName.ToLower(); } catch (NullReferenceException e) { }
-                        try { teacher = evnt.Teacher.ToLower(); } catch (NullReferenceException e) { }
-                        try { comment = evnt.Comment.ToLower(); } catch (NullReferenceException e) { }
-                        try { subjectcode = evnt.Subject.Code.ToLower(); } catch (NullReferenceException e) { }
-                        try { eventtype = evnt.eventType.ToString().ToLower(); } catch (NullReferenceException e) { }
-                        try { daynum = evnt.StartDateTime.Day.ToString(); } catch (NullReferenceException e) { }
-                        try { dayname = evnt.GetDayOfWeek().ToLower(); } catch (NullReferenceException e) { }
-                        try { weeknum = evnt.StartDateTime.GetWeekNumberOfYear().ToString(); } catch (NullReferenceException e) { }
-                        try { monthname = evnt.GetMonthName().ToLower(); } catch (NullReferenceException e) { }
+                        try { eventname = evnt.Subject.Name.ToLower(); } catch (NullReferenceException) { }
+                        try { roomname = evnt.RoomName.ToLower(); } catch (NullReferenceException) { }
+                        try { teacher = evnt.Teacher.ToLower(); } catch (NullReferenceException) { }
+                        try { comment = evnt.Comment.ToLower(); } catch (NullReferenceException) { }
+                        try { subjectcode = evnt.Subject.Code.ToLower(); } catch (NullReferenceException) { }
+                        try { eventtype = evnt.eventType.ToString().ToLower(); } catch (NullReferenceException) { }
+                        try { daynum = evnt.StartDateTime.Day.ToString(); } catch (NullReferenceException) { }
+                        try { dayname = evnt.GetDayOfWeek().ToLower(); } catch (NullReferenceException) { }
+                        try { weeknum = evnt.StartDateTime.GetWeekNumberOfYear().ToString(); } catch (NullReferenceException) { }
+                        try { monthname = evnt.GetMonthName().ToLower(); } catch (NullReferenceException) { }
 
                         bool flagged = false;
                         for (int i = 0; i < array.Length; i++)
