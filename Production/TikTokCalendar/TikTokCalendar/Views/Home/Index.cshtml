@@ -195,15 +195,16 @@ $(function() {
 															{
 													<input type="hidden" name="eventid" value="@item.ID" />
 													<input type="hidden" name="attend" value="true" />
-													<input type="submit" value="Check-in" />
-												}
-												else if (geo) {
-													<input type="hidden" name="eventid" value="@item.ID" />
-													<input type="hidden" name="attend" value="true" />
-													<input type="submit" style="display:none;" value="Check-in" onload="(this).submit()" />
+
+													if (geo)
+													{
+														<input type="submit" style="display:none;" value="Check-in" onload="(this).submit()" />
+													}
+													else {
+														<input type="submit" value="Check-in" />
+													}
 												}
 												else {
-
 													<strong>Innsjekket &#10004;</strong>
 												}
 
