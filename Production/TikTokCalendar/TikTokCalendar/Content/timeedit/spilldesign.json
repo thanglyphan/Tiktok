@@ -611,6 +611,711 @@
                 "Forelesning",
                 ""
             ]
-        }
+        },
+      {  
+         "id":"1000052",
+         "startdate":"07.03.2016",
+         "starttime":"12:15",
+         "enddate":"07.03.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Usability for games (DS6100-15)",
+            "3.klasse, Bachelor Spilldesign",
+            "Rom 83",
+            "Charles Butler",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000053",
+         "startdate":"07.03.2016",
+         "starttime":"09:00",
+         "enddate":"07.03.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000054",
+         "startdate":"08.03.2016",
+         "starttime":"09:00",
+         "enddate":"08.03.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000055",
+         "startdate":"09.03.2016",
+         "starttime":"09:00",
+         "enddate":"09.03.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000056",
+         "startdate":"10.03.2016",
+         "starttime":"09:00",
+         "enddate":"10.03.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000057",
+         "startdate":"11.03.2016",
+         "starttime":"09:00",
+         "enddate":"11.03.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000058",
+         "startdate":"11.03.2016",
+         "starttime":"09:15",
+         "enddate":"11.03.2016",
+         "endtime":"11:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Auditoriet",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000059",
+         "startdate":"11.03.2016",
+         "starttime":"11:15",
+         "enddate":"11.03.2016",
+         "endtime":"13:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Rom 82",
+            "Faltin Karlsen",
+            "Forelesning",
+            "NB - merk romendring!"
+         ]
+      },
+      {  
+         "id":"1000060",
+         "startdate":"14.03.2016",
+         "starttime":"12:15",
+         "enddate":"14.03.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Usability for games (DS6100-15)",
+            "3.klasse, Bachelor Spilldesign",
+            "Rom 83",
+            "Charles Butler",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000061",
+         "startdate":"15.03.2016",
+         "starttime":"14:15",
+         "enddate":"15.03.2016",
+         "endtime":"18:00",
+         "columns":[  
+            "Kryssplattform design (DS4400-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Andreas Bretteville",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000062",
+         "startdate":"16.03.2016",
+         "starttime":"13:15",
+         "enddate":"16.03.2016",
+         "endtime":"17:00",
+         "columns":[  
+            "Level design 1; flerspiller (DS4500-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Charles Butler",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000063",
+         "startdate":"17.03.2016",
+         "starttime":"10:15",
+         "enddate":"17.03.2016",
+         "endtime":"14:00",
+         "columns":[  
+            "Spillhistorie og -kultur (DS4450-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000064",
+         "startdate":"18.03.2016",
+         "starttime":"09:15",
+         "enddate":"18.03.2016",
+         "endtime":"11:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Auditoriet",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000065",
+         "startdate":"18.03.2016",
+         "starttime":"11:15",
+         "enddate":"18.03.2016",
+         "endtime":"13:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Rom 79-80",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000066",
+         "startdate":"29.03.2016",
+         "starttime":"14:15",
+         "enddate":"29.03.2016",
+         "endtime":"18:00",
+         "columns":[  
+            "Kryssplattform design (DS4400-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Andreas Bretteville",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000067",
+         "startdate":"30.03.2016",
+         "starttime":"13:15",
+         "enddate":"30.03.2016",
+         "endtime":"17:00",
+         "columns":[  
+            "Level design 1; flerspiller (DS4500-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Charles Butler",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000068",
+         "startdate":"31.03.2016",
+         "starttime":"10:15",
+         "enddate":"31.03.2016",
+         "endtime":"14:00",
+         "columns":[  
+            "Spillhistorie og -kultur (DS4450-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000069",
+         "startdate":"05.04.2016",
+         "starttime":"14:15",
+         "enddate":"05.04.2016",
+         "endtime":"18:00",
+         "columns":[  
+            "Kryssplattform design (DS4400-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Andreas Bretteville",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000070",
+         "startdate":"06.04.2016",
+         "starttime":"13:15",
+         "enddate":"06.04.2016",
+         "endtime":"17:00",
+         "columns":[  
+            "Level design 1; flerspiller (DS4500-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Charles Butler",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000071",
+         "startdate":"07.04.2016",
+         "starttime":"10:15",
+         "enddate":"07.04.2016",
+         "endtime":"14:00",
+         "columns":[  
+            "Spillhistorie og -kultur (DS4450-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000072",
+         "startdate":"08.04.2016",
+         "starttime":"09:15",
+         "enddate":"08.04.2016",
+         "endtime":"11:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Auditoriet",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000073",
+         "startdate":"08.04.2016",
+         "starttime":"11:15",
+         "enddate":"08.04.2016",
+         "endtime":"13:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Rom 79-80",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000074",
+         "startdate":"11.04.2016",
+         "starttime":"12:15",
+         "enddate":"11.04.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Usability for games (DS6100-15)",
+            "3.klasse, Bachelor Spilldesign",
+            "Rom 83",
+            "Charles Butler",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000075",
+         "startdate":"12.04.2016",
+         "starttime":"14:15",
+         "enddate":"12.04.2016",
+         "endtime":"18:00",
+         "columns":[  
+            "Kryssplattform design (DS4400-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Andreas Bretteville",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000076",
+         "startdate":"13.04.2016",
+         "starttime":"13:15",
+         "enddate":"13.04.2016",
+         "endtime":"17:00",
+         "columns":[  
+            "Level design 1; flerspiller (DS4500-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Charles Butler",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000077",
+         "startdate":"14.04.2016",
+         "starttime":"10:15",
+         "enddate":"14.04.2016",
+         "endtime":"14:00",
+         "columns":[  
+            "Spillhistorie og -kultur (DS4450-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000078",
+         "startdate":"15.04.2016",
+         "starttime":"09:15",
+         "enddate":"15.04.2016",
+         "endtime":"11:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Auditoriet",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000079",
+         "startdate":"15.04.2016",
+         "starttime":"11:15",
+         "enddate":"15.04.2016",
+         "endtime":"13:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Rom 79-80",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000080",
+         "startdate":"18.04.2016",
+         "starttime":"12:15",
+         "enddate":"18.04.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Usability for games (DS6100-15)",
+            "3.klasse, Bachelor Spilldesign",
+            "Rom 83",
+            "Charles Butler",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000081",
+         "startdate":"18.04.2016",
+         "starttime":"09:00",
+         "enddate":"18.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000082",
+         "startdate":"19.04.2016",
+         "starttime":"09:00",
+         "enddate":"19.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000083",
+         "startdate":"20.04.2016",
+         "starttime":"09:00",
+         "enddate":"20.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000084",
+         "startdate":"21.04.2016",
+         "starttime":"09:00",
+         "enddate":"21.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000085",
+         "startdate":"22.04.2016",
+         "starttime":"09:00",
+         "enddate":"22.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000086",
+         "startdate":"22.04.2016",
+         "starttime":"09:15",
+         "enddate":"22.04.2016",
+         "endtime":"11:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Auditoriet",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000087",
+         "startdate":"22.04.2016",
+         "starttime":"11:15",
+         "enddate":"22.04.2016",
+         "endtime":"13:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Rom 79-80",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000088",
+         "startdate":"25.04.2016",
+         "starttime":"12:15",
+         "enddate":"25.04.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Usability for games (DS6100-15)",
+            "3.klasse, Bachelor Spilldesign",
+            "Rom 83",
+            "Charles Butler",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000089",
+         "startdate":"25.04.2016",
+         "starttime":"09:00",
+         "enddate":"25.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000090",
+         "startdate":"26.04.2016",
+         "starttime":"09:00",
+         "enddate":"26.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000091",
+         "startdate":"27.04.2016",
+         "starttime":"09:00",
+         "enddate":"27.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000092",
+         "startdate":"28.04.2016",
+         "starttime":"09:00",
+         "enddate":"28.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000093",
+         "startdate":"29.04.2016",
+         "starttime":"09:00",
+         "enddate":"29.04.2016",
+         "endtime":"15:00",
+         "columns":[  
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+         ]
+      },
+      {  
+         "id":"1000094",
+         "startdate":"29.04.2016",
+         "starttime":"09:15",
+         "enddate":"29.04.2016",
+         "endtime":"11:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Auditoriet",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000095",
+         "startdate":"29.04.2016",
+         "starttime":"11:15",
+         "enddate":"29.04.2016",
+         "endtime":"13:00",
+         "columns":[  
+            "Undersøkelsesmetoder (PJ6100-15)",
+            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "Rom 79-80",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000096",
+         "startdate":"02.05.2016",
+         "starttime":"12:15",
+         "enddate":"02.05.2016",
+         "endtime":"16:00",
+         "columns":[  
+            "Usability for games (DS6100-15)",
+            "3.klasse, Bachelor Spilldesign",
+            "Rom 83",
+            "Charles Butler",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000097",
+         "startdate":"10.05.2016",
+         "starttime":"14:15",
+         "enddate":"10.05.2016",
+         "endtime":"18:00",
+         "columns":[  
+            "Kryssplattform design (DS4400-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Andreas Bretteville",
+            "Forelesning",
+            ""
+         ]
+      },
+      {  
+         "id":"1000098",
+         "startdate":"12.05.2016",
+         "starttime":"10:15",
+         "enddate":"12.05.2016",
+         "endtime":"14:00",
+         "columns":[  
+            "Spillhistorie og -kultur (DS4450-15)",
+            "2.klasse, Bachelor Spilldesign",
+            "Rom 38",
+            "Faltin Karlsen",
+            "Forelesning",
+            ""
+         ]
+      }
     ]
 }
