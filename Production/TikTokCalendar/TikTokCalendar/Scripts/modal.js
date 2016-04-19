@@ -57,7 +57,8 @@ function showLogin() {
                         console.log("success" + a);
                     }
                 })
-                
+                window.location.reload();
+
                 
                 
             }
@@ -184,7 +185,6 @@ function showLogin() {
                                 }
                             })
                             return;
-                            //window.location.reload();
                         }
                     })
                 }
