@@ -176,11 +176,10 @@ function showLogin() {
                                 type: "POST",
                                 data: { a: value },
                                 error: function () {
-                                    alert("usercourse failer");
+                                    alert("Error in the usercourses AJAX");
                                     console.log("error");
                                 },
                                 success: function (a) {
-                                    console.log("success" + a);
                                     window.location.reload();
                                 }
                             })

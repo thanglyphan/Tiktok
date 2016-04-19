@@ -10,7 +10,7 @@
 
     int eventCount = Model.GetEventCount();
     string searchLine = "";
-    if (Model.fromSearch)
+    if (Model.searchWords != "")
     {
         searchLine = "border-left: 1px solid #c6cedb;";
     }
@@ -88,12 +88,12 @@
                     <label for="tags"></label>
 
                     @using (Html.BeginForm("Index", "Home")) {
-                        <input id="tags" name="tags" type="text" class="search-box"  />}
+                        <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" value="@Model.searchWords" />}
                 </div>
             </div>
 
             <span class="results" style="@searchLine">
-                @if (Model.fromSearch)
+                @if (Model.searchWords != "")
                 {
                     if (eventCount > 1)
                     {
@@ -110,13 +110,12 @@
                 }
             </span>
 
-            
             <div class="filter-container">
                 <form>
-                    <input class="filter schoolClass" type="checkbox" name="schoolClass" value="Forelesning" checked="checked"/>
-                    <input class="filter assignment" type="checkbox" name="assignment" value="Eksamen" checked="checked"/>
-                    <input class="filter exam" type="checkbox" name="exam" value="Eksamen" checked="checked"/>
-                 </form>
+                    <input class="filter schoolClass" type="checkbox" name="schoolClass" value="Forelesning" checked="checked" />
+                    <input class="filter assignment" type="checkbox" name="assignment" value="Eksamen" checked="checked" />
+                    <input class="filter exam" type="checkbox" name="exam" value="Eksamen" checked="checked" />
+                </form>
             </div>
 
             <div class="right-2">
@@ -127,7 +126,8 @@
 				    </div>
 				}
 				else {
-					<p><a onclick="showLogin()" class="logout"><p>Logg inn </p><i class="fa fa-sign-in fa-2x"></i></a></p>
+					<p>
+                        <a onclick="showLogin()" class="logout"><span>Logg inn </span><i class="fa fa-sign-in fa-2x"></i></a></p>
 				}
             </div>
             
