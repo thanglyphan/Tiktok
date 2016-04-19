@@ -237,7 +237,7 @@ namespace TikTokCalendar.Models
 			Course c = null;
 			foreach (var course in Courses)
 			{
-				if (name.Contains(course.Name))
+				if (name.Contains(course.Name, StringComparison.OrdinalIgnoreCase))
 				{
 					c = course;
 					break;

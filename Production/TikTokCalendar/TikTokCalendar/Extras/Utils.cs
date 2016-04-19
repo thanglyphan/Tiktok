@@ -24,6 +24,16 @@ namespace TikTokCalendar.Extras
 			return -1;
 		}
 
+		// From: http://stackoverflow.com/a/444818
+		/// <summary>
+		/// Checks if the toCheck string is found in source.
+		/// </summary>
+		public static bool Contains(this string source, string toCheck, StringComparison comp)
+		{
+			return source.IndexOf(toCheck, comp) >= 0;
+		}
+
+
 		public static int GetWeekNumberOfYear(this DateTime dt)
 		{
 			return cal.GetWeekOfYear(dt, CalendarWeekRule.FirstDay, DayOfWeek.Monday);
