@@ -73,7 +73,7 @@ namespace TikTokCalendar.Controllers
 			return page;
 		}
 
-		public string Rooms()
+		public string Rooms(string a = "")
 		{
 			string s = "";
 			foreach (var room in GetRooms())
