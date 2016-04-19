@@ -175,8 +175,8 @@ function showLogin() {
                                 url: "Home/UserCourse",
                                 type: "POST",
                                 data: { a: value },
-                                error: function () {
-                                    alert("Error in the usercourses AJAX");
+                                error: function (jqXHR, textStatus, errorThrown) {
+                                	alert("Error in the usercourses AJAX:\n\n" + textStatus + "\n\n" + errorThrown);
                                     console.log("error");
                                 },
                                 success: function (a) {
