@@ -47,20 +47,12 @@ function showLogin() {
             if (data === 'available') {
 
                 $.ajax({
-                    url: "Home/Rooms",
-                    type: "POST",
-                    data: { a: "yes" },
-                    error: function () {
-                        console.log("error");
-                    },
-                    success: function (a) {
-                        console.log("success" + a);
-                    }
-                })
-                window.location.reload();
+                    url: "/Home/Rooms",
+                    type: 'GET',
+                    dataType: 'html', // <-- to expect an html response
+                });
+                //window.location.reload();
 
-                
-                
             }
 
             else {

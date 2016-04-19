@@ -149,10 +149,15 @@ namespace TikTokCalendar.Controllers
 			return View(modelWrapper);//.calEvents);
 		}
 
-        public ActionResult Rooms(string a)
+		[HttpGet]
+		public ActionResult Rooms()
         {
 
-			return RedirectToAction("Rooms");
+			Debug.Write("LOL");
+
+
+			var modelWrapper = new ModelDataWrapper();
+			return PartialView("Rooms", modelWrapper);//.calEvents);
 
 		}
 
