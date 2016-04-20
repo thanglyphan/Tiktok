@@ -9,6 +9,9 @@ namespace TikTokCalendar.DAL
 		public const string UserNameCookieKey = "UserName";
 		public const string YearCookieKey = "Year";
 		public const string CourseCookieKey = "UserCourse";
+
+		private DateTime ExpiryDate { get { return DateTime.Now.AddYears(1); } }
+
 		/*
 		public void SaveIntToCookie(int a)
 		{

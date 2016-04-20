@@ -229,7 +229,6 @@ namespace TikTokCalendar.DAL
 		{
 			List<CustomEvent> retEvents = new List<CustomEvent>();
 
-			//////// Event ID ////////
 			// Parse ID
 			long parsedId = -1;
 			long.TryParse(id, NumberStyles.Integer, new NumberFormatInfo(), out parsedId);
@@ -270,7 +269,7 @@ namespace TikTokCalendar.DAL
 			{
 				if (IsEventDuplicate(subject.Code, id, room, startDates[0]))
 				{
-					
+					return retEvents;
 				}
 			}
 
@@ -298,16 +297,17 @@ namespace TikTokCalendar.DAL
 
 			// Try to find eventDup in the duplicate list
 			Predicate<EventDuplicate> eventFinder = (EventDuplicate e) => (e == eventDup);
-			EventDuplicate possibleDuplicate = possibleDuplicateEvents.Find(eventFinder);
+			var possibleDuplicate = possibleDuplicateEvents.Find(eventFinder);
+
+			// Check if we have a possible duplicate, and if the IDs doesn't match up
 			if (possibleDuplicate != null && possibleDuplicate.ID != eventDup.ID)
 			{
-				// event already added, no need to add this event
+				// Event is a duplicate
 				return true;
 			}
-			else
-			{
-				possibleDuplicateEvents.Add(eventDup);
-			}
+			
+			// Add the event to the possible duplicate list
+			possibleDuplicateEvents.Add(eventDup);
 			return false;
 		}
 
