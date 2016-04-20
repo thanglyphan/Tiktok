@@ -324,6 +324,10 @@ input[type="radio"]:checked + label {
 	margin-bottom: 0;
 }
 
+#cookie-warning .close {
+	color: #FFF;
+}
+
 /*===================================
   MONTH
 ===================================*/

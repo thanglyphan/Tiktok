@@ -181,6 +181,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SessionAuthenticationConfig.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\CalendarEventContext.cs" />
@@ -218,6 +219,7 @@
     <Compile Include="Models\DataWrapper.cs" />
     <Compile Include="Models\EventUserStat.cs" />
     <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\WebpageErrorContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -232,23 +234,23 @@
     <Content Include="Content\bs-modal.css" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\modal.css" />
-    <Content Include="Content\SchoolSystem\courses.json" />
-    <Content Include="Content\SchoolSystem\subjects.json" />
-    <Content Include="Content\SchoolSystem\courseSubjects.json" />
+    <Content Include="Content\Data\SchoolSystem\courses.json" />
+    <Content Include="Content\Data\SchoolSystem\subjects.json" />
+    <Content Include="Content\Data\SchoolSystem\courseSubjects.json" />
     <Content Include="Content\mobile.css" />
-    <Content Include="Content\timeedit\1klasse.json" />
+    <Content Include="Content\Data\Timeedit\1klasse.json" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\reset.css" />
-    <Content Include="Content\timeedit\mobilprogrammering.json" />
-    <Content Include="Content\timeedit\e-business.json" />
-    <Content Include="Content\timeedit\intelligente-systemer.json" />
-    <Content Include="Content\timeedit\interaktivt-design.json" />
-    <Content Include="Content\timeedit\innlevering-eksamen-dato.json" />
-    <Content Include="Content\timeedit\programmering.json" />
-    <Content Include="Content\timeedit\spilldesign.json" />
-    <Content Include="Content\timeedit\spillprogrammering.json" />
+    <Content Include="Content\Data\Timeedit\mobilprogrammering.json" />
+    <Content Include="Content\Data\Timeedit\e-business.json" />
+    <Content Include="Content\Data\Timeedit\intelligente-systemer.json" />
+    <Content Include="Content\Data\Timeedit\interaktivt-design.json" />
+    <Content Include="Content\Data\Timeedit\innlevering-eksamen-dato.json" />
+    <Content Include="Content\Data\Timeedit\programmering.json" />
+    <Content Include="Content\Data\Timeedit\spilldesign.json" />
+    <Content Include="Content\Data\Timeedit\spillprogrammering.json" />
     <Content Include="Content\vex\vex-theme-bottom-right-corner.css" />
     <Content Include="Content\vex\vex-theme-default.css" />
     <Content Include="Content\vex\vex-theme-flat-attack.css" />
@@ -276,21 +278,21 @@
     <Content Include="README.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\dummy-data-temp.json" />
-    <Content Include="Content\courses-data.json" />
+    <Content Include="Content\Data\dummy-data-temp.json" />
+    <Content Include="Content\Data\courses-data.json" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\dummy-data.json" />
+    <Content Include="Content\Data\dummy-data.json" />
     <Content Include="LoginCallback.ashx" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\timeedit\test.json" />
-    <Content Include="Content\timeedit\users.json" />
+    <Content Include="Content\Data\Timeedit\test.json" />
+    <Content Include="Content\Data\users.json" />
     <None Include="Properties\PublishProfiles\tiktokcal %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\tiktokcal %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\tiktokcal %284%29.pubxml" />
@@ -362,6 +364,7 @@
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\Rooms.cshtml" />
     <Content Include="Views\Home\Testing.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
