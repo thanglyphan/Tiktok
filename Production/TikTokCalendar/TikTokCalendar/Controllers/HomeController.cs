@@ -26,10 +26,10 @@ namespace TikTokCalendar.Controllers
                 if (exam.Length > 0) exa = true;
 
                 //Check if actually empty page before continuing
-                if (!lec && !ass && !exa)
+                if (!lec && !ass && !exa && tags == "")
                 {
                     ModelDataWrapper emptyWrap;
-                    emptyWrap = new ModelDataWrapper(" ", false, false, false);
+                    emptyWrap = new ModelDataWrapper("", false, false, false);
                     return View(emptyWrap);
                 }
             }
@@ -38,14 +38,6 @@ namespace TikTokCalendar.Controllers
                 lec = true;
                 ass = true;
                 exa = true;
-            }
-            if (!filtered)
-            {
-
-            }
-            else
-            {
-                
             }
 
             // Make a new ModelDataWrapper with the events based on the user, tags, and filters
@@ -85,11 +77,6 @@ namespace TikTokCalendar.Controllers
             }
             return user;
         }
-
-        //public void Filter(string tags = "", bool lecture = false, bool assignment = false, bool exam = false)
-        //{
-        //    Index("", tags, lecture, assignment, exam);
-        //}
 
         public string CalTest(string id = "")
 		{
@@ -214,23 +201,29 @@ namespace TikTokCalendar.Controllers
 
 		public JsonResult AutoComplete(string search)
 		{
-			/*
+            /* // static test data (delete eventually)
             var data = new[] {"Programmering","Spillprogrammering","Intelligente systemer","Mobil apputvikling",
                 "Prosjekt software engineering","Matematikk og fysikk","C++ programmering","",
                 "Game AI","Embedded systems","Mobil utvikling","Ruby on rails",
                 "Avansert javaprogrammering","Undersøkelsesmetoder","Enterprise programmering 2","Innlevering",
                 "Forelesning","Eksamen" };
             */
-			StudentUser user = GetUserFromNameCourse();
-			List<string> list = DataWrapper.Instance.GetUserKeywords(user);
-			list.Add("Innlevering");
-			list.Add("Eksamen");
-			list.Add("Forelesning");
-			list.RemoveAll(item => item == null);
-			//var result = data.Where(x => x.ToLower().StartsWith(search.ToLower())).ToList(); <-- starter-med-søk
-			var result = list.Where(x => x.ToLower().Contains(search.ToLower())).ToList();
+            var list = new List<string>();
 
-			return Json(result, JsonRequestBehavior.AllowGet);
+            if (Session["keywords"] == null)
+            {
+                StudentUser user = GetUserFromNameCourse();
+                list = DataWrapper.Instance.GetUserKeywords(user);
+                list.RemoveAll(item => item == null);
+                Session["keywords"] = list;   
+            }
+            else
+            {
+                list = (List<string>)Session["keywords"]; 
+            }
+            
+            var result = list.Where(x => x.Contains(search.ToLower())).ToList();
+            return Json(result, JsonRequestBehavior.AllowGet);
 		}
 		public JsonResult UserName(string a)
 		{
@@ -251,8 +244,9 @@ namespace TikTokCalendar.Controllers
 			{
 				cookie.SaveCourseToCookie(a);
 			}
-
-			return Json("fungerer", JsonRequestBehavior.AllowGet);
+            // new user means new custom keywords
+            Session["keywords"] = null;
+            return Json("fungerer", JsonRequestBehavior.AllowGet);
 		}
 
 		public JsonResult UserYear(string a)
@@ -267,7 +261,7 @@ namespace TikTokCalendar.Controllers
 
 		public JsonResult ShowDefault(string a)
 		{
-			cookie.SaveNameToCookie(a); //Add cookie 5 seconds
+            cookie.SaveNameToCookie(a); //Add cookie 5 seconds
 			cookie.SaveCourseToCookie(a); //Add cookie 5 seconds
 
 			return Json("fungerer", JsonRequestBehavior.AllowGet);
@@ -283,9 +277,11 @@ namespace TikTokCalendar.Controllers
 			}
 		}
 		public JsonResult DeleteCookies()
-		{
-			cookie.DeleteCookies();
-			return Json("hei", JsonRequestBehavior.AllowGet);
+		{          
+            cookie.DeleteCookies();
+            // to show all keywords when no user
+            Session["keywords"] = null;
+            return Json("hei", JsonRequestBehavior.AllowGet);
 		}
 		public StudentUser GetUserFromNameCourse()
 		{

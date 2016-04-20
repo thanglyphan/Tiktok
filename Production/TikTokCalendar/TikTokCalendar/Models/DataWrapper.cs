@@ -76,6 +76,7 @@ namespace TikTokCalendar.Models
                         {
                             temp = FilterCharacters(tags).ToLower();
                             string[] array = temp.Split(' ');
+
                             string eventname = "";
                             string roomname = "";
                             string teacher = "";
@@ -308,29 +309,62 @@ namespace TikTokCalendar.Models
             List<string> list = new List<string>();
             foreach (var evnt in AllEvents)
             {
-                if (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear))
+                if ((evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear)) || user.Course == SchoolCourses.VisAlt)
                 {
-                    if (!list.Contains(evnt.Subject.Name))
-                    {
-                        list.Add(evnt.Subject.Name);
-                    }
-                    if (!list.Contains(evnt.Subject.Code))
-                    {
-                        list.Add(evnt.Subject.Code);
-                    }
-                    if (!list.Contains(evnt.RoomName))
-                    {
-                        list.Add(evnt.RoomName);
-                    }
-                    if (!list.Contains(evnt.Teacher))
-                    {
-                        list.Add(evnt.Teacher);
-                    }
+                    string eventname = null;
+                    string roomname = null;
+                    string teacher = null;
+                    string subjectcode = null;
+                    string eventtype = null;
+                    string monthname = null;
+
+                    try { eventname = evnt.Subject.Name.ToLower();
+                        if (!list.Contains(eventname))
+                        {
+                            list.Add(eventname);
+                        }
+                    } catch (NullReferenceException) { }
+                    try { roomname = evnt.RoomName.ToLower();
+                        if (!list.Contains(roomname))
+                        {
+                            list.Add(roomname);
+                        }
+                    } catch (NullReferenceException) { }
+                    try { teacher = evnt.Teacher.ToLower();
+                        if (!list.Contains(teacher))
+                        {
+                            list.Add(teacher);
+                        }
+                    } catch (NullReferenceException) { }
+                    try { subjectcode = evnt.Subject.Code.ToLower();
+                        if (!list.Contains(subjectcode))
+                        {
+                            list.Add(subjectcode);
+                        }
+                    } catch (NullReferenceException) { }
+                    try { eventtype = evnt.eventType.ToString().ToLower();
+                        if (!list.Contains(eventtype))
+                        {
+                            list.Add(eventtype);
+                        }
+                    } catch (NullReferenceException) { }
+                    try { monthname = evnt.GetMonthName().ToLower();
+                        if (!list.Contains(monthname))
+                        {
+                            list.Add(monthname);
+                        }
+                    } catch (NullReferenceException) { }
                 }
             }
+            list.Add("Innlevering");
+            list.Add("Eksamen");
+            list.Add("Forelesning");
             return list;
         }
 
+        /// <summary>
+        /// Only include 0-9, A-Å, space, comma, and ._+#: from string
+        /// </summary>
         public string FilterCharacters(string str)
         {
             StringBuilder sb = new StringBuilder();
