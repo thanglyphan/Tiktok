@@ -38,15 +38,15 @@ header {
     position: fixed;
     top: 0px;
     z-index: 2;
-    font-size: 14px !important;
-
+    font-size: 12px !important;
     box-shadow: 0 2px 1px -2px gray;
 }
 
 .header-content {
-    max-width: 1150px;
+    max-width: 1000px;
     margin: 0 auto; 
-    height: 61px;
+    height: 51px;
+    margin-top: -10px;
     position: relative;
 }
 
@@ -54,14 +54,14 @@ header a i.fa-calendar-check-o {
     float: left;
     margin-top: 12px;
     color: #FF5A5F;
-    font-size: 25px;
+    font-size: 28px;
     margin-left: 20px;
 }
 
 header p {
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color:#8C95A2;
-    font-size: 14px;
+    font-size: 10px;
     float: left;
     padding-top: 15px;
     padding-left: 0;
@@ -117,11 +117,6 @@ header .header-content .right-2 .right-1 p {
     font-size: 12px;
     color: #aaa;
 }
-
-header .header-content .right-2 span {
-    font-size: 14px;
-}
-
 
 header .header-content .right-2 i {
     display: none;
@@ -224,7 +219,6 @@ input.filter {
     background-color: white;
 }
 
-
 /*===================================
   C H E C K   I N
 ===================================*/
@@ -271,8 +265,8 @@ input[type="radio"]:checked + label {
 .feed-month, month-month {
     background-color: #699df1;
 	margin-top: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border-radius: 3px 3px 0px 0px;
     width: 100%;
     display: block;
@@ -312,6 +306,7 @@ input[type="radio"]:checked + label {
 	text-align: center;
 	margin-top: 8px;
 	color: #fff;
+    font-size: 15px;
 }
 
 .week-header:not(:first-child) {
@@ -319,16 +314,16 @@ input[type="radio"]:checked + label {
 }
 .week, .week p {
     background-color: #8DB3f;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    font-size: 19px !important;
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
+
 
 .feed-month p {
     text-align: center;
     color: white;
     opacity: 0.9;
-    font-size: 22px;
+    font-size: 18px;
     font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: normal;
 	z-index: 1;
@@ -341,10 +336,9 @@ input[type="radio"]:checked + label {
 /*===================================
   E V E N T   F E E D
 ===================================*/
-
 .feed-container {
     color: #474f5c;
-    height: 100px;
+    height: 75px;
     background-color: white;
     border-radius: 0px 0px 3px 3px;
     display: block;
@@ -374,6 +368,12 @@ input[type="radio"]:checked + label {
     }
 }
 
+input[class^="going-"]:hover {
+    background-color: #00bb3f;
+    color: white;
+    opacity: 0.7;
+}
+
 .feed-container {
   z-index: 1000;
 }
@@ -389,7 +389,7 @@ input[type="radio"]:checked + label {
 /* Top left row:   13 */
 .feed-container .class-date .date-number {
     margin-left: 12px;
-    font-size: 23px;
+    font-size: 19px;
     color: #a4b0c3;
     font-weight: normal;
     float: left;
@@ -408,7 +408,7 @@ input[type="radio"]:checked + label {
 .feed-container .content {
     width: 100%;
     height: 80%;
-    padding-top: 30px;
+    padding-top: 15px;
 }
 
 .feed-container .content .class-info {
@@ -417,11 +417,15 @@ input[type="radio"]:checked + label {
     margin: 0 auto;
 }
 
+.feed-container .content .class-info .class-date {
+    font-size: 12px;
+}
+
 /* Top middle row:   Mattematikk og Fysikk */
 .feed-container .content .class-info p.name {
     float: left;
     color: #6a7586;
-    font-size: 19px;
+    font-size: 15px;
     font-weight: normal;
 }
 
@@ -437,7 +441,7 @@ input[type="radio"]:checked + label {
     float: left;
     color: #6a7586;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 /* Bottom row:  man, 12.15 - 16.00                       ...*/
@@ -447,16 +451,18 @@ input[type="radio"]:checked + label {
     margin: 0 auto;
     color: #474f5c;
     font-weight: 300;
-    font-size: 18px;
     float: right;
     margin-right: 30px;
     position: relative;
 }
 
+.feed-container .content .class-info p.name {
+    font-size: 15px !important;
+}
 
-
-.feed-container .content .time-info {
-    margin-top: 10px;
+.feed-container .content .time-info p.time {
+    margin-top: 8px;
+    font-size: 12px !important;
 }
 
 /*======================================
@@ -496,6 +502,10 @@ input[type="radio"]:checked + label {
     color: #6a7586;
     font-weight: 400;
     font-size: 14px;
+}
+
+.feed-container .content .time-info .left-position i strong {
+    font-size: 12px important;
 }
 
 .feed-container .content .time-info i.fa-ellipsis-h {
@@ -544,9 +554,9 @@ input[type="radio"]:checked + label {
         width: 27px !important;
     }
 
-        div.class-date .date-number {
-            font-size: 20px !important;
-        }
+    div.class-date .date-number {
+        font-size: 20px !important;
+    }
 
     .horizontal-line {
         width: 82%;
@@ -739,9 +749,9 @@ input[type="radio"]:checked + label {
     padding: 8px 14px;
     top: 26px;
     left: 26px;
-    color: #858f9f;
+    color: #aaa;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 12px;
     height: 16px;
     width: 100%;
 }
