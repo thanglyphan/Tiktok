@@ -36,6 +36,7 @@ header {
     /*background-color: #FffffF;*/
 
     background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0));
+    background: -webkit-linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0));
     width: 100%;
     position: fixed;
     top: 0px;
@@ -50,6 +51,7 @@ hr.grad-line {
     position: relative;
     margin: 0;
     background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 62%);
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 62%);
     background: radial-gradient(center, ellipse cover, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 62%);
 }
 
