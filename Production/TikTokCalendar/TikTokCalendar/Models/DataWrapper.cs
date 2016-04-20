@@ -44,7 +44,7 @@ namespace TikTokCalendar.Models
 		{
 			foreach (var u in Users)
 			{
-				if (u.UserName == user.UserName && u.Password == user.Password)
+				if (user.IsValid(u))
 				{
 					return true;
 				}

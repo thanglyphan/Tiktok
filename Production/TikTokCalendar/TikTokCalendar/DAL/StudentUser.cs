@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Web;
+using TikTokCalendar.Models;
 
 // Class for a user
 namespace TikTokCalendar.DAL
@@ -61,6 +62,15 @@ namespace TikTokCalendar.DAL
 					Debug.WriteLine("WARNING: User [" + UserName + "] has invalid year (" + yearString + ")");
 					return -1;
 			}
+		}
+
+		public bool IsValid(StudentUser other)
+		{
+			if (other.UserName == UserName && other.Password == Password)
+			{
+				return true;
+			}
+			return false;
 		}
 	}
 }
