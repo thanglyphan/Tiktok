@@ -92,6 +92,26 @@
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="nunit.core, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.core.interfaces, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.util, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NUnit.VisualStudio.TestAdapter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=4cb40d35494691ac, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="RestSharp, Version=104.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
       <Private>True</Private>
@@ -221,6 +241,7 @@
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\WebpageErrorContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTests\StudentUserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -238,19 +259,19 @@
     <Content Include="Content\Data\SchoolSystem\subjects.json" />
     <Content Include="Content\Data\SchoolSystem\courseSubjects.json" />
     <Content Include="Content\mobile.css" />
-    <Content Include="Content\Data\Timeedit\1klasse.json" />
+    <Content Include="Content\Data\TimeEdit\1klasse.json" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\reset.css" />
-    <Content Include="Content\Data\Timeedit\mobilprogrammering.json" />
-    <Content Include="Content\Data\Timeedit\e-business.json" />
-    <Content Include="Content\Data\Timeedit\intelligente-systemer.json" />
-    <Content Include="Content\Data\Timeedit\interaktivt-design.json" />
-    <Content Include="Content\Data\Timeedit\innlevering-eksamen-dato.json" />
-    <Content Include="Content\Data\Timeedit\programmering.json" />
-    <Content Include="Content\Data\Timeedit\spilldesign.json" />
-    <Content Include="Content\Data\Timeedit\spillprogrammering.json" />
+    <Content Include="Content\Data\TimeEdit\mobilprogrammering.json" />
+    <Content Include="Content\Data\TimeEdit\e-business.json" />
+    <Content Include="Content\Data\TimeEdit\intelligente-systemer.json" />
+    <Content Include="Content\Data\TimeEdit\interaktivt-design.json" />
+    <Content Include="Content\Data\TimeEdit\innlevering-eksamen-dato.json" />
+    <Content Include="Content\Data\TimeEdit\programmering.json" />
+    <Content Include="Content\Data\TimeEdit\spilldesign.json" />
+    <Content Include="Content\Data\TimeEdit\spillprogrammering.json" />
     <Content Include="Content\vex\vex-theme-bottom-right-corner.css" />
     <Content Include="Content\vex\vex-theme-default.css" />
     <Content Include="Content\vex\vex-theme-flat-attack.css" />
@@ -291,7 +312,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\Data\Timeedit\test.json" />
+    <Content Include="Content\Data\TimeEdit\test.json" />
     <Content Include="Content\Data\users.json" />
     <None Include="Properties\PublishProfiles\tiktokcal %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\tiktokcal %283%29.pubxml" />
@@ -381,6 +402,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
