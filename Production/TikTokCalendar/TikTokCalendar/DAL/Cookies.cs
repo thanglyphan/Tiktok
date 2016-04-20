@@ -6,7 +6,9 @@ namespace TikTokCalendar.DAL
 {
 	public class Cookies : System.Web.UI.Page
 	{
-		
+		public const string UserNameCookieKey = "UserName";
+		public const string YearCookieKey = "Year";
+		public const string CourseCookieKey = "UserCourse";
 		/*
 		public void SaveIntToCookie(int a)
 		{
@@ -70,7 +72,7 @@ namespace TikTokCalendar.DAL
 				HttpCookie UsernameCookie = new HttpCookie("UserName");
 				if (a == "Default") {
 					UsernameCookie.Value = "John Doe";
-					UsernameCookie.Expires = DateTime.Now.AddSeconds(5);
+					UsernameCookie.Expires = DateTime.Now.AddYears(5);
 					SaveYearToCookies(DateTime.Now.Year.ToString());
 				}
 				else {
@@ -90,7 +92,7 @@ namespace TikTokCalendar.DAL
 				HttpCookie CourseCookie = new HttpCookie("UserCourse");
 				if (a == "Default") {
 					CourseCookie.Value = "VisAlt"; //Vis alt. Enum?
-					CourseCookie.Expires = DateTime.Now.AddSeconds(5);
+					CourseCookie.Expires = DateTime.Now.AddYears(5);
 				}
 				else {
 					CourseCookie.Value = a;

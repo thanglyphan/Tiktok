@@ -66,10 +66,15 @@ namespace TikTokCalendar.Controllers
             dataParser.ParseAllData();
 
             // DEBUG Set the page title
-            var username = cookie.LoadStringFromCookie("UserName");
+            var username = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
             if (!string.IsNullOrEmpty(username))
             {
-                ViewBag.Title = string.Format("{0}[{1}]: {2} [{3}]", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Year"), cookie.LoadStringFromCookie("Usercourse"), tags);
+                ViewBag.Title = string.Format("{0}[{1}-{2}]: {3} [{4}]", 
+					cookie.LoadStringFromCookie(Cookies.UserNameCookieKey), 
+					user.ClassYear, 
+					cookie.LoadStringFromCookie(Cookies.YearCookieKey), 
+					cookie.LoadStringFromCookie(Cookies.CourseCookieKey), 
+					tags);
             }
             else
             {
@@ -138,7 +143,7 @@ namespace TikTokCalendar.Controllers
 		}
 		private String returnCourse()
 		{
-			string userCourse = (string)Session["UserCourse"];
+			string userCourse = (string)Session[Cookies.UserNameCookieKey];
 			if (userCourse == "")
 			{
 				return "phatha14";
@@ -152,9 +157,9 @@ namespace TikTokCalendar.Controllers
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
 
-			if (cookie.LoadStringFromCookie("UserName") != null)
+			if (cookie.LoadStringFromCookie(Cookies.UserNameCookieKey) != null)
 			{
-				ViewBag.Title = string.Format("Halla, {0}! Du går: {1}", cookie.LoadStringFromCookie("UserName"), cookie.LoadStringFromCookie("Usercourse"));
+				ViewBag.Title = string.Format("Halla, {0}! Du går: {1}", cookie.LoadStringFromCookie(Cookies.UserNameCookieKey), cookie.LoadStringFromCookie(Cookies.CourseCookieKey));
 			}
 			else
 			{
@@ -177,11 +182,8 @@ namespace TikTokCalendar.Controllers
 
 		[HttpGet]
 		public ActionResult Rooms()
-        {
-
-			Debug.Write("LOL");
-
-
+		{
+			Debug.WriteLine("Rooms()");
 			var modelWrapper = new ModelDataWrapper();
 			return View("Rooms", modelWrapper);
 
@@ -227,7 +229,7 @@ namespace TikTokCalendar.Controllers
 		}
 		public JsonResult UserName(string a)
 		{
-			string userName = cookie.LoadStringFromCookie("UserName");
+			string userName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
 
 			if (userName == null)
 			{
@@ -238,7 +240,7 @@ namespace TikTokCalendar.Controllers
 		}
 		public JsonResult UserCourse(string a)
 		{
-			string userCourse = cookie.LoadStringFromCookie("UserCourse");
+			string userCourse = cookie.LoadStringFromCookie(Cookies.CourseCookieKey);
 
 			if (userCourse == null)
 			{
@@ -251,7 +253,7 @@ namespace TikTokCalendar.Controllers
 
 		public JsonResult UserYear(string a)
 		{
-			string userYear = cookie.LoadStringFromCookie("Year");
+			string userYear = cookie.LoadStringFromCookie(Cookies.YearCookieKey);
 			if (userYear == null)
 			{
 				cookie.SaveYearToCookies(a);
@@ -268,7 +270,7 @@ namespace TikTokCalendar.Controllers
 		}
 		public ActionResult GetVisited() //If been here, return true, else false.
 		{
-			if (cookie.LoadStringFromCookie("UserName") != null)
+			if (cookie.LoadStringFromCookie(Cookies.UserNameCookieKey) != null)
 			{
 				return Json(true, JsonRequestBehavior.AllowGet);
 			}
@@ -289,7 +291,7 @@ namespace TikTokCalendar.Controllers
 			string course = "";
 			string year = "";
 
-			string cookieYear = cookie.LoadStringFromCookie("Year");
+			string cookieYear = cookie.LoadStringFromCookie(Cookies.YearCookieKey);
 			if (!string.IsNullOrEmpty(cookieYear))
 			{
 				year = cookieYear;
@@ -299,7 +301,7 @@ namespace TikTokCalendar.Controllers
 				year = "second";
 			}
 
-			string cookieUserName = cookie.LoadStringFromCookie("UserName");
+			string cookieUserName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
 			if (!string.IsNullOrEmpty(cookieUserName))
 			{
 				name = cookieUserName;
@@ -307,7 +309,7 @@ namespace TikTokCalendar.Controllers
 			else {
 				name = "NO NAME";
 			}
-			string cookieCourse = cookie.LoadStringFromCookie("UserCourse");
+			string cookieCourse = cookie.LoadStringFromCookie(Cookies.CourseCookieKey);
 			if (!string.IsNullOrEmpty(cookieCourse))
 			{
 				course = cookieCourse;
@@ -324,7 +326,7 @@ namespace TikTokCalendar.Controllers
 		public PartialViewResult UserStatUpdate(int eventid, bool attend)
 		{
 			var db = new CalendarEventContext();
-			string userName = cookie.LoadStringFromCookie("UserName");
+			string userName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
 			//int eventID = Int32.Parse(Request.Form["eventid"]);
 			if (userName != "" || userName != null)
 			{

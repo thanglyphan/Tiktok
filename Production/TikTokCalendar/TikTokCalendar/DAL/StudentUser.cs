@@ -33,10 +33,19 @@ namespace TikTokCalendar.DAL
 			UserName = name;
 			//Year = GetYearFromName();
 			switch (yearString) {
-				case "first": ClassYear = 1; break;
-				case "second": ClassYear = 2; break;
-				case "third": ClassYear = 3; break;
-				default: ClassYear = -1; break;
+				case "first":
+					ClassYear = 1;
+					break;
+				case "second":
+					ClassYear = 2;
+					break;
+				case "third":
+					ClassYear = 3;
+					break;
+				default:
+					ClassYear = -1;
+					Debug.WriteLine("Invalid year");
+					break;
 			}
 			Course = course;
 			/*
