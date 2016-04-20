@@ -30,6 +30,7 @@ namespace TikTokCalendar.DAL
 			"timeedit/mobilprogrammering.json",
 			"timeedit/test.json"
 		};
+		private const string usersFile = "users.json";
 
 		private const long ExamEventStartID = 500000; // Must be much higher than the ID's on the events from the TimeEdit json files
 		private long examEventID; // A unique ID for the exam events
