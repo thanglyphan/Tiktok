@@ -31,7 +31,7 @@
     .mobile-navbar {
         width: 100%;
         height: 45px;
-        background-color: #F5F6F8;
+        background-color: #699DF1;
         border-bottom: 2px solid #F3f3f3;
         color: white;
     }
@@ -111,8 +111,8 @@ ul#menu li {
     .mobile-date-top {
         height: 20px;
         width: 100%;
-        background-color: #f2f2f2;
-        color: #8E8F94;
+        background-color: #699DF1;
+        color: white;
         text-transform: uppercase;
         letter-spacing: .1em;
         line-height: 0em;

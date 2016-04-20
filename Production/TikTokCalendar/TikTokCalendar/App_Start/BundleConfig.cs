@@ -47,7 +47,8 @@ namespace TikTokCalendar
             bundles.Add(new ScriptBundle("~/bundles/random").Include(
                 "~/Scripts/vex/vex.combined.min.js",
                 "~/Scripts/modal.js",
-                "~/Scripts/script.js"
+                "~/Scripts/script.js",
+                "~/Scripts/mobile.js"
                 ));
 
             // showinfo & tooltip
