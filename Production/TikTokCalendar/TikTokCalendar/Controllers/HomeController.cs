@@ -31,6 +31,7 @@ namespace TikTokCalendar.Controllers
                 {
                     ModelDataWrapper emptyWrap;
                     emptyWrap = new ModelDataWrapper("", false, false, false);
+                    emptyWrap.isFiltered = true;
                     return View(emptyWrap);
                 }
             }
@@ -53,6 +54,11 @@ namespace TikTokCalendar.Controllers
             }
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(InitUser(tags), tags, lec, ass, exa);
 
+            // Show event count
+            if (!(lec && ass && exa) && (filtered || tags.Length > 0))
+            {
+                modelWrapper.isFiltered = true;
+            }
 			// Send the model to the view
 			return View(modelWrapper);
 		}

@@ -25,7 +25,7 @@
 <script>
 	$(function() {
 		@*$(document).scrollTop( $("#goto-@DateTime.Now.Month").offset().top );*@
-		$(document).scrollTop( $("#goto-week-@anchor").offset().top - 65 );
+		$(document).scrollTop( $("#goto-week-@anchor").offset().top - 56 );
 	});
 
 </script>
@@ -38,7 +38,7 @@
         @foreach (var month in Model.Months)
         {
             var isCollapsed = "in";
-            if (month.MonthNumber < DateTime.Now.Month && Model.searchWords == "")
+            if (month.MonthNumber < DateTime.Now.Month && !Model.isFiltered)
             {
                 isCollapsed = ""; // true
             }
@@ -150,7 +150,7 @@
                                             <p class="time">
                                                 <strong>&nbsp;@item.GetDayOfWeek()</strong>@item.GetTimeSlot()
                                                 @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
-                                                    <b>&nbsp;&nbsp;&nbsp;</b><span class="ongoing">Pågår</span>
+                                                    <b>&nbsp;&nbsp;&nbsp;</b><span class="on ">Pågår</span>
 												}
                                                 else if (lessThanAnHour) {
 												    
@@ -192,10 +192,10 @@
 													<input type="hidden" name="eventid" value="@item.ID" />
 													<input type="hidden" name="attend" value="true" />
 													<input type="submit" value="Check-in" />
-}
+												}
 												else {
 													<strong>Innsjekket &#10004;</strong>
-}
+												}
 
 											}
 											else {
@@ -203,10 +203,10 @@
                                                     <input type="hidden" name="eventid" value="@item.ID" />
                                                     <input type="hidden" name="attend" value="false" />
                                                     <input type="submit" value="Going" class="going-@item.ID"/>
-}
+												}
 												else {
                                                     <strong>going</strong>
-}
+												}
 											}
                                             <div class="tip-item">
                                                 @{
@@ -223,10 +223,10 @@
                                                             <span class="no-linebreak">
                                                                 @if (EUSH.UserAttending(item.ID, eus.UserName)) {
                                                                     <text>&#10004;</text>
-}
+																}
                                                                 @eus.UserName<br />
                                                             </span>
-}
+														}
 													}
                                                 </div>
                                             </div>
