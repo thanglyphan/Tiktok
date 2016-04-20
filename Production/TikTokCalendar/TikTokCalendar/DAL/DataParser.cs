@@ -18,18 +18,20 @@ namespace TikTokCalendar.DAL
 		private const string courseFile = "SchoolSystem/courses.json";
 		private const string subjectFile = "SchoolSystem/subjects.json";
 		private const string courseSubjectFile = "SchoolSystem/courseSubjects.json";
-		private const string examsFile = "timeedit/innlevering-eksamen-dato.json";
+		private const string examsFile = "TimeEdit/innlevering-eksamen-dato.json";
 		private readonly string[] scheduleFiles = new string[] {
-			"timeedit/1klasse.json",
-			"timeedit/e-business.json",
-			"timeedit/intelligente-systemer.json",
-			"timeedit/interaktivt-design.json",
-			"timeedit/programmering.json",
-			"timeedit/spilldesign.json",
-			"timeedit/spillprogrammering.json",
-			"timeedit/mobilprogrammering.json",
-			"timeedit/test.json"
+			"TimeEdit/1klasse.json",
+			"TimeEdit/e-business.json",
+			"TimeEdit/intelligente-systemer.json",
+			"TimeEdit/interaktivt-design.json",
+			"TimeEdit/programmering.json",
+			"TimeEdit/spilldesign.json",
+			"TimeEdit/spillprogrammering.json",
+			"TimeEdit/mobilprogrammering.json",
+			"TimeEdit/test.json"
 		};
+		private const string usersFile = "users.json";
+		private const string contentDataFolder = "Data/";
 
 		private const long ExamEventStartID = 500000; // Must be much higher than the ID's on the events from the TimeEdit json files
 		private long examEventID; // A unique ID for the exam events
@@ -48,11 +50,29 @@ namespace TikTokCalendar.DAL
 
 		public void ParseAllData()
 		{
+			// Redneck unit testing
+			//List<EventDuplicate> eDups = new List<EventDuplicate>();
+			//EventDuplicate a = new EventDuplicate("1", new List<Course>(), "1", DateTime.Now);
+			//for (int i = 2; i < 10; i++)
+			//{
+			//	eDups.Add(new EventDuplicate(i.ToString(), new List<Course>(), i.ToString(), DateTime.Now));
+			//}
+			//bool ca = eDups.Contains(a); // Should be false
+			//Debug.WriteLine("(true)List contains a: " + (ca == false));
+			//eDups.Add(a);
+			//Predicate<EventDuplicate> eventFinder = (EventDuplicate e) => { return e == a; };
+			//EventDuplicate b = eDups.Find(eventFinder); // b should be the same as a
+			//bool bIsA = b == a; // Should be true
+			//Debug.WriteLine("(true)Found b, and b == a: " + (bIsA == true));
+			//bool cb = eDups.Contains(a); // Should be true
+			//Debug.WriteLine("(true)List contains a: " + (cb == true));
+
 			// Initialize the base school system data for the wrapper
 			var subjects = GetSubjects();
 			var courses = GetCourses();
 			var courseSubjects = GetCourseSubjects(subjects, courses);
-			DataWrapper.Instance.Initialize(subjects, courses, courseSubjects);
+			var users = GetUsers();
+			DataWrapper.Instance.Initialize(subjects, courses, courseSubjects, users);
 
 			// We have to do this in two different calls, as GetEvents() has functions that depend on DataWrapper to have the info about the base SchoolSystem(subjects, courses, etc)
 			var events = GetEvents();
@@ -61,12 +81,11 @@ namespace TikTokCalendar.DAL
 
 		private string GetFileContents(string contentFolderRelativePath)
 		{
-
 			string dataPath = null;
 			string ret = null;
 			try
 			{
-				dataPath = HttpContext.Current.Server.MapPath("~/Content/" + contentFolderRelativePath);
+				dataPath = HttpContext.Current.Server.MapPath("~/Content/" + contentDataFolder + contentFolderRelativePath);
 				ret = File.ReadAllText(dataPath, Encoding.GetEncoding("iso-8859-1"));
 			}
 			catch (Exception e)
@@ -75,6 +94,20 @@ namespace TikTokCalendar.DAL
 				throw;
 			}
 			return ret;
+		}
+		
+		private List<StudentUser> GetUsers()
+		{
+			var users = new List<StudentUser>();
+			var file = GetFileContents(usersFile);
+			var container = JsonConvert.DeserializeObject<JUserRootObject>(file);
+			foreach (var user in container.users)
+			{
+				SchoolCourses course = (SchoolCourses)user.Course;
+				users.Add(new StudentUser(user.Uname, user.Password, user.Email, user.Year, course));
+			}
+
+			return users;
 		}
 
 		private List<Subject> GetSubjects()
@@ -156,14 +189,14 @@ namespace TikTokCalendar.DAL
 		private class EventDuplicate
 		{
 			private string subjectCode;
-			private List<Course> courses;
+			public string ID { get; private set; }
 			private string roomName;
 			private DateTime startDateTime;
 
-			public EventDuplicate(string subjectCode, List<Course> courses, string roomName, DateTime startDateTime)
+			public EventDuplicate(string subjectCode, string id, string roomName, DateTime startDateTime)
 			{
 				this.subjectCode = subjectCode;
-				this.courses = courses;
+				this.ID = id;
 				this.roomName = roomName;
 				this.startDateTime = startDateTime;
 			}
@@ -201,7 +234,7 @@ namespace TikTokCalendar.DAL
 			}
 		}
 
-		private List<EventDuplicate> duplicateEvents = new List<EventDuplicate>();
+		private readonly List<EventDuplicate> possibleDuplicateEvents = new List<EventDuplicate>();
 
 		/// <summary>
 		/// Parses an event and returns a List<CustomEvent>. 
@@ -212,7 +245,6 @@ namespace TikTokCalendar.DAL
 		{
 			List<CustomEvent> retEvents = new List<CustomEvent>();
 
-			//////// Event ID ////////
 			// Parse ID
 			long parsedId = -1;
 			long.TryParse(id, NumberStyles.Integer, new NumberFormatInfo(), out parsedId);
@@ -246,15 +278,15 @@ namespace TikTokCalendar.DAL
 					}
 				}
 			}
-
+			
+			// Make sure there are no duplicates
+			// NOTE: This is only necesarry if we aren't sure all the events have correct IDs (we don't have to use this when we use data straight from timeedit)
 			if (courses.Count > 1)
 			{
-				// TODO Add this event to a list
-				// then check if when parsing an event to see if an event already (subject code, course, roomname, startdate)
-				var evDup = new EventDuplicate(subject.Code, new List<Course>(), room, startDates[0]);
-				// TODO Find this evDup in the eventDuplicates list
-				// if its there, stop parsing this one
-				// else keep parsin
+				if (IsEventDuplicate(subject.Code, id, room, startDates[0]))
+				{
+					return retEvents;
+				}
 			}
 
 			// Get years
@@ -272,6 +304,27 @@ namespace TikTokCalendar.DAL
 				retEvents.Add(evnt);
 			}
 			return retEvents;
+		}
+
+		private bool IsEventDuplicate(string subjectCode, string eventId, string roomName, DateTime startDateTime)
+		{
+			// Make a EventDuplicate object with this events info
+			var eventDup = new EventDuplicate(subjectCode, eventId, roomName, startDateTime);
+
+			// Try to find eventDup in the duplicate list
+			Predicate<EventDuplicate> eventFinder = (EventDuplicate e) => (e == eventDup);
+			var possibleDuplicate = possibleDuplicateEvents.Find(eventFinder);
+
+			// Check if we have a possible duplicate, and if the IDs doesn't match up
+			if (possibleDuplicate != null && possibleDuplicate.ID != eventDup.ID)
+			{
+				// Event is a duplicate
+				return true;
+			}
+			
+			// Add the event to the possible duplicate list
+			possibleDuplicateEvents.Add(eventDup);
+			return false;
 		}
 
 		public List<CustomEvent> ParseExamEvent(string startDate, string subjectCode, string subjectName, string activity, int weighting, string duration, string helpers)
@@ -437,6 +490,20 @@ namespace TikTokCalendar.DAL
 		private class JRootExamReservationRootObject
 		{
 			public List<JExamReservation> reservations { get; set; }
+		}
+
+		public class JUser
+		{
+			public string Uname { get; set; }
+			public string Password { get; set; }
+			public string Email { get; set; }
+			public int Course { get; set; }
+			public int Year { get; set; }
+		}
+
+		public class JUserRootObject
+		{
+			public List<JUser> users { get; set; }
 		}
 	}
 }

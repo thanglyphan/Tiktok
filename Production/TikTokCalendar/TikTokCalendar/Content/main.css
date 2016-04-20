@@ -29,23 +29,34 @@ footer {
 }
 
 /*===================================
-  N A V B A R
+  NAVBAR
 ==========================================*/
 
 header {
-    background-color: #FffffF;
+    /*background-color: #FffffF;*/
+
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0));
     width: 100%;
     position: fixed;
     top: 0px;
     z-index: 2;
     font-size: 12px !important;
-    box-shadow: 0 2px 1px -2px gray;
+    /*box-shadow: 0 2px 1px -2px gray;*/
+}
+
+hr.grad-line { 
+    border: 0; 
+    height: 1px;
+    position: relative;
+    margin: 0;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 62%);
+    background: radial-gradient(center, ellipse cover, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 62%);
 }
 
 .header-content {
     max-width: 1000px;
     margin: 0 auto; 
-    height: 51px;
+    height: 57px; /*51*/
     margin-top: -10px;
     position: relative;
 }
@@ -151,7 +162,10 @@ header .header-content .left-2 {
     margin-bottom: 15px;
 }
 
-/* Filter class, assignment and exam */
+/*=======================================
+    FILTER CLASS, ASSIGNMENT & EXAM
+=======================================*/
+
 .filter-container {
      position: relative;
      left: 20px;
@@ -220,7 +234,7 @@ input.filter {
 }
 
 /*===================================
-  C H E C K   I N
+  CHECK IN
 ===================================*/
 .check-in [class^="going-"] {
     visibility: hidden;
@@ -231,7 +245,7 @@ input [class^="going-"]{
 }
 
 /*===================================
-  M O D A L
+  MODAL
 ===================================*/
 .vex-dialog-button, vex-dialog-buttons {
     width: 100%;
@@ -251,6 +265,10 @@ input[type="radio"]:checked + label {
 .vex-dialog-button {
     margin-top: 3px !important;
 }
+
+/*===================================
+  LOGIN-MODAL
+===================================*/
 
 #login-modal .modal-dialog {
 	width: 450px;
@@ -288,7 +306,33 @@ input[type="radio"]:checked + label {
 }
 
 /*===================================
-  M O N T H
+  COOKIE INFORMATION/WARNING
+===================================*/
+
+#cookie-warning {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	width: 500px;
+	/*background-color: rgb(105, 157, 241);*/
+	background-color: #444;
+	padding: 15px;
+	margin: 0;
+	color: #FFF;
+	border-radius: 3px 0 0 0;
+}
+
+#cookie-warning p {
+	font-size: 1em;
+	margin-bottom: 0;
+}
+
+#cookie-warning .close {
+	color: #FFF;
+}
+
+/*===================================
+  MONTH
 ===================================*/
 
 .feed {
@@ -369,7 +413,7 @@ input[type="radio"]:checked + label {
 }
 
 /*===================================
-  E V E N T   F E E D
+  EVENT FEED
 ===================================*/
 .feed-container {
     color: #474f5c;
@@ -620,9 +664,9 @@ input[class^="going-"]:hover {
     }
 }
 
-/*
+/*======================================
 	TOOLTIP AND COUNTDOWN
-*/
+=======================================*/
 
 .activator {
     cursor: pointer !important;
@@ -782,7 +826,7 @@ input[class^="going-"]:hover {
 .results {
     position: relative;
     padding: 8px 14px;
-    top: 26px;
+    top: 28px;
     left: 26px;
     color: #aaa;
     font-weight: 300;

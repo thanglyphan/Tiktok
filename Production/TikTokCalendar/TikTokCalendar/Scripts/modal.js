@@ -1,5 +1,10 @@
 ﻿
 function checkLogin() {
+
+	// TODO: Thang
+	// Gjøre dette isteden for ajaxen, hvis er logget inn
+	// $('#login-modal').modal('show');
+
     $.ajax({
         url: "/Home/GetVisited",
         type: "GET",
@@ -25,7 +30,7 @@ function showLogin() {
     var showRooms = false;
     vex.dialog.open({
         message: 'Navn og klassetrinn',
-        input: '<input name=\"username\" type=\"text\" placeholder=\"Andreas\" required /><div class="class-box"><label for="first"> Første</label><input class="input-year" type="radio" name="trinn" value="first" id="first" first></div> <div class="class-box"><label for="second"> Andre</label><input class="input-year" type="radio" name="trinn" value="second" id="second"></div><div class="class-box"><label for="third"> Tredje</label><input class="input-year" type="radio" name="trinn" value="third" id="third"></div>',
+        input: '<input name=\"username\" type=\"text\" placeholder=\"Andreas\" required /><div class="class-box"><label for="first"> Første</label><input class="input-year" checked="checked" type="radio" name="trinn" value="first" id="first" first></div> <div class="class-box"><label for="second"> Andre</label><input class="input-year" type="radio" name="trinn" value="second" id="second"></div><div class="class-box"><label for="third"> Tredje</label><input class="input-year" type="radio" name="trinn" value="third" id="third"></div>',
 
         showCloseButton: true,
         buttons: [
@@ -45,13 +50,13 @@ function showLogin() {
 
         callback: function (data) {
             if (data === 'available') {
-
                 $.ajax({
                     url: "/Home/Rooms",
                     type: 'GET',
-                    dataType: 'html', // <-- to expect an html response
+                    dataType: 'html' // <-- to expect an html response
                 });
-                window.location.reload();
+                window.alert("Rooms");
+                //window.location.reload();
                 return;
             }
 
@@ -131,12 +136,6 @@ function showLogin() {
                             $.extend({}, vex.dialog.buttons.NO, {
                                 className: 'vex-dialog-button', text: 'Spillprogrammering', click: function ($vexContent, event) {
                                     $vexContent.data().vex.value = 'Spillprogrammering';
-                                    vex.close($vexContent.data().vex.id);
-                                }
-                            }),
-                            $.extend({}, vex.dialog.buttons.NO, {
-                                className: 'vex-dialog-button', text: '3D Grafikk', click: function ($vexContent, event) {
-                                    $vexContent.data().vex.value = '3DGrafikk';
                                     vex.close($vexContent.data().vex.id);
                                 }
                             }),

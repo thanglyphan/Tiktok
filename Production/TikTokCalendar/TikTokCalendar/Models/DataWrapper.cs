@@ -12,17 +12,25 @@ namespace TikTokCalendar.Models
     // Collection of the .json data
     public class DataWrapper
     {
-        // TODO Possibly put these in dictionaries for fast lookup????
-        public List<Subject> Subjects { get; private set; }
+		// Singleton stuff
+		private DataWrapper() { }
+		static DataWrapper() { }
+		private static readonly DataWrapper _instance = new DataWrapper();
+		public static DataWrapper Instance { get { return _instance; } }
+
+		// TODO Possibly put these in dictionaries for fast lookup????
+		public List<Subject> Subjects { get; private set; }
         public List<Course> Courses { get; private set; }
         public List<CourseSubject> CourseSubjects { get; private set; }
         public List<CustomEvent> AllEvents { get; private set; }
+        public List<StudentUser> Users { get; private set; }
 
-        public void Initialize(List<Subject> subjs, List<Course> courses, List<CourseSubject> courseSubjs)
+		public void Initialize(List<Subject> subjs, List<Course> courses, List<CourseSubject> courseSubjs, List<StudentUser> users)
         {
             Subjects = subjs;
             Courses = courses;
             CourseSubjects = courseSubjs;
+			Users = users;
         }
 
         public void SetSchoolSystemDependantData(List<CustomEvent> allEvents)
@@ -31,6 +39,18 @@ namespace TikTokCalendar.Models
             //AllEvents.OrderBy(x => x.StartDateTime);
             //OrderBy(x => x.StartTime).ToList();
         }
+
+		public bool IsValidUser(StudentUser user)
+		{
+			foreach (var u in Users)
+			{
+				if (user.IsValid(u))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
 
         public List<CustomEventMonth> GetEventsWithUser(StudentUser user)
         {
@@ -294,12 +314,6 @@ namespace TikTokCalendar.Models
             }
             return retList;
         }
-
-        // Singleton stuff
-        private DataWrapper() { }
-        static DataWrapper() { }
-        private static readonly DataWrapper _instance = new DataWrapper();
-        public static DataWrapper Instance { get { return _instance; } }
 
         /// <summary>
         /// Gets all keywords from AllEvents (user specific, mainly for the autocomplete)
