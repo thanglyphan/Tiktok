@@ -26,16 +26,18 @@ $(function () {
     $(".mobile-date").textfill();
 
     var lastId = "";
-    $('*[class^="class-info event-id"]').hover(function () {
-        var eventId = $(this).attr('class');
+   
+
+    $('*[class^="feed-container').mouseenter(function () {
+        var eventId = $(this).attr('id');
         var arrayId = eventId.split('-');
-        toggleOnHover(arrayId[3]);
+        lastId = arrayId;
+        toggleOnHover(arrayId[1]);
     });
 
-    $('*[class^="activator usersgoing event-id"]').hover(function () {
-        var eventId = $(this).attr('class');
-        var arrayId = eventId.split('-');
-        toggleOnHover(arrayId[2]);
+    $('*[class^="feed-container').mouseleave(function () {
+        var stringId = '.going-' + lastId;
+        $(stringId).css('visibility', 'hidden');
     });
 
     function toggleOnHover(id) {
@@ -50,14 +52,6 @@ $(function () {
 
     $('#menu').slicknav({
         prependTo: '.mobile-navbar-container'
-    });
-
-    $(".feed-month").mouseenter(function (event) {
-        $("badge-container").css("display", "inline-block");
-    });
-
-    $(".feed-month").mouseleave(function (event) {
-        $("badge-container").css("display", "none");
     });
 
     function isEmpty(str) {
