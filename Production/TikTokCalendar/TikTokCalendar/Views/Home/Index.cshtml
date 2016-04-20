@@ -323,6 +323,32 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="jumbotron" id="cookie-warning">
+			<button type="button" class="close" onclick="closeCookieWarning()">&times;</button>
+			<p>
+				<strong>Informasjonskapsler</strong><br />
+				Denne nettsida bruker <em>informasjonskapsler</em>. Ved å bruke sida godtar du at disse blir lagret på din maskin.
+			</p>
+		</div>
+
     </div>
 </main>
 
+<script>
+	// TODO: Thang
+	// Sette en cookie isteden for denne variablen
+	var hasShownCookieWarning = false;
+
+	function closeCookieWarning() {
+		$("#cookie-warning").hide();
+		hasShownCookieWarning = true;
+	}
+	$(document).ready(function () {
+		if (!hasShownCookieWarning) {
+			$("#cookie-warning").show();
+		} else {
+			$("#cookie-warning").hide();
+		}
+	});
+</script>

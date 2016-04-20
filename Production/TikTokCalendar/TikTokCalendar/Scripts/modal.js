@@ -1,5 +1,10 @@
 ﻿
 function checkLogin() {
+
+	// TODO: Thang
+	// Gjøre dette isteden for ajaxen, hvis er logget inn
+	// $('#login-modal').modal('show');
+
     $.ajax({
         url: "/Home/GetVisited",
         type: "GET",

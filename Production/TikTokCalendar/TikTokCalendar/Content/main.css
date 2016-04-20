@@ -258,6 +258,10 @@ input[type="radio"]:checked + label {
     margin-top: 3px !important;
 }
 
+/*===================================
+  LOGIN-MODAL
+===================================*/
+
 #login-modal .modal-dialog {
 	width: 450px;
 	max-width: 100%;
@@ -291,6 +295,28 @@ input[type="radio"]:checked + label {
 
 #login-modal .modal-body * {
 	font-size: 16px;
+}
+
+/*===================================
+  COOKIE INFORMATION/WARNING
+===================================*/
+
+#cookie-warning {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	width: 500px;
+	/*background-color: rgb(105, 157, 241);*/
+	background-color: #444;
+	padding: 15px;
+	margin: 0;
+	color: #FFF;
+	border-radius: 3px 0 0 0;
+}
+
+#cookie-warning p {
+	font-size: 1em;
+	margin-bottom: 0;
 }
 
 /*===================================
