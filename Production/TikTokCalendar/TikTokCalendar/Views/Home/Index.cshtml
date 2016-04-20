@@ -23,10 +23,11 @@
 
 <!-- Go to current month/week -->
 <script>
-$(function() {
-	@*$(document).scrollTop( $("#goto-@DateTime.Now.Month").offset().top );*@
-	$(document).scrollTop( $("#goto-week-@anchor").offset().top - 65 );
-});
+	$(function() {
+		@*$(document).scrollTop( $("#goto-@DateTime.Now.Month").offset().top );*@
+		$(document).scrollTop( $("#goto-week-@anchor").offset().top - 65 );
+	});
+
 </script>
 
 <!-- Holds global settings and spans the entire page   -->
@@ -82,7 +83,7 @@ $(function() {
 							}
 
                             <!-- Link on every event -->
-                            <div class="feed-container @today">
+                            <div class="feed-container @today" id="feed-@item.ID">
 
                                 <!-- Container for the event content -->
                                 <div class="content">
@@ -177,39 +178,24 @@ $(function() {
                                         <!-- eventually limit the number of weeks for going/check-in to show here:
                                         if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime.AddDays(21))
                                         {-->
-                                        @if (userName != "" && userName != "Jon Doe" && item.MainEventType != TikTokCalendar.Models.MainEventType.Innlevering)
-										{
-											using (Ajax.BeginForm("UserStatUpdate", "Home", new { id = "check-in-form-" + @item.ID }, new AjaxOptions
-											{
+                                        @if (userName != "" && userName != "Jon Doe" && item.MainEventType != TikTokCalendar.Models.MainEventType.Innlevering) {
+											using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions {
 												HttpMethod = "POST",
 												UpdateTargetId = "going-" + item.ID,
 												InsertionMode = InsertionMode.Replace
-											}))
-											{
+											})) {
 												// Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
                                         <div class="check-in" id="going-@item.ID">
-                                            @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
-											{
+                                            @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
 												bool geo = true;
-												if (!EUSH.UserAttending(item.ID, userName))
-															{
+												if (!EUSH.UserAttending(item.ID, userName)) {
 													<input type="hidden" name="eventid" value="@item.ID" />
 													<input type="hidden" name="attend" value="true" />
-
-													if (geo)
-													{
-														<input type="submit" style="display:none;" value="Check-in" onload="(this).submit()" />
-														if (EUSH.UserAttending(item.ID, userName)) {
-															<strong>Innsjekket &#10004;</strong>
-														}
-													}
-													else {
-														<input type="submit" value="Check-in" />
-													}
-												}
+													<input type="submit" value="Check-in" />
+}
 												else {
 													<strong>Innsjekket &#10004;</strong>
-												}
+}
 
 											}
 											else {
@@ -217,47 +203,41 @@ $(function() {
                                                     <input type="hidden" name="eventid" value="@item.ID" />
                                                     <input type="hidden" name="attend" value="false" />
                                                     <input type="submit" value="Going" class="going-@item.ID"/>
-                                                }
-                                                else
-                                                {
+}
+												else {
                                                     <strong>going</strong>
-                                                }
-                                            }
+}
+											}
                                             <div class="tip-item">
                                                 @{
-                                                    var howMany = EUSH.HowManyUsersGoing(item.ID);
-                                                    var showTip = "hide";
-                                                    if (howMany > 0)
-                                                    {
-                                                        showTip = ""; // false (hide box if no users to display)
-                                                    }
+													var howMany = EUSH.HowManyUsersGoing(item.ID);
+													var showTip = "hide";
+													if (howMany > 0) {
+														showTip = ""; // false (hide box if no users to display)
+													}
                                                 }
                                                 <span class="activator usersgoing event-id-@item.ID">@howMany going</span>
                                                 <div class="tip usersgoing @showTip">
-                                                    @foreach (var eus in Model.eventUserStats)
-                                                    {
-                                                        if (eus.EventID == item.ID)
-                                                        {
+                                                    @foreach (var eus in Model.eventUserStats) {
+														if (eus.EventID == item.ID) {
                                                             <span class="no-linebreak">
-                                                                @if (EUSH.UserAttending(item.ID, eus.UserName))
-                                                                {
+                                                                @if (EUSH.UserAttending(item.ID, eus.UserName)) {
                                                                     <text>&#10004;</text>
-                                                                }
+}
                                                                 @eus.UserName<br />
                                                             </span>
-                                                        }
-                                                    }
+}
+													}
                                                 </div>
                                             </div>
                                         </div>
-                                                        }
-                                                    }
+														}
+													}
                                     </div>
                                 </div>
                             </div>
 
-
-                                <!-- "More info" modal -->
+								<!-- "More info" modal -->
                                 <div class="content-hidden modal fade" id="@item.ID" role="dialog">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -319,6 +299,30 @@ $(function() {
 				}
 			</div>
 		}
+
+		<!-- Log in window modal -->
+		<div class="content-hidden modal fade" id="login-modal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!-- Modal header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						Logg inn
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body">
+						@using (Html.BeginForm("Index", "Home")) {
+							<input type="email" class="form-control" id="email" placeholder="Brukernavn">
+							<input type="password" class="form-control" id="pwd" placeholder="Passord">
+							<button type="submit" class="btn btn-md btn-primary btn-block btn-login">logg inn</button>
+						}
+						<button class="btn btn-md btn-default btn-block btn-free-rooms">vis ledige rom</button>
+					</div>
+				</div>
+			</div>
+		</div>
     </div>
 </main>
 
