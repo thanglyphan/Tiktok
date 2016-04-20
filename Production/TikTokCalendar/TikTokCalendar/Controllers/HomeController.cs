@@ -16,7 +16,8 @@ namespace TikTokCalendar.Controllers
 	{
 		private readonly Cookies cookie = new Cookies();
 
-		public ActionResult Index(string tags = "", string lecture = "", string assignment = "", string exam = "", bool filtered = false)
+        [ValidateInput(false)]
+        public ActionResult Index(string tags = "", string lecture = "", string assignment = "", string exam = "", bool filtered = false)
 		{
             bool lec = false, ass = false, exa = false;
             if (filtered)
@@ -199,7 +200,8 @@ namespace TikTokCalendar.Controllers
 			return -1;
 		}
 
-		public JsonResult AutoComplete(string search)
+        [ValidateInput(false)]
+        public JsonResult AutoComplete(string search)
 		{
             /* // static test data (delete eventually)
             var data = new[] {"Programmering","Spillprogrammering","Intelligente systemer","Mobil apputvikling",
@@ -208,6 +210,7 @@ namespace TikTokCalendar.Controllers
                 "Avansert javaprogrammering","Undersøkelsesmetoder","Enterprise programmering 2","Innlevering",
                 "Forelesning","Eksamen" };
             */
+            string temp = DataWrapper.Instance.FilterCharacters(search);
             var list = new List<string>();
 
             if (Session["keywords"] == null)
@@ -222,7 +225,7 @@ namespace TikTokCalendar.Controllers
                 list = (List<string>)Session["keywords"]; 
             }
             
-            var result = list.Where(x => x.Contains(search.ToLower())).ToList();
+            var result = list.Where(x => x.Contains(temp.ToLower())).ToList();
             return Json(result, JsonRequestBehavior.AllowGet);
 		}
 		public JsonResult UserName(string a)

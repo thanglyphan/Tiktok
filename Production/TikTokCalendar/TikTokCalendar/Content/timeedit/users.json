@@ -1,0 +1,95 @@
+﻿{
+  "users": [
+    {
+      "Uname": "prog2",
+      "Password": "1234",
+      "Email": "prog2@gmail.com",
+      "Course": 2,
+      "Year": "2"
+    },
+    {
+      "Uname": "spillprog2",
+      "Password": "1234",
+      "Email": "spillprog2@gmail.com",
+      "Course": 1,
+      "Year":  "2"
+    },
+    {
+      "Uname": "intsys2",
+      "Password": "1234",
+      "Email": "intsys2@gmail.com",
+      "Course": 3,
+      "Year":  "2"
+    },
+    {
+      "Uname": "ebus2",
+      "Password": "1234",
+      "Email": "ebus2@gmail.com",
+      "Course": 5,
+      "Year":  "2"
+    },
+    {
+      "Uname": "intdesign2",
+      "Password": "1234",
+      "Email": "intdesign2@gmail.com",
+      "Course": 6,
+      "Year":  "2"
+    },
+    {
+      "Uname": "spilldes2",
+      "Password": "1234",
+      "Email": "spilldes2@gmail.com",
+      "Course": 7,
+      "Year":  "2"
+    }{
+      "Uname": "prog3",
+      "Password": "1234",
+      "Email": "prog3@gmail.com",
+      "Course": 2,
+      "Year": "3"
+    },
+    {
+      "Uname": "spillprog3",
+      "Password": "1234",
+      "Email": "spillprog3@gmail.com",
+      "Course": 1,
+      "Year":  "3"
+    },
+    {
+      "Uname": "intsys3",
+      "Password": "1234",
+      "Email": "intsys3@gmail.com",
+      "Course": 3,
+      "Year":  "3"
+    },
+    {
+      "Uname": "ebus3",
+      "Password": "1234",
+      "Email": "ebus3@gmail.com",
+      "Course": 5,
+      "Year":  "3"
+    },
+    {
+      "Uname": "intdesign3",
+      "Password": "1234",
+      "Email": "intdesign3@gmail.com",
+      "Course": 6,
+      "Year":  "3"
+    },
+    {
+      "Uname": "spilldes3",
+      "Password": "1234",
+      "Email": "spilldes3@gmail.com",
+      "Course": 7,
+      "Year":  "3"
+    },
+    {
+      "Uname": "it1",
+      "Password": "1234",
+      "Email": "it1@gmail.com",
+      "Course": 8,
+      "Year":  "1"
+    }
+
+  ]
+}
