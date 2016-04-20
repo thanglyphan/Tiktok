@@ -10,7 +10,7 @@
 
     int eventCount = Model.GetEventCount();
     string searchLine = "";
-    if (Model.searchWords != "")
+    if (Model.isFiltered)
     {
         searchLine = "border-left: 1px solid #c6cedb;";
     }
@@ -71,7 +71,7 @@
                         },
                         success: function (data) {
 
-                            response($.map(data, function (item) {
+                            response($.sfp(data, function (item) {
                                 return {
                                     label: item
                                 };
@@ -114,7 +114,7 @@
             </div>
 
             <span class="results" style="@searchLine">
-                @if (Model.searchWords != "")
+                @if (Model.isFiltered)
                 {
                     if (eventCount > 1)
                     {
@@ -179,12 +179,12 @@
                 </script>
 
 			<!--Login-modal test-->
-			<button type="button" class="btn btn-info" data-toggle="modal" data-target="#login-modal">Open Login-modal</button>
+			<button style="right: -150px; position: absolute;" type="button" class="btn btn-info" data-toggle="modal" data-target="#login-modal">Open Login-modal</button>
 			
 
             </div>
 
-
+        <hr class="grad-line" />
 	</header>
 	
     @RenderBody()

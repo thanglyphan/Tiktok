@@ -29,23 +29,31 @@ footer {
 }
 
 /*===================================
-  N A V B A R
+  NAVBAR
 ==========================================*/
 
 header {
-    background-color: #FffffF;
+    background-color: #F5F6F8; /*#FffffF;*/ 
     width: 100%;
     position: fixed;
     top: 0px;
     z-index: 2;
     font-size: 12px !important;
-    box-shadow: 0 2px 1px -2px gray;
+    /*box-shadow: 0 2px 1px -2px gray;*/
+}
+
+hr.grad-line { 
+    border: 0; 
+    height: 1px;
+    position: relative;
+    margin: 0;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 66%);
 }
 
 .header-content {
     max-width: 1000px;
     margin: 0 auto; 
-    height: 51px;
+    height: 57px; /*51*/
     margin-top: -10px;
     position: relative;
 }
@@ -151,7 +159,10 @@ header .header-content .left-2 {
     margin-bottom: 15px;
 }
 
-/* Filter class, assignment and exam */
+/*=======================================
+    FILTER CLASS, ASSIGNMENT & EXAM
+=======================================*/
+
 .filter-container {
      position: relative;
      left: 20px;
@@ -220,7 +231,7 @@ input.filter {
 }
 
 /*===================================
-  C H E C K   I N
+  CHECK IN
 ===================================*/
 .check-in [class^="going-"] {
     visibility: hidden;
@@ -231,7 +242,7 @@ input [class^="going-"]{
 }
 
 /*===================================
-  M O D A L
+  MODAL
 ===================================*/
 .vex-dialog-button, vex-dialog-buttons {
     width: 100%;
@@ -314,7 +325,7 @@ input[type="radio"]:checked + label {
 }
 
 /*===================================
-  M O N T H
+  MONTH
 ===================================*/
 
 .feed {
@@ -395,7 +406,7 @@ input[type="radio"]:checked + label {
 }
 
 /*===================================
-  E V E N T   F E E D
+  EVENT FEED
 ===================================*/
 .feed-container {
     color: #474f5c;
@@ -646,9 +657,9 @@ input[class^="going-"]:hover {
     }
 }
 
-/*
+/*======================================
 	TOOLTIP AND COUNTDOWN
-*/
+=======================================*/
 
 .activator {
     cursor: pointer !important;
@@ -808,7 +819,7 @@ input[class^="going-"]:hover {
 .results {
     position: relative;
     padding: 8px 14px;
-    top: 26px;
+    top: 28px;
     left: 26px;
     color: #aaa;
     font-weight: 300;
