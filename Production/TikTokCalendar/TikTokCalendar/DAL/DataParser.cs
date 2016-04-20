@@ -218,7 +218,7 @@ namespace TikTokCalendar.DAL
 			}
 		}
 
-		private List<EventDuplicate> possibleDuplicateEvents = new List<EventDuplicate>();
+		private readonly List<EventDuplicate> possibleDuplicateEvents = new List<EventDuplicate>();
 
 		/// <summary>
 		/// Parses an event and returns a List<CustomEvent>. 

@@ -132,7 +132,7 @@ namespace TikTokCalendar.Controllers
 			if (calEvent.Year < 0) return true;
 			return user.ClassYear == calEvent.Year;
 		}
-		private String returnName()
+		private string returnName()
 		{
 
 			string userName = (string)Session["b"];
@@ -142,7 +142,7 @@ namespace TikTokCalendar.Controllers
 			}
 			else { return userName; }
 		}
-		private String returnCourse()
+		private string returnCourse()
 		{
 			string userCourse = (string)Session[Cookies.UserNameCookieKey];
 			if (userCourse == "")

@@ -12,28 +12,12 @@ namespace TikTokCalendar.DAL
 
 		private DateTime ExpiryDate { get { return DateTime.Now.AddYears(1); } }
 
-		/*
-		public void SaveIntToCookie(int a)
-		{
-			try {
-				HttpCookie WeekOrMonthCookie = new HttpCookie("WeekMonth");
-				WeekOrMonthCookie.Value = a.ToString();
-				WeekOrMonthCookie.Expires = DateTime.Now.AddYears(1);
-				Console.WriteLine("FROM COOKES.CS" + a);
-				HttpContext.Current.Response.Cookies.Add(WeekOrMonthCookie);
-			}
-			catch (HttpException e) {
-				Console.Write("Cookies.cs - SaveIntToCookies " + e.ErrorCode);
-			}
-		}
-		*/
 		public void DeleteCookies()
 		{
 			try {
-
-				HttpCookie name = new HttpCookie("UserName");
-				HttpCookie course = new HttpCookie("UserCourse");
-				HttpCookie year = new HttpCookie("Year");
+				HttpCookie name = new HttpCookie(UserNameCookieKey);
+				HttpCookie course = new HttpCookie(CourseCookieKey);
+				HttpCookie year = new HttpCookie(YearCookieKey);
 
 				year.Expires = DateTime.Now.AddDays(-1);
 				name.Expires = DateTime.Now.AddDays(-1);
@@ -42,15 +26,6 @@ namespace TikTokCalendar.DAL
 				HttpContext.Current.Response.Cookies.Add(name);
 				HttpContext.Current.Response.Cookies.Add(course);
 				HttpContext.Current.Response.Cookies.Add(year);
-
-
-				/*
-				HttpCookie name = new HttpCookie("UserName");
-				HttpCookie course = new HttpCookie("UserCouese");
-				name = HttpContext.Current.Request.Cookies["UserName"];
-				course = HttpContext.Current.Request.Cookies[key];
-				if ()
-					*/
 			}
 			catch (HttpException e) {
 				Console.WriteLine(e.ToString());
@@ -59,55 +34,56 @@ namespace TikTokCalendar.DAL
 		public void SaveYearToCookies(string a)
 		{
 			try {
-				HttpCookie YearCookie = new HttpCookie("Year");
-				YearCookie.Value = a;
-				YearCookie.Expires = DateTime.Now.AddYears(1);
-				HttpContext.Current.Response.Cookies.Add(YearCookie);
+				HttpCookie yearCookie = new HttpCookie(YearCookieKey);
+				yearCookie.Value = a;
+				yearCookie.Expires = ExpiryDate;
+				HttpContext.Current.Response.Cookies.Add(yearCookie);
 
 
 			}catch (HttpException e) {
 				e.ToString();
 			}
 		}
-		public void SaveNameToCookie(String a)
+		public void SaveNameToCookie(string a)
 		{
 			try {
-				HttpCookie UsernameCookie = new HttpCookie("UserName");
+				HttpCookie usernameCookie = new HttpCookie(UserNameCookieKey);
 				if (a == "Default") {
-					UsernameCookie.Value = "John Doe";
-					UsernameCookie.Expires = DateTime.Now.AddYears(5);
+					usernameCookie.Value = "John Doe";
+					usernameCookie.Expires = ExpiryDate;
 					SaveYearToCookies(DateTime.Now.Year.ToString());
 				}
 				else {
-					UsernameCookie.Value = a;
-					UsernameCookie.Expires = DateTime.Now.AddYears(1);
+					usernameCookie.Value = a;
+					usernameCookie.Expires = ExpiryDate;
 				}
 				//Console.WriteLine("FROM COOKES.CS" + a);
-				HttpContext.Current.Response.Cookies.Add(UsernameCookie);
+				HttpContext.Current.Response.Cookies.Add(usernameCookie);
 			}
 			catch (HttpException e) {
 				Console.Write("Cookies.cs - SaveNameToCookies " + e.ErrorCode);
 			}
 		}
-		public void SaveCourseToCookie(String a)
+		public void SaveCourseToCookie(string a)
 		{
 			try {
-				HttpCookie CourseCookie = new HttpCookie("UserCourse");
+				HttpCookie courseCookie = new HttpCookie(CourseCookieKey);
 				if (a == "Default") {
-					CourseCookie.Value = "VisAlt"; //Vis alt. Enum?
-					CourseCookie.Expires = DateTime.Now.AddYears(5);
+					courseCookie.Value = SchoolCourses.VisAlt.ToString();
+					courseCookie.Expires = ExpiryDate;
 				}
 				else {
-					CourseCookie.Value = a;
-					CourseCookie.Expires = DateTime.Now.AddYears(1);
+					courseCookie.Value = a;
+					courseCookie.Expires = ExpiryDate;
 				}
-				HttpContext.Current.Response.Cookies.Add(CourseCookie);
+				HttpContext.Current.Response.Cookies.Add(courseCookie);
 			}
 			catch (HttpException e) {
 				Console.Write("Cookies.cs - SaveCourseToCookie " + e);
 			}
 		}
-		public String LoadStringFromCookie(String key)
+
+		public string LoadStringFromCookie(string key)
 		{
 			try {
 				HttpCookie myCookie = new HttpCookie(key);
@@ -127,16 +103,6 @@ namespace TikTokCalendar.DAL
 
 			return null;
 
-		}
-
-		public int LoadIntFromCookie(String key) //Week or month view by user.
-		{
-			String s = LoadStringFromCookie(key);
-			int number;
-			if(int.TryParse(s,out number)) {
-				return number;
-			}
-			return -1;
 		}
 	}
 }
