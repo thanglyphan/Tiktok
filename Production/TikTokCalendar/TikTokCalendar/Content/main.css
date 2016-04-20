@@ -254,6 +254,37 @@ input[type="radio"]:checked + label {
     margin-top: 3px !important;
 }
 
+#login-modal .modal-dialog {
+	width: 450px;
+	max-width: 100%;
+	margin-top: 160px;
+}
+
+#login-modal input {
+	margin-bottom: 5px;
+	border: 0;
+}
+
+#login-modal .btn {
+	font-variant: small-caps;
+	background-color: rgb(50, 136, 230);
+	font-family: "Helvetica Neue", sans-serif;
+	border: 0;
+}
+
+#login-modal .modal-body {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#login-modal .modal-body * {
+	font-size: 16px;
+}
+
+#login-modal btn-free-rooms {
+	margin-top: 5px;
+}
+
 /*===================================
   M O N T H
 ===================================*/
