@@ -20,8 +20,6 @@ namespace TikTokCalendar.Controllers
         [ValidateInput(false)]
         public ActionResult Index(string Email, string Password, string tags = "", string lecture = "", string assignment = "", string exam = "", bool filtered = false)
 		{
-
-
 			bool lec = false, ass = false, exa = false;
             if (filtered)
             {
@@ -55,35 +53,44 @@ namespace TikTokCalendar.Controllers
             {
                 modelWrapper = new ModelDataWrapper(tags, lec, ass, exa);
             }
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(InitUser(tags), tags, lec, ass, exa);
+			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(InitUser(Email, Password, tags), tags, lec, ass, exa);
 
             // Show event count
             if (!(lec && ass && exa) && (filtered || tags.Length > 0))
             {
                 modelWrapper.isFiltered = true;
             }
-			StudentUser a = DataWrapper.Instance.GetUser(Email,Password);
-
-			if (a != null) {
-				cookie.SaveNameToCookie(a.Email);
-				cookie.SaveCourseToCookie(a.Course.ToString());
-				cookie.SaveYearToCookies(a.GetYearAsText());
-			}
+			
 			// Send the model to the view
 			return View(modelWrapper);
 		}
 
-        public StudentUser InitUser(string tags)
+        public StudentUser InitUser(string userName, string password, string tags)
         {
             // Get the user from cookies
-            StudentUser user = GetUserFromNameCourse();
+            StudentUser user = null;
 
             // Parse all the JSON data
             DataParser dataParser = new DataParser();
             dataParser.ParseAllData();
 
-            // DEBUG Set the page title
-            var username = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
+	        if (!string.IsNullOrEmpty(userName))
+	        {
+		        user = DataWrapper.Instance.GetUser(userName, password);
+		        if (user != null)
+		        {
+			        cookie.SaveNameToCookie(user.Email);
+			        cookie.SaveCourseToCookie(user.Course.ToString());
+			        cookie.SaveYearToCookies(user.GetYearAsText());
+		        }
+	        }
+	        else
+	        {
+		        user = GetUserFromNameCourse();
+	        }
+
+			// DEBUG Set the page title
+			var username = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
             if (!string.IsNullOrEmpty(username))
             {
                 ViewBag.Title = string.Format("{0}[{1}-{2}]: {3} [{4}]", 

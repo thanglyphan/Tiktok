@@ -24,6 +24,7 @@ namespace TikTokCalendar.Models
         public List<CourseSubject> CourseSubjects { get; private set; }
         public List<CustomEvent> AllEvents { get; private set; }
         public List<StudentUser> Users { get; private set; }
+		public Dictionary<string, Room> Rooms { get; private set; }
 
 		public void Initialize(List<Subject> subjs, List<Course> courses, List<CourseSubject> courseSubjs, List<StudentUser> users)
         {
@@ -33,12 +34,13 @@ namespace TikTokCalendar.Models
 			Users = users;
         }
 
-        public void SetSchoolSystemDependantData(List<CustomEvent> allEvents)
+        public void SetSchoolSystemDependantData(List<CustomEvent> allEvents, Dictionary<string, Room> rooms)
         {
             AllEvents = allEvents.OrderBy(x => x.StartDateTime).ToList();
             //AllEvents.OrderBy(x => x.StartDateTime);
             //OrderBy(x => x.StartTime).ToList();
-        }
+			Rooms = rooms;
+		}
 
 		public bool IsValidUser(StudentUser user)
 		{
