@@ -841,3 +841,25 @@ input[class^="going-"]:hover {
     height: 16px;
     width: 100%;
 }
+
+/*TESTING*/
+
+#table-test td, #table-test th {
+	text-align: center;
+	width: 16%;
+	height: 5em;
+}
+
+#table-test-bars th {
+	width: 20%;
+}
+#table-test-bars .progress {
+	margin: 0;
+	height: 1.2em;
+}
+
+#table-test-bars .progress-bar {
+	border-left: 1px solid #fff;
+	font-size: 0.8em;
+	line-height: 1.3em;
+}

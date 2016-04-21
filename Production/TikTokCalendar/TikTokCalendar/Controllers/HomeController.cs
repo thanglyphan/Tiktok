@@ -14,6 +14,7 @@ namespace TikTokCalendar.Controllers
 {
 	public class HomeController : Controller
 	{
+
 		private readonly Cookies cookie = new Cookies();
 
         [ValidateInput(false)]
@@ -89,6 +90,11 @@ namespace TikTokCalendar.Controllers
             }
             return user;
         }
+
+		public void AccountLogin(string Email, string Password)
+		{
+			StudentUser a = new StudentUser(Email,Password,"",1,SchoolCourses.Programmering);
+		}
 
         public string CalTest(string id = "")
 		{ 
