@@ -189,7 +189,6 @@ header .header-content .left-2 {
     margin-top: 0px;
     font-size: 1.2em;
     line-height: 1.9em;
-    
 }
 
 .filter-container label  {
@@ -200,7 +199,6 @@ header .header-content .left-2 {
     display: block;
     width: 90px;
     padding-left: 22px;
-    margin-top: -22px;
     font-weight: normal;
 }
 
@@ -272,10 +270,9 @@ input [class^="going-"]{
     color: white;
 }
 
-input[type="checkbox"]:checked + label:before {
-    margin-left: 3px;
-    margin-bottom: 3px !important;
-    content: "✓";
+input[type="checkbox"]:checked + label {
+    /*content: "✓";*/
+    background-image: url("../img/checkmark.png");
 }
 
 .vex-dialog-button {
