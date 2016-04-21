@@ -53,7 +53,10 @@ namespace TikTokCalendar.Controllers
             {
                 modelWrapper = new ModelDataWrapper(tags, lec, ass, exa);
             }
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(InitUser(Email, Password, tags), tags, lec, ass, exa);
+
+			StudentUser user = InitUser(Email, Password, tags);
+
+			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, lec, ass, exa);
 
             // Show event count
             if (!(lec && ass && exa) && (filtered || tags.Length > 0))
@@ -86,7 +89,7 @@ namespace TikTokCalendar.Controllers
 	        }
 	        else
 	        {
-		        //user = GetUserFromNameCourse();
+		        user = GetUserFromNameCourse();
 	        }
 			
 			// DEBUG Set the page title
@@ -103,7 +106,7 @@ namespace TikTokCalendar.Controllers
             {
                 ViewBag.Title = "Not logged in";
             }
-			// set default user here
+
             return user;
         }
 
@@ -161,11 +164,6 @@ namespace TikTokCalendar.Controllers
 			return new[] {"Rom 40", "Rom 41", "Rom 82", "Rom 83", "Vrimle", "Auditoriet"};
 		}
 
-		private bool SameYear(CalendarEvent calEvent, StudentUser user)
-		{
-			if (calEvent.Year < 0) return true;
-			return user.ClassYear == calEvent.Year;
-		}
 		private string returnName()
 		{
 
@@ -176,6 +174,7 @@ namespace TikTokCalendar.Controllers
 			}
 			else { return userName; }
 		}
+
 		private string returnCourse()
 		{
 			string userCourse = (string)Session[Cookies.UserNameCookieKey];
@@ -322,6 +321,7 @@ namespace TikTokCalendar.Controllers
             Session["keywords"] = null;
             return Json("hei", JsonRequestBehavior.AllowGet);
 		}
+
 		public StudentUser GetUserFromNameCourse()
 		{
 			string name = "";
@@ -336,6 +336,7 @@ namespace TikTokCalendar.Controllers
 			else
 			{
 				year = "second";
+				cookie.SaveYearToCookies(year);
 			}
 
 			string cookieUserName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
@@ -345,6 +346,7 @@ namespace TikTokCalendar.Controllers
 			}
 			else {
 				name = "NO NAME";
+				cookie.SaveNameToCookie(name);
 			}
 			string cookieCourse = cookie.LoadStringFromCookie(Cookies.CourseCookieKey);
 			if (!string.IsNullOrEmpty(cookieCourse))
@@ -353,6 +355,7 @@ namespace TikTokCalendar.Controllers
 			}
 			else {
 				course = "VisAlt";
+				cookie.SaveCourseToCookie(course);
 			}
 
 
