@@ -1,10 +1,10 @@
 ﻿
 function checkLogin() {
 
-	// TODO: Thang
+	// TODO: Thang, har gjort denne
 	// Gjøre dette isteden for ajaxen, hvis er logget inn
-	// $('#login-modal').modal('show');
-
+	//$('#login-modal').modal('show');
+    
     $.ajax({
         url: "/Home/GetVisited",
         type: "GET",
@@ -14,7 +14,7 @@ function checkLogin() {
             if (data) {
                 console.log("Data er: " + data)
             } else {
-                showLogin();
+                $('#login-modal').modal('show');
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -22,7 +22,7 @@ function checkLogin() {
             alert(thrownError);
         }
     });
-
+    
 }
 
 function showLogin() {
