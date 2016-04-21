@@ -296,7 +296,7 @@
 
 					<!-- Modal body -->
 					<div class="modal-body">
-						@using (Html.BeginForm("AccountLogin","Home")) {
+						@using (Html.BeginForm("Index","Home")) {
 							<input type="text" class="form-control" id="email" name ="Email" placeholder="Brukernavn">
 							<input type="password" class="form-control" id="pwd" name ="Password" placeholder="Passord">
 
@@ -324,22 +324,30 @@
 <script>
 	// TODO: Thang
 	// Sette en cookie isteden for denne variablen
-
+    var True = true, False = false;
     @{
         TikTokCalendar.DAL.Cookies show = new TikTokCalendar.DAL.Cookies();
         bool hasShownCookieWarning = show.LoadHasShownFromCookie();
     }
     var hasShownCookieWarning = @hasShownCookieWarning.ToString().ToLower();
     function closeCookieWarning() {
+        console.log("close window");
+
         $("#cookie-warning").hide();
-        @{
+        @{  
             show.SaveHasShownToCookie();
         }
     }
     $(document).ready(function () {
-        if (!hasShownCookieWarning) {
+        console.log("showing document.ready func");
+
+        if (hasShownCookieWarning === false) {
+            console.log("has shown =false");
+
             $("#cookie-warning").show();
-        } else {
+
+        } else if (hasShownCookieWarning === true){
+            console.log("has shown =true");
             $("#cookie-warning").hide();
         }
     });
