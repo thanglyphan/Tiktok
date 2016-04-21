@@ -36,7 +36,25 @@ namespace TikTokCalendar.Controllers
 			return View("Index", modelWrapper);
 		}
 
-        [ValidateInput(false)]
+		public ActionResult LogOut()
+		{
+			cookie.DeleteCookies();
+			StudentUser user = new StudentUser("NO NAME", "", "", -1, SchoolCourses.VisAlt);
+			ModelDataWrapper modelWrapper = new ModelDataWrapper();
+			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user);
+			List<Room> rooms = new List<Room>();
+			foreach (var room in DataWrapper.Instance.Rooms)
+			{
+				rooms.Add(room.Value);
+			}
+			modelWrapper.Rooms = rooms;
+
+			// to show all keywords when no user
+			//Session["keywords"] = null;
+			return View("Index", modelWrapper);
+		}
+
+		[ValidateInput(false)]
         public ActionResult Index(string Email, string Password, string tags = "", string lecture = "", string assignment = "", string exam = "", bool filtered = false)
 		{
 			bool lec = false, ass = false, exa = false;
@@ -337,11 +355,6 @@ namespace TikTokCalendar.Controllers
 			else {
 				return Json(false, JsonRequestBehavior.AllowGet);
 			}
-		}
-
-		public ActionResult LogOut()
-		{
-			return View();
 		}
 
 		[AcceptVerbs(HttpVerbs.Post)]
