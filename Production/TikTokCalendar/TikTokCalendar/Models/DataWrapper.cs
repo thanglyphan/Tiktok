@@ -52,6 +52,19 @@ namespace TikTokCalendar.Models
 			return false;
 		}
 
+	    public StudentUser GetUser(string name, string password)
+	    {
+			// TODO User predicate
+		    foreach (var user in Users)
+		    {
+			    if (user.UserName == name && user.Password == password)
+			    {
+				    return user;
+			    }
+		    }
+		    return null;
+	    }
+
         public List<CustomEventMonth> GetEventsWithUser(StudentUser user)
         {
             List<CustomEventMonth> months = new List<CustomEventMonth>();
@@ -74,6 +87,20 @@ namespace TikTokCalendar.Models
             }
             return months;
         }
+
+	    public List<Room> GetRooms()
+	    {
+			/*
+			Rooms = new List<Room>();
+	        Room r1 = new Room("Rom 82");
+	        Room r2 = new Room("Rom 83");
+	        Room r3 = new Room("Rom 41");
+
+			DateTime today = DateTime.Today;
+	        r1.TryAddTimeSlot(t1);
+			*/
+			return new List<Room>();
+	    } 
 
         public List<CustomEventMonth> GetEventsWithName(StudentUser user, string tags, bool lecture, bool assignment, bool exam)
         {

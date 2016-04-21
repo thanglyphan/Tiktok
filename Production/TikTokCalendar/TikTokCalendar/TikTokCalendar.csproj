@@ -219,7 +219,9 @@
     <Compile Include="DAL\ExamInit.cs" />
     <Compile Include="DAL\ModelDataWrapper.cs" />
     <Compile Include="DAL\Printer.cs" />
+    <Compile Include="DAL\Room.cs" />
     <Compile Include="DAL\StudentUser.cs" />
+    <Compile Include="DAL\TimeSlot.cs" />
     <Compile Include="Encoder\SHA1.cs" />
     <Compile Include="Extras\DateTimeParser.cs" />
     <Compile Include="Extras\EventUserStatHandler.cs" />
