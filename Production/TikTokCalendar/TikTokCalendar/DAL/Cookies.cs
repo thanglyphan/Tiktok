@@ -82,6 +82,36 @@ namespace TikTokCalendar.DAL
 				Console.Write("Cookies.cs - SaveCourseToCookie " + e);
 			}
 		}
+		public void SaveHasShownToCookie()
+		{
+			try {
+				HttpCookie hasShownCookie = new HttpCookie("Shown");
+				hasShownCookie.Value = "true";
+				hasShownCookie.Expires = ExpiryDate;
+				HttpContext.Current.Response.Cookies.Add(hasShownCookie);
+			}
+			catch (HttpException e) {
+				Console.Write("Cookies.cs - SaveCourseToCookie " + e);
+			}
+		}
+		public bool LoadHasShownFromCookie()
+		{
+			try {
+				HttpCookie myCookie = new HttpCookie("Shown");
+				myCookie = HttpContext.Current.Request.Cookies["Shown"];
+
+				if (myCookie != null && myCookie.Value == "true") { //Returns the value og cookie if not null.
+					return true;
+				}
+				else {
+					return false;
+				}
+			}
+			catch (HttpException e) {
+				Console.Write("Cookies.cs - LoadHasShownFromCookie " + e.ErrorCode);
+			}
+			return false;
+		}
 
 		public string LoadStringFromCookie(string key)
 		{
