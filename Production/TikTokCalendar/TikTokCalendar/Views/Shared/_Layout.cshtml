@@ -145,20 +145,35 @@
 
             <div class="right-2">
 
-				@if (userName != "John Doe") {
+				@*@if (userName != "John Doe") {
 				    <div class="right-1">
 					    <a onclick="delCookie()" class="logout"><p>Logg ut @userName</p><i class="fa fa-sign-out fa-2x"></i></a>
 				    </div>
 				}
 				else {
 					<p>
-						@*<a onclick="showLogin()" class="logout"><span>Logg inn </span><i class="fa fa-sign-in fa-2x"></i></a></p>*@
 						<a class="logout" data-toggle="modal" data-target="#login-modal">
 							<span>Logg inn </span><i class="fa fa-sign-in fa-2x"></i>
 						</a>
 					</p>
-						@*<button style="right: -150px; position: absolute;" type="button" class="btn btn-info" data-toggle="modal" data-target="#login-modal">Open Login-modal</button>*@
-				}
+				}*@
+                
+                @if (userName == "NO NAME")
+                {
+
+                    <p>
+                        <a class="logout" data-toggle="modal" data-target="#login-modal">
+                            <span>Logg inn</span><i class="fa fa-sign-in fa-2x"></i>
+                        </a>
+                    </p>
+                }
+                else
+                {
+                    using (Html.BeginForm("LogOut", "Home"))
+                    {
+                        <button type="submit" class="btn btn-md btn-primary btn-block btn-login">Logg out, @userName</button>
+                    }
+                }    
             </div>
             
 				<script>
@@ -169,7 +184,8 @@
                             dataType: "json",
                             success: function (data) {
                                 console.log(data);
-                                window.location.reload();
+                                //window.location.reload();
+                                //window.location.href = "Index.cshtml";
                             },
                             error: function (xhr, ajaxOptions, thrownError) {
                                 console.log("Feil ved sletting av cookies [delCookies()]");
