@@ -48,16 +48,10 @@ namespace TikTokCalendar.DAL
 		{
 			try {
 				HttpCookie usernameCookie = new HttpCookie(UserNameCookieKey);
-				if (a == "Default") {
-					usernameCookie.Value = "John Doe";
-					usernameCookie.Expires = ExpiryDate;
-					SaveYearToCookies(DateTime.Now.Year.ToString());
-				}
-				else {
-					usernameCookie.Value = a;
-					usernameCookie.Expires = ExpiryDate;
-				}
-				//Console.WriteLine("FROM COOKES.CS" + a);
+				
+				usernameCookie.Value = a;
+				usernameCookie.Expires = ExpiryDate;
+
 				HttpContext.Current.Response.Cookies.Add(usernameCookie);
 			}
 			catch (HttpException e) {
@@ -68,14 +62,9 @@ namespace TikTokCalendar.DAL
 		{
 			try {
 				HttpCookie courseCookie = new HttpCookie(CourseCookieKey);
-				if (a == "Default") {
-					courseCookie.Value = SchoolCourses.VisAlt.ToString();
-					courseCookie.Expires = ExpiryDate;
-				}
-				else {
-					courseCookie.Value = a;
-					courseCookie.Expires = ExpiryDate;
-				}
+				
+				courseCookie.Value = a;
+				courseCookie.Expires = ExpiryDate;
 				HttpContext.Current.Response.Cookies.Add(courseCookie);
 			}
 			catch (HttpException e) {

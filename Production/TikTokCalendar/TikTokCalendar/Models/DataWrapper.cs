@@ -54,6 +54,7 @@ namespace TikTokCalendar.Models
 
 	    public StudentUser GetUser(string name, string password)
 	    {
+			// TODO User predicate
 		    foreach (var user in Users)
 		    {
 			    if (user.UserName == name && user.Password == password)
