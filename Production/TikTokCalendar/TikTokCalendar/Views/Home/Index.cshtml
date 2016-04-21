@@ -308,13 +308,19 @@
 			</div>
 		</div>
 
-		<div class="jumbotron" id="cookie-warning">
-			<button type="button" class="close" onclick="closeCookieWarning()">&times;</button>
-			<p>
-				<strong>Informasjonskapsler</strong><br />
-				Denne nettsiden bruker <em>informasjonskapsler</em>. Ved å bruke siden godtar du at disse blir lagret på din maskin.
-			</p>
-		</div>
+		@{
+			TikTokCalendar.DAL.Cookies show = new TikTokCalendar.DAL.Cookies();
+			bool hasShownCookieWarning = show.LoadHasShownFromCookie();
+			if (!hasShownCookieWarning) {
+				<div class="jumbotron" id="cookie-warning">
+					<button type="button" class="close" onclick="closeCookieWarning()">&times;</button>
+						<p>
+						<strong>Informasjonskapsler</strong><br />
+						Denne nettsiden bruker <em>informasjonskapsler</em>. Ved å bruke siden godtar du at disse blir lagret på din maskin.
+					</p>
+				</div>
+			}
+		}
 
     </div>
 </main>
@@ -322,26 +328,12 @@
 
 
 <script>
-	// TODO: Thang
-	// Sette en cookie isteden for denne variablen
-
-    @{
-        TikTokCalendar.DAL.Cookies show = new TikTokCalendar.DAL.Cookies();
-        bool hasShownCookieWarning = show.LoadHasShownFromCookie();
-    }
-    var hasShownCookieWarning = @hasShownCookieWarning.ToString().ToLower();
+	
     function closeCookieWarning() {
-        $("#cookie-warning").hide();
-        @{
+    	$("#cookie-warning").hide();
+        @{  
             show.SaveHasShownToCookie();
         }
     }
-    $(document).ready(function () {
-        if (!hasShownCookieWarning) {
-            $("#cookie-warning").show();
-        } else {
-            $("#cookie-warning").hide();
-        }
-    });
 
 </script>
