@@ -38,11 +38,12 @@
                 <div class="mobile-content-container-inner">
                     <div class="tip-day">
                         <!-- Course name e.g. "Grensesnittdesign"-->
-                        <div class="mobile-course">@day.Subject.Name</div>
+                        <div class="mobile-room"><span>@day.RoomName</span></div>       
+                        
                     </div>         
                         <!-- Room   name e.g. "Rom 40"-->     
-                    <div id="map"></div>
-                    <div class="mobile-room"><span>@day.RoomName</span></div>       
+                    <a href="https://goo.gl/maps/aPxpk8pxvQS2"><img src="~/img/maps.png" class="map-image" /></a>
+                    <div class="mobile-course">@day.Subject.Name</div>
 
                     <!-- Format time to show double 00 if the clock is 14:00 (if not it shows 14:0) -->
                     @{  var startTime = "";
@@ -186,7 +187,7 @@
                                 </div>
                             </div>
                         </div>
-                                    }
+                      }
 
                 </div>
             </div>
