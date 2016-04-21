@@ -10,7 +10,7 @@
 
     int eventCount = Model.GetEventCount();
     string searchLine = "";
-    if (Model.isFiltered)
+    if (Model.isFiltered || Model.searchWords.Length > 0)
     {
         searchLine = "border-left: 1px solid #c6cedb;";
     }
@@ -115,7 +115,7 @@
             </div>
 
             <span class="results" style="@searchLine">
-                @if (Model.isFiltered)
+                @if (Model.isFiltered || Model.searchWords.Length > 0)
                 {
                     if (eventCount > 1)
                     {
