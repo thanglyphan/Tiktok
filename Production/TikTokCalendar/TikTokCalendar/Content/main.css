@@ -168,67 +168,71 @@ header .header-content .left-2 {
     FILTER CLASS, ASSIGNMENT & EXAM
 =======================================*/
 
+.filter {
+    float: left;
+    width: 90px;
+    height: 21px;
+}
+
 .filter-container {
      position: relative;
      left: 20px;
-     top: 20px;
+     top: 24px;
      float: left;
 
 }
-.filter-container label {
+
+.filter-container .filter {
     color: #aaa;
     margin-top: 0px;
     font-size: 11px;
-    font-weight: 300;
     line-height: 1.9em;
+    
 }
 
-.filter-container label span {
-   display: inline-block;
-   vertical-align: middle;
-   margin-top: 3px;
-   margin-left: 3px;
-   margin-right: 9px;
+.filter-container label
+{
+    cursor: pointer;
+}
+
+.filter-container span {
+    display: block;
+    width: 90px;
+    padding-left: 22px;
+    margin-top: -2px;
+    font-weight: normal;
 }
 
 .filter-container input[type="checkbox"] {
+    display: none;
+}
+
+.filter-container input[type="checkbox"] + label {
+    display: block;
+    position: relative;
     width: 18px;
     height: 18px;
-    display: block;
     border: 1px solid #ccc;
     border-radius: 2px;
     -webkit-appearance: initial;
+    -moz-appearance: initial;   
 }
 
-.filter-container input[type="checkbox"]:nth-chil(1) {
-    margin-left: 15px;
-}
-
-.filter-container input[type="checkbox"].schoolClass {
+.filter-container input[type="checkbox"]#schoolClass + label {
     background-color: rgba(173,212,156,0.6);
 }
 
-.filter-container input[type="checkbox"].assignment {
+.filter-container input[type="checkbox"]#assignment + label {
     background-color: rgba(255,207,81, 0.6);
-
 }
 
-.filter-container input[type="checkbox"].exam {
+.filter-container input[type="checkbox"]#exam + label {
     background-color: rgba(255,90,95, 0.6);
 }
 
-.filter-container input[type="checkbox"]:checked:after
+.filter-container input[type="checkbox"]:checked + label
 {
-    margin-left: 3px;
-    content: "✓";  
-    color: #333;
-}
-
-
-input.filter {
-    color: black;
-    float: left;
-    width: 50px;
+    background-image: url("../img/checkmark.png");
 }
 
 .rooms-available {
@@ -827,9 +831,9 @@ input[class^="going-"]:hover {
 
 .results {
     position: relative;
-    padding: 8px 14px;
+    padding: 6px 14px;
     top: 28px;
-    left: 26px;
+    left: 14px;
     color: #aaa;
     font-weight: 300;
     font-size: 12px;
