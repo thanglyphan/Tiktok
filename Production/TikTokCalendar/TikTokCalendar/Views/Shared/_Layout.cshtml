@@ -132,21 +132,17 @@
             </span>
 
             <div class="filter-container">
-                    @using (Html.BeginForm("Index", "Home"))
-                    {
-                        <input id="filter" type="hidden" name="tags" value="@Model.searchWords" />
-                    <label><input class="filter schoolClass" type="checkbox" name="lecture" @check1 onchange="this.form.submit()" /><span>Forelesning</span></label>
-                    <label><input class="filter assignment" type="checkbox" name="assignment" @check2 onchange="this.form.submit()" /><span>Innlevering</span></label>
-                    <label><input class="filter exam" type="checkbox" name="exam" @check3 onchange="this.form.submit()" /><span>Eksamen</span></label>     
-                    <input type="hidden" name="filtered" value="true" />      
-                    }
+                @using (Html.BeginForm("Index", "Home"))
+                {
+                    <input type="hidden" name="tags" value="@Model.searchWords" />
+                        <div class="filter"><input id="schoolClass" type="checkbox" name="lecture" @check1 onchange="this.form.submit()" /><label for="schoolClass"><span>Forelesning</span></label></div>
+                        <div class="filter"><input id="assignment" type="checkbox" name="assignment" @check2 onchange="this.form.submit()" /><label for="assignment"><span>Innlevering</span></label></div>
+                        <div class="filter"><input id="exam" type="checkbox" name="exam" @check3 onchange="this.form.submit()" /><label for="exam"><span>Eksamen</span></label></div>
+                        <input type="hidden" name="filtered" value="true" />
+                }
             </div>
 
-			
-
             <div class="right-2">
-
-				
 
 				@if (userName != "John Doe") {
 				    <div class="right-1">

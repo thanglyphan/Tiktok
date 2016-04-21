@@ -203,11 +203,12 @@
                                                     <input type="hidden" name="eventid" value="@item.ID" />
                                                     <input type="hidden" name="attend" value="false" />
                                                     <input type="submit" value="Going" class="going-@item.ID"/>
-												}
-												else {
-                                                    <strong>going</strong>
-												}
-											}
+                                                }
+                                                else
+                                                {
+                                                    <strong>Du skal.</strong>
+                                                }
+                                            }
                                             <div class="tip-item">
                                                 @{
 													var howMany = EUSH.HowManyUsersGoing(item.ID);
