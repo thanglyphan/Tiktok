@@ -4,14 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<main>
+<main style="width: 900px; max-width: 100%;">
+
     <table class="table table-bordered table-hover rooms-available">
         <tr>
             <th>Rom</th>
             <th>Ledig tid</th>
             <th></th>
             <th></th>
-            <tr></tr>
+            <th></th>
         </tr>
         <tr>
             <th>Vrimle</th>
@@ -56,4 +57,101 @@
             <td></td>
         </tr>
     </table>
+
+	<table id="table-test-bars" class="table table-bordered table-hover rooms-available">
+		<tr>
+			<th>Rom</th>
+			<td>
+				<div class="progress">
+					<div class="progress-bar first-bar" role="progressbar" style="width:10%">8:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">9:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">10:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">11:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">12:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">13:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">14:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">15:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">16:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">17:15</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>Vrimle</th>
+			<td>
+				<div class="progress">
+					<div class="progress-bar progress-bar-danger first-bar" role="progressbar" style="width:10%">8:15</div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">9:15</div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">10:15</div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">11:15</div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">12:15</div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">13:15</div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">14:15</div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">15:15</div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">14:15</div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">15:15</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>Auditoriet</th>
+			<td>
+				<div class="progress">
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:40%"></div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:30%"></div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%"></div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>Rom 79-80</th>
+			<td>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:20%"></div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%"></div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:20%"></div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%"></div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:20%"></div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%"></div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>Rom 83</th>
+			<td>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:70%"></div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>Rom 40</th>
+			<td>
+				<div class="progress">
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:40%"></div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%"></div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:30%"></div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>Rom 41</th>
+			<td>
+				<div class="progress">
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:40%"></div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:30%"></div>
+					<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%"></div>
+				</div>
+			</td>
+		</tr>
+	</table>
+
 </main>
