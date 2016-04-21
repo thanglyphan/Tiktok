@@ -854,12 +854,11 @@ input[class^="going-"]:hover {
 }
 #table-test-bars .progress {
 	margin: 0;
+	height: 1.2em;
 }
 
 #table-test-bars .progress-bar {
 	border-left: 1px solid #fff;
-}
-
-#table-test-bars .first-bar {
-	
+	font-size: 0.8em;
+	line-height: 1.3em;
 }
