@@ -93,7 +93,13 @@ namespace TikTokCalendar.Controllers
 
 		public void AccountLogin(string Email, string Password)
 		{
-			StudentUser a = new StudentUser(Email,Password,"",1,SchoolCourses.Programmering);
+			StudentUser a = DataWrapper.Instance.GetUser(Email,Password);
+
+			if (a != null) {
+				cookie.SaveNameToCookie(a.Email);
+				cookie.SaveCourseToCookie(a.Course.ToString());
+				cookie.SaveYearToCookies(a.GetYearAsText());
+			}
 		}
 
         public string CalTest(string id = "")
