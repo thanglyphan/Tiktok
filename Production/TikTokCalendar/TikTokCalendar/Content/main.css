@@ -33,26 +33,27 @@ footer {
 ==========================================*/
 
 header {
-    /*background-color: #FffffF;*/
+    background-color: #FffffF;
 
-    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0));
-    background: -webkit-linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0));
+    /*background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0));
+    background: -webkit-linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0));*/
     width: 100%;
     position: fixed;
     top: 0px;
     z-index: 2;
     font-size: 12px !important;
-    /*box-shadow: 0 2px 1px -2px gray;*/
+    box-shadow: 0 2px 1px -2px gray;
 }
 
 hr.grad-line { 
     border: 0; 
-    height: 1px;
+    height: 0px;
     position: relative;
     margin: 0;
-    background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 62%);
+    
+    /*background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 62%);
     background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 62%);
-    background: radial-gradient(center, ellipse cover, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 62%);
+    background: radial-gradient(center, ellipse cover, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 62%);*/
 }
 
 .header-content {
