@@ -365,7 +365,7 @@ namespace TikTokCalendar.DAL
 			foreach (var date in startDates)
 			{
 				CustomEvent evnt = new CustomEvent(id, date, false, DateTime.MinValue, false,
-					subject, years, courses, null, null, eventType, comment, weighting);
+					subject, years, courses, "Se emnesiden for rom", null, eventType, comment, weighting);
 				retEvents.Add(evnt);
 			}
 			return retEvents;
