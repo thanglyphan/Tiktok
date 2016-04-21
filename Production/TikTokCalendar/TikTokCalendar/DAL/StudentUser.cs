@@ -64,6 +64,21 @@ namespace TikTokCalendar.DAL
 			}
 		}
 
+		public string GetYearAsText()
+		{
+			switch (ClassYear)
+			{
+				case 1:
+					return "first";
+				case 2:
+					return "second";
+				case 3:
+					return "third";
+				default:
+					return "NaN";
+			}
+		}
+
 		public bool IsValid(StudentUser other)
 		{
 			if (other.UserName == UserName && other.Password == Password)
