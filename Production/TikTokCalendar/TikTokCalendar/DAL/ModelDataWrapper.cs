@@ -11,6 +11,7 @@ namespace TikTokCalendar.DAL
 		public List<EventMonth> calEvents;
 		public List<CustomEventMonth> Months { get; set; }
 		public StudentUser user;
+		public List<Room> Rooms { get; private set; }
         public List<EventUserStat> eventUserStats { get; set; }
         public string searchWords { get; private set; }
         public bool showingLectures { get; private set; }
