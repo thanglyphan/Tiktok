@@ -1,20 +1,17 @@
-﻿@media screen and (max-width: 680px) {
+﻿
+@media screen and (max-width: 680px) {
+//============================================ // M O B I L //============================================ .mobile-main, html, body {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    height: 100%;
+    background-color: #f7f7f7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
 
-    //============================================
-    //      M O B I L
-    //============================================
-    .mobile-main, html, body {
-        font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-        height: 100%;
-        background-color: #f7f7f7;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
-    }
-
-    /*===================================
-    N A V B A R
-    ===================================*/
+/*===================================
+N A V B A R
+===================================*/
     i {
         padding-top: 1px !important;
         color: #8E8F94;
@@ -31,7 +28,7 @@
     .mobile-navbar {
         width: 100%;
         height: 45px;
-        background-color: #F5F6F8;
+        background-color: #699DF1;
         border-bottom: 2px solid #F3f3f3;
         color: white;
     }
@@ -47,44 +44,50 @@
     }
 
 /*===================================
-    M E N U
+M E N U
 ===================================*/
 
-/* The menu header */
-.mobile-navbar-menu {
-    float: right;
-    margin-top: 7px;
-}
+    /* The menu header */
+    .mobile-navbar-menu {
+        float: right;
+        margin-top: 7px;
+    }
 
-div.slicknav_menu {
-    color: black !important;
-    background-color: #F5F6F8 !important;
-    -webkit-box-shadow: 0 8px 6px -8px gray;
-}
+    div.slicknav_menu {
+        color: black !important;
+        background-color: #F5F6F8 !important;
+        -webkit-box-shadow: 0 8px 6px -8px gray;
+    }
 
-/* Menu header color*/
-a.slicknav_btn.slicknav_open, a.slicknav_btn.slicknav_collapsed { 
-    background-color: #F5F6F8 !important;
-}
+    /* Menu header color*/
+    a.slicknav_btn.slicknav_open, a.slicknav_btn.slicknav_collapsed {
+        background-color: #F5F6F8 !important;
+    }
 
-span.slicknav_menutxt {
-    display: none;
-    visibility: hidden;
-}
-/* Menu items */
-.menu-items {
-    padding: 13px;
-    font-size: 18px !important;
-    color: #858f9f !important;
-}
+    span.slicknav_menutxt {
+        display: none;
+        visibility: hidden;
+    }
+    /* Menu items */
+    .menu-items {
+        padding: 13px;
+        font-size: 18px !important;
+        color: #858f9f !important;
+    }
 
-/* Duplicate text outside of menu */
-ul#menu li {
-    visibility: hidden;
-}
+    /* Duplicate text outside of menu */
+    ul#menu li {
+        visibility: hidden;
+    }
 
-/*===================================
-    E V E N T S
+    /* Maps */
+    .map-image {
+        width: 150px;
+        max-height: 200px;
+    }
+
+    /*===================================
+E V E N T S
 ===================================*/
 
     .mobile-content {
@@ -100,7 +103,6 @@ ul#menu li {
         border: 1px solid #899093;
         text-align: center;
         height: 380px;
-        
     }
 
     .mobile-content-container-inner {
@@ -111,8 +113,8 @@ ul#menu li {
     .mobile-date-top {
         height: 20px;
         width: 100%;
-        background-color: #f2f2f2;
-        color: #8E8F94;
+        background-color: #99CDF1;
+        color: white;
         text-transform: uppercase;
         letter-spacing: .1em;
         line-height: 0em;
@@ -120,7 +122,8 @@ ul#menu li {
     }
 
     .mobile-course {
-        padding-top: 30px;
+        padding-top: 10px;
+        font-weight: 300;
         font-size: 1.6em;
         color: #858f9f;
         word-wrap: break-word;
@@ -129,20 +132,16 @@ ul#menu li {
     }
 
     .mobile-room {
-        padding-top: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         color: #565a5c;
+        text-align: center;
     }
 
-    .mobile-start {
-        padding-top: 30px;
-        color: #86b32d;
-        font-weight: 500;
-        line-height: 1.5em;
-        font-size: 1.2em;
-    }
 
     .mobile-date {
-        padding-top: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         width: 100%;
         color: #565a5c;
         line-height: 1.5em;
@@ -151,15 +150,15 @@ ul#menu li {
 
     button.mobile-checkin {
         font-size: 1em;
-        margin-top: 50px;
+        padding-top: 15px;
         color: #fff;
         text-transform: uppercase;
         letter-spacing: .1em;
-        line-height: 1em;
+        line-height: 0.4em;
         padding: .75em 2em;
         border-radius: 3px;
         width: 100%;
-        height: 50px;
+        height: 30px;
         background: #67bf62;
         border: 1px solid #f3f3f3;
     }
@@ -197,10 +196,10 @@ ul#menu li {
 
     @-webkit-keyframes pulse {
         0% {
-            -moz-transform: scale(0.9);
-            -ms-transform: scale(0.9);
-            -webkit-transform: scale(0.9);
-            transform: scale(0.9);
+            -moz-transform: scale(0.95);
+            -ms-transform: scale(0.95);
+            -webkit-transform: scale(0.95);
+            transform: scale(0.95);
         }
 
         100% {
