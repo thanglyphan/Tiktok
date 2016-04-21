@@ -57,7 +57,12 @@ namespace TikTokCalendar.Controllers
 			StudentUser user = InitUser(Email, Password, tags);
 
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, lec, ass, exa);
-
+			List<Room> rooms = new List<Room>();
+			foreach (var room in DataWrapper.Instance.Rooms)
+			{
+				rooms.Add(room.Value);
+			}
+			modelWrapper.Rooms = rooms;
             // Show event count
             if (!(lec && ass && exa) && (filtered || tags.Length > 0))
             {
