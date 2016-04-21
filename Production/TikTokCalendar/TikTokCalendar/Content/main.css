@@ -10,6 +10,7 @@ html, body {
     background-color: #F5F6F8 !important;
     height: 100%;
     width: 100%;
+    font-size: 62.5% !important;
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     -webkit-font-smoothing: antialiased;
 }
@@ -41,7 +42,7 @@ header {
     position: fixed;
     top: 0px;
     z-index: 2;
-    font-size: 1em !important;
+    font-size: 1.6em !important;
     box-shadow: 0 2px 1px -2px gray;
 }
 
@@ -59,7 +60,7 @@ hr.grad-line {
 .header-content {
     max-width: 1000px;
     margin: 0 auto; 
-    height: 57px; /*51*/
+    height: 5.7em; /*51*/
     margin-top: -10px;
     position: relative;
 }
@@ -68,16 +69,16 @@ header a i.fa-calendar-check-o {
     float: left;
     margin-top: 13px;
     color: #FF5A5F;
-    font-size: 1.5em;
+    font-size: 2.4em;
     margin-left: 20px;
 }
 
 header p {
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color:#ddd;
-    font-size: 1.1em;
+    font-size: 1.2em;
     float: left;
-    padding-top: 15px;
+    padding-top: 19px;
     padding-left: 0;
 }
 
@@ -114,7 +115,7 @@ header .header-content .right-2 {
     padding-right: 19px;
     margin-top:    10px;
     border-radius: 20px;
-    height:        40px;
+    height:        4em;
     position:      relative;
     float: right;
     cursor: pointer;
@@ -123,12 +124,12 @@ header .header-content .right-2 {
 header .header-content .right-2 a {
     color: #999;
     text-decoration: none;
-    font-size: .6875em; 
+    font-size: 1.1em; 
 }
 
 header .header-content .right-2 .right-1 p {
     margin-top: -3px;
-    font-size: .75em;
+    font-size: 1.2em;
     color: #999;
 }
 
@@ -154,7 +155,7 @@ header .header-content .left-1 i {
 /* Search container */
 header .header-content .left-2 {
     width: 200px;
-    height: 45px;
+    height: 4.5em;
     float: left;
     margin-top: 8px;
     border-radius: 50px;
@@ -172,7 +173,7 @@ header .header-content .left-2 {
 .filter {
     float: left;
     width: 90px;
-    height: 21px;
+    height: 2.1em;
 }
 
 .filter-container {
@@ -186,7 +187,7 @@ header .header-content .left-2 {
 .filter-container .filter {
     color: #888;
     margin-top: 0px;
-    font-size: .7em;
+    font-size: 1.2em;
     line-height: 1.9em;
     
 }
@@ -211,7 +212,7 @@ header .header-content .left-2 {
     display: block;
     position: relative;
     width: 18px;
-    height: 18px;
+    height: 1.5em;
     border: 1px solid #ccc;
     border-radius: 2px;
     -webkit-appearance: initial;
@@ -245,6 +246,18 @@ input [class^="going-"]{
     border: 1px solid #70e670;
 }
 
+.check-in input[value="Check-in"] {
+    background-color: #00bb3f;
+    color: white;
+    opacity: 0.7;
+}
+
+.check-in input[value="Check-in"]:hover {
+    background-color: white;
+    color: #00bb3f;
+    opacity: 1;
+}
+
 /*===================================
   MODAL
 ===================================*/
@@ -253,7 +266,7 @@ input [class^="going-"]{
 }
 
 .input-year {
-    height: 20px;
+    height: 2em;
     width: 50px;
     background-color: #474f5c;
     color: white;
@@ -305,7 +318,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 #login-modal .modal-body * {
-	font-size: 1em;
+	font-size: 1.6em;
 }
 
 /*===================================
@@ -326,7 +339,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 #cookie-warning p {
-	font-size: 1em;
+	font-size: 1.6em;
 	margin-bottom: 0;
 }
 
@@ -388,14 +401,14 @@ input[type="checkbox"]:checked + label:before {
 	text-align: center;
 	margin-top: 8px;
 	color: #fff;
-    font-size: .9375em;
+    font-size: 2.3em;
 }
 
 .week-header:not(:first-child) {
     border-radius: 3px 3px 0px 0px;
 }
 .week, .week p {
-    background-color: #8DB3f;
+    background-color: #8DB3wf;
     padding-top: 1px;
     padding-bottom: 1px;
 }
@@ -405,7 +418,7 @@ input[type="checkbox"]:checked + label:before {
     text-align: center;
     color: white;
     opacity: 0.9;
-    font-size: 1.125em;
+    font-size: 2.8em;
     font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: normal;
 	z-index: 1;
@@ -420,7 +433,7 @@ input[type="checkbox"]:checked + label:before {
 ===================================*/
 .feed-container {
     color: #474f5c;
-    height: 75px;
+    height: 11em;
     background-color: white;
     border-radius: 0px 0px 3px 3px;
     display: block;
@@ -471,7 +484,7 @@ input[class^="going-"]:hover {
 /* Top left row:   13 */
 .feed-container .class-date .date-number {
     margin-left: 12px;
-    font-size: 1.1875em;
+    font-size: 2.4em;
     color: #a4b0c3;
     font-weight: normal;
     float: left;
@@ -484,7 +497,7 @@ input[class^="going-"]:hover {
 }
 
 .modal-header {
-    font-size: 1.5em;
+    font-size: 2.4em;
 }
 
 .feed-container .content {
@@ -500,15 +513,13 @@ input[class^="going-"]:hover {
 }
 
 .feed-container .content .class-info .class-date {
-    font-size: .75em;
+    font-size: 1.2em;
 }
 
 /* Top middle row:   Mattematikk og Fysikk */
 .feed-container .content .class-info p.name {
     float: left;
     color: #6a7586;
-    font-size: 0.9375em;
-    font-weight: normal;
 }
 
 /* Positioning for top row right:   Rom 40*/
@@ -523,7 +534,7 @@ input[class^="going-"]:hover {
     float: left;
     color: #6a7586;
     font-weight: 400;
-    font-size: .75em;
+    font-size: 2em;
 }
 
 /* Bottom row:  man, 12.15 - 16.00                       ...*/
@@ -539,12 +550,12 @@ input[class^="going-"]:hover {
 }
 
 .feed-container .content .class-info p.name {
-    font-size: .9375em !important;
+    font-size: 2.5em !important;
 }
 
 .feed-container .content .time-info p.time {
     margin-top: 8px;
-    font-size: .75em !important;
+    font-size: 2em !important;
 }
 
 /*======================================
@@ -577,30 +588,29 @@ input[class^="going-"]:hover {
     float: left;
     color: #858f9f;
     font-weight: 300;
-    font-size: 14px;
 }
 
 .feed-container .content .time-info .left-position i strong, .feed-container .content .time-info .left-position p strong {
     color: #6a7586;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 1em;
 }
 
 .feed-container .content .time-info .left-position i strong {
-    font-size: 12px important;
+    font-size: 1.1em;
 }
 
 .feed-container .content .time-info i.fa-ellipsis-h {
     float: right;
     color: #858f9f;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 1.4em;
     margin-top: 5px;
 }
 
 .check-in {
 	float: right;
-	font-size: 14px;
+	font-size: 1.7em;
 }
 
 .check-in * {
@@ -615,7 +625,7 @@ input[class^="going-"]:hover {
 	padding: 0.4em;
 	font-family: "Helvetica Neue", sans-serif;
 	text-transform: uppercase;
-	font-size: 0.8em;
+	font-size: 1em;
 }
 
 /*======================================
@@ -636,7 +646,7 @@ input[class^="going-"]:hover {
     }
 
     div.class-date .date-number {
-        font-size: 20px !important;
+        font-size: 2.0em !important;
     }
 
     .horizontal-line {
@@ -644,17 +654,16 @@ input[class^="going-"]:hover {
     }
 
     p.name {
-        font-size: 15px !important;
+        font-size: 1.5em !important;
         color: #474f5c;
         font-weight: 300;
-        font-size: 18px;
     }
 }
 
 @media only screen and (max-width: 400px) {
 
     div.class-date .date-number {
-        font-size: 15px !important;
+        font-size: 1.5em !important;
         padding: 0px;
     }
 
@@ -662,7 +671,6 @@ input[class^="going-"]:hover {
         font-size: 13px !important;
         color: #474f5c;
         font-weight: 300;
-        font-size: 18px;
     }
 }
 
@@ -676,7 +684,7 @@ input[class^="going-"]:hover {
 
 .activator {
     cursor: default;
-    font-size: 11px;
+    font-size: 1.1em;
     color: #a4b0c3;
 }
 
@@ -685,7 +693,7 @@ input[class^="going-"]:hover {
 }
 
 .tip {
-    font-size: 12px;
+    font-size: 1.2em;
     display: none;
     width: auto;
     height: auto;
@@ -725,7 +733,7 @@ input[class^="going-"]:hover {
     background-size: 20px;
     font-family: Tahoma, Geneva, sans-serif;
      background-color: #ffffff !important;
-    font-size: 16px;
+    font-size: 0.8em;
 }
 
 .ui-corner-all {
@@ -741,7 +749,7 @@ input[class^="going-"]:hover {
 }
 
 .ui-widget {
-    font-size: 18px;
+    font-size: 1.8em;
     margin-top: -17px;
 }
 
@@ -767,7 +775,7 @@ input[class^="going-"]:hover {
 .ui-autocomplete {
     cursor: default;
     position: fixed;
-    font-size: 12px;
+    font-size: 1.2em;
     color: #626974;
 }
 .ui-autocomplete-input {
@@ -783,20 +791,20 @@ input[class^="going-"]:hover {
     padding: 2px;
 }
 
-    .ui-menu .ui-menu-item a {
-        display: block;
-        padding: 3px 3px 3px 3px;
-        text-decoration: none;
-        cursor: cell;
-    }
+.ui-menu .ui-menu-item a {
+    display: block;
+    padding: 3px 3px 3px 3px;
+    text-decoration: none;
+    cursor: cell;
+}
 
-        .ui-menu .ui-menu-item a:hover {
-            display: block;
-            padding: 3px 3px 3px 3px;
-            text-decoration: none;
-            color: White;
-            cursor: pointer;
-        }
+.ui-menu .ui-menu-item a:hover {
+    display: block;
+    padding: 3px 3px 3px 3px;
+    text-decoration: none;
+    color: White;
+    cursor: pointer;
+}
 
 .ui-widget-content a {
     color: #222222;
@@ -832,8 +840,8 @@ input[class^="going-"]:hover {
     left: 14px;
     color: #aaa;
     font-weight: 300;
-    font-size: 12px;
-    height: 16px;
+    font-size: 1.2em;
+    height: 1.6em;
     width: 100%;
 }
 
