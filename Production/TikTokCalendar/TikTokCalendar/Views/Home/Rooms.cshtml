@@ -6,9 +6,18 @@
 
 <main>
 
-	<a class="btn btn-info" data-toggle="modal" data-target="#rom-modal">Åpne modal</a>
+	<ul>
+	@{ 
+		foreach (var room in Model.Rooms) {
+			<li>@room.RoomName</li>
+		}
+	}
+	</ul>
 
-	<div class="content-hidden modal fade" id="rom-modal" role="dialog">
+	<a class="btn btn-info" data-toggle="modal" data-target="#vis-rom-modal">Åpne modal</a>
+
+	<!-- Ledige rom modal -->
+	<div class="content-hidden modal fade" id="vis-rom-modal" role="dialog">
 		<div class="modal-dialog" style="width: 900px; max-width: 100%; margin-top: 160px;">
 			<div class="modal-content">
 
@@ -20,7 +29,7 @@
 
 				<!-- Modal body -->
 				<div class="modal-body" style="margin: 0;">
-					<table id="table-test-bars" class="table table-bordered table-hover rooms-available">
+					<table id="" class="table table-bordered table-hover rooms-available">
 						<tr>
 							<th>Rom</th>
 							<td>
@@ -59,11 +68,11 @@
 							<th>Auditoriet</th>
 							<td>
 								<div class="progress">
-									<div class="progress-bar progress-bar-danger" role="progressbar" style="width:40%"></div>
-									<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
-									<div class="progress-bar progress-bar-danger" role="progressbar" style="width:30%"></div>
-									<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
-									<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%"></div>
+									<div class="progress-bar progress-bar-danger" role="progressbar" style="width:40%">8:15-12:00</div>
+									<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">12:15-13:00</div>
+									<div class="progress-bar progress-bar-danger" role="progressbar" style="width:30%">13:15-16:00</div>
+									<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">16:15-17:00</div>
+									<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">17:15-18:00</div>
 								</div>
 							</td>
 						</tr>
