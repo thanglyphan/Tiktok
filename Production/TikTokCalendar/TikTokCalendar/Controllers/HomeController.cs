@@ -18,9 +18,11 @@ namespace TikTokCalendar.Controllers
 		private readonly Cookies cookie = new Cookies();
 
         [ValidateInput(false)]
-        public ActionResult Index(string tags = "", string lecture = "", string assignment = "", string exam = "", bool filtered = false)
+        public ActionResult Index(string Email, string Password, string tags = "", string lecture = "", string assignment = "", string exam = "", bool filtered = false)
 		{
-            bool lec = false, ass = false, exa = false;
+
+
+			bool lec = false, ass = false, exa = false;
             if (filtered)
             {
                 if (lecture.Length > 0) lec = true;
@@ -60,6 +62,13 @@ namespace TikTokCalendar.Controllers
             {
                 modelWrapper.isFiltered = true;
             }
+			StudentUser a = DataWrapper.Instance.GetUser(Email,Password);
+
+			if (a != null) {
+				cookie.SaveNameToCookie(a.Email);
+				cookie.SaveCourseToCookie(a.Course.ToString());
+				cookie.SaveYearToCookies(a.GetYearAsText());
+			}
 			// Send the model to the view
 			return View(modelWrapper);
 		}
