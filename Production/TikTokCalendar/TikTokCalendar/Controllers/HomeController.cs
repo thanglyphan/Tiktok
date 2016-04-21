@@ -79,31 +79,31 @@ namespace TikTokCalendar.Controllers
 		        user = DataWrapper.Instance.GetUser(userName, password);
 		        if (user != null)
 		        {
-			        cookie.SaveNameToCookie(user.Email);
+			        cookie.SaveNameToCookie(user.UserName);
 			        cookie.SaveCourseToCookie(user.Course.ToString());
 			        cookie.SaveYearToCookies(user.GetYearAsText());
 		        }
 	        }
 	        else
 	        {
-		        user = GetUserFromNameCourse();
+		        //user = GetUserFromNameCourse();
 	        }
-
+			
 			// DEBUG Set the page title
-			var username = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
-            if (!string.IsNullOrEmpty(username))
+            if (user != null)
             {
                 ViewBag.Title = string.Format("{0}[{1}-{2}]: {3} [{4}]", 
-					cookie.LoadStringFromCookie(Cookies.UserNameCookieKey), 
+					user.UserName, 
 					user.ClassYear, 
-					cookie.LoadStringFromCookie(Cookies.YearCookieKey), 
-					cookie.LoadStringFromCookie(Cookies.CourseCookieKey), 
+					user.GetYearAsText(), 
+					user.Course, 
 					tags);
             }
             else
             {
                 ViewBag.Title = "Not logged in";
             }
+			// set default user here
             return user;
         }
 
