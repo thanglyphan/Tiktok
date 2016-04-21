@@ -243,6 +243,7 @@
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\WebpageErrorContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTests\RoomNameSplitTests.cs" />
     <Compile Include="UnitTests\StudentUserTest.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -76,7 +76,48 @@ namespace TikTokCalendar.DAL
 
 			// We have to do this in two different calls, as GetEvents() has functions that depend on DataWrapper to have the info about the base SchoolSystem(subjects, courses, etc)
 			var events = GetEvents();
-			DataWrapper.Instance.SetSchoolSystemDependantData(events);
+			var rooms = GetRooms(events);
+			DataWrapper.Instance.SetSchoolSystemDependantData(events, rooms);
+		}
+
+		private Dictionary<string, Room> GetRooms(List<CustomEvent> events)
+		{
+			Dictionary<string, Room> rooms = new Dictionary<string, Room>();
+			foreach (var evnt in events)
+			{
+				if (string.IsNullOrEmpty(evnt.RoomName) || !evnt.HasStartTime || !evnt.HasEndDateTime)
+				{
+					continue;
+				}
+
+				var roomNames = GetRoomsFromRoomText(evnt.RoomName);
+				foreach (var room in roomNames)
+				{
+					if (rooms.ContainsKey(room))
+					{
+						Room r = rooms[room];
+						r.TryAddTimeSlot(new TimeSlot(evnt));
+						rooms[room] = r;
+					}
+					else
+					{
+						Room r = new Room(room);
+						r.TryAddTimeSlot(new TimeSlot(evnt));
+						rooms.Add(r.RoomName, r);
+					}
+				}
+			}
+			return rooms;
+		}
+
+		public string[] GetRoomsFromRoomText(string roomText)
+		{
+			string[] splitResults = roomText.Split(',');
+			for (int i = 0; i < splitResults.Length; i++)
+			{
+				splitResults[i] = splitResults[i].Trim();
+			}
+			return splitResults;
 		}
 
 		private string GetFileContents(string contentFolderRelativePath)
