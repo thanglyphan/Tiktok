@@ -8,7 +8,7 @@ using TikTokCalendar.DAL;
 namespace TikTokCalendar.UnitTests
 {
 	[TestFixture]
-	public class RoomNameSplitTests
+	public class RoomNameSplitTest
 	{
 		private DataParser dp;
 		private string roomText = "Rom 40, Rom 79-80, Rom 81, Vrimle";
