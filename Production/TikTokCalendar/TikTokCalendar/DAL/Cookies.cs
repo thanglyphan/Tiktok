@@ -9,6 +9,8 @@ namespace TikTokCalendar.DAL
 		public const string UserNameCookieKey = "UserName";
 		public const string YearCookieKey = "Year";
 		public const string CourseCookieKey = "UserCourse";
+		public const string ShownCookieText = "Shown";
+
 
 		private DateTime ExpiryDate { get { return DateTime.Now.AddYears(1); } }
 
@@ -18,11 +20,20 @@ namespace TikTokCalendar.DAL
 				HttpCookie name = new HttpCookie(UserNameCookieKey);
 				HttpCookie course = new HttpCookie(CourseCookieKey);
 				HttpCookie year = new HttpCookie(YearCookieKey);
+				HttpCookie shown = new HttpCookie(ShownCookieText);
 
+
+				shown.Value = "";
+				name.Value = "";
+				course.Value = "";
+				year.Value = "";
+
+				shown.Expires = DateTime.Now.AddDays(-1);
 				year.Expires = DateTime.Now.AddDays(-1);
 				name.Expires = DateTime.Now.AddDays(-1);
 				course.Expires = DateTime.Now.AddDays(-1);
 
+				HttpContext.Current.Response.Cookies.Add(shown);
 				HttpContext.Current.Response.Cookies.Add(name);
 				HttpContext.Current.Response.Cookies.Add(course);
 				HttpContext.Current.Response.Cookies.Add(year);
@@ -74,7 +85,7 @@ namespace TikTokCalendar.DAL
 		public void SaveHasShownToCookie()
 		{
 			try {
-				HttpCookie hasShownCookie = new HttpCookie("Shown");
+				HttpCookie hasShownCookie = new HttpCookie(ShownCookieText);
 				hasShownCookie.Value = "true";
 				hasShownCookie.Expires = ExpiryDate;
 				HttpContext.Current.Response.Cookies.Add(hasShownCookie);
