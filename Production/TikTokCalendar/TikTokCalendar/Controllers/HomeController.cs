@@ -19,235 +19,153 @@ namespace TikTokCalendar.Controllers
 		public ActionResult LogIn(string username, string password)
 		{
 			// Make a new ModelDataWrapper with the events based on the user, tags, and filters
-			ModelDataWrapper modelWrapper = new ModelDataWrapper();
-
-			StudentUser user = InitUser(username, password, "");// TryGetUserFromCookies();
-
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user);
-			modelWrapper.user = user;
-			List<Room> rooms = new List<Room>();
-			foreach (var room in DataWrapper.Instance.Rooms)
+			StudentUser user = InitUser(username, password, "");
+			bool failedLogin = false;
+			if (!DataWrapper.Instance.IsValidUser(user))
 			{
-				rooms.Add(room.Value);
+				failedLogin = true;
+				user = new StudentUser("NO NAME", SchoolCourses.VisAlt, "NaN");
 			}
-			modelWrapper.Rooms = rooms;
 
-			// DEBUG Set the page title
-			if (user != null)
-			{
-				ViewBag.Title = string.Format("{0}[{1}-{2}]: {3}",
-					user.UserName,
-					user.ClassYear,
-					user.GetYearAsText(),
-					user.Course);
-			}
-			else
-			{
-				ViewBag.Title = "Not logged in";
-			}
+			ModelDataWrapper modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
+			modelWrapper.FailedLogin = failedLogin;
+
+
 
 			// Send the model to the view
+			Session["keywords"] = null;
 			return View("Index", modelWrapper);
 		}
 
 		public ActionResult LogOut()
 		{
 			cookie.DeleteCookies();
+			Session["keywords"] = null;
 
-			StudentUser user = new StudentUser("NO NAME", "", "", -1, SchoolCourses.VisAlt);
-			ModelDataWrapper modelWrapper = new ModelDataWrapper();
-			modelWrapper.user = user;
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user);
-			List<Room> rooms = new List<Room>();
-			foreach (var room in DataWrapper.Instance.Rooms)
-			{
-				rooms.Add(room.Value);
-			}
-			modelWrapper.Rooms = rooms;
+			StudentUser user = new StudentUser("Not logged in", "", "", -1, SchoolCourses.VisAlt);
+			ModelDataWrapper modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
 
-			// DEBUG Set the page title
-			if (user != null)
-			{
-				ViewBag.Title = string.Format("{0}[{1}-{2}]: {3}",
-					user.UserName,
-					user.ClassYear,
-					user.GetYearAsText(),
-					user.Course);
-			}
-			else
-			{
-				ViewBag.Title = "Not logged in";
-			}
-
-			// to show all keywords when no user
-			//Session["keywords"] = null;
 			return View("Index", modelWrapper);
 		}
 
-		private StudentUser TryGetUserFromCookies()
-		{
-			// TODO Try to get user info from cookies, if that fails return an empty user
-			string name = "";
-			string course = "";
-			string year = "";
-
-			string cookieYear = cookie.LoadStringFromCookie(Cookies.YearCookieKey);
-			if (!string.IsNullOrEmpty(cookieYear))
-			{
-				year = cookieYear;
-			}
-			else
-			{
-				year = "NaN";
-			}
-
-			string cookieUserName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
-			if (!string.IsNullOrEmpty(cookieUserName))
-			{
-				name = cookieUserName;
-			}
-			else {
-				name = "NO NAME";
-			}
-			string cookieCourse = cookie.LoadStringFromCookie(Cookies.CourseCookieKey);
-			if (!string.IsNullOrEmpty(cookieCourse))
-			{
-				course = cookieCourse;
-			}
-			else {
-				course = "VisAlt";
-			}
-			SchoolCourses schoolCourse = Course.GetCourseFromName(course);
-			if (schoolCourse != SchoolCourses.VisAlt)
-			{
-				return new StudentUser(name, schoolCourse, year); //If cookie name && course == default, name = anonym14, course = "VisAlt"
-			}
-
-			return new StudentUser("NO USER", "", "", 1, SchoolCourses.VisAlt);
-		}
-
-		private void InitializeData()
-		{
-			// Parse all the JSON data
-			DataParser dataParser = new DataParser();
-			dataParser.ParseAllData();
-			Debug.WriteLine("Parsing all data.");
-		}
-
 		[ValidateInput(false)]
-		public ActionResult Index(string Email, string Password, string tags = "", string lecture = "", string assignment = "", string exam = "", bool filtered = false)
+        public ActionResult Index(string Email, string Password, string tags = "", string lecture = "", string assignment = "", string exam = "", bool filtered = false)
 		{
-			InitializeData();
 			bool lec = false, ass = false, exa = false;
-			if (filtered)
-			{
-				if (lecture.Length > 0) lec = true;
-				if (assignment.Length > 0) ass = true;
-				if (exam.Length > 0) exa = true;
+            if (filtered)
+            {
+                if (lecture.Length > 0) lec = true;
+                if (assignment.Length > 0) ass = true;
+                if (exam.Length > 0) exa = true;
 
-				//Check if actually empty page before continuing
-				if (!lec && !ass && !exa && tags == "")
-				{
-					ModelDataWrapper emptyWrap;
-					emptyWrap = new ModelDataWrapper("", false, false, false);
-					emptyWrap.isFiltered = true;
-					return View(emptyWrap);
-				}
-			}
-			else
-			{
-				lec = true;
-				ass = true;
-				exa = true;
-			}
+                //Check if actually empty page before continuing
+                if (!lec && !ass && !exa && tags == "")
+                {
+                    ModelDataWrapper emptyWrap;
+                    emptyWrap = new ModelDataWrapper("", false, false, false);
+                    emptyWrap.isFiltered = true;
+                    return View(emptyWrap);
+                }
+            }
+            else
+            {
+                lec = true;
+                ass = true;
+                exa = true;
+            }
 
-			// Make a new ModelDataWrapper with the events based on the user, tags, and filters
-			ModelDataWrapper modelWrapper;
-			if (string.IsNullOrEmpty(tags))
-			{
-				modelWrapper = new ModelDataWrapper(lec, ass, exa);
-			}
-			else
-			{
-				modelWrapper = new ModelDataWrapper(tags, lec, ass, exa);
-			}
+            // Make a new ModelDataWrapper with the events based on the user, tags, and filters
+            ModelDataWrapper modelWrapper;
+            if (string.IsNullOrEmpty(tags))
+            {
+                modelWrapper = new ModelDataWrapper(lec, ass, exa);
+            }
+            else
+            {
+                modelWrapper = new ModelDataWrapper(tags, lec, ass, exa);
+            }
 
-			StudentUser user = InitUser(Email, Password, "");// TryGetUserFromCookies();
+			StudentUser user = InitUser(Email, Password, tags);
 
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, lec, ass, exa);
+			modelWrapper.User = user;
 			List<Room> rooms = new List<Room>();
 			foreach (var room in DataWrapper.Instance.Rooms)
 			{
 				rooms.Add(room.Value);
 			}
 			modelWrapper.Rooms = rooms;
-			modelWrapper.user = user;
-			// Show event count
-			if (!(lec && ass && exa) && (filtered || tags.Length > 0))
-			{
-				modelWrapper.isFiltered = true;
-			}
-
-			// DEBUG Set the page title
-			if (user != null)
-			{
-				ViewBag.Title = string.Format("{0}[{1}-{2}]: {3} [{4}]",
-					user.UserName,
-					user.ClassYear,
-					user.GetYearAsText(),
-					user.Course,
-					tags);
-			}
-			else
-			{
-				ViewBag.Title = "Not logged in";
-			}
-
+            // Show event count
+            if (!(lec && ass && exa) && (filtered || tags.Length > 0))
+            {
+                modelWrapper.isFiltered = true;
+            }
+			
 			// Send the model to the view
 			return View(modelWrapper);
 		}
 
+		private ModelDataWrapper CreateModelDataWrapper(List<CustomEventMonth> months, StudentUser user)
+		{
+			ModelDataWrapper modelWrapper = new ModelDataWrapper();
+			modelWrapper.Months = months;
+			modelWrapper.User = user;
+
+			// Set availible rooms
+			List<Room> rooms = new List<Room>();
+			foreach (var room in DataWrapper.Instance.Rooms)
+			{
+				rooms.Add(room.Value);
+			}
+			modelWrapper.Rooms = rooms;
+
+			return modelWrapper;
+		}
+
 		public StudentUser InitUser(string userName, string password, string tags)
-		{
-			// Get the user from cookies
-			StudentUser user = null;
+        {
+            // Get the user from cookies
+            StudentUser user = null;
 
+            // Parse all the JSON data
+            DataParser dataParser = new DataParser();
+            dataParser.ParseAllData();
+
+	        if (!string.IsNullOrEmpty(userName))
+	        {
+		        user = DataWrapper.Instance.GetUser(userName, password);
+		        if (user != null)
+		        {
+			        cookie.SaveNameToCookie(user.UserName);
+			        cookie.SaveCourseToCookie(user.Course.ToString());
+			        cookie.SaveYearToCookies(user.GetYearAsText());
+		        }
+	        }
+	        else
+	        {
+		        user = GetUserFromNameCourse();
+	        }
 			
+			// DEBUG Set the page title
+            if (user != null)
+            {
+                ViewBag.Title = string.Format("{0}[{1}-{2}]: {3} [{4}]", 
+					user.UserName, 
+					user.ClassYear, 
+					user.GetYearAsText(), 
+					user.Course, 
+					tags);
+            }
+            else
+            {
+                ViewBag.Title = "Not logged in";
+            }
 
-			if (!string.IsNullOrEmpty(userName))
-			{
-				user = DataWrapper.Instance.GetUser(userName, password);
-				if (user != null)
-				{
-					cookie.SaveNameToCookie(user.UserName);
-					cookie.SaveCourseToCookie(user.Course.ToString());
-					cookie.SaveYearToCookies(user.GetYearAsText());
-				}
-			}
-			else
-			{
-				user = GetUserFromNameCourse();
-			}
+            return user;
+        }
 
-
-
-			return user;
-		}
-
-		public void AccountLogin(string Email, string Password)
-		{
-			StudentUser a = DataWrapper.Instance.GetUser(Email, Password);
-
-			if (a != null)
-			{
-				cookie.SaveNameToCookie(a.Email);
-				cookie.SaveCourseToCookie(a.Course.ToString());
-				cookie.SaveYearToCookies(a.GetYearAsText());
-			}
-		}
-
-		public string CalTest(string id = "")
-		{
+        public string CalTest(string id = "")
+		{ 
 			DataParser dataParser = new DataParser();
 			dataParser.ParseAllData();
 			List<CustomEventMonth> months = null;
@@ -274,44 +192,7 @@ namespace TikTokCalendar.Controllers
 			return page;
 		}
 
-
-		public string GetRoom()
-		{
-			string s = "";
-			foreach (var room in GetRooms())
-			{
-				s += room + "<br>";
-			}
-			return s;
-		}
-
-		private string[] GetRooms()
-		{
-			return new[] { "Rom 40", "Rom 41", "Rom 82", "Rom 83", "Vrimle", "Auditoriet" };
-		}
-
-		private string returnName()
-		{
-
-			string userName = (string)Session["b"];
-			if (userName == "")
-			{
-				return "phatha14";
-			}
-			else { return userName; }
-		}
-
-		private string returnCourse()
-		{
-			string userCourse = (string)Session[Cookies.UserNameCookieKey];
-			if (userCourse == "")
-			{
-				return "phatha14";
-			}
-			else { return userCourse; }
-		}
-
-		public ActionResult Mobile(string id = "", string tags = "", bool lecture = true, bool assignment = true, bool exam = true)
+        public ActionResult Mobile(string id = "", string tags = "", bool lecture = true, bool assignment = true, bool exam = true)
 		{
 			StudentUser user = GetUserFromNameCourse();
 			DataParser dataParser = new DataParser();
@@ -340,96 +221,35 @@ namespace TikTokCalendar.Controllers
 			return View(modelWrapper);//.calEvents);
 		}
 
-		[HttpGet]
-		public ActionResult Rooms()
+        [ValidateInput(false)]
+        public JsonResult AutoComplete(string search)
 		{
-			Debug.WriteLine("Rooms()");
-			var modelWrapper = new ModelDataWrapper();
-			return View("Rooms", modelWrapper);
-
-		}
-
-		private int FindCalEventIndex(List<CalendarEvent> list, int month)
-		{
-			for (int i = 0; i < list.Count; i++)
-			{
-				if (list[i].StartTime.Month == month)
-				{
-					return i;
-				}
-			}
-			return -1;
-		}
-
-		[ValidateInput(false)]
-		public JsonResult AutoComplete(string search)
-		{
-			/* // static test data (delete eventually)
+            /* // static test data (delete eventually)
             var data = new[] {"Programmering","Spillprogrammering","Intelligente systemer","Mobil apputvikling",
                 "Prosjekt software engineering","Matematikk og fysikk","C++ programmering","",
                 "Game AI","Embedded systems","Mobil utvikling","Ruby on rails",
                 "Avansert javaprogrammering","Undersøkelsesmetoder","Enterprise programmering 2","Innlevering",
                 "Forelesning","Eksamen" };
             */
-			string temp = DataWrapper.Instance.FilterCharacters(search);
-			var list = new List<string>();
+            string temp = DataWrapper.Instance.FilterCharacters(search);
+            var list = new List<string>();
 
-			if (Session["keywords"] == null)
-			{
-				StudentUser user = GetUserFromNameCourse();
-				list = DataWrapper.Instance.GetUserKeywords(user);
-				list.RemoveAll(item => item == null);
-				Session["keywords"] = list;
-			}
-			else
-			{
-				list = (List<string>)Session["keywords"];
-			}
-
-			var result = list.Where(x => x.Contains(temp.ToLower())).ToList();
-			return Json(result, JsonRequestBehavior.AllowGet);
-		}
-		public JsonResult UserName(string a)
-		{
-			string userName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
-
-			if (userName == null)
-			{
-				cookie.SaveNameToCookie(a);
-			}
-
-			return Json("fungerer", JsonRequestBehavior.AllowGet);
-		}
-		public JsonResult UserCourse(string a)
-		{
-			string userCourse = cookie.LoadStringFromCookie(Cookies.CourseCookieKey);
-
-			if (userCourse == null)
-			{
-				cookie.SaveCourseToCookie(a);
-			}
-			// new user means new custom keywords
-			Session["keywords"] = null;
-			return Json("fungerer", JsonRequestBehavior.AllowGet);
+            if (Session["keywords"] == null)
+            {
+                StudentUser user = GetUserFromNameCourse();
+                list = DataWrapper.Instance.GetUserKeywords(user);
+                list.RemoveAll(item => item == null);
+                Session["keywords"] = list;   
+            }
+            else
+            {
+                list = (List<string>)Session["keywords"]; 
+            }
+            
+            var result = list.Where(x => x.Contains(temp.ToLower())).ToList();
+            return Json(result, JsonRequestBehavior.AllowGet);
 		}
 
-		public JsonResult UserYear(string a)
-		{
-			string userYear = cookie.LoadStringFromCookie(Cookies.YearCookieKey);
-			if (userYear == null)
-			{
-				cookie.SaveYearToCookies(a);
-			}
-			return Json("fungerer", JsonRequestBehavior.AllowGet);
-		}
-
-		public JsonResult ShowDefault(string a)
-		{
-			cookie.SaveNameToCookie(a); //Add cookie 5 seconds
-			cookie.SaveCourseToCookie(a); //Add cookie 5 seconds
-
-			return Json("fungerer", JsonRequestBehavior.AllowGet);
-		}
 		public ActionResult GetVisited() //If been here, return true, else false.
 		{
 			if (cookie.LoadStringFromCookie(Cookies.UserNameCookieKey) != null)
@@ -439,16 +259,6 @@ namespace TikTokCalendar.Controllers
 			else {
 				return Json(false, JsonRequestBehavior.AllowGet);
 			}
-		}
-
-		[AcceptVerbs(HttpVerbs.Post)]
-		public ActionResult DeleteCookies()
-		{
-			cookie.DeleteCookies();
-			// to show all keywords when no user
-			Session["keywords"] = null;
-			return (RedirectToAction("Index"));
-			//return Json("hei", JsonRequestBehavior.AllowGet);
 		}
 
 		public StudentUser GetUserFromNameCourse()
@@ -465,7 +275,6 @@ namespace TikTokCalendar.Controllers
 			else
 			{
 				year = "second";
-				//cookie.SaveYearToCookies(year);
 			}
 
 			string cookieUserName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
@@ -475,7 +284,6 @@ namespace TikTokCalendar.Controllers
 			}
 			else {
 				name = "NO NAME";
-				//cookie.SaveNameToCookie(name);
 			}
 			string cookieCourse = cookie.LoadStringFromCookie(Cookies.CourseCookieKey);
 			if (!string.IsNullOrEmpty(cookieCourse))
@@ -484,7 +292,6 @@ namespace TikTokCalendar.Controllers
 			}
 			else {
 				course = "VisAlt";
-				//cookie.SaveCourseToCookie(course);
 			}
 
 
@@ -533,11 +340,11 @@ namespace TikTokCalendar.Controllers
 			return PartialView("_UserStatUpdate", modelWrapper);
 		}
 
-		public ActionResult GetMessage()
-		{
-			string message = "Welcome";
-			return new JsonResult { Data = message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-		}
-	}
+        public ActionResult GetMessage()
+        {
+            string message = "Welcome";
+            return new JsonResult { Data = message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+    }
 
 }

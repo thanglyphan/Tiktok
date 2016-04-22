@@ -91,8 +91,28 @@
                                         <!-- tooltip hover extravaganza -->
                                         <div class="tip-item">
 
-                                            <!-- "Grensesnittdesign" -->
+                                            <!-- Check waht type it is -->
+											@{  var typeClass = "";
+												var typeText = item.EventTypeLabel;
+
+												if (item.MainEventType == TikTokCalendar.Models.MainEventType.Innlevering) {
+													typeClass = "assignment";
+													//typeText = "Innlevering";
+												}
+												else if (item.MainEventType == TikTokCalendar.Models.MainEventType.Eksamen) {
+													typeClass = "exam";
+													//typeText = "Eksamen";
+												}
+											}
+
+											<!-- Write event type -->
+											<p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
+
+											<!-- "Grensesnittdesign" -->
                                             <p class="name activator timeleft">@item.Subject.Name</p>
+
+
+
                                             @{  string timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
                                                 bool lessThanAnHour = false;
                                                 bool lessThan24 = false;
@@ -112,20 +132,8 @@
                                             }
                                         </div>
                                         <div class="right-position">
-                                            @{  var typeClass = "";
-                                                var typeText = item.EventTypeLabel;
-
-                                                if (item.MainEventType == TikTokCalendar.Models.MainEventType.Innlevering) {
-                                                    typeClass = "assignment";
-                                                    //typeText = "Innlevering";
-                                                }
-                                                else if (item.MainEventType == TikTokCalendar.Models.MainEventType.Eksamen) {
-                                                    typeClass = "exam";
-                                                    //typeText = "Eksamen";
-                                                }
-                                            }
-
-                                            <p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
+                                           
+											<!-- Room name -->
                                             <p class="room">@item.RoomName</p>  <!-- "Rom 41" -->
                                         </div>
                                     </div>
@@ -223,7 +231,7 @@
                             </div>
 
 								<!-- "More info" modal -->
-                                <div class="content-hidden modal fade" id="@item.ID" role="dialog">
+                                <div class="content-hidden modal fade" id="@item.ID" role="dialog" style="z-index: 5;">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
 
@@ -287,7 +295,7 @@
 		
 		<!-- Ledige rom modal -->
 		<div class="content-hidden modal fade" id="vis-rom-modal" role="dialog">
-			<div class="modal-dialog" style="width: 900px; max-width: 100%; margin-top: 160px;">
+			<div class="modal-dialog">
 				<div class="modal-content">
 
 					<!-- Modal header -->
@@ -298,7 +306,7 @@
 
 					<!-- Modal body -->
 					<div class="modal-body" style="margin: 0;">
-						<table id="" class="table table-bordered table-hover rooms-available">
+						<table id="vis-rom-modal" class="table table-bordered table-hover rooms-available">
 							<tr>
 								<th>Rom</th>
 								<td>
@@ -316,82 +324,24 @@
 									</div>
 								</td>
 							</tr>
-							<tr>
-								<th>Vrimle</th>
-								<td>
-									<div class="progress">
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">8:15</div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">9:15</div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">10:15</div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">11:15</div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">12:15</div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">13:15</div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">14:15</div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">15:15</div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">14:15</div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">15:15</div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th>Auditoriet</th>
-								<td>
-									<div class="progress">
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:40%">8:15-12:00</div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">12:15-13:00</div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:30%">13:15-16:00</div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%">16:15-17:00</div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">17:15-18:00</div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th>Rom 79-80</th>
-								<td>
-									<div class="progress">
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:20%"></div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%"></div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:20%"></div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%"></div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:20%"></div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%"></div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th>Rom 83</th>
-								<td>
-									<div class="progress">
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:70%"></div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th>Rom 40</th>
-								<td>
-									<div class="progress">
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:40%"></div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%"></div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:30%"></div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th>Rom 41</th>
-								<td>
-									<div class="progress">
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:40%"></div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:30%"></div>
-										<div class="progress-bar progress-bar-success" role="progressbar" style="width:10%"></div>
-										<div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%"></div>
-									</div>
-								</td>
-							</tr>
+							@{
+								foreach (var room in Model.Rooms) {
+									<tr>
+										<th>@room.RoomName</th>
+											<td>
+												<div class="progress">
+													@{			
+														foreach (var timeSlot in room.Availability) {
+															var startHour = (@timeSlot.Start.Hour - TikTokCalendar.DAL.TimeSlot.StartHour) * 10;
+															var lenght = (@timeSlot.GetPercentOfDay() + 2.5).ToString().Replace(",", ".");
+															<div class="progress-bar progress-bar-danger availability-bar" role="progressbar" style="margin-left: @startHour%; width: @lenght%">@timeSlot.Event.Subject.Name</div>
+													}
+												}
+											</div>
+										</td>
+									</tr>
+								}
+							}
 						</table>
 					</div>
 				</div>

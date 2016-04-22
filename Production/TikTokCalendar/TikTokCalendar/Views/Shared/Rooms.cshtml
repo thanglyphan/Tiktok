@@ -1,0 +1,50 @@
+﻿@model TikTokCalendar.DAL.ModelDataWrapper
+@{
+    ViewBag.Title = "Rooms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="~/DAL/TimeSlot.cs">~/DAL/TimeSlot.cs</a>
+
+<main style="width: 900px; max-width: 100%;">
+	
+	<table id="vis-rom-modal" class="table table-bordered table-hover rooms-available">
+		<tr>
+			<th>Rom</th>
+			<td>
+				<div class="progress">
+					<div class="progress-bar" role="progressbar" style="width:10%">8:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">9:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">10:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">11:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">12:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">13:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">14:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">15:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">16:15</div>
+					<div class="progress-bar" role="progressbar" style="width:10%">17:15</div>
+				</div>
+			</td>
+		</tr>
+		@{
+			foreach (var room in Model.Rooms) {
+				<tr>
+					<th>@room.RoomName</th>
+					<td>
+						<div class="progress">
+							@{
+								foreach (var timeSlot in room.Availability) {
+									var startHour = (@timeSlot.Start.Hour - TikTokCalendar.DAL.TimeSlot.StartHour) * 10;
+									var lenght = (@timeSlot.GetPercentOfDay() + 2.5).ToString().Replace(",", ".");
+									<div class="progress-bar progress-bar-danger availability-bar" role="progressbar" style="margin-left: @startHour%; width: @lenght%">@timeSlot.Event.Subject.Name</div>
+								}
+							}
+						</div>
+					</td>
+				</tr>
+			}
+		}
+	</table>
+
+
+
+</main>

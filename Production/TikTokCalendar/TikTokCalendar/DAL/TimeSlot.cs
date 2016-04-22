@@ -8,8 +8,8 @@ namespace TikTokCalendar.DAL
 {
 	public class TimeSlot
 	{
-		public const int StartHour = 7;
-		public const int EndHour = 19;
+		public const int StartHour = 8;
+		public const int EndHour = 18;
 
 		public DateTime Start { get; private set; }
 		public DateTime End { get; private set; }
@@ -33,7 +33,7 @@ namespace TikTokCalendar.DAL
 			End = end;
 		}
 
-		public long GetPercentOfDay()
+		public float GetPercentOfDay()
 		{
 			Min = MinTime(Start);
 			Max = MaxTime(End);
@@ -44,7 +44,7 @@ namespace TikTokCalendar.DAL
 
 			float slotSpan = (float)span;
 			float daySpan = (float)fullDaySpan;
-			long percent = (long)((slotSpan / daySpan) * 100);
+			float percent = (float)((slotSpan / daySpan) * 100);
 
 			return percent;
 		}

@@ -1,17 +1,8 @@
 ﻿@model TikTokCalendar.DAL.ModelDataWrapper
 @{
-    TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
-
-    //var userName = "John Doe";
-
-    //if (cookie.LoadStringFromCookie("UserName") != null) {
-    //    userName = cookie.LoadStringFromCookie("UserName");
-    //}
-    var userName = Model.user.UserName;
-
     int eventCount = Model.GetEventCount();
     string searchLine = "";
-    if (Model.isFiltered)
+    if (Model.isFiltered || Model.searchWords.Length > 0)
     {
         searchLine = "border-left: 1px solid #c6cedb;";
     }
@@ -73,7 +64,7 @@
                         },
                         success: function (data) {
 
-                            response($.sfp(data, function (item) {
+                            response($.map(data, function (item) {
                                 return {
                                     label: item
                                 };
@@ -116,7 +107,7 @@
             </div>
 
             <span class="results" style="@searchLine">
-                @if (Model.isFiltered)
+                @if (Model.isFiltered || Model.searchWords.Length > 0)
                 {
                     if (eventCount > 1)
                     {
@@ -144,22 +135,11 @@
                 }
             </div>
 
-            <div class="right-2">
+			
 
-				@*@if (userName != "John Doe") {
-				    <div class="right-1">
-					    <a onclick="delCookie()" class="logout"><p>Logg ut @userName</p><i class="fa fa-sign-out fa-2x"></i></a>
-				    </div>
-				}
-				else {
-					<p>
-						<a class="logout" data-toggle="modal" data-target="#login-modal">
-							<span>Logg inn </span><i class="fa fa-sign-in fa-2x"></i>
-						</a>
-					</p>
-				}*@
-                
-                @if (Model.user.Course == SchoolCourses.VisAlt)
+			<div class="right-2">
+
+				@if (Model.User.Course == SchoolCourses.VisAlt)
                 {
                     <p>
                         <a class="logout" data-toggle="modal" data-target="#login-modal">
@@ -171,10 +151,16 @@
                 {
                     using (Html.BeginForm("LogOut", "Home"))
                     {
-                        <button type="submit" class="btn btn-md btn-primary btn-block btn-login">Logg out, @Model.user.UserName</button>
+                        <button type="submit" class="btn btn-logout">Logg out, @Model.User.UserName</button>
                     }
                 }    
             </div>
+
+			<div class="right-1">
+				<p class="btn-show-rooms">
+					<span data-toggle="modal" data-target="#vis-rom-modal">Vis ledige rom</span>
+				</p>
+			</div>
             
 				<script>
                     function delCookie() {

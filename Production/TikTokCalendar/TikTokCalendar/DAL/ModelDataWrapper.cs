@@ -10,7 +10,7 @@ namespace TikTokCalendar.DAL
 	{
 		public List<EventMonth> calEvents;
 		public List<CustomEventMonth> Months { get; set; }
-		public StudentUser user;
+		public StudentUser User;
 		public List<Room> Rooms { get; set; }
         public List<EventUserStat> eventUserStats { get; set; }
         public string searchWords { get; private set; }
@@ -18,6 +18,7 @@ namespace TikTokCalendar.DAL
         public bool showingAssignments { get; private set; }
         public bool showingExams { get; private set; }
         public bool isFiltered { get; set; }
+		public bool FailedLogin { get; set; } = false;
 
         public ModelDataWrapper()
 		{
@@ -49,7 +50,7 @@ namespace TikTokCalendar.DAL
         {
             calEvents = new List<EventMonth>();
             Months = new List<CustomEventMonth>();
-            user = new StudentUser("NO NAME", SchoolCourses.Spillprogrammering, "second");
+            User = new StudentUser("NO NAME", SchoolCourses.VisAlt, "second");
             var db = new CalendarEventContext();
             eventUserStats = new List<EventUserStat>(db.EventUserStats);
         }
