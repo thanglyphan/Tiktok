@@ -7,7 +7,7 @@
 
 <main style="width: 900px; max-width: 100%;">
 	
-	<table id="#vis-rom-modal" class="table table-bordered table-hover rooms-available">
+	<table id="vis-rom-modal" class="table table-bordered table-hover rooms-available">
 		<tr>
 			<th>Rom</th>
 			<td>
@@ -33,8 +33,9 @@
 						<div class="progress">
 							@{
 								foreach (var timeSlot in room.Availability) {
-									
-									<div class="progress-bar progress-bar-success" role="progressbar" style="width:@timeSlot.GetPercentOfDay()%">1</div>
+									var startHour = (@timeSlot.Start.Hour - 8) * 10;
+									var lenght = (@timeSlot.GetPercentOfDay() + 2.5).ToString().Replace(",", ".");
+									<div class="progress-bar progress-bar-danger availability-bar" role="progressbar" style="margin-left: @startHour%; width: @lenght%">@timeSlot.Event.Subject.Name</div>
 								}
 							}
 						</div>
@@ -42,6 +43,7 @@
 				</tr>
 			}
 		}
+		@*
 		<tr>
 			<th>Vrimle</th>
 			<td>
@@ -118,6 +120,7 @@
 				</div>
 			</td>
 		</tr>
+		*@
 	</table>
 
 

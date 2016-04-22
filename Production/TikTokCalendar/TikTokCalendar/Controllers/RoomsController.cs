@@ -16,7 +16,7 @@ namespace TikTokCalendar.Controllers
 			DataParser dp = new DataParser();
 			dp.ParseAllData();
 			// Make a new ModelDataWrapper with the events based on the user, tags, and filters
-			StudentUser user = new StudentUser("it1", SchoolCourses.BacheloriIT, "second");
+			StudentUser user = new StudentUser("spillprog2", SchoolCourses.BacheloriIT, "second");
 			ModelDataWrapper modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
 
 			// Send the model to the view
