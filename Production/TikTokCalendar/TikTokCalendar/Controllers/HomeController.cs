@@ -19,40 +19,22 @@ namespace TikTokCalendar.Controllers
 		public ActionResult LogIn(string username, string password)
 		{
 			// Make a new ModelDataWrapper with the events based on the user, tags, and filters
-			ModelDataWrapper modelWrapper = new ModelDataWrapper();
-
 			StudentUser user = InitUser(username, password, "");
-
-			modelWrapper.user = user;
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user);
-			List<Room> rooms = new List<Room>();
-			foreach (var room in DataWrapper.Instance.Rooms)
-			{
-				rooms.Add(room.Value);
-			}
-			modelWrapper.Rooms = rooms;
+			ModelDataWrapper modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
 
 			// Send the model to the view
-
+			Session["keywords"] = null;
 			return View("Index", modelWrapper);
 		}
 
 		public ActionResult LogOut()
 		{
 			cookie.DeleteCookies();
-			StudentUser user = new StudentUser("NO NAME", "", "", -1, SchoolCourses.VisAlt);
-			ModelDataWrapper modelWrapper = new ModelDataWrapper();
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user);
-			modelWrapper.user = user;
-			List<Room> rooms = new List<Room>();
-			foreach (var room in DataWrapper.Instance.Rooms)
-			{
-				rooms.Add(room.Value);
-			}
-			modelWrapper.Rooms = rooms;
+			Session["keywords"] = null;
 
-			// to show all keywords when no user
-			//Session["keywords"] = null;
+			StudentUser user = new StudentUser("Not logged in", "", "", -1, SchoolCourses.VisAlt);
+			ModelDataWrapper modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
+
 			return View("Index", modelWrapper);
 		}
 
@@ -96,7 +78,7 @@ namespace TikTokCalendar.Controllers
 			StudentUser user = InitUser(Email, Password, tags);
 
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, lec, ass, exa);
-			modelWrapper.user = user;
+			modelWrapper.User = user;
 			List<Room> rooms = new List<Room>();
 			foreach (var room in DataWrapper.Instance.Rooms)
 			{
@@ -113,7 +95,24 @@ namespace TikTokCalendar.Controllers
 			return View(modelWrapper);
 		}
 
-        public StudentUser InitUser(string userName, string password, string tags)
+		private ModelDataWrapper CreateModelDataWrapper(List<CustomEventMonth> months, StudentUser user)
+		{
+			ModelDataWrapper modelWrapper = new ModelDataWrapper();
+			modelWrapper.Months = months;
+			modelWrapper.User = user;
+
+			// Set availible rooms
+			List<Room> rooms = new List<Room>();
+			foreach (var room in DataWrapper.Instance.Rooms)
+			{
+				rooms.Add(room.Value);
+			}
+			modelWrapper.Rooms = rooms;
+
+			return modelWrapper;
+		}
+
+		public StudentUser InitUser(string userName, string password, string tags)
         {
             // Get the user from cookies
             StudentUser user = null;
