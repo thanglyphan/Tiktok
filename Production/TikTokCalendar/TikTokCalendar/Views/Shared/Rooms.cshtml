@@ -33,7 +33,7 @@
 						<div class="progress">
 							@{
 								foreach (var timeSlot in room.Availability) {
-									var startHour = (@timeSlot.Start.Hour - 8) * 10;
+									var startHour = (@timeSlot.Start.Hour - timeSlot.Min.Hour) * 10;
 									var lenght = (@timeSlot.GetPercentOfDay() + 2.5).ToString().Replace(",", ".");
 									<div class="progress-bar progress-bar-danger availability-bar" role="progressbar" style="margin-left: @startHour%; width: @lenght%">@timeSlot.Event.Subject.Name</div>
 								}

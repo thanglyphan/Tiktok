@@ -870,3 +870,17 @@ input[class^="going-"]:hover {
 	font-size: 1.8em;
 	text-align: center;
 }
+
+/*======================================
+  LOGOUT BUTTON
+=======================================*/
+
+.btn-logout {
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	font-size: 1.15em;
+	padding-top: 19px;
+	color: #999;
+	border: 0;
+}
