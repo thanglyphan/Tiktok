@@ -850,10 +850,10 @@ input[class^="going-"]:hover {
 
 #vis-rom-modal th {
 	width: 20% !important;
-	font-size: 2em;
+	font-size: 1em;
 }
 #vis-rom-modal .progress {
-	height: 4em;
+	height: 1em;
 	margin: 0;
 	background-color: #5cb85c;
 }
@@ -864,10 +864,11 @@ input[class^="going-"]:hover {
 	line-height: 1.8em;
 	text-align: left;
 	padding: 2px;
+	font-size: 1em;
 }
 
 #vis-rom-modal .availability-bar {
-	font-size: 1.8em;
+	font-size: 1em;
 	text-align: center;
 }
 
