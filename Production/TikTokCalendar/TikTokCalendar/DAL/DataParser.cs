@@ -61,38 +61,35 @@ namespace TikTokCalendar.DAL
 
 			// We have to do this in two different calls, as GetEvents() has functions that depend on DataWrapper to have the info about the base SchoolSystem(subjects, courses, etc)
 			var events = GetEvents();
-			var allRooms = GetRooms(events, DateTime.Now);
+			var allRooms = GetRoomTimeSlots(events, DateTime.Now);
 			DataWrapper.Instance.SetSchoolSystemDependantData(events, allRooms);
 		}
 
-		private Dictionary<string, Room> GetRooms(List<CustomEvent> events, DateTime date)
+		private Dictionary<string, Room> GetRoomTimeSlots(List<CustomEvent> events, DateTime date)
 		{
 			//rooms = new Dictionary<string, Room>();
 			foreach (var evnt in events)
 			{
+				// If the event doesn't have a room name or a start/end time, skip it
 				if (string.IsNullOrEmpty(evnt.RoomName) || !evnt.HasStartTime || !evnt.HasEndDateTime)
 				{
 					continue;
 				}
 
+				// Check if the event is today
 				if (evnt.StartDateTime.Month == date.Month && evnt.StartDateTime.Day == date.Day)
 				{
+					// Get the possible roomnames in the roomtext
 					var roomNames = GetRoomsFromRoomText(evnt.RoomName);
 					foreach (var room in roomNames)
 					{
+						// Skip if empty
 						if (string.IsNullOrEmpty(room)) continue;
 
+						// Add the timeslot if the roomdictionary has this rooms registered
 						if (rooms.ContainsKey(room))
 						{
-							Room r = rooms[room];
-							r.TryAddTimeSlot(new TimeSlot(evnt));
-							rooms[room] = r;
-						}
-						else
-						{
-							Room r = new Room(room);
-							r.TryAddTimeSlot(new TimeSlot(evnt));
-							rooms.Add(r.RoomName, r);
+							rooms[room].TryAddTimeSlot(new TimeSlot(evnt));
 						}
 					}
 				}
@@ -100,6 +97,11 @@ namespace TikTokCalendar.DAL
 			return rooms;
 		}
 
+		/// <summary>
+		/// Splits the given roomtext into an array (splits with ',')
+		/// </summary>
+		/// <param name="roomText"></param>
+		/// <returns></returns>
 		public string[] GetRoomsFromRoomText(string roomText)
 		{
 			string[] splitResults = roomText.Split(',');
@@ -110,6 +112,11 @@ namespace TikTokCalendar.DAL
 			return splitResults;
 		}
 
+		/// <summary>
+		/// Returns the file contents of the gives filepath (relative to the Content/ folder).
+		/// </summary>
+		/// <param name="contentFolderRelativePath"></param>
+		/// <returns></returns>
 		private string GetFileContents(string contentFolderRelativePath)
 		{
 			string dataPath = null;
@@ -208,7 +215,7 @@ namespace TikTokCalendar.DAL
 						var roomNames = GetRoomsFromRoomText(evnts[0].RoomName);
 						foreach (var room in roomNames)
 						{
-							if (!rooms.ContainsKey(room))
+							if (!string.IsNullOrEmpty(room) && !rooms.ContainsKey(room))
 							{
 								rooms.Add(room, new Room(room));
 							}
