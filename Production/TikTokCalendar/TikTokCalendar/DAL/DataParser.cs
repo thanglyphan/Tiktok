@@ -43,6 +43,8 @@ namespace TikTokCalendar.DAL
 		private const int ColumnKommentar = 5;
 		private readonly DateTimeParser dtParser = new DateTimeParser();
 
+		private Dictionary<string, Room> rooms = new Dictionary<string, Room>(); 
+
 		public DataParser()
 		{
 			examEventID = ExamEventStartID;
@@ -50,23 +52,6 @@ namespace TikTokCalendar.DAL
 
 		public void ParseAllData()
 		{
-			// Redneck unit testing
-			//List<EventDuplicate> eDups = new List<EventDuplicate>();
-			//EventDuplicate a = new EventDuplicate("1", new List<Course>(), "1", DateTime.Now);
-			//for (int i = 2; i < 10; i++)
-			//{
-			//	eDups.Add(new EventDuplicate(i.ToString(), new List<Course>(), i.ToString(), DateTime.Now));
-			//}
-			//bool ca = eDups.Contains(a); // Should be false
-			//Debug.WriteLine("(true)List contains a: " + (ca == false));
-			//eDups.Add(a);
-			//Predicate<EventDuplicate> eventFinder = (EventDuplicate e) => { return e == a; };
-			//EventDuplicate b = eDups.Find(eventFinder); // b should be the same as a
-			//bool bIsA = b == a; // Should be true
-			//Debug.WriteLine("(true)Found b, and b == a: " + (bIsA == true));
-			//bool cb = eDups.Contains(a); // Should be true
-			//Debug.WriteLine("(true)List contains a: " + (cb == true));
-
 			// Initialize the base school system data for the wrapper
 			var subjects = GetSubjects();
 			var courses = GetCourses();
@@ -76,13 +61,13 @@ namespace TikTokCalendar.DAL
 
 			// We have to do this in two different calls, as GetEvents() has functions that depend on DataWrapper to have the info about the base SchoolSystem(subjects, courses, etc)
 			var events = GetEvents();
-			var rooms = GetRooms(events, DateTime.Now);
-			DataWrapper.Instance.SetSchoolSystemDependantData(events, rooms);
+			var allRooms = GetRooms(events, DateTime.Now);
+			DataWrapper.Instance.SetSchoolSystemDependantData(events, allRooms);
 		}
 
 		private Dictionary<string, Room> GetRooms(List<CustomEvent> events, DateTime date)
 		{
-			Dictionary<string, Room> rooms = new Dictionary<string, Room>();
+			//rooms = new Dictionary<string, Room>();
 			foreach (var evnt in events)
 			{
 				if (string.IsNullOrEmpty(evnt.RoomName) || !evnt.HasStartTime || !evnt.HasEndDateTime)
@@ -95,6 +80,8 @@ namespace TikTokCalendar.DAL
 					var roomNames = GetRoomsFromRoomText(evnt.RoomName);
 					foreach (var room in roomNames)
 					{
+						if (string.IsNullOrEmpty(room)) continue;
+
 						if (rooms.ContainsKey(room))
 						{
 							Room r = rooms[room];
@@ -200,6 +187,7 @@ namespace TikTokCalendar.DAL
 		private List<CustomEvent> GetEvents()
 		{
 			List<long> addedIDs = new List<long>();
+			rooms = new Dictionary<string, Room>();
 			var events = new List<CustomEvent>();
 
 			var file = "";
@@ -216,6 +204,15 @@ namespace TikTokCalendar.DAL
 					{
 						events.AddRange(evnts);
 						addedIDs.Add(evnts[0].ID);
+
+						var roomNames = GetRoomsFromRoomText(evnts[0].RoomName);
+						foreach (var room in roomNames)
+						{
+							if (!rooms.ContainsKey(room))
+							{
+								rooms.Add(room, new Room(room));
+							}
+						}
 					}
 				}
 			}

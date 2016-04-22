@@ -20,7 +20,17 @@ namespace TikTokCalendar.Controllers
 		{
 			// Make a new ModelDataWrapper with the events based on the user, tags, and filters
 			StudentUser user = InitUser(username, password, "");
+			bool failedLogin = false;
+			if (!DataWrapper.Instance.IsValidUser(user))
+			{
+				failedLogin = true;
+				user = new StudentUser("NO NAME", SchoolCourses.VisAlt, "NaN");
+			}
+
 			ModelDataWrapper modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
+			modelWrapper.FailedLogin = failedLogin;
+
+
 
 			// Send the model to the view
 			Session["keywords"] = null;

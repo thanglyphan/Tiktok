@@ -33,6 +33,22 @@ namespace TikTokCalendar.DAL
 			End = end;
 		}
 
+		public long GetStartPercent()
+		{
+			Min = MinTime(Start);
+			Max = MaxTime(End);
+
+			// Calulate the span between the min/max
+			long span = Start.Ticks - Min.Ticks;
+			long fullDaySpan = Max.Ticks - Min.Ticks;
+
+			float slotSpan = (float)span;
+			float daySpan = (float)fullDaySpan;
+			long percent = (long)((slotSpan / daySpan) * 100);
+
+			return percent;
+		}
+
 		public long GetPercentOfDay()
 		{
 			Min = MinTime(Start);

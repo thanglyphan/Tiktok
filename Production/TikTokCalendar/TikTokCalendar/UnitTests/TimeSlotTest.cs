@@ -15,8 +15,8 @@ namespace TikTokCalendar.UnitTests
 		public void Percent100()
 		{
 			DateTime now = DateTime.Now;
-			DateTime start = new DateTime(now.Year, now.Month, now.Day, 7, 0, 0);
-			DateTime end = new DateTime(now.Year, now.Month, now.Day, 19, 0, 0);
+			DateTime start = new DateTime(now.Year, now.Month, now.Day, 8, 0, 0);
+			DateTime end = new DateTime(now.Year, now.Month, now.Day, 18, 0, 0);
 
 			TimeSlot slot = new TimeSlot(start, end);
 			var percent = slot.GetPercentOfDay();
@@ -27,12 +27,36 @@ namespace TikTokCalendar.UnitTests
 		public void Percent50()
 		{
 			DateTime now = DateTime.Now;
-			DateTime start = new DateTime(now.Year, now.Month, now.Day, 7, 0, 0);
+			DateTime start = new DateTime(now.Year, now.Month, now.Day, 8, 0, 0);
 			DateTime end = new DateTime(now.Year, now.Month, now.Day, 13, 0, 0);
 
 			TimeSlot slot = new TimeSlot(start, end);
 			var percent = slot.GetPercentOfDay();
 			Assert.AreEqual(50, percent);
+		}
+
+		[Test]
+		public void PercentStart50()
+		{
+			DateTime now = DateTime.Now;
+			DateTime start = new DateTime(now.Year, now.Month, now.Day, 8, 0, 0);
+			DateTime end = new DateTime(now.Year, now.Month, now.Day, 14, 0, 0);
+
+			TimeSlot slot = new TimeSlot(start, end);
+			var percent = slot.GetStartPercent();
+			Assert.AreEqual(50, percent);
+		}
+
+		[Test]
+		public void PercentStart100()
+		{
+			DateTime now = DateTime.Now;
+			DateTime start = new DateTime(now.Year, now.Month, now.Day, 8, 0, 0);
+			DateTime end = new DateTime(now.Year, now.Month, now.Day, 18, 0, 0);
+
+			TimeSlot slot = new TimeSlot(start, end);
+			var percent = slot.GetStartPercent();
+			Assert.AreEqual(100, percent);
 		}
 	}
 }
