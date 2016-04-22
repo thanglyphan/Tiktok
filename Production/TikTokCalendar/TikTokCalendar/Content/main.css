@@ -441,7 +441,7 @@ input[type="checkbox"]:checked + label {
 }
 
 #today {
-   animation: pulse 3s ease-in-out infinite;
+   -moz-animation: pulse 3s ease-in-out infinite;
 }
 
 .ongoing {
