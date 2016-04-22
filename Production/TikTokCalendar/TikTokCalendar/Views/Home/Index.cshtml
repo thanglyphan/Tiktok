@@ -6,11 +6,11 @@
 
     // This can be retrieved from Model.user so we don't have to do even more business logic here
     TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
-    string userName = "";
-    userName = cookie.LoadStringFromCookie("UserName");
-    if (userName == null) {
-        userName = "";
-    }
+    //string Model.User.UserName = "";
+    //Model.User.UserName = cookie.LoadStringFromCookie("Model.User.UserName");
+    //if (Model.User.UserName == null) {
+    //    Model.User.UserName = "";
+    //}
 
     // show from week number (show from top when searching)
     int anchor = 1;
@@ -173,7 +173,7 @@
                                         <!-- eventually limit the number of weeks for going/check-in to show here:
                                         if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime.AddDays(21))
                                         {-->
-                                        @if (userName != "" && userName != "NO NAME" && item.MainEventType != TikTokCalendar.Models.MainEventType.Innlevering) {
+                                        @if (Model.User.UserName != "" && Model.User.UserName != "NO NAME" && item.MainEventType == TikTokCalendar.Models.MainEventType.Forelesning) {
                                             using (Ajax.BeginForm("UserStatUpdate","Home",new AjaxOptions {
                                                 HttpMethod = "POST",
                                                 UpdateTargetId = "going-" + item.ID,
@@ -183,7 +183,7 @@
                                         <div class="check-in" id="going-@item.ID">
                                             @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
                                                 bool geo = true;
-                                                if (!EUSH.UserAttending(item.ID,userName)) {
+                                                if (!EUSH.UserAttending(item.ID, Model.User.UserName)) {
 													<input type="hidden" name="eventid" value="@item.ID" />
 													<input type="hidden" name="attend" value="true" />
 													<input type="submit" value="Check-in" />
@@ -215,7 +215,7 @@
                                                     @foreach (var eus in Model.eventUserStats) {
                                                         if (eus.EventID == item.ID) {
                                                             <span class="no-linebreak">
-                                                                @if (EUSH.UserAttending(item.ID,eus.UserName)) {
+                                                                @if (EUSH.UserAttending(item.ID, eus.UserName)) {
                                                                     <text>&#10004;</text>
 }
                                                                 @eus.UserName<br />
@@ -368,9 +368,9 @@
                             if (Model.FailedLogin)
                             {
                                 <!-- TODO css wizards: style this -->
-                                <p>Invalid username/password, try again</p>
+                                <p>Invalid Model.User.UserName/password, try again</p>
                             }
-							<input type="text" class="form-control" id="email" name ="username" placeholder="Brukernavn">
+							<input type="text" class="form-control" id="email" name ="Model.User.UserName" placeholder="Brukernavn">
 							<input type="password" class="form-control" id="pwd" name ="password" placeholder="Passord">
 
 							<button type="submit" class="btn btn-md btn-primary btn-block btn-login">logg inn</button>
