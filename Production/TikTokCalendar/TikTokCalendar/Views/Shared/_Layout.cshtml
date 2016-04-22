@@ -64,7 +64,7 @@
                         },
                         success: function (data) {
 
-                            response($.sfp(data, function (item) {
+                            response($.map(data, function (item) {
                                 return {
                                     label: item
                                 };
