@@ -6,15 +6,17 @@
 
     // This can be retrieved from Model.user so we don't have to do even more business logic here
     TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
-    //string Model.User.UserName = "";
-    //Model.User.UserName = cookie.LoadStringFromCookie("Model.User.UserName");
-    //if (Model.User.UserName == null) {
-    //    Model.User.UserName = "";
+    //string userName = "";
+    //userName = cookie.LoadStringFromCookie("UserName");
+    //if (userName == null)
+    //{
+    //    userName = "";
     //}
 
     // show from week number (show from top when searching)
     int anchor = 1;
-    if (Model.searchWords == "") {
+    if (Model.searchWords == "")
+    {
         anchor = TikTokCalendar.Extras.Utils.GetWeekNumberOfYear(DateTime.Now);
     }
 }
@@ -33,33 +35,37 @@
     <div class="main-body">
 
         <!-- Looping throught every month -->
-        @foreach (var month in Model.Months) {
+        @foreach (var month in Model.Months)
+        {
             var isCollapsed = "in";
-            if (month.MonthNumber < DateTime.Now.Month && !Model.isFiltered && Model.searchWords == "") {
+            if (month.MonthNumber < DateTime.Now.Month && !Model.isFiltered && Model.searchWords == "")
+            {
                 isCollapsed = ""; // true
             }
             <div class="goto" id="goto-@month.MonthNumber"></div>
             <!-- Month box e.g. "August" -->
             <a class="feed-month" data-toggle="collapse" data-target="#month-@month.MonthNumber">
 
-				<span class="badge-container">
-					<span class="badge badge-exam pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Eksamen)</span>
-					<span class="badge badge-assignment pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Innlevering)</span>
-					<span class="badge badge-lecture pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Forelesning)</span>
-				</span>
+                <span class="badge-container">
+                    <span class="badge badge-exam pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Eksamen)</span>
+                    <span class="badge badge-assignment pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Innlevering)</span>
+                    <span class="badge badge-lecture pull-right">@month.GetEventTypeCount(TikTokCalendar.Models.EventType.Forelesning)</span>
+                </span>
 
                 <p class="month">
-					@month.GetMonthName()
-				</p>
-				
+                    @month.GetMonthName()
+                </p>
+
             </a>
             <!-- Container for an entire month of events -->
             <div class="feed collapse @isCollapsed" id="month-@month.MonthNumber">
 
                 <!-- Looping throught every week -->
-                @foreach (var week in month.Weeks) {
+                @foreach (var week in month.Weeks)
+                {
 
-                    if (week.events.Count <= 0) {
+                    if (week.events.Count <= 0)
+                    {
                         continue;
                     }
 
@@ -68,9 +74,11 @@
                     <div class="feed-week">
 
                         <!-- Looping throught every events -->
-                        @foreach (var item in week.events) {
+                        @foreach (var item in week.events)
+                        {
                             var today = "";
-                            if (item.StartDateTime.Date.Equals(DateTime.Now.Date)) {
+                            if (item.StartDateTime.Date.Equals(DateTime.Now.Date))
+                            {
                                 today = "today";
                             }
 
@@ -83,32 +91,33 @@
                                     <!-- Container for the top row -->
                                     <div class="class-info event-id-@item.ID" data-toggle="modal" data-target="#@item.ID">
                                         <div class="class-date">
-                                           
+
                                             <!-- 17 -->
-                                            <p class="date-number">@item.StartDateTime.Day</p>  
+                                            <p class="date-number">@item.StartDateTime.Day</p>
                                         </div>
 
                                         <!-- tooltip hover extravaganza -->
                                         <div class="tip-item">
 
                                             <!-- Check waht type it is -->
-											@{  var typeClass = "";
-												var typeText = item.EventTypeLabel;
+                                            @{  var typeClass = "";
+                                                var typeText = item.EventTypeLabel;
 
-												if (item.MainEventType == TikTokCalendar.Models.MainEventType.Innlevering) {
-													typeClass = "assignment";
-													//typeText = "Innlevering";
-												}
-												else if (item.MainEventType == TikTokCalendar.Models.MainEventType.Eksamen) {
-													typeClass = "exam";
-													//typeText = "Eksamen";
-												}
-											}
+                                                if (item.MainEventType == TikTokCalendar.Models.MainEventType.Innlevering)
+                                                {
+                                                    typeClass = "assignment";
+                                                    //typeText = "Innlevering";
+                                                }
+                                                else if (item.MainEventType == TikTokCalendar.Models.MainEventType.Eksamen)
+                                                {
+                                                    typeClass = "exam";
+                                                    //typeText = "Eksamen";
+                                                }
+                                            }
 
-											<!-- Write event type -->
-											<p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
-
-											<!-- "Grensesnittdesign" -->
+                                            <!-- Write event type -->
+                                            <p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
+                                            <!-- "Grensesnittdesign" -->
                                             <p class="name activator timeleft">@item.Subject.Name</p>
 
 
@@ -117,12 +126,16 @@
                                                 bool lessThanAnHour = false;
                                                 bool lessThan24 = false;
                                             }
-                                            @if (timeLeft != "") {
-                                                if (item.StartDateTime > DateTime.Now.AddHours(24)) {
+                                            @if (timeLeft != "")
+                                            {
+                                                if (item.StartDateTime > DateTime.Now.AddHours(24))
+                                                {
                                                     <div class="tip timeleft">@timeLeft</div>
 }
-                                                if (item.StartDateTime < DateTime.Now.AddHours(24)) {
-                                                    if (item.StartDateTime < DateTime.Now.AddHours(1)) {
+                                                if (item.StartDateTime < DateTime.Now.AddHours(24))
+                                                {
+                                                    if (item.StartDateTime < DateTime.Now.AddHours(1))
+                                                    {
                                                         lessThanAnHour = true;
                                                     }
                                                     else {
@@ -132,8 +145,8 @@
                                             }
                                         </div>
                                         <div class="right-position">
-                                           
-											<!-- Room name -->
+
+                                            <!-- Room name -->
                                             <p class="room">@item.RoomName</p>  <!-- "Rom 41" -->
                                         </div>
                                     </div>
@@ -144,10 +157,12 @@
                                             <!-- Date and time  -->
                                             <p class="time">
                                                 <strong>&nbsp;@item.GetDayOfWeek()</strong>@item.GetTimeSlot()
-                                                @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
+                                                @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
+                                                {
                                                     <b>&nbsp;&nbsp;&nbsp;</b><span class="on ">Pågår</span>
 }
-                                                else if (lessThanAnHour) {
+                                                else if (lessThanAnHour)
+                                                {
 
                                                     <!-- real time countdown script -->
                                                     <script>
@@ -159,243 +174,250 @@
                                                         });
                                                     </script>
                                                     <span>&nbsp;|</span>
-                                                <span class="countdown-@item.ID"></span>
+                                                    <span class="countdown-@item.ID"></span>
 }
-                                                else if (lessThan24) {
+                                                else if (lessThan24)
+                                                {
                                                     <b>&nbsp;&nbsp;&nbsp;</b><span class="countdown">@timeLeft</span>
 }
                                             </p>
                                         </div>
 
                                         <!-- Icon displaying "..."  -->
-                                        
-										<!-- FLYTT GOING/ATTEND KODEBLOKK NED HIT NÅR EVENT-CLICK ER FIKSA -->
+                                        <!-- FLYTT GOING/ATTEND KODEBLOKK NED HIT NÅR EVENT-CLICK ER FIKSA -->
                                         <!-- eventually limit the number of weeks for going/check-in to show here:
                                         if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime.AddDays(21))
                                         {-->
-                                        @if (Model.User.UserName != "" && Model.User.UserName != "NO NAME" && item.MainEventType == TikTokCalendar.Models.MainEventType.Forelesning) {
-                                            using (Ajax.BeginForm("UserStatUpdate","Home",new AjaxOptions {
+                                        @if (Model.User.UserName != "" && Model.User.UserName != "NO NAME" && item.MainEventType == TikTokCalendar.Models.MainEventType.Forelesning)
+                                        {
+                                            using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
+                                            {
                                                 HttpMethod = "POST",
                                                 UpdateTargetId = "going-" + item.ID,
                                                 InsertionMode = InsertionMode.Replace
-                                            })) {
+                                            }))
+                                            {
                                                 // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
-                                        <div class="check-in" id="going-@item.ID">
-                                            @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime) {
-                                                bool geo = true;
-                                                if (!EUSH.UserAttending(item.ID, Model.User.UserName)) {
-													<input type="hidden" name="eventid" value="@item.ID" />
-													<input type="hidden" name="attend" value="true" />
-													<input type="submit" value="Check-in" />
+                                                <div class="check-in" id="going-@item.ID">
+                                                    @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
+                                                    {
+                                                        bool geo = true;
+                                                        if (!EUSH.UserAttending(item.ID, Model.User.UserName))
+                                                        {
+                                                            <input type="hidden" name="eventid" value="@item.ID" />
+                                                            <input type="hidden" name="attend" value="true" />
+                                                            <input type="submit" value="Check-in" />
 }
-                                                else {
-													<strong>Innsjekket &#10004;</strong>
+                                                        else {
+                                                            <strong>Innsjekket &#10004;</strong>
 }
 
-                                            }
-                                            else {
-                                                if (!EUSH.UserGoing(item.ID)) {
-                                                    <input type="hidden" name="eventid" value="@item.ID" />
-                                                    <input type="hidden" name="attend" value="false" />
-                                                    <input type="submit" value="Going" class="going-@item.ID"/>
-}
-                                                else {
-                                                    <strong>Du skal.</strong>
-}
-                                            }
-                                            <div class="tip-item">
-                                                @{  var howMany = EUSH.HowManyUsersGoing(item.ID);
-                                                    var showTip = "hide";
-                                                    if (howMany > 0) {
-                                                        showTip = ""; // false (hide box if no users to display)
                                                     }
-                                                }
-                                                <span class="activator usersgoing event-id-@item.ID">@howMany going</span>
-                                                <div class="tip usersgoing @showTip">
-                                                    @foreach (var eus in Model.eventUserStats) {
-                                                        if (eus.EventID == item.ID) {
-                                                            <span class="no-linebreak">
-                                                                @if (EUSH.UserAttending(item.ID, eus.UserName)) {
-                                                                    <text>&#10004;</text>
+                                                    else {
+                                                        if (!EUSH.UserGoing(item.ID))
+                                                        {
+                                                            <input type="hidden" name="eventid" value="@item.ID" />
+                                                            <input type="hidden" name="attend" value="false" />
+                                                            <input type="submit" value="Going" class="going-@item.ID" />
 }
-                                                                @eus.UserName<br />
-                                                            </span>
+                                                        else {
+                                                            <strong>Du skal.</strong>
 }
                                                     }
-                                                </div>
-                                            </div>
-                                        </div>   }
-                                                    }
+                                                    <div class="tip-item">
+                                                        @{  var howMany = EUSH.HowManyUsersGoing(item.ID);
+                                                            var showTip = "hide";
+                                                            if (howMany > 0)
+                                                            {
+                                                                showTip = ""; // false (hide box if no users to display)
+                                                            }
+                                                        }
+                                                        <span class="activator usersgoing event-id-@item.ID">@howMany going</span>
+                                                        <div class="tip usersgoing @showTip">
+                                                            @foreach (var eus in Model.eventUserStats)
+                                                            {
+                                                                if (eus.EventID == item.ID)
+                                                                {
+                                                                    <span class="no-linebreak">
+                                                                        @if (EUSH.UserAttending(item.ID, eus.UserName))
+                                                                        {
+                                                                            <text>&#10004;</text>
+}
+                                                                        @eus.UserName<br />
+                                                                    </span>
+}
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>   }
+                                                            }
                                     </div>
                                 </div>
                             </div>
 
 								<!-- "More info" modal -->
-                                <div class="content-hidden modal fade" id="@item.ID" role="dialog" style="z-index: 5;">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
+                                                            <div class="content-hidden modal fade" id="@item.ID" role="dialog" style="z-index: 5;">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
 
-                                            <!-- Modal header -->
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                @item.Subject.Name
-                                            </div>
+                                                                        <!-- Modal header -->
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                            @item.Subject.Name
+                                                                        </div>
 
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                <div class="info-rows">
-                                                    <span class="modal-left">
-                                                        <strong>Tid</strong>
-                                                    </span>
-                                                    <span class="modal-right">
-                                                        @item.GetDayOfWeek()@item.GetTimeSlot()
-                                                    </span>
-                                                </div>
-                                                <div class="info-rows">
-                                                    <span class="modal-left">
-                                                        <strong>Uke</strong>
-                                                    </span>
-                                                    <span class="modal-right">
-                                                        @week.WeekNumber
-                                                    </span>
-                                                </div>
-                                                <div class="info-rows">
-                                                    <span class="modal-left">
-                                                        <strong>Rom</strong>
-                                                    </span>
-                                                    <span class="modal-right">
-                                                        @item.RoomName
-                                                    </span>
-                                                </div>
-                                                <div class="info-rows">
-                                                    <span class="modal-left">
-                                                        <strong>Lærer</strong>
-                                                    </span>
-                                                    <span class="modal-right">
-                                                        @item.Teacher
-                                                    </span>
-                                                </div>
-                                                <div class="info-rows">
-                                                    <span class="modal-left">
-                                                        <strong>Kommentar</strong>
-                                                    </span>
-                                                    <span class="modal-right">
-                                                        @item.Comment
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-							}
-					</div>
+                                                                        <!-- Modal body -->
+                                                                        <div class="modal-body">
+                                                                            <div class="info-rows">
+                                                                                <span class="modal-left">
+                                                                                    <strong>Tid</strong>
+                                                                                </span>
+                                                                                <span class="modal-right">
+                                                                                    @item.GetDayOfWeek()@item.GetTimeSlot()
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="info-rows">
+                                                                                <span class="modal-left">
+                                                                                    <strong>Uke</strong>
+                                                                                </span>
+                                                                                <span class="modal-right">
+                                                                                    @week.WeekNumber
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="info-rows">
+                                                                                <span class="modal-left">
+                                                                                    <strong>Rom</strong>
+                                                                                </span>
+                                                                                <span class="modal-right">
+                                                                                    @item.RoomName
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="info-rows">
+                                                                                <span class="modal-left">
+                                                                                    <strong>Lærer</strong>
+                                                                                </span>
+                                                                                <span class="modal-right">
+                                                                                    @item.Teacher
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="info-rows">
+                                                                                <span class="modal-left">
+                                                                                    <strong>Kommentar</strong>
+                                                                                </span>
+                                                                                <span class="modal-right">
+                                                                                    @item.Comment
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>}
+                    </div>
 				}
-			</div>
-        }
-		
-		<!-- Ledige rom modal -->
-		<div class="content-hidden modal fade" id="vis-rom-modal" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
+            </div>                      }
 
-					<!-- Modal header -->
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						Ledige rom
-					</div>
+        <!-- Ledige rom modal -->
+        <div class="content-hidden modal fade" id="vis-rom-modal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
 
-					<!-- Modal body -->
-					<div class="modal-body" style="margin: 0;">
-						<table id="vis-rom-modal" class="table table-bordered table-hover rooms-available">
-							<tr>
-								<th>Rom</th>
-								<td>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width:10%">8:15</div>
-										<div class="progress-bar" role="progressbar" style="width:10%">9:15</div>
-										<div class="progress-bar" role="progressbar" style="width:10%">10:15</div>
-										<div class="progress-bar" role="progressbar" style="width:10%">11:15</div>
-										<div class="progress-bar" role="progressbar" style="width:10%">12:15</div>
-										<div class="progress-bar" role="progressbar" style="width:10%">13:15</div>
-										<div class="progress-bar" role="progressbar" style="width:10%">14:15</div>
-										<div class="progress-bar" role="progressbar" style="width:10%">15:15</div>
-										<div class="progress-bar" role="progressbar" style="width:10%">16:15</div>
-										<div class="progress-bar" role="progressbar" style="width:10%">17:15</div>
-									</div>
-								</td>
-							</tr>
-							@{
-								foreach (var room in Model.Rooms) {
-									<tr>
-										<th>(@room.RoomName)</th>
-											<td>
-												<div class="progress">
-													@{			
-														foreach (var timeSlot in room.Availability) {
-															var startHour = (@timeSlot.Start.Hour - TikTokCalendar.DAL.TimeSlot.StartHour) * 10;
-															var lenght = (@timeSlot.GetPercentOfDay() + 2.5).ToString().Replace(",", ".");
-															<div class="progress-bar progress-bar-danger availability-bar" role="progressbar" style="margin-left: @startHour%; width: @lenght%">@timeSlot.Event.Subject.Name</div>
-													}
-												}
-											</div>
-										</td>
-									</tr>
-								}
-							}
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
+                    <!-- Modal header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        Ledige rom
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body" style="margin: 0;">
+                        <table id="vis-rom-modal" class="table table-bordered table-hover rooms-available">
+                            <tr>
+                                <th>Rom</th>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width:10%">8:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width:10%">9:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width:10%">10:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width:10%">11:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width:10%">12:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width:10%">13:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width:10%">14:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width:10%">15:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width:10%">16:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width:10%">17:15</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            @{foreach (var room in Model.Rooms)
+                                {
+                                    <tr>
+                                        <th>(@room.RoomName)</th>
+                                        <td>
+                                            <div class="progress">
+                                                @{    foreach (var timeSlot in room.Availability)
+                                                    {
+                                                        var startHour = (@timeSlot.Start.Hour - TikTokCalendar.DAL.TimeSlot.StartHour) * 10;
+                                                        var lenght = (@timeSlot.GetPercentOfDay() + 2.5).ToString().Replace(",", ".");
+                                                        <div class="progress-bar progress-bar-danger availability-bar" role="progressbar" style="margin-left: @startHour%; width: @lenght%">@timeSlot.Event.Subject.Name</div>
+}
+                                                }
+                                            </div>
+                                        </td>
+                                    </tr>      }
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
-		<!-- Log in window modal -->
-		<div class="content-hidden modal fade" id="login-modal" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
+        <!-- Log in window modal -->
+        <div class="content-hidden modal fade" id="login-modal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
 
-					<!-- Modal header -->
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						Logg inn
-					</div>
+                    <!-- Modal header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        Logg inn
+                    </div>
 
-					<!-- Modal body -->
-					<div class="modal-body">
-						@using (Html.BeginForm("LogIn", "Home"))
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        @using (Html.BeginForm("LogIn", "Home"))
                         {
                             if (Model.FailedLogin)
                             {
                                 <!-- TODO css wizards: style this -->
-                                <p>Invalid Model.User.UserName/password, try again</p>
-                            }
-							<input type="text" class="form-control" id="email" name ="Model.User.UserName" placeholder="Brukernavn">
-							<input type="password" class="form-control" id="pwd" name ="password" placeholder="Passord">
+                                <p>Invalid username/password, try again</p>
+}
+                            <input type="text" class="form-control" id="email" name="username" placeholder="Brukernavn">
+                            <input type="password" class="form-control" id="pwd" name="password" placeholder="Passord">
 
-							<button type="submit" class="btn btn-md btn-primary btn-block btn-login">logg inn</button>
-                        }
-						<span data-toggle="modal" data-target="#login-modal">
-							<a class="btn btn-md btn-default btn-block btn-free-rooms" data-toggle="modal" data-target="#vis-rom-modal">vis ledige rom</a>
-						</span>
-					</div>
-				</div>
-			</div>
-		</div>
+                            <button type="submit" class="btn btn-md btn-primary btn-block btn-login">logg inn</button>}
+                        <span data-toggle="modal" data-target="#login-modal">
+                            <a class="btn btn-md btn-default btn-block btn-free-rooms" data-toggle="modal" data-target="#vis-rom-modal">vis ledige rom</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		@{
-			TikTokCalendar.DAL.Cookies show = new TikTokCalendar.DAL.Cookies();
-			bool hasShownCookieWarning = show.LoadHasShownFromCookie();
-			if (!hasShownCookieWarning) {
-				<div class="jumbotron" id="cookie-warning">
-					<button type="button" class="close" onclick="closeCookieWarning()">&times;</button>
-						<p>
-						<strong>Informasjonskapsler</strong><br />
-						Denne nettsiden bruker <em>informasjonskapsler</em>. Ved å bruke siden godtar du at disse blir lagret på din maskin.
-					</p>
-				</div>
+        @{
+            TikTokCalendar.DAL.Cookies show = new TikTokCalendar.DAL.Cookies();
+            bool hasShownCookieWarning = show.LoadHasShownFromCookie();
+            if (!hasShownCookieWarning)
+            {
+                <div class="jumbotron" id="cookie-warning">
+                    <button type="button" class="close" onclick="closeCookieWarning()">&times;</button>
+                    <p>
+                        <strong>Informasjonskapsler</strong><br />
+                        Denne nettsiden bruker <em>informasjonskapsler</em>. Ved å bruke siden godtar du at disse blir lagret på din maskin.
+                    </p>
+                </div>
 			}
-		}
+        }
 
     </div>
 </main>
@@ -403,10 +425,10 @@
 
 
 <script>
-	
+
     function closeCookieWarning() {
     	$("#cookie-warning").hide();
-        @{  
+        @{
             show.SaveHasShownToCookie();
         }
     }
