@@ -1316,6 +1316,21 @@
             "Forelesning",
             ""
          ]
+      },
+      {  //Denne er til testing, slettes etter test med Ole.
+         "id":"1000404",
+         "startdate":"25.04.2016",
+         "starttime":"15:00",
+         "enddate":"25.04.2016",
+         "endtime":"18:00",
+         "columns":[
+            "Prosjekt software engineering (PJ3100-15)",
+            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+            "",
+            "Per Lauvås",
+            "Prosjekt",
+            "For testing"
+         ]
       }
     ]
 }
