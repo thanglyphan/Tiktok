@@ -14,10 +14,47 @@ namespace TikTokCalendar.Controllers
 {
 	public class HomeController : Controller
 	{
-
 		private readonly Cookies cookie = new Cookies();
 
-        [ValidateInput(false)]
+		public ActionResult LogIn(string username, string password)
+		{
+			// Make a new ModelDataWrapper with the events based on the user, tags, and filters
+			ModelDataWrapper modelWrapper = new ModelDataWrapper();
+
+			StudentUser user = InitUser(username, password, "");
+
+			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user);
+			List<Room> rooms = new List<Room>();
+			foreach (var room in DataWrapper.Instance.Rooms)
+			{
+				rooms.Add(room.Value);
+			}
+			modelWrapper.Rooms = rooms;
+
+			// Send the model to the view
+
+			return View("Index", modelWrapper);
+		}
+
+		public ActionResult LogOut()
+		{
+			cookie.DeleteCookies();
+			StudentUser user = new StudentUser("NO NAME", "", "", -1, SchoolCourses.VisAlt);
+			ModelDataWrapper modelWrapper = new ModelDataWrapper();
+			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user);
+			List<Room> rooms = new List<Room>();
+			foreach (var room in DataWrapper.Instance.Rooms)
+			{
+				rooms.Add(room.Value);
+			}
+			modelWrapper.Rooms = rooms;
+
+			// to show all keywords when no user
+			//Session["keywords"] = null;
+			return View("Index", modelWrapper);
+		}
+
+		[ValidateInput(false)]
         public ActionResult Index(string Email, string Password, string tags = "", string lecture = "", string assignment = "", string exam = "", bool filtered = false)
 		{
 			bool lec = false, ass = false, exa = false;
@@ -57,7 +94,12 @@ namespace TikTokCalendar.Controllers
 			StudentUser user = InitUser(Email, Password, tags);
 
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, lec, ass, exa);
-
+			List<Room> rooms = new List<Room>();
+			foreach (var room in DataWrapper.Instance.Rooms)
+			{
+				rooms.Add(room.Value);
+			}
+			modelWrapper.Rooms = rooms;
             // Show event count
             if (!(lec && ass && exa) && (filtered || tags.Length > 0))
             {
@@ -314,12 +356,15 @@ namespace TikTokCalendar.Controllers
 				return Json(false, JsonRequestBehavior.AllowGet);
 			}
 		}
-		public JsonResult DeleteCookies()
+
+		[AcceptVerbs(HttpVerbs.Post)]
+		public ActionResult DeleteCookies()
 		{          
             cookie.DeleteCookies();
             // to show all keywords when no user
             Session["keywords"] = null;
-            return Json("hei", JsonRequestBehavior.AllowGet);
+			return (RedirectToAction("Index"));
+			//return Json("hei", JsonRequestBehavior.AllowGet);
 		}
 
 		public StudentUser GetUserFromNameCourse()
@@ -336,7 +381,7 @@ namespace TikTokCalendar.Controllers
 			else
 			{
 				year = "second";
-				cookie.SaveYearToCookies(year);
+				//cookie.SaveYearToCookies(year);
 			}
 
 			string cookieUserName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
@@ -346,7 +391,7 @@ namespace TikTokCalendar.Controllers
 			}
 			else {
 				name = "NO NAME";
-				cookie.SaveNameToCookie(name);
+				//cookie.SaveNameToCookie(name);
 			}
 			string cookieCourse = cookie.LoadStringFromCookie(Cookies.CourseCookieKey);
 			if (!string.IsNullOrEmpty(cookieCourse))
@@ -355,7 +400,7 @@ namespace TikTokCalendar.Controllers
 			}
 			else {
 				course = "VisAlt";
-				cookie.SaveCourseToCookie(course);
+				//cookie.SaveCourseToCookie(course);
 			}
 
 

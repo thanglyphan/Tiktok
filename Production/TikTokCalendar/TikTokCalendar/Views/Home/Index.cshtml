@@ -165,7 +165,7 @@
                                         <!-- eventually limit the number of weeks for going/check-in to show here:
                                         if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime.AddDays(21))
                                         {-->
-                                        @if (userName != "" && userName != "Jon Doe" && item.MainEventType != TikTokCalendar.Models.MainEventType.Innlevering) {
+                                        @if (userName != "" && userName != "NO NAME" && item.MainEventType != TikTokCalendar.Models.MainEventType.Innlevering) {
                                             using (Ajax.BeginForm("UserStatUpdate","Home",new AjaxOptions {
                                                 HttpMethod = "POST",
                                                 UpdateTargetId = "going-" + item.ID,
@@ -413,9 +413,9 @@
 
 					<!-- Modal body -->
 					<div class="modal-body">
-						@using (Html.BeginForm("Index","Home")) {
-							<input type="text" class="form-control" id="email" name ="Email" placeholder="Brukernavn">
-							<input type="password" class="form-control" id="pwd" name ="Password" placeholder="Passord">
+						@using (Html.BeginForm("LogIn","Home")) {
+							<input type="text" class="form-control" id="email" name ="username" placeholder="Brukernavn">
+							<input type="password" class="form-control" id="pwd" name ="password" placeholder="Passord">
 
 							<button type="submit" class="btn btn-md btn-primary btn-block btn-login">logg inn</button>
                         }
