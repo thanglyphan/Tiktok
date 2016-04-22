@@ -850,20 +850,37 @@ input[class^="going-"]:hover {
 
 #vis-rom-modal th {
 	width: 20% !important;
+	font-size: 2em;
 }
 #vis-rom-modal .progress {
-	height: 1.2em;
-}
-
-.progress {
+	height: 4em;
 	margin: 0;
+	background-color: #5cb85c;
 }
 
-.progress-bar {
-	border-left: 1px solid #fff;	
-	line-height: 1.7em;
+#vis-rom-modal .progress-bar {
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	line-height: 1.8em;
+	text-align: left;
+	padding: 2px;
 }
 
-.progress-bar:first-child {
-	border-left: 0;
+#vis-rom-modal .availability-bar {
+	font-size: 1.8em;
+	text-align: center;
+}
+
+/*======================================
+  LOGOUT BUTTON
+=======================================*/
+
+.btn-logout {
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	font-size: 1.15em;
+	padding-top: 19px;
+	color: #999;
+	border: 0;
 }

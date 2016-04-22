@@ -49,7 +49,7 @@ namespace TikTokCalendar.DAL
 			return percent;
 		}
 
-		public long GetPercentOfDay()
+		public float GetPercentOfDay()
 		{
 			Min = MinTime(Start);
 			Max = MaxTime(End);
@@ -60,7 +60,7 @@ namespace TikTokCalendar.DAL
 
 			float slotSpan = (float)span;
 			float daySpan = (float)fullDaySpan;
-			long percent = (long)((slotSpan / daySpan) * 100);
+			float percent = (float)((slotSpan / daySpan) * 100);
 
 			return percent;
 		}
