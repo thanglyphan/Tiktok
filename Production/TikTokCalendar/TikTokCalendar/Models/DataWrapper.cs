@@ -44,6 +44,8 @@ namespace TikTokCalendar.Models
 
 		public bool IsValidUser(StudentUser user)
 		{
+			if (user == null) return false;
+
 			foreach (var u in Users)
 			{
 				if (user.IsValid(u))

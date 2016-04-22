@@ -363,7 +363,13 @@
 
 					<!-- Modal body -->
 					<div class="modal-body">
-						@using (Html.BeginForm("LogIn","Home")) {
+						@using (Html.BeginForm("LogIn", "Home"))
+                        {
+                            if (Model.FailedLogin)
+                            {
+                                <!-- TODO css wizards: style this -->
+                                <p>Invalid username/password, try again</p>
+                            }
 							<input type="text" class="form-control" id="email" name ="username" placeholder="Brukernavn">
 							<input type="password" class="form-control" id="pwd" name ="password" placeholder="Passord">
 
