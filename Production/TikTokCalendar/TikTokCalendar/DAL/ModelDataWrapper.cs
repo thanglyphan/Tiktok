@@ -18,6 +18,7 @@ namespace TikTokCalendar.DAL
         public bool showingAssignments { get; private set; }
         public bool showingExams { get; private set; }
         public bool isFiltered { get; set; }
+		public bool FailedLogin { get; set; } = false;
 
         public ModelDataWrapper()
 		{
