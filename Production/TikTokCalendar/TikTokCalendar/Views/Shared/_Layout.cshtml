@@ -135,8 +135,12 @@
                 }
             </div>
 
+			<p>
+				<a class="btn-logout" data-toggle="modal" data-target="#vis-rom-modal">Vis ledige rom</a>
+			</p>
+
             <div class="right-2">
-                @if (Model.User.Course == SchoolCourses.VisAlt)
+				@if (Model.User.Course == SchoolCourses.VisAlt)
                 {
                     <p>
                         <a class="logout" data-toggle="modal" data-target="#login-modal">
