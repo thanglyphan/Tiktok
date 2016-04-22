@@ -316,6 +316,22 @@
 									</div>
 								</td>
 							</tr>
+							@{ 
+								foreach (var room in Model.Rooms) {
+									<tr>
+										<th>@room.RoomName</th>
+										<td>
+											<div class="progress">
+												@{
+													foreach (var timeSlot in room.Availability) {
+														<div class="progress-bar progress-bar-danger" role="progressbar" style="width:@timeSlot.GetPercentOfDay()%">1</div>
+													}
+												}
+											</div>
+										</td>
+									</tr>
+								}
+							}
 							<tr>
 								<th>Vrimle</th>
 								<td>

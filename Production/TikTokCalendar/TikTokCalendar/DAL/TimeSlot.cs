@@ -8,8 +8,8 @@ namespace TikTokCalendar.DAL
 {
 	public class TimeSlot
 	{
-		public const int StartHour = 7;
-		public const int EndHour = 19;
+		public const int StartHour = 8;
+		public const int EndHour = 18;
 
 		public DateTime Start { get; private set; }
 		public DateTime End { get; private set; }
