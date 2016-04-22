@@ -611,7 +611,7 @@
                 "Forelesning",
                 ""
             ]
-        }, //start her
+        },
       {  
          "id":"1000151",
          "startdate":"07.03.2016",
@@ -835,21 +835,6 @@
             "Tor-Morten Grønli",
             "Forelesning",
             ""
-         ]
-      },
-      {  
-         "id":"1000166",
-         "startdate":"04.04.2016",
-         "starttime":"09:00",
-         "enddate":"04.04.2016",
-         "endtime":"12:00",
-         "columns":[  
-            "Enterprise programmering 2 (PG6100-15)",
-            "3.klasse, Bachelor Programmering",
-            "Rom 79-80",
-            "",
-            "Eksamen",
-            "3 timers skriftlig eksamen uten hjelpemidler."
          ]
       },
       {  
