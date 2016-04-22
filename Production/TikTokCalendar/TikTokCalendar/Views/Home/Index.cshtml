@@ -91,8 +91,28 @@
                                         <!-- tooltip hover extravaganza -->
                                         <div class="tip-item">
 
-                                            <!-- "Grensesnittdesign" -->
+                                            <!-- Check waht type it is -->
+											@{  var typeClass = "";
+												var typeText = item.EventTypeLabel;
+
+												if (item.MainEventType == TikTokCalendar.Models.MainEventType.Innlevering) {
+													typeClass = "assignment";
+													//typeText = "Innlevering";
+												}
+												else if (item.MainEventType == TikTokCalendar.Models.MainEventType.Eksamen) {
+													typeClass = "exam";
+													//typeText = "Eksamen";
+												}
+											}
+
+											<!-- Write event type -->
+											<p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
+
+											<!-- "Grensesnittdesign" -->
                                             <p class="name activator timeleft">@item.Subject.Name</p>
+
+
+
                                             @{  string timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
                                                 bool lessThanAnHour = false;
                                                 bool lessThan24 = false;
@@ -112,20 +132,8 @@
                                             }
                                         </div>
                                         <div class="right-position">
-                                            @{  var typeClass = "";
-                                                var typeText = item.EventTypeLabel;
-
-                                                if (item.MainEventType == TikTokCalendar.Models.MainEventType.Innlevering) {
-                                                    typeClass = "assignment";
-                                                    //typeText = "Innlevering";
-                                                }
-                                                else if (item.MainEventType == TikTokCalendar.Models.MainEventType.Eksamen) {
-                                                    typeClass = "exam";
-                                                    //typeText = "Eksamen";
-                                                }
-                                            }
-
-                                            <p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
+                                           
+											<!-- Room name -->
                                             <p class="room">@item.RoomName</p>  <!-- "Rom 41" -->
                                         </div>
                                     </div>

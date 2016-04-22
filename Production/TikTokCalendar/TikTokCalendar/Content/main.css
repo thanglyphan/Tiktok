@@ -560,10 +560,13 @@ input[class^="going-"]:hover {
 =======================================*/
 .exam, .assignment {
     color: white !important;
-    display: inline-block;
+    display: inline;
     border-radius: 2px;
-    margin-left: 14px;
+    margin-right: 14px;
     padding: 4px;
+	font-weight: 400;
+    font-size: 2em;
+	float: left;
 }
 
 
@@ -687,6 +690,7 @@ input[class^="going-"]:hover {
 
 .tip-item {
     position: relative;
+	float: left;
 }
 
 .tip {
