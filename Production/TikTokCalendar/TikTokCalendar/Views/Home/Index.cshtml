@@ -223,7 +223,7 @@
                             </div>
 
 								<!-- "More info" modal -->
-                                <div class="content-hidden modal fade" id="@item.ID" role="dialog">
+                                <div class="content-hidden modal fade" id="@item.ID" role="dialog" style="z-index: 5;">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
 
@@ -287,7 +287,7 @@
 		
 		<!-- Ledige rom modal -->
 		<div class="content-hidden modal fade" id="vis-rom-modal" role="dialog">
-			<div class="modal-dialog" style="width: 900px; max-width: 100%; margin-top: 160px;">
+			<div class="modal-dialog">
 				<div class="modal-content">
 
 					<!-- Modal header -->
@@ -322,13 +322,11 @@
 										<th>@room.RoomName</th>
 											<td>
 												<div class="progress">
-													@{
+													@{			
 														foreach (var timeSlot in room.Availability) {
-															var startHour = (@timeSlot.Start.Hour - timeSlot.Min.Hour) * 10;
+															var startHour = (@timeSlot.Start.Hour - TikTokCalendar.DAL.TimeSlot.StartHour) * 10;
 															var lenght = (@timeSlot.GetPercentOfDay() + 2.5).ToString().Replace(",", ".");
-															<span data-toggle="modal" data-target="#">
-																<span class="progress-bar progress-bar-danger availability-bar" role="progressbar" style="margin-left: @startHour%; width: @lenght%">@timeSlot.Event.Subject.Name</span>
-															</span>
+															<div class="progress-bar progress-bar-danger availability-bar" role="progressbar" style="margin-left: @startHour%; width: @lenght%">@timeSlot.Event.Subject.Name</div>
 													}
 												}
 											</div>

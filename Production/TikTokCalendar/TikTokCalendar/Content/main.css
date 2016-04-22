@@ -844,6 +844,12 @@ input[class^="going-"]:hover {
   VIS LEDIGE ROM MODAL
 =======================================*/
 
+#vis-rom-modal .modal-dialog {
+	width: 70%;
+	max-width: 100%;
+	margin-top: 160px;
+}
+
 #vis-rom-modal .modal-body * {
 	font-size: 1.3em;
 }
@@ -864,11 +870,11 @@ input[class^="going-"]:hover {
 	line-height: 1.8em;
 	text-align: left;
 	padding: 2px;
-	font-size: 1em;
+	font-size: 0.5em;
 }
 
 #vis-rom-modal .availability-bar {
-	font-size: 1em;
+	font-size: 0.5em;
 	text-align: center;
 }
 
