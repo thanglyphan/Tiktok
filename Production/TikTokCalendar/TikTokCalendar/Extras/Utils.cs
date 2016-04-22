@@ -30,6 +30,10 @@ namespace TikTokCalendar.Extras
 		/// </summary>
 		public static bool Contains(this string source, string toCheck, StringComparison comp)
 		{
+            if (source == null || toCheck == null)
+            {
+                return false;
+            }
 			return source.IndexOf(toCheck, comp) >= 0;
 		}
 
