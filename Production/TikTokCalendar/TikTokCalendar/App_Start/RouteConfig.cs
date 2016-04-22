@@ -18,6 +18,12 @@ namespace TikTokCalendar
 				url: "{controller}/{action}/{id}",
 				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
 			);
+
+			routes.MapRoute(
+				"MainPage",
+				"Index/{id}",
+				new { controller = "Home", action = "LogOut" }
+			);
 		}
 	}
 }

@@ -76,11 +76,11 @@ namespace TikTokCalendar.DAL
 
 			// We have to do this in two different calls, as GetEvents() has functions that depend on DataWrapper to have the info about the base SchoolSystem(subjects, courses, etc)
 			var events = GetEvents();
-			var rooms = GetRooms(events);
+			var rooms = GetRooms(events, DateTime.Now);
 			DataWrapper.Instance.SetSchoolSystemDependantData(events, rooms);
 		}
 
-		private Dictionary<string, Room> GetRooms(List<CustomEvent> events)
+		private Dictionary<string, Room> GetRooms(List<CustomEvent> events, DateTime date)
 		{
 			Dictionary<string, Room> rooms = new Dictionary<string, Room>();
 			foreach (var evnt in events)
@@ -90,20 +90,23 @@ namespace TikTokCalendar.DAL
 					continue;
 				}
 
-				var roomNames = GetRoomsFromRoomText(evnt.RoomName);
-				foreach (var room in roomNames)
+				if (evnt.StartDateTime.Month == date.Month && evnt.StartDateTime.Day == date.Day)
 				{
-					if (rooms.ContainsKey(room))
+					var roomNames = GetRoomsFromRoomText(evnt.RoomName);
+					foreach (var room in roomNames)
 					{
-						Room r = rooms[room];
-						r.TryAddTimeSlot(new TimeSlot(evnt));
-						rooms[room] = r;
-					}
-					else
-					{
-						Room r = new Room(room);
-						r.TryAddTimeSlot(new TimeSlot(evnt));
-						rooms.Add(r.RoomName, r);
+						if (rooms.ContainsKey(room))
+						{
+							Room r = rooms[room];
+							r.TryAddTimeSlot(new TimeSlot(evnt));
+							rooms[room] = r;
+						}
+						else
+						{
+							Room r = new Room(room);
+							r.TryAddTimeSlot(new TimeSlot(evnt));
+							rooms.Add(r.RoomName, r);
+						}
 					}
 				}
 			}
