@@ -3,10 +3,11 @@
     ViewBag.Title = "Rooms";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<a href="~/DAL/TimeSlot.cs">~/DAL/TimeSlot.cs</a>
 
-<main>
+<main style="width: 900px; max-width: 100%;">
 	
-	<table id="" class="table table-bordered table-hover rooms-available">
+	<table id="#vis-rom-modal" class="table table-bordered table-hover rooms-available">
 		<tr>
 			<th>Rom</th>
 			<td>
@@ -32,7 +33,7 @@
 						<div class="progress">
 							@{
 								foreach (var timeSlot in room.Availability) {
-									<div class="progress-bar progress-bar-danger" role="progressbar" style="width:@timeSlot.GetPercentOfDay()%">1</div>
+									<div class="progress-bar progress-bar-success" role="progressbar" style="width:@timeSlot.GetPercentOfDay()%">1</div>
 								}
 							}
 						</div>

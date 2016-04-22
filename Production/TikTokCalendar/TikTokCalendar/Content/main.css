@@ -848,17 +848,22 @@ input[class^="going-"]:hover {
 	font-size: 1.3em;
 }
 
-
 #vis-rom-modal th {
 	width: 20% !important;
 }
 #vis-rom-modal .progress {
-	margin: 0;
 	height: 1.2em;
 }
 
-#vis-rom-modal .progress-bar {
+.progress {
+	margin: 0;
+}
+
+.progress-bar {
 	border-left: 1px solid #fff;	
-	line-height: 2em;
-	font-size: 0.5em;
+	line-height: 1.7em;
+}
+
+.progress-bar:first-child {
+	border-left: 0;
 }
