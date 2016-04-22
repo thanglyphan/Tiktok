@@ -90,6 +90,13 @@
       "Email": "it1@gmail.com",
       "Course": 8,
       "Year": 1
+    },
+    {
+      "Uname": "goeole",
+      "Password": "1234",
+      "Email": "goeole@westerdals.no",
+      "Course": 7,
+      "Year": 2
     }
   ]
 }
