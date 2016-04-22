@@ -35,7 +35,7 @@
         <!-- Looping throught every month -->
         @foreach (var month in Model.Months) {
             var isCollapsed = "in";
-            if (month.MonthNumber < DateTime.Now.Month && !Model.isFiltered) {
+            if (month.MonthNumber < DateTime.Now.Month && !Model.isFiltered && Model.searchWords == "") {
                 isCollapsed = ""; // true
             }
             <div class="goto" id="goto-@month.MonthNumber"></div>

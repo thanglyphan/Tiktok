@@ -134,11 +134,12 @@ namespace TikTokCalendar.Models
 			CustomEventWeek week = null;
 
 			string temp = "";
-            //string[] array = null;
-            //if (!string.IsNullOrEmpty(tags))
-            //{
-                
-            //}
+            string[] array = null;
+            if (!string.IsNullOrEmpty(tags))
+            {
+                temp = FilterCharacters(tags).ToLower();
+                array = temp.Split(' ');
+            }
 
 			foreach (var evnt in AllEvents)
 			{
@@ -151,25 +152,22 @@ namespace TikTokCalendar.Models
 					{
                         if (!string.IsNullOrEmpty(tags))
                         {
-                            temp = FilterCharacters(tags).ToLower();
-                            string[] array = temp.Split(' ');
-
                             string[] eventInfo = { evnt.Subject.Name, evnt.RoomName, evnt.Teacher, evnt.Comment, evnt.Subject.Code, evnt.eventType.ToString(),
                                 evnt.StartDateTime.Day.ToString(), evnt.StartDateTime.GetWeekNumberOfYear().ToString(), evnt.GetMonthName() };
 
                             bool flagged = false;
                             for (int j = 0; j < array.Length; j++)
                             {
-                                int cool = 0;
+                                int empty = 0;
                                 for (int k = 0; k < eventInfo.Length; k++)
                                 {
                                     if (!(eventInfo[k].Contains(array[j], StringComparison.OrdinalIgnoreCase)))
                                     {
-                                        cool++;
+                                        empty++;
                                         
                                     }
                                 }
-                                if (cool == eventInfo.Length)
+                                if (empty == eventInfo.Length)
                                 {
                                     flagged = true;
                                     break;
