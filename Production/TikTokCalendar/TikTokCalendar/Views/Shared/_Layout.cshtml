@@ -135,11 +135,10 @@
                 }
             </div>
 
-			<p>
-				<a class="btn-logout" data-toggle="modal" data-target="#vis-rom-modal">Vis ledige rom</a>
-			</p>
+			
 
-            <div class="right-2">
+			<div class="right-2">
+
 				@if (Model.User.Course == SchoolCourses.VisAlt)
                 {
                     <p>
@@ -156,6 +155,12 @@
                     }
                 }    
             </div>
+
+			<div class="right-1">
+				<p class="btn-show-rooms">
+					<span data-toggle="modal" data-target="#vis-rom-modal">Vis ledige rom</span>
+				</p>
+			</div>
             
 				<script>
                     function delCookie() {

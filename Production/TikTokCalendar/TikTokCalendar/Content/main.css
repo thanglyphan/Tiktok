@@ -850,13 +850,17 @@ input[class^="going-"]:hover {
 	margin-top: 160px;
 }
 
+#vis-rom-modal .modal-header {
+	font-size: 2em;
+}
+
 #vis-rom-modal .modal-body * {
 	font-size: 1.3em;
 }
 
 #vis-rom-modal th {
 	width: 20% !important;
-	font-size: 1em;
+	font-size: 0.5em;
 }
 #vis-rom-modal .progress {
 	height: 1em;
@@ -890,4 +894,9 @@ input[class^="going-"]:hover {
 	padding-top: 19px;
 	color: #999;
 	border: 0;
+}
+
+.btn-show-rooms {
+	padding-top: 21px !important;
+	color: #999;
 }
