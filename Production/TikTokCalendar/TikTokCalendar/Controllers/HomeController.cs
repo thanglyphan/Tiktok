@@ -23,6 +23,7 @@ namespace TikTokCalendar.Controllers
 
 			StudentUser user = InitUser(username, password, "");
 
+			modelWrapper.user = user;
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user);
 			List<Room> rooms = new List<Room>();
 			foreach (var room in DataWrapper.Instance.Rooms)
@@ -42,6 +43,7 @@ namespace TikTokCalendar.Controllers
 			StudentUser user = new StudentUser("NO NAME", "", "", -1, SchoolCourses.VisAlt);
 			ModelDataWrapper modelWrapper = new ModelDataWrapper();
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user);
+			modelWrapper.user = user;
 			List<Room> rooms = new List<Room>();
 			foreach (var room in DataWrapper.Instance.Rooms)
 			{
@@ -94,6 +96,7 @@ namespace TikTokCalendar.Controllers
 			StudentUser user = InitUser(Email, Password, tags);
 
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, lec, ass, exa);
+			modelWrapper.user = user;
 			List<Room> rooms = new List<Room>();
 			foreach (var room in DataWrapper.Instance.Rooms)
 			{
@@ -152,17 +155,6 @@ namespace TikTokCalendar.Controllers
             return user;
         }
 
-		public void AccountLogin(string Email, string Password)
-		{
-			StudentUser a = DataWrapper.Instance.GetUser(Email,Password);
-
-			if (a != null) {
-				cookie.SaveNameToCookie(a.Email);
-				cookie.SaveCourseToCookie(a.Course.ToString());
-				cookie.SaveYearToCookies(a.GetYearAsText());
-			}
-		}
-
         public string CalTest(string id = "")
 		{ 
 			DataParser dataParser = new DataParser();
@@ -189,42 +181,6 @@ namespace TikTokCalendar.Controllers
 			}
 
 			return page;
-		}
-
-
-		public string GetRoom()
-		{
-			string s = "";
-			foreach (var room in GetRooms()) {
-				s += room + "<br>";
-			}
-			return s;
-		}
-
-		private string[] GetRooms()
-		{
-			return new[] {"Rom 40", "Rom 41", "Rom 82", "Rom 83", "Vrimle", "Auditoriet"};
-		}
-
-		private string returnName()
-		{
-
-			string userName = (string)Session["b"];
-			if (userName == "")
-			{
-				return "phatha14";
-			}
-			else { return userName; }
-		}
-
-		private string returnCourse()
-		{
-			string userCourse = (string)Session[Cookies.UserNameCookieKey];
-			if (userCourse == "")
-			{
-				return "phatha14";
-			}
-			else { return userCourse; }
 		}
 
         public ActionResult Mobile(string id = "", string tags = "", bool lecture = true, bool assignment = true, bool exam = true)
@@ -256,27 +212,6 @@ namespace TikTokCalendar.Controllers
 			return View(modelWrapper);//.calEvents);
 		}
 
-		[HttpGet]
-		public ActionResult Rooms()
-		{
-			Debug.WriteLine("Rooms()");
-			var modelWrapper = new ModelDataWrapper();
-			return View("Rooms", modelWrapper);
-
-		}
-
-		private int FindCalEventIndex(List<CalendarEvent> list, int month)
-		{
-			for (int i = 0; i < list.Count; i++)
-			{
-				if (list[i].StartTime.Month == month)
-				{
-					return i;
-				}
-			}
-			return -1;
-		}
-
         [ValidateInput(false)]
         public JsonResult AutoComplete(string search)
 		{
@@ -305,47 +240,7 @@ namespace TikTokCalendar.Controllers
             var result = list.Where(x => x.Contains(temp.ToLower())).ToList();
             return Json(result, JsonRequestBehavior.AllowGet);
 		}
-		public JsonResult UserName(string a)
-		{
-			string userName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
 
-			if (userName == null)
-			{
-				cookie.SaveNameToCookie(a);
-			}
-
-			return Json("fungerer", JsonRequestBehavior.AllowGet);
-		}
-		public JsonResult UserCourse(string a)
-		{
-			string userCourse = cookie.LoadStringFromCookie(Cookies.CourseCookieKey);
-
-			if (userCourse == null)
-			{
-				cookie.SaveCourseToCookie(a);
-			}
-            // new user means new custom keywords
-            Session["keywords"] = null;
-            return Json("fungerer", JsonRequestBehavior.AllowGet);
-		}
-
-		public JsonResult UserYear(string a)
-		{
-			string userYear = cookie.LoadStringFromCookie(Cookies.YearCookieKey);
-			if (userYear == null)
-			{
-				cookie.SaveYearToCookies(a);
-			}
-			return Json("fungerer", JsonRequestBehavior.AllowGet);
-		}
-
-		public JsonResult ShowDefault(string a)
-		{
-            cookie.SaveNameToCookie(a); //Add cookie 5 seconds
-			cookie.SaveCourseToCookie(a); //Add cookie 5 seconds
-
-			return Json("fungerer", JsonRequestBehavior.AllowGet);
-		}
 		public ActionResult GetVisited() //If been here, return true, else false.
 		{
 			if (cookie.LoadStringFromCookie(Cookies.UserNameCookieKey) != null)
@@ -355,16 +250,6 @@ namespace TikTokCalendar.Controllers
 			else {
 				return Json(false, JsonRequestBehavior.AllowGet);
 			}
-		}
-
-		[AcceptVerbs(HttpVerbs.Post)]
-		public ActionResult DeleteCookies()
-		{          
-            cookie.DeleteCookies();
-            // to show all keywords when no user
-            Session["keywords"] = null;
-			return (RedirectToAction("Index"));
-			//return Json("hei", JsonRequestBehavior.AllowGet);
 		}
 
 		public StudentUser GetUserFromNameCourse()
@@ -381,7 +266,6 @@ namespace TikTokCalendar.Controllers
 			else
 			{
 				year = "second";
-				//cookie.SaveYearToCookies(year);
 			}
 
 			string cookieUserName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
@@ -391,7 +275,6 @@ namespace TikTokCalendar.Controllers
 			}
 			else {
 				name = "NO NAME";
-				//cookie.SaveNameToCookie(name);
 			}
 			string cookieCourse = cookie.LoadStringFromCookie(Cookies.CourseCookieKey);
 			if (!string.IsNullOrEmpty(cookieCourse))
@@ -400,7 +283,6 @@ namespace TikTokCalendar.Controllers
 			}
 			else {
 				course = "VisAlt";
-				//cookie.SaveCourseToCookie(course);
 			}
 
 

@@ -157,10 +157,9 @@
 						</a>
 					</p>
 				}*@
-                
-                @if (userName == "NO NAME")
+                <p>Course: @Model.user.Course</p>
+                @if (Model.user.Course == SchoolCourses.VisAlt)
                 {
-
                     <p>
                         <a class="logout" data-toggle="modal" data-target="#login-modal">
                             <span>Logg inn</span><i class="fa fa-sign-in fa-2x"></i>
@@ -171,7 +170,7 @@
                 {
                     using (Html.BeginForm("LogOut", "Home"))
                     {
-                        <button type="submit" class="btn btn-md btn-primary btn-block btn-login">Logg out, @userName</button>
+                        <button type="submit" class="btn btn-md btn-primary btn-block btn-login">Logg out, @Model.user.UserName</button>
                     }
                 }    
             </div>
