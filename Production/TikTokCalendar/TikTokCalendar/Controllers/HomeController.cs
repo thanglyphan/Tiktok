@@ -100,7 +100,7 @@ namespace TikTokCalendar.Controllers
             {
                 modelWrapper.isFiltered = true;
             }
-			
+
 			// Send the model to the view
 			return View(modelWrapper);
 		}
@@ -147,19 +147,19 @@ namespace TikTokCalendar.Controllers
 	        }
 			
 			// DEBUG Set the page title
-            if (user != null)
-            {
-                ViewBag.Title = string.Format("{0}[{1}-{2}]: {3} [{4}]", 
-					user.UserName, 
-					user.ClassYear, 
-					user.GetYearAsText(), 
-					user.Course, 
-					tags);
-            }
-            else
-            {
-                ViewBag.Title = "Not logged in";
-            }
+     //       if (user != null)
+     //       {
+     //           ViewBag.Title = string.Format("{0}[{1}-{2}]: {3} [{4}]", 
+					//user.UserName, 
+					//user.ClassYear, 
+					//user.GetYearAsText(), 
+					//user.Course, 
+					//tags);
+     //       }
+     //       else
+     //       {
+     //           ViewBag.Title = "Not logged in";
+     //       }
 
             return user;
         }
