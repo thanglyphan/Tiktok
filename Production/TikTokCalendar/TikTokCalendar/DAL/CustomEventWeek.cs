@@ -22,10 +22,7 @@ namespace TikTokCalendar.DAL
 		/// </summary>
 		public int LocalWeekNumber { get; private set; }
 
-		public string WeekName
-		{
-			get { return "Uke " + WeekNumber; }
-		}
+		public string WeekName { get { return Resources.LocalizedText.WeekLabel + " " + WeekNumber; } }
 
 		public List<CustomEvent> events { get; set; }
 

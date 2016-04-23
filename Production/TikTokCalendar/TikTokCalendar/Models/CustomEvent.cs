@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using TikTokCalendar.Controllers;
 
 namespace TikTokCalendar.Models
 {
@@ -191,7 +192,8 @@ namespace TikTokCalendar.Models
 
 		public string GetDayOfWeek()
 		{
-			var dayName = CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(StartDateTime.DayOfWeek);
+			//var dayName = CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(StartDateTime.DayOfWeek);
+			var dayName = CultureManager.CurrentCulture.DateTimeFormat.GetDayName(StartDateTime.DayOfWeek);
 			return dayName.TrimEnd(); //.Substring(0, 3).ToLower();
 		}
 

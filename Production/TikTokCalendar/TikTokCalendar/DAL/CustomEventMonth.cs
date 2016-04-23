@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using TikTokCalendar.Controllers;
 using TikTokCalendar.Extras;
 using TikTokCalendar.Models;
 
@@ -30,7 +31,9 @@ namespace TikTokCalendar.DAL
 
 		public string GetMonthName()
 		{
-			return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(MonthNumber).FirstCharToUpper();
+			//return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(MonthNumber).FirstCharToUpper();
+			string monthName = CultureManager.CurrentCulture.DateTimeFormat.GetMonthName(MonthNumber);
+			return monthName.FirstCharToUpper();
 		}
 
 		public int GetEventTypeCount(EventType evntType)

@@ -12,6 +12,8 @@ namespace TikTokCalendar.Controllers
 		private const string DefaultLang = "nb";
 		private const string LanguageCookieKey = "_language";
 
+		public static CultureInfo CurrentCulture { get; private set; }
+
 		public static void SaveCulture(HttpResponseBase response, string language, int dayExpireCount)
 		{
 			var cookie = new HttpCookie(LanguageCookieKey) { Expires = DateTime.Now.AddDays(dayExpireCount) };
@@ -34,9 +36,9 @@ namespace TikTokCalendar.Controllers
 			var cultureString = GetSavedCultureOrDefault(httpRequestBase);
 			if (!string.IsNullOrEmpty(cultureString))
 			{
-				var cultureInfo = CultureInfo.CreateSpecificCulture(cultureString);
-				Thread.CurrentThread.CurrentCulture = cultureInfo;
-				Thread.CurrentThread.CurrentUICulture = cultureInfo;
+				CurrentCulture = CultureInfo.CreateSpecificCulture(cultureString);
+				Thread.CurrentThread.CurrentCulture = CurrentCulture;
+				Thread.CurrentThread.CurrentUICulture = CurrentCulture;
 			}
 		}
 	}

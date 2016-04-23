@@ -248,5 +248,14 @@ namespace Resources {
                 return ResourceManager.GetString("UsernameInputLabel", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uke.
+        /// </summary>
+        internal static string WeekLabel {
+            get {
+                return ResourceManager.GetString("WeekLabel", resourceCulture);
+            }
+        }
     }
 }

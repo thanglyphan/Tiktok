@@ -201,4 +201,8 @@
     <value>Username</value>
     <comment>Placeholder for brukernavn input</comment>
   </data>
+  <data name="WeekLabel" xml:space="preserve">
+    <value>Week</value>
+    <comment>Ordet "uke"</comment>
+  </data>
 </root>
