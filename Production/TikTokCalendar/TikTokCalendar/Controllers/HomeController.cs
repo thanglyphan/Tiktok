@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using TikTokCalendar.DAL;
 using TikTokCalendar.Models;
@@ -12,6 +13,8 @@ namespace TikTokCalendar.Controllers
 		private readonly Cookies cookie = new Cookies();
 		private readonly DataParser dataParser = new DataParser();
 
+		[HttpPost]
+		[ValidateInput(false)]
 		public ActionResult LogIn(string username, string password)
 		{
 			// Parse all the JSON data
@@ -20,10 +23,17 @@ namespace TikTokCalendar.Controllers
 			// Make a new ModelDataWrapper with the events based on the user, tags, and filters
 			var user = InitUser(username, password, "");
 			var failedLogin = false;
-			if (user == null || !DataWrapper.Instance.IsValidUser(user))
+			try
 			{
-				failedLogin = true;
-				user = new StudentUser("NO NAME", SchoolCourses.VisAlt, "NaN");
+				if (user == null || !DataWrapper.Instance.IsValidUser(user))
+				{
+					failedLogin = true;
+					user = new StudentUser("NO NAME", SchoolCourses.VisAlt, "NaN");
+				}
+			}
+			catch (HttpRequestValidationException e)
+			{
+				Console.WriteLine(e.ToString());
 			}
 
 			var modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
@@ -182,7 +192,7 @@ namespace TikTokCalendar.Controllers
 			dataParser.ParseAllData();
 			List<CustomEventMonth> months = null;
 			var rnd = new Random();
-			var c = (SchoolCourses) rnd.Next(1, 10);
+			var c = (SchoolCourses)rnd.Next(1, 10);
 			//c = SchoolCourses.Programmering;
 			var u = new StudentUser("tordtest", c, "second");
 			months = DataWrapper.Instance.GetEventsWithName(u, id, true, true, true);
@@ -197,8 +207,8 @@ namespace TikTokCalendar.Controllers
 					foreach (var evnt in week.events)
 					{
 						page += " ---- Evnt(" + evnt.ID + "): " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" +
-						        evnt.Subject.Code + ") - " + evnt.EventTypeLabel + " - [" + evnt.YearLabelTest + "] - " +
-						        evnt.CoursesLabel + "<br>";
+								evnt.Subject.Code + ") - " + evnt.EventTypeLabel + " - [" + evnt.YearLabelTest + "] - " +
+								evnt.CoursesLabel + "<br>";
 					}
 				}
 			}
@@ -252,7 +262,7 @@ namespace TikTokCalendar.Controllers
 			}
 			else
 			{
-				list = (List<string>) Session["keywords"];
+				list = (List<string>)Session["keywords"];
 			}
 
 			var result = list.Where(x => x.Contains(temp.ToLower())).ToList();
@@ -306,7 +316,7 @@ namespace TikTokCalendar.Controllers
 
 			var schoolCourse = Course.GetCourseFromName(course);
 			return new StudentUser(name, schoolCourse, year);
-				//If cookie name && course == default, name = anonym14, course = "VisAlt"
+			//If cookie name && course == default, name = anonym14, course = "VisAlt"
 		}
 
 		public PartialViewResult UserStatUpdate(int eventid, bool attend)
@@ -352,7 +362,7 @@ namespace TikTokCalendar.Controllers
 					}
 					else
 					{
-						db.EventUserStats.Add(new EventUserStat {UserName = userName, EventID = eventid, GoingTime = DateTime.Now});
+						db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now });
 					}
 				}
 				db.SaveChanges();
@@ -366,7 +376,7 @@ namespace TikTokCalendar.Controllers
 		public ActionResult GetMessage()
 		{
 			var message = "Welcome";
-			return new JsonResult {Data = message, JsonRequestBehavior = JsonRequestBehavior.AllowGet};
+			return new JsonResult { Data = message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 		}
 	}
 }
