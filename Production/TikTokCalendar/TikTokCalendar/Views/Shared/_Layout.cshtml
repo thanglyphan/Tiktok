@@ -21,7 +21,7 @@
     }
 }
 <!DOCTYPE html>
-<html>
+<html lang="nb"> <!-- TODO Change nb based on what the Model has -->
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,7 +96,7 @@
                     <label for="tags"></label>
 
                     @using (Html.BeginForm("Index", "Home")) {
-                        <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" value="@Model.searchWords" />
+                        <input id="tags" name="tags" type="text" class="search-box" placeholder="@Resources.LocalizedText.SearchLabel" value="@Model.searchWords" />
 
                         <input type="hidden" name="lecture" value="@check1" />
                         <input type="hidden" name="assignment" value="@check2" />
@@ -138,6 +138,10 @@
 			
 
 			<div class="right-2">
+
+                <!-- TODO: style and position -->
+                @Html.ActionLink("Norsk", "Set", "Language", new { language = "nb" }, null)
+                @Html.ActionLink("English", "Set", "Language", new { language = "en" }, null)
 
 				@if (Model.User.Course == SchoolCourses.VisAlt)
                 {

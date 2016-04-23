@@ -197,12 +197,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\LocalizedText.en.designer.cs">
+      <DependentUpon>LocalizedText.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\LocalizedText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizedText.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SessionAuthenticationConfig.cs" />
+    <Compile Include="Controllers\CultureManager.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\CalendarEventContext.cs" />
@@ -386,6 +398,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="bundler\node_modules\node-sass\node_modules\node-sass-middleware\node_modules\mkdirp\node_modules\minimist\example\" />
     <Folder Include="bundler\node_modules\node-sass\node_modules\node-sass-middleware\node_modules\mkdirp\node_modules\minimist\test\" />
+    <Folder Include="Views\Language\" />
     <Folder Include="Views\Rooms\" />
     <Folder Include="Views\Searching\" />
   </ItemGroup>
@@ -399,6 +412,18 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\LocalizedText.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>LocalizedText.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\LocalizedText.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>LocalizedText.en.designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
