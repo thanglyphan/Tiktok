@@ -37,8 +37,6 @@ namespace TikTokCalendar.Models
         public void SetSchoolSystemDependantData(List<CustomEvent> allEvents, Dictionary<string, Room> rooms)
         {
             AllEvents = allEvents.OrderBy(x => x.StartDateTime).ToList();
-            //AllEvents.OrderBy(x => x.StartDateTime);
-            //OrderBy(x => x.StartTime).ToList();
 			Rooms = rooms;
 		}
 
@@ -58,7 +56,7 @@ namespace TikTokCalendar.Models
 
 	    public StudentUser GetUser(string name, string password)
 	    {
-			// TODO User predicate
+			// TODO User Predicate<>
 		    foreach (var user in Users)
 		    {
 			    if (user.UserName == name && user.Password == password)
@@ -91,20 +89,6 @@ namespace TikTokCalendar.Models
             }
             return months;
         }
-
-	    public List<Room> GetRooms()
-	    {
-			/*
-			Rooms = new List<Room>();
-	        Room r1 = new Room("Rom 82");
-	        Room r2 = new Room("Rom 83");
-	        Room r3 = new Room("Rom 41");
-
-			DateTime today = DateTime.Today;
-	        r1.TryAddTimeSlot(t1);
-			*/
-			return new List<Room>();
-	    }
 
 		public List<CustomEventMonth> GetEventsWithName(StudentUser user)
 		{
