@@ -154,7 +154,7 @@
                                                 @if (now > item.StartDateTime && now < item.EndDateTime)
                                                 {
                                                     <b>&nbsp;&nbsp;&nbsp;</b>
-                                                    <span class="on ">Pågår</span>
+                                                    <span class="on ">@Resources.LocalizedText.Ongoing</span>
 }
                                                 else if (lessThanAnHour)
                                                 {
@@ -221,14 +221,14 @@
                                                             {
                                                                 <input type="hidden" name="eventid" value="@item.ID" />
                                                                 <input type="hidden" name="attend" value="false" />
-                                                                <input type="submit" value="skal" class="going-@item.ID" />
+                                                                <input type="submit" value="@Resources.LocalizedText.AttendingButton" class="going-@item.ID" />
 }
                                                             else
                                                             {
-                                                                <strong>Du skal.</strong>
+                                                                <strong>@Resources.LocalizedText.YouAreAttendingLabel.</strong>
                                                                 <input type="hidden" name="eventid" value="@item.ID" />
                                                                 <input type="hidden" name="attend" value="false" />
-                                                                <input type="submit" value="angre" class="going-@item.ID" />
+                                                                <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@item.ID" />
 }
                                                         }
                                                     }
@@ -244,11 +244,11 @@
                                                             @howMany
                                                             @if (now < item.StartDateTime)
                                                             {
-                                                                <text>skal</text>
+                                                                <text>@Resources.LocalizedText.XIsAttendingLabel</text>
 }
-                                                            else
-                                                            {
-                                                                <text>skulle</text>
+else
+{
+                                                                <text>@Resources.LocalizedText.XDidAttendLabel</text>
 }
                                                         </span>
                                                         <div class="tip usersgoing @showTip">

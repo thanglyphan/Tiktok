@@ -201,8 +201,32 @@
     <value>Username</value>
     <comment>Placeholder for brukernavn input</comment>
   </data>
+  <data name="AttendingButton" xml:space="preserve">
+    <value>Attending</value>
+    <comment>Knappen for "going" på en event</comment>
+  </data>
+  <data name="NotAttendingButton" xml:space="preserve">
+    <value>Don't attend</value>
+    <comment>Knappen for å angre "going" på en event</comment>
+  </data>
   <data name="WeekLabel" xml:space="preserve">
     <value>Week</value>
     <comment>Ordet "uke"</comment>
+  </data>
+  <data name="XDidAttendLabel" xml:space="preserve">
+    <value>Did attend</value>
+    <comment>Tekst for antall som skal på eventer som har vært</comment>
+  </data>
+  <data name="XIsAttendingLabel" xml:space="preserve">
+    <value>attending</value>
+    <comment>Tekst for antall som skal</comment>
+  </data>
+  <data name="YouAreAttendingLabel" xml:space="preserve">
+    <value>You are attending</value>
+    <comment>Tekst for å vise at innlogget bruker skal</comment>
+  </data>
+  <data name="Ongoing" xml:space="preserve">
+    <value>Ongoing</value>
+    <comment>Tekst for en event som pågår</comment>
   </data>
 </root>

@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Skal.
+        /// </summary>
+        internal static string AttendingButton {
+            get {
+                return ResourceManager.GetString("AttendingButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rom.
         /// </summary>
         internal static string AvailibleRoomOverviewRoomLabel {
@@ -187,6 +196,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Skal ikke.
+        /// </summary>
+        internal static string NotAttendingButton {
+            get {
+                return ResourceManager.GetString("NotAttendingButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pågår.
+        /// </summary>
+        internal static string Ongoing {
+            get {
+                return ResourceManager.GetString("Ongoing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Passord.
         /// </summary>
         internal static string PasswordInputLabel {
@@ -255,6 +282,33 @@ namespace Resources {
         internal static string WeekLabel {
             get {
                 return ResourceManager.GetString("WeekLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to skulle.
+        /// </summary>
+        internal static string XDidAttendLabel {
+            get {
+                return ResourceManager.GetString("XDidAttendLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to skal.
+        /// </summary>
+        internal static string XIsAttendingLabel {
+            get {
+                return ResourceManager.GetString("XIsAttendingLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du skal.
+        /// </summary>
+        internal static string YouAreAttendingLabel {
+            get {
+                return ResourceManager.GetString("YouAreAttendingLabel", resourceCulture);
             }
         }
     }
