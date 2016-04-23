@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using TikTokCalendar.DAL;
 using TikTokCalendar.Models;
@@ -10,17 +11,25 @@ namespace TikTokCalendar.Controllers
 	public class HomeController : Controller
 	{
 		private readonly Cookies cookie = new Cookies();
-
+		[HttpPost]
+		[ValidateInput(false)]
 		public ActionResult LogIn(string username, string password)
 		{
 			// Make a new ModelDataWrapper with the events based on the user, tags, and filters
 			var user = InitUser(username, password, "");
 			var failedLogin = false;
-			if (user == null || !DataWrapper.Instance.IsValidUser(user))
+			try
 			{
-				failedLogin = true;
-				user = new StudentUser("NO NAME", SchoolCourses.VisAlt, "NaN");
+				if (user == null || !DataWrapper.Instance.IsValidUser(user)) {
+					failedLogin = true;
+					user = new StudentUser("NO NAME",SchoolCourses.VisAlt,"NaN");
+				}
 			}
+			catch (HttpRequestValidationException e)
+			{
+				Console.WriteLine(e.ToString());
+			}
+
 
 			var modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
 			modelWrapper.FailedLogin = failedLogin;
