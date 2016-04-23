@@ -301,7 +301,7 @@
                         <div class="modal-body">
                             <div class="info-rows">
                                 <span class="modal-left">
-                                                                                        <strong>Tid</strong>
+                                                                                        <strong>@Resources.LocalizedText.EventInfoTimeLabel</strong>
                                                                                     </span>
                                 <span class="modal-right">
                                                                                         @item.GetDayOfWeek()@item.GetTimeSlot()
@@ -309,7 +309,7 @@
                             </div>
                             <div class="info-rows">
                                 <span class="modal-left">
-                                                                                        <strong>Uke</strong>
+                                                                                        <strong>@Resources.LocalizedText.EventInfoWeekLabel</strong>
                                                                                     </span>
                                 <span class="modal-right">
                                                                                         @week.WeekNumber
@@ -317,7 +317,7 @@
                             </div>
                             <div class="info-rows">
                                 <span class="modal-left">
-                                                                                        <strong>Rom</strong>
+                                                                                        <strong>@Resources.LocalizedText.EventInfoRoomLabel</strong>
                                                                                     </span>
                                 <span class="modal-right">
                                                                                         @item.RoomName
@@ -325,7 +325,7 @@
                             </div>
                             <div class="info-rows">
                                 <span class="modal-left">
-                                                                                        <strong>Lærer</strong>
+                                                                                        <strong>@Resources.LocalizedText.EventInfoTeacherLabel</strong>
                                                                                     </span>
                                 <span class="modal-right">
                                                                                         @item.Teacher
@@ -333,7 +333,7 @@
                             </div>
                             <div class="info-rows">
                                 <span class="modal-left">
-                                                                                        <strong>Kommentar</strong>
+                                                                                        <strong>@Resources.LocalizedText.EventInfoCommentLabel</strong>
                                                                                     </span>
                                 <span class="modal-right">
                                                                                         @item.Comment
@@ -357,14 +357,14 @@
             <!-- Modal header -->
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                Ledige rom
+                @Resources.LocalizedText.AvailibleRoomsWindowName
             </div>
 
             <!-- Modal body -->
             <div class="modal-body" style="margin: 0;">
                 <table id="vis-rom-modal" class="table table-bordered table-hover rooms-available">
                     <tr>
-                        <th>Rom</th>
+                        <th>@Resources.LocalizedText.AvailibleRoomOverviewRoomLabel</th>
                         <td>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" style="width: 10%">8:15</div>
@@ -418,7 +418,7 @@
                 <!-- Modal header -->
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    Logg inn
+                    @Resources.LocalizedText.LoginWindowName
                 </div>
 
                 <!-- Modal body -->
@@ -428,15 +428,15 @@
                         if (Model.FailedLogin)
                         {
                             <!-- TODO css wizards: style this -->
-                            <p>Invalid username/password, try again</p>
+                            <p>@Resources.LocalizedText.InvalidLoginLabel</p>
                         }
-                        <input type="text" class="form-control" id="email" name="username" placeholder="Brukernavn">
-                        <input type="password" class="form-control" id="pwd" name="password" placeholder="Passord">
+                        <input type="text" class="form-control" id="email" name="username" placeholder="@Resources.LocalizedText.UsernameInputLabel">
+                        <input type="password" class="form-control" id="pwd" name="password" placeholder="@Resources.LocalizedText.PasswordInputLabel">
 
-                        <button type="submit" class="btn btn-md btn-primary btn-block btn-login">logg inn</button>
+                        <button type="submit" class="btn btn-md btn-primary btn-block btn-login">@Resources.LocalizedText.LogInButton</button>
                     }
                     <span data-toggle="modal" data-target="#login-modal">
-                                <a class="btn btn-md btn-default btn-block btn-free-rooms" data-toggle="modal" data-target="#vis-rom-modal">vis ledige rom</a>
+                                <a class="btn btn-md btn-default btn-block btn-free-rooms" data-toggle="modal" data-target="#vis-rom-modal">@Resources.LocalizedText.ShowAvailibleRoomsButton</a>
                             </span>
                 </div>
             </div>

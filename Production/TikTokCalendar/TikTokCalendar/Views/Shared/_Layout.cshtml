@@ -113,15 +113,15 @@
                 {
                     if (eventCount > 1)
                     {
-                        <span>@eventCount hendelser funnet</span>
+                        <span>@eventCount @Resources.LocalizedText.FilterXEventsFoundLabel</span>
 }
                     else if (eventCount > 0)
                     {
-                        <span>Én hendelse funnet</span>
+                        <span>@Resources.LocalizedText.Filter1EventFoundLabel</span>
 }
                     else
                     {
-                        <span>Ingen resultater</span>
+                        <span>@Resources.LocalizedText.FilterNoEventsFoundLabel</span>
 }
                 }
             </span>
@@ -132,17 +132,17 @@
                     <input type="hidden" name="tags" value="@Model.searchWords" />
                     <div class="filter">
                         <input id="schoolClass" type="checkbox" name="lecture" @check1 onchange="this.form.submit()" /><label for="schoolClass">
-                            <span>Forelesning</span>
+                            <span>@Resources.LocalizedText.SearchLectureLabel</span>
                         </label>
                     </div>
                     <div class="filter">
                         <input id="assignment" type="checkbox" name="assignment" @check2 onchange="this.form.submit()" /><label for="assignment">
-                            <span>Innlevering</span>
+                            <span>@Resources.LocalizedText.SearchAssignmentLabel</span>
                         </label>
                     </div>
                     <div class="filter">
                         <input id="exam" type="checkbox" name="exam" @check3 onchange="this.form.submit()" /><label for="exam">
-                            <span>Eksamen</span>
+                            <span>@Resources.LocalizedText.SearchExamLabelLabel</span>
                         </label>
                     </div>
                     <input type="hidden" name="filtered" value="true" />}
@@ -157,21 +157,21 @@
                 {
                     <p>
                         <a class="logout" data-toggle="modal" data-target="#login-modal">
-                            <span>Logg inn</span><i class="fa fa-sign-in fa-2x"></i>
+                            <span>@Resources.LocalizedText.LogInButton</span><i class="fa fa-sign-in fa-2x"></i>
                         </a>
                     </p>}
                 else
                 {
                     using (Html.BeginForm("LogOut", "Home"))
                     {
-                        <button type="submit" class="btn btn-logout">Logg out, @Model.User.UserName</button>
+                        <button type="submit" class="btn btn-logout">@Resources.LocalizedText.LogOutButton, @Model.User.UserName</button>
 }
                 }
             </div>
 
             <div class="right-1">
                 <p class="btn-show-rooms">
-                    <span data-toggle="modal" data-target="#vis-rom-modal">Vis ledige rom</span>
+                    <span data-toggle="modal" data-target="#vis-rom-modal">@Resources.LocalizedText.ShowAvailibleRoomsButton</span>
                 </p>
             </div>
 

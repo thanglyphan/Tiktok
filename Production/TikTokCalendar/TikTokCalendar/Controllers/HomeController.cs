@@ -10,9 +10,13 @@ namespace TikTokCalendar.Controllers
 	public class HomeController : Controller
 	{
 		private readonly Cookies cookie = new Cookies();
+		private readonly DataParser dataParser = new DataParser();
 
 		public ActionResult LogIn(string username, string password)
 		{
+			// Parse all the JSON data
+			dataParser.ParseAllData();
+
 			// Make a new ModelDataWrapper with the events based on the user, tags, and filters
 			var user = InitUser(username, password, "");
 			var failedLogin = false;
@@ -35,6 +39,7 @@ namespace TikTokCalendar.Controllers
 		{
 			cookie.DeleteCookies();
 			Session["keywords"] = null;
+			dataParser.ParseAllData();
 
 			var user = new StudentUser("Not logged in", "", "", -1, SchoolCourses.VisAlt);
 			var modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
@@ -46,6 +51,9 @@ namespace TikTokCalendar.Controllers
 		public ActionResult Index(string Email, string Password, string tags = "", string lecture = "", string assignment = "",
 			string exam = "", bool filtered = false)
 		{
+			// Parse all the JSON data
+			dataParser.ParseAllData();
+
 			// MIDLERTIDIG DATABASEREDIGERING FOR MANDAGEN (LA STÅ)
 			//var db = new CalendarEventContext();
 			//Random rng = new Random();
@@ -134,10 +142,6 @@ namespace TikTokCalendar.Controllers
 		{
 			// Get the user from cookies
 			StudentUser user = null;
-
-			// Parse all the JSON data
-			var dataParser = new DataParser();
-			dataParser.ParseAllData();
 
 			if (!string.IsNullOrEmpty(userName))
 			{

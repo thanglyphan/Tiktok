@@ -61,11 +61,20 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rom.
+        /// </summary>
+        internal static string AvailibleRoomOverviewRoomLabel {
+            get {
+                return ResourceManager.GetString("AvailibleRoomOverviewRoomLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ledige rom.
         /// </summary>
-        internal static string AvailibleRoomsLabel {
+        internal static string AvailibleRoomsWindowName {
             get {
-                return ResourceManager.GetString("AvailibleRoomsLabel", resourceCulture);
+                return ResourceManager.GetString("AvailibleRoomsWindowName", resourceCulture);
             }
         }
         
@@ -142,11 +151,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ugyldig brukernavn/passord, vennligst prøv igjen.
+        /// </summary>
+        internal static string InvalidLoginLabel {
+            get {
+                return ResourceManager.GetString("InvalidLoginLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logg inn.
         /// </summary>
         internal static string LogInButton {
             get {
                 return ResourceManager.GetString("LogInButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logg inn.
+        /// </summary>
+        internal static string LoginWindowName {
+            get {
+                return ResourceManager.GetString("LoginWindowName", resourceCulture);
             }
         }
         
