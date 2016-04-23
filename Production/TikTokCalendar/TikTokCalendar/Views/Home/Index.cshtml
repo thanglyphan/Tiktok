@@ -383,7 +383,7 @@
         <!-- TODO This hides the modal permanently, this should rather stop the modal from initially showing instead of hiding the whole thing -->
         @if (!Model.isFiltered && string.IsNullOrEmpty(Model.searchWords))
         {
-            <div class="content-hidden modal fade" id="login-modal" role="dialog">
+            <div class="content-hidden modal fade" id="login-modal" role="dialog" data-keyboard="false" data-backdrop="static">
                 <div class="modal-dialog">
                     <div class="modal-content">
 

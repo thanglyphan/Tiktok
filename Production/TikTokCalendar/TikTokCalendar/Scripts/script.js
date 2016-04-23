@@ -55,6 +55,11 @@ $(function() {
             prependTo: ".mobile-navbar-container"
         });
 
+    $('#login-modal').modal({
+        backdrop: 'static',
+        keyboard: false
+    });
+
     function isEmpty(str) {
         return typeof str == "string" && !str.trim() || typeof str == "undefined" || str === null;
     }
