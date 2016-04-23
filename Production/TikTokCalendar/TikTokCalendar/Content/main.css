@@ -292,6 +292,12 @@ input[type="checkbox"]:checked + label {
 
 #login-modal .modal-body * { font-size: 1.6em; }
 
+.modal-body .table {
+    background-color: white;
+    border-radius: 7px;
+    font-size: 2em; 
+}
+
 /*===================================
   COOKIE INFORMATION/WARNING
 ===================================*/
@@ -444,6 +450,10 @@ input[class^="going-"]:hover {
 
 @media (min-width: 768px) {
     .modal-dialog { margin-top: 160px; }
+}
+
+.content-hidden .modal-header {
+    font-size: 4em !important;
 }
 
 .modal-header { font-size: 2.4em; }
@@ -793,7 +803,7 @@ input[class^="going-"]:hover {
 }
 
 /*======================================
-  VIS LEDIGE ROM MODAL
+  SHOW AVAILABLE ROOMS MODAL
 =======================================*/
 
 #vis-rom-modal .modal-dialog {
@@ -805,6 +815,14 @@ input[class^="going-"]:hover {
 #vis-rom-modal .modal-header { font-size: 2em; }
 
 #vis-rom-modal .modal-body * { font-size: 1.3em; }
+
+.info-rows {
+    font-size: 2.4em;
+}
+
+.info-rows .modal-left {
+    color: #333;
+}
 
 #vis-rom-modal th {
     font-size: 0.5em;

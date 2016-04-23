@@ -299,46 +299,31 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <div class="info-rows">
-                                <span class="modal-left">
-                                                                                        <strong>Tid</strong>
-                                                                                    </span>
-                                <span class="modal-right">
-                                                                                        @item.GetDayOfWeek()@item.GetTimeSlot()
-                                                                                    </span>
-                            </div>
-                            <div class="info-rows">
-                                <span class="modal-left">
-                                                                                        <strong>Uke</strong>
-                                                                                    </span>
-                                <span class="modal-right">
-                                                                                        @week.WeekNumber
-                                                                                    </span>
-                            </div>
-                            <div class="info-rows">
-                                <span class="modal-left">
-                                                                                        <strong>Rom</strong>
-                                                                                    </span>
-                                <span class="modal-right">
-                                                                                        @item.RoomName
-                                                                                    </span>
-                            </div>
-                            <div class="info-rows">
-                                <span class="modal-left">
-                                                                                        <strong>Lærer</strong>
-                                                                                    </span>
-                                <span class="modal-right">
-                                                                                        @item.Teacher
-                                                                                    </span>
-                            </div>
-                            <div class="info-rows">
-                                <span class="modal-left">
-                                                                                        <strong>Kommentar</strong>
-                                                                                    </span>
-                                <span class="modal-right">
-                                                                                        @item.Comment
-                                                                                    </span>
-                            </div>
+                            <table class="table">
+                                <body>
+                                    <tr>
+                                        <td>Når</td>
+                                        <td>@item.GetDayOfWeek()@item.GetTimeSlot()</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Uke</td>
+                                        <td>@week.WeekNumber</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rom</td>
+                                        <td>@item.RoomName</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lærer</td>
+                                        <td>@item.Teacher</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kommentar</td>
+                                        <td>@item.Comment</td>
+                                    </tr>
+                                </body>
+                            </table>
+              
                         </div>
                     </div>
                 </div>
