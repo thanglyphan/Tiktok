@@ -15,7 +15,7 @@ namespace TikTokCalendar.Controllers
 
 		[HttpPost]
 		[ValidateInput(false)]
-		public ActionResult LogIn(string username, string password)
+		public ActionResult LogIn(string username = "", string password = "")
 		{
 			// Parse all the JSON data
 			dataParser.ParseAllData();
