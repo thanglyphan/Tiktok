@@ -25,7 +25,7 @@ namespace TikTokCalendar.Controllers
 			var modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
 			modelWrapper.FailedLogin = failedLogin;
 
-
+			CultureManager.UpdateCulture(HttpContext.Request);
 			// Send the model to the view
 			Session["keywords"] = null;
 			return View("Index", modelWrapper);
@@ -38,7 +38,7 @@ namespace TikTokCalendar.Controllers
 
 			var user = new StudentUser("Not logged in", "", "", -1, SchoolCourses.VisAlt);
 			var modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
-
+			CultureManager.UpdateCulture(HttpContext.Request);
 			return View("Index", modelWrapper);
 		}
 
@@ -108,7 +108,7 @@ namespace TikTokCalendar.Controllers
 			{
 				modelWrapper.isFiltered = true;
 			}
-
+			CultureManager.UpdateCulture(HttpContext.Request);
 			// Send the model to the view
 			return View(modelWrapper);
 		}
