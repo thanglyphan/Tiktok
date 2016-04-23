@@ -270,7 +270,7 @@
                             </div>
 
 								<!-- "More info" modal -->
-                                                                <div class="content-hidden modal fade" id="@item.ID" role="dialog" style="z-index: 5;">
+                                                                <div class="content-hidden modal fade" id="@item.ID" role="dialog" style="z-index: 1050;">
                                                                     <div class="modal-dialog">
                                                                         <div class="modal-content">
 
@@ -387,6 +387,7 @@
 
 
         <!-- Log in window modal -->
+        <!-- TODO This hides the modal permanently, this should rather stop the modal from initially showing instead of hiding the whole thing -->
         @if (!Model.isFiltered && string.IsNullOrEmpty(Model.searchWords))
         {
             <div class="content-hidden modal fade" id="login-modal" role="dialog">
