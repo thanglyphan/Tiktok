@@ -1,15 +1,17 @@
-using System;
+using System.IdentityModel.Services;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using TikTokCalendar.App_Start;
+using WebActivatorEx;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TikTokCalendar.App_Start.SessionAuthenticationConfig), "PreAppStart")]
+[assembly: PreApplicationStartMethod(typeof(SessionAuthenticationConfig), "PreAppStart")]
 
 namespace TikTokCalendar.App_Start
 {
-    public static class SessionAuthenticationConfig
-    {
-        public static void PreAppStart()
-        {
-            DynamicModuleUtility.RegisterModule(typeof(System.IdentityModel.Services.SessionAuthenticationModule));
-        }
-    }
+	public static class SessionAuthenticationConfig
+	{
+		public static void PreAppStart()
+		{
+			DynamicModuleUtility.RegisterModule(typeof(SessionAuthenticationModule));
+		}
+	}
 }

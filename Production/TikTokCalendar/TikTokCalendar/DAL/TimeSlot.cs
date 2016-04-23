@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using TikTokCalendar.Models;
 
 namespace TikTokCalendar.DAL
@@ -10,15 +7,6 @@ namespace TikTokCalendar.DAL
 	{
 		public const int StartHour = 8;
 		public const int EndHour = 18;
-
-		public DateTime Start { get; private set; }
-		public DateTime End { get; private set; }
-
-		public DateTime Min { get; private set; }
-		public DateTime Max { get; private set; }
-		public long FullDaySpan { get; private set; }
-
-		public CustomEvent Event { get; private set; }
 
 		public TimeSlot(CustomEvent evnt)
 		{
@@ -33,18 +21,27 @@ namespace TikTokCalendar.DAL
 			End = end;
 		}
 
+		public DateTime Start { get; }
+		public DateTime End { get; }
+
+		public DateTime Min { get; private set; }
+		public DateTime Max { get; private set; }
+		public long FullDaySpan { get; private set; }
+
+		public CustomEvent Event { get; private set; }
+
 		public float GetPercentOfDay()
 		{
 			Min = MinTime(Start);
 			Max = MaxTime(End);
 
 			// Calulate the span between the min/max
-			long span = End.Ticks - Start.Ticks;
-			long fullDaySpan = Max.Ticks - Min.Ticks;
+			var span = End.Ticks - Start.Ticks;
+			var fullDaySpan = Max.Ticks - Min.Ticks;
 
-			float slotSpan = (float)span;
-			float daySpan = (float)fullDaySpan;
-			float percent = (float)((slotSpan / daySpan) * 100);
+			float slotSpan = span;
+			float daySpan = fullDaySpan;
+			var percent = slotSpan/daySpan*100;
 
 			return percent;
 		}

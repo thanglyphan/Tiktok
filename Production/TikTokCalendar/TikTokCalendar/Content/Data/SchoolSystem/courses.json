@@ -1,40 +1,39 @@
 ﻿// Programmlinjene
 // id   : en unik rullende id
 // name : navnet på linja
-{
-  "courses": [
-    {
-      "id": "1",
-      "name": "Spillprogrammering"
-    },
-    {
-      "id": "2",
-      "name": "Programmering"
-    },
-    {
-      "id": "3",
-      "name": "Intelligente Systemer"
-    },
-    {
-      "id": "4",
-      "name": "Mobil Programmering"
-    },
-    {
-      "id": "5",
-      "name": "E-Business"
-    },
-    {
-      "id": "6",
-      "name": "Interaktivt Design"
-    },
-    {
-      "id": "7",
-      "name": "Spilldesign"
-    },
-        {
-      "id": "8",
-      "name": "Bachelor i IT"
-    }
-
-  ]
-}
+  {
+    "courses": [
+      {
+        "id": "1",
+        "name": "Spillprogrammering"
+      },
+      {
+        "id": "2",
+        "name": "Programmering"
+      },
+      {
+        "id": "3",
+        "name": "Intelligente Systemer"
+      },
+      {
+        "id": "4",
+        "name": "Mobil Programmering"
+      },
+      {
+        "id": "5",
+        "name": "E-Business"
+      },
+      {
+        "id": "6",
+        "name": "Interaktivt Design"
+      },
+      {
+        "id": "7",
+        "name": "Spilldesign"
+      },
+      {
+        "id": "8",
+        "name": "Bachelor i IT"
+      }
+    ]
+  }

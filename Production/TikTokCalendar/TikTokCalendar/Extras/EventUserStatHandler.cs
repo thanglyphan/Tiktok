@@ -1,58 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
-using TikTokCalendar.DAL;
-using TikTokCalendar.Models;
+﻿using TikTokCalendar.DAL;
 
 namespace TikTokCalendar
 {
-    public static class EUSH_global
-    {
-        public static long ID_ATM = 0; // event ID at the moment
-    }
-    public class EventUserStatHandler
-    {
-        private CalendarEventContext db = new CalendarEventContext();
-        private Cookies cookie = new Cookies();
+	public class EventUserStatHandler
+	{
+		private readonly CalendarEventContext db = new CalendarEventContext();
 
-        public bool UserGoing(long id)
-        {
-            string userName = cookie.LoadStringFromCookie("UserName");
-            foreach (EventUserStat eus in db.EventUserStats)
-            {
-                if (eus.UserName == userName && eus.EventID == id)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+		public bool UserGoing(long id, string username)
+		{
+			foreach (var eus in db.EventUserStats)
+			{
+				if (eus.UserName == username && eus.EventID == id)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
 
-        public bool UserAttending(long id, string username)
-        {
-            foreach (EventUserStat eus in db.EventUserStats)
-            {
-                if (eus.UserName == username && eus.EventID == id && eus.Attend == true)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+		public bool IsUserAttending(long id, string username)
+		{
+			foreach (var eus in db.EventUserStats)
+			{
+				if (eus.UserName == username && eus.EventID == id && eus.Attend)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
 
-        public int HowManyUsersGoing(long id)
-        {
-            int counter = 0;
-            foreach (EventUserStat eus in db.EventUserStats)
-            {
-                if (eus.EventID == id)
-                {
-                    counter++;
-                }
-            }
-            return counter;
-        }
-    }
+		public int GetUsersGoing(long id)
+		{
+			var count = 0;
+			foreach (var eus in db.EventUserStats)
+			{
+				if (eus.EventID == id)
+				{
+					count++;
+				}
+			}
+			return count;
+		}
+
+		public int GetUsersAttending(long id)
+		{
+			var count = 0;
+			foreach (var eus in db.EventUserStats)
+			{
+				if (eus.EventID == id && eus.Attend)
+				{
+					count++;
+				}
+			}
+			return count;
+		}
+	}
 }

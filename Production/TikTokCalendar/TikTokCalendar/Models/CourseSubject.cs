@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using TikTokCalendar.Extras;
 
 namespace TikTokCalendar.Models
@@ -16,19 +13,20 @@ namespace TikTokCalendar.Models
 		public Course Course { get; set; }
 		public Subject Subject { get; set; }
 
-		public void SetAndParse(string id, string courseId, string subjectId, string semester, List<Course> courses, List<Subject> subjects)
+		public void SetAndParse(string id, string courseId, string subjectId, string semester, List<Course> courses,
+			List<Subject> subjects)
 		{
 			// Parse the paramteres
 			ID = Utils.ParsePositiveInt(id);
-			int courseID = Utils.ParsePositiveInt(courseId);
-			int subjectID = Utils.ParsePositiveInt(subjectId);
+			var courseID = Utils.ParsePositiveInt(courseId);
+			var subjectID = Utils.ParsePositiveInt(subjectId);
 			Semester = Utils.ParsePositiveInt(semester);
 
 
 			// Find the course and subject that matches the IDs
 			if (Semester <= 2)
 			{
-				Course = courses[((int)SchoolCourses.BacheloriIT) - 1];
+				Course = courses[(int) SchoolCourses.BacheloriIT - 1];
 				courseID = Course.ID;
 			}
 			else
@@ -56,9 +54,9 @@ namespace TikTokCalendar.Models
 
 		public static int GetClassYearFromSemester(int semester)
 		{
-			int year = 0;
-			int partOfYear = (semester % 2 == 0) ? 0 : 1; // 0 if before august, 1 after august
-			year = (semester / 2) + partOfYear;
+			var year = 0;
+			var partOfYear = semester%2 == 0 ? 0 : 1; // 0 if before august, 1 after august
+			year = semester/2 + partOfYear;
 			return year;
 		}
 	}

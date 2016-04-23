@@ -1,44 +1,76 @@
-﻿@model TikTokCalendar.DAL.ModelDataWrapper
+﻿@using TikTokCalendar.DAL
+@model TikTokCalendar.DAL.ModelDataWrapper
 @{
-    EventUserStatHandler EUSH = new EventUserStatHandler();
-    TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
+    var EUSH = new EventUserStatHandler();
+    var cookie = new Cookies();
+    var howMany = EUSH.GetUsersGoing(Model.eventID);
 }
-<div style="display:none"> <!-- this is strange but needed -->
+<div style="display: none">
+    <!-- this is strange but needed -->
+
     <script>
-        $(function () {
-            $('.activator.usersgoing').BAToolTip({
-                tipOpacity: 0.9,
-                tipOffset: 20
-            });
+        $(function() {
+            $('.activator.usersgoing')
+                .BAToolTip({
+                    tipOpacity: 0.9,
+                    tipOffset: 20
+                });
         })
     </script>
+
 </div>
 
-@if (EUSH.UserAttending(EUSH_global.ID_ATM, cookie.LoadStringFromCookie("UserName")))
+
+@if (EUSH.IsUserAttending(Model.eventID, cookie.LoadStringFromCookie("UserName")))
 {
-<strong>Innsjekket &#10004;</strong>
+    <strong>Innsjekket &#10004;</strong>
 }
-else if (EUSH.UserGoing(EUSH_global.ID_ATM))
+else if (EUSH.UserGoing(Model.eventID, cookie.LoadStringFromCookie("UserName")))
 {
-    <strong>Du skal.</strong>
+    <span>Du skal.</span>
+    <input type="hidden" name="eventid" value="@Model.eventID"/>
+    <input type="hidden" name="attend" value="false"/>
+    <input type="submit" value="angre" class="going-@Model.eventID"/>
+}
+else
+{
+    <input type="hidden" name="eventid" value="@Model.eventID"/>
+    <input type="hidden" name="attend" value="false"/>
+    <input type="submit" value="skal" class="going-@Model.eventID"/>
 }
 
+
 <!-- hover box displaying users -->
+
 <div class="tip-item">
-    <span class="activator usersgoing">@EUSH.HowManyUsersGoing(EUSH_global.ID_ATM) going</span>
+
+    <span class="activator usersgoing">@howMany skal</span>
     <div class="tip usersgoing">
+
+        <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(Model.eventID)/@howMany innsjekk</b>
+
+        @{
+            var names = 0;
+        }
         @foreach (var eus in Model.eventUserStats)
         {
-            if (eus.EventID == EUSH_global.ID_ATM)
+            if (eus.EventID == Model.eventID)
             {
                 <span class="no-linebreak">
-                    @if (EUSH.UserAttending(EUSH_global.ID_ATM, eus.UserName))
+                    @if (EUSH.IsUserAttending(Model.eventID, eus.UserName))
                     {
                         <text>&#10004;</text>
                     }
                     @eus.UserName<br />
                 </span>
+                names++;
+            }
+            if (names >= 24)
+            {
+                <b class="tip-others no-linebreak">og @(howMany - names) andre</b>
+                break;
             }
         }
     </div>
+
 </div>

@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace TikTokCalendar.DAL
 {
 	public class Room
 	{
-		public string RoomName { get; private set; }
-		public List<TimeSlot> Availability { get; private set; } = new List<TimeSlot>();
-
 		public Room(string roomName)
 		{
 			RoomName = roomName;
 		}
+
+		public string RoomName { get; private set; }
+		public List<TimeSlot> Availability { get; } = new List<TimeSlot>();
 
 		public bool TryAddTimeSlot(TimeSlot timeSlot)
 		{

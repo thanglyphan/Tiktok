@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using TikTokCalendar.Extras;
 
 namespace TikTokCalendar.Models
@@ -19,8 +15,8 @@ namespace TikTokCalendar.Models
 		{
 			ID = Utils.ParsePositiveInt(id);
 
-			Name = name;// name.Substring(0, name.Length - 11);
-			Code = code;// GetSubjectCode(name);
+			Name = name; // name.Substring(0, name.Length - 11);
+			Code = code; // GetSubjectCode(name);
 		}
 
 		public static string GetSubjectCode(string name)
@@ -29,7 +25,7 @@ namespace TikTokCalendar.Models
 			{
 				return null;
 			}
-			string code = name.Substring(name.Length - 11);
+			var code = name.Substring(name.Length - 11);
 			return code.Substring(1, code.Length - 5);
 		}
 
@@ -38,14 +34,15 @@ namespace TikTokCalendar.Models
 			return GetSubjectCode(Name);
 		}
 
-		//public static bool operator==(Subject a, Subject b)
 		//{
-		//	if (a == null || b == null) return false;
-		//	return a.ID == b.ID;
-		//}
 
 		//public static bool operator!=(Subject a, Subject b)
+		//}
+		//	return a.ID == b.ID;
+		//	if (a == null || b == null) return false;
 		//{
+
+		//public static bool operator==(Subject a, Subject b)
 		//	return !(a == b);
 		//}
 	}

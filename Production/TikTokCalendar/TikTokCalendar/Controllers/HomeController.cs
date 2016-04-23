@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using TikTokCalendar.DAL;
 using TikTokCalendar.Models;
-using System.Diagnostics;
 
 namespace TikTokCalendar.Controllers
 {
@@ -19,17 +14,16 @@ namespace TikTokCalendar.Controllers
 		public ActionResult LogIn(string username, string password)
 		{
 			// Make a new ModelDataWrapper with the events based on the user, tags, and filters
-			StudentUser user = InitUser(username, password, "");
-			bool failedLogin = false;
-			if (!DataWrapper.Instance.IsValidUser(user))
+			var user = InitUser(username, password, "");
+			var failedLogin = false;
+			if (user == null || !DataWrapper.Instance.IsValidUser(user))
 			{
 				failedLogin = true;
 				user = new StudentUser("NO NAME", SchoolCourses.VisAlt, "NaN");
 			}
 
-			ModelDataWrapper modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
+			var modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
 			modelWrapper.FailedLogin = failedLogin;
-
 
 
 			// Send the model to the view
@@ -42,77 +36,91 @@ namespace TikTokCalendar.Controllers
 			cookie.DeleteCookies();
 			Session["keywords"] = null;
 
-			StudentUser user = new StudentUser("Not logged in", "", "", -1, SchoolCourses.VisAlt);
-			ModelDataWrapper modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
+			var user = new StudentUser("Not logged in", "", "", -1, SchoolCourses.VisAlt);
+			var modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
 
 			return View("Index", modelWrapper);
 		}
 
 		[ValidateInput(false)]
-        public ActionResult Index(string Email, string Password, string tags = "", string lecture = "", string assignment = "", string exam = "", bool filtered = false)
+		public ActionResult Index(string Email, string Password, string tags = "", string lecture = "", string assignment = "",
+			string exam = "", bool filtered = false)
 		{
+			// MIDLERTIDIG DATABASEREDIGERING FOR MANDAGEN (LA STÅ)
+			//var db = new CalendarEventContext();
+			//Random rng = new Random();
+			//for (int i = 0; i < 37; i++)
+			//{
+			//    db.EventUserStats.Add(new EventUserStat { UserName = "Name" + rng.Next(0, 999).ToString(), EventID = 1000239, GoingTime = DateTime.Now });
+			//}
+
+			// fjerne
+			//db.EventUserStats.RemoveRange(db.EventUserStats);
+
+			//db.SaveChanges();
+
 			bool lec = false, ass = false, exa = false;
-            if (filtered)
-            {
-                if (lecture.Length > 0) lec = true;
-                if (assignment.Length > 0) ass = true;
-                if (exam.Length > 0) exa = true;
+			if (filtered)
+			{
+				if (lecture.Length > 0) lec = true;
+				if (assignment.Length > 0) ass = true;
+				if (exam.Length > 0) exa = true;
 
-                //Check if actually empty page before continuing
-                if (!lec && !ass && !exa && tags == "")
-                {
-                    ModelDataWrapper emptyWrap;
-                    emptyWrap = new ModelDataWrapper("", false, false, false);
-                    emptyWrap.isFiltered = true;
-                    return View(emptyWrap);
-                }
-            }
-            else
-            {
-                lec = true;
-                ass = true;
-                exa = true;
-            }
+				//Check if actually empty page before continuing
+				if (!lec && !ass && !exa && tags == "")
+				{
+					ModelDataWrapper emptyWrap;
+					emptyWrap = new ModelDataWrapper("", false, false, false);
+					emptyWrap.isFiltered = true;
+					return View(emptyWrap);
+				}
+			}
+			else
+			{
+				lec = true;
+				ass = true;
+				exa = true;
+			}
 
-            // Make a new ModelDataWrapper with the events based on the user, tags, and filters
-            ModelDataWrapper modelWrapper;
-            if (string.IsNullOrEmpty(tags))
-            {
-                modelWrapper = new ModelDataWrapper(lec, ass, exa);
-            }
-            else
-            {
-                modelWrapper = new ModelDataWrapper(tags, lec, ass, exa);
-            }
+			// Make a new ModelDataWrapper with the events based on the user, tags, and filters
+			ModelDataWrapper modelWrapper;
+			if (string.IsNullOrEmpty(tags))
+			{
+				modelWrapper = new ModelDataWrapper(lec, ass, exa);
+			}
+			else
+			{
+				modelWrapper = new ModelDataWrapper(tags, lec, ass, exa);
+			}
 
-			StudentUser user = InitUser(Email, Password, tags);
+			var user = InitUser(Email, Password, tags);
 
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, lec, ass, exa);
 			modelWrapper.User = user;
-			List<Room> rooms = new List<Room>();
+			var rooms = new List<Room>();
 			foreach (var room in DataWrapper.Instance.Rooms)
 			{
 				rooms.Add(room.Value);
 			}
 			modelWrapper.Rooms = rooms;
-            // Show event count
-            if (!(lec && ass && exa) && (filtered || tags.Length > 0))
-            {
-                modelWrapper.isFiltered = true;
-            }
-			
+			// Show event count
+			if (!(lec && ass && exa) && (filtered || tags.Length > 0))
+			{
+				modelWrapper.isFiltered = true;
+			}
+
 			// Send the model to the view
 			return View(modelWrapper);
 		}
 
 		private ModelDataWrapper CreateModelDataWrapper(List<CustomEventMonth> months, StudentUser user)
 		{
-			ModelDataWrapper modelWrapper = new ModelDataWrapper();
+			var modelWrapper = new ModelDataWrapper();
 			modelWrapper.Months = months;
 			modelWrapper.User = user;
 
 			// Set availible rooms
-			List<Room> rooms = new List<Room>();
+			var rooms = new List<Room>();
 			foreach (var room in DataWrapper.Instance.Rooms)
 			{
 				rooms.Add(room.Value);
@@ -123,59 +131,59 @@ namespace TikTokCalendar.Controllers
 		}
 
 		public StudentUser InitUser(string userName, string password, string tags)
-        {
-            // Get the user from cookies
-            StudentUser user = null;
+		{
+			// Get the user from cookies
+			StudentUser user = null;
 
-            // Parse all the JSON data
-            DataParser dataParser = new DataParser();
-            dataParser.ParseAllData();
+			// Parse all the JSON data
+			var dataParser = new DataParser();
+			dataParser.ParseAllData();
 
-	        if (!string.IsNullOrEmpty(userName))
-	        {
-		        user = DataWrapper.Instance.GetUser(userName, password);
-		        if (user != null)
-		        {
-			        cookie.SaveNameToCookie(user.UserName);
-			        cookie.SaveCourseToCookie(user.Course.ToString());
-			        cookie.SaveYearToCookies(user.GetYearAsText());
-		        }
-	        }
-	        else
-	        {
-		        user = GetUserFromNameCourse();
-	        }
-			
+			if (!string.IsNullOrEmpty(userName))
+			{
+				user = DataWrapper.Instance.GetUser(userName, password);
+				if (user != null)
+				{
+					cookie.SaveNameToCookie(user.UserName);
+					cookie.SaveCourseToCookie(user.Course.ToString());
+					cookie.SaveYearToCookies(user.GetYearAsText());
+				}
+			}
+			else
+			{
+				user = GetUserFromNameCourse();
+			}
+
 			// DEBUG Set the page title
-            if (user != null)
-            {
-                ViewBag.Title = string.Format("{0}[{1}-{2}]: {3} [{4}]", 
-					user.UserName, 
-					user.ClassYear, 
-					user.GetYearAsText(), 
-					user.Course, 
-					tags);
-            }
-            else
-            {
-                ViewBag.Title = "Not logged in";
-            }
+			//       if (user != null)
+			//       {
+			//           ViewBag.Title = string.Format("{0}[{1}-{2}]: {3} [{4}]", 
+			//user.UserName, 
+			//user.ClassYear, 
+			//user.GetYearAsText(), 
+			//user.Course, 
+			//tags);
+			//       }
+			//       else
+			//       {
+			//           ViewBag.Title = "Not logged in";
+			//       }
 
-            return user;
-        }
+			return user;
+		}
 
-        public string CalTest(string id = "")
-		{ 
-			DataParser dataParser = new DataParser();
+		public string CalTest(string id = "")
+		{
+			var dataParser = new DataParser();
 			dataParser.ParseAllData();
 			List<CustomEventMonth> months = null;
-			Random rnd = new Random();
-			SchoolCourses c = (SchoolCourses)rnd.Next(1, 10);
+			var rnd = new Random();
+			var c = (SchoolCourses) rnd.Next(1, 10);
 			//c = SchoolCourses.Programmering;
-			StudentUser u = new StudentUser("tordtest", c, "second");
+			var u = new StudentUser("tordtest", c, "second");
 			months = DataWrapper.Instance.GetEventsWithName(u, id, true, true, true);
 
-			string page = string.Format("{0} - {1}, {2}\n", u.UserName, u.Course, u.ClassYear);
+			var page = string.Format("{0} - {1}, {2}\n", u.UserName, u.Course, u.ClassYear);
 			foreach (var month in months)
 			{
 				page += "Month: " + month.GetMonthName() + "(" + month.GetEventTypeCount(EventType.Forelesning) + ")" + "<br>";
@@ -184,7 +192,9 @@ namespace TikTokCalendar.Controllers
 					page += " -- Week: " + week.WeekName + "(" + week.GetEventTypeCount(EventType.Forelesning) + ")" + "<br>";
 					foreach (var evnt in week.events)
 					{
-						page += " ---- Evnt(" + evnt.ID + "): " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" + evnt.Subject.Code + ") - " + evnt.EventTypeLabel + " - [" + evnt.YearLabelTest + "] - " + evnt.CoursesLabel + "<br>";
+						page += " ---- Evnt(" + evnt.ID + "): " + evnt.StartDateTime + " - " + evnt.Subject.Name + " (" +
+						        evnt.Subject.Code + ") - " + evnt.EventTypeLabel + " - [" + evnt.YearLabelTest + "] - " +
+						        evnt.CoursesLabel + "<br>";
 					}
 				}
 			}
@@ -192,15 +202,17 @@ namespace TikTokCalendar.Controllers
 			return page;
 		}
 
-        public ActionResult Mobile(string id = "", string tags = "", bool lecture = true, bool assignment = true, bool exam = true)
+		public ActionResult Mobile(string id = "", string tags = "", bool lecture = true, bool assignment = true,
+			bool exam = true)
 		{
-			StudentUser user = GetUserFromNameCourse();
-			DataParser dataParser = new DataParser();
+			var user = GetUserFromNameCourse();
+			var dataParser = new DataParser();
 			dataParser.ParseAllData();
 
 			if (cookie.LoadStringFromCookie(Cookies.UserNameCookieKey) != null)
 			{
-				ViewBag.Title = string.Format("Halla, {0}! Du går: {1}", cookie.LoadStringFromCookie(Cookies.UserNameCookieKey), cookie.LoadStringFromCookie(Cookies.CourseCookieKey));
+				ViewBag.Title = string.Format("Halla, {0}! Du går: {1}", cookie.LoadStringFromCookie(Cookies.UserNameCookieKey),
+					cookie.LoadStringFromCookie(Cookies.CourseCookieKey));
 			}
 			else
 			{
@@ -218,36 +230,29 @@ namespace TikTokCalendar.Controllers
 				modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, true, true, true);
 			}
 
-			return View(modelWrapper);//.calEvents);
+			return View(modelWrapper); //.calEvents);
 		}
 
-        [ValidateInput(false)]
-        public JsonResult AutoComplete(string search)
+		[ValidateInput(false)]
+		public JsonResult AutoComplete(string search)
 		{
-            /* // static test data (delete eventually)
-            var data = new[] {"Programmering","Spillprogrammering","Intelligente systemer","Mobil apputvikling",
-                "Prosjekt software engineering","Matematikk og fysikk","C++ programmering","",
-                "Game AI","Embedded systems","Mobil utvikling","Ruby on rails",
-                "Avansert javaprogrammering","Undersøkelsesmetoder","Enterprise programmering 2","Innlevering",
-                "Forelesning","Eksamen" };
-            */
-            string temp = DataWrapper.Instance.FilterCharacters(search);
-            var list = new List<string>();
+			var temp = DataWrapper.Instance.FilterCharacters(search);
+			var list = new List<string>();
 
-            if (Session["keywords"] == null)
-            {
-                StudentUser user = GetUserFromNameCourse();
-                list = DataWrapper.Instance.GetUserKeywords(user);
-                list.RemoveAll(item => item == null);
-                Session["keywords"] = list;   
-            }
-            else
-            {
-                list = (List<string>)Session["keywords"]; 
-            }
-            
-            var result = list.Where(x => x.Contains(temp.ToLower())).ToList();
-            return Json(result, JsonRequestBehavior.AllowGet);
+			if (Session["keywords"] == null)
+			{
+				var user = GetUserFromNameCourse();
+				list = DataWrapper.Instance.GetUserKeywords(user);
+				list.RemoveAll(item => item == null);
+				Session["keywords"] = list;
+			}
+			else
+			{
+				list = (List<string>) Session["keywords"];
+			}
+
+			var result = list.Where(x => x.Contains(temp.ToLower())).ToList();
+			return Json(result, JsonRequestBehavior.AllowGet);
 		}
 
 		public ActionResult GetVisited() //If been here, return true, else false.
@@ -256,18 +261,16 @@ namespace TikTokCalendar.Controllers
 			{
 				return Json(true, JsonRequestBehavior.AllowGet);
 			}
-			else {
-				return Json(false, JsonRequestBehavior.AllowGet);
-			}
+			return Json(false, JsonRequestBehavior.AllowGet);
 		}
 
 		public StudentUser GetUserFromNameCourse()
 		{
-			string name = "";
-			string course = "";
-			string year = "";
+			var name = "";
+			var course = "";
+			var year = "";
 
-			string cookieYear = cookie.LoadStringFromCookie(Cookies.YearCookieKey);
+			var cookieYear = cookie.LoadStringFromCookie(Cookies.YearCookieKey);
 			if (!string.IsNullOrEmpty(cookieYear))
 			{
 				year = cookieYear;
@@ -277,74 +280,89 @@ namespace TikTokCalendar.Controllers
 				year = "second";
 			}
 
-			string cookieUserName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
+			var cookieUserName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
 			if (!string.IsNullOrEmpty(cookieUserName))
 			{
 				name = cookieUserName;
 			}
-			else {
+			else
+			{
 				name = "NO NAME";
 			}
-			string cookieCourse = cookie.LoadStringFromCookie(Cookies.CourseCookieKey);
+			var cookieCourse = cookie.LoadStringFromCookie(Cookies.CourseCookieKey);
 			if (!string.IsNullOrEmpty(cookieCourse))
 			{
 				course = cookieCourse;
 			}
-			else {
+			else
+			{
 				course = "VisAlt";
 			}
 
 
-			SchoolCourses schoolCourse = Course.GetCourseFromName(course);
-			return new StudentUser(name, schoolCourse, year); //If cookie name && course == default, name = anonym14, course = "VisAlt"
+			var schoolCourse = Course.GetCourseFromName(course);
+			return new StudentUser(name, schoolCourse, year);
+				//If cookie name && course == default, name = anonym14, course = "VisAlt"
 		}
 
 		public PartialViewResult UserStatUpdate(int eventid, bool attend)
 		{
 			var db = new CalendarEventContext();
-			string userName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
-			//int eventID = Int32.Parse(Request.Form["eventid"]);
+			var userName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
+
 			if (userName != "" || userName != null)
 			{
+				var alreadyGoing = false;
+				EventUserStat current = null;
+				foreach (var eus in db.EventUserStats)
+				{
+					if (eus.UserName == userName && eus.EventID == eventid)
+					{
+						current = eus;
+						alreadyGoing = true;
+						// here: project extension material - calculate score based on eus.GoingTime, add "score" to account.cs
+					}
+				}
 				if (attend)
 				{
-					bool alreadyGoing = false;
-					foreach (EventUserStat eus in db.EventUserStats)
+					if (alreadyGoing)
 					{
-						if (eus.UserName == userName && eus.EventID == eventid
-							&& !eus.Attend) // just in case
-						{
-							eus.Attend = true;
-							alreadyGoing = true;
-							// here: calculate score based on eus.GoingTime, ADD "SCORE" TO ACCOUNT.CS?
-						}
+						current.Attend = true;
 					}
-					if (!alreadyGoing)
+					else
 					{
-						db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now, Attend = true });
+						db.EventUserStats.Add(new EventUserStat
+						{
+							UserName = userName,
+							EventID = eventid,
+							GoingTime = DateTime.Now,
+							Attend = true
+						});
 					}
 				}
 				else
 				{
-					db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now });
+					if (alreadyGoing)
+					{
+						db.EventUserStats.Remove(current);
+					}
+					else
+					{
+						db.EventUserStats.Add(new EventUserStat {UserName = userName, EventID = eventid, GoingTime = DateTime.Now});
+					}
 				}
 				db.SaveChanges();
 			}
-			else
-			{
-				// possibly return another view showing error message (maybe do more validation like this?)
-			}
 
-			ModelDataWrapper modelWrapper = new ModelDataWrapper();
-			EUSH_global.ID_ATM = eventid;
+			var modelWrapper = new ModelDataWrapper();
+			modelWrapper.eventID = eventid;
 			return PartialView("_UserStatUpdate", modelWrapper);
 		}
 
-        public ActionResult GetMessage()
-        {
-            string message = "Welcome";
-            return new JsonResult { Data = message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        }
-    }
-
+		public ActionResult GetMessage()
+		{
+			var message = "Welcome";
+			return new JsonResult {Data = message, JsonRequestBehavior = JsonRequestBehavior.AllowGet};
+		}
+	}
 }

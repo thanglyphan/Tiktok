@@ -1,13 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Web;
-using TikTokCalendar.Models;
+﻿ // TODO Delete?
 
-// TODO Delete?
 namespace TikTokCalendar.DAL
 {
 	//public class CourseInfoHelper

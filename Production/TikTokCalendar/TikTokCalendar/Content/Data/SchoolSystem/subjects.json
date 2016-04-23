@@ -2,312 +2,312 @@
 // id   : en unik rullende ID
 // code : fagkoden til emnet
 // name : navnet til emnet
-{
-  "subject": [ // 3 semester spill
-    {
-      "id": "1",
-      "code": "PJ3100",
-      "name": "Prosjekt software engineering"
-    },
-    {
-      "id": "2",
-      "code": "PG3300",
-      "name": "Programvarearkitektur"
-    },
-    {
-      "id": "3",
-      "code": "PG4200",
-      "name": "Algoritmer og datastrukturer"
-    },
-    {
-      "id": "4",
-      "code": "PG3400",
-      "name": "Programmering i C for linux"
-    }, //_______________________________________
-    { // 4 semester spill
-      "id": "5",
-      "code": "PJ3100",
-      "name": "Prosjekt software engineering"
-    },
-    {
-      "id": "6",
-      "code": "PG4500",
-      "name": "Game AI"
-    },
-    {
-      "id": "7",
-      "code": "RF3100",
-      "name": "Matematikk og fysikk"
-    },
-    {
-      "id": "8",
-      "code": "PG4400",
-      "name": "C++ programmering"
-    }, //_______________________________________
-    { // 5 semester spill
-      "id": "9",
-      "code": "BU5100",
-      "name": "Entreprenørskap"
-    },
-    {
-      "id": "10",
-      "code": "",
-      "name": "Valgemne"
-    },
-    {
-      "id": "11",
-      "code": "RF5100",
-      "name": "Lineær algebra"
-    },
-    {
-      "id": "12",
-      "code": "PG5200",
-      "name": "Tools programmering"
-    }, //_______________________________________
-    { // 6 semester spill
-      "id": "13",
-      "code": "PJ6000",
-      "name": "Hovedprosjekt"
-    },
-    {
-      "id": "14",
-      "code": "PJ6100",
-      "name": "Undersøkelsesmetoder"
-    },
-    {
-      "id": "15",
-      "code": "PG6200",
-      "name": "Grafikk programmering"
-    }, //_______________________________________
-    { // 3 semester prog
-      "id": "16",
-      "code": "PG3100",
-      "name": "Avansert java 1"
-    },
-    {
-      "id": "17",
-      "code": "PG4300",
-      "name": "Ruby on rails"
-    },
-    {
-      "id": "18",
-      "code": "PG4600",
-      "name": "Mobil utvikling"
-    },
-    {
-      "id": "19",
-      "code": "PG4100",
-      "name": "Avansert java 2"
-    }, //_______________________________________
-    {
-      "id": "20",
-      "code": "PG5100",
-      "name": "Enterprise programmering 1"
-    },
-    {
-      "id": "21",
-      "code": "PG6100",
-      "name": "Enterprise programmering 2"
-    },
-    {
-      "id": "22",
-      "code": "DS3450",
-      "name": "Game production"
-    },
-    {
-      "id": "23",
-      "code": "DS3500",
-      "name": "Game prototyping"
-    }, //_______________________________________
-    {
-      "id": "24",
-      "code": "DS3400",
-      "name": "Game design 1"
-    },
-    {
-      "id": "25",
-      "code": "DS4400",
-      "name": "Kryssplattform design"
-    },
-    {
-      "id": "26",
-      "code": "DS4500",
-      "name": "Leveldesign 1, flerspiller"
-    },
-    {
-      "id": "27",
-      "code": "DS4450",
-      "name": "Spillhistorie og -kultur"
-    },
-    {
-      "id": "28",
-      "code": "DS5500",
-      "name": "Level design 2; single player"
-    },
-    {
-      "id": "29",
-      "code": "DS6100",
-      "name": "Usability for games"
-    },
-    {
-      "id": "30",
-      "code": "DS3300",
-      "name": "Interaksjonsdesign 1"
-    },
-    {
-      "id": "31",
-      "code": "DS3101",
-      "name": "Webutvikling 1"
-    },
-    {
-      "id": "32",
-      "code": "DS3110",
-      "name": "CMS systemer"
-    },
-    {
-      "id": "33",
-      "code": "DS4300",
-      "name": "Interaksjonsdesign 2"
-    },
-    {
-      "id": "34",
-      "code": "DS4101",
-      "name": "Webutvikling 2"
-    },
-    {
-      "id": "35",
-      "code": "BU5209",
-      "name": "Forbrukerpsykologi"
-    },
-    {
-      "id": "36",
-      "code": "DS5300",
-      "name": "Interaksjonsdesign 3"
-    },
-    {
-      "id": "37",
-      "code": "IS6200",
-      "name": "Effektevaluering: teknikker og verktøy"
-    },
-    {
-      "id": "38",
-      "code": "BU3100",
-      "name": "Bedriftsøkonomi"
-    },
-    {
-      "id": "39",
-      "code": "IS3100",
-      "name": "ERP-systemer"
-    },
-    {
-      "id": "40",
-      "code": "BU4200",
-      "name": "Digital markedsføring"
-    },
-    {
-      "id": "41",
-      "code": "IS5100",
-      "name": "Datavarehus og -arkitektur"
-    },
-    {
-      "id": "42",
-      "code": "IS5200",
-      "name": "Business intelligence"
-    },
-    {
-      "id": "43",
-      "code": "IS6100",
-      "name": "IT og innovasjon"
-    },
-    {
-      "id": "44",
-      "code": "IS3200",
-      "name": "Mobile økosystemer"
-    },
-    {
-      "id": "45",
-      "code": "DS3800",
-      "name": "Grensesnittdesign"
-    },
-    {
-      "id": "46",
-      "code": "DS4800",
-      "name": "Innovasjon og prototyping"
-    },
-    {
-      "id": "47",
-      "code": "PG5600",
-      "name": "iOS programmering"
-    },
-    {
-      "id": "48",
-      "code": "PG6300",
-      "name": "Webutvikling og API design"
-    },
-    {
-      "id": "49",
-      "code": "IKT200",
-      "name": "Introduksjon til intelligente systemer"
-    },
-    {
-      "id": "50",
-      "code": "PG5500",
-      "name": "Embedded systems"
-    },
-    {
-      "id": "51",
-      "code": "IS3100",
-      "name": "ERP-systemer"
-    },
-    {
-      "id": "52",
-      "code": "PJ1100",
-      "name": "Kreativt webprosjekt"
-    },
-    {
-      "id": "53",
-      "code": "DB1100",
-      "name": "Databaser"
-    },
-    {
-      "id": "54",
-      "code": "TK1100",
-      "name": "Digital teknologi"
-    },
-    {
-      "id": "55",
-      "code": "PGR100",
-      "name": "Programmering 1"
-    },
-    {
-      "id": "56",
-      "code": "PJ2100",
-      "name": "Iterativt webprosjekt"
-    },
-    {
-      "id": "57",
-      "code": "TK2100",
-      "name": "Informasjonssikkerhet"
-    },
-    {
-      "id": "58",
-      "code": "PGR101",
-      "name": "Programmering 2"
-    },
-    {
-      "id": "59",
-      "code": "IS4200",
-      "name": "CRM Systemer"
-    },
-    {
-      "id": "60",
-      "code": "DS4210",
-      "name": "Designlab"
-    },    
-    {  
-      "id": "61",
-      "code": "DS5400",
-      "name": "Game design 2"
-    }
-  ]
-}
+  {
+    "subject": [// 3 semester spill
+      {
+        "id": "1",
+        "code": "PJ3100",
+        "name": "Prosjekt software engineering"
+      },
+      {
+        "id": "2",
+        "code": "PG3300",
+        "name": "Programvarearkitektur"
+      },
+      {
+        "id": "3",
+        "code": "PG4200",
+        "name": "Algoritmer og datastrukturer"
+      },
+      {
+        "id": "4",
+        "code": "PG3400",
+        "name": "Programmering i C for linux"
+      }, //_______________________________________
+      { // 4 semester spill
+        "id": "5",
+        "code": "PJ3100",
+        "name": "Prosjekt software engineering"
+      },
+      {
+        "id": "6",
+        "code": "PG4500",
+        "name": "Game AI"
+      },
+      {
+        "id": "7",
+        "code": "RF3100",
+        "name": "Matematikk og fysikk"
+      },
+      {
+        "id": "8",
+        "code": "PG4400",
+        "name": "C++ programmering"
+      }, //_______________________________________
+      { // 5 semester spill
+        "id": "9",
+        "code": "BU5100",
+        "name": "Entreprenørskap"
+      },
+      {
+        "id": "10",
+        "code": "",
+        "name": "Valgemne"
+      },
+      {
+        "id": "11",
+        "code": "RF5100",
+        "name": "Lineær algebra"
+      },
+      {
+        "id": "12",
+        "code": "PG5200",
+        "name": "Tools programmering"
+      }, //_______________________________________
+      { // 6 semester spill
+        "id": "13",
+        "code": "PJ6000",
+        "name": "Hovedprosjekt"
+      },
+      {
+        "id": "14",
+        "code": "PJ6100",
+        "name": "Undersøkelsesmetoder"
+      },
+      {
+        "id": "15",
+        "code": "PG6200",
+        "name": "Grafikk programmering"
+      }, //_______________________________________
+      { // 3 semester prog
+        "id": "16",
+        "code": "PG3100",
+        "name": "Avansert java 1"
+      },
+      {
+        "id": "17",
+        "code": "PG4300",
+        "name": "Ruby on rails"
+      },
+      {
+        "id": "18",
+        "code": "PG4600",
+        "name": "Mobil utvikling"
+      },
+      {
+        "id": "19",
+        "code": "PG4100",
+        "name": "Avansert java 2"
+      }, //_______________________________________
+      {
+        "id": "20",
+        "code": "PG5100",
+        "name": "Enterprise programmering 1"
+      },
+      {
+        "id": "21",
+        "code": "PG6100",
+        "name": "Enterprise programmering 2"
+      },
+      {
+        "id": "22",
+        "code": "DS3450",
+        "name": "Game production"
+      },
+      {
+        "id": "23",
+        "code": "DS3500",
+        "name": "Game prototyping"
+      }, //_______________________________________
+      {
+        "id": "24",
+        "code": "DS3400",
+        "name": "Game design 1"
+      },
+      {
+        "id": "25",
+        "code": "DS4400",
+        "name": "Kryssplattform design"
+      },
+      {
+        "id": "26",
+        "code": "DS4500",
+        "name": "Leveldesign 1, flerspiller"
+      },
+      {
+        "id": "27",
+        "code": "DS4450",
+        "name": "Spillhistorie og -kultur"
+      },
+      {
+        "id": "28",
+        "code": "DS5500",
+        "name": "Level design 2; single player"
+      },
+      {
+        "id": "29",
+        "code": "DS6100",
+        "name": "Usability for games"
+      },
+      {
+        "id": "30",
+        "code": "DS3300",
+        "name": "Interaksjonsdesign 1"
+      },
+      {
+        "id": "31",
+        "code": "DS3101",
+        "name": "Webutvikling 1"
+      },
+      {
+        "id": "32",
+        "code": "DS3110",
+        "name": "CMS systemer"
+      },
+      {
+        "id": "33",
+        "code": "DS4300",
+        "name": "Interaksjonsdesign 2"
+      },
+      {
+        "id": "34",
+        "code": "DS4101",
+        "name": "Webutvikling 2"
+      },
+      {
+        "id": "35",
+        "code": "BU5209",
+        "name": "Forbrukerpsykologi"
+      },
+      {
+        "id": "36",
+        "code": "DS5300",
+        "name": "Interaksjonsdesign 3"
+      },
+      {
+        "id": "37",
+        "code": "IS6200",
+        "name": "Effektevaluering: teknikker og verktøy"
+      },
+      {
+        "id": "38",
+        "code": "BU3100",
+        "name": "Bedriftsøkonomi"
+      },
+      {
+        "id": "39",
+        "code": "IS3100",
+        "name": "ERP-systemer"
+      },
+      {
+        "id": "40",
+        "code": "BU4200",
+        "name": "Digital markedsføring"
+      },
+      {
+        "id": "41",
+        "code": "IS5100",
+        "name": "Datavarehus og -arkitektur"
+      },
+      {
+        "id": "42",
+        "code": "IS5200",
+        "name": "Business intelligence"
+      },
+      {
+        "id": "43",
+        "code": "IS6100",
+        "name": "IT og innovasjon"
+      },
+      {
+        "id": "44",
+        "code": "IS3200",
+        "name": "Mobile økosystemer"
+      },
+      {
+        "id": "45",
+        "code": "DS3800",
+        "name": "Grensesnittdesign"
+      },
+      {
+        "id": "46",
+        "code": "DS4800",
+        "name": "Innovasjon og prototyping"
+      },
+      {
+        "id": "47",
+        "code": "PG5600",
+        "name": "iOS programmering"
+      },
+      {
+        "id": "48",
+        "code": "PG6300",
+        "name": "Webutvikling og API design"
+      },
+      {
+        "id": "49",
+        "code": "IKT200",
+        "name": "Introduksjon til intelligente systemer"
+      },
+      {
+        "id": "50",
+        "code": "PG5500",
+        "name": "Embedded systems"
+      },
+      {
+        "id": "51",
+        "code": "IS3100",
+        "name": "ERP-systemer"
+      },
+      {
+        "id": "52",
+        "code": "PJ1100",
+        "name": "Kreativt webprosjekt"
+      },
+      {
+        "id": "53",
+        "code": "DB1100",
+        "name": "Databaser"
+      },
+      {
+        "id": "54",
+        "code": "TK1100",
+        "name": "Digital teknologi"
+      },
+      {
+        "id": "55",
+        "code": "PGR100",
+        "name": "Programmering 1"
+      },
+      {
+        "id": "56",
+        "code": "PJ2100",
+        "name": "Iterativt webprosjekt"
+      },
+      {
+        "id": "57",
+        "code": "TK2100",
+        "name": "Informasjonssikkerhet"
+      },
+      {
+        "id": "58",
+        "code": "PGR101",
+        "name": "Programmering 2"
+      },
+      {
+        "id": "59",
+        "code": "IS4200",
+        "name": "CRM Systemer"
+      },
+      {
+        "id": "60",
+        "code": "DS4210",
+        "name": "Designlab"
+      },
+      {
+        "id": "61",
+        "code": "DS5400",
+        "name": "Game design 2"
+      }
+    ]
+  }

@@ -1,83 +1,126 @@
 ﻿@model TikTokCalendar.Models.CalendarEvent
 
+
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>Details</h2>
 
+
 <div>
+
     <h4>CalendarEvent</h4>
-    <hr />
+
+    <hr/>
+
     <dl class="dl-horizontal">
+
         <dt>
+
             @Html.DisplayNameFor(model => model.Subject.Name)
         </dt>
 
+
         <dd>
+
             @Html.DisplayFor(model => model.Subject.Name)
         </dd>
 
+
         <dt>
+
             @Html.DisplayNameFor(model => model.StartTime)
         </dt>
 
+
         <dd>
+
             @Html.DisplayFor(model => model.StartTime)
         </dd>
 
+
         <dt>
+
             @Html.DisplayNameFor(model => model.EndTime)
         </dt>
 
+
         <dd>
+
             @Html.DisplayFor(model => model.EndTime)
         </dd>
 
+
         <dt>
+
             @Html.DisplayNameFor(model => model.RoomName)
         </dt>
 
+
         <dd>
+
             @Html.DisplayFor(model => model.RoomName)
         </dd>
 
+
         <dt>
+
             @Html.DisplayNameFor(model => model.EventName)
         </dt>
 
+
         <dd>
+
             @Html.DisplayFor(model => model.EventName)
         </dd>
 
+
         <dt>
+
             @Html.DisplayNameFor(model => model.Attendees)
         </dt>
 
+
         <dd>
+
             @Html.DisplayFor(model => model.Attendees)
         </dd>
 
+
         <dt>
+
             @Html.DisplayNameFor(model => model.Teacher)
         </dt>
 
+
         <dd>
+
             @Html.DisplayFor(model => model.Teacher)
         </dd>
 
+
         <dt>
+
             @Html.DisplayNameFor(model => model.Comment)
         </dt>
 
+
         <dd>
+
             @Html.DisplayFor(model => model.Comment)
         </dd>
 
+
     </dl>
+
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+
+    @Html.ActionLink("Edit", "Edit", new {id = Model.ID}) |
+
     @Html.ActionLink("Back to List", "Index")
 </p>

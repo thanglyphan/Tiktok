@@ -1,1321 +1,1321 @@
 {
-    "columnheaders":[
-        "Emne",
-        "Studieprogram",
-        "Rom",
-        "Lærer",
-        "Aktivitet",
-        "Kommentar"
-    ],
-    "info":{
-        "reservationlimit":200,
-        "reservationcount":40
+  "columnheaders": [
+    "Emne",
+    "Studieprogram",
+    "Rom",
+    "Lærer",
+    "Aktivitet",
+    "Kommentar"
+  ],
+  "info": {
+    "reservationlimit": 200,
+    "reservationcount": 40
+  },
+  "reservations": [
+    {
+      "id": "4526",
+      "startdate": "05.01.2016",
+      "starttime": "08:15",
+      "enddate": "05.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Avansert Javaprogrammering 2 (PG4100-15)",
+        "Bachelor Programmering",
+        "Rom 40",
+        "Per Lauvås",
+        "Forelesning",
+        ""
+      ]
     },
-    "reservations":[
-        {
-            "id":"4526",
-            "startdate":"05.01.2016",
-            "starttime":"08:15",
-            "enddate":"05.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Avansert Javaprogrammering 2 (PG4100-15)",
-                "Bachelor Programmering",
-                "Rom 40",
-                "Per Lauvås",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4539",
-            "startdate":"11.01.2016",
-            "starttime":"12:15",
-            "enddate":"11.01.2016",
-            "endtime":"16:00",
-            "columns":[
-                "Ruby on Rails (PG4300-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 38",
-                "Ole Christian Rynning",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4527",
-            "startdate":"12.01.2016",
-            "starttime":"08:15",
-            "enddate":"12.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Avansert Javaprogrammering 2 (PG4100-15)",
-                "Bachelor Programmering",
-                "Rom 40",
-                "Per Lauvås",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4963",
-            "startdate":"15.01.2016",
-            "starttime":"09:15",
-            "enddate":"15.01.2016",
-            "endtime":"11:00",
-            "columns":[
-                "Undersøkelsesmetoder (PJ6100-15)",
-                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Faltin Karlsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4957",
-            "startdate":"15.01.2016",
-            "starttime":"10:15",
-            "enddate":"15.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
-                "Forelesning",
-                "NB! Merk at første forelesning starter klokken 9.15  (vanlig tid er 10.15)"
-            ]
-        },
-        {
-            "id":"4964",
-            "startdate":"15.01.2016",
-            "starttime":"11:15",
-            "enddate":"15.01.2016",
-            "endtime":"13:00",
-            "columns":[
-                "Undersøkelsesmetoder (PJ6100-15)",
-                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "Rom 79-80",
-                "Faltin Karlsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4715",
-            "startdate":"18.01.2016",
-            "starttime":"08:15",
-            "enddate":"18.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Enterprise programmering 2 (PG6100-15)",
-                "3.klasse, Bachelor Programmering",
-                "Rom 40",
-                "",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4540",
-            "startdate":"18.01.2016",
-            "starttime":"12:15",
-            "enddate":"18.01.2016",
-            "endtime":"16:00",
-            "columns":[
-                "Ruby on Rails (PG4300-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 38",
-                "Ole Christian Rynning",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4528",
-            "startdate":"19.01.2016",
-            "starttime":"08:15",
-            "enddate":"19.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Avansert Javaprogrammering 2 (PG4100-15)",
-                "Bachelor Programmering",
-                "Rom 40",
-                "Per Lauvås",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5018",
-            "startdate":"22.01.2016",
-            "starttime":"09:15",
-            "enddate":"22.01.2016",
-            "endtime":"11:00",
-            "columns":[
-                "Undersøkelsesmetoder (PJ6100-15)",
-                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Faltin Karlsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5058",
-            "startdate":"22.01.2016",
-            "starttime":"10:15",
-            "enddate":"22.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4716",
-            "startdate":"25.01.2016",
-            "starttime":"08:15",
-            "enddate":"25.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Enterprise programmering 2 (PG6100-15)",
-                "3.klasse, Bachelor Programmering",
-                "Rom 40",
-                "",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4541",
-            "startdate":"25.01.2016",
-            "starttime":"12:15",
-            "enddate":"25.01.2016",
-            "endtime":"16:00",
-            "columns":[
-                "Ruby on Rails (PG4300-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 38",
-                "Ole Christian Rynning",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4529",
-            "startdate":"26.01.2016",
-            "starttime":"08:15",
-            "enddate":"26.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Avansert Javaprogrammering 2 (PG4100-15)",
-                "Bachelor Programmering",
-                "Rom 40",
-                "Per Lauvås",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5019",
-            "startdate":"29.01.2016",
-            "starttime":"09:15",
-            "enddate":"29.01.2016",
-            "endtime":"11:00",
-            "columns":[
-                "Undersøkelsesmetoder (PJ6100-15)",
-                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Faltin Karlsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5021",
-            "startdate":"29.01.2016",
-            "starttime":"11:15",
-            "enddate":"29.01.2016",
-            "endtime":"13:00",
-            "columns":[
-                "Undersøkelsesmetoder (PJ6100-15)",
-                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "Rom 79-80",
-                "Faltin Karlsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4717",
-            "startdate":"01.02.2016",
-            "starttime":"08:15",
-            "enddate":"01.02.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Enterprise programmering 2 (PG6100-15)",
-                "3.klasse, Bachelor Programmering",
-                "Rom 40",
-                "",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4542",
-            "startdate":"01.02.2016",
-            "starttime":"12:15",
-            "enddate":"01.02.2016",
-            "endtime":"16:00",
-            "columns":[
-                "Ruby on Rails (PG4300-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 38",
-                "Ole Christian Rynning",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5057",
-            "startdate":"03.02.2016",
-            "starttime":"08:15",
-            "enddate":"03.02.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Avansert Javaprogrammering 2 (PG4100-15)",
-                "Bachelor Programmering",
-                "Rom 81",
-                "Per Lauvås",
-                "Forelesning",
-                "NB! Avvikende tid og rom"
-            ]
-        },
-        {
-            "id":"5020",
-            "startdate":"05.02.2016",
-            "starttime":"09:15",
-            "enddate":"05.02.2016",
-            "endtime":"11:00",
-            "columns":[
-                "Undersøkelsesmetoder (PJ6100-15)",
-                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Faltin Karlsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5022",
-            "startdate":"05.02.2016",
-            "starttime":"11:15",
-            "enddate":"05.02.2016",
-            "endtime":"13:00",
-            "columns":[
-                "Undersøkelsesmetoder (PJ6100-15)",
-                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "Rom 79-80",
-                "Faltin Karlsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4718",
-            "startdate":"08.02.2016",
-            "starttime":"08:15",
-            "enddate":"08.02.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Enterprise programmering 2 (PG6100-15)",
-                "3.klasse, Bachelor Programmering",
-                "Rom 40",
-                "",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4543",
-            "startdate":"08.02.2016",
-            "starttime":"12:15",
-            "enddate":"08.02.2016",
-            "endtime":"16:00",
-            "columns":[
-                "Ruby on Rails (PG4300-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 38",
-                "Ole Christian Rynning",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5054",
-            "startdate":"09.02.2016",
-            "starttime":"08:15",
-            "enddate":"09.02.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
-                "Forelesning",
-                "NB! Merk endret forelesningstidpunkt denne uken"
-            ]
-        },
-        {
-            "id":"5052",
-            "startdate":"12.02.2016",
-            "starttime":"10:15",
-            "enddate":"12.02.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Avansert Javaprogrammering 2 (PG4100-15)",
-                "Bachelor Programmering",
-                "Rom 82",
-                "Per Lauvås",
-                "Forelesning",
-                "NB! Merk endret forelesningstid denne uken"
-            ]
-        },
-        {
-            "id":"4719",
-            "startdate":"15.02.2016",
-            "starttime":"08:15",
-            "enddate":"15.02.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Enterprise programmering 2 (PG6100-15)",
-                "3.klasse, Bachelor Programmering",
-                "Rom 40",
-                "",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4544",
-            "startdate":"15.02.2016",
-            "starttime":"12:15",
-            "enddate":"15.02.2016",
-            "endtime":"16:00",
-            "columns":[
-                "Ruby on Rails (PG4300-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 38",
-                "Ole Christian Rynning",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5056",
-            "startdate":"16.02.2016",
-            "starttime":"08:15",
-            "enddate":"16.02.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Avansert Javaprogrammering 2 (PG4100-15)",
-                "Bachelor Programmering",
-                "Rom 40",
-                "Per Lauvås",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5024",
-            "startdate":"19.02.2016",
-            "starttime":"09:15",
-            "enddate":"19.02.2016",
-            "endtime":"11:00",
-            "columns":[
-                "Undersøkelsesmetoder (PJ6100-15)",
-                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Faltin Karlsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5045",
-            "startdate":"19.02.2016",
-            "starttime":"10:15",
-            "enddate":"19.02.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Mobil utvikling (PG4600-15)",
-                "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-                "Rom 82",
-                "Tor-Morten Grønli",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5023",
-            "startdate":"19.02.2016",
-            "starttime":"11:15",
-            "enddate":"19.02.2016",
-            "endtime":"13:00",
-            "columns":[
-                "Undersøkelsesmetoder (PJ6100-15)",
-                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "Rom 79-80",
-                "Faltin Karlsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4533",
-            "startdate":"23.02.2016",
-            "starttime":"08:15",
-            "enddate":"23.02.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Avansert Javaprogrammering 2 (PG4100-15)",
-                "Bachelor Programmering",
-                "Rom 40",
-                "Per Lauvås",
-                "Forelesning",
-                "Flyttet fra 15.mars"
-            ]
-        },
-        {
-            "id":"4720",
-            "startdate":"29.02.2016",
-            "starttime":"08:15",
-            "enddate":"29.02.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Enterprise programmering 2 (PG6100-15)",
-                "3.klasse, Bachelor Programmering",
-                "Rom 40",
-                "",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4694",
-            "startdate":"29.02.2016",
-            "starttime":"09:00",
-            "enddate":"29.02.2016",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "Per Lauvås",
-                "Prosjekt",
-                ""
-            ]
-        },
-        {
-            "id":"4695",
-            "startdate":"01.03.2016",
-            "starttime":"09:00",
-            "enddate":"01.03.2016",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "Per Lauvås",
-                "Prosjekt",
-                "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-            ]
-        },
-        {
-            "id":"4696",
-            "startdate":"02.03.2016",
-            "starttime":"09:00",
-            "enddate":"02.03.2016",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "Per Lauvås",
-                "Prosjekt",
-                "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-            ]
-        },
-        {
-            "id":"4697",
-            "startdate":"03.03.2016",
-            "starttime":"09:00",
-            "enddate":"03.03.2016",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "Per Lauvås",
-                "Prosjekt",
-                "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-            ]
-        },
-        {
-            "id":"4698",
-            "startdate":"04.03.2016",
-            "starttime":"09:00",
-            "enddate":"04.03.2016",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "Per Lauvås",
-                "Prosjekt",
-                "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-            ]
-        },
-        {
-            "id":"5025",
-            "startdate":"04.03.2016",
-            "starttime":"09:15",
-            "enddate":"04.03.2016",
-            "endtime":"11:00",
-            "columns":[
-                "Undersøkelsesmetoder (PJ6100-15)",
-                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Faltin Karlsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5032",
-            "startdate":"04.03.2016",
-            "starttime":"11:15",
-            "enddate":"04.03.2016",
-            "endtime":"13:00",
-            "columns":[
-                "Undersøkelsesmetoder (PJ6100-15)",
-                "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "Rom 79-80",
-                "Faltin Karlsen",
-                "Forelesning",
-                ""
-            ]
-        },
-      {  
-         "id":"1000151",
-         "startdate":"07.03.2016",
-         "starttime":"08:15",
-         "enddate":"07.03.2016",
-         "endtime":"12:00",
-         "columns":[  
-            "Enterprise programmering 2 (PG6100-15)",
-            "3.klasse, Bachelor Programmering",
-            "Rom 40",
-            "",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000152",
-         "startdate":"07.03.2016",
-         "starttime":"09:00",
-         "enddate":"07.03.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000153",
-         "startdate":"08.03.2016",
-         "starttime":"09:00",
-         "enddate":"08.03.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000154",
-         "startdate":"09.03.2016",
-         "starttime":"09:00",
-         "enddate":"09.03.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000155",
-         "startdate":"10.03.2016",
-         "starttime":"09:00",
-         "enddate":"10.03.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000156",
-         "startdate":"11.03.2016",
-         "starttime":"09:00",
-         "enddate":"11.03.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000157",
-         "startdate":"11.03.2016",
-         "starttime":"09:15",
-         "enddate":"11.03.2016",
-         "endtime":"11:00",
-         "columns":[  
-            "Undersøkelsesmetoder (PJ6100-15)",
-            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "Auditoriet",
-            "Faltin Karlsen",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000158",
-         "startdate":"11.03.2016",
-         "starttime":"11:15",
-         "enddate":"11.03.2016",
-         "endtime":"13:00",
-         "columns":[  
-            "Undersøkelsesmetoder (PJ6100-15)",
-            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "Rom 82",
-            "Faltin Karlsen",
-            "Forelesning",
-            "NB - merk romendring!"
-         ]
-      },
-      {  
-         "id":"1000159",
-         "startdate":"14.03.2016",
-         "starttime":"08:15",
-         "enddate":"14.03.2016",
-         "endtime":"12:00",
-         "columns":[  
-            "Enterprise programmering 2 (PG6100-15)",
-            "3.klasse, Bachelor Programmering",
-            "Rom 40",
-            "",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000160",
-         "startdate":"14.03.2016",
-         "starttime":"09:00",
-         "enddate":"14.03.2016",
-         "endtime":"12:00",
-         "columns":[  
-            "Ruby on Rails (PG4300-15)",
-            "2.klasse, Bachelor Programmering",
-            "Rom 79-80",
-            "",
-            "Eksamen",
-            "3 timers skriftlig eksamen uten hjelpemidler."
-         ]
-      },
-      {  
-         "id":"1000161",
-         "startdate":"18.03.2016",
-         "starttime":"10:15",
-         "enddate":"18.03.2016",
-         "endtime":"14:00",
-         "columns":[  
-            "Mobil utvikling (PG4600-15)",
-            "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-            "Rom 82",
-            "Tor-Morten Grønli",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000162",
-         "startdate":"18.03.2016",
-         "starttime":"09:15",
-         "enddate":"18.03.2016",
-         "endtime":"11:00",
-         "columns":[  
-            "Undersøkelsesmetoder (PJ6100-15)",
-            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "Auditoriet",
-            "Faltin Karlsen",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000163",
-         "startdate":"18.03.2016",
-         "starttime":"11:15",
-         "enddate":"18.03.2016",
-         "endtime":"13:00",
-         "columns":[  
-            "Undersøkelsesmetoder (PJ6100-15)",
-            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "Rom 79-80",
-            "Faltin Karlsen",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000164",
-         "startdate":"29.03.2016",
-         "starttime":"08:15",
-         "enddate":"29.03.2016",
-         "endtime":"12:00",
-         "columns":[  
-            "Avansert Javaprogrammering 2 (PG4100-15)",
-            "Bachelor Programmering",
-            "Rom 40",
-            "Per Lauvås",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000165",
-         "startdate":"01.04.2016",
-         "starttime":"10:15",
-         "enddate":"01.04.2016",
-         "endtime":"14:00",
-         "columns":[  
-            "Mobil utvikling (PG4600-15)",
-            "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-            "Rom 82",
-            "Tor-Morten Grønli",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000167",
-         "startdate":"04.04.2016",
-         "starttime":"12:15",
-         "enddate":"04.04.2016",
-         "endtime":"16:00",
-         "columns":[  
-            "Ruby on Rails (PG4300-15)",
-            "2.klasse, Bachelor Programmering",
-            "Rom 38",
-            "Ole Christian Rynning",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000168",
-         "startdate":"05.04.2016",
-         "starttime":"08:15",
-         "enddate":"05.04.2016",
-         "endtime":"12:00",
-         "columns":[  
-            "Mobil utvikling (PG4600-15)",
-            "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-            "Rom 82",
-            "Tor-Morten Grønli",
-            "Forelesning",
-            "NB! Merk endret forelesningstidspunkt denne uken."
-         ]
-      },
-      {  
-         "id":"1000169",
-         "startdate":"08.04.2016",
-         "starttime":"10:15",
-         "enddate":"08.04.2016",
-         "endtime":"14:00",
-         "columns":[  
-            "Avansert Javaprogrammering 2 (PG4100-15)",
-            "Bachelor Programmering",
-            "Rom 82",
-            "Per Lauvås",
-            "Forelesning",
-            "NB! Merk endret forelesningstidspunkt denne uken!"
-         ]
-      },
-      {  
-         "id":"1000170",
-         "startdate":"08.04.2016",
-         "starttime":"09:15",
-         "enddate":"08.04.2016",
-         "endtime":"11:00",
-         "columns":[  
-            "Undersøkelsesmetoder (PJ6100-15)",
-            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "Auditoriet",
-            "Faltin Karlsen",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000171",
-         "startdate":"08.04.2016",
-         "starttime":"11:15",
-         "enddate":"08.04.2016",
-         "endtime":"13:00",
-         "columns":[  
-            "Undersøkelsesmetoder (PJ6100-15)",
-            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "Rom 79-80",
-            "Faltin Karlsen",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000171",
-         "startdate":"11.04.2016",
-         "starttime":"08:15",
-         "enddate":"11.04.2016",
-         "endtime":"12:00",
-         "columns":[  
-            "Enterprise programmering 2 (PG6100-15)",
-            "3.klasse, Bachelor Programmering",
-            "Rom 40",
-            "",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000172",
-         "startdate":"11.04.2016",
-         "starttime":"12:15",
-         "enddate":"11.04.2016",
-         "endtime":"16:00",
-         "columns":[  
-            "Ruby on Rails (PG4300-15)",
-            "2.klasse, Bachelor Programmering",
-            "Rom 38",
-            "Ole Christian Rynning",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000173",
-         "startdate":"15.04.2016",
-         "starttime":"10:15",
-         "enddate":"15.04.2016",
-         "endtime":"14:00",
-         "columns":[  
-            "Mobil utvikling (PG4600-15)",
-            "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-            "Rom 82",
-            "Tor-Morten Grønli",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000174",
-         "startdate":"15.04.2016",
-         "starttime":"09:15",
-         "enddate":"15.04.2016",
-         "endtime":"11:00",
-         "columns":[  
-            "Undersøkelsesmetoder (PJ6100-15)",
-            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "Auditoriet",
-            "Faltin Karlsen",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000175",
-         "startdate":"15.04.2016",
-         "starttime":"11:15",
-         "enddate":"15.04.2016",
-         "endtime":"13:00",
-         "columns":[  
-            "Undersøkelsesmetoder (PJ6100-15)",
-            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "Rom 79-80",
-            "Faltin Karlsen",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000176",
-         "startdate":"18.04.2016",
-         "starttime":"08:15",
-         "enddate":"18.04.2016",
-         "endtime":"12:00",
-         "columns":[  
-            "Enterprise programmering 2 (PG6100-15)",
-            "3.klasse, Bachelor Programmering",
-            "Rom 40",
-            "",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000177",
-         "startdate":"18.04.2016",
-         "starttime":"09:00",
-         "enddate":"18.04.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000178",
-         "startdate":"19.04.2016",
-         "starttime":"09:00",
-         "enddate":"19.04.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000179",
-         "startdate":"20.04.2016",
-         "starttime":"09:00",
-         "enddate":"20.04.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000180",
-         "startdate":"21.04.2016",
-         "starttime":"09:00",
-         "enddate":"21.04.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000181",
-         "startdate":"22.04.2016",
-         "starttime":"09:00",
-         "enddate":"22.04.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000182",
-         "startdate":"22.04.2016",
-         "starttime":"09:15",
-         "enddate":"22.04.2016",
-         "endtime":"11:00",
-         "columns":[  
-            "Undersøkelsesmetoder (PJ6100-15)",
-            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "Auditoriet",
-            "Faltin Karlsen",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000183",
-         "startdate":"22.04.2016",
-         "starttime":"11:15",
-         "enddate":"22.04.2016",
-         "endtime":"13:00",
-         "columns":[  
-            "Undersøkelsesmetoder (PJ6100-15)",
-            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "Rom 79-80",
-            "Faltin Karlsen",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000184",
-         "startdate":"25.04.2016",
-         "starttime":"08:15",
-         "enddate":"25.04.2016",
-         "endtime":"12:00",
-         "columns":[  
-            "Enterprise programmering 2 (PG6100-15)",
-            "3.klasse, Bachelor Programmering",
-            "Rom 40",
-            "",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000185",
-         "startdate":"25.04.2016",
-         "starttime":"09:00",
-         "enddate":"25.04.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000186",
-         "startdate":"26.04.2016",
-         "starttime":"09:00",
-         "enddate":"26.04.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000187",
-         "startdate":"27.04.2016",
-         "starttime":"09:00",
-         "enddate":"27.04.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000188",
-         "startdate":"28.04.2016",
-         "starttime":"09:00",
-         "enddate":"28.04.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000189",
-         "startdate":"29.04.2016",
-         "starttime":"09:00",
-         "enddate":"29.04.2016",
-         "endtime":"15:00",
-         "columns":[  
-            "Prosjekt software engineering (PJ3100-15)",
-            "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "",
-            "Per Lauvås",
-            "Prosjekt",
-            "Prosjektuke uten annen undervisning. Sjekk emnesiden."
-         ]
-      },
-      {  
-         "id":"1000190",
-         "startdate":"29.04.2016",
-         "starttime":"09:15",
-         "enddate":"29.04.2016",
-         "endtime":"11:00",
-         "columns":[  
-            "Undersøkelsesmetoder (PJ6100-15)",
-            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "Auditoriet",
-            "Faltin Karlsen",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000191",
-         "startdate":"29.04.2016",
-         "starttime":"11:15",
-         "enddate":"29.04.2016",
-         "endtime":"13:00",
-         "columns":[  
-            "Undersøkelsesmetoder (PJ6100-15)",
-            "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-            "Rom 79-80",
-            "Faltin Karlsen",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000192",
-         "startdate":"02.05.2016",
-         "starttime":"08:15",
-         "enddate":"02.05.2016",
-         "endtime":"12:00",
-         "columns":[  
-            "Enterprise programmering 2 (PG6100-15)",
-            "3.klasse, Bachelor Programmering",
-            "Rom 40",
-            "",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000193",
-         "startdate":"02.05.2016",
-         "starttime":"12:15",
-         "enddate":"02.05.2016",
-         "endtime":"16:00",
-         "columns":[  
-            "Ruby on Rails (PG4300-15)",
-            "2.klasse, Bachelor Programmering",
-            "Rom 38",
-            "Ole Christian Rynning",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000194",
-         "startdate":"03.05.2016",
-         "starttime":"08:15",
-         "enddate":"03.05.2016",
-         "endtime":"12:00",
-         "columns":[  
-            "Avansert Javaprogrammering 2 (PG4100-15)",
-            "Bachelor Programmering",
-            "Rom 40",
-            "Per Lauvås",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000195",
-         "startdate":"09.05.2016",
-         "starttime":"12:15",
-         "enddate":"09.05.2016",
-         "endtime":"16:00",
-         "columns":[  
-            "Ruby on Rails (PG4300-15)",
-            "2.klasse, Bachelor Programmering",
-            "Rom 38",
-            "Ole Christian Rynning",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000196",
-         "startdate":"10.05.2016",
-         "starttime":"08:15",
-         "enddate":"10.05.2016",
-         "endtime":"12:00",
-         "columns":[  
-            "Avansert Javaprogrammering 2 (PG4100-15)",
-            "Bachelor Programmering",
-            "Rom 40",
-            "Per Lauvås",
-            "Forelesning",
-            ""
-         ]
-      },
-      {  
-         "id":"1000197",
-         "startdate":"13.05.2016",
-         "starttime":"10:15",
-         "enddate":"13.05.2016",
-         "endtime":"14:00",
-         "columns":[  
-            "Mobil utvikling (PG4600-15)",
-            "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
-            "Rom 82",
-            "Tor-Morten Grønli",
-            "Forelesning",
-            ""
-         ]
-      }
-    ]
+    {
+      "id": "4539",
+      "startdate": "11.01.2016",
+      "starttime": "12:15",
+      "enddate": "11.01.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Ruby on Rails (PG4300-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 38",
+        "Ole Christian Rynning",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4527",
+      "startdate": "12.01.2016",
+      "starttime": "08:15",
+      "enddate": "12.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Avansert Javaprogrammering 2 (PG4100-15)",
+        "Bachelor Programmering",
+        "Rom 40",
+        "Per Lauvås",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4963",
+      "startdate": "15.01.2016",
+      "starttime": "09:15",
+      "enddate": "15.01.2016",
+      "endtime": "11:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4957",
+      "startdate": "15.01.2016",
+      "starttime": "10:15",
+      "enddate": "15.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Mobil utvikling (PG4600-15)",
+        "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+        "Rom 82",
+        "Tor-Morten Grønli",
+        "Forelesning",
+        "NB! Merk at første forelesning starter klokken 9.15  (vanlig tid er 10.15)"
+      ]
+    },
+    {
+      "id": "4964",
+      "startdate": "15.01.2016",
+      "starttime": "11:15",
+      "enddate": "15.01.2016",
+      "endtime": "13:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Rom 79-80",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4715",
+      "startdate": "18.01.2016",
+      "starttime": "08:15",
+      "enddate": "18.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Enterprise programmering 2 (PG6100-15)",
+        "3.klasse, Bachelor Programmering",
+        "Rom 40",
+        "",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4540",
+      "startdate": "18.01.2016",
+      "starttime": "12:15",
+      "enddate": "18.01.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Ruby on Rails (PG4300-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 38",
+        "Ole Christian Rynning",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4528",
+      "startdate": "19.01.2016",
+      "starttime": "08:15",
+      "enddate": "19.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Avansert Javaprogrammering 2 (PG4100-15)",
+        "Bachelor Programmering",
+        "Rom 40",
+        "Per Lauvås",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5018",
+      "startdate": "22.01.2016",
+      "starttime": "09:15",
+      "enddate": "22.01.2016",
+      "endtime": "11:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5058",
+      "startdate": "22.01.2016",
+      "starttime": "10:15",
+      "enddate": "22.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Mobil utvikling (PG4600-15)",
+        "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+        "Rom 82",
+        "Tor-Morten Grønli",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4716",
+      "startdate": "25.01.2016",
+      "starttime": "08:15",
+      "enddate": "25.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Enterprise programmering 2 (PG6100-15)",
+        "3.klasse, Bachelor Programmering",
+        "Rom 40",
+        "",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4541",
+      "startdate": "25.01.2016",
+      "starttime": "12:15",
+      "enddate": "25.01.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Ruby on Rails (PG4300-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 38",
+        "Ole Christian Rynning",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4529",
+      "startdate": "26.01.2016",
+      "starttime": "08:15",
+      "enddate": "26.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Avansert Javaprogrammering 2 (PG4100-15)",
+        "Bachelor Programmering",
+        "Rom 40",
+        "Per Lauvås",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5019",
+      "startdate": "29.01.2016",
+      "starttime": "09:15",
+      "enddate": "29.01.2016",
+      "endtime": "11:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5021",
+      "startdate": "29.01.2016",
+      "starttime": "11:15",
+      "enddate": "29.01.2016",
+      "endtime": "13:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Rom 79-80",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4717",
+      "startdate": "01.02.2016",
+      "starttime": "08:15",
+      "enddate": "01.02.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Enterprise programmering 2 (PG6100-15)",
+        "3.klasse, Bachelor Programmering",
+        "Rom 40",
+        "",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4542",
+      "startdate": "01.02.2016",
+      "starttime": "12:15",
+      "enddate": "01.02.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Ruby on Rails (PG4300-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 38",
+        "Ole Christian Rynning",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5057",
+      "startdate": "03.02.2016",
+      "starttime": "08:15",
+      "enddate": "03.02.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Avansert Javaprogrammering 2 (PG4100-15)",
+        "Bachelor Programmering",
+        "Rom 81",
+        "Per Lauvås",
+        "Forelesning",
+        "NB! Avvikende tid og rom"
+      ]
+    },
+    {
+      "id": "5020",
+      "startdate": "05.02.2016",
+      "starttime": "09:15",
+      "enddate": "05.02.2016",
+      "endtime": "11:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5022",
+      "startdate": "05.02.2016",
+      "starttime": "11:15",
+      "enddate": "05.02.2016",
+      "endtime": "13:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Rom 79-80",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4718",
+      "startdate": "08.02.2016",
+      "starttime": "08:15",
+      "enddate": "08.02.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Enterprise programmering 2 (PG6100-15)",
+        "3.klasse, Bachelor Programmering",
+        "Rom 40",
+        "",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4543",
+      "startdate": "08.02.2016",
+      "starttime": "12:15",
+      "enddate": "08.02.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Ruby on Rails (PG4300-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 38",
+        "Ole Christian Rynning",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5054",
+      "startdate": "09.02.2016",
+      "starttime": "08:15",
+      "enddate": "09.02.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Mobil utvikling (PG4600-15)",
+        "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+        "Rom 82",
+        "Tor-Morten Grønli",
+        "Forelesning",
+        "NB! Merk endret forelesningstidpunkt denne uken"
+      ]
+    },
+    {
+      "id": "5052",
+      "startdate": "12.02.2016",
+      "starttime": "10:15",
+      "enddate": "12.02.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Avansert Javaprogrammering 2 (PG4100-15)",
+        "Bachelor Programmering",
+        "Rom 82",
+        "Per Lauvås",
+        "Forelesning",
+        "NB! Merk endret forelesningstid denne uken"
+      ]
+    },
+    {
+      "id": "4719",
+      "startdate": "15.02.2016",
+      "starttime": "08:15",
+      "enddate": "15.02.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Enterprise programmering 2 (PG6100-15)",
+        "3.klasse, Bachelor Programmering",
+        "Rom 40",
+        "",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4544",
+      "startdate": "15.02.2016",
+      "starttime": "12:15",
+      "enddate": "15.02.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Ruby on Rails (PG4300-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 38",
+        "Ole Christian Rynning",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5056",
+      "startdate": "16.02.2016",
+      "starttime": "08:15",
+      "enddate": "16.02.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Avansert Javaprogrammering 2 (PG4100-15)",
+        "Bachelor Programmering",
+        "Rom 40",
+        "Per Lauvås",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5024",
+      "startdate": "19.02.2016",
+      "starttime": "09:15",
+      "enddate": "19.02.2016",
+      "endtime": "11:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5045",
+      "startdate": "19.02.2016",
+      "starttime": "10:15",
+      "enddate": "19.02.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Mobil utvikling (PG4600-15)",
+        "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+        "Rom 82",
+        "Tor-Morten Grønli",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5023",
+      "startdate": "19.02.2016",
+      "starttime": "11:15",
+      "enddate": "19.02.2016",
+      "endtime": "13:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Rom 79-80",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4533",
+      "startdate": "23.02.2016",
+      "starttime": "08:15",
+      "enddate": "23.02.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Avansert Javaprogrammering 2 (PG4100-15)",
+        "Bachelor Programmering",
+        "Rom 40",
+        "Per Lauvås",
+        "Forelesning",
+        "Flyttet fra 15.mars"
+      ]
+    },
+    {
+      "id": "4720",
+      "startdate": "29.02.2016",
+      "starttime": "08:15",
+      "enddate": "29.02.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Enterprise programmering 2 (PG6100-15)",
+        "3.klasse, Bachelor Programmering",
+        "Rom 40",
+        "",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4694",
+      "startdate": "29.02.2016",
+      "starttime": "09:00",
+      "enddate": "29.02.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        ""
+      ]
+    },
+    {
+      "id": "4695",
+      "startdate": "01.03.2016",
+      "starttime": "09:00",
+      "enddate": "01.03.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "4696",
+      "startdate": "02.03.2016",
+      "starttime": "09:00",
+      "enddate": "02.03.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "4697",
+      "startdate": "03.03.2016",
+      "starttime": "09:00",
+      "enddate": "03.03.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "4698",
+      "startdate": "04.03.2016",
+      "starttime": "09:00",
+      "enddate": "04.03.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "5025",
+      "startdate": "04.03.2016",
+      "starttime": "09:15",
+      "enddate": "04.03.2016",
+      "endtime": "11:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5032",
+      "startdate": "04.03.2016",
+      "starttime": "11:15",
+      "enddate": "04.03.2016",
+      "endtime": "13:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Rom 79-80",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000151",
+      "startdate": "07.03.2016",
+      "starttime": "08:15",
+      "enddate": "07.03.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Enterprise programmering 2 (PG6100-15)",
+        "3.klasse, Bachelor Programmering",
+        "Rom 40",
+        "",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000152",
+      "startdate": "07.03.2016",
+      "starttime": "09:00",
+      "enddate": "07.03.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000153",
+      "startdate": "08.03.2016",
+      "starttime": "09:00",
+      "enddate": "08.03.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000154",
+      "startdate": "09.03.2016",
+      "starttime": "09:00",
+      "enddate": "09.03.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000155",
+      "startdate": "10.03.2016",
+      "starttime": "09:00",
+      "enddate": "10.03.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000156",
+      "startdate": "11.03.2016",
+      "starttime": "09:00",
+      "enddate": "11.03.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000157",
+      "startdate": "11.03.2016",
+      "starttime": "09:15",
+      "enddate": "11.03.2016",
+      "endtime": "11:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000158",
+      "startdate": "11.03.2016",
+      "starttime": "11:15",
+      "enddate": "11.03.2016",
+      "endtime": "13:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Rom 82",
+        "Faltin Karlsen",
+        "Forelesning",
+        "NB - merk romendring!"
+      ]
+    },
+    {
+      "id": "1000159",
+      "startdate": "14.03.2016",
+      "starttime": "08:15",
+      "enddate": "14.03.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Enterprise programmering 2 (PG6100-15)",
+        "3.klasse, Bachelor Programmering",
+        "Rom 40",
+        "",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000160",
+      "startdate": "14.03.2016",
+      "starttime": "09:00",
+      "enddate": "14.03.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Ruby on Rails (PG4300-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 79-80",
+        "",
+        "Eksamen",
+        "3 timers skriftlig eksamen uten hjelpemidler."
+      ]
+    },
+    {
+      "id": "1000161",
+      "startdate": "18.03.2016",
+      "starttime": "10:15",
+      "enddate": "18.03.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Mobil utvikling (PG4600-15)",
+        "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+        "Rom 82",
+        "Tor-Morten Grønli",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000162",
+      "startdate": "18.03.2016",
+      "starttime": "09:15",
+      "enddate": "18.03.2016",
+      "endtime": "11:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000163",
+      "startdate": "18.03.2016",
+      "starttime": "11:15",
+      "enddate": "18.03.2016",
+      "endtime": "13:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Rom 79-80",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000164",
+      "startdate": "29.03.2016",
+      "starttime": "08:15",
+      "enddate": "29.03.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Avansert Javaprogrammering 2 (PG4100-15)",
+        "Bachelor Programmering",
+        "Rom 40",
+        "Per Lauvås",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000165",
+      "startdate": "01.04.2016",
+      "starttime": "10:15",
+      "enddate": "01.04.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Mobil utvikling (PG4600-15)",
+        "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+        "Rom 82",
+        "Tor-Morten Grønli",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000167",
+      "startdate": "04.04.2016",
+      "starttime": "12:15",
+      "enddate": "04.04.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Ruby on Rails (PG4300-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 38",
+        "Ole Christian Rynning",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000168",
+      "startdate": "05.04.2016",
+      "starttime": "08:15",
+      "enddate": "05.04.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Mobil utvikling (PG4600-15)",
+        "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+        "Rom 82",
+        "Tor-Morten Grønli",
+        "Forelesning",
+        "NB! Merk endret forelesningstidspunkt denne uken."
+      ]
+    },
+    {
+      "id": "1000169",
+      "startdate": "08.04.2016",
+      "starttime": "10:15",
+      "enddate": "08.04.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Avansert Javaprogrammering 2 (PG4100-15)",
+        "Bachelor Programmering",
+        "Rom 82",
+        "Per Lauvås",
+        "Forelesning",
+        "NB! Merk endret forelesningstidspunkt denne uken!"
+      ]
+    },
+    {
+      "id": "1000170",
+      "startdate": "08.04.2016",
+      "starttime": "09:15",
+      "enddate": "08.04.2016",
+      "endtime": "11:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000171",
+      "startdate": "08.04.2016",
+      "starttime": "11:15",
+      "enddate": "08.04.2016",
+      "endtime": "13:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Rom 79-80",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000171",
+      "startdate": "11.04.2016",
+      "starttime": "08:15",
+      "enddate": "11.04.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Enterprise programmering 2 (PG6100-15)",
+        "3.klasse, Bachelor Programmering",
+        "Rom 40",
+        "",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000172",
+      "startdate": "11.04.2016",
+      "starttime": "12:15",
+      "enddate": "11.04.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Ruby on Rails (PG4300-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 38",
+        "Ole Christian Rynning",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000173",
+      "startdate": "15.04.2016",
+      "starttime": "10:15",
+      "enddate": "15.04.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Mobil utvikling (PG4600-15)",
+        "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+        "Rom 82",
+        "Tor-Morten Grønli",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000174",
+      "startdate": "15.04.2016",
+      "starttime": "09:15",
+      "enddate": "15.04.2016",
+      "endtime": "11:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000175",
+      "startdate": "15.04.2016",
+      "starttime": "11:15",
+      "enddate": "15.04.2016",
+      "endtime": "13:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Rom 79-80",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000176",
+      "startdate": "18.04.2016",
+      "starttime": "08:15",
+      "enddate": "18.04.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Enterprise programmering 2 (PG6100-15)",
+        "3.klasse, Bachelor Programmering",
+        "Rom 40",
+        "",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000177",
+      "startdate": "18.04.2016",
+      "starttime": "09:00",
+      "enddate": "18.04.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000178",
+      "startdate": "19.04.2016",
+      "starttime": "09:00",
+      "enddate": "19.04.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000179",
+      "startdate": "20.04.2016",
+      "starttime": "09:00",
+      "enddate": "20.04.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000180",
+      "startdate": "21.04.2016",
+      "starttime": "09:00",
+      "enddate": "21.04.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000181",
+      "startdate": "22.04.2016",
+      "starttime": "09:00",
+      "enddate": "22.04.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000182",
+      "startdate": "22.04.2016",
+      "starttime": "09:15",
+      "enddate": "22.04.2016",
+      "endtime": "11:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000183",
+      "startdate": "22.04.2016",
+      "starttime": "11:15",
+      "enddate": "22.04.2016",
+      "endtime": "13:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Rom 79-80",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000184",
+      "startdate": "25.04.2016",
+      "starttime": "08:15",
+      "enddate": "25.04.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Enterprise programmering 2 (PG6100-15)",
+        "3.klasse, Bachelor Programmering",
+        "Rom 40",
+        "",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000185",
+      "startdate": "25.04.2016",
+      "starttime": "09:00",
+      "enddate": "25.04.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000186",
+      "startdate": "26.04.2016",
+      "starttime": "09:00",
+      "enddate": "26.04.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000187",
+      "startdate": "27.04.2016",
+      "starttime": "09:00",
+      "enddate": "27.04.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000188",
+      "startdate": "28.04.2016",
+      "starttime": "09:00",
+      "enddate": "28.04.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000189",
+      "startdate": "29.04.2016",
+      "starttime": "09:00",
+      "enddate": "29.04.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "Per Lauvås",
+        "Prosjekt",
+        "Prosjektuke uten annen undervisning. Sjekk emnesiden."
+      ]
+    },
+    {
+      "id": "1000190",
+      "startdate": "29.04.2016",
+      "starttime": "09:15",
+      "enddate": "29.04.2016",
+      "endtime": "11:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000191",
+      "startdate": "29.04.2016",
+      "starttime": "11:15",
+      "enddate": "29.04.2016",
+      "endtime": "13:00",
+      "columns": [
+        "Undersøkelsesmetoder (PJ6100-15)",
+        "3.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "Rom 79-80",
+        "Faltin Karlsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000192",
+      "startdate": "02.05.2016",
+      "starttime": "08:15",
+      "enddate": "02.05.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Enterprise programmering 2 (PG6100-15)",
+        "3.klasse, Bachelor Programmering",
+        "Rom 40",
+        "",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000193",
+      "startdate": "02.05.2016",
+      "starttime": "12:15",
+      "enddate": "02.05.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Ruby on Rails (PG4300-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 38",
+        "Ole Christian Rynning",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000194",
+      "startdate": "03.05.2016",
+      "starttime": "08:15",
+      "enddate": "03.05.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Avansert Javaprogrammering 2 (PG4100-15)",
+        "Bachelor Programmering",
+        "Rom 40",
+        "Per Lauvås",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000195",
+      "startdate": "09.05.2016",
+      "starttime": "12:15",
+      "enddate": "09.05.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Ruby on Rails (PG4300-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 38",
+        "Ole Christian Rynning",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000196",
+      "startdate": "10.05.2016",
+      "starttime": "08:15",
+      "enddate": "10.05.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Avansert Javaprogrammering 2 (PG4100-15)",
+        "Bachelor Programmering",
+        "Rom 40",
+        "Per Lauvås",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "1000197",
+      "startdate": "13.05.2016",
+      "starttime": "10:15",
+      "enddate": "13.05.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Mobil utvikling (PG4600-15)",
+        "2.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering",
+        "Rom 82",
+        "Tor-Morten Grønli",
+        "Forelesning",
+        ""
+      ]
+    }
+  ]
 }
