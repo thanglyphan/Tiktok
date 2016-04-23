@@ -102,7 +102,7 @@
                         {
                             typeClass = "assignment";
                             //typeText = "Innlevering";
-                        }
+                        } 
                         else if (item.MainEventType == MainEventType.Eksamen)
                         {
                             typeClass = "exam";
@@ -262,12 +262,12 @@
                                         if (eus.EventID == item.ID)
                                         {
                                             <span class="no-linebreak">
-                                                                        @if (EUSH.IsUserAttending(item.ID, eus.UserName))
-                                                                        {
-                                                                            <text>&#10004;</text>
-                                                                        }
-                                                                        @eus.UserName<br />
-                                                                    </span>
+                                            @if (EUSH.IsUserAttending(item.ID, eus.UserName))
+                                            {
+                                                <text>&#10004;</text>
+                                            }
+                                            @eus.UserName<br />
+                                        </span>
                                             names++;
                                         }
                                         if (names >= 24)
@@ -293,7 +293,6 @@
 
                         <!-- Modal header -->
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                             @item.Subject.Name
                         </div>
 
@@ -341,7 +340,6 @@
 
             <!-- Modal header -->
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 Ledige rom
             </div>
 
@@ -396,13 +394,13 @@
 <!-- TODO This hides the modal permanently, this should rather stop the modal from initially showing instead of hiding the whole thing -->
 @if (!Model.isFiltered && string.IsNullOrEmpty(Model.searchWords))
 {
-    <div class="content-hidden modal fade" id="login-modal" role="dialog">
+    <div class="content-hidden modal fade" id="login-modal" role="dialog" data-keyboard="false" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
 
                 <!-- Modal header -->
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 
                     Logg inn
                 </div>
 
@@ -421,8 +419,8 @@
                         <button type="submit" class="btn btn-md btn-primary btn-block btn-login">logg inn</button>
                     }
                     <span data-toggle="modal" data-target="#login-modal">
-                                <a class="btn btn-md btn-default btn-block btn-free-rooms" data-toggle="modal" data-target="#vis-rom-modal">vis ledige rom</a>
-                            </span>
+                        <a class="btn btn-md btn-default btn-block btn-free-rooms" data-toggle="modal" data-target="#vis-rom-modal" onclick="userLoggedIn()">vis ledige rom</a>
+                    </span>
                 </div>
             </div>
         </div>
