@@ -1,616 +1,616 @@
 {
-    "columnheaders":[
-        "Emne",
-        "Studieprogram",
-        "Rom",
-        "Lærer",
-        "Aktivitet",
-        "Kommentar"
-    ],
-    "info":{
-        "reservationlimit":200,
-        "reservationcount":40
+  "columnheaders": [
+    "Emne",
+    "Studieprogram",
+    "Rom",
+    "Lærer",
+    "Aktivitet",
+    "Kommentar"
+  ],
+  "info": {
+    "reservationlimit": 200,
+    "reservationcount": 40
+  },
+  "reservations": [
+    {
+      "id": "4462",
+      "startdate": "04.01.2016",
+      "starttime": "10:15",
+      "enddate": "04.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Interaktivt webprosjekt (PJ2100-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Siri Fagernes",
+        "Forelesning",
+        ""
+      ]
     },
-    "reservations":[
-        {
-            "id":"4462",
-            "startdate":"04.01.2016",
-            "starttime":"10:15",
-            "enddate":"04.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Interaktivt webprosjekt (PJ2100-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Siri Fagernes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4463",
-            "startdate":"04.01.2016",
-            "starttime":"12:15",
-            "enddate":"04.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Interaktivt webprosjekt (PJ2100-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Siri Fagernes",
-                "Øving",
-                ""
-            ]
-        },
-        {
-            "id":"4464",
-            "startdate":"05.01.2016",
-            "starttime":"10:15",
-            "enddate":"05.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Stein Marthinsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4488",
-            "startdate":"05.01.2016",
-            "starttime":"12:15",
-            "enddate":"05.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Stein Marthinsen",
-                "Øving",
-                ""
-            ]
-        },
-        {
-            "id":"4501",
-            "startdate":"07.01.2016",
-            "starttime":"10:15",
-            "enddate":"07.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Informasjonssikkerhet (TK2100-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Bjørn Olav Listog",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4514",
-            "startdate":"07.01.2016",
-            "starttime":"12:15",
-            "enddate":"07.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Informasjonssikkerhet (TK2100-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Bjørn Olav Listog",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4429",
-            "startdate":"11.01.2016",
-            "starttime":"10:15",
-            "enddate":"11.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Interaktivt webprosjekt (PJ2100-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Siri Fagernes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4438",
-            "startdate":"11.01.2016",
-            "starttime":"12:15",
-            "enddate":"11.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Interaktivt webprosjekt (PJ2100-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Siri Fagernes",
-                "Øving",
-                ""
-            ]
-        },
-        {
-            "id":"4458",
-            "startdate":"12.01.2016",
-            "starttime":"10:15",
-            "enddate":"12.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Stein Marthinsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4489",
-            "startdate":"12.01.2016",
-            "starttime":"12:15",
-            "enddate":"12.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Stein Marthinsen",
-                "Øving",
-                ""
-            ]
-        },
-        {
-            "id":"4502",
-            "startdate":"14.01.2016",
-            "starttime":"10:15",
-            "enddate":"14.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Informasjonssikkerhet (TK2100-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Bjørn Olav Listog",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4515",
-            "startdate":"14.01.2016",
-            "starttime":"12:15",
-            "enddate":"14.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Informasjonssikkerhet (TK2100-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Bjørn Olav Listog",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4959",
-            "startdate":"15.01.2016",
-            "starttime":"10:15",
-            "enddate":"15.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Animasjon (DS2100-15)",
-                "Bachelor i IT",
-                "Rom 40",
-                "Ole Goethe",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4960",
-            "startdate":"15.01.2016",
-            "starttime":"10:15",
-            "enddate":"15.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Digital kultur (DS2200-15)",
-                "Bachelor i IT",
-                "Rom 81",
-                "Kim Johansen Østby",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4962",
-            "startdate":"15.01.2016",
-            "starttime":"11:15",
-            "enddate":"15.01.2016",
-            "endtime":"15:00",
-            "columns":[
-                "Unity utvikling (PG2201-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4430",
-            "startdate":"18.01.2016",
-            "starttime":"10:15",
-            "enddate":"18.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Interaktivt webprosjekt (PJ2100-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Siri Fagernes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4439",
-            "startdate":"18.01.2016",
-            "starttime":"12:15",
-            "enddate":"18.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Interaktivt webprosjekt (PJ2100-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Siri Fagernes",
-                "Øving",
-                ""
-            ]
-        },
-        {
-            "id":"4967",
-            "startdate":"18.01.2016",
-            "starttime":"14:15",
-            "enddate":"18.01.2016",
-            "endtime":"16:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Kristine Sundt Lorentzen",
-                "Repetisjonsforelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4459",
-            "startdate":"19.01.2016",
-            "starttime":"10:15",
-            "enddate":"19.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Stein Marthinsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4490",
-            "startdate":"19.01.2016",
-            "starttime":"12:15",
-            "enddate":"19.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Stein Marthinsen",
-                "Øving",
-                ""
-            ]
-        },
-        {
-            "id":"4503",
-            "startdate":"21.01.2016",
-            "starttime":"10:15",
-            "enddate":"21.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Informasjonssikkerhet (TK2100-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Bjørn Olav Listog",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4516",
-            "startdate":"21.01.2016",
-            "starttime":"12:15",
-            "enddate":"21.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Informasjonssikkerhet (TK2100-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Bjørn Olav Listog",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4985",
-            "startdate":"22.01.2016",
-            "starttime":"10:15",
-            "enddate":"22.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Digital kultur (DS2200-15)",
-                "Bachelor i IT",
-                "Rom 81",
-                "Kim Johansen Østby",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4996",
-            "startdate":"22.01.2016",
-            "starttime":"10:15",
-            "enddate":"22.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Animasjon (DS2100-15)",
-                "Bachelor i IT",
-                "Rom 40",
-                "Ole Goethe",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5007",
-            "startdate":"22.01.2016",
-            "starttime":"11:15",
-            "enddate":"22.01.2016",
-            "endtime":"15:00",
-            "columns":[
-                "Unity utvikling (PG2201-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4431",
-            "startdate":"25.01.2016",
-            "starttime":"10:15",
-            "enddate":"25.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Interaktivt webprosjekt (PJ2100-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Siri Fagernes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4440",
-            "startdate":"25.01.2016",
-            "starttime":"12:15",
-            "enddate":"25.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Interaktivt webprosjekt (PJ2100-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Siri Fagernes",
-                "Øving",
-                ""
-            ]
-        },
-        {
-            "id":"4975",
-            "startdate":"25.01.2016",
-            "starttime":"14:15",
-            "enddate":"25.01.2016",
-            "endtime":"16:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Kristine Sundt Lorentzen",
-                "Repetisjonsforelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4460",
-            "startdate":"26.01.2016",
-            "starttime":"10:15",
-            "enddate":"26.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Stein Marthinsen",
-                "Forelesning",
-                "Innlevering denne uken. Se emnesiden."
-            ]
-        },
-        {
-            "id":"4491",
-            "startdate":"26.01.2016",
-            "starttime":"12:15",
-            "enddate":"26.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Stein Marthinsen",
-                "Øving",
-                ""
-            ]
-        },
-        {
-            "id":"4504",
-            "startdate":"28.01.2016",
-            "starttime":"10:15",
-            "enddate":"28.01.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Informasjonssikkerhet (TK2100-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Bjørn Olav Listog",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4517",
-            "startdate":"28.01.2016",
-            "starttime":"12:15",
-            "enddate":"28.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Informasjonssikkerhet (TK2100-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Bjørn Olav Listog",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4986",
-            "startdate":"29.01.2016",
-            "starttime":"10:15",
-            "enddate":"29.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Digital kultur (DS2200-15)",
-                "Bachelor i IT",
-                "Rom 81",
-                "Kim Johansen Østby",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4997",
-            "startdate":"29.01.2016",
-            "starttime":"10:15",
-            "enddate":"29.01.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Animasjon (DS2100-15)",
-                "Bachelor i IT",
-                "Rom 40",
-                "Ole Goethe",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"5008",
-            "startdate":"29.01.2016",
-            "starttime":"11:15",
-            "enddate":"29.01.2016",
-            "endtime":"15:00",
-            "columns":[
-                "Unity utvikling (PG2201-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4432",
-            "startdate":"01.02.2016",
-            "starttime":"10:15",
-            "enddate":"01.02.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Interaktivt webprosjekt (PJ2100-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Siri Fagernes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4441",
-            "startdate":"01.02.2016",
-            "starttime":"12:15",
-            "enddate":"01.02.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Interaktivt webprosjekt (PJ2100-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Siri Fagernes",
-                "Øving",
-                ""
-            ]
-        },
-        {
-            "id":"4976",
-            "startdate":"01.02.2016",
-            "starttime":"14:15",
-            "enddate":"01.02.2016",
-            "endtime":"16:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Kristine Sundt Lorentzen",
-                "Repetisjonsforelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4461",
-            "startdate":"02.02.2016",
-            "starttime":"10:15",
-            "enddate":"02.02.2016",
-            "endtime":"12:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Auditoriet",
-                "Stein Marthinsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"4492",
-            "startdate":"02.02.2016",
-            "starttime":"12:15",
-            "enddate":"02.02.2016",
-            "endtime":"14:00",
-            "columns":[
-                "Objektorientert programmering 2 (PGR101-15)",
-                "Bachelor i IT",
-                "Rom 40, Rom 79-80, Rom 81, Vrimle",
-                "Stein Marthinsen",
-                "Øving",
-                ""
-            ]
-        }
-    ]
+    {
+      "id": "4463",
+      "startdate": "04.01.2016",
+      "starttime": "12:15",
+      "enddate": "04.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Interaktivt webprosjekt (PJ2100-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Siri Fagernes",
+        "Øving",
+        ""
+      ]
+    },
+    {
+      "id": "4464",
+      "startdate": "05.01.2016",
+      "starttime": "10:15",
+      "enddate": "05.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Stein Marthinsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4488",
+      "startdate": "05.01.2016",
+      "starttime": "12:15",
+      "enddate": "05.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Stein Marthinsen",
+        "Øving",
+        ""
+      ]
+    },
+    {
+      "id": "4501",
+      "startdate": "07.01.2016",
+      "starttime": "10:15",
+      "enddate": "07.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Informasjonssikkerhet (TK2100-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Bjørn Olav Listog",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4514",
+      "startdate": "07.01.2016",
+      "starttime": "12:15",
+      "enddate": "07.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Informasjonssikkerhet (TK2100-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Bjørn Olav Listog",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4429",
+      "startdate": "11.01.2016",
+      "starttime": "10:15",
+      "enddate": "11.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Interaktivt webprosjekt (PJ2100-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Siri Fagernes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4438",
+      "startdate": "11.01.2016",
+      "starttime": "12:15",
+      "enddate": "11.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Interaktivt webprosjekt (PJ2100-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Siri Fagernes",
+        "Øving",
+        ""
+      ]
+    },
+    {
+      "id": "4458",
+      "startdate": "12.01.2016",
+      "starttime": "10:15",
+      "enddate": "12.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Stein Marthinsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4489",
+      "startdate": "12.01.2016",
+      "starttime": "12:15",
+      "enddate": "12.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Stein Marthinsen",
+        "Øving",
+        ""
+      ]
+    },
+    {
+      "id": "4502",
+      "startdate": "14.01.2016",
+      "starttime": "10:15",
+      "enddate": "14.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Informasjonssikkerhet (TK2100-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Bjørn Olav Listog",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4515",
+      "startdate": "14.01.2016",
+      "starttime": "12:15",
+      "enddate": "14.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Informasjonssikkerhet (TK2100-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Bjørn Olav Listog",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4959",
+      "startdate": "15.01.2016",
+      "starttime": "10:15",
+      "enddate": "15.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Animasjon (DS2100-15)",
+        "Bachelor i IT",
+        "Rom 40",
+        "Ole Goethe",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4960",
+      "startdate": "15.01.2016",
+      "starttime": "10:15",
+      "enddate": "15.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Digital kultur (DS2200-15)",
+        "Bachelor i IT",
+        "Rom 81",
+        "Kim Johansen Østby",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4962",
+      "startdate": "15.01.2016",
+      "starttime": "11:15",
+      "enddate": "15.01.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Unity utvikling (PG2201-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4430",
+      "startdate": "18.01.2016",
+      "starttime": "10:15",
+      "enddate": "18.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Interaktivt webprosjekt (PJ2100-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Siri Fagernes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4439",
+      "startdate": "18.01.2016",
+      "starttime": "12:15",
+      "enddate": "18.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Interaktivt webprosjekt (PJ2100-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Siri Fagernes",
+        "Øving",
+        ""
+      ]
+    },
+    {
+      "id": "4967",
+      "startdate": "18.01.2016",
+      "starttime": "14:15",
+      "enddate": "18.01.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Kristine Sundt Lorentzen",
+        "Repetisjonsforelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4459",
+      "startdate": "19.01.2016",
+      "starttime": "10:15",
+      "enddate": "19.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Stein Marthinsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4490",
+      "startdate": "19.01.2016",
+      "starttime": "12:15",
+      "enddate": "19.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Stein Marthinsen",
+        "Øving",
+        ""
+      ]
+    },
+    {
+      "id": "4503",
+      "startdate": "21.01.2016",
+      "starttime": "10:15",
+      "enddate": "21.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Informasjonssikkerhet (TK2100-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Bjørn Olav Listog",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4516",
+      "startdate": "21.01.2016",
+      "starttime": "12:15",
+      "enddate": "21.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Informasjonssikkerhet (TK2100-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Bjørn Olav Listog",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4985",
+      "startdate": "22.01.2016",
+      "starttime": "10:15",
+      "enddate": "22.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Digital kultur (DS2200-15)",
+        "Bachelor i IT",
+        "Rom 81",
+        "Kim Johansen Østby",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4996",
+      "startdate": "22.01.2016",
+      "starttime": "10:15",
+      "enddate": "22.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Animasjon (DS2100-15)",
+        "Bachelor i IT",
+        "Rom 40",
+        "Ole Goethe",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5007",
+      "startdate": "22.01.2016",
+      "starttime": "11:15",
+      "enddate": "22.01.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Unity utvikling (PG2201-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4431",
+      "startdate": "25.01.2016",
+      "starttime": "10:15",
+      "enddate": "25.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Interaktivt webprosjekt (PJ2100-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Siri Fagernes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4440",
+      "startdate": "25.01.2016",
+      "starttime": "12:15",
+      "enddate": "25.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Interaktivt webprosjekt (PJ2100-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Siri Fagernes",
+        "Øving",
+        ""
+      ]
+    },
+    {
+      "id": "4975",
+      "startdate": "25.01.2016",
+      "starttime": "14:15",
+      "enddate": "25.01.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Kristine Sundt Lorentzen",
+        "Repetisjonsforelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4460",
+      "startdate": "26.01.2016",
+      "starttime": "10:15",
+      "enddate": "26.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Stein Marthinsen",
+        "Forelesning",
+        "Innlevering denne uken. Se emnesiden."
+      ]
+    },
+    {
+      "id": "4491",
+      "startdate": "26.01.2016",
+      "starttime": "12:15",
+      "enddate": "26.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Stein Marthinsen",
+        "Øving",
+        ""
+      ]
+    },
+    {
+      "id": "4504",
+      "startdate": "28.01.2016",
+      "starttime": "10:15",
+      "enddate": "28.01.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Informasjonssikkerhet (TK2100-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Bjørn Olav Listog",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4517",
+      "startdate": "28.01.2016",
+      "starttime": "12:15",
+      "enddate": "28.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Informasjonssikkerhet (TK2100-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Bjørn Olav Listog",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4986",
+      "startdate": "29.01.2016",
+      "starttime": "10:15",
+      "enddate": "29.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Digital kultur (DS2200-15)",
+        "Bachelor i IT",
+        "Rom 81",
+        "Kim Johansen Østby",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4997",
+      "startdate": "29.01.2016",
+      "starttime": "10:15",
+      "enddate": "29.01.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Animasjon (DS2100-15)",
+        "Bachelor i IT",
+        "Rom 40",
+        "Ole Goethe",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "5008",
+      "startdate": "29.01.2016",
+      "starttime": "11:15",
+      "enddate": "29.01.2016",
+      "endtime": "15:00",
+      "columns": [
+        "Unity utvikling (PG2201-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4432",
+      "startdate": "01.02.2016",
+      "starttime": "10:15",
+      "enddate": "01.02.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Interaktivt webprosjekt (PJ2100-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Siri Fagernes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4441",
+      "startdate": "01.02.2016",
+      "starttime": "12:15",
+      "enddate": "01.02.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Interaktivt webprosjekt (PJ2100-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Siri Fagernes",
+        "Øving",
+        ""
+      ]
+    },
+    {
+      "id": "4976",
+      "startdate": "01.02.2016",
+      "starttime": "14:15",
+      "enddate": "01.02.2016",
+      "endtime": "16:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Kristine Sundt Lorentzen",
+        "Repetisjonsforelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4461",
+      "startdate": "02.02.2016",
+      "starttime": "10:15",
+      "enddate": "02.02.2016",
+      "endtime": "12:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Auditoriet",
+        "Stein Marthinsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "4492",
+      "startdate": "02.02.2016",
+      "starttime": "12:15",
+      "enddate": "02.02.2016",
+      "endtime": "14:00",
+      "columns": [
+        "Objektorientert programmering 2 (PGR101-15)",
+        "Bachelor i IT",
+        "Rom 40, Rom 79-80, Rom 81, Vrimle",
+        "Stein Marthinsen",
+        "Øving",
+        ""
+      ]
+    }
+  ]
 }

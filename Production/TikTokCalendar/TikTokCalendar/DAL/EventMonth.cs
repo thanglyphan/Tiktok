@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Web;
 using TikTokCalendar.Models;
 
 // A container for all events in a month. Used to send the events to the GUI layer (Home/Index.cshtml)
+
 namespace TikTokCalendar.DAL
 {
 	public class EventMonth
 	{
-		public int Month { get; set; }
-		public List<CalendarEvent> Events { get; set; }
-		private bool _weekView = true;
+		private readonly bool _weekView = true;
 		public StudentUser user;
 
 		public EventMonth(int month, bool weekView)
@@ -22,13 +20,16 @@ namespace TikTokCalendar.DAL
 			Events = new List<CalendarEvent>();
 		}
 
+		public int Month { get; set; }
+		public List<CalendarEvent> Events { get; set; }
+
 		public string GetMonthName()
 		{
 			if (_weekView)
 			{
 				return "Uke " + GetWeekNumber();
 			}
-			return FirstCharToUpper(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(Month)); 
+			return FirstCharToUpper(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(Month));
 
 			//Calendar cal = new GregorianCalendar();
 			//DateTime dt = DateTime.Now;
@@ -40,7 +41,7 @@ namespace TikTokCalendar.DAL
 		public int GetWeekNumber()
 		{
 			Calendar cal = new GregorianCalendar();
-			DateTime dt = DateTime.Now;
+			var dt = DateTime.Now;
 			dt = Events[0].StartTime;
 			return cal.GetWeekOfYear(dt, CalendarWeekRule.FirstDay, DayOfWeek.Monday);
 		}

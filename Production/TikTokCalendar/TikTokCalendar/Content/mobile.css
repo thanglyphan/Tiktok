@@ -1,49 +1,228 @@
-﻿
-@media screen and (max-width: 680px) {
-//============================================ // M O B I L //============================================ .mobile-main, html, body {
-    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    height: 100%;
-    background-color: #f7f7f7;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-}
+﻿@media screen and (max-width: 680px) {
+    / 
 
-/*===================================
+    / 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    / 
+
+    / 
+
+    M O B I L / 
+
+    / 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = 
+
+    = .mobile-main, html, body {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        background-color: #f7f7f7;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        height: 100%;
+        text-rendering: optimizeLegibility;
+    }
+
+    /*===================================
 N A V B A R
 ===================================*/
     i {
-        padding-top: 1px !important;
         color: #8E8F94;
+        padding-top: 1px !important;
     }
 
-    .header-desktop {
-        display: none;
-    }
+    .header-desktop { display: none; }
 
-    header {
-        margin-bottom: 50px;
-    }
+    header { margin-bottom: 50px; }
 
     .mobile-navbar {
-        width: 100%;
-        height: 45px;
         background-color: #699DF1;
         border-bottom: 2px solid #F3f3f3;
         color: white;
+        height: 45px;
+        width: 100%;
     }
 
     .mobile-navbar-container {
+        height: 35px;
         margin: 0 auto;
         width: 100%;
-        height: 35px;
     }
 
-    .mobile-navbar-logo {
-        float: left;
-    }
+    .mobile-navbar-logo { float: left; }
 
-/*===================================
+    /*===================================
 M E N U
 ===================================*/
 
@@ -54,36 +233,33 @@ M E N U
     }
 
     div.slicknav_menu {
-        color: black !important;
-        background-color: #F5F6F8 !important;
         -webkit-box-shadow: 0 8px 6px -8px gray;
+        background-color: #F5F6F8 !important;
+        color: black !important;
     }
 
     /* Menu header color*/
-    a.slicknav_btn.slicknav_open, a.slicknav_btn.slicknav_collapsed {
-        background-color: #F5F6F8 !important;
-    }
+    a.slicknav_btn.slicknav_open, a.slicknav_btn.slicknav_collapsed { background-color: #F5F6F8 !important; }
 
     span.slicknav_menutxt {
         display: none;
         visibility: hidden;
     }
+
     /* Menu items */
     .menu-items {
-        padding: 13px;
-        font-size: 1.125em !important;
         color: #858f9f !important;
+        font-size: 1.125em !important;
+        padding: 13px;
     }
 
     /* Duplicate text outside of menu */
-    ul#menu li {
-        visibility: hidden;
-    }
+    ul#menu li { visibility: hidden; }
 
     /* Maps */
     .map-image {
-        width: 150px;
         max-height: 200px;
+        width: 150px;
     }
 
     /*===================================
@@ -91,108 +267,106 @@ E V E N T S
 ===================================*/
 
     .mobile-content {
-        width: 90%;
-        padding-bottom: 70px;
         background-color: #f7f7f7;
         margin: 0 auto;
+        padding-bottom: 70px;
+        width: 90%;
     }
 
 
     .mobile-content-container {
         background-color: white;
         border: 1px solid #899093;
-        text-align: center;
         height: 380px;
+        text-align: center;
     }
 
     .mobile-content-container-inner {
-        width: 80%;
         margin: 0 auto;
+        width: 80%;
     }
 
     .mobile-date-top {
-        height: 20px;
-        width: 100%;
         background-color: #99CDF1;
         color: white;
-        text-transform: uppercase;
+        height: 20px;
         letter-spacing: .1em;
         line-height: 0em;
         padding: 1.3em;
+        text-transform: uppercase;
+        width: 100%;
     }
 
     .mobile-course {
-        padding-top: 10px;
-        font-weight: 300;
-        font-size: 1.6em;
         color: #858f9f;
-        word-wrap: break-word;
-        max-width: 10em;
+        font-size: 1.6em;
+        font-weight: 300;
         margin: 0 auto;
+        max-width: 10em;
+        padding-top: 10px;
+        word-wrap: break-word;
     }
 
     .mobile-room {
-        padding-top: 10px;
-        padding-bottom: 10px;
         color: #565a5c;
+        padding-bottom: 10px;
+        padding-top: 10px;
         text-align: center;
     }
 
 
     .mobile-date {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        width: 100%;
         color: #565a5c;
-        line-height: 1.5em;
         font-size: 1.2em;
+        line-height: 1.5em;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        width: 100%;
     }
 
     button.mobile-checkin {
-        font-size: 1em;
-        padding-top: 15px;
+        background: #67bf62;
+        border: 1px solid #f3f3f3;
+        border-radius: 3px;
         color: #fff;
-        text-transform: uppercase;
+        font-size: 1em;
+        height: 30px;
         letter-spacing: .1em;
         line-height: 0.4em;
         padding: .75em 2em;
-        border-radius: 3px;
+        padding-top: 15px;
+        text-transform: uppercase;
         width: 100%;
-        height: 30px;
-        background: #67bf62;
-        border: 1px solid #f3f3f3;
     }
 
     .button-container {
-        margin: 0 auto 0;
-        -webkit-perspective: 1000;
         -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000;
         background: #fff;
+        margin: 0 auto 0;
     }
 
     .pulse-button {
-        display: block;
-        width: 100px;
-        height: 100px;
-        font-size: 1.3em;
-        font-weight: light;
-        font-family: 'Trebuchet MS', sans-serif;
-        text-transform: uppercase;
-        text-align: center;
-        line-height: 100px;
-        letter-spacing: -1px;
-        color: white;
+        -webkit-animation: pulse 1.5s normal;
+        background: #5a99d4;
         border: none;
         border-radius: 50%;
-        background: #5a99d4;
-        cursor: pointer;
         box-shadow: 0 0 0 0 rgba(90, 153, 212, 0.5);
-        -webkit-animation: pulse 1.5s normal;
+        color: white;
+        cursor: pointer;
+        display: block;
+        font-family: 'Trebuchet MS', sans-serif;
+        font-size: 1.3em;
+        font-weight: light;
+        height: 100px;
+        letter-spacing: -1px;
+        line-height: 100px;
+        text-align: center;
+        text-transform: uppercase;
+        width: 100px;
     }
 
-        .pulse-button:hover {
-            -webkit-animation: none;
-        }
+    .pulse-button:hover { -webkit-animation: none; }
 
     @-webkit-keyframes pulse {
         0% {
@@ -206,17 +380,17 @@ E V E N T S
             -moz-transform: scale(1);
             -ms-transform: scale(1);
             -webkit-transform: scale(1);
-            transform: scale(1);
             box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+            transform: scale(1);
         }
     }
 
     #bottom-fade {
-        width: 100%;
-        height: 100px;
-        z-index: 99;
-        position: fixed;
-        bottom: 0px;
         background: url("../img/bottom-fade.png") bottom center no-repeat;
+        bottom: 0px;
+        height: 100px;
+        position: fixed;
+        width: 100%;
+        z-index: 99;
     }
 }

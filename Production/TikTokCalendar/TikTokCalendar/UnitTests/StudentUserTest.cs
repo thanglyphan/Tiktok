@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
 using TikTokCalendar.DAL;
-using TikTokCalendar.Models;
 
 namespace TikTokCalendar.UnitTests
 {
 	[TestFixture]
 	public class StudentUserTest
 	{
-		private StudentUser validUser;
-		private StudentUser invalidUser;
-		private List<StudentUser> userList;
-
 		[SetUp]
 		protected void SetUp()
 		{
@@ -28,24 +20,36 @@ namespace TikTokCalendar.UnitTests
 			userList.Add(new StudentUser("spillprog3", "1234", "spillprog3@gmail.com", 3, SchoolCourses.Spillprogrammering));
 		}
 
+		private StudentUser validUser;
+		private StudentUser invalidUser;
+		private List<StudentUser> userList;
+
 		[Test]
 		public void NotValidUser()
 		{
-			bool userIsValid = this.validUser.IsValid(userList[0]);
+			var userIsValid = validUser.IsValid(userList[0]);
 			Assert.AreEqual(userIsValid, false);
 		}
 
 		[Test]
-		public void ValidUser()
+		public void UserDoesntExistsInList()
 		{
-			bool userIsValid = this.validUser.IsValid(userList[2]);
-			Assert.AreEqual(userIsValid, true);
+			var userIsValid = false;
+			foreach (var u in userList)
+			{
+				if (u.IsValid(invalidUser))
+				{
+					userIsValid = true;
+					break;
+				}
+			}
+			Assert.AreEqual(userIsValid, false);
 		}
 
 		[Test]
 		public void UserExistsInList()
 		{
-			bool userIsValid = false;
+			var userIsValid = false;
 			foreach (var u in userList)
 			{
 				if (u.IsValid(validUser))
@@ -58,18 +62,10 @@ namespace TikTokCalendar.UnitTests
 		}
 
 		[Test]
-		public void UserDoesntExistsInList()
+		public void ValidUser()
 		{
-			bool userIsValid = false;
-			foreach (var u in userList)
-			{
-				if (u.IsValid(invalidUser))
-				{
-					userIsValid = true;
-					break;
-				}
-			}
-			Assert.AreEqual(userIsValid, false);
+			var userIsValid = validUser.IsValid(userList[2]);
+			Assert.AreEqual(userIsValid, true);
 		}
 	}
 }

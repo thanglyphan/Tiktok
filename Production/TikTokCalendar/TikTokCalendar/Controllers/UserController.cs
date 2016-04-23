@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Security;
-using System.Web.UI.WebControls;
+using TikTokCalendar.Models;
 
 namespace TikTokCalender.Controllers
 {
-	public class UserController:Controller
+	public class UserController : Controller
 	{
 		//
 		// GET: /User/
@@ -24,7 +20,7 @@ namespace TikTokCalender.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Login(TikTokCalendar.Models.Account user)
+		public ActionResult Login(Account user)
 		{
 			//if (ModelState.IsValid) {
 			//	if (user.IsValid(user.UserName,user.Password)) {
@@ -42,7 +38,7 @@ namespace TikTokCalender.Controllers
 		{
 			Session.Clear();
 			FormsAuthentication.SignOut();
-            return RedirectToAction("Index","Home");
+			return RedirectToAction("Index", "Home");
 		}
 	}
 }

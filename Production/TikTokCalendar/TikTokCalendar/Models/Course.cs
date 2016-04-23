@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
-using System.Web;
 using TikTokCalendar.Extras;
 
 namespace TikTokCalendar.Models
@@ -25,7 +21,7 @@ namespace TikTokCalendar.Models
 			// Parse the name to a course enum
 			// TODO Something is fucky here
 			//int bestMatch = 1000;
-			SchoolCourses course = SchoolCourses.Programmering;
+			var course = SchoolCourses.Programmering;
 			//string[] courses = Enum.GetNames(typeof(SchoolCourses));
 			//for (int i = 1; i < courses.Length + 1; i ++)
 			//{
@@ -38,7 +34,7 @@ namespace TikTokCalendar.Models
 			//}
 			// Replace spaces and dashes so it matches the enum
 			// TODO User RegEx
-			string safeName = name.Replace("-", "");
+			var safeName = name.Replace("-", "");
 			safeName = safeName.Replace(" ", "");
 			Enum.TryParse(safeName, out course);
 
@@ -47,7 +43,7 @@ namespace TikTokCalendar.Models
 
 		public static SchoolCourses GetCourseFromName(string name)
 		{
-			SchoolCourses course = SchoolCourses.Programmering;
+			var course = SchoolCourses.Programmering;
 			if (!Enum.TryParse(name, out course))
 			{
 				Debug.WriteLine("WARNING: ERROR: Couldn't parse course enum '" + name + "'!");
@@ -66,11 +62,12 @@ namespace TikTokCalendar.Models
 			return course;
 		}
 
-		//public static bool operator ==(Course a, Course b)
-		//{
-		//	if ((object)a == null || (object)b == null) return false;
-		//	return a.ID == b.ID;
 		//}
+		//	return a.ID == b.ID;
+		//	if ((object)a == null || (object)b == null) return false;
+		//{
+
+		//public static bool operator ==(Course a, Course b)
 
 		//public static bool operator !=(Course a, Course b)
 		//{

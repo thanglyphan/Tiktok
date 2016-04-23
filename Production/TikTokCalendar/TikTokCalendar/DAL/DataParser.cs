@@ -1,12 +1,11 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Web;
+using Newtonsoft.Json;
 using TikTokCalendar.Extras;
 using TikTokCalendar.Models;
 
@@ -19,7 +18,24 @@ namespace TikTokCalendar.DAL
 		private const string subjectFile = "SchoolSystem/subjects.json";
 		private const string courseSubjectFile = "SchoolSystem/courseSubjects.json";
 		private const string examsFile = "TimeEdit/innlevering-eksamen-dato.json";
-		private readonly string[] scheduleFiles = new string[] {
+		private const string usersFile = "users.json";
+		private const string contentDataFolder = "Data/";
+
+		private const long ExamEventStartID = 500000;
+			// Must be much higher than the ID's on the events from the TimeEdit json files
+
+		private const int ColumnEmne = 0;
+		private const int ColumnStudieProgram = 1;
+		private const int ColumnRom = 2;
+		private const int ColumnLaerer = 3;
+		private const int ColumnAktivitet = 4;
+		private const int ColumnKommentar = 5;
+		private readonly DateTimeParser dtParser = new DateTimeParser();
+
+		private readonly List<EventDuplicate> possibleDuplicateEvents = new List<EventDuplicate>();
+
+		private readonly string[] scheduleFiles =
+		{
 			"TimeEdit/1klasse.json",
 			"TimeEdit/e-business.json",
 			"TimeEdit/intelligente-systemer.json",
@@ -30,20 +46,10 @@ namespace TikTokCalendar.DAL
 			"TimeEdit/mobilprogrammering.json",
 			"TimeEdit/test.json"
 		};
-		private const string usersFile = "users.json";
-		private const string contentDataFolder = "Data/";
 
-		private const long ExamEventStartID = 500000; // Must be much higher than the ID's on the events from the TimeEdit json files
 		private long examEventID; // A unique ID for the exam events
-		private const int ColumnEmne = 0;
-		private const int ColumnStudieProgram = 1;
-		private const int ColumnRom = 2;
-		private const int ColumnLaerer = 3;
-		private const int ColumnAktivitet = 4;
-		private const int ColumnKommentar = 5;
-		private readonly DateTimeParser dtParser = new DateTimeParser();
 
-		private Dictionary<string, Room> rooms = new Dictionary<string, Room>(); 
+		private Dictionary<string, Room> rooms = new Dictionary<string, Room>();
 
 		public DataParser()
 		{
@@ -98,14 +104,14 @@ namespace TikTokCalendar.DAL
 		}
 
 		/// <summary>
-		/// Splits the given roomtext into an array (splits with ',')
+		///     Splits the given roomtext into an array (splits with ',')
 		/// </summary>
 		/// <param name="roomText"></param>
 		/// <returns></returns>
 		public string[] GetRoomsFromRoomText(string roomText)
 		{
-			string[] splitResults = roomText.Split(',');
-			for (int i = 0; i < splitResults.Length; i++)
+			var splitResults = roomText.Split(',');
+			for (var i = 0; i < splitResults.Length; i++)
 			{
 				splitResults[i] = splitResults[i].Trim();
 			}
@@ -113,7 +119,7 @@ namespace TikTokCalendar.DAL
 		}
 
 		/// <summary>
-		/// Returns the file contents of the gives filepath (relative to the Content/ folder).
+		///     Returns the file contents of the gives filepath (relative to the Content/ folder).
 		/// </summary>
 		/// <param name="contentFolderRelativePath"></param>
 		/// <returns></returns>
@@ -133,7 +139,7 @@ namespace TikTokCalendar.DAL
 			}
 			return ret;
 		}
-		
+
 		private List<StudentUser> GetUsers()
 		{
 			var users = new List<StudentUser>();
@@ -141,7 +147,7 @@ namespace TikTokCalendar.DAL
 			var container = JsonConvert.DeserializeObject<JUserRootObject>(file);
 			foreach (var user in container.users)
 			{
-				SchoolCourses course = (SchoolCourses)user.Course;
+				var course = (SchoolCourses) user.Course;
 				users.Add(new StudentUser(user.Uname, user.Password, user.Email, user.Year, course));
 			}
 
@@ -185,7 +191,8 @@ namespace TikTokCalendar.DAL
 			foreach (var courseSubject in container.courseSubjects)
 			{
 				var c = new CourseSubject();
-				c.SetAndParse(courseSubject.id, courseSubject.courseId, courseSubject.subjectId, courseSubject.semester, courses, subjects);
+				c.SetAndParse(courseSubject.id, courseSubject.courseId, courseSubject.subjectId, courseSubject.semester, courses,
+					subjects);
 				courseSubjects.Add(c);
 			}
 			return courseSubjects;
@@ -193,7 +200,7 @@ namespace TikTokCalendar.DAL
 
 		private List<CustomEvent> GetEvents()
 		{
-			List<long> addedIDs = new List<long>();
+			var addedIDs = new List<long>();
 			rooms = new Dictionary<string, Room>();
 			var events = new List<CustomEvent>();
 
@@ -234,99 +241,52 @@ namespace TikTokCalendar.DAL
 			return events;
 		}
 
-		private class EventDuplicate
-		{
-			private string subjectCode;
-			public string ID { get; private set; }
-			private string roomName;
-			private DateTime startDateTime;
-
-			public EventDuplicate(string subjectCode, string id, string roomName, DateTime startDateTime)
-			{
-				this.subjectCode = subjectCode;
-				this.ID = id;
-				this.roomName = roomName;
-				this.startDateTime = startDateTime;
-			}
-
-			public override bool Equals(object obj)
-			{
-				try {
-					return (this == (EventDuplicate)obj);
-				}
-				catch
-				{
-					return false;
-				}
-			}
-
-			public static bool operator ==(EventDuplicate a, EventDuplicate b)
-			{
-				if (object.ReferenceEquals(a, b))
-				{
-					return true;
-				}
-				if (object.ReferenceEquals(a, null) ||
-					object.ReferenceEquals(b, null))
-				{
-					return false;
-				}
-
-				return (a.subjectCode == b.subjectCode && a.roomName == b.roomName && a.startDateTime == b.startDateTime);
-			}
-
-			public static bool operator !=(EventDuplicate a, EventDuplicate b)
-			{
-
-				return !(a == b);
-			}
-		}
-
-		private readonly List<EventDuplicate> possibleDuplicateEvents = new List<EventDuplicate>();
-
 		/// <summary>
-		/// Parses an event and returns a List<CustomEvent>. 
-		/// The list contains either the date of the event, the date of the first day in the week of the event, or two dates (if the event has two dates)
+		///     Parses an event and returns a List
+		///     <CustomEvent>
+		///         .
+		///         The list contains either the date of the event, the date of the first day in the week of the event, or two
+		///         dates (if the event has two dates)
 		/// </summary>
 		public List<CustomEvent> ParseEvent(string id, string startDate, string startTime, string endDate, string endTime,
 			string subjectString, string courseData, string room, string teacher, string activity, string comment)
 		{
-			List<CustomEvent> retEvents = new List<CustomEvent>();
+			var retEvents = new List<CustomEvent>();
 
 			// Parse ID
 			long parsedId = -1;
 			long.TryParse(id, NumberStyles.Integer, new NumberFormatInfo(), out parsedId);
 
 			// Startdate
-			DateParseResults dtResults = DateParseResults.NoDate;
+			var dtResults = DateParseResults.NoDate;
 			// TODO Use the other parse if it isn't a fucked up dateformat
-			DateTime[] startDates = new DateTime[] { dtParser.SimpleParse(startDate, startTime, out dtResults) };
+			DateTime[] startDates = {dtParser.SimpleParse(startDate, startTime, out dtResults)};
 
 			// Enddate
-			DateTime endDateTime = dtParser.SimpleParse(endDate, endTime, out dtResults);
-			bool hasEndDateTime = (dtResults == DateParseResults.Single);
+			var endDateTime = dtParser.SimpleParse(endDate, endTime, out dtResults);
+			var hasEndDateTime = dtResults == DateParseResults.Single;
 
 			// Get subject & code
-			string subjectCode = Subject.GetSubjectCode(subjectString);
-			Subject subject = DataWrapper.Instance.GetSubjectByCode(subjectCode);
+			var subjectCode = Subject.GetSubjectCode(subjectString);
+			var subject = DataWrapper.Instance.GetSubjectByCode(subjectCode);
 			if (subject == null) return retEvents;
-			
+
 			// Get courses
-			List<SchoolCourses> courses = new List<SchoolCourses>();
+			var courses = new List<SchoolCourses>();
 			if (courseData != null)
 			{
 				// Get the courses from the courseData field
-				string[] courseDataLines = courseData.Split(',');
+				var courseDataLines = courseData.Split(',');
 				foreach (var line in courseDataLines)
 				{
-					Course c = DataWrapper.Instance.GetCourseFromName(line);
+					var c = DataWrapper.Instance.GetCourseFromName(line);
 					if (c != null)
 					{
 						courses.Add(c.SchoolCourse);
 					}
 				}
 			}
-			
+
 			// Make sure there are no duplicates
 			// NOTE: This is only necesarry if we aren't sure all the events have correct IDs (we don't have to use this when we use data straight from timeedit)
 			if (courses.Count > 1)
@@ -341,13 +301,13 @@ namespace TikTokCalendar.DAL
 			var years = GetClassYearsForEvent(courses, subject);
 
 			// Get event type
-			EventType eventType = ParseEventType(activity);
+			var eventType = ParseEventType(activity);
 
 			// Go through the startdates that was parsed.
 			// This makes it so that events where we couldn't parse a date from, will not be added
 			foreach (var date in startDates)
 			{
-				CustomEvent evnt = new CustomEvent(parsedId, date, true, endDateTime, hasEndDateTime,
+				var evnt = new CustomEvent(parsedId, date, true, endDateTime, hasEndDateTime,
 					subject, years, courses, room, teacher, eventType, comment, 0);
 				retEvents.Add(evnt);
 			}
@@ -360,7 +320,7 @@ namespace TikTokCalendar.DAL
 			var eventDup = new EventDuplicate(subjectCode, eventId, roomName, startDateTime);
 
 			// Try to find eventDup in the duplicate list
-			Predicate<EventDuplicate> eventFinder = (EventDuplicate e) => (e == eventDup);
+			Predicate<EventDuplicate> eventFinder = e => e == eventDup;
 			var possibleDuplicate = possibleDuplicateEvents.Find(eventFinder);
 
 			// Check if we have a possible duplicate, and if the IDs doesn't match up
@@ -369,33 +329,34 @@ namespace TikTokCalendar.DAL
 				// Event is a duplicate
 				return true;
 			}
-			
+
 			// Add the event to the possible duplicate list
 			possibleDuplicateEvents.Add(eventDup);
 			return false;
 		}
 
-		public List<CustomEvent> ParseExamEvent(string startDate, string subjectCode, string subjectName, string activity, int weighting, string duration, string helpers)
+		public List<CustomEvent> ParseExamEvent(string startDate, string subjectCode, string subjectName, string activity,
+			int weighting, string duration, string helpers)
 		{
-			List<CustomEvent> retEvents = new List<CustomEvent>();
+			var retEvents = new List<CustomEvent>();
 
 			// TODO Give examevents that are the same (same startdate, subject and eventtype) the same ID to prevent duplicates
-			long id = examEventID;
+			var id = examEventID;
 			examEventID++;
 
 			//////// Start date ////////
 			// Startdate
-			DateParseResults dtResults = DateParseResults.NoDate;
+			var dtResults = DateParseResults.NoDate;
 			// TODO Use the other parse if it isn't a fucked up dateformat
-			DateTime[] startDates = dtParser.ParseDate(startDate, out dtResults);
+			var startDates = dtParser.ParseDate(startDate, out dtResults);
 			if (startDates.Length <= 0) return retEvents;
 
 			//////// Subject ////////
-			Subject subject = DataWrapper.Instance.GetSubjectByCode(subjectCode);
+			var subject = DataWrapper.Instance.GetSubjectByCode(subjectCode);
 			if (subject == null) return retEvents;
 
 			//////// Year and course ////////
-			List<SchoolCourses> courses = DataWrapper.Instance.GetCoursesWithSubject(subject);
+			var courses = DataWrapper.Instance.GetCoursesWithSubject(subject);
 			if (courses.Count <= 0)
 			{
 				return retEvents;
@@ -403,16 +364,16 @@ namespace TikTokCalendar.DAL
 			var years = GetClassYearsForEvent(courses, subject);
 
 			//////// Making the events ////////
-			EventType eventType = ParseEventType(activity);
+			var eventType = ParseEventType(activity);
 
-			string comment = "Vekting: " + weighting + "\nVarighet: " + duration + "\nHjelpemidler: " + helpers;
+			var comment = "Vekting: " + weighting + "\nVarighet: " + duration + "\nHjelpemidler: " + helpers;
 
 			//////// Making the events ////////
 			// Go through the startdates that was parsed.
 			// This makes it so that events where we couldn't parse a date from, will not be added
 			foreach (var date in startDates)
 			{
-				CustomEvent evnt = new CustomEvent(id, date, false, DateTime.MinValue, false,
+				var evnt = new CustomEvent(id, date, false, DateTime.MinValue, false,
 					subject, years, courses, "Se emnesiden for rom", null, eventType, comment, weighting);
 				retEvents.Add(evnt);
 			}
@@ -427,7 +388,7 @@ namespace TikTokCalendar.DAL
 				var courseSubjs = DataWrapper.Instance.GetCourseSubjectWithSchoolCourseSubject(sc, subject);
 				foreach (var cs in courseSubjs)
 				{
-					int y = CourseSubject.GetClassYearFromSemester(cs.Semester);
+					var y = CourseSubject.GetClassYearFromSemester(cs.Semester);
 					years.Add(y);
 				}
 			}
@@ -436,8 +397,8 @@ namespace TikTokCalendar.DAL
 
 		private EventType ParseEventType(string text)
 		{
-			EventType eventType = EventType.Annet;
-			string evntName = text.ToLower();
+			var eventType = EventType.Annet;
+			var evntName = text.ToLower();
 			if (evntName.Contains("hjemmeeksamen"))
 			{
 				eventType = EventType.Hjemmeeksamen;
@@ -462,6 +423,55 @@ namespace TikTokCalendar.DAL
 				}
 			}
 			return eventType;
+		}
+
+		private class EventDuplicate
+		{
+			private readonly string roomName;
+			private readonly DateTime startDateTime;
+			private readonly string subjectCode;
+
+			public EventDuplicate(string subjectCode, string id, string roomName, DateTime startDateTime)
+			{
+				this.subjectCode = subjectCode;
+				ID = id;
+				this.roomName = roomName;
+				this.startDateTime = startDateTime;
+			}
+
+			public string ID { get; }
+
+			public override bool Equals(object obj)
+			{
+				try
+				{
+					return this == (EventDuplicate) obj;
+				}
+				catch
+				{
+					return false;
+				}
+			}
+
+			public static bool operator ==(EventDuplicate a, EventDuplicate b)
+			{
+				if (ReferenceEquals(a, b))
+				{
+					return true;
+				}
+				if (ReferenceEquals(a, null) ||
+				    ReferenceEquals(b, null))
+				{
+					return false;
+				}
+
+				return a.subjectCode == b.subjectCode && a.roomName == b.roomName && a.startDateTime == b.startDateTime;
+			}
+
+			public static bool operator !=(EventDuplicate a, EventDuplicate b)
+			{
+				return !(a == b);
+			}
 		}
 
 		//////// JSON Classes ////////

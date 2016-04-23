@@ -1,15 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing.Printing;
 using System.Globalization;
-using System.Linq;
-using System.Web;
-using TikTokCalendar.DAL;
 
 namespace TikTokCalendar.Models
 {
 	public class CalendarEvent
 	{
+		/// <summary>
+		///     Creates an empty event.
+		/// </summary>
+		public CalendarEvent()
+		{
+			StartTime = DateTime.MinValue;
+			EndTime = DateTime.MinValue;
+			TimeEditID = -1;
+			SubjectID = -1;
+			RoomName = null;
+			EventName = null;
+			Attendees = null;
+			Teacher = null;
+			Comment = null;
+			Year = 0;
+		}
+
 		public int ID { get; set; }
 		public int TimeEditID { get; set; }
 		public int SubjectID { get; set; }
@@ -26,21 +38,16 @@ namespace TikTokCalendar.Models
 
 		public int Year { get; set; }
 
-		/// <summary>
-		/// Creates an empty event.
-		/// </summary>
-		public CalendarEvent()
+		public string[] GetEventAsArray
 		{
-			StartTime = DateTime.MinValue;
-			EndTime = DateTime.MinValue;
-			TimeEditID = -1;
-			SubjectID = -1;
-			RoomName = null;
-			EventName = null;
-			Attendees = null;
-			Teacher = null;
-			Comment = null;
-			Year = 0;
+			get
+			{
+				return new[]
+				{
+					ID.ToString(), StartTime.ToString(), EndTime.ToString(), RoomName, EventName, Attendees, Teacher, Comment,
+					Subject.Name
+				};
+			}
 		}
 
 		public string GetEventNameWithoutSubjectCode()
@@ -55,7 +62,7 @@ namespace TikTokCalendar.Models
 		}
 
 		/// <summary>
-		/// Returns the start and to time formatted for display.
+		///     Returns the start and to time formatted for display.
 		/// </summary>
 		public string GetTimeSlot()
 		{
@@ -63,7 +70,7 @@ namespace TikTokCalendar.Models
 		}
 
 		/// <summary>
-		/// Returns the three first letters of this events day.
+		///     Returns the three first letters of this events day.
 		/// </summary>
 		public string GetDayOfWeek()
 		{
@@ -74,7 +81,7 @@ namespace TikTokCalendar.Models
 		public int GetWeekNumber()
 		{
 			Calendar cal = new GregorianCalendar();
-			DateTime dt = StartTime;
+			var dt = StartTime;
 			return cal.GetWeekOfYear(dt, CalendarWeekRule.FirstDay, DayOfWeek.Monday);
 		}
 
@@ -87,18 +94,6 @@ namespace TikTokCalendar.Models
 		public string ToText()
 		{
 			return TimeEditID.ToString();
-		}
-
-		public string[] GetEventAsArray
-		{
-			get
-			{
-				return new string[]
-				{
-					ID.ToString(), StartTime.ToString(), EndTime.ToString(), RoomName, EventName, Attendees, Teacher, Comment,
-					Subject.Name
-				};
-			}
 		}
 	}
 }

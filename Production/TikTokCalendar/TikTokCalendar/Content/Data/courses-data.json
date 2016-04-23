@@ -1,17 +1,17 @@
 {
-	"courses":[
-		{
-			"Name":"Programmering",
-			"semesters":[
-				{
-					"id":"0",
-					"subjects":[
-						"Programmering med Java 1",
+  "courses": [
+    {
+      "Name": "Programmering",
+      "semesters": [
+        {
+          "id": "0",
+          "subjects": [
+            "Programmering med Java 1",
             "Databaser",
             "Digital teknologi",
             "Webprosjekter"
-					]
-				},
+          ]
+        },
         {
           "id": "1",
           "subjects": [
@@ -49,28 +49,28 @@
           ]
         },
         {
-					"id":"5",
-					"subjects":[
-						"Enterpriseprogrammering 2",
+          "id": "5",
+          "subjects": [
+            "Enterpriseprogrammering 2",
             "Bachelorprosjekt",
             "",
             ""
-					]
-				}
-			]
-		},
+          ]
+        }
+      ]
+    },
     {
       "Name": "Spillprogrammering",
       "semesters": [
-				{
-					"id":"0",
-					"subjects":[
-						"Programmering med Java 1",
+        {
+          "id": "0",
+          "subjects": [
+            "Programmering med Java 1",
             "Databaser",
             "Digital teknologi",
             "Webprosjekter"
-					]
-				},
+          ]
+        },
         {
           "id": "1",
           "subjects": [
@@ -108,28 +108,28 @@
           ]
         },
         {
-					"id":"5",
-					"subjects":[
-						"Grafikkprogrammering 3D",
+          "id": "5",
+          "subjects": [
+            "Grafikkprogrammering 3D",
             "Bachelorprosjekt",
             "Undersøkelsesmetoder",
             ""
-					]
-				}
+          ]
+        }
       ]
     },
     {
       "Name": "E-Business",
       "semesters": [
         {
-					"id":"0",
-					"subjects":[
-						"Programmering med Java 1",
+          "id": "0",
+          "subjects": [
+            "Programmering med Java 1",
             "Databaser",
             "Digital teknologi",
             "Webprosjekter"
-					]
-				},
+          ]
+        },
         {
           "id": "1",
           "subjects": [
@@ -167,28 +167,28 @@
           ]
         },
         {
-					"id":"5",
-					"subjects":[
-						"IT og innovasjon",
+          "id": "5",
+          "subjects": [
+            "IT og innovasjon",
             "Bachelorprosjekt",
             "Undersøkelsesmetoder",
             ""
-					]
-				}
+          ]
+        }
       ]
     },
     {
       "Name": "Mobil apputvikling",
       "semesters": [
         {
-					"id":"0",
-					"subjects":[
-						"Programmering med Java 1",
+          "id": "0",
+          "subjects": [
+            "Programmering med Java 1",
             "Databaser",
             "Digital teknologi",
             "Webprosjekter"
-					]
-				},
+          ]
+        },
         {
           "id": "1",
           "subjects": [
@@ -226,14 +226,14 @@
           ]
         },
         {
-					"id":"5",
-					"subjects":[
-						"Framsideprogrammering",
+          "id": "5",
+          "subjects": [
+            "Framsideprogrammering",
             "Bachelorprosjekt",
             "Undersøkelsesmetoder",
             ""
-					]
-				}
+          ]
+        }
       ]
     },
     {
@@ -301,14 +301,14 @@
       "Name": "Intelligente systemer",
       "semesters": [
         {
-					"id":"0",
-					"subjects":[
-						"Programmering med Java 1",
+          "id": "0",
+          "subjects": [
+            "Programmering med Java 1",
             "Databaser",
             "Digital teknologi",
             "Webprosjekter"
-					]
-				},
+          ]
+        },
         {
           "id": "1",
           "subjects": [
@@ -346,15 +346,15 @@
           ]
         },
         {
-					"id":"5",
-					"subjects":[
-						"Ressursorientert arkitektur",
+          "id": "5",
+          "subjects": [
+            "Ressursorientert arkitektur",
             "Bachelorprosjekt",
             "",
             ""
-					]
-				}
+          ]
+        }
       ]
     }
-	]
+  ]
 }
