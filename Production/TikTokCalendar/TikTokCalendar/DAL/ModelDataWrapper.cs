@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using TikTokCalendar.Models;
 
 namespace TikTokCalendar.DAL
@@ -19,6 +16,7 @@ namespace TikTokCalendar.DAL
         public bool showingExams { get; private set; }
         public bool isFiltered { get; set; }
 		public bool FailedLogin { get; set; } = false;
+        public int eventID { get; set; }
 
         public ModelDataWrapper()
 		{

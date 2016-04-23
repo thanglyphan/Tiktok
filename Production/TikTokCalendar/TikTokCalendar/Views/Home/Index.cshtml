@@ -3,7 +3,7 @@
 @{
     TimeLeft TimeLeft = new TimeLeft();
     EventUserStatHandler EUSH = new EventUserStatHandler();
-
+    DateTime now = DateTime.Now;
     // This can be retrieved from Model.user so we don't have to do even more business logic here
     TikTokCalendar.DAL.Cookies cookie = new TikTokCalendar.DAL.Cookies();
     //string userName = "";
@@ -17,14 +17,14 @@
     int anchor = 1;
     if (Model.searchWords == "")
     {
-        anchor = TikTokCalendar.Extras.Utils.GetWeekNumberOfYear(DateTime.Now);
+        anchor = TikTokCalendar.Extras.Utils.GetWeekNumberOfYear(now);
     }
 }
 
 <!-- Go to current month/week -->
 <script>
 	$(function() {
-		@*$(document).scrollTop( $("#goto-@DateTime.Now.Month").offset().top );*@
+		@*$(document).scrollTop( $("#goto-@now.Month").offset().top );*@
 		$(document).scrollTop( $("#goto-week-@anchor").offset().top - 54 );
 	});
 
@@ -38,7 +38,7 @@
         @foreach (var month in Model.Months)
         {
             var isCollapsed = "in";
-            if (month.MonthNumber < DateTime.Now.Month && !Model.isFiltered && Model.searchWords == "")
+            if (month.MonthNumber < now.Month && !Model.isFiltered && Model.searchWords == "")
             {
                 isCollapsed = ""; // true
             }
@@ -77,7 +77,7 @@
                         @foreach (var item in week.events)
                         {
                             var today = "";
-                            if (item.StartDateTime.Date.Equals(DateTime.Now.Date))
+                            if (item.StartDateTime.Date.Equals(now.Date))
                             {
                                 today = "today";
                             }
@@ -128,13 +128,13 @@
                                             }
                                             @if (timeLeft != "")
                                             {
-                                                if (item.StartDateTime > DateTime.Now.AddHours(24))
+                                                if (item.StartDateTime > now.AddHours(24))
                                                 {
                                                     <div class="tip timeleft">@timeLeft</div>
 }
-                                                if (item.StartDateTime < DateTime.Now.AddHours(24))
+                                                if (item.StartDateTime < now.AddHours(24))
                                                 {
-                                                    if (item.StartDateTime < DateTime.Now.AddHours(1))
+                                                    if (item.StartDateTime < now.AddHours(1))
                                                     {
                                                         lessThanAnHour = true;
                                                     }
@@ -157,7 +157,7 @@
                                             <!-- Date and time  -->
                                             <p class="time">
                                                 <strong>&nbsp;@item.GetDayOfWeek()</strong>@item.GetTimeSlot()
-                                                @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
+                                                @if (now > item.StartDateTime && now < item.EndDateTime)
                                                 {
                                                     <b>&nbsp;&nbsp;&nbsp;</b><span class="on ">Pågår</span>
 }
@@ -183,13 +183,7 @@
                                             </p>
                                         </div>
 
-                                        <!-- Icon displaying "..."  -->
-                                        <!-- FLYTT GOING/ATTEND KODEBLOKK NED HIT NÅR EVENT-CLICK ER FIKSA -->
-                                        <!-- eventually limit the number of weeks for going/check-in to show here:
-                                        if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime.AddDays(21))
-                                        {-->
-                                        @if (Model.User.UserName != "" && Model.User.UserName != "NO NAME" && item.MainEventType == TikTokCalendar.Models.MainEventType.Forelesning)
-                                        {
+                                        @if (Model.User.UserName != "" && Model.User.UserName != "NO NAME" && item.MainEventType != TikTokCalendar.Models.MainEventType.Innlevering) {
                                             using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
                                             {
                                                 HttpMethod = "POST",
@@ -198,59 +192,91 @@
                                             }))
                                             {
                                                 // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
-                                                <div class="check-in" id="going-@item.ID">
-                                                    @if (DateTime.Now > item.StartDateTime && DateTime.Now < item.EndDateTime)
-                                                    {
-                                                        bool geo = true;
-                                                        if (!EUSH.UserAttending(item.ID, Model.User.UserName))
-                                                        {
-                                                            <input type="hidden" name="eventid" value="@item.ID" />
-                                                            <input type="hidden" name="attend" value="true" />
-                                                            <input type="submit" value="Check-in" />
-}
-                                                        else {
-                                                            <strong>Innsjekket &#10004;</strong>
-}
+                                        <div class="check-in" style="margin-left: 200px;" id="going-@item.ID">
+                                        @if (now < item.StartDateTime)
+                                        {
+                                            if (now > item.StartDateTime && now < item.EndDateTime)
+                                            {
+                                                bool geo = true;
+                                                if (!EUSH.IsUserAttending(item.ID, Model.User.UserName))
+                                                {
+                                                    <input type="hidden" name="eventid" value="@item.ID" />
+                                                    <input type="hidden" name="attend" value="true" />
+                                                    <input type="submit" value="innsjekk" />
+                                                }
+                                                else
+                                                {
+                                                    <strong>Innsjekket &#10004;</strong>
+                                                }
 
+                                            }
+                                            else
+                                            {
+                                                if (!EUSH.UserGoing(item.ID, Model.User.UserName))
+                                                {
+                                                    <input type="hidden" name="eventid" value="@item.ID" />
+                                                    <input type="hidden" name="attend" value="false" />
+                                                    <input type="submit" value="skal" class="going-@item.ID" />
+                                                }
+                                                else
+                                                {
+                                                    <strong>Du skal.</strong>
+                                                    <input type="hidden" name="eventid" value="@item.ID" />
+                                                    <input type="hidden" name="attend" value="false" />
+                                                    <input type="submit" value="angre" class="going-@item.ID" />
+                                                }
+                                            }
+                                        }
+                                            <div class="tip-item">
+                                                @{  var howMany = EUSH.GetUsersGoing(item.ID);
+                                                    var showTip = "hide";
+                                                    if (howMany > 0)
+                                                    {
+                                                        showTip = ""; // false (hide box if no users to display)
                                                     }
-                                                    else {
-                                                        if (!EUSH.UserGoing(item.ID))
+                                                }
+                                                <span class="activator usersgoing event-id-@item.ID">
+                                                    @howMany
+                                                    @if (now < item.StartDateTime)
+                                                    {
+                                                        <text>skal</text>
+                                                    }
+                                                    else
+                                                    {
+                                                        <text>skulle</text>
+                                                    }
+                                                </span>
+                                                <div class="tip usersgoing @showTip">
+                                                    <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(item.ID)/@howMany innsjekk</b>
+                                                    @{
+                                                        int names = 0;
+                                                    }
+                                                    @foreach (var eus in Model.eventUserStats)
+                                                    {
+                                                        if (eus.EventID == item.ID)
                                                         {
-                                                            <input type="hidden" name="eventid" value="@item.ID" />
-                                                            <input type="hidden" name="attend" value="false" />
-                                                            <input type="submit" value="Going" class="going-@item.ID" />
-}
-                                                        else {
-                                                            <strong>Du skal.</strong>
-}
-                                                    }
-                                                    <div class="tip-item">
-                                                        @{  var howMany = EUSH.HowManyUsersGoing(item.ID);
-                                                            var showTip = "hide";
-                                                            if (howMany > 0)
-                                                            {
-                                                                showTip = ""; // false (hide box if no users to display)
-                                                            }
-                                                        }
-                                                        <span class="activator usersgoing event-id-@item.ID">@howMany going</span>
-                                                        <div class="tip usersgoing @showTip">
-                                                            @foreach (var eus in Model.eventUserStats)
-                                                            {
-                                                                if (eus.EventID == item.ID)
+                                                            <span class="no-linebreak">
+                                                                @if (EUSH.IsUserAttending(item.ID, eus.UserName))
                                                                 {
-                                                                    <span class="no-linebreak">
-                                                                        @if (EUSH.UserAttending(item.ID, eus.UserName))
-                                                                        {
-                                                                            <text>&#10004;</text>
-}
-                                                                        @eus.UserName<br />
-                                                                    </span>
-}
-                                                            }
-                                                        </div>
-                                                    </div>
-                                                </div>   }
-                                                            }
+                                                                    <text>&#10004;</text>
+                                                                }
+                                                                @eus.UserName<br />
+                                                            </span>
+                                                            names++;
+                                                        }
+                                                        if (names >= 24)
+                                                        {
+                                                            <b class="tip-others no-linebreak">og @(howMany-names) andre</b>
+                                                            break;
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                                    
+                                        </div>
+                                        }
+                                        }
+                                        }
                                     </div>
                                 </div>
                             </div>

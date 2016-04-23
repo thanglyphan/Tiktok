@@ -162,9 +162,7 @@ header .header-content .left-2 {
 }
 
 /* Search */
-#tags {
-    margin-bottom: 15px;
-}
+/* AT: SEARCH (JQUERY-UI REPLACEMENT )  */
 
 /*=======================================
     FILTER CLASS, ASSIGNMENT & EXAM
@@ -698,7 +696,8 @@ input[class^="going-"]:hover {
     display: none;
     width: auto;
     height: auto;
-    background-color: #FFF;
+    background-color: #455062;/*#FFF;*/
+    color: #FFF;
     border-radius: 3px;
     padding: 6px;
     position: absolute;
@@ -707,10 +706,26 @@ input[class^="going-"]:hover {
     z-index: 1;
     /*border-radius: 6px;
         -moz-border-radius: 6px;
-        -webkit-border-radius: 6px;*/
+        -webkit-border-radius: 6px;
     box-shadow: 0px 0px 1px 0px #888;
     -moz-box-shadow: 0px 0px 1px 0px #888;
-    -webkit-box-shadow: 0px 0px 1px 0px #888;
+    -webkit-box-shadow: 0px 0px 1px 0px #888;*/
+}
+
+.tip-checkin {
+    display: block;
+    border-bottom: 1px solid rgb(196, 196, 196);
+    margin-bottom: 5px;
+    padding-bottom: 4px;
+    font-size: 0.75em;
+}
+
+.tip-others {
+    display: block;
+    border-top: 1px solid rgb(196, 196, 196);
+    margin-top: 5px;
+    padding-top: 4px;
+    font-size: 0.75em;
 }
 
 .countdown {
@@ -722,6 +737,8 @@ input[class^="going-"]:hover {
 =======================================*/
 
 #tags {
+    margin-bottom: 15px;
+
     max-width: 200px;
     padding: 3px 0 4px 30px;
     border-radius: 20px;

@@ -1,28 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
-using TikTokCalendar.DAL;
+﻿using TikTokCalendar.DAL;
 using TikTokCalendar.Models;
 
 namespace TikTokCalendar
 {
-    public static class EUSH_global
-    {
-        public static long ID_ATM = 0; // event ID at the moment
-    }
     public class EventUserStatHandler
     {
         private CalendarEventContext db = new CalendarEventContext();
-        private Cookies cookie = new Cookies();
 
-        public bool UserGoing(long id)
+        public bool UserGoing(long id, string username)
         {
-            string userName = cookie.LoadStringFromCookie("UserName");
             foreach (EventUserStat eus in db.EventUserStats)
             {
-                if (eus.UserName == userName && eus.EventID == id)
+                if (eus.UserName == username && eus.EventID == id)
                 {
                     return true;
                 }
@@ -30,7 +19,7 @@ namespace TikTokCalendar
             return false;
         }
 
-        public bool UserAttending(long id, string username)
+        public bool IsUserAttending(long id, string username)
         {
             foreach (EventUserStat eus in db.EventUserStats)
             {
@@ -42,17 +31,30 @@ namespace TikTokCalendar
             return false;
         }
 
-        public int HowManyUsersGoing(long id)
+        public int GetUsersGoing(long id)
         {
-            int counter = 0;
+            int count = 0;
             foreach (EventUserStat eus in db.EventUserStats)
             {
                 if (eus.EventID == id)
                 {
-                    counter++;
+                    count++;
                 }
             }
-            return counter;
+            return count;
+        }
+
+        public int GetUsersAttending(long id)
+        {
+            int count = 0;
+            foreach (EventUserStat eus in db.EventUserStats)
+            {
+                if (eus.EventID == id && eus.Attend)
+                {
+                    count++;
+                }
+            }
+            return count;
         }
     }
 }

@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using TikTokCalendar.DAL;
 using TikTokCalendar.Models;
-using System.Diagnostics;
 
 namespace TikTokCalendar.Controllers
 {
@@ -51,7 +47,20 @@ namespace TikTokCalendar.Controllers
 		[ValidateInput(false)]
         public ActionResult Index(string Email, string Password, string tags = "", string lecture = "", string assignment = "", string exam = "", bool filtered = false)
 		{
-			bool lec = false, ass = false, exa = false;
+            // MIDLERTIDIG DATABASEREDIGERING FOR MANDAGEN (LA STÅ)
+            //var db = new CalendarEventContext();
+            //Random rng = new Random();
+            //for (int i = 0; i < 37; i++)
+            //{
+            //    db.EventUserStats.Add(new EventUserStat { UserName = "Name" + rng.Next(0, 999).ToString(), EventID = 1000239, GoingTime = DateTime.Now });
+            //}
+
+            // fjerne
+            //db.EventUserStats.RemoveRange(db.EventUserStats);
+
+            //db.SaveChanges();
+
+            bool lec = false, ass = false, exa = false;
             if (filtered)
             {
                 if (lecture.Length > 0) lec = true;
@@ -224,13 +233,6 @@ namespace TikTokCalendar.Controllers
         [ValidateInput(false)]
         public JsonResult AutoComplete(string search)
 		{
-            /* // static test data (delete eventually)
-            var data = new[] {"Programmering","Spillprogrammering","Intelligente systemer","Mobil apputvikling",
-                "Prosjekt software engineering","Matematikk og fysikk","C++ programmering","",
-                "Game AI","Embedded systems","Mobil utvikling","Ruby on rails",
-                "Avansert javaprogrammering","Undersøkelsesmetoder","Enterprise programmering 2","Innlevering",
-                "Forelesning","Eksamen" };
-            */
             string temp = DataWrapper.Instance.FilterCharacters(search);
             var list = new List<string>();
 
@@ -303,41 +305,48 @@ namespace TikTokCalendar.Controllers
 		{
 			var db = new CalendarEventContext();
 			string userName = cookie.LoadStringFromCookie(Cookies.UserNameCookieKey);
-			//int eventID = Int32.Parse(Request.Form["eventid"]);
+
 			if (userName != "" || userName != null)
 			{
-				if (attend)
+                bool alreadyGoing = false;
+                EventUserStat current = null;
+                foreach (EventUserStat eus in db.EventUserStats)
+                {
+                    if (eus.UserName == userName && eus.EventID == eventid)
+                    {
+                        current = eus;
+                        alreadyGoing = true;
+                        // here: project extension material - calculate score based on eus.GoingTime, add "score" to account.cs
+                    }
+                }
+                if (attend)
 				{
-					bool alreadyGoing = false;
-					foreach (EventUserStat eus in db.EventUserStats)
+					if (alreadyGoing)
 					{
-						if (eus.UserName == userName && eus.EventID == eventid
-							&& !eus.Attend) // just in case
-						{
-							eus.Attend = true;
-							alreadyGoing = true;
-							// here: calculate score based on eus.GoingTime, ADD "SCORE" TO ACCOUNT.CS?
-						}
+                        current.Attend = true;
 					}
-					if (!alreadyGoing)
-					{
-						db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now, Attend = true });
-					}
+                    else
+                    {
+                        db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now, Attend = true });
+                    }
 				}
 				else
 				{
-					db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now });
+                    if (alreadyGoing)
+                    {
+                        db.EventUserStats.Remove(current);
+                    }
+					else
+                    {
+                        db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now }); 
+                    }
 				}
 				db.SaveChanges();
 			}
-			else
-			{
-				// possibly return another view showing error message (maybe do more validation like this?)
-			}
 
 			ModelDataWrapper modelWrapper = new ModelDataWrapper();
-			EUSH_global.ID_ATM = eventid;
-			return PartialView("_UserStatUpdate", modelWrapper);
+            modelWrapper.eventID = eventid;
+            return PartialView("_UserStatUpdate", modelWrapper);
 		}
 
         public ActionResult GetMessage()
