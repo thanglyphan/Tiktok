@@ -183,7 +183,7 @@
                                             </p>
                                         </div>
 
-                                        @if (Model.User.UserName != "" && Model.User.UserName != "NO NAME" && item.MainEventType != TikTokCalendar.Models.MainEventType.Innlevering) {
+                                        @if (Model.User.UserName != "" && Model.User.UserName != "NO NAME" && item.MainEventType == TikTokCalendar.Models.MainEventType.Forelesning) {
                                             using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
                                             {
                                                 HttpMethod = "POST",
@@ -274,7 +274,6 @@
                                             </div>
                                                     
                                         </div>
-                                        }
                                         }
                                         }
                                     </div>
