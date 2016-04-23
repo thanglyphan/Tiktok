@@ -115,6 +115,7 @@ namespace TikTokCalendar.Controllers
 
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, lec, ass, exa);
 			modelWrapper.User = user;
+			modelWrapper.CultureText = CultureManager.GetSavedCultureOrDefault(HttpContext.Request);
 			var rooms = new List<Room>();
 			foreach (var room in DataWrapper.Instance.Rooms)
 			{
@@ -136,6 +137,7 @@ namespace TikTokCalendar.Controllers
 			var modelWrapper = new ModelDataWrapper();
 			modelWrapper.Months = months;
 			modelWrapper.User = user;
+			modelWrapper.CultureText = CultureManager.GetSavedCultureOrDefault(HttpContext.Request);
 
 			// Set availible rooms
 			var rooms = new List<Room>();
