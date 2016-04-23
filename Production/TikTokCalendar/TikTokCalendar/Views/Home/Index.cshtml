@@ -27,422 +27,410 @@
 
 <!-- Holds global settings and spans the entire page -->
 <main>
-<div class="main-body">
+    <div class="main-body">
 
-<!-- Looping throught every month -->
-@foreach (var month in Model.Months)
-{
-    var isCollapsed = "in";
-    if (month.MonthNumber < now.Month && !Model.isFiltered && Model.searchWords == "")
-    {
-        isCollapsed = ""; // true
-    }
-    <div class="goto" id="goto-@month.MonthNumber"></div>
+        <!-- Looping throught every month -->
+        @foreach (var month in Model.Months)
+        {
+            var isCollapsed = "in";
+            if (month.MonthNumber < now.Month && !Model.isFiltered && Model.searchWords == "")
+            {
+                isCollapsed = ""; // true
+            }
+            <div class="goto" id="goto-@month.MonthNumber"></div>
     <!-- Month box e.g. "August" -->
-    <a class="feed-month" data-toggle="collapse" data-target="#month-@month.MonthNumber">
+            <a class="feed-month" data-toggle="collapse" data-target="#month-@month.MonthNumber">
 
-        <span class="badge-container">
+                <span class="badge-container">
                     <span class="badge badge-exam pull-right">@month.GetEventTypeCount(EventType.Eksamen)</span>
                     <span class="badge badge-assignment pull-right">@month.GetEventTypeCount(EventType.Innlevering)</span>
                     <span class="badge badge-lecture pull-right">@month.GetEventTypeCount(EventType.Forelesning)</span>
                 </span>
 
-        <p class="month">
-            @month.GetMonthName()
-        </p>
+                <p class="month">
+                    @month.GetMonthName()
+                </p>
 
-    </a>
+            </a>
     <!-- Container for an entire month of events -->
-    <div class="feed collapse @isCollapsed" id="month-@month.MonthNumber">
+            <div class="feed collapse @isCollapsed" id="month-@month.MonthNumber">
 
-    <!-- Looping throught every week -->
-    @foreach (var week in month.Weeks)
-    {
-        if (week.events.Count <= 0)
-        {
-            continue;
-        }
+                <!-- Looping throught every week -->
+                @foreach (var week in month.Weeks)
+                {
+                    if (week.events.Count <= 0)
+                    {
+                        continue;
+                    }
 
         <!-- Week box e.g. "Uke 2" -->
-        <div class="week-header" id="goto-week-@week.WeekNumber">@week.WeekName</div>
-        <div class="feed-week">
+                    <div class="week-header" id="goto-week-@week.WeekNumber">@week.WeekName</div>
+                    <div class="feed-week">
 
-        <!-- Looping throught every events -->
-        @foreach (var item in week.events)
-        {
-            var today = "";
-            if (item.StartDateTime.Date.Equals(now.Date))
-            {
-                today = "today";
-            }
+                        <!-- Looping throught every events -->
+                        @foreach (var item in week.events)
+                        {
+                            var today = "";
+                            if (item.StartDateTime.Date.Equals(now.Date))
+                            {
+                                today = "today";
+                            }
 
             <!-- Link on every event -->
-            <div class="feed-container @today" id="feed-@item.ID">
+                            <div class="feed-container @today" id="feed-@item.ID">
 
-            <!-- Container for the event content -->
-            <div class="content">
+                                <!-- Container for the event content -->
+                                <div class="content">
 
-            <!-- Container for the top row -->
-            <div class="class-info event-id-@item.ID" data-toggle="modal" data-target="#@item.ID">
-                <div class="class-date">
+                                    <!-- Container for the top row -->
+                                    <div class="class-info event-id-@item.ID" data-toggle="modal" data-target="#@item.ID">
+                                        <div class="class-date">
 
-                    <!-- 17 -->
-                    <p class="date-number">@item.StartDateTime.Day</p>
-                </div>
+                                            <!-- 17 -->
+                                            <p class="date-number">@item.StartDateTime.Day</p>
+                                        </div>
 
-                <!-- tooltip hover extravaganza -->
-                <div class="tip-item">
+                                        <!-- tooltip hover extravaganza -->
+                                        <div class="tip-item">
 
-                    <!-- Check waht type it is -->
-                    @{
-                        var typeClass = "";
-                        var typeText = item.EventTypeLabel;
+                                            <!-- Check waht type it is -->
+                                            @{    var typeClass = "";
+                                                var typeText = item.EventTypeLabel;
 
-                        if (item.MainEventType == MainEventType.Innlevering)
-                        {
-                            typeClass = "assignment";
-                            //typeText = "Innlevering";
-                        } 
-                        else if (item.MainEventType == MainEventType.Eksamen)
-                        {
-                            typeClass = "exam";
-                            //typeText = "Eksamen";
-                        }
-                    }
+                                                if (item.MainEventType == MainEventType.Innlevering)
+                                                {
+                                                    typeClass = "assignment";
+                                                    //typeText = "Innlevering";
+                                                }
+                                                else if (item.MainEventType == MainEventType.Eksamen)
+                                                {
+                                                    typeClass = "exam";
+                                                    //typeText = "Eksamen";
+                                                }
+                                            }
 
-                    <!-- Write event type -->
-                    <p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
-                    <!-- "Grensesnittdesign" -->
-                    <p class="name activator timeleft">@item.Subject.Name</p>
+                                            <!-- Write event type -->
+                                            <p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
+                                            <!-- "Grensesnittdesign" -->
+                                            <p class="name activator timeleft">@item.Subject.Name</p>
 
 
-                    @{
-                        var timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
-                        var lessThanAnHour = false;
-                        var lessThan24 = false;
-                    }
-                    @if (timeLeft != "")
-                    {
-                        if (item.StartDateTime > now.AddHours(24))
-                        {
-                            <div class="tip timeleft">@timeLeft</div>
-                        }
-                        if (item.StartDateTime < now.AddHours(24))
-                        {
-                            if (item.StartDateTime < now.AddHours(1))
-                            {
-                                lessThanAnHour = true;
-                            }
-                            else
-                            {
-                                lessThan24 = true;
-                            }
-                        }
-                    }
-                </div>
-                <div class="right-position">
+                                            @{    var timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
+                                                var lessThanAnHour = false;
+                                                var lessThan24 = false;
+                                            }
+                                            @if (timeLeft != "")
+                                            {
+                                                if (item.StartDateTime > now.AddHours(24))
+                                                {
+                                                    <div class="tip timeleft">@timeLeft</div>
+}
+                                                if (item.StartDateTime < now.AddHours(24))
+                                                {
+                                                    if (item.StartDateTime < now.AddHours(1))
+                                                    {
+                                                        lessThanAnHour = true;
+                                                    }
+                                                    else
+                                                    {
+                                                        lessThan24 = true;
+                                                    }
+                                                }
+                                            }
+                                        </div>
+                                        <div class="right-position">
 
-                    <!-- Room name -->
-                    <p class="room">@item.RoomName</p> <!-- "Rom 41" -->
-                </div>
-            </div>
+                                            <!-- Room name -->
+                                            <p class="room">@item.RoomName</p> <!-- "Rom 41" -->
+                                        </div>
+                                    </div>
 
-            <!-- Container for bottom row -->
-            <div class="time-info">
-                <div class="left-position" data-toggle="modal" data-target="#@item.ID">
-                    <!-- Date and time -->
-                    <p class="time">
-                        <strong>&nbsp;@item.GetDayOfWeek()</strong>@item.GetTimeSlot()
-                        @if (now > item.StartDateTime && now < item.EndDateTime)
-                        {
-                            <b>&nbsp;&nbsp;&nbsp;</b>
-                            <span class="on ">Pågår</span>
-                        }
-                        else if (lessThanAnHour)
-                        {
+                                    <!-- Container for bottom row -->
+                                    <div class="time-info">
+                                        <div class="left-position" data-toggle="modal" data-target="#@item.ID">
+                                            <!-- Date and time -->
+                                            <p class="time">
+                                                <strong>&nbsp;@item.GetDayOfWeek()</strong>@item.GetTimeSlot()
+                                                @if (now > item.StartDateTime && now < item.EndDateTime)
+                                                {
+                                                    <b>&nbsp;&nbsp;&nbsp;</b>
+                                                    <span class="on ">Pågår</span>
+}
+                                                else if (lessThanAnHour)
+                                                {
                             <!-- real time countdown script -->
-                            <script>
-                                $(function() {
-                                    var date = new Date();
-                                    date = new Date(@item.StartDateTime.Year,
-                                        @item.StartDateTime.AddMonths(-1).Month,
-                                        @item.StartDateTime.Day,
-                                        @item.StartDateTime.Hour,
-                                        @item.StartDateTime.Minute,
-                                        @item.StartDateTime.Second);
-                                    $('.countdown-@item.ID')
-                                        .countdown({
-                                            until: date,
-                                            expiryUrl: '' + window.location.href,
-                                            compact: true,
-                                            layout: '&nbsp;{hnn}{sep}{mnn}{sep}{snn}'
-                                        });
-                                });
-                            </script>
-                            <span>&nbsp;|</span>
-                            <span class="countdown-@item.ID"></span>
-                        }
-                        else if (lessThan24)
-                        {
-                            <b>&nbsp;&nbsp;&nbsp;</b>
-                            <span class="countdown">@timeLeft</span>
-                        }
-                    </p>
-                </div>
+                                                    <script>
+                                                        $(function() {
+                                                            var date = new Date();
+                                                            date = new Date(@item.StartDateTime.Year,
+                                                                @item.StartDateTime.AddMonths(-1).Month,
+                                                                @item.StartDateTime.Day,
+                                                                @item.StartDateTime.Hour,
+                                                                @item.StartDateTime.Minute,
+                                                                @item.StartDateTime.Second);
+                                                            $('.countdown-@item.ID')
+                                                                .countdown({
+                                                                    until: date,
+                                                                    expiryUrl: '' + window.location.href,
+                                                                    compact: true,
+                                                                    layout: '&nbsp;{hnn}{sep}{mnn}{sep}{snn}'
+                                                                });
+                                                        });
+                                                    </script>
+                                                    <span>&nbsp;|</span>
+                                                    <span class="countdown-@item.ID"></span>
+}
+                                                else if (lessThan24)
+                                                {
+                                                    <b>&nbsp;&nbsp;&nbsp;</b>
+                                                    <span class="countdown">@timeLeft</span>
+}
+                                            </p>
+                                        </div>
 
-                @if (Model.User.UserName != "" && Model.User.UserName != "NO NAME" && item.MainEventType == MainEventType.Forelesning)
-                {
-                    using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
-                    {
-                        HttpMethod = "POST",
-                        UpdateTargetId = "going-" + item.ID,
-                        InsertionMode = InsertionMode.Replace
-                    }))
-                    {
-                        // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
-                        <div class="check-in" style="margin-left: 200px;" id="going-@item.ID">
-                            @if (now < item.StartDateTime)
-                            {
-                                if (now > item.StartDateTime && now < item.EndDateTime)
-                                {
-                                    var geo = true;
-                                    if (!EUSH.IsUserAttending(item.ID, Model.User.UserName))
-                                    {
-                                        <input type="hidden" name="eventid" value="@item.ID"/>
-                                        <input type="hidden" name="attend" value="true"/>
-                                        <input type="submit" value="innsjekk"/>
-                                    }
-                                    else
-                                    {
-                                        <strong>Innsjekket &#10004;</strong>
-                                    }
-                                }
-                                else
-                                {
-                                    if (!EUSH.UserGoing(item.ID, Model.User.UserName))
-                                    {
-                                        <input type="hidden" name="eventid" value="@item.ID"/>
-                                        <input type="hidden" name="attend" value="false"/>
-                                        <input type="submit" value="skal" class="going-@item.ID"/>
-                                    }
-                                    else
-                                    {
-                                        <strong>Du skal.</strong>
-                                        <input type="hidden" name="eventid" value="@item.ID"/>
-                                        <input type="hidden" name="attend" value="false"/>
-                                        <input type="submit" value="angre" class="going-@item.ID"/>
-                                    }
-                                }
-                            }
-                            <div class="tip-item">
-                                @{
-                                    var howMany = EUSH.GetUsersGoing(item.ID);
-                                    var showTip = "hide";
-                                    if (howMany > 0)
-                                    {
-                                        showTip = ""; // false (hide box if no users to display)
-                                    }
-                                }
-                                <span class="activator usersgoing event-id-@item.ID">
+                                        @if (Model.User.UserName != "" && Model.User.UserName != "NO NAME" && item.MainEventType == MainEventType.Forelesning)
+                                        {
+                                            using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
+                                            {
+                                                HttpMethod = "POST",
+                                                UpdateTargetId = "going-" + item.ID,
+                                                InsertionMode = InsertionMode.Replace
+                                            }))
+                                            {
+                                                // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
+                                                <div class="check-in" style="margin-left: 200px;" id="going-@item.ID">
+                                                    @if (now < item.StartDateTime)
+                                                    {
+                                                        if (now > item.StartDateTime && now < item.EndDateTime)
+                                                        {
+                                                            var geo = true;
+                                                            if (!EUSH.IsUserAttending(item.ID, Model.User.UserName))
+                                                            {
+                                                                <input type="hidden" name="eventid" value="@item.ID" />
+                                                                <input type="hidden" name="attend" value="true" />
+                                                                <input type="submit" value="innsjekk" />
+}
+                                                            else
+                                                            {
+                                                                <strong>Innsjekket &#10004;</strong>
+}
+                                                        }
+                                                        else
+                                                        {
+                                                            if (!EUSH.UserGoing(item.ID, Model.User.UserName))
+                                                            {
+                                                                <input type="hidden" name="eventid" value="@item.ID" />
+                                                                <input type="hidden" name="attend" value="false" />
+                                                                <input type="submit" value="skal" class="going-@item.ID" />
+}
+                                                            else
+                                                            {
+                                                                <strong>Du skal.</strong>
+                                                                <input type="hidden" name="eventid" value="@item.ID" />
+                                                                <input type="hidden" name="attend" value="false" />
+                                                                <input type="submit" value="angre" class="going-@item.ID" />
+}
+                                                        }
+                                                    }
+                                                    <div class="tip-item">
+                                                        @{    var howMany = EUSH.GetUsersGoing(item.ID);
+                                                            var showTip = "hide";
+                                                            if (howMany > 0)
+                                                            {
+                                                                showTip = ""; // false (hide box if no users to display)
+                                                            }
+                                                        }
+                                                        <span class="activator usersgoing event-id-@item.ID">
                                                             @howMany
                                                             @if (now < item.StartDateTime)
                                                             {
                                                                 <text>skal</text>
-                                                            }
+}
                                                             else
                                                             {
                                                                 <text>skulle</text>
-                                                            }
+}
                                                         </span>
-                                <div class="tip usersgoing @showTip">
-                                    <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(item.ID)/@howMany innsjekk</b>
-                                    @{ var names = 0; }
-                                    @foreach (var eus in Model.eventUserStats)
-                                    {
-                                        if (eus.EventID == item.ID)
-                                        {
-                                            <span class="no-linebreak">
-                                            @if (EUSH.IsUserAttending(item.ID, eus.UserName))
-                                            {
-                                                <text>&#10004;</text>
-                                            }
-                                            @eus.UserName<br />
-                                        </span>
-                                            names++;
-                                        }
-                                        if (names >= 24)
-                                        {
-                                            <b class="tip-others no-linebreak">og @(howMany - names) andre</b>
-                                            break;
-                                        }
-                                    }
+                                                        <div class="tip usersgoing @showTip">
+                                                            <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(item.ID)/@howMany innsjekk</b>
+                                                            @{ var names = 0; }
+                                                            @foreach (var eus in Model.eventUserStats)
+                                                            {
+                                                                if (eus.EventID == item.ID)
+                                                                {
+                                                                    <span class="no-linebreak">
+                                                                        @if (EUSH.IsUserAttending(item.ID, eus.UserName))
+                                                                        {
+                                                                            <text>&#10004;</text>
+}
+                                                                        @eus.UserName<br />
+                                                                    </span>names++;
+                                                                }
+                                                                if (names >= 24)
+                                                                {
+                                                                    <b class="tip-others no-linebreak">og @(howMany - names) andre</b>break;
+                                                                }
+                                                            }
+                                                        </div>
+                                                    </div>
+
+                                                </div>      }
+                                                                }
+                                    </div>
                                 </div>
                             </div>
 
-                        </div>
-                    }
-                }
-            </div>
-            </div>
-            </div>
-
             <!-- "More info" modal -->
-            <div class="content-hidden modal fade" id="@item.ID" role="dialog" style="z-index: 1050;">
+                            <div class="content-hidden modal fade" id="@item.ID" role="dialog" style="z-index: 1050;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <!-- Modal header -->
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            @item.Subject.Name
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <table class="table">
+                                                <body>
+                                                    <tr>
+                                                        <td>@Resources.LocalizedText.EventInfoTimeLabel</td>
+                                                        <td>@item.GetDayOfWeek()@item.GetTimeSlot()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@Resources.LocalizedText.EventInfoWeekLabel</td>
+                                                        <td>@week.WeekNumber</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@Resources.LocalizedText.EventInfoRoomLabel</td>
+                                                        <td>@item.RoomName</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@Resources.LocalizedText.EventInfoTeacherLabel</td>
+                                                        <td>@item.Teacher</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@Resources.LocalizedText.EventInfoCommentLabel</td>
+                                                        <td>@item.Comment</td>
+                                                    </tr>
+                                                </body>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>}
+                    </div>                    }
+            </div>                        }
+
+        <!-- Ledige rom modal -->
+        <div class="content-hidden modal fade" id="vis-rom-modal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        @Resources.LocalizedText.AvailibleRoomsWindowName
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body" style="margin: 0;">
+                        <table id="vis-rom-modal" class="table table-bordered table-hover rooms-available">
+                            <tr>
+                                <th>@Resources.LocalizedText.AvailibleRoomOverviewRoomLabel</th>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 10%">8:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width: 10%">9:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width: 10%">10:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width: 10%">11:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width: 10%">12:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width: 10%">13:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width: 10%">14:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width: 10%">15:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width: 10%">16:15</div>
+                                        <div class="progress-bar" role="progressbar" style="width: 10%">17:15</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            @{foreach (var room in Model.Rooms)
+                                {
+                                    <tr>
+                                        <th>(@room.RoomName)</th>
+                                        <td>
+                                            <div class="progress">
+                                                @{    foreach (var timeSlot in room.Availability)
+                                                    {
+                                                        var startHour = (timeSlot.Start.Hour - TimeSlot.StartHour) * 10;
+                                                        var lenght = (timeSlot.GetPercentOfDay() + 2.5).ToString().Replace(",", ".");
+                                                        <div class="progress-bar progress-bar-danger availability-bar" role="progressbar" style="margin-left: @startHour%; width: @lenght%">@timeSlot.Event.Subject.Name</div>
+}
+                                                }
+                                            </div>
+                                        </td>
+                                    </tr>      }
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Log in window modal -->
+        <!-- TODO This hides the modal permanently, this should rather stop the modal from initially showing instead of hiding the whole thing -->
+        @if (!Model.isFiltered && string.IsNullOrEmpty(Model.searchWords))
+        {
+            <div class="content-hidden modal fade" id="login-modal" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
 
                         <!-- Modal header -->
                         <div class="modal-header">
-                            @item.Subject.Name
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            @Resources.LocalizedText.LoginWindowName
                         </div>
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <table class="table">
-                                <body>
-                                    <tr>
-                                        <td>Når</td>
-                                        <td>@item.GetDayOfWeek()@item.GetTimeSlot()</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Uke</td>
-                                        <td>@week.WeekNumber</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rom</td>
-                                        <td>@item.RoomName</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lærer</td>
-                                        <td>@item.Teacher</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kommentar</td>
-                                        <td>@item.Comment</td>
-                                    </tr>
-                                </body>
-                            </table>
-              
+                            @using (Html.BeginForm("LogIn", "Home"))
+                            {
+                                if (Model.FailedLogin)
+                                {
+                            <!-- TODO css wizards: style this -->
+                                    <p>@Resources.LocalizedText.InvalidLoginLabel</p>
+}
+                                <input type="text" class="form-control" id="email" name="username" placeholder="@Resources.LocalizedText.UsernameInputLabel">
+                                <input type="password" class="form-control" id="pwd" name="password" placeholder="@Resources.LocalizedText.PasswordInputLabel">
+
+                                <button type="submit" class="btn btn-md btn-primary btn-block btn-login">@Resources.LocalizedText.LogInButton</button>
+}
+                            <span data-toggle="modal" data-target="#login-modal">
+                                <a class="btn btn-md btn-default btn-block btn-free-rooms" data-toggle="modal" data-target="#vis-rom-modal">@Resources.LocalizedText.ShowAvailibleRoomsButton</a>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
         }
-        </div>
-    }
+
+        @{
+            var show = new Cookies();
+            var hasShownCookieWarning = show.LoadHasShownFromCookie();
+            if (!hasShownCookieWarning)
+            {
+                <div class="jumbotron" id="cookie-warning">
+                    <button type="button" class="close" onclick="closeCookieWarning()">&times;</button>
+                    <p>
+                        <strong>Informasjonskapsler</strong><br />
+                        Denne nettsiden bruker <em>informasjonskapsler</em>. Ved å bruke siden godtar du at disse blir lagret på din maskin.
+                    </p>
+                </div>}
+        }
+
     </div>
-}
-
-<!-- Ledige rom modal -->
-<div class="content-hidden modal fade" id="vis-rom-modal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <!-- Modal header -->
-            <div class="modal-header">
-                Ledige rom
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body" style="margin: 0;">
-                <table id="vis-rom-modal" class="table table-bordered table-hover rooms-available">
-                    <tr>
-                        <th>Rom</th>
-                        <td>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 10%">8:15</div>
-                                <div class="progress-bar" role="progressbar" style="width: 10%">9:15</div>
-                                <div class="progress-bar" role="progressbar" style="width: 10%">10:15</div>
-                                <div class="progress-bar" role="progressbar" style="width: 10%">11:15</div>
-                                <div class="progress-bar" role="progressbar" style="width: 10%">12:15</div>
-                                <div class="progress-bar" role="progressbar" style="width: 10%">13:15</div>
-                                <div class="progress-bar" role="progressbar" style="width: 10%">14:15</div>
-                                <div class="progress-bar" role="progressbar" style="width: 10%">15:15</div>
-                                <div class="progress-bar" role="progressbar" style="width: 10%">16:15</div>
-                                <div class="progress-bar" role="progressbar" style="width: 10%">17:15</div>
-                            </div>
-                        </td>
-                    </tr>
-                    @{
-                        foreach (var room in Model.Rooms)
-                        {
-                            <tr>
-                                <th>(@room.RoomName)</th>
-                                <td>
-                                    <div class="progress">
-                                        @{
-                                            foreach (var timeSlot in room.Availability)
-                                            {
-                                                var startHour = (timeSlot.Start.Hour - TimeSlot.StartHour)*10;
-                                                var lenght = (timeSlot.GetPercentOfDay() + 2.5).ToString().Replace(",", ".");
-                                                <div class="progress-bar progress-bar-danger availability-bar" role="progressbar" style="margin-left: @startHour%; width: @lenght%">@timeSlot.Event.Subject.Name</div>
-                                            }
-                                        }
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-                    }
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Log in window modal -->
-<!-- TODO This hides the modal permanently, this should rather stop the modal from initially showing instead of hiding the whole thing -->
-@if (!Model.isFiltered && string.IsNullOrEmpty(Model.searchWords))
-{
-    <div class="content-hidden modal fade" id="login-modal" role="dialog" data-keyboard="false" data-backdrop="static">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal header -->
-                <div class="modal-header">
-                 
-                    Logg inn
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    @using (Html.BeginForm("LogIn", "Home"))
-                    {
-                        if (Model.FailedLogin)
-                        {
-                            <!-- TODO css wizards: style this -->
-                            <p>Invalid username/password, try again</p>
-                        }
-                        <input type="text" class="form-control" id="email" name="username" placeholder="Brukernavn">
-                        <input type="password" class="form-control" id="pwd" name="password" placeholder="Passord">
-
-                        <button type="submit" class="btn btn-md btn-primary btn-block btn-login">logg inn</button>
-                    }
-                    <span data-toggle="modal" data-target="#login-modal">
-                        <a class="btn btn-md btn-default btn-block btn-free-rooms" data-toggle="modal" data-target="#vis-rom-modal" onclick="userLoggedIn()">vis ledige rom</a>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-}
-
-@{
-    var show = new Cookies();
-    var hasShownCookieWarning = show.LoadHasShownFromCookie();
-    if (!hasShownCookieWarning)
-    {
-        <div class="jumbotron" id="cookie-warning">
-            <button type="button" class="close" onclick="closeCookieWarning()">&times;</button>
-            <p>
-                <strong>Informasjonskapsler</strong><br/>
-                Denne nettsiden bruker <em>informasjonskapsler</em>. Ved å bruke siden godtar du at disse blir lagret på din maskin.
-            </p>
-        </div>
-    }
-}
-
-</div>
 </main>
 
 

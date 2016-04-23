@@ -117,7 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AvailibleRoomsLabel" xml:space="preserve">
+  <data name="AvailibleRoomOverviewRoomLabel" xml:space="preserve">
+    <value>Rom</value>
+    <comment>Navn på kolonnen over rom i romoversikten</comment>
+  </data>
+  <data name="AvailibleRoomsWindowName" xml:space="preserve">
     <value>Ledige rom</value>
     <comment>For tittelen på modalen for visning av ledige rom</comment>
   </data>
@@ -153,9 +157,17 @@
     <value>hendelser funnet</value>
     <comment>Søkeresultater antall hendelser funnet</comment>
   </data>
+  <data name="InvalidLoginLabel" xml:space="preserve">
+    <value>Ugyldig brukernavn/passord, vennligst prøv igjen</value>
+    <comment>Tekst som vises når man logger inn med ugyldig bruker</comment>
+  </data>
   <data name="LogInButton" xml:space="preserve">
     <value>Logg inn</value>
     <comment>Tekst på logg inn knapper</comment>
+  </data>
+  <data name="LoginWindowName" xml:space="preserve">
+    <value>Logg inn</value>
+    <comment>Tittel på loginn vinduet</comment>
   </data>
   <data name="LogOutButton" xml:space="preserve">
     <value>Logg ut</value>
