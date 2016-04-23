@@ -201,9 +201,17 @@
     <value>Brukernavn</value>
     <comment>Placeholder for brukernavn input</comment>
   </data>
+  <data name="AndX" xml:space="preserve">
+    <value>og</value>
+    <comment>For innsjekks-hover (... og x andre)</comment>
+  </data>
   <data name="AttendingButton" xml:space="preserve">
     <value>Skal</value>
     <comment>Knappen for "going" på en event</comment>
+  </data>
+  <data name="CheckedInToOngoing" xml:space="preserve">
+    <value>innsjekket</value>
+    <comment>Tekst for innsjekket</comment>
   </data>
   <data name="NotAttendingButton" xml:space="preserve">
     <value>Skal ikke</value>
@@ -224,6 +232,10 @@
   <data name="XIsAttendingLabel" xml:space="preserve">
     <value>skal</value>
     <comment>Tekst for antall som skal</comment>
+  </data>
+  <data name="XOthers" xml:space="preserve">
+    <value>andre</value>
+    <comment>For innsjekks-hover (... og x andre)</comment>
   </data>
   <data name="YouAreAttendingLabel" xml:space="preserve">
     <value>Du skal</value>

@@ -23,20 +23,20 @@
 
 @if (EUSH.IsUserAttending(Model.eventID, cookie.LoadStringFromCookie("UserName")))
 {
-    <strong>Innsjekket &#10004;</strong>
+    <strong>@Resources.LocalizedText.CheckedInToOngoing &#10004;</strong>
 }
 else if (EUSH.UserGoing(Model.eventID, cookie.LoadStringFromCookie("UserName")))
 {
-    <span>Du skal.</span>
+    <span>@Resources.LocalizedText.YouAreAttendingLabel.</span>
     <input type="hidden" name="eventid" value="@Model.eventID"/>
     <input type="hidden" name="attend" value="false"/>
-    <input type="submit" value="angre" class="going-@Model.eventID"/>
+    <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@Model.eventID"/>
 }
 else
 {
     <input type="hidden" name="eventid" value="@Model.eventID"/>
     <input type="hidden" name="attend" value="false"/>
-    <input type="submit" value="skal" class="going-@Model.eventID"/>
+    <input type="submit" value="@Resources.LocalizedText.AttendingButton" class="going-@Model.eventID"/>
 }
 
 
@@ -44,10 +44,10 @@ else
 
 <div class="tip-item">
 
-    <span class="activator usersgoing">@howMany skal</span>
+    <span class="activator usersgoing">@howMany @Resources.LocalizedText.XIsAttendingLabel</span>
     <div class="tip usersgoing">
 
-        <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(Model.eventID)/@howMany innsjekk</b>
+        <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(Model.eventID)/@howMany @Resources.LocalizedText.CheckedInToOngoing</b>
 
         @{
             var names = 0;
@@ -72,5 +72,4 @@ else
             }
         }
     </div>
-
 </div>

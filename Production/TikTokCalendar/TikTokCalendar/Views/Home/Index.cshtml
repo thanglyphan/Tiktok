@@ -212,7 +212,7 @@
 }
                                                             else
                                                             {
-                                                                <strong>Innsjekket &#10004;</strong>
+                                                                <strong>@Resources.LocalizedText.CheckedInToOngoing &#10004;</strong>
 }
                                                         }
                                                         else
@@ -225,7 +225,7 @@
 }
                                                             else
                                                             {
-                                                                <strong>@Resources.LocalizedText.YouAreAttendingLabel.</strong>
+                                                                <span>@Resources.LocalizedText.YouAreAttendingLabel.</span>
                                                                 <input type="hidden" name="eventid" value="@item.ID" />
                                                                 <input type="hidden" name="attend" value="false" />
                                                                 <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@item.ID" />
@@ -252,7 +252,7 @@ else
 }
                                                         </span>
                                                         <div class="tip usersgoing @showTip">
-                                                            <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(item.ID)/@howMany innsjekk</b>
+                                                            <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(item.ID)/@howMany @Resources.LocalizedText.XIsAttendingLabel</b>
                                                             @{ var names = 0; }
                                                             @foreach (var eus in Model.eventUserStats)
                                                             {
@@ -268,7 +268,7 @@ else
                                                                 }
                                                                 if (names >= 24)
                                                                 {
-                                                                    <b class="tip-others no-linebreak">og @(howMany - names) andre</b>break;
+                                                                    <b class="tip-others no-linebreak">@Resources.LocalizedText.AndX @(howMany - names) @Resources.LocalizedText.XOthers</b>break;
                                                                 }
                                                             }
                                                         </div>

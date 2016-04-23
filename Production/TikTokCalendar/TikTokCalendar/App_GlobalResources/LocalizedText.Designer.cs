@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to og.
+        /// </summary>
+        internal static string AndX {
+            get {
+                return ResourceManager.GetString("AndX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Skal.
         /// </summary>
         internal static string AttendingButton {
@@ -84,6 +93,15 @@ namespace Resources {
         internal static string AvailibleRoomsWindowName {
             get {
                 return ResourceManager.GetString("AvailibleRoomsWindowName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to innsjekket.
+        /// </summary>
+        internal static string CheckedInToOngoing {
+            get {
+                return ResourceManager.GetString("CheckedInToOngoing", resourceCulture);
             }
         }
         
@@ -300,6 +318,15 @@ namespace Resources {
         internal static string XIsAttendingLabel {
             get {
                 return ResourceManager.GetString("XIsAttendingLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to andre.
+        /// </summary>
+        internal static string XOthers {
+            get {
+                return ResourceManager.GetString("XOthers", resourceCulture);
             }
         }
         

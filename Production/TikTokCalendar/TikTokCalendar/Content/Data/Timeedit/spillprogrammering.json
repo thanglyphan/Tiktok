@@ -1391,6 +1391,21 @@
         "Forelesning",
         ""
       ]
+    },
+    {
+      "id": "100015450",
+      "startdate": "23.04.2016",
+      "starttime": "18:15",
+      "enddate": "23.04.2016",
+      "endtime": "19:00",
+      "columns": [
+        "C++ programmering (PG4400-15)",
+        "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
+        "Rom 40",
+        "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
     }
   ]
 }

@@ -225,8 +225,20 @@
     <value>You are attending</value>
     <comment>Tekst for å vise at innlogget bruker skal</comment>
   </data>
+  <data name="AndX" xml:space="preserve">
+    <value>and</value>
+    <comment>For innsjekks-hover (... og x andre)</comment>
+  </data>
+  <data name="CheckedInToOngoing" xml:space="preserve">
+    <value>checked in</value>
+    <comment>Tekst for innsjekket</comment>
+  </data>
   <data name="Ongoing" xml:space="preserve">
     <value>Ongoing</value>
     <comment>Tekst for en event som pågår</comment>
+  </data>
+  <data name="XOthers" xml:space="preserve">
+    <value>others</value>
+    <comment>For innsjekks-hover (... og x andre)</comment>
   </data>
 </root>
