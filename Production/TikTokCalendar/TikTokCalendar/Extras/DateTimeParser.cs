@@ -1,26 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
 
 namespace TikTokCalendar.Extras
 {
 	public class DateTimeParser
 	{
-		private const string dM_Format = "d.M.";// yyyy HH:mm:ss"; // Format for parsing date from eksamen/innlevering data
+		private const string dM_Format = "d.M."; // yyyy HH:mm:ss"; // Format for parsing date from eksamen/innlevering data
 		private const string ddMMyyyy_Format = "dd.MM.yyyy HH:mm:ss"; // Format for parsing date from eksamen/innlevering data
 
 		/// <summary>
-		/// Parses the date and time specified (to the format dd.MM.yyyy HH:mm:ss). Results gives Single on succes, NoDate on fail.
-		/// Checks if the two strings are null.
+		///     Parses the date and time specified (to the format dd.MM.yyyy HH:mm:ss). Results gives Single on succes, NoDate on
+		///     fail.
+		///     Checks if the two strings are null.
 		/// </summary>
 		public DateTime SimpleParse(string date, string time, out DateParseResults results)
 		{
 			results = DateParseResults.NoDate;
 			DateTime dt;
-			if (date != null && time != null && DateTime.TryParseExact($"{date} {time}:00", ddMMyyyy_Format, CultureInfo.InvariantCulture, DateTimeStyles.None, out dt))
+			if (date != null && time != null &&
+			    DateTime.TryParseExact($"{date} {time}:00", ddMMyyyy_Format, CultureInfo.InvariantCulture, DateTimeStyles.None,
+				    out dt))
 			{
 				results = DateParseResults.Single;
 				return dt;
@@ -29,8 +30,10 @@ namespace TikTokCalendar.Extras
 		}
 
 		/// <summary>
-		/// Parses dates from a string. Results is set to Single if only one date was found, Two if two dates, Week if a week was found ("Uke xx"), NoDate if no date was found.
-		/// Returns a list of dates. The list is empty if no dates were found. If a week was found, the first day of that week is returned.
+		///     Parses dates from a string. Results is set to Single if only one date was found, Two if two dates, Week if a week
+		///     was found ("Uke xx"), NoDate if no date was found.
+		///     Returns a list of dates. The list is empty if no dates were found. If a week was found, the first day of that week
+		///     is returned.
 		/// </summary>
 		/// <param name="date">The datestring to parse.</param>
 		/// <param name="results">The results of the parsing.</param>
@@ -38,10 +41,10 @@ namespace TikTokCalendar.Extras
 		public DateTime[] ParseDate(string date, out DateParseResults results)
 		{
 			results = DateParseResults.NoDate;
-			List<DateTime> dates = new List<DateTime>();
+			var dates = new List<DateTime>();
 
-			string pattern = "(\\d)?\\d\\.(\\d)?\\d\\."; // Regex pattern of the dates
-			Match match = Regex.Match(date, pattern); // Find first match
+			var pattern = "(\\d)?\\d\\.(\\d)?\\d\\."; // Regex pattern of the dates
+			var match = Regex.Match(date, pattern); // Find first match
 
 			if (match.Success)
 			{
@@ -54,7 +57,7 @@ namespace TikTokCalendar.Extras
 				}
 
 				// See if there is another match and if the datetext contains "og" (which means there are two dates)
-				Match nextMatch = match.NextMatch();
+				var nextMatch = match.NextMatch();
 				if (date.ToLower().Contains("og") && nextMatch.Success)
 				{
 					// Also parse this date and add it to the list
@@ -95,7 +98,8 @@ namespace TikTokCalendar.Extras
 		{
 			d = DateTime.MinValue;
 			DateTime dt;
-			if (DateTime.TryParseExact(s, dM_Format, CultureInfo.GetCultureInfoByIetfLanguageTag("nb-NO"), DateTimeStyles.None, out dt))
+			if (DateTime.TryParseExact(s, dM_Format, CultureInfo.GetCultureInfoByIetfLanguageTag("nb-NO"), DateTimeStyles.None,
+				out dt))
 			{
 				Console.WriteLine(" Parsed [" + s + "] to: {" + dt + "}");
 				d = dt;
@@ -105,7 +109,7 @@ namespace TikTokCalendar.Extras
 		}
 
 		/// <summary>
-		/// Tries to parse the first date of the week if the string contains a week.
+		///     Tries to parse the first date of the week if the string contains a week.
 		/// </summary>
 		/// <param name="s">String to parse week from.</param>
 		/// <param name="dt">DateTime of the first day of the week</param>
@@ -113,15 +117,15 @@ namespace TikTokCalendar.Extras
 		private bool TryParseWeekToFirstDate(string s, out DateTime dt)
 		{
 			dt = DateTime.MinValue;
-			Match match = Regex.Match(s, "\\d\\d?");
+			var match = Regex.Match(s, "\\d\\d?");
 			if (match.Success)
 			{
-				int week = -1;
+				var week = -1;
 				int.TryParse(match.Value, out week);
 
 				if (week >= 1 && week <= 53)
 				{
-					DateTime firstDate = FirstDateOfWeekISO8601(DateTime.Now.Year, week);
+					var firstDate = FirstDateOfWeekISO8601(DateTime.Now.Year, week);
 					dt = firstDate;
 					return true;
 				}
@@ -130,28 +134,28 @@ namespace TikTokCalendar.Extras
 		}
 
 		/// <summary>
-		/// Borrowed from: http://stackoverflow.com/a/9064954/5853590
+		///     Borrowed from: http://stackoverflow.com/a/9064954/5853590
 		/// </summary>
 		private DateTime FirstDateOfWeekISO8601(int year, int weekOfYear)
 		{
-			DateTime jan1 = new DateTime(year, 1, 1);
-			int daysOffset = DayOfWeek.Thursday - jan1.DayOfWeek;
+			var jan1 = new DateTime(year, 1, 1);
+			var daysOffset = DayOfWeek.Thursday - jan1.DayOfWeek;
 
-			DateTime firstThursday = jan1.AddDays(daysOffset);
+			var firstThursday = jan1.AddDays(daysOffset);
 			var cal = CultureInfo.CurrentCulture.Calendar;
-			int firstWeek = cal.GetWeekOfYear(firstThursday, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+			var firstWeek = cal.GetWeekOfYear(firstThursday, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
 
 			var weekNum = weekOfYear - 1;
 			if (firstWeek <= 1)
 			{
 				weekNum -= 1;
 			}
-			var result = firstThursday.AddDays(weekNum * 7);
+			var result = firstThursday.AddDays(weekNum*7);
 			return result.AddDays(-3).AddHours(-5);
 		}
 
 		/// <summary>
-		/// Returns a weeknumber from a given datetime.
+		///     Returns a weeknumber from a given datetime.
 		/// </summary>
 		/// <param name="dt"></param>
 		/// <returns></returns>
@@ -163,24 +167,27 @@ namespace TikTokCalendar.Extras
 	}
 
 	/// <summary>
-	/// The results of a Date parse
+	///     The results of a Date parse
 	/// </summary>
 	public enum DateParseResults
 	{
 		/// <summary>
-		/// A single date.
+		///     A single date.
 		/// </summary>
 		Single,
+
 		/// <summary>
-		/// Two dates.
+		///     Two dates.
 		/// </summary>
 		Two,
+
 		/// <summary>
-		/// A week.
+		///     A week.
 		/// </summary>
 		Week,
+
 		/// <summary>
-		/// No date-
+		///     No date-
 		/// </summary>
 		NoDate
 	}

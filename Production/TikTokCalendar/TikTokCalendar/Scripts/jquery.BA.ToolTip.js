@@ -28,36 +28,50 @@ THE SOFTWARE.
 
 **/
 
-(function($){
+(function($) {
 
-  $.fn.BAToolTip = function(options) {  
-  
-	//set up default options 
-	var defaults = { 
-		tipClass: 'tip', //the class name for your tip
-		tipFadeEasing: 'easeOutQuint', //easing method
-		tipFadeDuration: 200, //fade duration
-		tipOpacity: 1, //opacity of tip when mouseover
-		tipOffset: 10 //offset the tip relative to mouse cursor in pixels
-	}; 
-  	
-	var opts = $.extend({}, defaults, options); 	
+    $.fn.BAToolTip = function(options) {
 
-    return this.each(function() {  
-	  var $this = $(this);
-	  
-	  $this.mousemove(function(e){
-	  	var parentElementOffset = $this.parent().offset();
-	  	var xPos = e.pageX - parentElementOffset.left;
-   		var yPos = e.pageY - parentElementOffset.top;
-   		$(this).parent().find('.'+opts.tipClass).css({'top': yPos+opts.tipOffset, 'left' : xPos+opts.tipOffset});
-	  	$(this).parent().find('.'+opts.tipClass).css('display', 'block').stop().animate({opacity:opts.tipOpacity},{duration:opts.tipFadeDuration, easing: opts.tipFadeEasing});
-	  })
-	  
-	  $this.mouseout(function(){
-	  	$('.'+opts.tipClass).stop().animate({opacity:0},{duration:opts.tipFadeDuration, easing: opts.tipFadeEasing, complete: function(){ $(this).css('display', 'none') } });
-	  })
-	 
-    });
-  };
+        //set up default options 
+        var defaults = {
+            tipClass: "tip", //the class name for your tip
+            tipFadeEasing: "easeOutQuint", //easing method
+            tipFadeDuration: 200, //fade duration
+            tipOpacity: 1, //opacity of tip when mouseover
+            tipOffset: 10 //offset the tip relative to mouse cursor in pixels
+        };
+
+        var opts = $.extend({}, defaults, options);
+
+        return this.each(function() {
+            var $this = $(this);
+
+            $this.mousemove(function(e) {
+                var parentElementOffset = $this.parent().offset();
+                var xPos = e.pageX - parentElementOffset.left;
+                var yPos = e.pageY - parentElementOffset.top;
+                $(this)
+                    .parent()
+                    .find("." + opts.tipClass)
+                    .css({ 'top': yPos + opts.tipOffset, 'left': xPos + opts.tipOffset });
+                $(this)
+                    .parent()
+                    .find("." + opts.tipClass)
+                    .css("display", "block")
+                    .stop()
+                    .animate({ opacity: opts.tipOpacity },
+                    { duration: opts.tipFadeDuration, easing: opts.tipFadeEasing });
+            });
+            $this.mouseout(function() {
+                $("." + opts.tipClass)
+                    .stop()
+                    .animate({ opacity: 0 },
+                    {
+                        duration: opts.tipFadeDuration,
+                        easing: opts.tipFadeEasing,
+                        complete: function() { $(this).css("display", "none") }
+                    });
+            });
+        });
+    };
 })(jQuery);

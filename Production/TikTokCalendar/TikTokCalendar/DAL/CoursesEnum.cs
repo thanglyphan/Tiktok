@@ -5,7 +5,7 @@
 	IntelligenteSystemer = 3,
 	MobilProgrammering = 4,
 	EBusiness = 5,
-	InteraktivtDesign = 6, 
+	InteraktivtDesign = 6,
 	Spilldesign = 7,
 	BacheloriIT = 8,
 	VisAlt = 9

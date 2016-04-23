@@ -1,7 +1,7 @@
 ﻿@model TikTokCalendar.DAL.ModelDataWrapper
 @{
-    int eventCount = Model.GetEventCount();
-    string searchLine = "";
+    var eventCount = Model.GetEventCount();
+    var searchLine = "";
     if (Model.isFiltered || Model.searchWords.Length > 0)
     {
         searchLine = "border-left: 1px solid #c6cedb;";
@@ -21,9 +21,9 @@
     }
 }
 <!DOCTYPE html>
-<html lang="nb"> <!-- TODO Change nb based on what the Model has -->
+<html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -35,13 +35,13 @@
     <link rel="stylesheet" href="@Url.Content("/Content/font-awesome.min.css")">
     <link rel="stylesheet" href="@Url.Content("/Content/jquery-ui.css")">
     <link rel="stylesheet" href="@Url.Content("/Content/main.css")">
-	<link rel="stylesheet" href="@Url.Content("/Content/bs-modal.css")">
-    <link rel="stylesheet" href= "@Url.Content("/Content/reset.css")">
+    <link rel="stylesheet" href="@Url.Content("/Content/bs-modal.css")">
+    <link rel="stylesheet" href="@Url.Content("/Content/reset.css")">
     <link rel="stylesheet" href="@Url.Content("/Content/mobile.css")">
     <link rel="stylesheet" href="@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.5.5/slicknav.min.css")">
     <link rel="stylesheet" href="@Url.Content("/Content/modal.css")">
-    <link rel="stylesheet" href= "@Url.Content("/Content/vex/vex.css")" />
-    <link rel="stylesheet" href= "@Url.Content("/Content/vex/vex-theme-default.css")" />
+    <link rel="stylesheet" href="@Url.Content("/Content/vex/vex.css")"/>
+    <link rel="stylesheet" href="@Url.Content("/Content/vex/vex-theme-default.css")"/>
 
     @Scripts.Render("~/bundles/random") <!-- lookup: BundleConfig.cs -->
     <script>vex.defaultOptions.className = 'vex-theme-default';</script>
@@ -51,10 +51,11 @@
 </head>
 <body onload="checkLogin()">
 
-    <script>
-        $(function () {
-            $('#tags').autocomplete({
-                source: function (request, response) {
+<script>
+    $(function() {
+        $('#tags')
+            .autocomplete({
+                source: function(request, response) {
                     $.ajax({
                         url: '@Url.Action("AutoComplete")',
                         dataType: "json",
@@ -62,51 +63,53 @@
                         data: {
                             search: $("#tags").val()
                         },
-                        success: function (data) {
+                        success: function(data) {
 
-                            response($.map(data, function (item) {
-                                return {
-                                    label: item
-                                };
-                            }));
+                            response($.map(data,
+                                function(item) {
+                                    return {
+                                        label: item
+                                    };
+                                }));
                         },
-                        error: function (xhr, status, error) {
+                        error: function(xhr, status, error) {
                             alert(error);
                         }
                     });
                 },
                 minLength: 2
             });
-        });
+    });
 
-		
-    </script>
 
-	<!-- The navbar with the tiktok logo  -->
-	<header class="header-desktop">
-		<div class="header-content">
-            <div class="left-1">
-                <a href="/" class="logo">
-                    <i class="fa fa-calendar-check-o fa-2x"></i>
-                </a>
+</script>
+
+<!-- The navbar with the tiktok logo -->
+<header class="header-desktop">
+    <div class="header-content">
+        <div class="left-1">
+            <a href="/" class="logo">
+                <i class="fa fa-calendar-check-o fa-2x"></i>
+            </a>
+        </div>
+
+        <div class="left-2">
+            <div class="ui-widget">
+                <label for="tags"></label>
+
+                @using (Html.BeginForm("Index", "Home"))
+                {
+                    <input id="tags" name="tags" type="text" class="search-box" placeholder="Søk" value="@Model.searchWords"/>
+
+                    <input type="hidden" name="lecture" value="@check1"/>
+                    <input type="hidden" name="assignment" value="@check2"/>
+                    <input type="hidden" name="exam" value="@check3"/>
+                    <input type="hidden" name="filtered" value="true"/>
+                }
             </div>
+        </div>
 
-            <div class="left-2">
-                <div class="ui-widget">
-                    <label for="tags"></label>
-
-                    @using (Html.BeginForm("Index", "Home")) {
-                        <input id="tags" name="tags" type="text" class="search-box" placeholder="@Resources.LocalizedText.SearchLabel" value="@Model.searchWords" />
-
-                        <input type="hidden" name="lecture" value="@check1" />
-                        <input type="hidden" name="assignment" value="@check2" />
-                        <input type="hidden" name="exam" value="@check3" />
-                        <input type="hidden" name="filtered" value="true" />
-                    }
-                </div>
-            </div>
-
-            <span class="results" style="@searchLine">
+        <span class="results" style="@searchLine">
                 @if (Model.isFiltered || Model.searchWords.Length > 0)
                 {
                     if (eventCount > 1)
@@ -124,80 +127,84 @@
                 }
             </span>
 
-            <div class="filter-container">
-                @using (Html.BeginForm("Index", "Home"))
+        <div class="filter-container">
+            @using (Html.BeginForm("Index", "Home"))
+            {
+                <input type="hidden" name="tags" value="@Model.searchWords"/>
+                <div class="filter">
+                    <input id="schoolClass" type="checkbox" name="lecture" @check1 onchange="this.form.submit()"/><label for="schoolClass">
+                        <span>Forelesning</span></label>
+                </div>
+                <div class="filter">
+                    <input id="assignment" type="checkbox" name="assignment" @check2 onchange="this.form.submit()"/><label for="assignment">
+                        <span>Innlevering</span></label>
+                </div>
+                <div class="filter">
+                    <input id="exam" type="checkbox" name="exam" @check3 onchange="this.form.submit()"/><label for="exam">
+                        <span>Eksamen</span></label>
+                </div>
+                <input type="hidden" name="filtered" value="true"/>
+            }
+        </div>
+
+
+        <div class="right-2">
+
+            @if (Model.User.Course == SchoolCourses.VisAlt)
+            {
+                <p>
+                    <a class="logout" data-toggle="modal" data-target="#login-modal">
+                        <span>Logg inn</span><i class="fa fa-sign-in fa-2x"></i>
+                    </a>
+                </p>
+            }
+            else
+            {
+                using (Html.BeginForm("LogOut", "Home"))
                 {
-                    <input type="hidden" name="tags" value="@Model.searchWords" />
-                        <div class="filter"><input id="schoolClass" type="checkbox" name="lecture" @check1 onchange="this.form.submit()" /><label for="schoolClass"><span>Forelesning</span></label></div>
-                        <div class="filter"><input id="assignment" type="checkbox" name="assignment" @check2 onchange="this.form.submit()" /><label for="assignment"><span>Innlevering</span></label></div>
-                        <div class="filter"><input id="exam" type="checkbox" name="exam" @check3 onchange="this.form.submit()" /><label for="exam"><span>Eksamen</span></label></div>
-                        <input type="hidden" name="filtered" value="true" />
+                    <button type="submit" class="btn btn-logout">Logg out, @Model.User.UserName</button>
                 }
-            </div>
+            }
+        </div>
 
-			
+        <div class="right-1">
+            <p class="btn-show-rooms">
+                <span data-toggle="modal" data-target="#vis-rom-modal">Vis ledige rom</span>
+            </p>
+        </div>
 
-			<div class="right-2">
-
-                <!-- TODO: style and position -->
-                @Html.ActionLink("Norsk", "Set", "Language", new { language = "nb" }, null)
-                @Html.ActionLink("English", "Set", "Language", new { language = "en" }, null)
-
-				@if (Model.User.Course == SchoolCourses.VisAlt)
-                {
-                    <p>
-                        <a class="logout" data-toggle="modal" data-target="#login-modal">
-                            <span>Logg inn</span><i class="fa fa-sign-in fa-2x"></i>
-                        </a>
-                    </p>
-                }
-                else
-                {
-                    using (Html.BeginForm("LogOut", "Home"))
-                    {
-                        <button type="submit" class="btn btn-logout">Logg out, @Model.User.UserName</button>
+        <script>
+            function delCookie() {
+                $.ajax({
+                    url: "/Home/DeleteCookies",
+                    type: "POST",
+                    dataType: "json",
+                    success: function(data) {
+                        console.log(data);
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        console.log("Feil ved sletting av cookies [delCookies()]");
                     }
-                }    
-            </div>
+                });
+            }
+        </script>
 
-			<div class="right-1">
-				<p class="btn-show-rooms">
-					<span data-toggle="modal" data-target="#vis-rom-modal">Vis ledige rom</span>
-				</p>
-			</div>
-            
-				<script>
-                    function delCookie() {
-                        $.ajax({
-                            url: "/Home/DeleteCookies",
-                            type: "POST",
-                            dataType: "json",
-                            success: function (data) {
-                                console.log(data);
-                            },
-                            error: function (xhr, ajaxOptions, thrownError) {
-                                console.log("Feil ved sletting av cookies [delCookies()]");
-                            }
-                        });
-                    }
-                </script>
+    </div>
+</header>
 
-            </div>
-	</header>
-	
-    @RenderBody()
+@RenderBody()
 
-	<footer class="footer">
-		
-    </footer>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.5.5/jquery.slicknav.min.js"></script>
-    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZhjS1OmkOX54eiCCHFZ9oKzloPO2kOo4&sensor=false&extension=.js'></script> 
-    @Scripts.Render("~/bundles/showinfo")
-    @Scripts.Render("~/bundles/script")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/tooltip")
-    @Scripts.Render("~/bundles/countdown")
-    @RenderSection("scripts", required: false)
+<footer class="footer">
+
+</footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.5.5/jquery.slicknav.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZhjS1OmkOX54eiCCHFZ9oKzloPO2kOo4&sensor=false&extension=.js"></script>
+@Scripts.Render("~/bundles/showinfo")
+@Scripts.Render("~/bundles/script")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/tooltip")
+@Scripts.Render("~/bundles/countdown")
+@RenderSection("scripts", false)
 
 </body>
 </html>

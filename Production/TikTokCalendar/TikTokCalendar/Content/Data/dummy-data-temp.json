@@ -1,616 +1,616 @@
-{
-    "columnheaders":[
-        "Emne",
-        "Studieprogram",
-        "Rom",
-        "Lærer",
-        "Aktivitet",
-        "Kommentar"
-    ],
-    "info":{
-        "reservationlimit":200,
-        "reservationcount":40
+﻿{
+  "columnheaders": [
+    "Emne",
+    "Studieprogram",
+    "Rom",
+    "Lærer",
+    "Aktivitet",
+    "Kommentar"
+  ],
+  "info": {
+    "reservationlimit": 200,
+    "reservationcount": 40
+  },
+  "reservations": [
+    {
+      "id": "3615",
+      "startdate": "24.08.2015",
+      "starttime": "09:00",
+      "enddate": "24.08.2015",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "",
+        "",
+        "Prosjektuke. All informasjon om oppmøtetider og -steder gis på emnesiden."
+      ]
     },
-    "reservations":[
-        {
-            "id":"3615",
-            "startdate":"24.08.2015",
-            "starttime":"09:00",
-            "enddate":"24.08.2015",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "",
-                "",
-                "Prosjektuke. All informasjon om oppmøtetider og -steder gis på emnesiden."
-            ]
-        },
-        {
-            "id":"3616",
-            "startdate":"25.08.2015",
-            "starttime":"09:00",
-            "enddate":"25.08.2015",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "",
-                "",
-                ""
-            ]
-        },
-        {
-            "id":"3617",
-            "startdate":"26.08.2015",
-            "starttime":"09:00",
-            "enddate":"26.08.2015",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "",
-                "",
-                ""
-            ]
-        },
-        {
-            "id":"3618",
-            "startdate":"27.08.2015",
-            "starttime":"09:00",
-            "enddate":"27.08.2015",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "",
-                "",
-                ""
-            ]
-        },
-        {
-            "id":"3619",
-            "startdate":"28.08.2015",
-            "starttime":"09:00",
-            "enddate":"28.08.2015",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "",
-                "",
-                ""
-            ]
-        },
-        {
-            "id":"3758",
-            "startdate":"31.08.2015",
-            "starttime":"10:15",
-            "enddate":"31.08.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Programvarearkitektur (PG3300-15)",
-                "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3833",
-            "startdate":"02.09.2015",
-            "starttime":"13:15",
-            "enddate":"02.09.2015",
-            "endtime":"17:00",
-            "columns":[
-                "Programmering i C for Linux (PG3400-15)",
-                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Kjetil Raaen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3647",
-            "startdate":"03.09.2015",
-            "starttime":"09:15",
-            "enddate":"03.09.2015",
-            "endtime":"13:00",
-            "columns":[
-                "Avansert Javaprogrammering 1 (PG3100-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 40",
-                "Stein Marthinsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3635",
-            "startdate":"04.09.2015",
-            "starttime":"10:15",
-            "enddate":"04.09.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Algoritmer og datastrukturer (PG4200-15)",
-                "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Lars Sydnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3759",
-            "startdate":"07.09.2015",
-            "starttime":"10:15",
-            "enddate":"07.09.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Programvarearkitektur (PG3300-15)",
-                "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3834",
-            "startdate":"09.09.2015",
-            "starttime":"13:15",
-            "enddate":"09.09.2015",
-            "endtime":"17:00",
-            "columns":[
-                "Programmering i C for Linux (PG3400-15)",
-                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Kjetil Raaen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3648",
-            "startdate":"10.09.2015",
-            "starttime":"09:15",
-            "enddate":"10.09.2015",
-            "endtime":"13:00",
-            "columns":[
-                "Avansert Javaprogrammering 1 (PG3100-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 40",
-                "Stein Marthinsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3894",
-            "startdate":"11.09.2015",
-            "starttime":"10:15",
-            "enddate":"11.09.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Algoritmer og datastrukturer (PG4200-15)",
-                "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Lars Sydnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3760",
-            "startdate":"14.09.2015",
-            "starttime":"10:15",
-            "enddate":"14.09.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Programvarearkitektur (PG3300-15)",
-                "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3835",
-            "startdate":"16.09.2015",
-            "starttime":"13:15",
-            "enddate":"16.09.2015",
-            "endtime":"17:00",
-            "columns":[
-                "Programmering i C for Linux (PG3400-15)",
-                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Kjetil Raaen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3649",
-            "startdate":"17.09.2015",
-            "starttime":"09:15",
-            "enddate":"17.09.2015",
-            "endtime":"13:00",
-            "columns":[
-                "Avansert Javaprogrammering 1 (PG3100-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 40",
-                "Stein Marthinsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3893",
-            "startdate":"18.09.2015",
-            "starttime":"10:15",
-            "enddate":"18.09.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Algoritmer og datastrukturer (PG4200-15)",
-                "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Lars Sydnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3761",
-            "startdate":"21.09.2015",
-            "starttime":"10:15",
-            "enddate":"21.09.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Programvarearkitektur (PG3300-15)",
-                "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3836",
-            "startdate":"23.09.2015",
-            "starttime":"13:15",
-            "enddate":"23.09.2015",
-            "endtime":"17:00",
-            "columns":[
-                "Programmering i C for Linux (PG3400-15)",
-                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Kjetil Raaen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3650",
-            "startdate":"24.09.2015",
-            "starttime":"09:15",
-            "enddate":"24.09.2015",
-            "endtime":"13:00",
-            "columns":[
-                "Avansert Javaprogrammering 1 (PG3100-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 40",
-                "Stein Marthinsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3895",
-            "startdate":"25.09.2015",
-            "starttime":"10:15",
-            "enddate":"25.09.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Algoritmer og datastrukturer (PG4200-15)",
-                "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Lars Sydnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3762",
-            "startdate":"28.09.2015",
-            "starttime":"10:15",
-            "enddate":"28.09.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Programvarearkitektur (PG3300-15)",
-                "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3837",
-            "startdate":"29.09.2015",
-            "starttime":"13:15",
-            "enddate":"29.09.2015",
-            "endtime":"17:00",
-            "columns":[
-                "Programmering i C for Linux (PG3400-15)",
-                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Kjetil Raaen",
-                "Forelesning",
-                "NB! Annen undervisningsdag denne uken. Faglærer oppgir den meget gode grunnen!"
-            ]
-        },
-        {
-            "id":"3651",
-            "startdate":"01.10.2015",
-            "starttime":"09:15",
-            "enddate":"01.10.2015",
-            "endtime":"13:00",
-            "columns":[
-                "Avansert Javaprogrammering 1 (PG3100-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 40",
-                "Stein Marthinsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3896",
-            "startdate":"02.10.2015",
-            "starttime":"10:15",
-            "enddate":"02.10.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Algoritmer og datastrukturer (PG4200-15)",
-                "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Lars Sydnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3763",
-            "startdate":"05.10.2015",
-            "starttime":"10:15",
-            "enddate":"05.10.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Programvarearkitektur (PG3300-15)",
-                "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3838",
-            "startdate":"07.10.2015",
-            "starttime":"13:15",
-            "enddate":"07.10.2015",
-            "endtime":"17:00",
-            "columns":[
-                "Programmering i C for Linux (PG3400-15)",
-                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Kjetil Raaen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3652",
-            "startdate":"08.10.2015",
-            "starttime":"09:15",
-            "enddate":"08.10.2015",
-            "endtime":"13:00",
-            "columns":[
-                "Avansert Javaprogrammering 1 (PG3100-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 40",
-                "Stein Marthinsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3897",
-            "startdate":"09.10.2015",
-            "starttime":"10:15",
-            "enddate":"09.10.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Algoritmer og datastrukturer (PG4200-15)",
-                "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Lars Sydnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3620",
-            "startdate":"12.10.2015",
-            "starttime":"09:00",
-            "enddate":"12.10.2015",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "",
-                "",
-                ""
-            ]
-        },
-        {
-            "id":"3621",
-            "startdate":"13.10.2015",
-            "starttime":"09:00",
-            "enddate":"13.10.2015",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "",
-                "",
-                ""
-            ]
-        },
-        {
-            "id":"3622",
-            "startdate":"14.10.2015",
-            "starttime":"09:00",
-            "enddate":"14.10.2015",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "",
-                "",
-                ""
-            ]
-        },
-        {
-            "id":"3623",
-            "startdate":"15.10.2015",
-            "starttime":"09:00",
-            "enddate":"15.10.2015",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "",
-                "",
-                ""
-            ]
-        },
-        {
-            "id":"3624",
-            "startdate":"16.10.2015",
-            "starttime":"09:00",
-            "enddate":"16.10.2015",
-            "endtime":"15:00",
-            "columns":[
-                "Prosjekt software engineering (PJ3100-15)",
-                "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
-                "",
-                "",
-                "",
-                "Prosjektuke. All informasjon om oppmøtetider og -rom, gis på emnesiden."
-            ]
-        },
-        {
-            "id":"3764",
-            "startdate":"19.10.2015",
-            "starttime":"10:15",
-            "enddate":"19.10.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Programvarearkitektur (PG3300-15)",
-                "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3839",
-            "startdate":"21.10.2015",
-            "starttime":"13:15",
-            "enddate":"21.10.2015",
-            "endtime":"17:00",
-            "columns":[
-                "Programmering i C for Linux (PG3400-15)",
-                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Kjetil Raaen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3653",
-            "startdate":"22.10.2015",
-            "starttime":"09:15",
-            "enddate":"22.10.2015",
-            "endtime":"13:00",
-            "columns":[
-                "Avansert Javaprogrammering 1 (PG3100-15)",
-                "2.klasse, Bachelor Programmering",
-                "Rom 40",
-                "Stein Marthinsen",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3898",
-            "startdate":"23.10.2015",
-            "starttime":"10:15",
-            "enddate":"23.10.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Algoritmer og datastrukturer (PG4200-15)",
-                "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Lars Sydnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3765",
-            "startdate":"26.10.2015",
-            "starttime":"10:15",
-            "enddate":"26.10.2015",
-            "endtime":"14:00",
-            "columns":[
-                "Programvarearkitektur (PG3300-15)",
-                "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Rom 40",
-                "Tomas Sandnes",
-                "Forelesning",
-                ""
-            ]
-        },
-        {
-            "id":"3840",
-            "startdate":"28.10.2015",
-            "starttime":"13:15",
-            "enddate":"28.10.2015",
-            "endtime":"17:00",
-            "columns":[
-                "Programmering i C for Linux (PG3400-15)",
-                "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
-                "Auditoriet",
-                "Kjetil Raaen",
-                "Forelesning",
-                ""
-            ]
-        }
-    ]
+    {
+      "id": "3616",
+      "startdate": "25.08.2015",
+      "starttime": "09:00",
+      "enddate": "25.08.2015",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "3617",
+      "startdate": "26.08.2015",
+      "starttime": "09:00",
+      "enddate": "26.08.2015",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "3618",
+      "startdate": "27.08.2015",
+      "starttime": "09:00",
+      "enddate": "27.08.2015",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "3619",
+      "startdate": "28.08.2015",
+      "starttime": "09:00",
+      "enddate": "28.08.2015",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "3758",
+      "startdate": "31.08.2015",
+      "starttime": "10:15",
+      "enddate": "31.08.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Programvarearkitektur (PG3300-15)",
+        "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Rom 40",
+        "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3833",
+      "startdate": "02.09.2015",
+      "starttime": "13:15",
+      "enddate": "02.09.2015",
+      "endtime": "17:00",
+      "columns": [
+        "Programmering i C for Linux (PG3400-15)",
+        "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Kjetil Raaen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3647",
+      "startdate": "03.09.2015",
+      "starttime": "09:15",
+      "enddate": "03.09.2015",
+      "endtime": "13:00",
+      "columns": [
+        "Avansert Javaprogrammering 1 (PG3100-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 40",
+        "Stein Marthinsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3635",
+      "startdate": "04.09.2015",
+      "starttime": "10:15",
+      "enddate": "04.09.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Algoritmer og datastrukturer (PG4200-15)",
+        "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Lars Sydnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3759",
+      "startdate": "07.09.2015",
+      "starttime": "10:15",
+      "enddate": "07.09.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Programvarearkitektur (PG3300-15)",
+        "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Rom 40",
+        "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3834",
+      "startdate": "09.09.2015",
+      "starttime": "13:15",
+      "enddate": "09.09.2015",
+      "endtime": "17:00",
+      "columns": [
+        "Programmering i C for Linux (PG3400-15)",
+        "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Kjetil Raaen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3648",
+      "startdate": "10.09.2015",
+      "starttime": "09:15",
+      "enddate": "10.09.2015",
+      "endtime": "13:00",
+      "columns": [
+        "Avansert Javaprogrammering 1 (PG3100-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 40",
+        "Stein Marthinsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3894",
+      "startdate": "11.09.2015",
+      "starttime": "10:15",
+      "enddate": "11.09.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Algoritmer og datastrukturer (PG4200-15)",
+        "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Lars Sydnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3760",
+      "startdate": "14.09.2015",
+      "starttime": "10:15",
+      "enddate": "14.09.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Programvarearkitektur (PG3300-15)",
+        "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Rom 40",
+        "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3835",
+      "startdate": "16.09.2015",
+      "starttime": "13:15",
+      "enddate": "16.09.2015",
+      "endtime": "17:00",
+      "columns": [
+        "Programmering i C for Linux (PG3400-15)",
+        "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Kjetil Raaen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3649",
+      "startdate": "17.09.2015",
+      "starttime": "09:15",
+      "enddate": "17.09.2015",
+      "endtime": "13:00",
+      "columns": [
+        "Avansert Javaprogrammering 1 (PG3100-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 40",
+        "Stein Marthinsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3893",
+      "startdate": "18.09.2015",
+      "starttime": "10:15",
+      "enddate": "18.09.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Algoritmer og datastrukturer (PG4200-15)",
+        "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Lars Sydnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3761",
+      "startdate": "21.09.2015",
+      "starttime": "10:15",
+      "enddate": "21.09.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Programvarearkitektur (PG3300-15)",
+        "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Rom 40",
+        "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3836",
+      "startdate": "23.09.2015",
+      "starttime": "13:15",
+      "enddate": "23.09.2015",
+      "endtime": "17:00",
+      "columns": [
+        "Programmering i C for Linux (PG3400-15)",
+        "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Kjetil Raaen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3650",
+      "startdate": "24.09.2015",
+      "starttime": "09:15",
+      "enddate": "24.09.2015",
+      "endtime": "13:00",
+      "columns": [
+        "Avansert Javaprogrammering 1 (PG3100-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 40",
+        "Stein Marthinsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3895",
+      "startdate": "25.09.2015",
+      "starttime": "10:15",
+      "enddate": "25.09.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Algoritmer og datastrukturer (PG4200-15)",
+        "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Lars Sydnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3762",
+      "startdate": "28.09.2015",
+      "starttime": "10:15",
+      "enddate": "28.09.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Programvarearkitektur (PG3300-15)",
+        "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Rom 40",
+        "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3837",
+      "startdate": "29.09.2015",
+      "starttime": "13:15",
+      "enddate": "29.09.2015",
+      "endtime": "17:00",
+      "columns": [
+        "Programmering i C for Linux (PG3400-15)",
+        "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Kjetil Raaen",
+        "Forelesning",
+        "NB! Annen undervisningsdag denne uken. Faglærer oppgir den meget gode grunnen!"
+      ]
+    },
+    {
+      "id": "3651",
+      "startdate": "01.10.2015",
+      "starttime": "09:15",
+      "enddate": "01.10.2015",
+      "endtime": "13:00",
+      "columns": [
+        "Avansert Javaprogrammering 1 (PG3100-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 40",
+        "Stein Marthinsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3896",
+      "startdate": "02.10.2015",
+      "starttime": "10:15",
+      "enddate": "02.10.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Algoritmer og datastrukturer (PG4200-15)",
+        "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Lars Sydnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3763",
+      "startdate": "05.10.2015",
+      "starttime": "10:15",
+      "enddate": "05.10.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Programvarearkitektur (PG3300-15)",
+        "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Rom 40",
+        "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3838",
+      "startdate": "07.10.2015",
+      "starttime": "13:15",
+      "enddate": "07.10.2015",
+      "endtime": "17:00",
+      "columns": [
+        "Programmering i C for Linux (PG3400-15)",
+        "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Kjetil Raaen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3652",
+      "startdate": "08.10.2015",
+      "starttime": "09:15",
+      "enddate": "08.10.2015",
+      "endtime": "13:00",
+      "columns": [
+        "Avansert Javaprogrammering 1 (PG3100-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 40",
+        "Stein Marthinsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3897",
+      "startdate": "09.10.2015",
+      "starttime": "10:15",
+      "enddate": "09.10.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Algoritmer og datastrukturer (PG4200-15)",
+        "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Lars Sydnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3620",
+      "startdate": "12.10.2015",
+      "starttime": "09:00",
+      "enddate": "12.10.2015",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "3621",
+      "startdate": "13.10.2015",
+      "starttime": "09:00",
+      "enddate": "13.10.2015",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "3622",
+      "startdate": "14.10.2015",
+      "starttime": "09:00",
+      "enddate": "14.10.2015",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "3623",
+      "startdate": "15.10.2015",
+      "starttime": "09:00",
+      "enddate": "15.10.2015",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "3624",
+      "startdate": "16.10.2015",
+      "starttime": "09:00",
+      "enddate": "16.10.2015",
+      "endtime": "15:00",
+      "columns": [
+        "Prosjekt software engineering (PJ3100-15)",
+        "2.klasse, Bachelor 3D-grafikk, Bachelor Digital markedsføring, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
+        "",
+        "",
+        "",
+        "Prosjektuke. All informasjon om oppmøtetider og -rom, gis på emnesiden."
+      ]
+    },
+    {
+      "id": "3764",
+      "startdate": "19.10.2015",
+      "starttime": "10:15",
+      "enddate": "19.10.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Programvarearkitektur (PG3300-15)",
+        "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Rom 40",
+        "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3839",
+      "startdate": "21.10.2015",
+      "starttime": "13:15",
+      "enddate": "21.10.2015",
+      "endtime": "17:00",
+      "columns": [
+        "Programmering i C for Linux (PG3400-15)",
+        "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Kjetil Raaen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3653",
+      "startdate": "22.10.2015",
+      "starttime": "09:15",
+      "enddate": "22.10.2015",
+      "endtime": "13:00",
+      "columns": [
+        "Avansert Javaprogrammering 1 (PG3100-15)",
+        "2.klasse, Bachelor Programmering",
+        "Rom 40",
+        "Stein Marthinsen",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3898",
+      "startdate": "23.10.2015",
+      "starttime": "10:15",
+      "enddate": "23.10.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Algoritmer og datastrukturer (PG4200-15)",
+        "2.klasse, 3.klasse, Bachelor Mobil apputvikling, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Lars Sydnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3765",
+      "startdate": "26.10.2015",
+      "starttime": "10:15",
+      "enddate": "26.10.2015",
+      "endtime": "14:00",
+      "columns": [
+        "Programvarearkitektur (PG3300-15)",
+        "2.klasse, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Rom 40",
+        "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "3840",
+      "startdate": "28.10.2015",
+      "starttime": "13:15",
+      "enddate": "28.10.2015",
+      "endtime": "17:00",
+      "columns": [
+        "Programmering i C for Linux (PG3400-15)",
+        "2.klasse, 3.klasse, Bachelor - Intelligente Systemer, Bachelor Programmering, Bachelor Spillprogrammering",
+        "Auditoriet",
+        "Kjetil Raaen",
+        "Forelesning",
+        ""
+      ]
+    }
+  ]
 }

@@ -1,9 +1,9 @@
-$(function () {
+$(function() {
 
-    (function ($) {
-        $.fn.textfill = function (maxFontSize) {
+    (function($) {
+        $.fn.textfill = function(maxFontSize) {
             maxFontSize = parseInt(maxFontSize, 10);
-            return this.each(function () {
+            return this.each(function() {
                 var ourText = $("span", this),
                     parent = ourText.parent(),
                     maxHeight = parent.height(),
@@ -13,9 +13,7 @@ $(function () {
                     newSize = (fontSize * (multiplier - 0.1));
                 ourText.css(
                     "fontSize",
-                    (maxFontSize > 0 && newSize > maxFontSize) ?
-                    maxFontSize :
-                        newSize
+                    (maxFontSize > 0 && newSize > maxFontSize) ? maxFontSize : newSize
                 );
             });
         };
@@ -26,36 +24,39 @@ $(function () {
     $(".mobile-date").textfill();
 
     var lastId = "";
-   
 
-    $('*[class^="feed-container').mouseenter(function () {
-        var eventId = $(this).attr('id');
-        var arrayId = eventId.split('-');
-        lastId = arrayId;
-        toggleOnHover(arrayId[1]);
-    });
 
-    $('*[class^="feed-container').mouseleave(function () {
-        var stringId = '.going-' + lastId;
-        $(stringId).css('visibility', 'hidden');
-    });
+    $('*[class^="feed-container')
+        .mouseenter(function() {
+            var eventId = $(this).attr("id");
+            var arrayId = eventId.split("-");
+            lastId = arrayId;
+            toggleOnHover(arrayId[1]);
+        });
+
+    $('*[class^="feed-container')
+        .mouseleave(function() {
+            var stringId = ".going-" + lastId;
+            $(stringId).css("visibility", "hidden");
+        });
 
     function toggleOnHover(id) {
-        var stringId = '.going-';
+        var stringId = ".going-";
         if (!lastId.isEmpty) {
-            $(stringId + lastId).css('visibility', 'hidden');
+            $(stringId + lastId).css("visibility", "hidden");
         }
 
-        $(stringId + id).css('visibility', 'visible');
+        $(stringId + id).css("visibility", "visible");
         lastId = id;
     }
 
-    $('#menu').slicknav({
-        prependTo: '.mobile-navbar-container'
-    });
+    $("#menu")
+        .slicknav({
+            prependTo: ".mobile-navbar-container"
+        });
 
     function isEmpty(str) {
-        return typeof str == 'string' && !str.trim() || typeof str == 'undefined' || str === null;
+        return typeof str == "string" && !str.trim() || typeof str == "undefined" || str === null;
     }
 
 });

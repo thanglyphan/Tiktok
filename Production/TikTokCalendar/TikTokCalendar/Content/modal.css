@@ -1,8 +1,8 @@
 ﻿.modal-dialog {
     color: #6A7586;
-    max-width: 560px;
     margin: 0 auto;
     margin-top: 54px;
+    max-width: 560px;
 }
 
 .modal-body {
@@ -11,31 +11,23 @@
     margin-right: 50px;
 }
 
-.info-rows {
-    height: 40px;
-}
+.info-rows { height: 40px; }
 
-.info-rows:first-child {
-    margin-top: 20px;
-}
+.info-rows:first-child { margin-top: 20px; }
 
 .modal-left {
     float: left;
     width: 120px;
 }
 
-.modal-left strong {
-    font-weight: normal;
-}
+.modal-left strong { font-weight: normal; }
 
-.modal-right {
-    float: left;
-}
+.modal-right { float: left; }
 
 .vex-dialog-input form {
     margin: 0 auto;
-    margin-top: 5px;
     margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .vex-dialog-input label {
@@ -43,11 +35,9 @@
     font-weight: normal;
 }
 
-.vex-dialog-input input {
-    float: left;
-}
+.vex-dialog-input input { float: left; }
 
 form .class-box {
-    width: 33%;
     float: left;
+    width: 33%;
 }
