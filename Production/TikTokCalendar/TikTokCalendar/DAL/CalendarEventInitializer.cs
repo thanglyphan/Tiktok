@@ -5,7 +5,6 @@ using System.Globalization;
 using System.IO;
 using System.Web;
 using Newtonsoft.Json;
-using TikTokCalendar.Encoder;
 using TikTokCalendar.Models;
 
 // Class for initializing the database. 
@@ -173,63 +172,7 @@ namespace TikTokCalendar.DAL
 			}
 			context.CalendarEvents.AddRange(liste);
 			context.SaveChanges();
-
-			// Accounts
-			var accounts = new List<Account>
-			{
-				new Account
-				{
-					UserName = "test",
-					Password = SHA1.Encode("test"),
-					CourseID = 2,
-					SemesterID = 3,
-					Email = "test@test.com",
-					Role = "Admin",
-					RememberMe = false
-				},
-				new Account
-				{
-					UserName = "prog",
-					Password = SHA1.Encode("test"),
-					CourseID = 1,
-					SemesterID = 3,
-					Email = "test@test.com",
-					Role = "User",
-					RememberMe = false
-				},
-				new Account
-				{
-					UserName = "spill",
-					Password = SHA1.Encode("test"),
-					CourseID = 2,
-					SemesterID = 3,
-					Email = "test@test.com",
-					Role = "User",
-					RememberMe = false
-				},
-				new Account
-				{
-					UserName = "sys",
-					Password = SHA1.Encode("test"),
-					CourseID = 3,
-					SemesterID = 3,
-					Email = "test@test.com",
-					Role = "User",
-					RememberMe = false
-				},
-				new Account
-				{
-					UserName = "broken",
-					Password = SHA1.Encode("test"),
-					CourseID = 1,
-					SemesterID = 0,
-					Email = "test@test.com",
-					Role = "User",
-					RememberMe = false
-				}
-			};
-			accounts.ForEach(a => context.Accounts.Add(a));
-			context.SaveChanges();
+			
 		}
 
 		/// <summary>
