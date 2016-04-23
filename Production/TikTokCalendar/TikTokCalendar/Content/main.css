@@ -298,6 +298,13 @@ input[type="checkbox"]:checked + label {
     font-size: 2em; 
 }
 
+#login-modal p.fail-login {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	color: red;
+	text-align: center;
+}
+
 /*===================================
   COOKIE INFORMATION/WARNING
 ===================================*/
