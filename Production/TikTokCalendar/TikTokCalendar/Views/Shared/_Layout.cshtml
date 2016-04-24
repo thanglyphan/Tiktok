@@ -32,7 +32,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    <link rel="stylesheet" href="@Url.Content("/Content/font-awesome.min.css")">
+    <link href="@Url.Content("/Content/font-awesome.min.css")" rel="stylesheet" />
     <link rel="stylesheet" href="@Url.Content("/Content/jquery-ui.css")">
     <link rel="stylesheet" href="@Url.Content("/Content/main.css")">
     <link rel="stylesheet" href="@Url.Content("/Content/bs-modal.css")">
@@ -147,38 +147,43 @@
                     </div>
                     <input type="hidden" name="filtered" value="true" />}
             </div>
-            <i class="fa fa-bars" aria-hidden="true"></i>
-            <i class="fa fa-bars"></i>
+     
             <div class="right-2">
 
                 <div class="dropdown">
-                    <i class="fa fa-bars dropbtn"></i>
-                    <ul class="dropdown-content">
-                        <li>   
-                            <!-- TODO: style and position -->
-                            @Html.ActionLink("Norsk", "Set", "Language", new { language = "nb" }, null)
-                            @Html.ActionLink("English", "Set", "Language", new { language = "en" }, null)
-                            @if (Model.User.Course == SchoolCourses.VisAlt)
-                            {
-                                <p>
-                                    <a class="logout" data-toggle="modal" data-target="#login-modal">
-                                        <span>@Resources.LocalizedText.LogInButton</span><i class="fa fa-sign-in fa-2x"></i>
-                                    </a>
-                                </p>}
-                            else
-                            {
-                                using (Html.BeginForm("LogOut", "Home"))
+                    <button class="dropbtn"><i class="fa fa-cog fa-2x"></i></button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li>
+                                <!-- TODO: style and position -->
+                                <img src="~/img/no.jpg" />@Html.ActionLink("Norsk", "Set", "Language", new { language = "nb" }, null)
+                                </li>
+                            <li>
+                                <img src="~/img/gb.jpg" />@Html.ActionLink("English", "Set", "Language", new { language = "en" }, null)
+                              </li>
+                            <li>
+                                  @if (Model.User.Course == SchoolCourses.VisAlt)
                                 {
-                                    <button type="submit" class="btn btn-logout">@Resources.LocalizedText.LogOutButton, @Model.User.UserName</button>
+                                    <p>
+                                        <a class="logout" data-toggle="modal" data-target="#login-modal">
+                                            <span>@Resources.LocalizedText.LogInButton</span>
+                                        </a>
+                                    </p>}
+                                else
+                                {
+                                    using (Html.BeginForm("LogOut", "Home"))
+                                    {
+                                        <button type="submit" class="btn btn-logout">@Resources.LocalizedText.LogOutButton</button>
+                                    }
                                 }
-                            }
-                        </li>
-                        <li>
-                            <p class="btn-show-rooms">
-                                <span data-toggle="modal" data-target="#vis-rom-modal">@Resources.LocalizedText.ShowAvailibleRoomsButton</span>
-                            </p>
-                        </li>
-                    </ul>
+                            </li>
+                            <li>
+                                <p class="btn-show-rooms">
+                                    <span data-toggle="modal" data-target="#vis-rom-modal">@Resources.LocalizedText.ShowAvailibleRoomsButton</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
 
