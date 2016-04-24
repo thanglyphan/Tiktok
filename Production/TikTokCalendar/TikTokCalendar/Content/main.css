@@ -553,11 +553,12 @@ input[class^="going-"]:hover {
 
 .feed-container .content .time-info {
     color: #474f5c;
-    float: right;
+    float: left;
     font-weight: 300;
     height: 50%;
     margin: 0 auto;
     margin-right: 30px;
+	margin-left: 100px;
     position: relative;
     width: 77%;
 }
