@@ -189,13 +189,11 @@
     <Compile Include="DAL\Cookies.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DAL\CoursesEnum.cs" />
-    <Compile Include="DAL\CustomEventMonth.cs" />
-    <Compile Include="DAL\CustomEventWeek.cs" />
+    <Compile Include="Models\CoursesEnum.cs" />
+    <Compile Include="Models\CustomEventMonth.cs" />
+    <Compile Include="Models\CustomEventWeek.cs" />
     <Compile Include="DAL\DataParser.cs" />
-    <Compile Include="DAL\EventMonth.cs" />
-    <Compile Include="DAL\ExamInit.cs" />
-    <Compile Include="DAL\ModelDataWrapper.cs" />
+    <Compile Include="Models\ModelDataWrapper.cs" />
     <Compile Include="DAL\Room.cs" />
     <Compile Include="DAL\StudentUser.cs" />
     <Compile Include="DAL\TimeSlot.cs" />
@@ -209,7 +207,6 @@
     <Compile Include="LoginCallback.ashx.cs">
       <DependentUpon>LoginCallback.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Models\CalendarEvent.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseSubject.cs" />
     <Compile Include="Models\CustomEvent.cs" />
@@ -336,7 +333,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
