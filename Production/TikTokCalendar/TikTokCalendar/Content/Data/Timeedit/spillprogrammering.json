@@ -12,13 +12,13 @@
     "reservationcount": 40
   },
   "reservations": [
-
+    //Monday test template
     {
       "id": "1100145",
-      "startdate": "24.04.2016",
-      "starttime": "19:13",
-      "enddate": "24.04.2016",
-      "endtime": "21:00",
+      "startdate": "25.04.2016",
+      "starttime": "10:15",
+      "enddate": "25.04.2016",
+      "endtime": "16:00",
       "columns": [
         "Matematikk og fysikk (RF3100-15)",
         "2.klasse, Bachelor Spillprogrammering",
