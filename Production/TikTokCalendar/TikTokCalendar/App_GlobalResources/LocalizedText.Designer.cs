@@ -304,6 +304,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Se emnesiden for rom.
+        /// </summary>
+        internal static string RoomInfoOnITL {
+            get {
+                return ResourceManager.GetString("RoomInfoOnITL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Innlevering.
         /// </summary>
         internal static string SearchAssignmentLabel {

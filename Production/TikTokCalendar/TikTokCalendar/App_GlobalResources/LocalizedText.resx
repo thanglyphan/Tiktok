@@ -297,4 +297,8 @@
     <value>uker til</value>
     <comment>For countdown til eventer</comment>
   </data>
+  <data name="RoomInfoOnITL" xml:space="preserve">
+    <value>Se emnesiden for rom</value>
+    <comment>Hva som vises hvis det ikke er noen rom</comment>
+  </data>
 </root>
