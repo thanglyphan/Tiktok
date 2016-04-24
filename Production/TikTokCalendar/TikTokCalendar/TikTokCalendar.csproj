@@ -186,11 +186,9 @@
     <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="DAL\CalendarEventContext.cs" />
     <Compile Include="DAL\CalendarEventInitializer.cs" />
-    <Compile Include="DAL\CalendarModelView.cs" />
     <Compile Include="DAL\Cookies.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DAL\CourseInfoHelper.cs" />
     <Compile Include="DAL\CoursesEnum.cs" />
     <Compile Include="DAL\CustomEventMonth.cs" />
     <Compile Include="DAL\CustomEventWeek.cs" />

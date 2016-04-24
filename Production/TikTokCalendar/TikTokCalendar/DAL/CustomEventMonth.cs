@@ -12,8 +12,6 @@ namespace TikTokCalendar.DAL
 		{
 			MonthNumber = monthNumber;
 			Weeks = new List<CustomEventWeek>();
-			//firstDate = new DateTime(DateTime.Now.Year, monthNumber, 1);
-			//FirstWeekOfMonthNumber = firstDate.GetWeekNumberOfYear();
 		}
 
 		public int MonthNumber { get; set; }
@@ -22,8 +20,6 @@ namespace TikTokCalendar.DAL
 
 		public void AddEvent(CustomEvent evnt)
 		{
-			//int weekNr = evnt.StartDateTime.GetWeekNumberOfYear();
-			//weekNr = weekNr / MonthNumber;
 			var evntWeekNr = evnt.StartDateTime.GetWeekNumberOfYear();
 			var weekNr = evntWeekNr - FirstWeekOfMonthNumber;
 			Weeks[weekNr].events.Add(evnt);
@@ -31,7 +27,6 @@ namespace TikTokCalendar.DAL
 
 		public string GetMonthName()
 		{
-			//return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(MonthNumber).FirstCharToUpper();
 			string monthName = CultureManager.CurrentCulture.DateTimeFormat.GetMonthName(MonthNumber);
 			return monthName.FirstCharToUpper();
 		}
