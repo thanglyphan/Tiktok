@@ -200,61 +200,58 @@
                                             }))
                                             {
                                                 // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
-                                                <div class="check-in" style="margin-left: 200px;" id="going-@item.ID">
-                                                    @if (now < item.StartDateTime)
-                                                    {
-                                                        if (now > item.StartDateTime && now < item.EndDateTime)
+                                                <div class="check-in" id="going-@item.ID">
+                                                        @{ string pressed = ""; }
+                                                        @if (now > item.StartDateTime && now < item.EndDateTime)
                                                         {
-                                                            var geo = true;
                                                             if (!EUSH.IsUserAttending(item.ID, Model.User.UserName))
                                                             {
-                                                                <input type="submit" value="innsjekk" />
                                                                 <input type="hidden" name="eventid" value="@item.ID" />
                                                                 <input type="hidden" name="attend" value="true" />
-                                                                
-}
+                                                                <input type="submit" class="button" value="@Resources.LocalizedText.CheckInButton" />
+                                                            }
                                                             else
                                                             {
-                                                                <strong>@Resources.LocalizedText.CheckedInToOngoing &#10004;</strong>
+                                                                pressed = "color: #373d48"; // true
+                                                                <span class="user-going-status" style="@pressed">&#10004;</span>
                                                             }
                                                         }
-                                                        else
+                                                        else if (now < item.StartDateTime)
                                                         {
-                                                            if (!EUSH.UserGoing(item.ID, Model.User.UserName))
+                                                            if (EUSH.UserGoing(item.ID, Model.User.UserName))
                                                             {
-                                                                <input type="submit" value="@Resources.LocalizedText.AttendingButton" class="going-@item.ID" />
+                                                                pressed = "color: #373d48";
                                                                 <input type="hidden" name="eventid" value="@item.ID" />
                                                                 <input type="hidden" name="attend" value="false" />
-                                                                
-}
+                                                                <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@item.ID button" />
+                                                            }
                                                             else
                                                             {
-                                                                <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@item.ID" />
-                                                                <span>@Resources.LocalizedText.YouAreAttendingLabel.</span>
                                                                 <input type="hidden" name="eventid" value="@item.ID" />
                                                                 <input type="hidden" name="attend" value="false" />
-                                                               
-}
+                                                                <input type="submit" value="@Resources.LocalizedText.AttendingButton" class="going-@item.ID button" />
+                                                            }
                                                         }
-                                                    }
                                                     <div class="tip-item">
-                                                        @{    var howMany = EUSH.GetUsersGoing(item.ID);
+                                                        @{  var howMany = EUSH.GetUsersGoing(item.ID);
                                                             var showTip = "hide";
                                                             if (howMany > 0)
                                                             {
                                                                 showTip = ""; // false (hide box if no users to display)
                                                             }
                                                         }
-                                                        <span class="activator usersgoing event-id-@item.ID">
-                                                            @howMany
-                                                            @if (now < item.StartDateTime)
-                                                            {
-                                                                <text>@Resources.LocalizedText.XIsAttendingLabel</text>
-}
-else
-{
-                                                                <text>@Resources.LocalizedText.XDidAttendLabel</text>
-}
+                                                        <span class="activator usersgoing event-id-@item.ID" style="@pressed">
+                                                            <span class="users-going" style="@pressed">
+                                                                @howMany
+                                                                @if (now < item.StartDateTime)
+                                                                {
+                                                                    <text>@Resources.LocalizedText.XIsAttendingLabel</text>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <text>@Resources.LocalizedText.XDidAttendLabel</text>
+                                                                }
+                                                            </span>
                                                         </span>
                                                         <div class="tip usersgoing @showTip">
                                                             <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(item.ID)/@howMany @Resources.LocalizedText.XIsAttendingLabel</b>
@@ -268,19 +265,28 @@ else
                                                                         {
                                                                             <text>&#10004;</text>
 }
-                                                                        @eus.UserName<br />
-                                                                    </span>names++;
+                                                                        @if (eus.UserName == Model.User.UserName)
+                                                                        {
+                                                                            <b>@eus.UserName<br /></b>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            @eus.UserName<br />
+                                                                        } 
+                                                                    </span>
+                                                                    names++;
                                                                 }
                                                                 if (names >= 24)
                                                                 {
-                                                                    <b class="tip-others no-linebreak">@Resources.LocalizedText.AndX @(howMany - names) @Resources.LocalizedText.XOthers</b>break;
+                                                                    <b class="tip-others no-linebreak">@Resources.LocalizedText.AndX @(howMany - names) @Resources.LocalizedText.XOthers</b>
+                                                                    break;
                                                                 }
                                                             }
                                                         </div>
                                                     </div>
-
-                                                </div>      }
-                                                                }
+                                                </div>
+                                            }
+                                        }
                                     </div>
                                 </div>
                             </div>

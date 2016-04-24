@@ -921,3 +921,25 @@ input[class^="going-"]:hover {
 .btn-show-rooms {
     color: #999;
 }
+
+/*======================================
+  NOT PLACED YET
+=======================================*/
+
+.button {
+    float: left;
+}
+
+.user-going-status {
+    float: right;
+    font-weight: bold;
+    position: absolute;
+    margin: 5px 5px;
+    font-size: 1.1em;
+    color: #a4b0c3;
+}
+
+.users-going {
+    margin-top: 5px;
+    display: block;
+}

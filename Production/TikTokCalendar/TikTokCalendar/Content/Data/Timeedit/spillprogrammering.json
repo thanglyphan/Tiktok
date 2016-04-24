@@ -12,6 +12,23 @@
     "reservationcount": 40
   },
   "reservations": [
+
+    {
+      "id": "1100145",
+      "startdate": "24.04.2016",
+      "starttime": "19:13",
+      "enddate": "24.04.2016",
+      "endtime": "21:00",
+      "columns": [
+        "Matematikk og fysikk (RF3100-15)",
+        "2.klasse, Bachelor Spillprogrammering",
+        "Rom 82",
+        "Lars Sydnes",
+        "Forelesning",
+        ""
+      ]
+    },
+
     {
       "id": "4563",
       "startdate": "04.01.2016",

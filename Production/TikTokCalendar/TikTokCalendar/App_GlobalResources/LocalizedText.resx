@@ -301,4 +301,7 @@
     <value>Se emnesiden for rom</value>
     <comment>Hva som vises hvis det ikke er noen rom</comment>
   </data>
+  <data name="CheckInButton" xml:space="preserve">
+    <value>innsjekk</value>
+  </data>
 </root>

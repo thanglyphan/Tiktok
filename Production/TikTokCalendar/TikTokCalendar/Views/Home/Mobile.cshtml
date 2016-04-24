@@ -1,15 +1,17 @@
 ﻿@using TikTokCalendar.DAL
+@using TikTokCalendar.Extras
+@using TikTokCalendar.Models
 @model TikTokCalendar.DAL.ModelDataWrapper
 @{
     var TimeLeft = new TimeLeft();
     var EUSH = new EventUserStatHandler();
-    var cookie = new Cookies();
+    var now = DateTime.Now;
 
-    var flag1 = false;
-    var flag2 = false;
-    var flag3 = false;
-    var flag4 = false;
-    var flag5 = false;
+    var anchor = 1;
+    if (Model.searchWords == "")
+    {
+        anchor = Utils.GetWeekNumberOfYear(now);
+    }
 }
 
 <main class="mobile-main">
@@ -37,71 +39,71 @@
 {
     foreach (var week in month.Weeks)
     {
-        foreach (var day in week.events)
+        foreach (var item in week.events)
         {
             <section class="mobile-content">
                 <div class="mobile-content-container">
-                    <div class="mobile-date-top">@day.StartDateTime.Day.ToString() @month.GetMonthName()</div>
+                    <div class="mobile-date-top">@item.StartDateTime.Day.ToString() @month.GetMonthName()</div>
                     <div class="mobile-content-container-inner">
-                        <div class="tip-day">
+                        <div class="tip-item">
                             <!-- Course name e.g. "Grensesnittdesign"-->
                             <div class="mobile-room">
-                                <span>@day.RoomName</span></div>
+                                <span>@item.RoomName</span></div>
 
                         </div>
                         <!-- Room name e.g. "Rom 40"-->
                         <a href="https://goo.gl/maps/aPxpk8pxvQS2">
                             <img src="~/img/maps.png" class="map-image"/>
                         </a>
-                        <div class="mobile-course">@day.Subject.Name</div>
+                        <div class="mobile-course">@item.Subject.Name</div>
 
                         <!-- Format time to show double 00 if the clock is 14:00 (if not it shows 14:0) -->
                         @{
                             var startTime = "";
                             var endTime = "";
                             var whichDay = "";
-                            if (day.StartDateTime.Minute == 0)
+                            if (item.StartDateTime.Minute == 0)
                             {
                                 startTime = "00";
                             }
                             else
                             {
-                                startTime = day.StartDateTime.Minute.ToString();
+                                startTime = item.StartDateTime.Minute.ToString();
                             }
-                            if (day.EndDateTime.Minute == 0)
+                            if (item.EndDateTime.Minute == 0)
                             {
                                 endTime = "00";
                             }
                             else
                             {
-                                endTime = day.EndDateTime.Minute.ToString();
+                                endTime = item.EndDateTime.Minute.ToString();
                             }
 
 
-                            if (day.StartDateTime.Date.Equals(DateTime.Now.Date))
+                            if (item.StartDateTime.Date.Equals(now.Date))
                             {
                                 whichDay = "i dag";
                             }
                             else
                             {
                                 var shortMonthName = month.GetMonthName().Substring(0, 3);
-                                whichDay = day.StartDateTime.Day + " " + shortMonthName;
+                                whichDay = item.StartDateTime.Day + " " + shortMonthName;
                             }
                         }
 
                         <!-- Showing date e.g. "i dag, 10:15 - 14:00" -->
-                        <div class="mobile-date">@day.StartDateTime.Hour:@startTime - @day.EndDateTime.Hour:@endTime</div>
+                        <div class="mobile-date">@item.StartDateTime.Hour:@startTime - @item.EndDateTime.Hour:@endTime</div>
                         <!-- TimeLeft & countdown -->
                         @{
-                            var timeLeft = TimeLeft.GetTimeLeft(day.StartDateTime);
+                            var timeLeft = TimeLeft.GetTimeLeft(item.StartDateTime);
                             var lessThanAnHour = false;
                             var lessThan24 = false;
                         }
                         @if (timeLeft != "")
                         {
-                            if (day.StartDateTime < DateTime.Now.AddHours(24))
+                            if (item.StartDateTime < now.AddHours(24))
                             {
-                                if (day.StartDateTime < DateTime.Now.AddHours(1))
+                                if (item.StartDateTime < now.AddHours(1))
                                 {
                                     lessThanAnHour = true;
                                 }
@@ -111,7 +113,7 @@
                                 }
                             }
                         }
-                        @if (DateTime.Now > day.StartDateTime && DateTime.Now < day.EndDateTime)
+                        @if (now > item.StartDateTime && now < item.EndDateTime)
                         {
                             <b>&nbsp;&nbsp;&nbsp;</b>
                             <span class="ongoing">Pågår</span>
@@ -122,13 +124,13 @@
                             <script>
                                 $(function() {
                                     var date = new Date();
-                                    date = new Date(@day.StartDateTime.Year,
-                                        @day.StartDateTime.AddMonths(-1).Month,
-                                        @day.StartDateTime.Day,
-                                        @day.StartDateTime.Hour,
-                                        @day.StartDateTime.Minute,
-                                        @day.StartDateTime.Second);
-                                    $('.countdown-@day.ID')
+                                    date = new Date(@item.StartDateTime.Year,
+                                        @item.StartDateTime.AddMonths(-1).Month,
+                                        @item.StartDateTime.Day,
+                                        @item.StartDateTime.Hour,
+                                        @item.StartDateTime.Minute,
+                                        @item.StartDateTime.Second);
+                                    $('.countdown-@item.ID')
                                         .countdown({
                                             until: date,
                                             expiryUrl: '' + window.location.href,
@@ -137,7 +139,7 @@
                                         });
                                 });
                             </script>
-                            <span class="countdown-@day.ID"></span>
+                            <span class="countdown-@item.ID"></span>
                         }
                         else if (lessThan24)
                         {
@@ -149,71 +151,101 @@
                         </div>
 
                         <!-- GOING -->
-
-                        @using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
+                        @if (Model.User.UserName != "" && Model.User.UserName != "NO NAME" && item.MainEventType == MainEventType.Forelesning)
+                        {
+                        using (Ajax.BeginForm("UserStatUpdate", "Home", new AjaxOptions
                         {
                             HttpMethod = "POST",
-                            UpdateTargetId = "going-" + day.ID,
+                            UpdateTargetId = "going-" + item.ID,
                             InsertionMode = InsertionMode.Replace
                         }))
                         {
                             // Everything in this div is replaced by content in _UserStatUpdate.cshtml on button press
-                            <div class="check-in" id="going-@day.ID">
-                                @if (DateTime.Now > day.StartDateTime && DateTime.Now < day.EndDateTime)
+                            <div class="check-in" id="going-@item.ID">
+                                @{ string pressed = ""; }
+                                @if (now > item.StartDateTime && now < item.EndDateTime)
                                 {
-                                    if (!EUSH.IsUserAttending(day.ID, cookie.LoadStringFromCookie("UserName")))
+                                    if (!EUSH.IsUserAttending(item.ID, Model.User.UserName))
                                     {
-                                        <input type="hidden" name="eventid" value="@day.ID"/>
+                                        <input type="hidden" name="eventid" value="@item.ID"/>
                                         <input type="hidden" name="attend" value="true"/>
-                                        <input type="submit" value="Check-in"/>
+                                        <input type="submit" class="button" value="@Resources.LocalizedText.CheckInButton" />
                                     }
                                     else
                                     {
-                                        <strong>Innsjekket &#10004;</strong>
+                                        pressed = "color: #373d48"; // true
+                                        <span class="user-going-status" style="@pressed">&#10004;</span>
                                     }
                                 }
-                                else
+                                else if (now < item.StartDateTime)
                                 {
-                                    if (!EUSH.UserGoing(day.ID, cookie.LoadStringFromCookie("UserName")))
+                                    if (EUSH.UserGoing(item.ID, Model.User.UserName))
                                     {
-                                        <input type="hidden" name="eventid" value="@day.ID"/>
-                                        <input type="hidden" name="attend" value="false"/>
-                                        <input type="submit" value="Going" class="going-@day.ID"/>
+                                        pressed = "color: #373d48";
+                                        <input type="hidden" name="eventid" value="@item.ID" />
+                                        <input type="hidden" name="attend" value="false" />
+                                        <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@item.ID button" />
                                     }
                                     else
                                     {
-                                        <strong>going</strong>
+                                        <input type="hidden" name="eventid" value="@item.ID" />
+                                        <input type="hidden" name="attend" value="false" />
+                                        <input type="submit" value="@Resources.LocalizedText.AttendingButton" class="going-@item.ID button" />
                                     }
                                 }
-                                <div class="tip-day">
-                                    @{
-                                        var howMany = EUSH.GetUsersGoing(day.ID);
+                                <div class="tip-item">
+                                    @{  var howMany = EUSH.GetUsersGoing(item.ID);
                                         var showTip = "hide";
                                         if (howMany > 0)
                                         {
-                                            showTip = ""; // false (hide box if no users to display)
+                                            showTip = ""; // false
                                         }
                                     }
-                                    <span class="activator usersgoing event-id-@day.ID">@howMany going</span>
+                                    <span class="activator usersgoing event-id-@item.ID" style="@pressed">
+                                        @howMany
+                                        @if (now < item.StartDateTime)
+                                        {
+                                            <text>@Resources.LocalizedText.XIsAttendingLabel</text>
+                                        }
+                                        else
+                                        {
+                                            <text>@Resources.LocalizedText.XDidAttendLabel</text>
+                                        }
+                                    </span>
                                     <div class="tip usersgoing @showTip">
+                                        <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(item.ID)/@howMany @Resources.LocalizedText.XIsAttendingLabel</b>
+                                        @{ var names = 0; }
                                         @foreach (var eus in Model.eventUserStats)
                                         {
-                                            if (eus.EventID == day.ID)
+                                            if (eus.EventID == item.ID)
                                             {
                                                 <span class="no-linebreak">
-                                                @if (EUSH.IsUserAttending(day.ID, cookie.LoadStringFromCookie("UserName")))
-                                                {
-                                                    <text>&#10004;</text>
-                                                }
-                                                @eus.UserName<br />
-                                            </span>
+                                                    @if (EUSH.IsUserAttending(item.ID, eus.UserName))
+                                                    {
+                                                        <text>&#10004;</text>
+                                                    }
+                                                    @if (eus.UserName == Model.User.UserName)
+                                                    {
+                                                        <b>@eus.UserName<br /></b>
+                                                    }
+                                                    else
+                                                    {
+                                                        @eus.UserName<br />
+                                                    }
+                                                </span>
+                                                names++;
+                                            }
+                                            if (names >= 24)
+                                            {
+                                                <b class="tip-others no-linebreak">@Resources.LocalizedText.AndX @(howMany - names) @Resources.LocalizedText.XOthers</b>
+                                                break;
                                             }
                                         }
                                     </div>
                                 </div>
                             </div>
                         }
-
+                    }
                     </div>
                 </div>
             </section>
