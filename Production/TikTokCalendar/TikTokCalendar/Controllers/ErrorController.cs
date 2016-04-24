@@ -5,14 +5,14 @@ namespace TikTokCalendar.Controllers
 {
 	public class ErrorController : Controller
 	{
-		public ViewResult Index()
+		public PartialViewResult Index()
 		{
-			return View("Error");
+			return PartialView();
 		}
-		public ViewResult NotFound()
+		public PartialViewResult NotFound()
 		{
 			Response.StatusCode = 200;
-			return View("NotFound");
+			return PartialView();
 		}
 	}
 }
