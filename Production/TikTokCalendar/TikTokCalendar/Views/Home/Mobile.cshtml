@@ -161,7 +161,7 @@
                             <div class="check-in" id="going-@day.ID">
                                 @if (DateTime.Now > day.StartDateTime && DateTime.Now < day.EndDateTime)
                                 {
-                                    if (!EUSH.UserAttending(day.ID, cookie.LoadStringFromCookie("UserName")))
+                                    if (!EUSH.IsUserAttending(day.ID, cookie.LoadStringFromCookie("UserName")))
                                     {
                                         <input type="hidden" name="eventid" value="@day.ID"/>
                                         <input type="hidden" name="attend" value="true"/>
@@ -174,7 +174,7 @@
                                 }
                                 else
                                 {
-                                    if (!EUSH.UserGoing(day.ID))
+                                    if (!EUSH.UserGoing(day.ID, cookie.LoadStringFromCookie("UserName")))
                                     {
                                         <input type="hidden" name="eventid" value="@day.ID"/>
                                         <input type="hidden" name="attend" value="false"/>
@@ -187,7 +187,7 @@
                                 }
                                 <div class="tip-day">
                                     @{
-                                        var howMany = EUSH.HowManyUsersGoing(day.ID);
+                                        var howMany = EUSH.GetUsersGoing(day.ID);
                                         var showTip = "hide";
                                         if (howMany > 0)
                                         {
@@ -201,7 +201,7 @@
                                             if (eus.EventID == day.ID)
                                             {
                                                 <span class="no-linebreak">
-                                                @if (EUSH.UserAttending(day.ID, eus.UserName))
+                                                @if (EUSH.IsUserAttending(day.ID, cookie.LoadStringFromCookie("UserName")))
                                                 {
                                                     <text>&#10004;</text>
                                                 }

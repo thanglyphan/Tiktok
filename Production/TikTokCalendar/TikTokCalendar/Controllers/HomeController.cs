@@ -208,7 +208,7 @@ namespace TikTokCalendar.Controllers
 			bool exam = true)
 		{
 			var user = GetUserFromNameCourse();
-			var dataParser = new DataParser();
+			//var dataParser = new DataParser();
 			dataParser.ParseAllData();
 
 			if (cookie.LoadStringFromCookie(Cookies.UserNameCookieKey) != null)
@@ -231,7 +231,7 @@ namespace TikTokCalendar.Controllers
 			{
 				modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, true, true, true);
 			}
-
+			modelWrapper.User = user;
 			return View(modelWrapper); //.calEvents);
 		}
 

@@ -353,6 +353,7 @@
     <Content Include="Views\Home\_UserStatUpdate.cshtml" />
     <Content Include="Views\Shared\Rooms.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
