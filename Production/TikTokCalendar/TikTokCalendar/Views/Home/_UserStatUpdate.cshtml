@@ -3,7 +3,12 @@
 @{
     var EUSH = new EventUserStatHandler();
     var cookie = new Cookies();
+    string username = cookie.LoadStringFromCookie("UserName");
+
     var howMany = EUSH.GetUsersGoing(Model.eventID);
+
+    string pressed = "";
+    var names = 0;
 }
 <div style="display: none">
     <!-- this is strange but needed -->
@@ -21,37 +26,32 @@
 </div>
 
 
-@if (EUSH.IsUserAttending(Model.eventID, cookie.LoadStringFromCookie("UserName")))
+@if (EUSH.IsUserAttending(Model.eventID, username))
 {
-    <strong>@Resources.LocalizedText.CheckedInToOngoing &#10004;</strong>
+    pressed = "color: #373d48"; // true
+    <span class="user-going-status" style="@pressed">&#10004;</span>
 }
-else if (EUSH.UserGoing(Model.eventID, cookie.LoadStringFromCookie("UserName")))
+else if (EUSH.UserGoing(Model.eventID, username))
 {
-    <span>@Resources.LocalizedText.YouAreAttendingLabel.</span>
+    pressed = "color: #373d48";
     <input type="hidden" name="eventid" value="@Model.eventID"/>
     <input type="hidden" name="attend" value="false"/>
-    <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@Model.eventID"/>
+    <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@Model.eventID button"/>
 }
 else
 {
     <input type="hidden" name="eventid" value="@Model.eventID"/>
     <input type="hidden" name="attend" value="false"/>
-    <input type="submit" value="@Resources.LocalizedText.AttendingButton" class="going-@Model.eventID"/>
+    <input type="submit" value="@Resources.LocalizedText.AttendingButton" class="going-@Model.eventID button"/>
 }
 
 
 <!-- hover box displaying users -->
 
 <div class="tip-item">
-
-    <span class="activator usersgoing">@howMany @Resources.LocalizedText.XIsAttendingLabel</span>
+    <span class="activator usersgoing" style="@pressed"><span class="users-going">@howMany @Resources.LocalizedText.XIsAttendingLabel</span></span>
     <div class="tip usersgoing">
-
         <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(Model.eventID)/@howMany @Resources.LocalizedText.CheckedInToOngoing</b>
-
-        @{
-            var names = 0;
-        }
         @foreach (var eus in Model.eventUserStats)
         {
             if (eus.EventID == Model.eventID)
@@ -61,13 +61,20 @@ else
                     {
                         <text>&#10004;</text>
                     }
-                    @eus.UserName<br />
+                    @if (eus.UserName == username)
+                    {
+                        <b>@eus.UserName<br /></b>
+                    }
+                    else
+                    {
+                        @eus.UserName<br />
+                    } 
                 </span>
                 names++;
             }
             if (names >= 24)
             {
-                <b class="tip-others no-linebreak">og @(howMany - names) andre</b>
+                <b class="tip-others no-linebreak">@Resources.LocalizedText.AndX @(howMany - names) @Resources.LocalizedText.XOthers</b>
                 break;
             }
         }

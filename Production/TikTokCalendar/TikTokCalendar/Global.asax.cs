@@ -3,6 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using TikTokCalendar.Controllers;
 
 namespace TikTokCalendar
 {
@@ -23,21 +24,18 @@ namespace TikTokCalendar
 			if (httpRequest.Browser.IsMobileDevice)
 			{
 				var path = httpRequest.Url.PathAndQuery;
-				var isOnMobilePage = path.StartsWith("/Home/Mobile/",
-					StringComparison.OrdinalIgnoreCase);
+				var isOnMobilePage = path.StartsWith("/Home/Mobile/", StringComparison.OrdinalIgnoreCase);
 				if (!isOnMobilePage)
 				{
 					var redirectTo = "~/Home/Mobile/";
-
-					// Could also add special logic to redirect from certain 
-					// recognized pages to the mobile equivalents of those 
-					// pages (where they exist). For example,
-					// if (HttpContext.Current.Handler is UserRegistration)
-					//     redirectTo = "~/Mobile/Register.aspx";
-
 					HttpContext.Current.Response.Redirect(redirectTo);
 				}
 			}
+		}
+
+		protected void Application_AcquireRequestState(object sender, EventArgs e)
+		{
+			CultureManager.UpdateCulture(Context.Request.RequestContext.HttpContext.Request); // Wow
 		}
 	}
 }

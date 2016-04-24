@@ -106,6 +106,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to innsjekk.
+        /// </summary>
+        internal static string CheckInButton {
+            get {
+                return ResourceManager.GetString("CheckInButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kommentar.
         /// </summary>
         internal static string EventInfoCommentLabel {
