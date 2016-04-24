@@ -454,7 +454,7 @@ input[type="checkbox"]:checked + label {
     color: #474f5c;
     cursor: pointer;
     display: block;
-    height: 11em;
+    height: 13em;
 }
 
 #today { animation: pulse 3s ease-in-out infinite; }
@@ -507,7 +507,7 @@ input[class^="going-"]:hover {
 
 .feed-container .content {
     height: 80%;
-    padding-top: 15px;
+    padding-top: 22px;
     width: 100%;
 }
 
@@ -574,15 +574,18 @@ input[class^="going-"]:hover {
     float: left;
     font-size: 2em;
     font-weight: 400;
-    margin-right: 14px;
     padding: 4px;
 }
 
 
-.exam { background-color: #FF5A5F; }
+.exam { 
+    background-color: #FF5A5F; 
+}
 
 
-.assignment { background-color: #FFCF51; }
+.assignment { 
+    background-color: #FFCF51; 
+}
 
 
 .feed-container .content .time-info .left-position { float: left; }
