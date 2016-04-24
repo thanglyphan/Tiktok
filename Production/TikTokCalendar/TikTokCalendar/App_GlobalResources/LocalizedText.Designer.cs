@@ -151,7 +151,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Èn hendelse funnet.
+        ///   Looks up a localized string similar to Én hendelse funnet.
         /// </summary>
         internal static string Filter1EventFoundLabel {
             get {
@@ -214,6 +214,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mange år til.
+        /// </summary>
+        internal static string ManyYearsAway {
+            get {
+                return ResourceManager.GetString("ManyYearsAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Skal ikke.
         /// </summary>
         internal static string NotAttendingButton {
@@ -223,11 +232,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Èn dag til.
+        /// </summary>
+        internal static string OneDayAway {
+            get {
+                return ResourceManager.GetString("OneDayAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to En time til.
+        /// </summary>
+        internal static string OneHourAway {
+            get {
+                return ResourceManager.GetString("OneHourAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ett minutt til.
+        /// </summary>
+        internal static string OneMinuteAway {
+            get {
+                return ResourceManager.GetString("OneMinuteAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pågår.
         /// </summary>
         internal static string Ongoing {
             get {
                 return ResourceManager.GetString("Ongoing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Over én måned til.
+        /// </summary>
+        internal static string OverAMonthAway {
+            get {
+                return ResourceManager.GetString("OverAMonthAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Over et år til.
+        /// </summary>
+        internal static string OverAYearAway {
+            get {
+                return ResourceManager.GetString("OverAYearAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Over.
+        /// </summary>
+        internal static string OverX {
+            get {
+                return ResourceManager.GetString("OverX", resourceCulture);
             }
         }
         
@@ -286,6 +349,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To uker til.
+        /// </summary>
+        internal static string ToWeeksAway {
+            get {
+                return ResourceManager.GetString("ToWeeksAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Brukernavn.
         /// </summary>
         internal static string UsernameInputLabel {
@@ -304,11 +376,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to dager til.
+        /// </summary>
+        internal static string XDaysAway {
+            get {
+                return ResourceManager.GetString("XDaysAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to skulle.
         /// </summary>
         internal static string XDidAttendLabel {
             get {
                 return ResourceManager.GetString("XDidAttendLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to timer til.
+        /// </summary>
+        internal static string XHoursAway {
+            get {
+                return ResourceManager.GetString("XHoursAway", resourceCulture);
             }
         }
         
@@ -322,6 +412,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to minutter til.
+        /// </summary>
+        internal static string XMinutesAway {
+            get {
+                return ResourceManager.GetString("XMinutesAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to måneder til.
+        /// </summary>
+        internal static string XMonthsAway {
+            get {
+                return ResourceManager.GetString("XMonthsAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to andre.
         /// </summary>
         internal static string XOthers {
@@ -331,7 +439,25 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Du skal.
+        ///   Looks up a localized string similar to Sekunder igjen:.
+        /// </summary>
+        internal static string XSecondsAway {
+            get {
+                return ResourceManager.GetString("XSecondsAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to uker til.
+        /// </summary>
+        internal static string XWeeksAway {
+            get {
+                return ResourceManager.GetString("XWeeksAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to skal.
         /// </summary>
         internal static string YouAreAttendingLabel {
             get {

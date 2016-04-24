@@ -241,4 +241,60 @@
     <value>skal</value>
     <comment>Tekst for å vise at innlogget bruker skal</comment>
   </data>
+  <data name="ManyYearsAway" xml:space="preserve">
+    <value>Mange år til</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="OneDayAway" xml:space="preserve">
+    <value>Èn dag til</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="OneHourAway" xml:space="preserve">
+    <value>En time til</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="OneMinuteAway" xml:space="preserve">
+    <value>Ett minutt til</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="OverAMonthAway" xml:space="preserve">
+    <value>Over én måned til</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="OverAYearAway" xml:space="preserve">
+    <value>Over et år til</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="OverX" xml:space="preserve">
+    <value>Over</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="ToWeeksAway" xml:space="preserve">
+    <value>To uker til</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="XDaysAway" xml:space="preserve">
+    <value>dager til</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="XHoursAway" xml:space="preserve">
+    <value>timer til</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="XMinutesAway" xml:space="preserve">
+    <value>minutter til</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="XMonthsAway" xml:space="preserve">
+    <value>måneder til</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="XSecondsAway" xml:space="preserve">
+    <value>Sekunder igjen:</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="XWeeksAway" xml:space="preserve">
+    <value>uker til</value>
+    <comment>For countdown til eventer</comment>
+  </data>
 </root>

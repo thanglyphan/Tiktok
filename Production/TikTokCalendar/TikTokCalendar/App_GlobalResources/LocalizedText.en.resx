@@ -241,4 +241,60 @@
     <value>others</value>
     <comment>For innsjekks-hover (... og x andre)</comment>
   </data>
+  <data name="ManyYearsAway" xml:space="preserve">
+    <value>Many years away</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="OneDayAway" xml:space="preserve">
+    <value>One day away</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="OneHourAway" xml:space="preserve">
+    <value>One hour away</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="OneMinuteAway" xml:space="preserve">
+    <value>One minute away</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="OverAMonthAway" xml:space="preserve">
+    <value>Over a month away</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="OverAYearAway" xml:space="preserve">
+    <value>Over a year away</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="OverX" xml:space="preserve">
+    <value>Over</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="ToWeeksAway" xml:space="preserve">
+    <value>To week away</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="XDaysAway" xml:space="preserve">
+    <value>days away</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="XHoursAway" xml:space="preserve">
+    <value>hours away</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="XMinutesAway" xml:space="preserve">
+    <value>minutes away</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="XMonthsAway" xml:space="preserve">
+    <value>months away</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="XSecondsAway" xml:space="preserve">
+    <value>Second away:</value>
+    <comment>For countdown til eventer</comment>
+  </data>
+  <data name="XWeeksAway" xml:space="preserve">
+    <value>weeks away</value>
+    <comment>For countdown til eventer</comment>
+  </data>
 </root>
