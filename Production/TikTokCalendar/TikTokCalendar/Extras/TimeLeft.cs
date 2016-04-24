@@ -25,18 +25,18 @@ namespace TikTokCalendar
 									{
 										if (item < DateTime.Now.AddMinutes(1))
 										{
-											timeLeft = "Sekunder igjen: " + (int) Math.Round((item - DateTime.Now).TotalSeconds, 4);
+											timeLeft = Resources.LocalizedText.XSecondsAway + " " + (int) Math.Round((item - DateTime.Now).TotalSeconds, 4);
 										}
 										else
 										{
 											var mins = (int) Math.Floor((item - DateTime.Now).TotalMinutes);
 											if (mins > 1)
 											{
-												timeLeft = "" + mins + " minutter til";
+												timeLeft = "" + mins + " " + Resources.LocalizedText.XMinutesAway;
 											}
 											else
 											{
-												timeLeft = "Ett minutt til";
+												timeLeft = Resources.LocalizedText.OneMinuteAway;
 											}
 										}
 									}
@@ -45,11 +45,11 @@ namespace TikTokCalendar
 										var hours = (int) Math.Floor((item - DateTime.Now).TotalHours);
 										if (hours > 1)
 										{
-											timeLeft = "" + hours + " timer til";
+											timeLeft = "" + hours + " " + Resources.LocalizedText.XHoursAway;
 										}
 										else
 										{
-											timeLeft = "Én time til";
+											timeLeft = Resources.LocalizedText.OneHourAway;
 										}
 									}
 								}
@@ -58,22 +58,22 @@ namespace TikTokCalendar
 									var days = (int) Math.Ceiling((item - DateTime.Now).TotalDays);
 									if (days > 1)
 									{
-										timeLeft = "" + days + " dager til";
+										timeLeft = "" + days + " " + Resources.LocalizedText.XDaysAway;
 									}
 									else
 									{
-										timeLeft = "Én dag til";
+										timeLeft = Resources.LocalizedText.OneDayAway;
 									}
 									if (days == 14)
 									{
-										timeLeft = "To uker til";
+										timeLeft = Resources.LocalizedText.ToWeeksAway;
 									}
 								}
 							}
 							else
 							{
 								var weeks = (int) Math.Floor((item - DateTime.Now).TotalDays/7);
-								timeLeft = "Over " + weeks + " uker til";
+								timeLeft = Resources.LocalizedText.OverX + " " + weeks + " " + Resources.LocalizedText.XWeeksAway;
 							}
 						}
 						else
@@ -81,22 +81,22 @@ namespace TikTokCalendar
 							var months = (item.Year - DateTime.Now.Year)*12 + item.Month - DateTime.Now.Month;
 							if (months > 1)
 							{
-								timeLeft = "Over " + months + " måneder til";
+								timeLeft = Resources.LocalizedText.OverX + " " + months + " " + Resources.LocalizedText.XMonthsAway;
 							}
 							else
 							{
-								timeLeft = "Over én måned til";
+								timeLeft = Resources.LocalizedText.OverAMonthAway;
 							}
 						}
 					}
 					else
 					{
-						timeLeft = "Over et år til";
+						timeLeft = Resources.LocalizedText.OverAYearAway;
 					}
 				}
 				else
 				{
-					timeLeft = "Mange år til";
+					timeLeft = Resources.LocalizedText.ManyYearsAway;
 				}
 			}
 			else
