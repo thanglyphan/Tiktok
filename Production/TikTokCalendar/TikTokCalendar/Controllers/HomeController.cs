@@ -65,19 +65,6 @@ namespace TikTokCalendar.Controllers
 			// Parse all the JSON data
 			dataParser.ParseAllData();
 
-			// MIDLERTIDIG DATABASEREDIGERING FOR MANDAGEN (LA STÅ)
-			//var db = new CalendarEventContext();
-			//Random rng = new Random();
-			//for (int i = 0; i < 37; i++)
-			//{
-			//    db.EventUserStats.Add(new EventUserStat { UserName = "Name" + rng.Next(0, 999).ToString(), EventID = 1000239, GoingTime = DateTime.Now });
-			//}
-
-			// fjerne
-			//db.EventUserStats.RemoveRange(db.EventUserStats);
-
-			//db.SaveChanges();
-
 			bool lec = false, ass = false, exa = false;
 			if (filtered)
 			{
