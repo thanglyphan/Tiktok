@@ -131,7 +131,7 @@ header .header-content .right-2 .right-1 p {
     margin-top: -3px;
 }
 
-header .header-content .right-2 i { display: none; }
+header .header-content .right-2 i {}
 
 /* Left container */
 
@@ -159,7 +159,54 @@ header .header-content .left-2 {
     width: 200px;
 }
 
-/* Search */
+/* Dropdown Button */
+.dropbtn {
+    background-color: white;
+    font-size: 1.3em;
+    padding-top: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn i {
+  color: #bbb;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content img {
+    height: 15px;
+    width: 20px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
 /* AT: SEARCH (JQUERY-UI REPLACEMENT )  */
 
@@ -413,7 +460,7 @@ input[type="checkbox"]:checked + label {
     color: #474f5c;
     cursor: pointer;
     display: block;
-    height: 11em;
+    height: 13em;
 }
 
 #today { animation: pulse 3s ease-in-out infinite; }
@@ -466,7 +513,7 @@ input[class^="going-"]:hover {
 
 .feed-container .content {
     height: 80%;
-    padding-top: 15px;
+    padding-top: 22px;
     width: 100%;
 }
 
@@ -533,15 +580,18 @@ input[class^="going-"]:hover {
     float: left;
     font-size: 2em;
     font-weight: 400;
-    margin-right: 14px;
     padding: 4px;
 }
 
 
-.exam { background-color: #FF5A5F; }
+.exam { 
+    background-color: #FF5A5F; 
+}
 
 
-.assignment { background-color: #FFCF51; }
+.assignment { 
+    background-color: #FFCF51; 
+}
 
 
 .feed-container .content .time-info .left-position { float: left; }
@@ -866,10 +916,8 @@ input[class^="going-"]:hover {
     font-size: 1.15em;
     margin: 0;
     padding: 0;
-    padding-top: 19px;
 }
 
 .btn-show-rooms {
     color: #999;
-    padding-top: 21px !important;
 }

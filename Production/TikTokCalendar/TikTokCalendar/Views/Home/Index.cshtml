@@ -93,24 +93,7 @@
                                         <!-- tooltip hover extravaganza -->
                                         <div class="tip-item">
 
-                                            <!-- Check waht type it is -->
-                                            @{    var typeClass = "";
-                                                var typeText = item.EventTypeLabel;
 
-                                                if (item.MainEventType == MainEventType.Innlevering)
-                                                {
-                                                    typeClass = "assignment";
-                                                    //typeText = "Innlevering";
-                                                }
-                                                else if (item.MainEventType == MainEventType.Eksamen)
-                                                {
-                                                    typeClass = "exam";
-                                                    //typeText = "Eksamen";
-                                                }
-                                            }
-
-                                            <!-- Write event type -->
-                                            <p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
                                             <!-- "Grensesnittdesign" -->
                                             <p class="name activator timeleft">@item.Subject.Name</p>
 
@@ -139,6 +122,25 @@
                                             }
                                         </div>
                                         <div class="right-position">
+
+                                            <!-- Check what type it is -->
+                                            @{    var typeClass = "";
+                                                var typeText = item.EventTypeLabel;
+
+                                                if (item.MainEventType == MainEventType.Innlevering)
+                                                {
+                                                    typeClass = "assignment";
+                                                    //typeText = "Innlevering";
+                                                }
+                                                else if (item.MainEventType == MainEventType.Eksamen)
+                                                {
+                                                    typeClass = "exam";
+                                                    //typeText = "Eksamen";
+                                                }
+                                            }
+
+                                            <!-- Write event type -->
+                                            <p class="@typeClass">@typeText</p> <!-- "Forelesning" -->
 
                                             <!-- Room name -->
                                             <p class="room">@item.RoomName</p> <!-- "Rom 41" -->
@@ -206,29 +208,32 @@
                                                             var geo = true;
                                                             if (!EUSH.IsUserAttending(item.ID, Model.User.UserName))
                                                             {
+                                                                <input type="submit" value="innsjekk" />
                                                                 <input type="hidden" name="eventid" value="@item.ID" />
                                                                 <input type="hidden" name="attend" value="true" />
-                                                                <input type="submit" value="innsjekk" />
+                                                                
 }
                                                             else
                                                             {
                                                                 <strong>@Resources.LocalizedText.CheckedInToOngoing &#10004;</strong>
-}
+                                                            }
                                                         }
                                                         else
                                                         {
                                                             if (!EUSH.UserGoing(item.ID, Model.User.UserName))
                                                             {
+                                                                <input type="submit" value="@Resources.LocalizedText.AttendingButton" class="going-@item.ID" />
                                                                 <input type="hidden" name="eventid" value="@item.ID" />
                                                                 <input type="hidden" name="attend" value="false" />
-                                                                <input type="submit" value="@Resources.LocalizedText.AttendingButton" class="going-@item.ID" />
+                                                                
 }
                                                             else
                                                             {
+                                                                <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@item.ID" />
                                                                 <span>@Resources.LocalizedText.YouAreAttendingLabel.</span>
                                                                 <input type="hidden" name="eventid" value="@item.ID" />
                                                                 <input type="hidden" name="attend" value="false" />
-                                                                <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@item.ID" />
+                                                               
 }
                                                         }
                                                     }

@@ -7,7 +7,6 @@ namespace TikTokCalendar.Models
 	{
 		public int ID { get; set; }
 		public string Name { get; set; }
-		public virtual ICollection<CalendarEvent> CalendarEvents { get; set; }
 
 		public string Code { get; set; }
 

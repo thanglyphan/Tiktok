@@ -52,6 +52,7 @@ namespace TikTokCalendar.DAL
 		{
 			Months = new List<CustomEventMonth>();
 			User = new StudentUser("NO NAME", SchoolCourses.VisAlt, "second");
+
 			var db = new CalendarEventContext();
 			eventUserStats = new List<EventUserStat>(db.EventUserStats);
 		}

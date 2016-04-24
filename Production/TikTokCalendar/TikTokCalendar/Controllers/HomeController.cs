@@ -15,7 +15,7 @@ namespace TikTokCalendar.Controllers
 
 		[HttpPost]
 		[ValidateInput(false)]
-		public ActionResult LogIn(string username = "", string password = "")
+		public void LogIn(string username = "", string password = "")
 		{
 			// Parse all the JSON data
 			dataParser.ParseAllData();
@@ -42,10 +42,11 @@ namespace TikTokCalendar.Controllers
 			CultureManager.UpdateCulture(HttpContext.Request);
 			// Send the model to the view
 			Session["keywords"] = null;
-			return View("Index", modelWrapper);
+
+			HttpContext.Response.Redirect(HttpContext.Request.UrlReferrer.AbsolutePath);
 		}
 
-		public ActionResult LogOut()
+		public void LogOut()
 		{
 			cookie.DeleteCookies();
 			Session["keywords"] = null;
@@ -54,7 +55,7 @@ namespace TikTokCalendar.Controllers
 			var user = new StudentUser("Not logged in", "", "", -1, SchoolCourses.VisAlt);
 			var modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
 			CultureManager.UpdateCulture(HttpContext.Request);
-			return View("Index", modelWrapper);
+			HttpContext.Response.Redirect(HttpContext.Request.UrlReferrer.AbsolutePath);
 		}
 
 		[ValidateInput(false)]
@@ -63,19 +64,6 @@ namespace TikTokCalendar.Controllers
 		{
 			// Parse all the JSON data
 			dataParser.ParseAllData();
-
-			// MIDLERTIDIG DATABASEREDIGERING FOR MANDAGEN (LA STÅ)
-			//var db = new CalendarEventContext();
-			//Random rng = new Random();
-			//for (int i = 0; i < 37; i++)
-			//{
-			//    db.EventUserStats.Add(new EventUserStat { UserName = "Name" + rng.Next(0, 999).ToString(), EventID = 1000239, GoingTime = DateTime.Now });
-			//}
-
-			// fjerne
-			//db.EventUserStats.RemoveRange(db.EventUserStats);
-
-			//db.SaveChanges();
 
 			bool lec = false, ass = false, exa = false;
 			if (filtered)
@@ -170,21 +158,6 @@ namespace TikTokCalendar.Controllers
 				user = GetUserFromNameCourse();
 			}
 
-			// DEBUG Set the page title
-			//       if (user != null)
-			//       {
-			//           ViewBag.Title = string.Format("{0}[{1}-{2}]: {3} [{4}]", 
-			//user.UserName, 
-			//user.ClassYear, 
-			//user.GetYearAsText(), 
-			//user.Course, 
-			//tags);
-			//       }
-			//       else
-			//       {
-			//           ViewBag.Title = "Not logged in";
-			//       }
-
 			return user;
 		}
 
@@ -222,7 +195,7 @@ namespace TikTokCalendar.Controllers
 			bool exam = true)
 		{
 			var user = GetUserFromNameCourse();
-			var dataParser = new DataParser();
+			//var dataParser = new DataParser();
 			dataParser.ParseAllData();
 
 			if (cookie.LoadStringFromCookie(Cookies.UserNameCookieKey) != null)
@@ -245,7 +218,7 @@ namespace TikTokCalendar.Controllers
 			{
 				modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, true, true, true);
 			}
-
+			modelWrapper.User = user;
 			return View(modelWrapper); //.calEvents);
 		}
 
