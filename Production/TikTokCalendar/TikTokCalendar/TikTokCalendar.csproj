@@ -196,7 +196,6 @@
     <Compile Include="DAL\EventMonth.cs" />
     <Compile Include="DAL\ExamInit.cs" />
     <Compile Include="DAL\ModelDataWrapper.cs" />
-    <Compile Include="DAL\Printer.cs" />
     <Compile Include="DAL\Room.cs" />
     <Compile Include="DAL\StudentUser.cs" />
     <Compile Include="DAL\TimeSlot.cs" />
@@ -217,7 +216,6 @@
     <Compile Include="Models\DataWrapper.cs" />
     <Compile Include="Models\EventUserStat.cs" />
     <Compile Include="Models\Subject.cs" />
-    <Compile Include="Models\WebpageErrorContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\RoomNameSplitTest.cs" />
     <Compile Include="UnitTests\StudentUserTest.cs" />
@@ -357,9 +355,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="bundler\node_modules\node-sass\node_modules\node-sass-middleware\node_modules\mkdirp\node_modules\minimist\example\" />
     <Folder Include="bundler\node_modules\node-sass\node_modules\node-sass-middleware\node_modules\mkdirp\node_modules\minimist\test\" />
-    <Folder Include="Views\Language\" />
-    <Folder Include="Views\Rooms\" />
-    <Folder Include="Views\Searching\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
