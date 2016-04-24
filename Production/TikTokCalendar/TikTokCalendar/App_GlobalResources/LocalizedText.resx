@@ -146,7 +146,7 @@
     <comment>Navn på tekst for uke seksjon i event metadata</comment>
   </data>
   <data name="Filter1EventFoundLabel" xml:space="preserve">
-    <value>Èn hendelse funnet</value>
+    <value>Én hendelse funnet</value>
     <comment>Søkeresultater antall hendelser funnet</comment>
   </data>
   <data name="FilterNoEventsFoundLabel" xml:space="preserve">
@@ -238,7 +238,7 @@
     <comment>For innsjekks-hover (... og x andre)</comment>
   </data>
   <data name="YouAreAttendingLabel" xml:space="preserve">
-    <value>Du skal</value>
+    <value>skal</value>
     <comment>Tekst for å vise at innlogget bruker skal</comment>
   </data>
 </root>
