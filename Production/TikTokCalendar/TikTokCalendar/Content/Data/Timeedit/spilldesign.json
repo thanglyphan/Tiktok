@@ -1317,12 +1317,12 @@
         ""
       ]
     },
-    { //Denne er til testing, slettes etter test med Ole.
-      "id": "1000404",
+    { //Dette er en test, slettes etter testingen med ole er ferdig
+      "id": "1000405",
       "startdate": "25.04.2016",
-      "starttime": "15:00",
+      "starttime": "14:30",
       "enddate": "25.04.2016",
-      "endtime": "18:00",
+      "endtime": "18:30",
       "columns": [
         "Prosjekt software engineering (PJ3100-15)",
         "2.klasse, Bachelor 3D-grafikk, Bachelor E-business, Bachelor Interaktivt design, Bachelor Programmering, Bachelor Spilldesign, Bachelor Spillprogrammering",
@@ -1330,6 +1330,21 @@
         "Per Lauvås",
         "Prosjekt",
         "For testing"
+      ]
+    },
+    {
+      "id": "10000406",
+      "startdate": "25.04.2016",
+      "starttime": "14:15",
+      "enddate": "25.04.2016",
+      "endtime": "18:15",
+      "columns": [
+        "Animasjon (DS2100-15)",
+        "2.klasse, Bachelor Spilldesign",
+        "Rom 40",
+        "Ole Goethe",
+        "Forelesning",
+        ""
       ]
     }
   ]

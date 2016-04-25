@@ -91,7 +91,7 @@
                                         </div>
 
                                         <!-- tooltip hover extravaganza -->
-                                        <div class="tip-day">
+                                        <div class="tip-item">
 
 
                                             <!-- "Grensesnittdesign" -->
@@ -232,7 +232,7 @@
                                                                 <input type="submit" value="@Resources.LocalizedText.AttendingButton" class="going-@item.ID button" />
                                                             }
                                                         }
-                                                    <div class="tip-day">
+                                                    <div class="tip-item">
                                                         @{  var howMany = EUSH.GetUsersGoing(item.ID);
                                                             var showTip = "hide";
                                                             if (howMany > 0)
@@ -334,6 +334,43 @@
                             </div>}
                     </div>                    }
             </div>                        }
+
+        <!-- Log in window modal -->
+        <!-- TODO This hides the modal permanently, this should rather stop the modal from initially showing instead of hiding the whole thing -->
+        @if (!Model.isFiltered && string.IsNullOrEmpty(Model.searchWords))
+        {
+            <div class="content-hidden modal fade" id="login-modal" role="dialog" data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal header -->
+                        <div class="modal-header">
+
+                            @Resources.LocalizedText.LoginWindowName
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            @using (Html.BeginForm("LogIn", "Home"))
+                            {
+                                if (Model.FailedLogin)
+                                {
+                            <!-- TODO css wizards: style this -->
+                                    <p class="fail-login">@Resources.LocalizedText.InvalidLoginLabel</p>
+                                }
+                                <input type="text" class="form-control" id="email" name="username" placeholder="@Resources.LocalizedText.UsernameInputLabel">
+                                <input type="password" class="form-control" id="pwd" name="password" placeholder="@Resources.LocalizedText.PasswordInputLabel">
+
+                                <button type="submit" class="btn btn-md btn-primary btn-block btn-login">@Resources.LocalizedText.LogInButton</button>
+                            }
+                            <span data-toggle="modal" data-target="#login-modal">
+                                <a class="btn btn-md btn-default btn-block btn-free-rooms" data-toggle="modal" data-target="#vis-rom-modal">@Resources.LocalizedText.ShowAvailibleRoomsButton</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
 
         <!-- Ledige rom modal -->
         <div class="content-hidden modal fade" id="vis-rom-modal" role="dialog">
