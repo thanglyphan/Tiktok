@@ -27,7 +27,7 @@ namespace TikTokCalendar.DAL
 				var shown = new HttpCookie(ShownCookieText);
 
 
-				shown.Value = "";
+				shown.Value = "0";
 				name.Value = "";
 				course.Value = "";
 				year.Value = "";
@@ -101,7 +101,7 @@ namespace TikTokCalendar.DAL
 			try
 			{
 				var hasShownCookie = new HttpCookie(ShownCookieText);
-				hasShownCookie.Value = "true";
+				hasShownCookie.Value = "1";
 				hasShownCookie.Expires = ExpiryDate;
 				HttpContext.Current.Response.Cookies.Add(hasShownCookie);
 			}
@@ -118,7 +118,7 @@ namespace TikTokCalendar.DAL
 				var myCookie = new HttpCookie("Shown");
 				myCookie = HttpContext.Current.Request.Cookies["Shown"];
 
-				if (myCookie != null && myCookie.Value == "true")
+				if (myCookie != null && myCookie.Value == "1")
 				{
 					//Returns the value og cookie if not null.
 					return true;
