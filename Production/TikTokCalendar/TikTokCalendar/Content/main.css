@@ -309,7 +309,10 @@ header .header-content .left-2 {
   CHECK IN
 ===================================*/
 
-input [class^="going-"] { border: 1px solid #70e670; }
+input[class^="going-"] {
+    visibility: hidden; 
+    border: 2px solid #70e670; 
+}
 
 .check-in input[value="Check-in"] {
     background-color: #00bb3f;
