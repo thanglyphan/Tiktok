@@ -39,7 +39,7 @@ namespace TikTokCalendar.Extras
 
 		public static int GetWeekNumberOfYear(this DateTime dt)
 		{
-			return CultureManager.CurrentCulture.Calendar.GetWeekOfYear(dt, CalendarWeekRule.FirstDay, DayOfWeek.Monday);
+			return CultureManager.CurrentCulture.Calendar.GetWeekOfYear(dt, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
 		}
 
 		public static string FirstCharToUpper(this string input)
