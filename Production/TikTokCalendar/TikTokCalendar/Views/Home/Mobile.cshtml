@@ -165,13 +165,13 @@
                                 @{ string pressed = ""; }
                                 @if (now > item.StartDateTime && now < item.EndDateTime)
                                 {
-                                    if (!EUSH.IsUserAttending(item.ID, Model.User.UserName))
+                                    if (EUSH.IsUserAttending(item.ID, Model.User.UserName))
                                     {
                                         <input type="hidden" name="eventid" value="@item.ID"/>
                                         <input type="hidden" name="attend" value="true"/>
                                         <input type="submit" class="button" value="@Resources.LocalizedText.CheckInButton" />
                                     }
-                                    else
+                                    else if (EUSH.IsUserAttending(item.ID, Model.User.UserName))
                                     {
                                         pressed = "color: #373d48"; // true
                                         <span class="user-going-status" style="@pressed">&#10004;</span>
@@ -179,7 +179,7 @@
                                 }
                                 else if (now < item.StartDateTime)
                                 {
-                                    if (EUSH.UserGoing(item.ID, Model.User.UserName))
+                                    if (EUSH.IsUserGoing(item.ID, Model.User.UserName))
                                     {
                                         pressed = "color: #373d48";
                                         <input type="hidden" name="eventid" value="@item.ID" />
@@ -203,7 +203,7 @@
                                     }
                                     <span class="activator usersgoing event-id-@item.ID" style="@pressed">
                                         @howMany
-                                        @if (now < item.StartDateTime)
+                                        @if (now < item.EndDateTime)
                                         {
                                             <text>@Resources.LocalizedText.XIsAttendingLabel</text>
                                         }

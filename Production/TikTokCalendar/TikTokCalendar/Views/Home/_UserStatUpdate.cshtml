@@ -31,12 +31,12 @@
     pressed = "color: #373d48"; // true
     <span class="user-going-status" style="@pressed">&#10004;</span>
 }
-else if (EUSH.UserGoing(Model.eventID, username))
+else if (EUSH.IsUserGoing(Model.eventID, username))
 {
     pressed = "color: #373d48";
     <input type="hidden" name="eventid" value="@Model.eventID"/>
     <input type="hidden" name="attend" value="false"/>
-    <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@Model.eventID button"/>
+    <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@Model.eventID button not"/>
 }
 else
 {
