@@ -40,6 +40,10 @@ $(function() {
             $(stringId).css("visibility", "hidden");
         });
 
+    
+
+    
+
     function toggleOnHover(id) {
         var stringId = ".going-";
         if (!lastId.isEmpty) {

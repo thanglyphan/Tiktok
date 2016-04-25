@@ -38,12 +38,19 @@ namespace TikTokCalendar.Controllers
 			}
 
 			var modelWrapper = CreateModelDataWrapper(DataWrapper.Instance.GetEventsWithName(user), user);
-			modelWrapper.FailedLogin = failedLogin;
+			//modelWrapper.FailedLogin = failedLogin;
 
 			CultureManager.UpdateCulture(HttpContext.Request);
 			// Send the model to the view
 			Session["keywords"] = null;
-
+			if (failedLogin)
+			{
+				Session["failedlogin"] = true;
+			}
+			else
+			{
+				Session["failedlogin"] = null;
+			}
 			HttpContext.Response.Redirect(HttpContext.Request.UrlReferrer.AbsolutePath);
 		}
 
@@ -107,6 +114,16 @@ namespace TikTokCalendar.Controllers
 			modelWrapper.User = user;
 			modelWrapper.CultureText = CultureManager.GetSavedCultureOrDefault(HttpContext.Request);
 			modelWrapper.Rooms = DataWrapper.Instance.GetRoomsTodayForAllEvents();
+			var failedSession = Session["failedlogin"];
+			if (failedSession != null)
+			{
+				modelWrapper.FailedLogin = true;
+			}
+			else
+			{
+				modelWrapper.FailedLogin = false;
+				Session["failedlogin"] = null;
+			}
 
 			// Show event count
 			if (!(lec && ass && exa) && (filtered || tags.Length > 0))
