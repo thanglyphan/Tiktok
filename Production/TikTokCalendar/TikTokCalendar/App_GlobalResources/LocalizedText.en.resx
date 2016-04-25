@@ -122,7 +122,7 @@
     <comment>Navn på kolonnen over rom i romoversikten</comment>
   </data>
   <data name="AvailibleRoomsWindowName" xml:space="preserve">
-    <value>Availible rooms</value>
+    <value>Availible rooms today</value>
     <comment>For tittelen på modalen for visning av ledige rom</comment>
   </data>
   <data name="EventInfoCommentLabel" xml:space="preserve">
