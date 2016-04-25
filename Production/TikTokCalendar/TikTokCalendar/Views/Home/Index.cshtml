@@ -204,13 +204,13 @@
                                                         @{ string pressed = ""; }
                                                         @if (now > item.StartDateTime && now < item.EndDateTime)
                                                         {
-                                                            if (!EUSH.IsUserAttending(item.ID, Model.User.UserName))
+                                                            if (EUSH.IsUserGoing(item.ID, Model.User.UserName))
                                                             {
                                                                 <input type="hidden" name="eventid" value="@item.ID" />
                                                                 <input type="hidden" name="attend" value="true" />
-                                                                <input type="submit" class="button" value="@Resources.LocalizedText.CheckInButton" />
+                                                                <input type="submit" value="@Resources.LocalizedText.CheckInButton" class="going-@item.ID button" />
                                                             }
-                                                            else
+                                                            else if (EUSH.IsUserAttending(item.ID, Model.User.UserName))
                                                             {
                                                                 pressed = "color: #373d48"; // true
                                                                 <span class="user-going-status" style="@pressed">&#10004;</span>
@@ -218,12 +218,12 @@
                                                         }
                                                         else if (now < item.StartDateTime)
                                                         {
-                                                            if (EUSH.UserGoing(item.ID, Model.User.UserName))
+                                                            if (EUSH.IsUserGoing(item.ID, Model.User.UserName))
                                                             {
                                                                 pressed = "color: #373d48";
                                                                 <input type="hidden" name="eventid" value="@item.ID" />
                                                                 <input type="hidden" name="attend" value="false" />
-                                                                <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@item.ID button" />
+                                                                <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@item.ID button not" />
                                                             }
                                                             else
                                                             {
@@ -243,7 +243,7 @@
                                                         <span class="activator usersgoing event-id-@item.ID" style="@pressed">
                                                             <span class="users-going" style="@pressed">
                                                                 @howMany
-                                                                @if (now < item.StartDateTime)
+                                                                @if (now < item.EndDateTime)
                                                                 {
                                                                     <text>@Resources.LocalizedText.XIsAttendingLabel</text>
                                                                 }
@@ -369,7 +369,7 @@
                             @{foreach (var room in Model.Rooms)
                                 {
                                     <tr>
-                                        <th>(@room.RoomName)</th>
+                                        <th>@room.RoomName</th>
                                         <td>
                                             <div class="progress">
                                                 @{    foreach (var timeSlot in room.Availability)

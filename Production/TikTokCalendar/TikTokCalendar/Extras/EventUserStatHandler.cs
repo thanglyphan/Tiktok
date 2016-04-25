@@ -6,19 +6,19 @@ namespace TikTokCalendar
 	{
 		private readonly CalendarEventContext db = new CalendarEventContext();
 
-		public bool UserGoing(long id, string username)
-		{
-			foreach (var eus in db.EventUserStats)
-			{
-				if (eus.UserName == username && eus.EventID == id)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+        public bool IsUserGoing(long id, string username)
+        {
+            foreach (var eus in db.EventUserStats)
+            {
+                if (eus.UserName == username && eus.EventID == id && !eus.Attend)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
-		public bool IsUserAttending(long id, string username)
+        public bool IsUserAttending(long id, string username)
 		{
 			foreach (var eus in db.EventUserStats)
 			{

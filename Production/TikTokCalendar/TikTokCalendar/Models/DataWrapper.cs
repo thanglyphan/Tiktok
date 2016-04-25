@@ -100,8 +100,6 @@ namespace TikTokCalendar.Models
 			CustomEventMonth month = null;
 			CustomEventWeek week = null;
 
-			var temp = "";
-
 			foreach (var evnt in AllEvents)
 			{
 				if (user.Course == SchoolCourses.VisAlt
