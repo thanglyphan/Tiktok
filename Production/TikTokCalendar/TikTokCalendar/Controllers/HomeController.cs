@@ -64,6 +64,11 @@ namespace TikTokCalendar.Controllers
 		{
 			// Parse all the JSON data
 			dataParser.ParseAllData();
+			var rooms = new List<Room>();
+			foreach (var room in DataWrapper.Instance.Rooms)
+			{
+				rooms.Add(room.Value);
+			}
 
 			bool lec = false, ass = false, exa = false;
 			if (filtered)
@@ -78,6 +83,7 @@ namespace TikTokCalendar.Controllers
 					ModelDataWrapper emptyWrap;
 					emptyWrap = new ModelDataWrapper("", false, false, false);
 					emptyWrap.isFiltered = true;
+					emptyWrap.Rooms = rooms;
 					return View(emptyWrap);
 				}
 			}
@@ -104,12 +110,8 @@ namespace TikTokCalendar.Controllers
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, lec, ass, exa);
 			modelWrapper.User = user;
 			modelWrapper.CultureText = CultureManager.GetSavedCultureOrDefault(HttpContext.Request);
-			var rooms = new List<Room>();
-			foreach (var room in DataWrapper.Instance.Rooms)
-			{
-				rooms.Add(room.Value);
-			}
 			modelWrapper.Rooms = rooms;
+
 			// Show event count
 			if (!(lec && ass && exa) && (filtered || tags.Length > 0))
 			{
