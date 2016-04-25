@@ -416,7 +416,7 @@ input[type="checkbox"]:checked + label {
     position: fixed;
     right: 0;
     width: 500px;
-
+	font-size: 1.4em;
 }
 
 #cookie-warning p {
