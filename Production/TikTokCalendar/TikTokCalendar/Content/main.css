@@ -928,7 +928,7 @@ input[class^="going-"]:hover {
 #vis-rom-modal .modal-dialog {
     margin-top: 100px;
     max-width: 100%;
-    width: 70%;
+    width: 1200px;
 }
 
 #vis-rom-modal .modal-header { font-size: 2em; }
