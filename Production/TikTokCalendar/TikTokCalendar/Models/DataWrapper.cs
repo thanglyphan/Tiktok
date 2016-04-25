@@ -44,6 +44,16 @@ namespace TikTokCalendar.Models
 			Rooms = rooms;
 		}
 
+		public List<Room> GetRoomsTodayForAllEvents()
+		{
+			var rooms = new List<Room>();
+			foreach (var room in Rooms)
+			{
+				rooms.Add(room.Value);
+			}
+			return rooms;
+		} 
+
 		public bool IsValidUser(StudentUser user)
 		{
 			if (user == null) return false;
