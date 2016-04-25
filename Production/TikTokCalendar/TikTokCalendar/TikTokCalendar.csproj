@@ -258,6 +258,7 @@
     <Content Include="img\checkmark.png" />
     <Content Include="img\flag_gb.png" />
     <Content Include="img\flag_no.png" />
+    <Content Include="img\logo.png" />
     <Content Include="img\maps.PNG" />
     <Content Include="img\search.png" />
     <Content Include="README.txt" />
