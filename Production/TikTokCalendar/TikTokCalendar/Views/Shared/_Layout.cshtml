@@ -1,4 +1,7 @@
-﻿@model TikTokCalendar.DAL.ModelDataWrapper
+﻿@using TikTokCalendar.DAL
+@using TikTokCalendar.Extras
+@using TikTokCalendar.Models
+@model TikTokCalendar.DAL.ModelDataWrapper
 @{
     var eventCount = Model.GetEventCount();
     var searchLine = "";
@@ -73,7 +76,7 @@
                                     }));
                             },
                             error: function (xhr, status, error) {
-                                alert(error);
+                                console.log(error);
                             }
                         });
                     },
@@ -150,6 +153,10 @@
      
             <div class="right-2">
 
+				@if (Model.User.Course != SchoolCourses.VisAlt) { // if logged in
+					<p class="username">@Model.User.UserName</p>
+				}
+
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa fa-cog fa-2x"></i></button>
                     <div class="dropdown-content">
@@ -159,8 +166,7 @@
                                 <a href="@Url.Action("Set", "Language", new { language = "nb" })"><img src="@Url.Content("~/img/flag_no.png")" />&nbsp;Bokmål</a>
                                 </li>
                             <li>
-                                @*<img src="~/img/flag_gb.png" />@Html.ActionLink("English", "Set", "Language", new { language = "en" }, null)*@
-                                <a href="@Url.Action("Set", "Language", new { language = "en" })"><img src=" @Url.Content("~/img/flag_gb.png")" />&nbsp;English</a>
+                                <a href="@Url.Action("Set", "Language", new { language = "en" })"><img src="@Url.Content("~/img/flag_gb.png")" />&nbsp;English</a>
                               </li>
                             <li class="show-rooms">
                                   @if (Model.User.Course == SchoolCourses.VisAlt)
@@ -210,6 +216,61 @@
 
         </div>
     </header>
+
+    @*<!-- Ledige rom modal -->
+    <div class="content-hidden modal fade" id="vis-rom-modal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    @Resources.LocalizedText.AvailibleRoomsWindowName
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" style="margin: 0;">
+                    <table id="vis-rom-modal" class="table table-bordered table-hover rooms-available">
+                        <tr>
+                            <th>@Resources.LocalizedText.AvailibleRoomOverviewRoomLabel</th>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 10%">8:15</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 10%">9:15</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 10%">10:15</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 10%">11:15</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 10%">12:15</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 10%">13:15</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 10%">14:15</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 10%">15:15</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 10%">16:15</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 10%">17:15</div>
+                                </div>
+                            </td>
+                        </tr>
+                        @{foreach (var room in Model.Rooms)
+                            {
+                                <tr>
+                                    <th>@room.RoomName</th>
+                                    <td>
+                                        <div class="progress">
+                                            @{    foreach (var timeSlot in room.Availability)
+                                                {
+                                                    var startHour = (timeSlot.Start.Hour - TimeSlot.StartHour) * 10;
+                                                    var lenght = (timeSlot.GetPercentOfDay() + 2.5).ToString().Replace(",", ".");
+                                                    <div class="progress-bar progress-bar-danger availability-bar" role="progressbar" style="margin-left: @startHour%; width: @lenght%">@timeSlot.Event.Subject.Name</div>
+                                                }
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>      }
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    
 
     @RenderBody()
 

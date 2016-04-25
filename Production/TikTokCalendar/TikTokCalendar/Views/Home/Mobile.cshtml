@@ -21,13 +21,10 @@
     <div class="mobile-navbar-container">
         <ul id="menu">
             <li>
-                <a class="menu-items" href="#search">Søk</a>
-            </li>
-            <li>
                 <a class="menu-items" href="#logout">Logg ut</a>
             </li>
             <li>
-                <a class="menu-items" href="Index">Desktopversjon</a>
+                <a class="menu-items" href="~/Home/Index">Desktopversjon</a>
             </li>
         </ul>
     </div>
@@ -45,7 +42,7 @@
                 <div class="mobile-content-container">
                     <div class="mobile-date-top">@item.StartDateTime.Day.ToString() @month.GetMonthName()</div>
                     <div class="mobile-content-container-inner">
-                        <div class="tip-item">
+                        <div class="tip-day">
                             <!-- Course name e.g. "Grensesnittdesign"-->
                             <div class="mobile-room">
                                 <span>@item.RoomName</span></div>
@@ -169,7 +166,7 @@
                                     {
                                         <input type="hidden" name="eventid" value="@item.ID"/>
                                         <input type="hidden" name="attend" value="true"/>
-                                        <input type="submit" class="button" value="@Resources.LocalizedText.CheckInButton" />
+                                        <input type="submit" value="@Resources.LocalizedText.CheckInButton" class="going-@item.ID button" />
                                     }
                                     else if (EUSH.IsUserAttending(item.ID, Model.User.UserName))
                                     {
@@ -184,7 +181,7 @@
                                         pressed = "color: #373d48";
                                         <input type="hidden" name="eventid" value="@item.ID" />
                                         <input type="hidden" name="attend" value="false" />
-                                        <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@item.ID button" />
+                                        <input type="submit" value="@Resources.LocalizedText.NotAttendingButton" class="going-@item.ID button not" />
                                     }
                                     else
                                     {
@@ -193,7 +190,7 @@
                                         <input type="submit" value="@Resources.LocalizedText.AttendingButton" class="going-@item.ID button" />
                                     }
                                 }
-                                <div class="tip-item">
+                                <div class="tip-day">
                                     @{  var howMany = EUSH.GetUsersGoing(item.ID);
                                         var showTip = "hide";
                                         if (howMany > 0)
@@ -202,15 +199,17 @@
                                         }
                                     }
                                     <span class="activator usersgoing event-id-@item.ID" style="@pressed">
-                                        @howMany
-                                        @if (now < item.EndDateTime)
-                                        {
-                                            <text>@Resources.LocalizedText.XIsAttendingLabel</text>
-                                        }
-                                        else
-                                        {
-                                            <text>@Resources.LocalizedText.XDidAttendLabel</text>
-                                        }
+                                        <span class="users-going" style="@pressed">
+                                            @howMany
+                                            @if (now < item.EndDateTime)
+                                            {
+                                                <text>@Resources.LocalizedText.XIsAttendingLabel</text>
+                                            }
+                                            else
+                                            {
+                                                <text>@Resources.LocalizedText.XDidAttendLabel</text>
+                                            }
+                                        </span>
                                     </span>
                                     <div class="tip usersgoing @showTip">
                                         <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(item.ID)/@howMany @Resources.LocalizedText.XIsAttendingLabel</b>
@@ -252,7 +251,40 @@
         }
     }
 }
+    <!-- Log in window modal -->
+    <!-- TODO This hides the modal permanently, this should rather stop the modal from initially showing instead of hiding the whole thing -->
+    @if (!Model.isFiltered && string.IsNullOrEmpty(Model.searchWords))
+    {
+        <div class="content-hidden modal fade" id="login-modal" role="dialog" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
 
+                    <!-- Modal header -->
+                    <div class="modal-header">
+
+                        @Resources.LocalizedText.LoginWindowName
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        @using (Html.BeginForm("LogIn", "Home"))
+                        {
+                            if (Model.FailedLogin)
+                            {
+                            <!-- TODO css wizards: style this -->
+                                <p class="fail-login">@Resources.LocalizedText.InvalidLoginLabel</p>
+                            }
+                            <input type="text" class="form-control" id="email" name="username" placeholder="@Resources.LocalizedText.UsernameInputLabel">
+                            <input type="password" class="form-control" id="pwd" name="password" placeholder="@Resources.LocalizedText.PasswordInputLabel">
+
+                            <button type="submit" class="btn btn-md btn-primary btn-block btn-login">@Resources.LocalizedText.LogInButton</button>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 <!-- E V E N T -->
 <section class="mobile-content">
     <div class="mobile-content-container">

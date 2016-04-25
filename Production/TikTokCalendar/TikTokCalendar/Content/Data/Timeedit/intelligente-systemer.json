@@ -521,6 +521,21 @@
         "Forelesning",
         ""
       ]
+    },
+    {
+      "id": "10000413",
+      "startdate": "25.04.2016",
+      "starttime": "14:15",
+      "enddate": "25.04.2016",
+      "endtime": "18:15",
+      "columns": [
+        "Animasjon (DS2100-15)",
+        "2.klasse, Bachelor - Intelligente Systemer",
+        "Rom 40",
+        "Ole Goethe",
+        "Forelesning",
+        ""
+      ]
     }
   ]
 }
