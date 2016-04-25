@@ -88,7 +88,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ledige rom.
+        ///   Looks up a localized string similar to Ledige rom i dag.
         /// </summary>
         internal static string AvailibleRoomsWindowName {
             get {
