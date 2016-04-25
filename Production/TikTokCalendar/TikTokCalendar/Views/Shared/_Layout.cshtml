@@ -153,6 +153,10 @@
      
             <div class="right-2">
 
+				@if (Model.User.Course != SchoolCourses.VisAlt) { // if logged in
+					<p class="username">@Model.User.UserName</p>
+				}
+
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa fa-cog fa-2x"></i></button>
                     <div class="dropdown-content">

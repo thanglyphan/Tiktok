@@ -4,7 +4,7 @@ using System.Web.UI;
 
 namespace TikTokCalendar.DAL
 {
-	public class Cookies : Page
+	public class Cookies:Page
 	{
 		public const string UserNameCookieKey = "UserName";
 		public const string YearCookieKey = "Year";
@@ -19,15 +19,14 @@ namespace TikTokCalendar.DAL
 
 		public void DeleteCookies()
 		{
-			try
-			{
+			try {
 				var name = new HttpCookie(UserNameCookieKey);
 				var course = new HttpCookie(CourseCookieKey);
 				var year = new HttpCookie(YearCookieKey);
 				var shown = new HttpCookie(ShownCookieText);
 
 
-				shown.Value = "0";
+				shown.Value = "notseen";
 				name.Value = "";
 				course.Value = "";
 				year.Value = "";
@@ -42,31 +41,27 @@ namespace TikTokCalendar.DAL
 				HttpContext.Current.Response.Cookies.Add(course);
 				HttpContext.Current.Response.Cookies.Add(year);
 			}
-			catch (HttpException e)
-			{
+			catch (HttpException e) {
 				Console.WriteLine(e.ToString());
 			}
 		}
 
 		public void SaveYearToCookies(string a)
 		{
-			try
-			{
+			try {
 				var yearCookie = new HttpCookie(YearCookieKey);
 				yearCookie.Value = a;
 				yearCookie.Expires = ExpiryDate;
 				HttpContext.Current.Response.Cookies.Add(yearCookie);
 			}
-			catch (HttpException e)
-			{
+			catch (HttpException e) {
 				e.ToString();
 			}
 		}
 
 		public void SaveNameToCookie(string a)
 		{
-			try
-			{
+			try {
 				var usernameCookie = new HttpCookie(UserNameCookieKey);
 
 				usernameCookie.Value = a;
@@ -74,81 +69,91 @@ namespace TikTokCalendar.DAL
 
 				HttpContext.Current.Response.Cookies.Add(usernameCookie);
 			}
-			catch (HttpException e)
-			{
+			catch (HttpException e) {
 				Console.Write("Cookies.cs - SaveNameToCookies " + e.ErrorCode);
 			}
 		}
 
 		public void SaveCourseToCookie(string a)
 		{
-			try
-			{
+			try {
 				var courseCookie = new HttpCookie(CourseCookieKey);
 
 				courseCookie.Value = a;
 				courseCookie.Expires = ExpiryDate;
 				HttpContext.Current.Response.Cookies.Add(courseCookie);
 			}
-			catch (HttpException e)
-			{
+			catch (HttpException e) {
 				Console.Write("Cookies.cs - SaveCourseToCookie " + e);
 			}
 		}
 
-		public void SaveHasShownToCookie()
+		public void MakeCookie()
 		{
-			try
-			{
+			try {
 				var hasShownCookie = new HttpCookie(ShownCookieText);
-				hasShownCookie.Value = "1";
+				hasShownCookie.Value = "notseen";
 				hasShownCookie.Expires = ExpiryDate;
 				HttpContext.Current.Response.Cookies.Add(hasShownCookie);
 			}
-			catch (HttpException e)
-			{
+			catch (HttpException e) {
+				Console.Write("Cookies.cs - SaveCourseToCookie " + e);
+			}
+		}
+		public void SaveHasShownToCookie()
+		{
+			try {
+				var hasShownCookie = HttpContext.Current.Request.Cookies["Shown"];
+				if (hasShownCookie != null)
+				{
+					hasShownCookie.Value = "seen";
+					hasShownCookie.Expires = ExpiryDate;
+					HttpContext.Current.Response.Cookies.Add(hasShownCookie);
+
+				}
+
+			}
+			catch (HttpException e) {
 				Console.Write("Cookies.cs - SaveCourseToCookie " + e);
 			}
 		}
 
-		public bool LoadHasShownFromCookie()
+
+		public string LoadHasShownFromCookie()
 		{
-			try
-			{
+			try {
 				var myCookie = new HttpCookie("Shown");
 				myCookie = HttpContext.Current.Request.Cookies["Shown"];
 
-				if (myCookie != null && myCookie.Value == "1")
-				{
-					//Returns the value og cookie if not null.
-					return true;
+				if (myCookie != null) {
+					return myCookie.Value;
 				}
-				return false;
+				else {
+					MakeCookie();
+					return "notseen";
+				}
+
 			}
-			catch (HttpException e)
-			{
+			catch (HttpException e) {
 				Console.Write("Cookies.cs - LoadHasShownFromCookie " + e.ErrorCode);
 			}
-			return false;
+			return "";
 		}
 
 		public string LoadStringFromCookie(string key)
 		{
-			try
-			{
+			try {
 				var myCookie = new HttpCookie(key);
 				myCookie = HttpContext.Current.Request.Cookies[key];
 
-				if (myCookie == null)
-				{
+				if (myCookie == null) {
 					//Returns the value og cookie if not null.
 					return null;
 				}
 				Console.WriteLine(myCookie.Value);
 				return myCookie.Value;
 			}
-			catch (HttpException e)
-			{
+			catch (HttpException e) {
 				Console.Write("Cookies.cs - LoadStringFromCookie " + e.ErrorCode);
 			}
 

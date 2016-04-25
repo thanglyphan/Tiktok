@@ -976,6 +976,54 @@
         "courseId": "8",
         "subjectId": "10",
         "semester": "2"
+      },
+      {
+        "id": "162",
+        "courseId": "7",
+        "subjectId": "62",
+        "semester": "4"
+      },
+      {
+        "id": "163",
+        "courseId": "1",
+        "subjectId": "62",
+        "semester": "4"
+      },
+      {
+        "id": "164",
+        "courseId": "2",
+        "subjectId": "62",
+        "semester": "4"
+      },
+      {
+        "id": "165",
+        "courseId": "3",
+        "subjectId": "62",
+        "semester": "4"
+      },
+      {
+        "id": "166",
+        "courseId": "4",
+        "subjectId": "62",
+        "semester": "4"
+      },
+      {
+        "id": "167",
+        "courseId": "5",
+        "subjectId": "62",
+        "semester": "4"
+      },
+      {
+        "id": "168",
+        "courseId": "6",
+        "subjectId": "62",
+        "semester": "4"
+      },
+      {
+        "id": "169",
+        "courseId": "8",
+        "subjectId": "62",
+        "semester": "4"
       }
     ]
   }

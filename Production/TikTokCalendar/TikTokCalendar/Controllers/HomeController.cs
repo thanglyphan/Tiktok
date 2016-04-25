@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -64,11 +65,6 @@ namespace TikTokCalendar.Controllers
 		{
 			// Parse all the JSON data
 			dataParser.ParseAllData();
-			var rooms = new List<Room>();
-			foreach (var room in DataWrapper.Instance.Rooms)
-			{
-				rooms.Add(room.Value);
-			}
 
 			bool lec = false, ass = false, exa = false;
 			if (filtered)
@@ -83,7 +79,7 @@ namespace TikTokCalendar.Controllers
 					ModelDataWrapper emptyWrap;
 					emptyWrap = new ModelDataWrapper("", false, false, false);
 					emptyWrap.isFiltered = true;
-					emptyWrap.Rooms = rooms;
+					emptyWrap.Rooms = DataWrapper.Instance.GetRoomsTodayForAllEvents();
 					return View(emptyWrap);
 				}
 			}
@@ -110,7 +106,7 @@ namespace TikTokCalendar.Controllers
 			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, lec, ass, exa);
 			modelWrapper.User = user;
 			modelWrapper.CultureText = CultureManager.GetSavedCultureOrDefault(HttpContext.Request);
-			modelWrapper.Rooms = rooms;
+			modelWrapper.Rooms = DataWrapper.Instance.GetRoomsTodayForAllEvents();
 
 			// Show event count
 			if (!(lec && ass && exa) && (filtered || tags.Length > 0))
@@ -130,16 +126,23 @@ namespace TikTokCalendar.Controllers
 			modelWrapper.CultureText = CultureManager.GetSavedCultureOrDefault(HttpContext.Request);
 
 			// Set availible rooms
-			var rooms = new List<Room>();
-			foreach (var room in DataWrapper.Instance.Rooms)
-			{
-				rooms.Add(room.Value);
-			}
-			modelWrapper.Rooms = rooms;
+			//var rooms = new List<Room>();
+			//foreach (var room in DataWrapper.Instance.Rooms)
+			//{
+			//	rooms.Add(room.Value);
+			//}
+			modelWrapper.Rooms = DataWrapper.Instance.GetRoomsTodayForAllEvents();
 
 			return modelWrapper;
 		}
 
+		public void SetSeen()
+		{
+			cookie.MakeCookie();
+			cookie.SaveHasShownToCookie();
+			HttpContext.Response.Redirect(HttpContext.Request.UrlReferrer.AbsolutePath);
+
+		}
 		public StudentUser InitUser(string userName, string password, string tags)
 		{
 			// Get the user from cookies
@@ -209,12 +212,7 @@ namespace TikTokCalendar.Controllers
 			{
 				modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, true, true, true);
 			}
-			var rooms = new List<Room>();
-			foreach (var room in DataWrapper.Instance.Rooms)
-			{
-				rooms.Add(room.Value);
-			}
-			modelWrapper.Rooms = rooms;
+			modelWrapper.Rooms = DataWrapper.Instance.GetRoomsTodayForAllEvents();
 			modelWrapper.User = user;
 			return View(modelWrapper); //.calEvents);
 		}
@@ -288,7 +286,6 @@ namespace TikTokCalendar.Controllers
 
 			var schoolCourse = Course.GetCourseFromName(course);
 			return new StudentUser(name, schoolCourse, year);
-			//If cookie name && course == default, name = anonym14, course = "VisAlt"
 		}
 
 		public PartialViewResult UserStatUpdate(int eventid, bool attend)
@@ -348,12 +345,6 @@ namespace TikTokCalendar.Controllers
 			var modelWrapper = new ModelDataWrapper();
 			modelWrapper.eventID = eventid;
 			return PartialView("_UserStatUpdate", modelWrapper);
-		}
-
-		public ActionResult GetMessage()
-		{
-			var message = "Welcome";
-			return new JsonResult { Data = message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 		}
 	}
 }
