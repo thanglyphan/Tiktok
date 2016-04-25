@@ -337,7 +337,12 @@ namespace TikTokCalendar.Controllers
 					}
 					else
 					{
-						db.EventUserStats.Add(new EventUserStat { UserName = userName, EventID = eventid, GoingTime = DateTime.Now });
+						db.EventUserStats.Add(new EventUserStat
+                        {
+                            UserName = userName,
+                            EventID = eventid,
+                            GoingTime = DateTime.Now
+                        });
 					}
 				}
 				db.SaveChanges();

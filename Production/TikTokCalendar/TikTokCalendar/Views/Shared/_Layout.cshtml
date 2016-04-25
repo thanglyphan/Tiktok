@@ -156,10 +156,11 @@
                         <ul>
                             <li>
                                 <!-- TODO: style and position -->
-                                <img src="~/img/no.jpg" />@Html.ActionLink("Norsk", "Set", "Language", new { language = "nb" }, null)
+                                <a href="@Url.Action("Set", "Language", new { language = "nb" })"><img src="@Url.Content("~/img/flag_no.png")" />&nbsp;Bokmål</a>
                                 </li>
                             <li>
-                                <img src="~/img/gb.jpg" />@Html.ActionLink("English", "Set", "Language", new { language = "en" }, null)
+                                @*<img src="~/img/flag_gb.png" />@Html.ActionLink("English", "Set", "Language", new { language = "en" }, null)*@
+                                <a href="@Url.Action("Set", "Language", new { language = "en" })"><img src=" @Url.Content("~/img/flag_gb.png")" />&nbsp;English</a>
                               </li>
                             <li>
                                   @if (Model.User.Course == SchoolCourses.VisAlt)
@@ -177,10 +178,10 @@
                                     }
                                 }
                             </li>
-                            <li>
-                                <p class="btn-show-rooms">
-                                    <span data-toggle="modal" data-target="#vis-rom-modal">@Resources.LocalizedText.ShowAvailibleRoomsButton</span>
-                                </p>
+                            <li class="show-rooms">
+                                <a data-toggle="modal" data-target="#vis-rom-modal">
+                                    <span>@Resources.LocalizedText.ShowAvailibleRoomsButton</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
