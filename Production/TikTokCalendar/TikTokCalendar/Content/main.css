@@ -935,6 +935,15 @@ input[class^="going-"]:hover {
     width: 100%;
 }
 
+/* logo */
+
+.logo-icon {
+    background-image: url(../img/logo.png);
+    width: 35px;
+    height: 29px;
+    margin: 19px 20px;
+}
+
 /*======================================
   SHOW AVAILABLE ROOMS MODAL
 =======================================*/
