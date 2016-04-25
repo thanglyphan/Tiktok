@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using TikTokCalendar.Controllers;
 
 namespace TikTokCalendar.Extras
 {
 	public static class Utils
 	{
-		private static readonly Calendar cal = new GregorianCalendar();
-
 		/// <summary>
 		///     Parses a string to an integer. If the parsing failed or the parsed int is negative, -1 is returned, otherwise the
 		///     parsed int is returned.
@@ -40,7 +39,7 @@ namespace TikTokCalendar.Extras
 
 		public static int GetWeekNumberOfYear(this DateTime dt)
 		{
-			return cal.GetWeekOfYear(dt, CalendarWeekRule.FirstDay, DayOfWeek.Monday);
+			return CultureManager.CurrentCulture.Calendar.GetWeekOfYear(dt, CalendarWeekRule.FirstDay, DayOfWeek.Monday);
 		}
 
 		public static string FirstCharToUpper(this string input)
