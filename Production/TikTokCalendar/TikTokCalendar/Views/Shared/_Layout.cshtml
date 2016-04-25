@@ -162,8 +162,7 @@
                                 <a href="@Url.Action("Set", "Language", new { language = "nb" })"><img src="@Url.Content("~/img/flag_no.png")" />&nbsp;Bokmål</a>
                                 </li>
                             <li>
-                                @*<img src="~/img/flag_gb.png" />@Html.ActionLink("English", "Set", "Language", new { language = "en" }, null)*@
-                                <a href="@Url.Action("Set", "Language", new { language = "en" })"><img src=" @Url.Content("~/img/flag_gb.png")" />&nbsp;English</a>
+                                <a href="@Url.Action("Set", "Language", new { language = "en" })"><img src="@Url.Content("~/img/flag_gb.png")" />&nbsp;English</a>
                               </li>
                             <li class="show-rooms">
                                   @if (Model.User.Course == SchoolCourses.VisAlt)
