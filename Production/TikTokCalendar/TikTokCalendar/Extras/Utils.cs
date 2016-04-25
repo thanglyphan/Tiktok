@@ -49,5 +49,10 @@ namespace TikTokCalendar.Extras
 				return null;
 			return input.First().ToString().ToUpper() + input.Substring(1);
 		}
+
+		public static string ToYearMonthDay(this DateTime dt)
+		{
+			return string.Format("{0}{1}{2}", dt.Year, dt.Month, dt.Day);
+		}
 	}
 }
