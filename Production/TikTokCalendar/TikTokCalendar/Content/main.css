@@ -303,7 +303,11 @@ header .header-content .left-2 {
   CHECK IN
 ===================================*/
 
-.check-in [class^="going-"] { visibility: hidden; }
+.check-in [class^="going-"] { 
+    width: 100%;
+    height: 30px;
+}
+
 
 input [class^="going-"] { border: 1px solid #70e670; }
 

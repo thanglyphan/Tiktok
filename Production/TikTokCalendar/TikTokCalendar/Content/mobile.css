@@ -193,6 +193,45 @@ E V E N T S
         width: 100px;
     }
 
+/*===================================
+  CHECK IN
+===================================*/
+
+.check-in {
+    width: 100%;
+}
+
+input [class^="going-"] {
+    height: 30px;
+    width: 60%;
+    margin: 0 auto;
+}
+
+input [class^="going-"] { 
+    border: 1px solid #70e670
+}
+
+.check-in input[value="Check-in"] {
+    background-color: #00bb3f;
+    color: white;
+    opacity: 0.7;
+}
+
+.check-in input[value="Check-in"]:hover {
+    background-color: white;
+    color: #00bb3f;
+    opacity: 1;
+}
+
+.not {
+    border: 1px solid #a4b0c3 !important;
+}
+
+.not:hover {
+    background-color: #a4b0c3 !important;
+    color: #000 !important;
+}
+
     .pulse-button:hover { -webkit-animation: none; }
 
     @-webkit-keyframes pulse {
