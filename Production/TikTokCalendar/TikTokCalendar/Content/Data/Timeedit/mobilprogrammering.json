@@ -521,6 +521,21 @@
         "Forelesning",
         ""
       ]
+    },
+    {
+      "id": "10000411",
+      "startdate": "25.04.2016",
+      "starttime": "14:15",
+      "enddate": "25.04.2016",
+      "endtime": "18:15",
+      "columns": [
+        "Animasjon (DS2100-15)",
+        "3.klasse, Bachelor Mobil apputvikling",
+        "Rom 40",
+        "Ole Goethe",
+        "Forelesning",
+        ""
+      ]
     }
   ]
 }

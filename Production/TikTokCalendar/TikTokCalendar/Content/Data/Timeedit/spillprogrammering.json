@@ -12,23 +12,6 @@
     "reservationcount": 40
   },
   "reservations": [
-    //Monday test template
-    {
-      "id": "1100145",
-      "startdate": "25.04.2016",
-      "starttime": "10:15",
-      "enddate": "25.04.2016",
-      "endtime": "16:00",
-      "columns": [
-        "Matematikk og fysikk (RF3100-15)",
-        "2.klasse, Bachelor Spillprogrammering",
-        "Rom 82",
-        "Lars Sydnes",
-        "Forelesning",
-        ""
-      ]
-    },
-
     {
       "id": "4563",
       "startdate": "04.01.2016",
@@ -1420,6 +1403,21 @@
         "2.klasse, Bachelor - Intelligente Systemer, Bachelor Spillprogrammering",
         "Rom 40",
         "Tomas Sandnes",
+        "Forelesning",
+        ""
+      ]
+    },
+    {
+      "id": "100004007",
+      "startdate": "25.04.2016",
+      "starttime": "14:15",
+      "enddate": "25.04.2016",
+      "endtime": "18:15",
+      "columns": [
+        "Animasjon (DS2100-15)",
+        "2.klasse, Bachelor Spillprogrammering",
+        "Rom 40",
+        "Ole Goethe",
         "Forelesning",
         ""
       ]
