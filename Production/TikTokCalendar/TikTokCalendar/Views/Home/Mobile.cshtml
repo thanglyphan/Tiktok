@@ -12,15 +12,15 @@
     string anchor = "";
     if (Model.searchWords == "")
     {
-        anchor = now.Year.ToString() + now.Month.ToString() + now.Day.ToString();
+        anchor = "#goto-time-" + now.ToYearMonthDay();
     }
 }
 
 <!-- Go to current month/week -->
 <script>
     $(function() {
-        alert("#goto-time-@anchor");
-        $(document).scrollTop($("#goto-time-@anchor").offset().top - 54);
+        console.log("@anchor");
+        $(document).scrollTop($("@anchor").offset().top - 54);
     });
 
 </script>
@@ -32,8 +32,8 @@
     <div class="mobile-navbar-container">
         <ul id="menu">
             <li>
-                <a class="menu-items" href="#logout">Logg ut</a>
-            </li>
+                <a class="menu-items" href="@Url.Action("Logout", "Home")">Logg ut</a>
+</li>
             <li>
                 <a class="menu-items" href="~/Home/Index">Desktopversjon</a>
             </li>
@@ -49,8 +49,7 @@
     {
         foreach (var item in week.events)
         {
-            <section class="mobile-content" id="goto-time-@">
-                goto-time-@item.StartDateTime.Year@item.StartDateTime.Month@item.StartDateTime.Day
+            <section class="mobile-content" id="goto-time-@item.StartDateTime.ToYearMonthDay()">
                 <div class="mobile-content-container">
                     <div class="mobile-date-top">@item.StartDateTime.Day.ToString() @month.GetMonthName()</div>
                     <div class="mobile-content-container-inner">

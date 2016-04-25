@@ -197,6 +197,11 @@ E V E N T S
   CHECK IN
 ===================================*/
 
+.check-in [class^="going-"] { 
+    width: 100%;
+    height: 30px;
+}
+
 .check-in {
     width: 100%;
 }
