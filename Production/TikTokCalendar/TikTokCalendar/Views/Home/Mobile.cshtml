@@ -2,23 +2,25 @@
 @using TikTokCalendar.Extras
 @using TikTokCalendar.Models
 @model TikTokCalendar.DAL.ModelDataWrapper
+
 @{
     var TimeLeft = new TimeLeft();
     var EUSH = new EventUserStatHandler();
     var now = DateTime.Now;
 
-    var anchor = 1;
+    // show from week number (show from top when searching)
+    string anchor = "";
     if (Model.searchWords == "")
     {
-        anchor = Utils.GetWeekNumberOfYear(now);
+        anchor = now.Year.ToString() + now.Month.ToString() + now.Day.ToString();
     }
 }
 
 <!-- Go to current month/week -->
 <script>
     $(function() {
-        @*$(document).scrollTop( $("#goto-@now.Month").offset().top );*@
-        $(document).scrollTop($("#going").offset().top - 54);
+        alert("#goto-time-@anchor");
+        $(document).scrollTop($("#goto-time-@anchor").offset().top - 54);
     });
 
 </script>
@@ -47,7 +49,8 @@
     {
         foreach (var item in week.events)
         {
-            <section class="mobile-content">
+            <section class="mobile-content" id="goto-time-@">
+                goto-time-@item.StartDateTime.Year@item.StartDateTime.Month@item.StartDateTime.Day
                 <div class="mobile-content-container">
                     <div class="mobile-date-top">@item.StartDateTime.Day.ToString() @month.GetMonthName()</div>
                     <div class="mobile-content-container-inner">
