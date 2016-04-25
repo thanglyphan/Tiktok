@@ -162,14 +162,12 @@
                                 @*<img src="~/img/flag_gb.png" />@Html.ActionLink("English", "Set", "Language", new { language = "en" }, null)*@
                                 <a href="@Url.Action("Set", "Language", new { language = "en" })"><img src=" @Url.Content("~/img/flag_gb.png")" />&nbsp;English</a>
                               </li>
-                            <li>
+                            <li class="show-rooms">
                                   @if (Model.User.Course == SchoolCourses.VisAlt)
                                 {
-                                    <p>
-                                        <a class="logout" data-toggle="modal" data-target="#login-modal">
-                                            <span>@Resources.LocalizedText.LogInButton</span>
-                                        </a>
-                                    </p>}
+                                    <a data-toggle="modal" data-target="#login-modal">
+										<span>@Resources.LocalizedText.LogInButton</span>
+                                    </a>}
                                 else
                                 {
                                     using (Html.BeginForm("LogOut", "Home"))
