@@ -430,28 +430,34 @@
         @{
             var show = new Cookies();
             var hasShownCookieWarning = show.LoadHasShownFromCookie();
-            if (!hasShownCookieWarning)
+            if (hasShownCookieWarning == "notseen")
             {
+
+
                 <div class="jumbotron" id="cookie-warning">
-                    <button type="button" class="close" onclick="closeCookieWarning()">&times;</button>
+                    @*<button type="button" class="close" onclick="closeCookieWarning()">&times;</button>*@
+                    <a href="@Url.Action("SetSeen", "Home")">X</a>
+
                     <p>
-                        <strong>Informasjonskapsler</strong><br />
+                        <strong>Informasjonskapsler</strong><br/>
                         Denne nettsiden bruker <em>informasjonskapsler</em>. Ved å bruke siden godtar du at disse blir lagret på din maskin.
                     </p>
-                </div>}
+                </div>
+            }
         }
 
     </div>
 </main>
 
 
-<script>
-
+@*<script>
     function closeCookieWarning() {
+        console.log("Func kjører med engang!");
+
         $("#cookie-warning").hide();
-        @{
-            show.SaveHasShownToCookie();
+        @{  show.SaveHasShownToCookie(); //seen
+            System.Diagnostics.Debug.Write("COOKIE IS SEEN");
         }
     }
 
-</script>
+</script>*@

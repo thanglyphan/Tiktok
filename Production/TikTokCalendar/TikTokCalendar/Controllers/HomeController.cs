@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -140,6 +141,13 @@ namespace TikTokCalendar.Controllers
 			return modelWrapper;
 		}
 
+		public void SetSeen()
+		{
+			cookie.MakeCookie();
+			cookie.SaveHasShownToCookie();
+			HttpContext.Response.Redirect(HttpContext.Request.UrlReferrer.AbsolutePath);
+
+		}
 		public StudentUser InitUser(string userName, string password, string tags)
 		{
 			// Get the user from cookies
