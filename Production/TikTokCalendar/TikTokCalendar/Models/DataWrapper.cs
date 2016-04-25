@@ -366,10 +366,10 @@ namespace TikTokCalendar.Models
 					{
 						if (eventWords[i] != null)
 						{
-							eventWords[i].ToLower();
-							if (!list.Contains(eventWords[i]))
+							var temp = eventWords[i].ToLower();
+							if (!list.Contains(temp))
 							{
-								list.Add(eventWords[i]);
+								list.Add(temp);
 							}
 						}
 					}
