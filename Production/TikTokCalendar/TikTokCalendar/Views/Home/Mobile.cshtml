@@ -275,11 +275,16 @@
 
                     <!-- Modal body -->
                     <div class="modal-body">
+                        @if (Model.FailedLogin == true)
+                        {
+                                <!-- TODO css wizards: style this -->
+                            <p class="fail-login">@Resources.LocalizedText.InvalidLoginLabel</p>
+}
                         @using (Html.BeginForm("LogIn", "Home"))
                         {
                             if (Model.FailedLogin)
                             {
-                            <!-- TODO css wizards: style this -->
+                                <!-- TODO css wizards: style this -->
                                 <p class="fail-login">@Resources.LocalizedText.InvalidLoginLabel</p>
                             }
                             <input type="text" class="form-control" id="email" name="username" placeholder="@Resources.LocalizedText.UsernameInputLabel">
