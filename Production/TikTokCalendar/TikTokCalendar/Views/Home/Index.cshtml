@@ -91,7 +91,7 @@
                                         </div>
 
                                         <!-- tooltip hover extravaganza -->
-                                        <div class="tip-item">
+                                        <div class="tip-day">
 
 
                                             <!-- "Grensesnittdesign" -->
@@ -232,7 +232,7 @@
                                                                 <input type="submit" value="@Resources.LocalizedText.AttendingButton" class="going-@item.ID button" />
                                                             }
                                                         }
-                                                    <div class="tip-item">
+                                                    <div class="tip-day">
                                                         @{  var howMany = EUSH.GetUsersGoing(item.ID);
                                                             var showTip = "hide";
                                                             if (howMany > 0)
@@ -412,12 +412,12 @@
                                 {
                             <!-- TODO css wizards: style this -->
                                     <p class="fail-login">@Resources.LocalizedText.InvalidLoginLabel</p>
-}
+                                }
                                 <input type="text" class="form-control" id="email" name="username" placeholder="@Resources.LocalizedText.UsernameInputLabel">
                                 <input type="password" class="form-control" id="pwd" name="password" placeholder="@Resources.LocalizedText.PasswordInputLabel">
 
                                 <button type="submit" class="btn btn-md btn-primary btn-block btn-login">@Resources.LocalizedText.LogInButton</button>
-}
+                            }
                             <span data-toggle="modal" data-target="#login-modal">
                                 <a class="btn btn-md btn-default btn-block btn-free-rooms" data-toggle="modal" data-target="#vis-rom-modal">@Resources.LocalizedText.ShowAvailibleRoomsButton</a>
                             </span>
