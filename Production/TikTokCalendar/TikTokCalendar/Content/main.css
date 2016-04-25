@@ -410,6 +410,7 @@ input[type="checkbox"]:checked + label {
     position: fixed;
     right: 0;
     width: 500px;
+
 }
 
 #cookie-warning p {
@@ -801,7 +802,6 @@ input[class^="going-"]:hover {
 
 #tags {
     background-color: #ffffff !important;
-
     background-image: url("../img/search.png");
     background-position: 5px 6px;
     background-repeat: no-repeat;
@@ -810,11 +810,12 @@ input[class^="going-"]:hover {
     border-radius: 20px;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 0.8em;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     margin-left: 7px;
     margin-top: 8px;
     max-width: 200px;
     padding: 3px 0 4px 30px;
+
 }
 
 .ui-corner-all {
@@ -859,8 +860,14 @@ input[class^="going-"]:hover {
     font-size: 1.2em;
     position: fixed;
 }
+.ui-autocomplete-input { 
+    height: 33px; 
+}
 
-.ui-autocomplete-input { height: 33px; }
+.ui-menu-item {
+    font-size: 2em;
+}
+
 
 .ui-menu .ui-menu-item {
     clear: left;

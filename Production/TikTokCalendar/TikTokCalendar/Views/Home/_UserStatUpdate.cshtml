@@ -47,11 +47,10 @@ else
 
 
 <!-- hover box displaying users -->
-
 <div class="tip-item">
     <span class="activator usersgoing" style="@pressed"><span class="users-going">@howMany @Resources.LocalizedText.XIsAttendingLabel</span></span>
     <div class="tip usersgoing">
-        <b class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(Model.eventID)/@howMany @Resources.LocalizedText.CheckedInToOngoing</b>
+        <span class="tip-checkin no-linebreak">@EUSH.GetUsersAttending(Model.eventID)/@howMany @Resources.LocalizedText.CheckedInToOngoing</span>
         @foreach (var eus in Model.eventUserStats)
         {
             if (eus.EventID == Model.eventID)
