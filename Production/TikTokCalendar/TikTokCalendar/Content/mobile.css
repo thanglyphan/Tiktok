@@ -1,200 +1,18 @@
 ﻿@media screen and (max-width: 680px) {
-    / 
 
-    / 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    / 
-
-    / 
-
-    M O B I L / 
-
-    / 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = 
-
-    = .mobile-main, html, body {
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
-        background-color: #f7f7f7;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-        height: 100%;
-        text-rendering: optimizeLegibility;
-    }
-
-    /*===================================
+/*===================================
+    M O B I L E
+===================================*/
+.mobile-main, html, body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    background-color: #f7f7f7;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    height: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+/*===================================
 N A V B A R
 ===================================*/
     i {
@@ -249,7 +67,7 @@ M E N U
     /* Menu items */
     .menu-items {
         color: #858f9f !important;
-        font-size: 1.125em !important;
+        font-size: 2em !important;
         padding: 13px;
     }
 
@@ -291,15 +109,25 @@ E V E N T S
         color: white;
         height: 20px;
         letter-spacing: .1em;
+        font-size: 3em;
         line-height: 0em;
-        padding: 1.3em;
+        padding: 1em;
         text-transform: uppercase;
+        width: 100%;
+    }
+
+    .mobile-room span {
+        font-size: 6em !important;
+        text-align: center;
+    }
+
+    .tip-item {
         width: 100%;
     }
 
     .mobile-course {
         color: #858f9f;
-        font-size: 1.6em;
+        font-size: 3em;
         font-weight: 300;
         margin: 0 auto;
         max-width: 10em;
@@ -317,7 +145,7 @@ E V E N T S
 
     .mobile-date {
         color: #565a5c;
-        font-size: 1.2em;
+        font-size: 4em;
         line-height: 1.5em;
         padding-bottom: 10px;
         padding-top: 10px;
@@ -329,10 +157,10 @@ E V E N T S
         border: 1px solid #f3f3f3;
         border-radius: 3px;
         color: #fff;
-        font-size: 1em;
+        font-size: 2em;
         height: 30px;
         letter-spacing: .1em;
-        line-height: 0.4em;
+        line-height: 0em;
         padding: .75em 2em;
         padding-top: 15px;
         text-transform: uppercase;
@@ -356,7 +184,6 @@ E V E N T S
         cursor: pointer;
         display: block;
         font-family: 'Trebuchet MS', sans-serif;
-        font-size: 1.3em;
         font-weight: light;
         height: 100px;
         letter-spacing: -1px;
