@@ -200,17 +200,6 @@ namespace TikTokCalendar.Controllers
 			//var dataParser = new DataParser();
 			dataParser.ParseAllData();
 
-			if (cookie.LoadStringFromCookie(Cookies.UserNameCookieKey) != null)
-			{
-				ViewBag.Title = string.Format("Halla, {0}! Du går: {1}", cookie.LoadStringFromCookie(Cookies.UserNameCookieKey),
-					cookie.LoadStringFromCookie(Cookies.CourseCookieKey));
-			}
-			else
-			{
-				ViewBag.Title = "tiktok";
-				//ViewBag.Title = string.Format("Year: {0}, sem: {1}, valid: {2}",user.ClassYear,user.GetCurrentSemester(),user.ValidUsername(user.UserName));
-			}
-
 			var modelWrapper = new ModelDataWrapper();
 			if (string.IsNullOrEmpty(tags))
 			{
@@ -220,6 +209,12 @@ namespace TikTokCalendar.Controllers
 			{
 				modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, true, true, true);
 			}
+			var rooms = new List<Room>();
+			foreach (var room in DataWrapper.Instance.Rooms)
+			{
+				rooms.Add(room.Value);
+			}
+			modelWrapper.Rooms = rooms;
 			modelWrapper.User = user;
 			return View(modelWrapper); //.calEvents);
 		}
