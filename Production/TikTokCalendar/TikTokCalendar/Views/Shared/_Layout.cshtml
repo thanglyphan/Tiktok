@@ -190,34 +190,9 @@
                         </ul>
                     </div>
                 </div>
-
-
             </div>
-
-            <div class="right-1">
-                
-            </div>
-
-            <script>
-                function delCookie() {
-                    $.ajax({
-                        url: "/Home/DeleteCookies",
-                        type: "POST",
-                        dataType: "json",
-                        success: function (data) {
-                            console.log(data);
-                        },
-                        error: function (xhr, ajaxOptions, thrownError) {
-                            console.log("Feil ved sletting av cookies [delCookies()]");
-                        }
-                    });
-                }
-            </script>
-
         </div>
     </header>
-
-    
 
     @RenderBody()
 
