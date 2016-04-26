@@ -126,7 +126,7 @@ namespace TikTokCalendar.Models
 		}
 
 		public List<CustomEventMonth> GetEventsWithName(StudentUser user, string tags, bool lecture, bool assignment,
-			bool exam)
+			bool exam, bool excludeBeforeToday = false)
 		{
 			var months = new List<CustomEventMonth>();
 			CustomEventMonth month = null;
@@ -178,6 +178,12 @@ namespace TikTokCalendar.Models
 							{
 								continue;
 							}
+						}
+
+						// Skip event if event if before today
+						if (excludeBeforeToday && evnt.StartDateTime < DateTime.Today)
+						{
+							continue;
 						}
 
 						var m = AddEvent(evnt, ref month, ref week);

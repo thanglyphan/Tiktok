@@ -403,7 +403,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to skulle.
+        ///   Looks up a localized string similar to deltok.
         /// </summary>
         internal static string XDidAttendLabel {
             get {

@@ -212,7 +212,7 @@
                                                             else if (EUSH.IsUserAttending(item.ID, Model.User.UserName))
                                                             {
                                                                 pressed = "color: #373d48"; // true
-                                                                <span class="user-going-status" style="@pressed">&#10004;</span>
+                                                                <span class="user-going-status" style="@pressed"></span>
                                                             }
                                                         }
                                                         else if (now < item.StartDateTime)
@@ -363,7 +363,7 @@
                                 <button type="submit" class="btn btn-md btn-primary btn-block btn-login">@Resources.LocalizedText.LogInButton</button>
                             }
                             <span data-toggle="modal" data-target="#login-modal">
-                                <a class="btn btn-md btn-default btn-block btn-free-rooms" data-toggle="modal" data-target="#vis-rom-modal">@Resources.LocalizedText.ShowAvailibleRoomsButton</a>
+                                <a class="btn btn-md btn-default btn-block btn-free-rooms" data-toggle="modal" data-target="#vis-rom-modal"  data-keyboard="false" data-backdrop="static">@Resources.LocalizedText.ShowAvailibleRoomsButton</a>
                             </span>
                         </div>
                     </div>

@@ -226,7 +226,7 @@
     <comment>Ordet "uke"</comment>
   </data>
   <data name="XDidAttendLabel" xml:space="preserve">
-    <value>skulle</value>
+    <value>deltok</value>
     <comment>Tekst for antall som skal på eventer som har vært</comment>
   </data>
   <data name="XIsAttendingLabel" xml:space="preserve">
