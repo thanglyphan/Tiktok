@@ -203,17 +203,17 @@ M E N U
     ===================================*/
 
     .check-in[class^="going-"] { 
-        width: 100%;
+        width: 100% !important;
         height: 30px;
     }
 
     .check-in {
-        width: 100%;
+        width: 100% !important;
     }
 
     input [class^="going-"] {
         height: 30px;
-        width: 60%;
+        width: 60% !important;
         margin: 0 auto;
     }
 
