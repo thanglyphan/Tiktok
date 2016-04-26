@@ -192,7 +192,7 @@ namespace TikTokCalendar.Controllers
 			var c = (SchoolCourses)rnd.Next(1, 10);
 			//c = SchoolCourses.Programmering;
 			var u = new StudentUser("tordtest", c, "second");
-			months = DataWrapper.Instance.GetEventsWithName(u, id, true, true, true);
+			months = DataWrapper.Instance.GetEventsWithName(u, id, true, true, true, true);
 
 			var page = string.Format("{0} - {1}, {2}\n", u.UserName, u.Course, u.ClassYear);
 			foreach (var month in months)
@@ -223,11 +223,11 @@ namespace TikTokCalendar.Controllers
 			var modelWrapper = new ModelDataWrapper();
 			if (string.IsNullOrEmpty(tags))
 			{
-				modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user);
+				modelWrapper.Months = DataWrapper.Instance.GetEventsWithUser(user, false);
 			}
 			else
 			{
-				modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, true, true, true);
+				modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, true, true, true, false);
 			}
 			modelWrapper.Rooms = DataWrapper.Instance.GetRoomsTodayForAllEvents();
 			modelWrapper.User = user;

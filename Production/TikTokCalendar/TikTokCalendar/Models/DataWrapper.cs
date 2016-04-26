@@ -81,7 +81,7 @@ namespace TikTokCalendar.Models
 			return null;
 		}
 
-		public List<CustomEventMonth> GetEventsWithUser(StudentUser user)
+		public List<CustomEventMonth> GetEventsWithUser(StudentUser user, bool includeBeforeToday)
 		{
 			var months = new List<CustomEventMonth>();
 			CustomEventMonth month = null;
@@ -93,6 +93,12 @@ namespace TikTokCalendar.Models
 				if (!addedIDs.Contains(evnt.ID) && (user.Course == SchoolCourses.VisAlt
 				                                    || (evnt.Courses.Contains(user.Course) && evnt.IsYear(user.ClassYear))))
 				{
+					// Skip event if event if before today
+					if (includeBeforeToday == false && evnt.StartDateTime < DateTime.Today)
+					{
+						continue;
+					}
+
 					var m = AddEvent(evnt, ref month, ref week);
 					if (m != null)
 					{
@@ -126,7 +132,7 @@ namespace TikTokCalendar.Models
 		}
 
 		public List<CustomEventMonth> GetEventsWithName(StudentUser user, string tags, bool lecture, bool assignment,
-			bool exam, bool excludeBeforeToday = false)
+			bool exam, bool includeBeforeToday)
 		{
 			var months = new List<CustomEventMonth>();
 			CustomEventMonth month = null;
@@ -181,7 +187,7 @@ namespace TikTokCalendar.Models
 						}
 
 						// Skip event if event if before today
-						if (excludeBeforeToday && evnt.StartDateTime < DateTime.Today)
+						if (includeBeforeToday == false && evnt.StartDateTime < DateTime.Today)
 						{
 							continue;
 						}
