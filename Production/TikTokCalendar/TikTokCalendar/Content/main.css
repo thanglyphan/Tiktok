@@ -560,9 +560,6 @@
         border-radius: 0px 0px 3px 3px;
         border-right: 1px solid #ccc;
     }
-    .no-linebreak {
-        display: none !important;
-    }
 
     span.on {
         color: #ea9090;
