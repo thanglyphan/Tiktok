@@ -110,7 +110,7 @@ namespace TikTokCalendar.Controllers
 
 			var user = InitUser(Email, Password, tags);
 
-			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, lec, ass, exa);
+			modelWrapper.Months = DataWrapper.Instance.GetEventsWithName(user, tags, lec, ass, exa, true);
 			modelWrapper.User = user;
 			modelWrapper.CultureText = CultureManager.GetSavedCultureOrDefault(HttpContext.Request);
 			modelWrapper.Rooms = DataWrapper.Instance.GetRoomsTodayForAllEvents();
